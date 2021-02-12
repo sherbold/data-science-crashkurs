@@ -1,0 +1,14 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+- file: vorwort
+  numbered: false
+
+- part: Kapitel
+  numbered: true
+  chapters:
+  - file: chapters/kapitel_01
+  - file: chapters/kapitel_02
+
+- part: Übungen
+  chapters:
+  - file: exercises/uebung_01
