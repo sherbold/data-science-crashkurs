@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>1. Kapitel 1 &#8212; Einführung in Data Science</title>
+    <title>1. Big Data und Data Science &#8212; Einführung in Data Science</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -100,7 +100,7 @@
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   1. Kapitel 1
+   1. Big Data und Data Science
   </a>
  </li>
  <li class="toctree-l1">
@@ -215,6 +215,25 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#einfuhrung-in-big-data">
+   1.1. Einführung in Big Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#volumen">
+   1.2. Volumen
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -222,9 +241,43 @@
         
               <div>
                 
-  <div class="section" id="kapitel-1">
-<h1><span class="section-number">1. </span>Kapitel 1<a class="headerlink" href="#kapitel-1" title="Permalink to this headline">¶</a></h1>
-<p>Dies ist nur ein Dummy um den Build zu testen.</p>
+  <div class="section" id="big-data-und-data-science">
+<h1><span class="section-number">1. </span>Big Data und Data Science<a class="headerlink" href="#big-data-und-data-science" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="einfuhrung-in-big-data">
+<h2><span class="section-number">1.1. </span>Einführung in Big Data<a class="headerlink" href="#einfuhrung-in-big-data" title="Permalink to this headline">¶</a></h2>
+<p>Den Begriff <em>Big Data</em> gibt es jetzt bereits seit einigen Jahren und der ursprüngliche mit diesem Thema verbundene Hype ist längst Vergangenheit. Stattdessen gibt es neue Buzzwörter, wie das <em>Internet der Dinge</em> (engl. Internet of Things), die <em>Künstliche Intelligenz</em> (engl. Artificial Intelligence), und hierbei insbesondere auch die <em>tiefen neuronalen Netze</em> (engl. Deep Neural Network, Deep Learning). Nichtsdestotrotz ist Big Data mit diesen neuen Themen eng verbunden und häufig eine Vorraussetzung oder zumindest verwandte Technologie.</p>
+<p>Trotz der anhaltenden Relevanz des Themas, gibt es dennoch kein häufig kein gutes Verständnis für den Unterschied zwischen einfach nur Daten und Big Data. Ein gutes Verständnis der Besonderheiten und Eigenschaften von Big Data und von den damit verbundenen Implikationen und Problemen ist jedoch zwingend Notwendig, wenn man auf Big Data aufbauende Technologien in Projekten einsetzen will. Der Grund für Missverständnisse rund im den Begriff Big Data ist einfach: Wir denken intuitiv an “große Datenmengen”, also einfach nur an Daten mit einem hohen Volumen. Eine derart vereinfachte Begriffsdefinition ignoriert jedoch wesentliche Aspekte von Big Data. Backups sind ein gutes Beispiel für große Datenmengen, die nicht Big Data sind. In modernen Rechenzentren werden Backups auf Hintergrundspeichern mit einer hoher Bitstabilität, aber auch hoher Latenz gespeichert. Dort lagern häufig riesige Datenmengen, einzig und allein mit der Hoffnung, nie gebraucht zu werden, bevor sie gelöscht oder überschrieben werden. Es gibt noch einen weiteren Grund, warum es unpraktisch ist, Big Data nur über das Datenvolumen zu definieren: Wir müssten die Definition ständig anpassen, da sowohl die Speicherkapazitäten, Rechenkraft, und der Arbeitsspeicher stetig wachsen.</p>
+<p>Eine bessere und allgemein akzeptierte Definition für Big Data basiert auf den <em>drei Vs</em> <a class="footnote-reference brackets" href="#gartner" id="id1">1</a>.</p>
+<blockquote>
+<div><p><strong>Definition von Big Data:</strong></p>
+<p>Als Big Data bezeichnet man Daten die ein hohes <em>Volumen</em>, eine hohes Tempo (engl. <em>velocity</em>), und eine hohe <em>Vielfalt</em> (engl. <em>variety</em>) haben, so dass man kosteneffiziente und innovative Informationsverarbeitungsmethoden benötigt um Wissen zu generieren, Entscheidungen zu treffen oder Prozesse zu automatisieren.</p>
+</div></blockquote>
+<p>Zum besseren Verständnis, zerlegen wir nun diese Definition in ihre Einzelteile und betrachten diese genauer. Hierbei wird klar werden, warum Big Data mehr ist, als nur Datenvolumen.</p>
+</div>
+<div class="section" id="volumen">
+<h2><span class="section-number">1.2. </span>Volumen<a class="headerlink" href="#volumen" title="Permalink to this headline">¶</a></h2>
+<p>Auch wenn das Datenvolumen nicht der einzig wichtige Faktor ist, ist es nichtsdestotrotz entscheidend. Nicht umsonst heißt es Big Data. Das keine bestimmte Datengröße das Kriterium sein kann, wird schon klar wenn man sich überlegt, dass Google die Forschungsarbeit in der Map/Reduce vorgestellt wurde <a class="footnote-reference brackets" href="#mapreducepaper" id="id2">2</a> bereits 2006 publiziert hat. Zu diesem Zeitpunkt war ein Terabyte noch eine sehr großes Datenvolumen. Im Jahr 2021 ist dies lediglich die Festplattengröße des Laptops, mit dem dieses Buch geschrieben wurde.</p>
+<div class="figure align-default" id="fig-webtraffic">
+<a class="reference internal image-reference" href="../_images/webtraffic.png"><img alt="../_images/webtraffic.png" src="../_images/webtraffic.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 1.1 </span><span class="caption-text">Wachstum des Datenvolumens des Internetverkehrs</span><a class="headerlink" href="#fig-webtraffic" title="Permalink to this image">¶</a></p>
+</div>
+<p>Eine vereinfachte Richtlinie für das Datenvolumen, dass Big Data haben muss ist, dass es mehr Daten sein müssen, als in den Arbeitsspeicher moderner Server passen. Besser ist es jedoch, wenn man sich einfach folgende Frage stellt, ob man es sich leisten, die Daten (oft) zu kopieren, insbesondere auch über Netzwerkverbindungen. Ist dies nicht mehr der Fall, handelt es sich vermutlich um genug Daten, um von Big Data zu sprechen. In extremen Fällen sind die Daten sogar so groß, dass man sie gar nicht über das Netzwerk kopieren kann. Stattdessen nutzt man das <em>Sneaker Net</em> <a class="footnote-reference brackets" href="#sneakernet" id="id3">3</a>: Die Daten werden direkt auf Festplatten verschickt. Vom Datendurchsatz ist eine mit Festplatten beladenes Transportflugzeug unschlagbar. Die Latenz lässt jedoch zu wünschen übrig. Ein Beispiel für eine Anwendung, die ohne das Sneaker Net nicht geklappt hätte, ist die Erstellung des ersten Bilds von einem Schwarzen Loch <a class="footnote-reference brackets" href="#blackhole" id="id4">4</a>.</p>
+<hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="gartner"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p><a class="reference external" href="https://www.gartner.com/en/information-technology/glossary/big-data">https://www.gartner.com/en/information-technology/glossary/big-data</a></p>
+</dd>
+<dt class="label" id="mapreducepaper"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p><a class="reference external" href="https://doi.org/10.1145/1327452.1327492">https://doi.org/10.1145/1327452.1327492</a></p>
+</dd>
+<dt class="label" id="sneakernet"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
+<dd><p><a class="reference external" href="https://en.wikipedia.org/wiki/Sneakernet">https://en.wikipedia.org/wiki/Sneakernet</a></p>
+</dd>
+<dt class="label" id="blackhole"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
+<dd><p><a class="reference external" href="https://www.extremetech.com/extreme/289423-it-took-half-a-ton-of-hard-drives-to-store-eht-black-hole-image-data">https://www.extremetech.com/extreme/289423-it-took-half-a-ton-of-hard-drives-to-store-eht-black-hole-image-data</a></p>
+</dd>
+</dl>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
