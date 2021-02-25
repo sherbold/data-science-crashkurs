@@ -176,7 +176,7 @@
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/sherbold/TODO"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/sherbold/einfuehrung-in-data-science"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         
@@ -198,7 +198,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/sherbold/TODO/master?urlpath=tree/chapters/kapitel_01.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/sherbold/einfuehrung-in-data-science/main?urlpath=tree/content/chapters/kapitel_01.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -230,6 +230,31 @@
    1.2. Volumen
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#velocity-tempo">
+   1.3. Velocity / Tempo
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vielfalt-variety">
+   1.4. Vielfalt / Variety
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#innovative-informationsverarbeitungsmethoden">
+   1.5. Innovative Informationsverarbeitungsmethoden
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#wissen-generieren-entscheidungen-treffen-prozesse-automatisieren">
+   1.6. Wissen generieren, Entscheidungen treffen, Prozesse automatisieren.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#noch-mehr-vs">
+   1.7. Noch mehr Vs
+  </a>
+ </li>
 </ul>
 
         </nav>
@@ -256,12 +281,58 @@
 </div>
 <div class="section" id="volumen">
 <h2><span class="section-number">1.2. </span>Volumen<a class="headerlink" href="#volumen" title="Permalink to this headline">¶</a></h2>
-<p>Auch wenn das Datenvolumen nicht der einzig wichtige Faktor ist, ist es nichtsdestotrotz entscheidend. Nicht umsonst heißt es Big Data. Das keine bestimmte Datengröße das Kriterium sein kann, wird schon klar wenn man sich überlegt, dass Google die Forschungsarbeit in der Map/Reduce vorgestellt wurde <a class="footnote-reference brackets" href="#mapreducepaper" id="id2">2</a> bereits 2006 publiziert hat. Zu diesem Zeitpunkt war ein Terabyte noch eine sehr großes Datenvolumen. Im Jahr 2021 ist dies lediglich die Festplattengröße des Laptops, mit dem dieses Buch geschrieben wurde.</p>
+<p>Auch wenn das Datenvolumen nicht der einzig wichtige Faktor ist, ist es nichtsdestotrotz entscheidend. Nicht umsonst heißt es Big Data. Das keine bestimmte Datengröße das Kriterium sein kann, wird schon klar wenn man sich überlegt, dass Google die Forschungsarbeit in der Map/Reduce vorgestellt wurde <a class="footnote-reference brackets" href="#mapreducepaper" id="id2">2</a> bereits 2006 publiziert hat. Zu diesem Zeitpunkt war ein Terabyte noch eine sehr großes Datenvolumen. Im Jahr 2021 ist dies lediglich die Festplattengröße des Laptops, mit dem dieses Buch geschrieben wurde. Ein weiteres Beispiel ist das Wachstum des Datenvolumens, welches sich im Internet jährlich bewegt (<a class="reference internal" href="#fig-webtraffic"><span class="std std-numref">Fig. 1.1</span></a>).</p>
 <div class="figure align-default" id="fig-webtraffic">
-<a class="reference internal image-reference" href="../_images/webtraffic.png"><img alt="../_images/webtraffic.png" src="../_images/webtraffic.png" style="width: 300px;" /></a>
+<a class="reference internal image-reference" href="../_images/webtraffic.png"><img alt="../_images/webtraffic.png" src="../_images/webtraffic.png" style="width: 400px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 1.1 </span><span class="caption-text">Wachstum des Datenvolumens des Internetverkehrs</span><a class="headerlink" href="#fig-webtraffic" title="Permalink to this image">¶</a></p>
 </div>
 <p>Eine vereinfachte Richtlinie für das Datenvolumen, dass Big Data haben muss ist, dass es mehr Daten sein müssen, als in den Arbeitsspeicher moderner Server passen. Besser ist es jedoch, wenn man sich einfach folgende Frage stellt, ob man es sich leisten, die Daten (oft) zu kopieren, insbesondere auch über Netzwerkverbindungen. Ist dies nicht mehr der Fall, handelt es sich vermutlich um genug Daten, um von Big Data zu sprechen. In extremen Fällen sind die Daten sogar so groß, dass man sie gar nicht über das Netzwerk kopieren kann. Stattdessen nutzt man das <em>Sneaker Net</em> <a class="footnote-reference brackets" href="#sneakernet" id="id3">3</a>: Die Daten werden direkt auf Festplatten verschickt. Vom Datendurchsatz ist eine mit Festplatten beladenes Transportflugzeug unschlagbar. Die Latenz lässt jedoch zu wünschen übrig. Ein Beispiel für eine Anwendung, die ohne das Sneaker Net nicht geklappt hätte, ist die Erstellung des ersten Bilds von einem Schwarzen Loch <a class="footnote-reference brackets" href="#blackhole" id="id4">4</a>.</p>
+</div>
+<div class="section" id="velocity-tempo">
+<h2><span class="section-number">1.3. </span>Velocity / Tempo<a class="headerlink" href="#velocity-tempo" title="Permalink to this headline">¶</a></h2>
+<p>Die Velocity ist das <em>Tempo</em>, mit dem neue Daten generiert, verarbeitet, und/oder ausgewertet werden müssen. Es gibt viele Beispiele für Daten die mit ein hohes Temp brauchen, zum Beispiel die durch Sensoren wie LIDAR und Kameras erfassten Daten von autonomen Fahrzeugen. Derartige Daten können in kürzester Zeit ein sehr hohe Volumen erreichen. Die Firma Waymo hat zum Beispiel einen zwei Terabyte großen Datensatz,  der während elf Fahrstunden gesammelt wurde, veröffentlich <a class="footnote-reference brackets" href="#waymo" id="id5">5</a>. Daten die mehr oder weniger kontinuierlich in hohem Tempo generiert werden, nennt man auch <em>Streamingdaten</em>.</p>
+<p>Eine besondere Schwierigkeit beim Umgang mit Streamingdaten ist das diese oft in nahezu Realzeit verarbeitet werden müssen. Bei autonamen Fahren ist dies sofort klar, schon alleine wegen den Implikationen für die Sicherheit. Doch das gilt auch für viele andere Anwendungen, zum Beispiel dem sortieren eines Nachrichtenstreams in sozialen Netzwerken. Hier kommt zwar niemand zu schaden, die Nutzer würden einen Dienst aber schnell verlassen, wenn die Ladezeiten zu lang sind. Entsprechend müssen beim Umgang mit Streamingdaten in der Regel zwei Anforderungen gleichzeitig erfüllt werden: Daten müssen sehr schnell empfangen werden und dürfen dann auch nicht lange in einem Zwischenspeicher landen, sondern müssen auch sofort verarbeitet und ausgewertet werden. Hierdurch ergibt sich eine art inverse Korrelation zwischen dem Tempo und dem Datenvolumen: Je höher das Tempo, desto weniger Daten reichen, um Daten zu Big Data werden zu lassen. Oder am Beispiel: Ein Gigabyte pro Tag zu verarbeiten ist einfacher, als ein Gigabyte pro Sekunde.</p>
+</div>
+<div class="section" id="vielfalt-variety">
+<h2><span class="section-number">1.4. </span>Vielfalt / Variety<a class="headerlink" href="#vielfalt-variety" title="Permalink to this headline">¶</a></h2>
+<p>Die Vielfalt der Daten ist der dritte große Aspekt von Big Data. Mittlerweile ist die Analyse von Bildern, Videos, und Texten zu einer relativ normalen Anwendung geworden. Dies war jedoch noch nicht in der Form der Fall, als der Begriff Big Data geprägt wurde. Im Zeitraum um die Jahrtausendwende lagen die Daten, die Analysiert werden sollten, üblicherweise strukturiert vor, zum Beispiel in relationen Datenbanken. Die Daten waren üblicherweise entweder numerisch oder in feste Kategorien eingeteilt. Das änderte sich im Laufe der 00er Jahre, dadurch dass Internet allgegenwärtig wurde und wie immer mehr Computertechnik in unseren Alltag übernommen haben, zum Beispiel in Form von Smartphones. Hier entstanden Daten eher auf unstrukturierte Weise, zum Beispiel in Form von Webseiten die ad-hoc von Nutzern erstellt wurden. Es ist daher kein Zufall, dass Google den Begriff Big Data und die damit verbundenen Technologien mit geprägt hat: Die Indizierung des stetig wachsendem und komplexen Internets hat sie quasi dazu gezwungen, die Techniken die es gab rapide weiter zu entwickeln. Hierbei mussten nicht nur immer größere Datenmenge verabeitet werden, sondern vor allem eine Vielfalt von Datenformaten, insbesondere Text und Bilddaten, später auch Videodaten.</p>
+<p>Insgesamt gibt es viel mehr unstrukturierte Daten als strukturierte Daten. Dies wird üblicherweise als Pyramide dargestellt (<a class="reference internal" href="#fig-structures"><span class="std std-numref">Fig. 1.2</span></a>), in der zwischen <em>unstrukturierten</em>, <em>quasistrukturierten</em>, <em>semistrukturierten</em>, und <em>strukturierten</em> Daten unterschieden wird.</p>
+<div class="figure align-default" id="fig-structures">
+<a class="reference internal image-reference" href="../_images/data_structures.png"><img alt="../_images/data_structures.png" src="../_images/data_structures.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 1.2 </span><span class="caption-text">Wachstum des Datenvolumens des Internetverkehrs</span><a class="headerlink" href="#fig-structures" title="Permalink to this image">¶</a></p>
+</div>
+<p>An der Spitze der Pyramide sind die stukturierten Daten, zum Beispiel Tabellen in relationalen Datenbanken, <em>Comma Sperated Value</em> (CSV) Dateien, und ähnliches. Strukturierte Daten kann man im normalfall direkt in ein Analysetool laden, ohne das Vorverarbeitungsschritte notwendig sind. Die Vorverarbeitung beschränkt sich daher bei strukturierten Daten höchstens auf Aufgaben wie das säubern der Daten, zum Beispiel um ungültige Datenpunkte oder ausreißer zu filtern.</p>
+<p>Als nächstes kommen die semistrukturierten Daten, zum Beispiel XML oder JSON. Der Hauptunterschied zwischen strukturierten und semistrukturierten Daten ist die flexibilität der Datenformate. Bei strukturierten Daten ist zum Beispiel der in der Regel der Typ einer Spalte fest definiert. Dies ist bei semistrukturierten Daten anders: hier gibts es häufig verschachtelte Strukturen, die man für die Analyse erst aufbrechen muss. Außerdem gibt es häufig optionale Felder, was die Verarbeitung komplizierter werden lassen kann. Dennoch kann man mit semistrukturierten Daten in der Regel einfach arbeiten, da diese auch ohne großen Aufwand in viele Analyseumgebungen importiert werden können.</p>
+<p>Im allgemeinen haben die strukturierten und semistrukturierten Daten es also gemeinsam, dass es feste Datenformate und/oder Anfragesprachen gibt, mit denen man einfach die benötigten Informationen extrahieren und laden kann. Dies ist in den beiden unteren Ebenen der Pyramide nicht mehr der Fall. Quasistrukturierte Daten haben zwar eine fest definierte Struktur, es wird aber ein gewisser Aufwand benötigt, um an ddie benötigen Informationen zu kommen. Als Beispiel betrachten wir die Ausgabe das <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code> Befehls, mit dem man sich in einem Linuxterminal die Dateien in einem Ordner anzeigen lassen kann.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">ls</span> -l
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>total 52
+drwxr-xr-x 1 sherbold sherbold   512 Feb 25 17:53 <span class=" -Color -Color-Bold -Color-Bold-Blue">images</span>/
+-rw-r--r-- 1 sherbold sherbold 47686 Feb 25 18:45 kapitel_01.ipynb
+-rw-r--r-- 1 sherbold sherbold   621 Feb 12 19:48 kapitel_02.ipynb
+</pre></div>
+</div>
+</div>
+</div>
+<p>Man sieht eine klare Struktur in den Daten: Die meisten Zeilen beinhalten die Benutzerrechte, gefolgt von der Anzahl der Symlinks auf die Datei, dem Benutzer und der Gruppe, welche die Datei besitzen, die Dateigröße, das Datum der letzten Änderung, und zuletzt der Name. Diese Struktur kann man Nutzen um einen Parser der die Daten einliest zu schreiben, zum Beispiel mit Hilfe von einen regulären Ausdruck. Wir können also eine struktur über quasi-strukturierte legel, in dem wir die Struktur durch einen Parser selbst definieren. Dies ist zwar mehr Aufwand, als bei strukturierten und semistrukturierten Daten, aber man kommt trotzdem zuverlässig an die benötigten Informationen. Trotzdem kann es sehr leicht passieren, das sich die Struktur ändert und der selbst geschrieben Parser nicht mehr funktioniert. Daher ist das lesen von quasistrukturierten Daten fehleranfällig, da man einfach Sonderfälle übersieht oder sich das Datenformat ändern kann. Man sollte also den oft signifikanten Wartungsaufwand bei der Verarbeitung von quasistrukturierten Daten einplanen, wenn man dies im produktivbetrieb benötigt.</p>
+<p>Die unstrukturierten Daten sind auf der untersten Ebene der Pyramide. Hier befindet sich der großteil der Daten: Bilder, Videos, und Text. Die Herausforderung bei diesen Daten ist es, eine Struktur zu bestimmen, die man später verarbeiten kann. Hier gibt es keine Faustformel, es hängt stattdessen von den konkreten Daten und der geplanten Anwendung ab. Hinzu kommt, das unstrukturierte Daten häufig vermischt sind. Dieses Buch ist ein gutes Beispiel: Wir haben eine Mischung aus natürlicher Sprache, Bildern, Formatinformationen (z.B. Überschriften, Listen), und Quelltext. Hierdurch wird die verarbeitung noch komplizierter. Beispiele für die Strukturierung finden Sie an verschiedenen Stellen in diesem Buch, zum Beispiel TODO: Referenzen einfügen.</p>
+</div>
+<div class="section" id="innovative-informationsverarbeitungsmethoden">
+<h2><span class="section-number">1.5. </span>Innovative Informationsverarbeitungsmethoden<a class="headerlink" href="#innovative-informationsverarbeitungsmethoden" title="Permalink to this headline">¶</a></h2>
+<p>Auch wenn die drei <em>Vs</em> als die zentralen Eigenschaften von Big Data angesehen werden, sind die anderen Teile der Definition auch wichtig um zu verstehen das Big Data mehr ist als einfach nur viele Daten, die möglicherweise schnell generiert werden und verschiedene Formate haben. Der nächste Teil der Definition spricht von dem Bedarf an <em>innovativen Informationsverarbeitungsmethoden</em>. Das bedeutet, das man für Big Data nicht eine einen normalen Arbeitsplatzrechner oder sogar ein traditionelles Batch System in einem Großrechner, in dem sich viele Rechenknoten einen geteilten Speicher über das Netzwerk teilen, nutzen kann. Stattdessen ist die <em>Datenlokalität</em> (engl. data locality) wichtig, da man in der Regel keine Kopien der Daten erzeugen kann, man kann die Daten also nicht einfach über das Netzwerk bewegen. Dies hat zu einer Transformation geführt, so dass es immer mehr Infrastrukturen gibt, in denen Rechenkraft und schneller verteilter Speicher direkt integriert sind. Als Big Data ein neues Konzept war, gab es solche Technologien noch nicht. Heutzutage hat man viele Möglichkeiten. Alleine bei der Apache Foundation <a class="footnote-reference brackets" href="#apache" id="id6">6</a>, gibt es unter anderem Hadoop, Spark, Storm, Kafka, Cassandra, Hive, HBase, Giraph, und vielen weitere Technologien die hochprofessionell als Open Source entwickelt werden, und von vielen Unternehmen zur Verarbeitung von Big Data eingesetzt werden.</p>
+</div>
+<div class="section" id="wissen-generieren-entscheidungen-treffen-prozesse-automatisieren">
+<h2><span class="section-number">1.6. </span>Wissen generieren, Entscheidungen treffen, Prozesse automatisieren.<a class="headerlink" href="#wissen-generieren-entscheidungen-treffen-prozesse-automatisieren" title="Permalink to this headline">¶</a></h2>
+<p>Der letzte Teil der Big Data Definition bedeutet das Big Data kein selbstzweck ist. Man hat nur dann Big Data, wenn man die Daten auch zum ereichen eines Ziels nutzt. Ziele können der reine Erkenntnisgewinn sein, die Unterstützung der Entscheidungsfindung, oder sogar die Automatisierung ganzer Geschäftsprozesse. Dieser Aspekt der Definition ist so wichtig, das er häufig als weiteres V betrachtet wird: <em>Value</em>.</p>
+</div>
+<div class="section" id="noch-mehr-vs">
+<h2><span class="section-number">1.7. </span>Noch mehr Vs<a class="headerlink" href="#noch-mehr-vs" title="Permalink to this headline">¶</a></h2>
+<p>Die Definition von Gartner, die wir hier im Buch verwenden hat “nur” drei Vs. Die Definition von Big Data durch Worte die mit V anfangen ist jedoch so populär, das es verschiedene Erweiterung gibt mit bis zu 42 (!) Vs <a class="footnote-reference brackets" href="#v" id="id7">7</a>. Die 42 Vs sollte man aber eher als Satire verstehen, die zeigen soll das mehr Vs nicht immer zu einer besseren Definition führen. Nichtsdestotrotz gibt es seriöse Definition mit bis zu zehn Vs <a class="footnote-reference brackets" href="#id9" id="id8">8</a>. Ein zusätzliches V hatten wir bereits: Value, also die Wertschöpfung durch Big Data. Die Korrektheit (engl. veracity) ist ein weiteres V, was häufig als hoch relevant eingeschätzt wird. Je mehr Daten man auswertet, desto schwieriger wird es sicher zu stellen das die Daten zuverlässig sind und sich Ergebnisse reproduzieren lassen. Dies ist insbesondere dann schwer, wenn sich die Datenquellen oft ändern, zum Beispiel bei der Analyse von Nachrichten oder der sozialen Medien. Volume, Velocity, Variety, Veracity, und Value zusammen sind die fünf V Definition von Big Data, die stark verbreitet ist. Weitere Vs betrachten wir an dieser Stelle nicht mehr.</p>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
 <dt class="label" id="gartner"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
@@ -275,6 +346,18 @@
 </dd>
 <dt class="label" id="blackhole"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
 <dd><p><a class="reference external" href="https://www.extremetech.com/extreme/289423-it-took-half-a-ton-of-hard-drives-to-store-eht-black-hole-image-data">https://www.extremetech.com/extreme/289423-it-took-half-a-ton-of-hard-drives-to-store-eht-black-hole-image-data</a></p>
+</dd>
+<dt class="label" id="waymo"><span class="brackets"><a class="fn-backref" href="#id5">5</a></span></dt>
+<dd><p><a class="reference external" href="https://waymo.com/open/">https://waymo.com/open/</a></p>
+</dd>
+<dt class="label" id="apache"><span class="brackets"><a class="fn-backref" href="#id6">6</a></span></dt>
+<dd><p><a class="reference external" href="https://www.apache.org/">https://www.apache.org/</a></p>
+</dd>
+<dt class="label" id="v"><span class="brackets"><a class="fn-backref" href="#id7">7</a></span></dt>
+<dd><p><a class="reference external" href="https://www.kdnuggets.com/2017/04/42-vs-big-data-data-science.html">https://www.kdnuggets.com/2017/04/42-vs-big-data-data-science.html</a></p>
+</dd>
+<dt class="label" id="id9"><span class="brackets"><a class="fn-backref" href="#id8">8</a></span></dt>
+<dd><p><a class="reference external" href="https://mapr.com/blog/top-10-big-data-challenges-serious-look-10-big-data-vs/">https://mapr.com/blog/top-10-big-data-challenges-serious-look-10-big-data-vs/</a></p>
 </dd>
 </dl>
 </div>
