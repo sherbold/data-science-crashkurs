@@ -12,7 +12,9 @@ copyright: "2021"
 logo: logo.png
 
 repository:
-  url: https://github.com/sherbold/TODO
+  url: https://github.com/sherbold/einfuehrung-in-data-science
+  path_to_book: content
+  branch: main
   
   
 html:
