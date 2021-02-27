@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>2. Kapitel 2 &#8212; Einführung in Data Science</title>
+    <title>2. Der Prozess von Data Science Projekten &#8212; Einführung in Data Science</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -105,7 +105,7 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   2. Kapitel 2
+   2. Der Prozess von Data Science Projekten
   </a>
  </li>
 </ul>
@@ -215,6 +215,32 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prozesse">
+   2.1. Prozesse
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#der-generische-data-science-prozess">
+   2.2. Der generische Data Science Prozess
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#discovery">
+     2.2.1. Discovery
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -222,9 +248,78 @@
         
               <div>
                 
-  <div class="section" id="kapitel-2">
-<h1><span class="section-number">2. </span>Kapitel 2<a class="headerlink" href="#kapitel-2" title="Permalink to this headline">¶</a></h1>
-<p>Noch ein Dummy um den Build zu Testen.</p>
+  <div class="section" id="der-prozess-von-data-science-projekten">
+<h1><span class="section-number">2. </span>Der Prozess von Data Science Projekten<a class="headerlink" href="#der-prozess-von-data-science-projekten" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="prozesse">
+<h2><span class="section-number">2.1. </span>Prozesse<a class="headerlink" href="#prozesse" title="Permalink to this headline">¶</a></h2>
+<p>Prozesse sind der Kern jeder Aktivität, auch wenn man sich dessen oft gar nicht bewusst ist. Menschen führen Aktivitöten durch das Anwenden von Techniken durch. Die Prozesse steuern und organisieren diese Aktivitäten und beschreiben die Techniken die eingesetzt werden. <a class="reference internal" href="kapitel_01.html#fig-webtraffic"><span class="std std-numref">Fig. 1.1</span></a> zeigt Beziehung von Menschen, Techniken und Prozessen.</p>
+<div class="figure align-default" id="fig-processes">
+<a class="reference internal image-reference" href="../_images/processes.png"><img alt="../_images/processes.png" src="../_images/processes.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.1 </span><span class="caption-text">Wachstum des Datenvolumens des Internetverkehrs</span><a class="headerlink" href="#fig-processes" title="Permalink to this image">¶</a></p>
+</div>
+<p>Das Ziel eines guten Prozesses ist es die Menschen zu unterstützen, zum Beispiel in dem Sichergestellt wird das wichtige Aktivitäten nicht vergessen werden oder durch die Verwendung von geeigneten Werkzeugen zum Lösen von Problemen. Prozesse erreichen dies, in dem Sie geeignete Best Practices beschreiben. Diese Best Practices sollten basierend auf der erfolgreichen Anwendung in der Vergangenheit bestimmt werden. Hierdurch wird soll das Wissen und der Erfolg aus Vergangenen Projekten konserviert und genutzt werden, um die Fähigkeiten der Menschen zu unterstützen und das Risiko das ein Projekt fehlschlägt zu reduzieren. Dies funktioniert jedoch nur, wenn die Prozesse von Menschen auch unterstützt werden.</p>
+<p>Wenn die Menschen den Projekt nicht akzeptieren oder an seinen Nutzen glauben, erreicht man das Gegenteil und erhöht stattdessen das Risiko der Projekte. Daher sollten die Menschen die notwendigen Schulungen erhalten, um die Techniken einzusetzen und ihren Nutzen zu kennen. Außerdem muss man sicherstellen, dass die Techniken auch zum Prozess passen.</p>
+<p>Man sollte sich auch immer bewusst sein, das es nicht <em>den einen Prozess</em> gibt, der Perfekt zu jedem Projekt passt. Man sollte den Prozess daher immer an die Situation anpassen, man spricht hier auch vom <em>tailoring</em>. Hierbei sollte man Aspekte wie die zur Verfügung stehenden Techniken und den Projektkontext berücksichtigen, zum Beispiel die Größe und Priorität des Projekts, ob es sicherheitskritische Aspekte gibt, oder ob die Mitarbeiter vorwissen aus ähnlichen Projekten mitbringen.</p>
+</div>
+<div class="section" id="der-generische-data-science-prozess">
+<h2><span class="section-number">2.2. </span>Der generische Data Science Prozess<a class="headerlink" href="#der-generische-data-science-prozess" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="#fig-dsprocess"><span class="std std-numref">Fig. 2.2</span></a> zeigt den einen generischen Prozess für Data Science Projekte, der aus sechs Phasen besteht.</p>
+<div class="figure align-default" id="fig-dsprocess">
+<a class="reference internal image-reference" href="../_images/data_science_process.png"><img alt="../_images/data_science_process.png" src="../_images/data_science_process.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.2 </span><span class="caption-text">Wachstum des Datenvolumens des Internetverkehrs</span><a class="headerlink" href="#fig-dsprocess" title="Permalink to this image">¶</a></p>
+</div>
+<p>Der Prozess ist iterativ, das heißt das mehrere Wiederholungen aller Phasen innerhalb eines Projekts möglich sind. Innerhalb einer Iteration, kann man nur zu den vorherigen Phasen zurück, solange man die Ergebnisse der Iteration noch nicht kommuniziert hat. Der Grund hierfür ist offensichtlich: Sobald man die Projektergebnisse übermittelt hat, zum Beispiel an die das Management, die Kunden, oder andere Forscher in Form einer Publikation, kann man diese nicht ohne weiteres ändern. Im Folgenden betrachten wir die Projektphasen im Detail.</p>
+<div class="section" id="discovery">
+<h3><span class="section-number">2.2.1. </span>Discovery<a class="headerlink" href="#discovery" title="Permalink to this headline">¶</a></h3>
+<p>Jedes Data Science Projekt beginnt mit der Discovery Phase. Das Ziel der Discovery ist es die Projektdomäne, Ziele und Daten zu verstehen. Anhand der gesammelten Informationen wird beurteilt, ob die für das Projekt notwendigen Resourcen zu verfügung stehen. Anschließend werden die weiteren Projektschritte geplant.</p>
+<p>Der Data Scientist muss das notwendige Wissen erlangen, um die Domäne des Projekts zu verstehen, insbesondere den Anwendungsfall der adressiert werden soll. Häufig wird der Data Scientist hierbei von Domainenexperten unterstützt, die die notwendigen Informationen liefern. Dies kann zum Beispiel bedeuten, dass Sie zur Verfügung stehen um Fragen zu beantworten oder auch Anforderungen in Form von Interviews und Workshops gesammelt werden. Hierdurch lernt der Data Scientist auch bereits die Daten und Informationsquellen kennen. Dieses Wissen ist notwendig, um das Projekt zu verstehen und die Ergebnisse zu Interpretieren. Es kann sein, dass der Data Scientists bereits selbst Experte in der Anwendungsdomäne ist, zum Beispiel weil dies nicht das erste derartige Projekt ist. Dennoch ist es häufig Sinnvoll, den Anwendungsfall zusammen mit weiteren Domänenexperten zu betrachten um sicherzustellen, das keine wesentlichen Aspekte übersehen werden.</p>
+<p>Als Teil des Lernprozesses der Domäne sollten auch die Vergangenheit nicht außer acht gelassen werden. Bei Forschungsprojekten ist es in der akademischen Welt üblich, zuerst die verwandten Forschungsarbeiten zu identifizieren und den Stand der Forschung aufzuarbeiten. Ähnlich sollte man auch in der Wirtschaft vorgehen: Gab es vielleicht bereits frühere Projekte mit einem ähnlichen Ziel? Falls ja, warum sind diese gescheitert, beziehungsweise warum wird dieses Projekt jetzt neu durchgeführt? Die alten Projektergebnisse - sowohl positive, als auch negative - sind ideale Quellen um Projektrisiken zu identifizieren. Hierbei sollte man sich auch nicht nur auf das eigene Unternehmen beschränken. Im Rahmen der Möglichkeiten des Urheber- und Patentrechts ist eine Analyse der Konkurenzprodukte of Hilfreich, um mögliche Lösungen zu verstehen.</p>
+<p>Sobald der Data Scientist die Domäne verstanden hat, kann er Anfangen aus den genannten Zielen eine Problembeschreibung zu erarbeiten, die durch die Datenanalyse gelöst werden soll. Diese Problembeschreibung ist nicht identisch zu den wirtschaftlichen Zielen oder Forschungsinteressen: Während die Ziele nicht direkt mit den Daten, sondern viel mehr der Anwendung zusammen hängen, formuliert die Problembeschreibung die Ziele als Datenanalyseproblem um. Dies ist dem Data Scientist nur möglich, da er vorher die Domäne und den Anwendungsfall mit Hilfe der Domänenexperten kennengelernt hat. Zur Problembeschreibung gehört auch eine Analyse der Stakeholder, zum Beispiel müssen die Stakeholder, deren Daten benötigt werden, identifiziert werden. Weitere Wichtige Stakeholder sind diejenigen, die von der Analyse direkt betroffen sind, zum Beispiel weil ihre Arbeit dadurch unterstützt werden soll. Neben Stakeholdern müssen auch die aktuellen Probleme aufgearbeitet werden, sofern dies nicht schon geschehen ist. Hierdurch wird die Motivation vom Projekt geklärt und das Verständnis der Ziele verbessert. Anschließend werden die Projektziele, Erfolgskriterien, und Risiken des Projekts klar definiert um eine verbindliche Grundlage für das weitere vorgehen zu schaffen.</p>
+<p>Durch die oben beschrieben Aktivitäten bekommt der Data Scientists ein Grundverständis der Daten, die im Projekt genutzt werden. Grundsätzlich muss man hierbei unterscheiden zwischen Daten die bereits vorhanden sind (zum Beispiel in einem Data Warehouse), und Daten die noch gesammelt werden müssen. In beiden Fällen obliegt es dem Data Scientists den Umfang, die Struktur, sowie ein abstraktes Verständnis der verfügbaren Informationen zu bekommen. Andernfalls wäre die abschließende Analyse der verfügbaren und benötigten Resourcen nicht möglich.</p>
+<p>Während er Discovery befasst man sich auch mit dem <em>wissenschaftlichen</em> Teil von Data Science. Datenanalysen sollten nicht rein Explorativ sein. Stattdessen sollten klare Erwartungen in Form von Hypothesen die getestet werden können formuliert werden. Anderfalls erhöht man das Risiko, das die Projektergebnisse sich nicht über die im Projekt verfügbaren Daten hinaus generalisieren lassen. Die Hypothesen steuern auch das Vorgehen in den weiteren Phasen des Projekts. Es sollten zum Beispiel erwartungen Definiert werden, welche Daten nützlich sind, wie man Sie verwenden sollte, und welches Wissen man aus den Daten gewinnen möchte. Auch wenn der Data Scientists Hauptverantworlich für die Hypothesen ist, sollten diese immer mit Domänenexperten besprochen werden um ihre Plausibilität zu prüfen.</p>
+<p>Der letzte Schritt der Discovery ist die Entscheidung ob das Projekt machbar ist und weiter gehen sollte oder nicht. Diese Auswertung sollte die identifizierten Risiken und die verfügbaren Resourcen berücksichtigen. In jedem Fall sollten die folgenden Resourcen berücksichtigt werden:</p>
+<ul class="simple">
+<li><p>Die <em>technologische Resourcen</em>, zum Beispiel Datenspeicher, verfügbare Rechenkraft, sowie die Verfügbarkeit und die Kosten eventuell benötigter Softwarelizenzen.</p></li>
+<li><p>Die <em>benötigtend Daten</em>, das heißt ob bereits ausreichend Daten vorhanden sind oder ob es mit vertretbarem Aufwand im Rahmen des Projektes die benötigten Daten zu sammeln. Die Betrachtung besteht aus zwei Aspekten: 1) Ist die Anzahl der Datenpunkte ausreichend? 2) Hat man für jeden Datenpunkt die benötigten Informationen. Sollten noch Daten gesammelt werden müssen, sollte man dies bei den Projektrisiken immer berücksichtigen.</p></li>
+<li><p>Die <em>Arbeitszeit</em>, sowohl in Kalenderzeit, als auch in Personenmonaten. Die Kalenderzeit ist die Dauer des Projekts. Für Projekte deren Kalendarzeit weniger als ein Jahr ist, sollte man auch noch berücksichten, in welchen Monaten des Jahres das Projekt durchgeführt werden soll, da die üblichen Urlaubszeiten bedeuten können, das Mitarbeiter nicht wie erwartet zu verfügung stehen. Wenn Projekte in einem internationalen Umfeld durchgeführt werden, sollte man hierbei auch die lokalen Gepflogenheiten der jeweiligen Projektpartner nicht vergessen. Personenmonate sind ein verbreitetes Mittel um den Entwicklungsaufwand der für ein Projekt investiert wird abzuschätzen. Zwei Mitarbeiter, die je einen Monat am Projekt arbeiten, entspricht hierbei zwei Personenmonaten. Man sollte bei der Betrachtung der Arbeitszeit aber nie vergessen, das zwei Mitarbeiter in der Regel nicht doppelt so effizient sind wie ein Mitarbeiter. Diese Phänomen ist in der Softwareentwicklung auch das der <em>Mythical Man-Month</em> <a class="footnote-reference brackets" href="#manmonth" id="id1">1</a> bekannt.</p></li>
+<li><p>Die <em>Mitarbeiter</em> (gerne auch Human Resources genannt), das heißt die Personen, die für das Projekt zur Verfügung stehen. Hierbei sollte insbesondere betrachtet werden, ob das Fähigkeitsprofil der Mitarbeit zu den Anforderungen des Projekts passt.</p></li>
+</ul>
+<p>Sofern ausreichend Resourcen verfügbar sind und die Risiken kontrolierbar, kann das Projekt gestartet werden.</p>
+<blockquote>
+<div><p><strong>Beispiel:</strong></p>
+<p>Ein Kunde ist Besitzer eines Webshops für Kleidung. Der Kunde möchte gerne die Anzahl seiner Verkäufe durch <em>Cross-Sell</em> erhöhen, das heißt Kunden sollen dazu gebracht werden weitere Produkte in den Warenkorb zu legen. Ihre Aufgabe ist es eine Anwendung hierfür zu entwickeln, welche auf den vergangen Verkaufsdaten basiert. Die Discovery könnte in etwa so aussehen:</p>
+<ul class="simple">
+<li><p>Sie führen ein Interview mit dem Kunden durch um Herauszufinden, ob der Kunde bereits eine Idee hat wie mehr Cross-Sell ermöglicht werden könnte. Sie finden raus, das gezielt Werbung während des Einkaufs schalten möchte, sobald ein Produkt in den Warenkorb gelegt wird. Diese Information liefert ihnen eine Kernanforderung des Projekts, andernfalls wäre zum Beispiel auch Emailmarketing denkbar gewesen.</p></li>
+<li><p>Sie gucken sich Webshops an, die bereits ähnliche Lösungen benutzen.</p></li>
+<li><p>Sie definieren die Problembeschreibung als das Ziel geeignete Werbung vorherzusagen, basierend auf dem vergangenen Verhalten des Kunden, der vergangenen Verhalten allter Kunden, sowie dem aktuellen Inhalt des Warenkorbs.</p></li>
+<li><p>Sie identifizieren zwei wichtige Stakeholder: 1) Den Besitzer des Webshops als Auftraggeber, Ansprechpartner auf Kundenseite, und Domänenexperten. 2) Die Kunden des Webshops, die für sich relevante Produkte kaufen wollen und eine gute User Experience (UX) bei der Benutzung der Software. Unpassende Werbung könnte die Benutzererfahrung verschlechtern, sehr gute Werbung sogar verbessern.</p></li>
+<li><p>Sie identifizieren keine Probleme mit dem Status Quo, die gelöst werden sollen. Es geht also um eine reine Optimierung der Einnahmen.</p></li>
+<li><p>Aus diesen Erkenntnissen definieren sie die zwei konkrete Projektziele:</p>
+<ol class="simple">
+<li><p>Erhöhung der Anzahl der verkauften Produkte und dadurch des Umsatzes.</p></li>
+<li><p>Gleichbleibende oder verbesserte UX.</p></li>
+</ol>
+</li>
+<li><p>Die Erfüllung der Projektziele soll durch die Beobachtung des Umsatzes, sowie durch eine Umfrage unter den Benutzern bezüglich ihrer Zufriedenheit, bestimmt werden. Das Projekt gilt als Erfolgreich, wenn der Umsatz sich um mindestens 5% erhöht und die Benutzerzufriedenheit sich nicht verschlechtert. Sie identifizieren eine mögliche Verschlechterung der Benutzerzufriedenheit die zu einem Abfall des Umsatzes führt wird als Hauptrisiko des Projekts.</p></li>
+<li><p>Als Daten stehen Ihnen die hauptsächlich die Transaktionen von vergangenen Einkäufen zur Verfügung. Diese Daten beinhalten welche Kunden welche Produkte innerhalb einer Bestellung gekauft haben. Die Daten liegen in einer relationalen Datenbank vor. Weitere Daten stehen Ihnen nicht zur Verfügung.</p></li>
+<li><p>Sie formulieren drei Hypothesen:</p>
+<ol class="simple">
+<li><p>Produkte die in der Vergangenheit häufig zusammen gekauft wurden, werden auch in der Zukunft häufig zusammen gekauft.</p></li>
+<li><p>Es gibt saisonale Muster in den Verkaufsdaten (zum Beispiel für Winter- und Sommerkleidung), welche relevant sind die die Empfehlungen.</p></li>
+<li><p>The Kategorien, durch die sich die Produkte beschreiben lassen, sind relevant für die Werbung, insbesondere die Marken und die Art der Kleidung.</p></li>
+</ol>
+</li>
+<li><p>Sie sind der Meinung das die Resourcen ausreichen, um eine Pilotstudie durchzuführen, ind er die Machbarkeit von nützlichen Vorhersagen für Cross-Sell Werbung geprüft wird. Für eine detailierte Evaluation der Benutzererfahrung, sowie eine Operationationalisierung der Ergebnisse in den produktiven Betrieb innerhalb des Projektes mit den zur Verfügung stehenden Resourcen nicht realistisch. Im Falle einer erfolgreichen Machbarkeit der Vorhersagen, wird dies in einem Folgeprojekt umgesetzt.</p></li>
+</ul>
+</div></blockquote>
+<hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="manmonth"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p><a class="reference external" href="https://doi.org/10.1145/390016.808439">https://doi.org/10.1145/390016.808439</a></p>
+</dd>
+</dl>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
