@@ -1,4 +1,8 @@
 jupyter-book
+ghp-import
 matplotlib
 numpy
-ghp-import
+scikit-learn
+seaborn
+pandas
+networkx
