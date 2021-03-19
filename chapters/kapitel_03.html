@@ -1,0 +1,437 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3. Erkunden der Daten &#8212; Einführung in Data Science</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Übung 1" href="../exercises/uebung_01.html" />
+    <link rel="prev" title="2. Der Prozess von Data Science Projekten" href="kapitel_02.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Einführung in Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../vorwort.html">
+   Vorwort
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Kapitel
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_01.html">
+   1. Big Data und Data Science
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_02.html">
+   2. Der Prozess von Data Science Projekten
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   3. Erkunden der Daten
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Übungen
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../exercises/uebung_01.html">
+   Übung 1
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/chapters/kapitel_03.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/sherbold/einfuehrung-in-data-science"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/sherbold/einfuehrung-in-data-science/main?urlpath=tree/content/chapters/kapitel_03.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#texteditoren-und-die-kommandozeile">
+   3.1. Texteditoren und die Kommandozeile
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deskriptive-statistik">
+   3.2. Deskriptive Statistik
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lagemasze">
+     3.2.1. Lagemaße
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="erkunden-der-daten">
+<h1><span class="section-number">3. </span>Erkunden der Daten<a class="headerlink" href="#erkunden-der-daten" title="Permalink to this headline">¶</a></h1>
+<p>In diesem Kapitel befassen wir uns mit Methoden, die sie einsetzen können um ein Verständnis der Daten zu bekommen. Wenn sie innerhalb eines Projektes anfangen mit einem ihnen bisher unbekannten Datensatz zu arbeiten, müssen sie diese Daten erstmal <em>lernen</em>. Das heißt das Sie die Struktur, den Umfang (z.B. Größe und Anzahl von Datenpunkten), sowie den Wertebereich der Daten lernen müssen. Eventuell wird auch ein Verständnis der Datenquellen benötigt, wenn sie die Richtigkeit und Zuverlässigkeit der Daten relevant ist oder sie Gründe für unvollstände Daten näher beleuchten wollen.</p>
+<p>Es gibt sehr viele Methoden, die man zur Erkundung von Daten einsetzen kann. Die Erkundung selbst ist ein durch Werkzeuge unterstützer interaktiver Prozess, wobei es üblich ist verschiede Werkzeuge zu benutzen, basierend auf dem Aspekt den man aktuell erkunden möchte. Im Folgenden gehen wir einige wichtige Werkzeuge durch, die Ihnen helfen Daten zu verstehen.</p>
+<div class="section" id="texteditoren-und-die-kommandozeile">
+<h2><span class="section-number">3.1. </span>Texteditoren und die Kommandozeile<a class="headerlink" href="#texteditoren-und-die-kommandozeile" title="Permalink to this headline">¶</a></h2>
+<p>Bereits sehr einfache Werkzeuge können ihnen helfen, die Daten zu verstehen. Texteditoren und einfache Kommandozeilenbefehle wie <code class="docutils literal notranslate"><span class="pre">head</span></code>, <code class="docutils literal notranslate"><span class="pre">more</span></code>, und <code class="docutils literal notranslate"><span class="pre">less</span></code> ermöglichen es sich den Inhalt Textdateien direkt anzusehen. Hierdurch kann man beliebige Daten, die nicht im Binärformat vorliegen, inspizieren. Das ist durchaus häufig der Fall, zum Beispiel bei <em>Comma-Separated Values</em> (CSV), der <em>eXtensible Markup Language</em> (XML), oder der <em>JavaScript Object Notation</em> (JSON). Wir könnten uns zum Beispiel direkt den Quelltext dieses Kapitels angucken, um das Format der Daten, die in Jupyter Notebooks gespeichert werden, zu verstehen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>head kapitel_03.ipynb
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+ &quot;cells&quot;: [
+  {
+   &quot;cell_type&quot;: &quot;markdown&quot;,
+   &quot;id&quot;: &quot;empty-lender&quot;,
+   &quot;metadata&quot;: {},
+   &quot;source&quot;: [
+    &quot;# Erkunden der Daten\n&quot;,
+    &quot;\n&quot;,
+    &quot;In diesem Kapitel befassen wir uns mit Methoden, die sie einsetzen können um ein Verständnis der Daten zu bekommen. Wenn sie innerhalb eines Projektes anfangen mit einem ihnen bisher unbekannten Datensatz zu arbeiten, müssen sie diese Daten erstmal *lernen*. Das heißt das Sie die Struktur, den Umfang (z.B. Größe und Anzahl von Datenpunkten), sowie den Wertebereich der Daten lernen müssen. Eventuell wird auch ein Verständnis der Datenquellen benötigt, wenn sie die Richtigkeit und Zuverlässigkeit der Daten relevant ist oder sie Gründe für unvollstände Daten näher beleuchten wollen. \n&quot;,
+</pre></div>
+</div>
+</div>
+</div>
+<p>Durch diesen einfachen Befehl, der nur die ersten Zeilen der Datei anzeigt, können wir viel über die Daten lernen: Die Daten sind im JSON Format als Liste von Zellen (<code class="docutils literal notranslate"><span class="pre">cells</span></code>) gespeichert. Für jede Zelle werden der Typ, eine Identifier, eventuelle Metadaten, sowie der Quelltext der Zelle als Liste gespeichert, wobei jeder Listeneintrag eine Zeile des Quelltextes ist. All das, nur mit einem einfachen Kommandozeilenbefehl.</p>
+<blockquote>
+<div><p><strong>Bemerkung:</strong></p>
+<p>Man kann durch ein Ausrufezeichen als Präfix beliebige Kommandozeilenbefehle (z.B. bash) direkt aus einem Jupyter Notebook aufrufen. Daher ist <code class="docutils literal notranslate"><span class="pre">head</span></code> in einem Juypter Notebook äquivalent zur Eingabe von <code class="docutils literal notranslate"><span class="pre">head</span></code>direkt in der Kommandozeile. Welche Befehle zur Verfügung stehen, hängt von der Ausführungsumgebung ab. Weil die Kommandozeile von Windows den Befehl <code class="docutils literal notranslate"><span class="pre">head</span></code> nicht kennt, würde dies zum Beispiel eventuell nicht funktionieren.</p>
+</div></blockquote>
+<p>Dies ist natürlich nur eine Möglichkeit sich mit der Art wie Jupyter Notebooks Daten speichern zu betrachten. Und wie die meisten sehr einfachen Lösungen, gibt es natürlich auch schwächen. Es ist zum Beispiel nicht klar, ob es noch weitere Informationen gibt, die für Zellen gespeichert werden könnten, da der betrachtete Auszug eventuell nicht alle Möglichkeiten des Datenformats ausschöpft. Daher ist es auch wichtig, dass die Metadaten betrachtet werden, in diesem Fall das Dokumentation des Datenformats <a class="footnote-reference brackets" href="#jupyterformat" id="id1">1</a>. Dort findet man zum Bespiel raus, das es noch weitere Felder gibt, wie zum Beispiel das Feld <code class="docutils literal notranslate"><span class="pre">nbformat</span></code> um die Version des Datenformats anzuzeigen. Eine gute Dokumentation der Metadaten beschreibt das Datenformat vollständig, das heißt welche Felder es gibt, welche Informationen in einem Feld gespeichert werden, und wie die Felder zusammenhängen.</p>
+<p>Die Metadaten sind nicht notwendigerweise auf die Beschreibung der Daten selbst beschränkt. Es könnten zum Beispiel auch Links zu weiterführenden Informationen zur Verfügung gestellt werden. Außerdem könnten auch die Datenquellen beschrieben sein. Was man in den Metadaten überlicherweise nicht vorfindet ist eine Beschreibung der Werte, welche die Daten in einem Datensatz haben. Hier findet man höchstens Beispiele, die veranschaulichen welche Werte angenommen werden können. Dies ist ein Nachteil gegenüber der direkten Betrachtung der Daten, wobei die Erkenntisse über die Daten Werte der Daten, die man mit Hilfe eines Texteditors bekommen kann ebenfalls stark limitiert ist, gerade bei großen Datenmengen. Hierfür sind die Statistiken und Visualisierungen, die wir im Folgenden betrachten, deutlich besser geeignet.</p>
+</div>
+<div class="section" id="deskriptive-statistik">
+<h2><span class="section-number">3.2. </span>Deskriptive Statistik<a class="headerlink" href="#deskriptive-statistik" title="Permalink to this headline">¶</a></h2>
+<p>Die <em>deskriptive</em> Statistiik beschäftigt sich mit der Beschreibung von Eigenschaften eines Datensatzes durch einzelne, häufig numerische, Werte. Deskriptive Statistiken sollen nicht mit <em>induktiver</em> Statistik verwechselt werden, bei der es darum geht Eigenschaften von Daten vorherzusagen. Entsprechend sollte man nicht annehmen, dass deskriptive Statistiken für zuverlässige Vorhersagen von zukünftigen Werten geeignet sind.</p>
+<p>In diesem Kapitel betrachten wir die folgenden deskriptiven Statistiken:</p>
+<ul class="simple">
+<li><p>Die <em>Lage</em> der Daten (engl. <em>central tendency</em>), durch das <em>artithmische Mittel</em>, den <em>Median</em>, und den <em>Modus</em>.</p></li>
+<li><p>Die Variabilität der Daten, durch die <em>Standardabweichung</em>, den Interquartilsabstand* (IQR), und den <em>Median der absoluten Abweichung vom Median</em> (MAD).</p></li>
+<li><p>Die Datenbereich (engl. <em>range</em>), durch das <em>Minimum</em> und <em>Maximum</em>.</p></li>
+</ul>
+<p>Es gibt noch viele weitere deskriptive Statistiken für die obigen Eigenschaften, die wir in diesem Kapitel nicht betrachten, zum Beispiel das harmonische Mittel für die Lage. Weiterhin gibt es noch weitere Eigenschaften, die sich durch deskriptive Statistiken erfassen lassen, zum Beispiel die <em>Form</em> (engl. <em>shape</em>) der Daten durch die <em>Kurtose</em> (Wölbung) und die <em>Schiefe</em> (engl. <em>skewness</em>). Diese gehen jedoch über die Betrachtungen dieses Kapitels hinaus und werden häufig auch nicht benötigt, insbesondere wenn man deskriptive Statistiken zusammen mit Visualisierungen benutzt.</p>
+<p>Im folgenden Benutzen wir die Notation <span class="math notranslate nohighlight">\(x = (x_1, ..., x_n)\)</span> mit <span class="math notranslate nohighlight">\(x_1, ..., x_n \in \mathbb{R}\)</span>. Der Wert <span class="math notranslate nohighlight">\(x\)</span> beschreibt also einen Vektor von reellen Zahlen. Wenn es sich bei <span class="math notranslate nohighlight">\(x\)</span> um eine Teilmenge der möglichen Daten handelt, nennt man <span class="math notranslate nohighlight">\(x\)</span> auch <em>Stichprobe</em> (engl. <em>sample</em>). Der Einfachheit halber können Sie sich <span class="math notranslate nohighlight">\(x\)</span> auch einfach als Menge von Zahlen vorstellen. Dies ist zwar für die Vorstellung of einfacher, jedoch formal nicht korrekt, da Mengen nicht das gleiche Element mehrfach enthalten können, Datensätze jedoch schon.</p>
+<div class="section" id="lagemasze">
+<h3><span class="section-number">3.2.1. </span>Lagemaße<a class="headerlink" href="#lagemasze" title="Permalink to this headline">¶</a></h3>
+<p>Die Lage der Daten ist ein wichtiges statistisches Merkmal welches den <em>typischen Wert</em> im Zentrum der Daten beschreibt. Dies bedeutet nicht, das viele Datenpunkte exakt diesen Wert haben oder das man in der Zukunft erwarten könnte häufig diesen Wert zu beobachten. Stattdessen markiert die Lage die “Mitte” der Daten. Wenn Sie sich die Daten als Stadt vorstellen, markiert die Lage also nur den Mittelpunkt der Stadt. Das heißt jedoch nicht, dass dort besonders viele Häuser stehen.</p>
+<p>Es gibt verschiedene Wege die Lage von Daten zu definieren. Das <em>arithmetische Mittel</em> ist definiert als
+$<span class="math notranslate nohighlight">\(mean(x) = \frac{1}{n}\sum_{i=1}^{n} x_i, x_i \in \mathbb{R},\)</span>$
+also die Summe der Datenpunkte geteilt durch ihre Anzahl. Häufig spricht man auch einfach vom <em>Mittelwert</em> der Daten (engl. <em>mean</em>). Das arithmische Mittel ist eine gute Beschreibung der Lage, wenn die Daten normalverteilt oder gleichverteilt sind. Im Allgemeinen sollte man das arithmeische Mittel nur verwenden, wenn zwei Eigenschaften erfüllt sind:</p>
+<ol class="simple">
+<li><p>Es gibt keine “lücken” in den Daten, also größere Bereiche in denen keine Werte liegen. Dies bedeutet insbesondere auch, dass die Daten keine Ausreißer haben sollten.</p></li>
+<li><p>Die Daten sind symmetrisch um das artithmetische Mittel verteilt, das heißt das die Verteilung links und rechts des artihmetischen Mittels ist in etwa gleich sein sollten.</p></li>
+</ol>
+<p>Wenn diese Eigenschaften nicht erfüllt sind, sollte man das artithmetische Mittel nicht verwenden, da der Wert eventuell die Lage nicht gut beschreibt. Statistische Methoden, die derartige Annahmen an die Verteilung von Daten machen nennt man auch <em>parametrische</em> Statistiken. Wir werden uns später noch anhand von <a class="reference external" href="#anscombes-quartet">Anscombes Quartet</a> sehen, wie die Werte von Statistiken irreführend sein können.</p>
+<p>Eine alternative zum arithmetischen Mittel ist der <em>Median</em>, der definiert ist als
+$<span class="math notranslate nohighlight">\(median(x) = \begin{cases}\bar{x}_{m} &amp; \text{wenn}~n~\text{ungerade ist mit}~m=\frac{n+1}{2} \\ \frac{1}{2}(\bar{x}_{m}+\bar{x}_{m+1}) &amp; \text{wenn}~n~\text{gerade ist mit}~m=\frac{n}{2},\end{cases}\)</span><span class="math notranslate nohighlight">\(
+wobei \)</span>\bar{x}<span class="math notranslate nohighlight">\( eine nach der größe sortierter Vektor der Werte von \)</span>x$ ist. Entsprechend ist der Median wortwörtlich in der Mitte der der Daten: 50% der Daten sind kleiner oder gleich dem Median und 50% sind größer oder gleich dem Median. Im Gegensatz zum arithmetischen Mittel ist der Median eine <em>nicht parametrische</em> Statistik. Das bedeutet das der Median unabhängig von der Verteilung eingesetzt werden kann, zum Beispiel wenn die Annahmen an das arithmetische Mittel nicht erfüllt sind. Insbesondere ist der Median robust gegen Ausreißer, kann also nicht durch wenige besonders hohe oder niedrige Werte beeinflusst werden.</p>
+<p>Dies kann man sich auch an einem einfachen Beispiel verdeutlichen. Zuerst betrachten wir das arithmetische Mittel und den Median für Daten, bei denen die Annahmen des arithmetischen Mittels erfüllt sind:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statistics</span>  <span class="c1"># we use the statistics from the Python standard library</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mf">8.04</span><span class="p">,</span> <span class="mf">6.95</span><span class="p">,</span> <span class="mf">7.58</span><span class="p">,</span> <span class="mf">8.81</span><span class="p">,</span> <span class="mf">8.33</span><span class="p">,</span> <span class="mf">9.96</span><span class="p">,</span> <span class="mf">7.24</span><span class="p">,</span> <span class="mf">4.26</span><span class="p">,</span> <span class="mf">10.84</span><span class="p">,</span> <span class="mf">4.82</span><span class="p">,</span> <span class="mf">5.68</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;mean:  &#39;</span><span class="p">,</span> <span class="n">statistics</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;median:&#39;</span><span class="p">,</span> <span class="n">statistics</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mean:   7.500909090909091
+median: 7.58
+</pre></div>
+</div>
+</div>
+</div>
+<p>In diesem Beispiel sind die Werte vom Median und vom arithmetischen Mittel ähnlich und beide sind gut geeignet und die Lage zu beschreiben. Jetzt erweitern wir die Daten um einen einzelnen Ausreißer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;mean:  &#39;</span><span class="p">,</span> <span class="n">statistics</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;median:&#39;</span><span class="p">,</span> <span class="n">statistics</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mean:   15.209166666666667
+median: 7.81
+</pre></div>
+</div>
+</div>
+</div>
+<p>Durch den Ausreißer wird das arithmetische Mittel start beeinflusst, so dass es jetzt deutlich höher ist. Es ist sogar höher alls alle Datenpunkte, die wir ursprünglich betrachtet haben. Das ist offensichtlich keine gute Beschreibung der Mitte der Daten. Im Vergleich dazu, hat sich der Median kaum verändert und ist nur zum nächsthöheren Wert der sortieren Liste gesprungen.</p>
+<p>Möglicherweise fragen Sie sich jetzt, warum man überhaupt das arithmetische Mittel verwenden sollte, wenn der Median scheinbar aufgrund seiner Robustheit überlegen ist. Die Gründe hierfür kommen aus der Stochastik. Das arithmetische Mittel ist ein enger verwandt mit dem Erwartungswert von Zufallfsvariablen. Die Normalverteilung kann man vollständig durch den Mittelwert und die Standardabweichung beschreiben. Hieraus folgt, dass das arithmetische Mittel für die Normalverteilung der Beweisbar bestmögliche Schätzer für die Mitte der Daten ist. Trotzdem ist es ratsam den Median zu verwenden, wenn Sie die Verteilung der Daten nicht kennen oder Sie befürchten das es vielleicht Ausreißer gibt.</p>
+<p>Das arithmetische Mittel und der Median sind nur für numerische Daten definiert. Es gibt jedoch auch nicht-numerische Daten. Die größe von Kleidungsstücken wird häufig in den Kategorien “Small”, “Medium”, und “Large” angegeben. Man spricht hierbei von kategorischen Daten (TODO ref Kapitel 4). Der <em>Modus</em> der Daten kann benutzt werden um die Lage von kategorischen Daten zu bestimmen. Der Modus ist definiert als der Wert, den man am häufigsten in einer Stichprobe <span class="math notranslate nohighlight">\(x\)</span> beobachtet.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;small&#39;</span><span class="p">,</span> <span class="s1">&#39;medium&#39;</span><span class="p">,</span> <span class="s1">&#39;small&#39;</span><span class="p">,</span> <span class="s1">&#39;large&#39;</span><span class="p">,</span> <span class="s1">&#39;large&#39;</span><span class="p">,</span> <span class="s1">&#39;medium&#39;</span><span class="p">,</span> <span class="s1">&#39;medium&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;mode:&#39;</span><span class="p">,</span> <span class="n">statistics</span><span class="o">.</span><span class="n">mode</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mode: medium
+</pre></div>
+</div>
+</div>
+</div>
+<p>Bitte beachten Sie, dass der Modus zwar gut für kategorische Daten (und manchmal auch für diskret Verteilte numerische Daten) geeignet ist, aber irreführend sein kann wenn die Daten <em>Bimodal</em> oder <em>Multimodal</em>, also wenn es mehrere “Mittelpunkte” gibt was sich dadurch äußert das mehrere Werte besonders häufig auftreten. Im Extremfall sind die kategorien gleichverteilt, also man hat gleich viele Beobachtungen pro Kategorie. Da jede Kategorie die gleiche Wahrscheinlichkeit hat, ist der Modus zufällig. Außerdem sollte man den Modus nicht für kontinuierliche numerische Daten benutzen, da es hier sehr unwahrscheinlich ist mehrfach den exakt gleichen Wert zu beobachten.</p>
+<hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="jupyterformat"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p><a class="reference external" href="https://nbformat.readthedocs.io/en/latest/format_description.html">https://nbformat.readthedocs.io/en/latest/format_description.html</a></p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapters"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="kapitel_02.html" title="previous page"><span class="section-number">2. </span>Der Prozess von Data Science Projekten</a>
+    <a class='right-next' id="next-link" href="../exercises/uebung_01.html" title="next page">Übung 1</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Steffen Herbold<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
