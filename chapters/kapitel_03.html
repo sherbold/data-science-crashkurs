@@ -243,7 +243,22 @@
      3.2.1. Lagemaße
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#variabilitat">
+     3.2.2. Variabilität
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#datenbereich">
+     3.2.3. Datenbereich
+    </a>
+   </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualisierung">
+   3.3. Visualisierung
+  </a>
  </li>
 </ul>
 
@@ -308,7 +323,9 @@
 <h3><span class="section-number">3.2.1. </span>Lagemaße<a class="headerlink" href="#lagemasze" title="Permalink to this headline">¶</a></h3>
 <p>Die Lage der Daten ist ein wichtiges statistisches Merkmal welches den <em>typischen Wert</em> im Zentrum der Daten beschreibt. Dies bedeutet nicht, das viele Datenpunkte exakt diesen Wert haben oder das man in der Zukunft erwarten könnte häufig diesen Wert zu beobachten. Stattdessen markiert die Lage die “Mitte” der Daten. Wenn Sie sich die Daten als Stadt vorstellen, markiert die Lage also nur den Mittelpunkt der Stadt. Das heißt jedoch nicht, dass dort besonders viele Häuser stehen.</p>
 <p>Es gibt verschiedene Wege die Lage von Daten zu definieren. Das <em>arithmetische Mittel</em> ist definiert als
-$<span class="math notranslate nohighlight">\(mean(x) = \frac{1}{n}\sum_{i=1}^{n} x_i, x_i \in \mathbb{R},\)</span>$
+$<span class="math notranslate nohighlight">\(
+mean(x) = \frac{1}{n}\sum_{i=1}^{n} x_i, x_i \in \mathbb{R},
+\)</span>$
 also die Summe der Datenpunkte geteilt durch ihre Anzahl. Häufig spricht man auch einfach vom <em>Mittelwert</em> der Daten (engl. <em>mean</em>). Das arithmische Mittel ist eine gute Beschreibung der Lage, wenn die Daten normalverteilt oder gleichverteilt sind. Im Allgemeinen sollte man das arithmeische Mittel nur verwenden, wenn zwei Eigenschaften erfüllt sind:</p>
 <ol class="simple">
 <li><p>Es gibt keine “lücken” in den Daten, also größere Bereiche in denen keine Werte liegen. Dies bedeutet insbesondere auch, dass die Daten keine Ausreißer haben sollten.</p></li>
@@ -316,7 +333,9 @@ also die Summe der Datenpunkte geteilt durch ihre Anzahl. Häufig spricht man au
 </ol>
 <p>Wenn diese Eigenschaften nicht erfüllt sind, sollte man das artithmetische Mittel nicht verwenden, da der Wert eventuell die Lage nicht gut beschreibt. Statistische Methoden, die derartige Annahmen an die Verteilung von Daten machen nennt man auch <em>parametrische</em> Statistiken. Wir werden uns später noch anhand von <a class="reference external" href="#anscombes-quartet">Anscombes Quartet</a> sehen, wie die Werte von Statistiken irreführend sein können.</p>
 <p>Eine alternative zum arithmetischen Mittel ist der <em>Median</em>, der definiert ist als
-$<span class="math notranslate nohighlight">\(median(x) = \begin{cases}\bar{x}_{m} &amp; \text{wenn}~n~\text{ungerade ist mit}~m=\frac{n+1}{2} \\ \frac{1}{2}(\bar{x}_{m}+\bar{x}_{m+1}) &amp; \text{wenn}~n~\text{gerade ist mit}~m=\frac{n}{2},\end{cases}\)</span><span class="math notranslate nohighlight">\(
+$<span class="math notranslate nohighlight">\(
+median(x) = \begin{cases}\bar{x}_{m} &amp; \text{wenn}~n~\text{ungerade ist mit}~m=\frac{n+1}{2} \\ \frac{1}{2}(\bar{x}_{m}+\bar{x}_{m+1}) &amp; \text{wenn}~n~\text{gerade ist mit}~m=\frac{n}{2},\end{cases}
+\)</span><span class="math notranslate nohighlight">\(
 wobei \)</span>\bar{x}<span class="math notranslate nohighlight">\( eine nach der größe sortierter Vektor der Werte von \)</span>x$ ist. Entsprechend ist der Median wortwörtlich in der Mitte der der Daten: 50% der Daten sind kleiner oder gleich dem Median und 50% sind größer oder gleich dem Median. Im Gegensatz zum arithmetischen Mittel ist der Median eine <em>nicht parametrische</em> Statistik. Das bedeutet das der Median unabhängig von der Verteilung eingesetzt werden kann, zum Beispiel wenn die Annahmen an das arithmetische Mittel nicht erfüllt sind. Insbesondere ist der Median robust gegen Ausreißer, kann also nicht durch wenige besonders hohe oder niedrige Werte beeinflusst werden.</p>
 <p>Dies kann man sich auch an einem einfachen Beispiel verdeutlichen. Zuerst betrachten wir das arithmetische Mittel und den Median für Daten, bei denen die Annahmen des arithmetischen Mittels erfüllt sind:</p>
 <div class="cell docutils container">
@@ -370,13 +389,125 @@ median: 7.81
 </div>
 </div>
 <p>Bitte beachten Sie, dass der Modus zwar gut für kategorische Daten (und manchmal auch für diskret Verteilte numerische Daten) geeignet ist, aber irreführend sein kann wenn die Daten <em>Bimodal</em> oder <em>Multimodal</em>, also wenn es mehrere “Mittelpunkte” gibt was sich dadurch äußert das mehrere Werte besonders häufig auftreten. Im Extremfall sind die kategorien gleichverteilt, also man hat gleich viele Beobachtungen pro Kategorie. Da jede Kategorie die gleiche Wahrscheinlichkeit hat, ist der Modus zufällig. Außerdem sollte man den Modus nicht für kontinuierliche numerische Daten benutzen, da es hier sehr unwahrscheinlich ist mehrfach den exakt gleichen Wert zu beobachten.</p>
+</div>
+<div class="section" id="variabilitat">
+<h3><span class="section-number">3.2.2. </span>Variabilität<a class="headerlink" href="#variabilitat" title="Permalink to this headline">¶</a></h3>
+<p>Die Variabilität misst wie stark die Daten verstreut sind. Eine kleine Varibilität heißt, dass sich viele Daten in der Nähe der Mitte befinden. Eine hohe Variabilität heißt dagegen, dass die Daten sich über einen großen Bereich verteilen.</p>
+<p>Das am häufigsten verwendete Maß für die Variabilität ist die <em>Standardabweichung</em>, die als
+$<span class="math notranslate nohighlight">\(
+sd(x) = \sqrt{\frac{\sum_{i=1}^n (x_i-mean(x))^2}{n-1}}
+\)</span><span class="math notranslate nohighlight">\(
+definiert ist. Die Standardabweichung ist die Quadratwurzel des arithmetischen Mittels von der Abweichung der einzelnen Datenpunkte vom arithmetischen Mittel, nur dass bei der Standardabweichung durch \)</span>n-1<span class="math notranslate nohighlight">\( statt \)</span>n$ geteilt wird. Der Grund hierfür sind die sogenannten <em>Freiheitsgrade</em>, auf die wir hier jedoch nicht näher eingehen. Auch wenn die Formulierung etwas kompliziert klingt, ist das Konzept einfach: Die Standardabweichung misst, wie stark die beobachteten Werte vom arithmetischen Mittel abweichen. Dadurch, dass die quadratischen Abweichungen betrachtet werden, beeinflussen große Abweichungen die Standardabweichung stärker als kleine Abweichungen. Da die Standardabweichung die Variabilität in Bezug auf das artihmetische Mittel misst, ist auch klar dass die Standardabweichung nur dann benutzt werden sollte, wenn das arithmetische Mittel eine geeignete Repräsentation für die Lage der Daten ist. Hierraus folgt auch, das die Standardabweichung ebenfalls ein parametrisches Maß für die Variabiltität ist.</p>
+<p>Ebenso wie es mit dem Median eine nicht-parametrisches Gegenstück zum arithmetischen Mittel gibt, gibt es auch nicht-parametrische Statistiken für die Variabilität. Der Interquartilsabstand (engl. <em>interquartile range</em>) is definiert als
+$<span class="math notranslate nohighlight">\(
+IQR(X) = Q_{upper}-Q_{lower}
+\)</span>$</p>
+<p>wobei <span class="math notranslate nohighlight">\(Q_{upper}\)</span> und <span class="math notranslate nohighlight">\(Q_{lower}\)</span> das obere und untere <em>Quartil</em> der Daten sind. Die Quartile sind Analog zum Metidn definiert, nur mit 75%, bzw. 25% der Daten: 75% der Daten sind kleiner oder gleich dem oberen Quartil und 25% der Daten sind kleiner oder gleich dem unteren Quartil. Entsprechend sind mindestens 50% der Daten größer oder gleich dem unteren Quartil und gleichzeitig kleiner oder gleich dem oberen Quartil. Der Interquartilsabstand misst also die größe des Bereichs, in dem sich die mittleren 50% der Daten befinden.</p>
+<p>Eine gute Faustregel ist, dass sie die Standabweichung nutzen sollten, wenn sie das artithmetische Mittel für die Lage benutzen, und den Interquartilsabstand wenn sie den Median betrachten. Hier ist ein Beispiel, was demonstriert wie sich die Probleme mit Ausreißern auch in der Standardabweichung wiederspiegeln.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>  <span class="c1"># we use scipy for the IQR</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mf">8.04</span><span class="p">,</span> <span class="mf">6.95</span><span class="p">,</span> <span class="mf">7.58</span><span class="p">,</span> <span class="mf">8.81</span><span class="p">,</span> <span class="mf">8.33</span><span class="p">,</span> <span class="mf">9.96</span><span class="p">,</span> <span class="mf">7.24</span><span class="p">,</span> <span class="mf">4.26</span><span class="p">,</span> <span class="mf">10.84</span><span class="p">,</span> <span class="mf">4.82</span><span class="p">,</span> <span class="mf">5.68</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Without outlier&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;sd: &#39;</span><span class="p">,</span> <span class="n">statistics</span><span class="o">.</span><span class="n">stdev</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;IQR:&#39;</span><span class="p">,</span> <span class="n">stats</span><span class="o">.</span><span class="n">iqr</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+
+<span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;With outlier&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;sd: &#39;</span><span class="p">,</span> <span class="n">statistics</span><span class="o">.</span><span class="n">stdev</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;IQR:&#39;</span><span class="p">,</span> <span class="n">stats</span><span class="o">.</span><span class="n">iqr</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Without outlier
+sd:  2.031568135925815
+IQR: 2.255000000000001
+With outlier
+sd:  26.77235292350312
+IQR: 2.465
+</pre></div>
+</div>
+</div>
+</div>
+<p>Obwohl bis auf einen Datenpunkt alle Daten zwischen 4,82 und 9,96 liegen, ist die Standardabweichung ein vielfaches von diesem Datenbereich, durch den einen ausreißer. Der Interquartilsabstand ist jedoch, ähnlich wie der Median, kaum beeinflusst.</p>
+<p>Wenn die Annahmen an die Standardabweichung erfüllt sind, ist es jedoch ein sehr gutes Maß für die Variabilität der Daten. Ähnlich wie beim arithmetische Mittel, ist dies insbesondere bei normalverteilten Daten der Fall, die sich durch diese beiden Maße komplett beschreiben lassen. Außerdem kann man für Normalverteilung beweisen, dass 68% der Daten nicht mehr als eine Standardabweichung vom arithmetischen Mittel entfernt sind, 95% der Daten nicht mehr als zwei Standardabweichungen, und 99.7% nicht mehr als 3 Standardabweichungen. Dies ist auch als 68-95-99,7 Regel bekannt. Für andere Verteilungen kann man ähnliche, wenn auch schwächere Aussagen über die Verteilung mit hilfe der Standardabweichung treffen. Die Chebychev-Ungleichung gilt für alle Verteilungen mit einem endlichen Erwartungswert (vereinfacht gesagt mit einem endlichen arithmetischen Mittel) und eine endlichen Varianz die nicht null ist. Die Varianz ist nichts anderes als das Quadrat der Standardabweichung. Aus der Chebychev-Ungleichung folgt das 50% der Daten nicht mehr als <span class="math notranslate nohighlight">\(\sqrt{2} \cdot std\)</span> vom arithmetischen Mittel entfernt sind. Hierdurch ergibt sich auch ein direkter Zusammenhang zum Interquartilsabstand, der ebenfalls eine Aussage über die mittleren 50% der Daten ist.</p>
+<p>Bitte beachten Sie dass es für Variabilität für kategorische Daten hier nicht im Detail betrachten <a class="footnote-reference brackets" href="#categorical" id="id2">2</a>. Die Grundidee ist, das man sich anguckt, wie häufig Daten in den einzelnen Kategorien vorkommen und wie stark diese beobachtungen einer Gleichverteilung ähnlich sind. Je gleichmäßiger sich die Daten auf die Kategorien verteilen, desto höher die Variabiltität.</p>
+</div>
+<div class="section" id="datenbereich">
+<h3><span class="section-number">3.2.3. </span>Datenbereich<a class="headerlink" href="#datenbereich" title="Permalink to this headline">¶</a></h3>
+<p>Der Datenbereich gibt den Bereich an in dem Werte beobachtet werden können. Für numerische Daten ist dieser durch das Minimum (den kleinsten möglichen Wert) und das Maximum (den größten möglichen Wert) definiert. Beide kann Anhand einer Stichprobe <span class="math notranslate nohighlight">\(x\)</span> schätzen, in dem den kleinsten und größten <em>beobachteten</em> Wert als <span class="math notranslate nohighlight">\(min\)</span> und <span class="math notranslate nohighlight">\(max\)</span> ermittelt. Die Differenz dieser Werte ist dann die größe des Datenbereichs
+$<span class="math notranslate nohighlight">\(
+range = max-min. 
+\)</span>$</p>
+<p>Auch wenn diese statistischen Merkmale auf den ersten Blick trivial erscheinen, sind sie in der Praxis sehr hilfreich, insbesondere um Probleme mit den Daten zu bemerken. Wenn der Datenbereich nicht Plausibel ist, erkennt man zum Beispiel das es ungültige Werte gibt. Beobachtet man zum Beispiel ein Minimum von -1 bei einen Merkmal welches das Alter in Jahren angibt, könnte dies auf fehlende Werte hindeuten. Bei einem zu hohen Maximum könnte es fehler beim übertragen der Daten gegeben haben. Da ungülte Werte nicht notwendigerweise ausreißer sind, bemerkt man diese unter Umständen nicht, wenn man nur die Lage und die Variabilität von Daten betrachtet.</p>
+</div>
+</div>
+<div class="section" id="visualisierung">
+<h2><span class="section-number">3.3. </span>Visualisierung<a class="headerlink" href="#visualisierung" title="Permalink to this headline">¶</a></h2>
+<p>Visualiserungen sind ein sehr mächtiges Werkzeug um etwas über Daten zu lernen und diese Verstehen.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we use matplotlib for the creation of visualizations</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="c1"># Data to plot</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Schnelleres Verständnis&#39;</span><span class="p">,</span> <span class="s1">&#39;Besseres Langzeitmemorierung&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;Kann Muster zeigen&#39;</span><span class="p">,</span> <span class="s1">&#39;Kann komplexe Informationen vereinfachen&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;Kann lustige Bilder beinhalten&#39;</span><span class="p">]</span>
+<span class="n">sizes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;gold&#39;</span><span class="p">,</span> <span class="s1">&#39;yellowgreen&#39;</span><span class="p">,</span> <span class="s1">&#39;lightcoral&#39;</span><span class="p">,</span> <span class="s1">&#39;lightskyblue&#39;</span><span class="p">,</span> <span class="s1">&#39;pink&#39;</span><span class="p">]</span>
+
+<span class="c1"># Plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">sizes</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span> <span class="n">autopct</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%1.1f%%</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_03_11_0.png" src="../_images/kapitel_03_11_0.png" />
+</div>
+</div>
+<p>Es gibt viele Vorteile von Visualisierungen gegenüber anderen Arten Daten darzustellen, zum Beispiel Tabellen oder deskriptiver Statistik. Im Allgemeine verarbeitet man visuelle Informationen schneller. Hierdurch kann man in der schneller etwas über die Daten lernen. Hinzu kommt das viele Menschen sich visualisierte Informationen besser merken können als zum Beispiel Text. Dies habe ich zum Beispiel auch oft selbst festgestellt: Studierende konnten sich in Prüfungen in der Regel (fast) alle die grafische Struktur von Diagrammen erinnern, obwohl sie die textuellen Annotation nicht wussten.</p>
+<p>Die Vorteile von Visualiserungen gehen jedoch über die Verarbeitungsgeschwindigkeit und die Memorisierung hinaus. Visualisierungen können auch ein Verständis der Daten ermöglichen, welches man andernfalls nicht erlangen könnten, zum Beispiel über Muster in Daten und komplexe zusammenhänge, die man sonst nicht sehen könnte. Hierfür betrachten wir das folgende Beispiel. Alice kennt Bob und Dan, Dan kennt Bob, Bob kennt Carol und Alace, und Carol kennt Alice, Bob und Dan. Diese textuelle Beschreibung ist sehr komplex und schwer zu folgen. Außerdem bekommt man kein intuitives Verständnis der Beziehung zwischen Alice, Bob, Carol und Dan. Jetzt betrachten wir das gleiche als gerichteten Graph:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>  <span class="c1"># networkx is a powerful library for working with graphs</span>
+
+<span class="c1"># Create the graph by adding edges</span>
+<span class="c1"># The vertices are implicitly defined through the endpoints of the edges</span>
+<span class="n">graph</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
+<span class="n">graph</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;Bob&#39;</span><span class="p">)</span>
+<span class="n">graph</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;Dan&#39;</span><span class="p">)</span>
+<span class="n">graph</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s1">&#39;Dan&#39;</span><span class="p">,</span> <span class="s1">&#39;Bob&#39;</span><span class="p">)</span>
+<span class="n">graph</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Carol&#39;</span><span class="p">)</span>
+<span class="n">graph</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Alice&#39;</span><span class="p">)</span>
+<span class="n">graph</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s1">&#39;Carol&#39;</span><span class="p">,</span> <span class="s1">&#39;Alice&#39;</span><span class="p">)</span>
+<span class="n">graph</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s1">&#39;Carol&#39;</span><span class="p">,</span> <span class="s1">&#39;Bob&#39;</span><span class="p">)</span>
+<span class="n">graph</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s1">&#39;Carol&#39;</span><span class="p">,</span> <span class="s1">&#39;Dan&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot the graph with a shell layout</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_shell</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;lightblue&#39;</span><span class="p">,</span>
+              <span class="n">arrowsize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">connectionstyle</span><span class="o">=</span><span class="s1">&#39;arc3, rad = 0.1&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_03_13_0.png" src="../_images/kapitel_03_13_0.png" />
+</div>
+</div>
+<p>Diese Graph ist einfach zu lesen und gibt uns ein intuitives Verständnis der Beziehungen. Bitte beachten Sie, das wir bei allen Grafiken in diesem Kapitel Legenden und andere Details bewusst weglassen. Stattdessen generieren wir die Grafiken mit so möglichst wenig Quelltext, so dass sie trotzdem die gewünschten Erkenntnisse liefern. Der Grund hierfür ist, das wir hier Visualisierungen als Werkzeug zur Erkundung von Daten betrachten. Wenn wir Visualisierung für Texte (Bücher und sonstige Publikationen) oder Präsentation erstellt, sind andere Aspekte ebenfalls relevant, zum Beispiel die konsitente Beschriftung, Farbwahl, Legenden, und Titel.</p>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
 <dt class="label" id="jupyterformat"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
 <dd><p><a class="reference external" href="https://nbformat.readthedocs.io/en/latest/format_description.html">https://nbformat.readthedocs.io/en/latest/format_description.html</a></p>
 </dd>
+<dt class="label" id="categorical"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p><a class="reference external" href="https://doi.org/10.1080/10691898.2007.11889465">https://doi.org/10.1080/10691898.2007.11889465</a></p>
+</dd>
 </dl>
-</div>
 </div>
 </div>
 
