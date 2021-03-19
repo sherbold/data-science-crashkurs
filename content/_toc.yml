@@ -8,6 +8,7 @@
   chapters:
   - file: chapters/kapitel_01
   - file: chapters/kapitel_02
+  - file: chapters/kapitel_03
 
 - part: Übungen
   chapters:
