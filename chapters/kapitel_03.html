@@ -322,21 +322,19 @@
 <div class="section" id="lagemasze">
 <h3><span class="section-number">3.2.1. </span>Lagemaße<a class="headerlink" href="#lagemasze" title="Permalink to this headline">¶</a></h3>
 <p>Die Lage der Daten ist ein wichtiges statistisches Merkmal welches den <em>typischen Wert</em> im Zentrum der Daten beschreibt. Dies bedeutet nicht, das viele Datenpunkte exakt diesen Wert haben oder das man in der Zukunft erwarten könnte häufig diesen Wert zu beobachten. Stattdessen markiert die Lage die “Mitte” der Daten. Wenn Sie sich die Daten als Stadt vorstellen, markiert die Lage also nur den Mittelpunkt der Stadt. Das heißt jedoch nicht, dass dort besonders viele Häuser stehen.</p>
-<p>Es gibt verschiedene Wege die Lage von Daten zu definieren. Das <em>arithmetische Mittel</em> ist definiert als
-$<span class="math notranslate nohighlight">\(
-mean(x) = \frac{1}{n}\sum_{i=1}^{n} x_i, x_i \in \mathbb{R},
-\)</span>$
-also die Summe der Datenpunkte geteilt durch ihre Anzahl. Häufig spricht man auch einfach vom <em>Mittelwert</em> der Daten (engl. <em>mean</em>). Das arithmische Mittel ist eine gute Beschreibung der Lage, wenn die Daten normalverteilt oder gleichverteilt sind. Im Allgemeinen sollte man das arithmeische Mittel nur verwenden, wenn zwei Eigenschaften erfüllt sind:</p>
+<p>Es gibt verschiedene Wege die Lage von Daten zu definieren. Das <em>arithmetische Mittel</em> ist definiert als</p>
+<div class="math notranslate nohighlight">
+\[mean(x) = \frac{1}{n}\sum_{i=1}^{n} x_i, x_i \in \mathbb{R},\]</div>
+<p>also die Summe der Datenpunkte geteilt durch ihre Anzahl. Häufig spricht man auch einfach vom <em>Mittelwert</em> der Daten (engl. <em>mean</em>). Das arithmische Mittel ist eine gute Beschreibung der Lage, wenn die Daten normalverteilt oder gleichverteilt sind. Im Allgemeinen sollte man das arithmeische Mittel nur verwenden, wenn zwei Eigenschaften erfüllt sind:</p>
 <ol class="simple">
 <li><p>Es gibt keine “lücken” in den Daten, also größere Bereiche in denen keine Werte liegen. Dies bedeutet insbesondere auch, dass die Daten keine Ausreißer haben sollten.</p></li>
 <li><p>Die Daten sind symmetrisch um das artithmetische Mittel verteilt, das heißt das die Verteilung links und rechts des artihmetischen Mittels ist in etwa gleich sein sollten.</p></li>
 </ol>
 <p>Wenn diese Eigenschaften nicht erfüllt sind, sollte man das artithmetische Mittel nicht verwenden, da der Wert eventuell die Lage nicht gut beschreibt. Statistische Methoden, die derartige Annahmen an die Verteilung von Daten machen nennt man auch <em>parametrische</em> Statistiken. Wir werden uns später noch anhand von <a class="reference external" href="#anscombes-quartet">Anscombes Quartet</a> sehen, wie die Werte von Statistiken irreführend sein können.</p>
-<p>Eine alternative zum arithmetischen Mittel ist der <em>Median</em>, der definiert ist als
-$<span class="math notranslate nohighlight">\(
-median(x) = \begin{cases}\bar{x}_{m} &amp; \text{wenn}~n~\text{ungerade ist mit}~m=\frac{n+1}{2} \\ \frac{1}{2}(\bar{x}_{m}+\bar{x}_{m+1}) &amp; \text{wenn}~n~\text{gerade ist mit}~m=\frac{n}{2},\end{cases}
-\)</span><span class="math notranslate nohighlight">\(
-wobei \)</span>\bar{x}<span class="math notranslate nohighlight">\( eine nach der größe sortierter Vektor der Werte von \)</span>x$ ist. Entsprechend ist der Median wortwörtlich in der Mitte der der Daten: 50% der Daten sind kleiner oder gleich dem Median und 50% sind größer oder gleich dem Median. Im Gegensatz zum arithmetischen Mittel ist der Median eine <em>nicht parametrische</em> Statistik. Das bedeutet das der Median unabhängig von der Verteilung eingesetzt werden kann, zum Beispiel wenn die Annahmen an das arithmetische Mittel nicht erfüllt sind. Insbesondere ist der Median robust gegen Ausreißer, kann also nicht durch wenige besonders hohe oder niedrige Werte beeinflusst werden.</p>
+<p>Eine alternative zum arithmetischen Mittel ist der <em>Median</em>, der definiert ist als</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}median(x) = \begin{cases}\bar{x}_{m} &amp; \text{wenn}~n~\text{ungerade ist mit}~m=\frac{n+1}{2} \\ \frac{1}{2}(\bar{x}_{m}+\bar{x}_{m+1}) &amp; \text{wenn}~n~\text{gerade ist mit}~m=\frac{n}{2},\end{cases}\end{split}\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(\bar{x}\)</span> eine nach der größe sortierter Vektor der Werte von <span class="math notranslate nohighlight">\(x\)</span> ist. Entsprechend ist der Median wortwörtlich in der Mitte der der Daten: 50% der Daten sind kleiner oder gleich dem Median und 50% sind größer oder gleich dem Median. Im Gegensatz zum arithmetischen Mittel ist der Median eine <em>nicht parametrische</em> Statistik. Das bedeutet das der Median unabhängig von der Verteilung eingesetzt werden kann, zum Beispiel wenn die Annahmen an das arithmetische Mittel nicht erfüllt sind. Insbesondere ist der Median robust gegen Ausreißer, kann also nicht durch wenige besonders hohe oder niedrige Werte beeinflusst werden.</p>
 <p>Dies kann man sich auch an einem einfachen Beispiel verdeutlichen. Zuerst betrachten wir das arithmetische Mittel und den Median für Daten, bei denen die Annahmen des arithmetischen Mittels erfüllt sind:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -393,15 +391,13 @@ median: 7.81
 <div class="section" id="variabilitat">
 <h3><span class="section-number">3.2.2. </span>Variabilität<a class="headerlink" href="#variabilitat" title="Permalink to this headline">¶</a></h3>
 <p>Die Variabilität misst wie stark die Daten verstreut sind. Eine kleine Varibilität heißt, dass sich viele Daten in der Nähe der Mitte befinden. Eine hohe Variabilität heißt dagegen, dass die Daten sich über einen großen Bereich verteilen.</p>
-<p>Das am häufigsten verwendete Maß für die Variabilität ist die <em>Standardabweichung</em>, die als
-$<span class="math notranslate nohighlight">\(
-sd(x) = \sqrt{\frac{\sum_{i=1}^n (x_i-mean(x))^2}{n-1}}
-\)</span><span class="math notranslate nohighlight">\(
-definiert ist. Die Standardabweichung ist die Quadratwurzel des arithmetischen Mittels von der Abweichung der einzelnen Datenpunkte vom arithmetischen Mittel, nur dass bei der Standardabweichung durch \)</span>n-1<span class="math notranslate nohighlight">\( statt \)</span>n$ geteilt wird. Der Grund hierfür sind die sogenannten <em>Freiheitsgrade</em>, auf die wir hier jedoch nicht näher eingehen. Auch wenn die Formulierung etwas kompliziert klingt, ist das Konzept einfach: Die Standardabweichung misst, wie stark die beobachteten Werte vom arithmetischen Mittel abweichen. Dadurch, dass die quadratischen Abweichungen betrachtet werden, beeinflussen große Abweichungen die Standardabweichung stärker als kleine Abweichungen. Da die Standardabweichung die Variabilität in Bezug auf das artihmetische Mittel misst, ist auch klar dass die Standardabweichung nur dann benutzt werden sollte, wenn das arithmetische Mittel eine geeignete Repräsentation für die Lage der Daten ist. Hierraus folgt auch, das die Standardabweichung ebenfalls ein parametrisches Maß für die Variabiltität ist.</p>
-<p>Ebenso wie es mit dem Median eine nicht-parametrisches Gegenstück zum arithmetischen Mittel gibt, gibt es auch nicht-parametrische Statistiken für die Variabilität. Der Interquartilsabstand (engl. <em>interquartile range</em>) is definiert als
-$<span class="math notranslate nohighlight">\(
-IQR(X) = Q_{upper}-Q_{lower}
-\)</span>$</p>
+<p>Das am häufigsten verwendete Maß für die Variabilität ist die <em>Standardabweichung</em>, die als</p>
+<div class="math notranslate nohighlight">
+\[sd(x) = \sqrt{\frac{\sum_{i=1}^n (x_i-mean(x))^2}{n-1}}\]</div>
+<p>definiert ist. Die Standardabweichung ist die Quadratwurzel des arithmetischen Mittels von der Abweichung der einzelnen Datenpunkte vom arithmetischen Mittel, nur dass bei der Standardabweichung durch <span class="math notranslate nohighlight">\(n-1\)</span> statt <span class="math notranslate nohighlight">\(n\)</span> geteilt wird. Der Grund hierfür sind die sogenannten <em>Freiheitsgrade</em>, auf die wir hier jedoch nicht näher eingehen. Auch wenn die Formulierung etwas kompliziert klingt, ist das Konzept einfach: Die Standardabweichung misst, wie stark die beobachteten Werte vom arithmetischen Mittel abweichen. Dadurch, dass die quadratischen Abweichungen betrachtet werden, beeinflussen große Abweichungen die Standardabweichung stärker als kleine Abweichungen. Da die Standardabweichung die Variabilität in Bezug auf das artihmetische Mittel misst, ist auch klar dass die Standardabweichung nur dann benutzt werden sollte, wenn das arithmetische Mittel eine geeignete Repräsentation für die Lage der Daten ist. Hierraus folgt auch, das die Standardabweichung ebenfalls ein parametrisches Maß für die Variabiltität ist.</p>
+<p>Ebenso wie es mit dem Median eine nicht-parametrisches Gegenstück zum arithmetischen Mittel gibt, gibt es auch nicht-parametrische Statistiken für die Variabilität. Der Interquartilsabstand (engl. <em>interquartile range</em>) is definiert als</p>
+<div class="math notranslate nohighlight">
+\[IQR(X) = Q_{upper}-Q_{lower}\]</div>
 <p>wobei <span class="math notranslate nohighlight">\(Q_{upper}\)</span> und <span class="math notranslate nohighlight">\(Q_{lower}\)</span> das obere und untere <em>Quartil</em> der Daten sind. Die Quartile sind Analog zum Metidn definiert, nur mit 75%, bzw. 25% der Daten: 75% der Daten sind kleiner oder gleich dem oberen Quartil und 25% der Daten sind kleiner oder gleich dem unteren Quartil. Entsprechend sind mindestens 50% der Daten größer oder gleich dem unteren Quartil und gleichzeitig kleiner oder gleich dem oberen Quartil. Der Interquartilsabstand misst also die größe des Bereichs, in dem sich die mittleren 50% der Daten befinden.</p>
 <p>Eine gute Faustregel ist, dass sie die Standabweichung nutzen sollten, wenn sie das artithmetische Mittel für die Lage benutzen, und den Interquartilsabstand wenn sie den Median betrachten. Hier ist ein Beispiel, was demonstriert wie sich die Probleme mit Ausreißern auch in der Standardabweichung wiederspiegeln.</p>
 <div class="cell docutils container">
@@ -437,10 +433,9 @@ IQR: 2.465
 </div>
 <div class="section" id="datenbereich">
 <h3><span class="section-number">3.2.3. </span>Datenbereich<a class="headerlink" href="#datenbereich" title="Permalink to this headline">¶</a></h3>
-<p>Der Datenbereich gibt den Bereich an in dem Werte beobachtet werden können. Für numerische Daten ist dieser durch das Minimum (den kleinsten möglichen Wert) und das Maximum (den größten möglichen Wert) definiert. Beide kann Anhand einer Stichprobe <span class="math notranslate nohighlight">\(x\)</span> schätzen, in dem den kleinsten und größten <em>beobachteten</em> Wert als <span class="math notranslate nohighlight">\(min\)</span> und <span class="math notranslate nohighlight">\(max\)</span> ermittelt. Die Differenz dieser Werte ist dann die größe des Datenbereichs
-$<span class="math notranslate nohighlight">\(
-range = max-min. 
-\)</span>$</p>
+<p>Der Datenbereich gibt den Bereich an in dem Werte beobachtet werden können. Für numerische Daten ist dieser durch das Minimum (den kleinsten möglichen Wert) und das Maximum (den größten möglichen Wert) definiert. Beide kann Anhand einer Stichprobe <span class="math notranslate nohighlight">\(x\)</span> schätzen, in dem den kleinsten und größten <em>beobachteten</em> Wert als <span class="math notranslate nohighlight">\(min\)</span> und <span class="math notranslate nohighlight">\(max\)</span> ermittelt. Die Differenz dieser Werte ist dann die größe des Datenbereichs</p>
+<div class="math notranslate nohighlight">
+\[range = max-min.\]</div>
 <p>Auch wenn diese statistischen Merkmale auf den ersten Blick trivial erscheinen, sind sie in der Praxis sehr hilfreich, insbesondere um Probleme mit den Daten zu bemerken. Wenn der Datenbereich nicht Plausibel ist, erkennt man zum Beispiel das es ungültige Werte gibt. Beobachtet man zum Beispiel ein Minimum von -1 bei einen Merkmal welches das Alter in Jahren angibt, könnte dies auf fehlende Werte hindeuten. Bei einem zu hohen Maximum könnte es fehler beim übertragen der Daten gegeben haben. Da ungülte Werte nicht notwendigerweise ausreißer sind, bemerkt man diese unter Umständen nicht, wenn man nur die Lage und die Variabilität von Daten betrachtet.</p>
 </div>
 </div>
