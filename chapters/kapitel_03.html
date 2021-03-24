@@ -275,6 +275,11 @@
      3.3.3. Beziehungen zwischen Merkmalen
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#zeitliche-trends">
+     3.3.4. Zeitliche Trends
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -394,7 +399,7 @@ median: 7.81
 <p>Durch den Ausreißer wird das arithmetische Mittel start beeinflusst, so dass es jetzt deutlich höher ist. Es ist sogar höher alls alle Datenpunkte, die wir ursprünglich betrachtet haben. Das ist offensichtlich keine gute Beschreibung der Mitte der Daten. Im Vergleich dazu, hat sich der Median kaum verändert und ist nur zum nächsthöheren Wert der sortieren Liste gesprungen.</p>
 <p>Möglicherweise fragen Sie sich jetzt, warum man überhaupt das arithmetische Mittel verwenden sollte, wenn der Median scheinbar aufgrund seiner Robustheit überlegen ist. Die Gründe hierfür kommen aus der Stochastik. Das arithmetische Mittel ist ein enger verwandt mit dem Erwartungswert von Zufallfsvariablen. Die Normalverteilung kann man vollständig durch den Mittelwert und die Standardabweichung beschreiben. Hieraus folgt, dass das arithmetische Mittel für die Normalverteilung der Beweisbar bestmögliche Schätzer für die Mitte der Daten ist. Trotzdem ist es ratsam den Median zu verwenden, wenn Sie die Verteilung der Daten nicht kennen oder Sie befürchten das es vielleicht Ausreißer gibt.</p>
 <p>Das arithmetische Mittel und der Median sind nur für numerische Daten definiert. Es gibt jedoch auch nicht-numerische Daten. Die größe von Kleidungsstücken wird häufig in den Kategorien “Small”, “Medium”, und “Large” angegeben. Man spricht hierbei von kategorischen Daten (TODO ref Kapitel 4). Der <em>Modus</em> der Daten kann benutzt werden um die Lage von kategorischen Daten zu bestimmen. Der Modus ist definiert als der Wert, den man am häufigsten in einer Stichprobe <span class="math notranslate nohighlight">\(x\)</span> beobachtet.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;small&#39;</span><span class="p">,</span> <span class="s1">&#39;medium&#39;</span><span class="p">,</span> <span class="s1">&#39;small&#39;</span><span class="p">,</span> <span class="s1">&#39;large&#39;</span><span class="p">,</span> <span class="s1">&#39;large&#39;</span><span class="p">,</span> <span class="s1">&#39;medium&#39;</span><span class="p">,</span> <span class="s1">&#39;medium&#39;</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Daten:&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
@@ -1007,7 +1012,7 @@ AUTOCLASS II
 
 <span class="c1"># we need that data as dataframe for the pairplot feature of seaborn</span>
 <span class="n">iris_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span>
-    <span class="s1">&#39;sepal_length&#39;</span><span class="p">,</span> <span class="s1">&#39;sepal_width&#39;</span><span class="p">,</span> <span class="s1">&#39;petal_length&#39;</span><span class="p">,</span> <span class="s1">&#39;petal_width&#39;</span><span class="p">])</span>
+    <span class="s1">&#39;Blütenblattlänge&#39;</span><span class="p">,</span> <span class="s1">&#39;Blütenblattbreite&#39;</span><span class="p">,</span> <span class="s1">&#39;Kelchblattlänge&#39;</span><span class="p">,</span> <span class="s1">&#39;Kelchblattbreite&#39;</span><span class="p">])</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">iris_df</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;h&#39;</span><span class="p">)</span>
@@ -1042,7 +1047,7 @@ AUTOCLASS II
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;petal_length&#39;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">iris</span><span class="o">.</span><span class="n">target</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;h&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;Kelchblattlänge&#39;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">iris</span><span class="o">.</span><span class="n">target</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;h&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Boxplots der Kelchblattlänge für jede Art&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Kelchblattlänge in cm&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
@@ -1088,7 +1093,7 @@ AUTOCLASS II
 <p>Wir betrachten das Konzept der Korrelation hier nicht im Detail. Die Idee ist aber relativ einfach: Man nennt zwei Merkmale X und Y <em>positiv korreliert</em>, wenn der Wert von X steigt in der Regel auch der Wert von Y steigt. Je häufiger dies der Fall ist, desto stärker die Korrelation. Umgekehrt nennt man eine korrelation negativ, wenn der Wert von X fällt in der Regel auch der Wert von Y fällt. Eine <em>lineare Korrelation</em> bedeutet zusätzlich noch, dass es ein Muster gibt, so dass <span class="math notranslate nohighlight">\(X \approx a+b \cdot Y\)</span> für zwei Konstanten <span class="math notranslate nohighlight">\(a, b \in \mathbb{R}\)</span>. Die Korrelation wird häufig mit Hilfe von <em>Korrelationskoeffizienten</em> gemessen deren Werte zwischen <span class="math notranslate nohighlight">\([-1, 1]\)</span> liegen. Eine Korrelationskoeffzient von 0 bedeutet, dass zwei Merkmale nicht korreliert sind, je näher die Werte an -1/1 sind, desto stärker ist die negative/positive Korrelation.</p>
 </div></blockquote>
 <p>Für kategorische Variablen wie die Art der Iris kann man noch weitere Information aus einem paarweisen Scatterplot holen, in dem man die Kategorien als Farben nutzt. Zusätzlich kann man dann auch noch Densityplots pro Kategorie auf der Diagonalen anzeigen.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;Species&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">target</span>
 <span class="n">iris_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;Species&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Species&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Setosa&#39;</span>
@@ -1182,6 +1187,81 @@ AUTOCLASS II
 <div><p><strong>Bemerkung:</strong>
 Selbstverständlich kann man auch andere Farben zur Darstellung der Korrelationskoeffizienten nutzen. Wichtig ist jedoch, dass man eine Farbskala wählt, bei der man die stärke der Korrelation gut erkennen kann und man gut zwischen positiver und negative Korrelation unterscheiden kann. Das bedeutet insbesondere auch, dass man Werte in der nähe von 0 gut erkennt.</p>
 </div></blockquote>
+</div>
+<div class="section" id="zeitliche-trends">
+<h3><span class="section-number">3.3.4. </span>Zeitliche Trends<a class="headerlink" href="#zeitliche-trends" title="Permalink to this headline">¶</a></h3>
+<p>Die bisherigen Visualisierungen sind alle davon ausgegangen, dass die einzelnen Datenpunkte nicht direkt miteinerander zusammenhängen. Häufig gibt es jedoch Zusammenhänge, insbesondere bei Daten, die über einen gewissen Zeitraum erfasst worden sind. Als Beispiel betrachten wir jetzt Fluggastdaten einer US Airline aus den Jahren 1940 bis 1960. Die Werte geben die monatliche Anzahl von Passagieren an.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>head data/AirPassengers.csv
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Month,#Passengers
+1949-01,112
+1949-02,118
+1949-03,132
+1949-04,129
+1949-05,121
+1949-06,135
+1949-07,148
+1949-08,148
+1949-09,136
+</pre></div>
+</div>
+</div>
+</div>
+<p>Sie könnten auch solche Daten einfach unabhängig von der Zeit betrachten, zum Beispiel als Histogramm.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">air_passengers_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/AirPassengers.csv&quot;</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">parse_dates</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Month&#39;</span><span class="p">,</span> <span class="s1">&#39;Passengers&#39;</span><span class="p">],</span> <span class="n">index_col</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">squeeze</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">air_passengers_df</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Passagiere&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Anzahl&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_03_55_0.png" src="../_images/kapitel_03_55_0.png" />
+</div>
+</div>
+<p>Es ist nicht so, dass Histogramme bei über die Zeit verteilten Daten keine Informationen liefern würden. Man erkennt das es maximal 600 Passagiere in einem Monat gab und das es circa 20 Monate mit 100-150, 150-200, …, 300-350 Passagieren gab. Was man jedoch nicht erkennt ist wie die sich Passigierzahlen mit der Zeit entwickelt haben. Hier könnten wir uns uns zum Beispiel einfach einen Scatterplot betrachten, wo die y-Achse die Passagierzahlen und die x-Achse die Monate anzeigt.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">air_passengers_df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Scatterplot der Passigierzahlen über die Zeit&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Zeit&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Passagiere&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_03_57_0.png" src="../_images/kapitel_03_57_0.png" />
+</div>
+</div>
+<p>In diesem Scatterplot erkennt man den zeitlichen Verlauf der Daten. Man sieht einen klaren Trend der Zeigt das die Passigierzahlen mit der Zeit steigen. Wie sich die Passagierzahlen von Monat zu Monat verändern erkennt man jedoch nicht ohne weiteres. Hierfür müssen wir - im wahrsten Sinne des Wortes - die Punkte miteinander verbinden, um einen <em>Lineplot</em> zu erhalten.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">air_passengers_df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Linienplot der Passigierzahlen über die Zeit&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Zeit&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Passagiere&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_03_59_0.png" src="../_images/kapitel_03_59_0.png" />
+</div>
+</div>
+<p>Im Liniendiagram können wir jetzt sowohl den Trend, als auch die Veränderungen von Monat zu Monat sehen. Man sieht auch ein Muster, welches sich Jährlich wiederholt.</p>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
 <dt class="label" id="jupyterformat"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
