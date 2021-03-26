@@ -1,0 +1,707 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5. Assoziationsregeln &#8212; Einführung in Data Science</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Übung 1" href="../exercises/uebung_01.html" />
+    <link rel="prev" title="4. Allgemeines zur Datenanalyse" href="kapitel_04.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Einführung in Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../vorwort.html">
+   Vorwort
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Kapitel
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_01.html">
+   1. Big Data und Data Science
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_02.html">
+   2. Der Prozess von Data Science Projekten
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_03.html">
+   3. Erkunden der Daten
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_04.html">
+   4. Allgemeines zur Datenanalyse
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   5. Assoziationsregeln
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Übungen
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../exercises/uebung_01.html">
+   Übung 1
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/chapters/kapitel_05.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/sherbold/einfuehrung-in-data-science"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/sherbold/einfuehrung-in-data-science/main?urlpath=tree/content/chapters/kapitel_05.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#uberblick">
+   5.1. Überblick
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#der-apriori-algorithmus">
+   5.2. Der Apriori-Algorithmus
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#support-und-frequent-itemsets">
+     5.2.1. Support und Frequent Itemsets
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ableiten-von-regeln">
+     5.2.2. Ableiten von Regeln
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#confidence-lift-und-leverage">
+     5.2.3. Confidence, Lift, und Leverage
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="assoziationsregeln">
+<h1><span class="section-number">5. </span>Assoziationsregeln<a class="headerlink" href="#assoziationsregeln" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="uberblick">
+<h2><span class="section-number">5.1. </span>Überblick<a class="headerlink" href="#uberblick" title="Permalink to this headline">¶</a></h2>
+<p>Assoziationen sind Beziehungen zwischen Objekten. Die Idee von Assoziationsregeln es also diese Beziehungen durch Regel zu beschreiben, mit dem Ziel zu Wissen welche weiteren Objekte zu den bisherigen Objekten passen. Bei den Assoziationsregeln spricht man statt von Objekten in der Regeln von <em>Gegenständen</em> (engl. <em>items</em>). Das Standardbeispiel für Assoziationsregeln ist die Analyse von Warenkörben und Einkäufen. Ein Kunde fügt Produkte (Gegenstände) dem Warenkorb hinzu. Sobald der Warenkorb nicht mehr leer ist, kann man den Inhalt nutzen um Assoziationen zu weiteren Produkten, die für den Kunden von Interesse herzustellen. Diese können dem Kunden dann zum Beispiel als Werbung vorgeschlagen werden.</p>
+<div class="figure align-default" id="fig-asm-example">
+<a class="reference internal image-reference" href="../_images/associationsrules_general_german.png"><img alt="../_images/associationsrules_general_german.png" src="../_images/associationsrules_general_german.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 5.1 </span><span class="caption-text">Warenkörbe als Beispiel für Assoziationen.</span><a class="headerlink" href="#fig-asm-example" title="Permalink to this image">¶</a></p>
+</div>
+<p>In diesem Beispiel sind die Assoziationen definiert als “Produkte, die von Kunden gleichzeitig gekauft werden”. Wenn man dies generalisiert hat man <em>Transaktionen</em>, wobei jede Transaktion eine Beobachtung von gemeinsam verarbeiteten Gegenständen ist. Mit Hilfe von <em>Assoziationsanalyse</em> werden Assoziationsregeln aus den Transaktionen gelernt.</p>
+<div class="figure align-default" id="fig-asm-concept">
+<a class="reference internal image-reference" href="../_images/associationsrules_abstract_german.png"><img alt="../_images/associationsrules_abstract_german.png" src="../_images/associationsrules_abstract_german.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 5.2 </span><span class="caption-text">Konzept von Assoziationsanalyse.</span><a class="headerlink" href="#fig-asm-concept" title="Permalink to this image">¶</a></p>
+</div>
+<p>Die Assoziationsregeln sollte “interesante” Beziehungen beschreiben. Die Definition von interesant hängt vom Anwendungsfall ab. Im obigen Beispiel sind Beziehungen interesant, die Beschreiben was Kunden bewusst zusammen kaufen. Wir können die Assoziationsanalyse auch formal definieren. Gegeben ist eine Menge von Gegenständen, auch <em>Itemsets</em> gennant, definiert als <span class="math notranslate nohighlight">\(I = \{i_1, ..., i_m\}\)</span> und  sowie eine Menge von Transaktionen <span class="math notranslate nohighlight">\(T = \{t_1, ..., t_n\}\)</span>, wobei Transaktion eine Teilmenge von Gegenständen beinhaltet, also <span class="math notranslate nohighlight">\(t_j \subseteq I, j=1, ..., n\)</span>. Assoziationsregeln sind logische Ausdrücke der Form <span class="math notranslate nohighlight">\(X \Rightarrow Y\)</span>, wobei <span class="math notranslate nohighlight">\(X\)</span> und <span class="math notranslate nohighlight">\(Y\)</span> disjunkte Teilmengen von Gegenständen sind, d.h., es gilt <span class="math notranslate nohighlight">\(X, Y \subseteq I\)</span> und <span class="math notranslate nohighlight">\(X \cap Y = \emptyset\)</span>. Man nennt <span class="math notranslate nohighlight">\(X\)</span> auch <em>Bedingung</em> (engl. <em>antecedent</em>) oder linke Seite der Regel und <span class="math notranslate nohighlight">\(Y\)</span> auch <em>Folgerung</em> (engl. <em>consequent</em>) oder rechte Seite der Regel.</p>
+<blockquote>
+<div><p><strong>Bemerkung:</strong></p>
+<p>Ihnen ist möglicherweise aufgefallen, dass wir bisher keine Merkmale benannt haben, sondern stattdessen von Gegenständen gesprochen haben. Außerdem gibt es auch keine Instanzen, sondern Transaktionen. Hierfür gibt es zwei Gründe: Zum einen ist das die übliche Terminologie der Assoziationsanalyse. Zum zweiten gibt es keine echten Merkmale, da jedes Objekt von seiner Identität identifiziert wird.</p>
+</div></blockquote>
+<p>Das Ziel der Assoziationsanalyse ist es gute Assoziationsregeln zu finden, basierend auf einer Menge von Transaktionene. Eine generische definition von “interesante Beziehung” ist, das man Gegenstände, die man häufig zusammen in Transaktionen beobachtet. Hier ist ein Beispiel mit zehn Transaktionen.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we define each transaction as a list</span>
+<span class="c1"># a set of transactions is a list of lists</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;item1&#39;</span><span class="p">,</span> <span class="s1">&#39;item2&#39;</span><span class="p">,</span> <span class="s1">&#39;item3&#39;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;item2&#39;</span><span class="p">,</span> <span class="s1">&#39;item4&#39;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;item1&#39;</span><span class="p">,</span> <span class="s1">&#39;item5&#39;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;item6&#39;</span><span class="p">,</span> <span class="s1">&#39;item7&#39;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;item2&#39;</span><span class="p">,</span> <span class="s1">&#39;item3&#39;</span><span class="p">,</span> <span class="s1">&#39;item4&#39;</span><span class="p">,</span> <span class="s1">&#39;item7&#39;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;item2&#39;</span><span class="p">,</span> <span class="s1">&#39;item3&#39;</span><span class="p">,</span> <span class="s1">&#39;item4&#39;</span><span class="p">,</span> <span class="s1">&#39;item8&#39;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;item2&#39;</span><span class="p">,</span> <span class="s1">&#39;item4&#39;</span><span class="p">,</span> <span class="s1">&#39;item5&#39;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;item2&#39;</span><span class="p">,</span> <span class="s1">&#39;item3&#39;</span><span class="p">,</span> <span class="s1">&#39;item4&#39;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;item4&#39;</span><span class="p">,</span> <span class="s1">&#39;item5&#39;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;item6&#39;</span><span class="p">,</span> <span class="s1">&#39;item7&#39;</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Transaktionen (eine pro Zeile):&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">data</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Transaktionen (eine pro Zeile):
+[&#39;item1&#39;, &#39;item2&#39;, &#39;item3&#39;]
+[&#39;item2&#39;, &#39;item4&#39;]
+[&#39;item1&#39;, &#39;item5&#39;]
+[&#39;item6&#39;, &#39;item7&#39;]
+[&#39;item2&#39;, &#39;item3&#39;, &#39;item4&#39;, &#39;item7&#39;]
+[&#39;item2&#39;, &#39;item3&#39;, &#39;item4&#39;, &#39;item8&#39;]
+[&#39;item2&#39;, &#39;item4&#39;, &#39;item5&#39;]
+[&#39;item2&#39;, &#39;item3&#39;, &#39;item4&#39;]
+[&#39;item4&#39;, &#39;item5&#39;]
+[&#39;item6&#39;, &#39;item7&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>In diesem Beispiel tauchen die Gegenstände item2, item3 und item4 oft zusammen auf, was auf eine interesante Beziehung hindeutet. Im folgenden erklären wir wie man effizient solche Beziehungen findet, hieraus Regeln erstellt und die Güte der Regeln bewertet.</p>
+</div>
+<div class="section" id="der-apriori-algorithmus">
+<h2><span class="section-number">5.2. </span>Der Apriori-Algorithmus<a class="headerlink" href="#der-apriori-algorithmus" title="Permalink to this headline">¶</a></h2>
+<p>Der Apriori-Algorithmus ist ein vom prinzip sehr einfacher, aber denoch mächtiger Algorithmus um Assoziation in Daten zu suchen.</p>
+<div class="section" id="support-und-frequent-itemsets">
+<h3><span class="section-number">5.2.1. </span>Support und Frequent Itemsets<a class="headerlink" href="#support-und-frequent-itemsets" title="Permalink to this headline">¶</a></h3>
+<p>Der Apriori-Algorithmus basiert auf dem Konzept des <em>Support</em> von Itemsets <span class="math notranslate nohighlight">\(IS \subseteq I\)</span>. Der Support eines Itemsets <span class="math notranslate nohighlight">\(IS\)</span> ist definiert als der Anteil der Transaktionen, in denen alle Gegenstände des Itemsets vorkommen. Es gilt also</p>
+<div class="math notranslate nohighlight">
+\[support(IS) = \frac{|\{t \in T: IS \subseteq t\}|}{|T|}.\]</div>
+<p>Der Support ist sehr ähnlich zur generischen Definition von “interesanten Beziehungen” die wir weiter oben benutzt haben, da der Support ein Maß für die Häufigkeit ist, mit der Kombinationen von Gegenständen auftauchen. Entsprechend kann man den Support als indirektes Maß für die Interessantheit sehen. Was noch fehlt ist ein Mindestmaß an Interesantheit, so dass eine Kombination von Gegenständen relevant genug ist um diese als Grundlage für Assoziationsregeln zu nutzen. Es ist nur logisch, dass man hierfür einen Grenzwert für den Support festlegt: ist dieser Grenzwert überschritten, ist ein Itemset interessant und wir sprechen von einem <em>Frequent Itemset</em>. Formal nennen wir ein Itemset <span class="math notranslate nohighlight">\(IS\)</span>  <em>frequent</em>, wenn <span class="math notranslate nohighlight">\(support(IS) \geq minsupp\)</span> für einen Grenzwert <span class="math notranslate nohighlight">\(minsupp \in [0,1]\)</span>.</p>
+<p>Im obigen Beispiel hat das Itemset der Gegenstände item2, item3 und item4 eine Support von</p>
+<p><span class="math notranslate nohighlight">\(support(\{item2, item3, item4\}) = \frac{3}{10}\)</span>,</p>
+<p>da alle drei Gegenstände zusammen in drei von zehn Transaktion vorkommen. Wenn wir also <span class="math notranslate nohighlight">\(minsupp=0.3\)</span> wählen, wäre das Itemset <span class="math notranslate nohighlight">\(\{item2, item3, item4\}\)</span> ein Frequent Itemset. Insgesamt finden wir mit diesem Grenzwert die folgenden Frequent Itemsets.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we need pandas and mlxtend for the association rules</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">mlxtend.frequent_patterns</span> <span class="kn">import</span> <span class="n">apriori</span>
+<span class="kn">from</span> <span class="nn">mlxtend.preprocessing</span> <span class="kn">import</span> <span class="n">TransactionEncoder</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.latex.repr&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># we first need to create a one-hot encoding of our transactions</span>
+<span class="n">te</span> <span class="o">=</span> <span class="n">TransactionEncoder</span><span class="p">()</span>
+<span class="n">te_ary</span> <span class="o">=</span> <span class="n">te</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">data_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">te_ary</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">te</span><span class="o">.</span><span class="n">columns_</span><span class="p">)</span>
+
+<span class="c1"># we can the use this function to determine all itemsets with at least 0.3 support</span>
+<span class="c1"># what apriori is will be explained later</span>
+<span class="n">frequent_itemsets</span> <span class="o">=</span> <span class="n">apriori</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data_df</span><span class="p">),</span> <span class="n">min_support</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">use_colnames</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">frequent_itemsets</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>support</th>
+      <th>itemsets</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.6</td>
+      <td>(item2)</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.4</td>
+      <td>(item3)</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.6</td>
+      <td>(item4)</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.3</td>
+      <td>(item5)</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.3</td>
+      <td>(item7)</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.4</td>
+      <td>(item2, item3)</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0.5</td>
+      <td>(item2, item4)</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0.3</td>
+      <td>(item3, item4)</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>0.3</td>
+      <td>(item2, item3, item4)</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="ableiten-von-regeln">
+<h3><span class="section-number">5.2.2. </span>Ableiten von Regeln<a class="headerlink" href="#ableiten-von-regeln" title="Permalink to this headline">¶</a></h3>
+<p>Ein Frequent Itemset ist noch keine Assoziationsregel, da es weder eine Bedingung <span class="math notranslate nohighlight">\(X\)</span> noch eine Folgerung <span class="math notranslate nohighlight">\(Y\)</span> aus denen eine Regel <span class="math notranslate nohighlight">\(X \Rightarrow Y\)</span> entsteht. Man kann jedoch relativ einfach solche Regeln aus den Frequent Itemsets ableiten. Hierzu betrachtet man alle möglichen Partionierungen eines Frequent Itemsets, also alle Kombinationen <span class="math notranslate nohighlight">\(X, Y \subset IS\)</span>, so dass <span class="math notranslate nohighlight">\(X \cup Y = IS\)</span> (jeder Gegenstand kommt in X oder Y vor) und <span class="math notranslate nohighlight">\(X \cap Y = \emptyset\)</span> (kein Gegenstand kommt in X und Y vor).</p>
+<p>Im unserem Beispiel können wir acht Regeln aus dem Itemset <span class="math notranslate nohighlight">\(\{item2, item3, item4\}\)</span> ableiten.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mlxtend.frequent_patterns</span> <span class="kn">import</span> <span class="n">association_rules</span>
+
+<span class="n">association_rules</span><span class="p">(</span><span class="n">frequent_itemsets</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">8</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span> <span class="p">:],</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;confidence&quot;</span><span class="p">,</span>
+                  <span class="n">min_threshold</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">support_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)[[</span><span class="s1">&#39;antecedents&#39;</span><span class="p">,</span> <span class="s1">&#39;consequents&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>antecedents</th>
+      <th>consequents</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>(item2, item3)</td>
+      <td>(item4)</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>(item2, item4)</td>
+      <td>(item3)</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>(item3, item4)</td>
+      <td>(item2)</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>(item2)</td>
+      <td>(item3, item4)</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>(item3)</td>
+      <td>(item2, item4)</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>(item4)</td>
+      <td>(item2, item3)</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Es gibt noch zwei weitere Regeln, wenn wir die leere Menge als Bedingung oder Folgerung zulassen:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\emptyset \Rightarrow \{item2, item3, item4\}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\{item2, item3, item4\} \Rightarrow \emptyset\)</span></p></li>
+</ul>
+<p>Diese Regeln erlauben aber keine bedeutenden Einblicke, so dass wir sie ignorieren können.</p>
+</div>
+<div class="section" id="confidence-lift-und-leverage">
+<h3><span class="section-number">5.2.3. </span>Confidence, Lift, und Leverage<a class="headerlink" href="#confidence-lift-und-leverage" title="Permalink to this headline">¶</a></h3>
+<p>Eine noch ungeklärte Frage ist wie wir erkennen welche der Regeln gut sind, oder ob alle Regeln die man aus einem Frequent Itemset ableitet gleich gut sind. Am Beispiel der leeren Menge sieht man recht schnell, dass vermutlich nicht alle Regeln gleich gut sind. Was wir brauchen sind Gütemaße, die es uns erlaubten zwischen bedeutungsvollen Assoziatonen und zufälligen Effekten zu unterscheiden. Hierfür ist der Support nicht ausreichend. Stellen Sie sich zum Beispiel vor, das es etwas Gratis gibt. Diese Gratisproduke werden häufig einfach “mitgenommen” und landen entsprechend oft im Warenkorb und später dann in unseren Transaktionen. Diese Gratisprodukte haben einen hohen Support und sind mit hoher Wahrscheinlichkeit ein Teil vieler Frequent Itemsets. Die Gratisprodukte sind aber nicht mit dem Rest von Einkauf assoziiert, die Beziehung ist also zufällig. Eine weitere schwäche des Supports ist das dieser nicht von der Regel abhängt, insbesondere ist der Support einer Regel <span class="math notranslate nohighlight">\(X \Rightarrow Y\)</span> immer gleich der Regel <span class="math notranslate nohighlight">\(Y \Rightarrow X\)</span> in der einfach Bedingung und Folgerung vertauscht sind. Da aber kausale zusammenhänge häufig eine Richtung haben, macht diese symmetrie in vielen Fällen keine Sinn. Es macht zum Beispiel durchaus Sinn, einem Kunden der eine Spielekonsole in den Warenkorb legt, ein Spiel für diese Konsole vorzuschlagen. Wenn jemand aber ein Spiel in den Warenkorb legt, ist die Konsole im normalfall bereits vorhanden, und es würde keinen Sinn machen diese vorzuschlagen.</p>
+<p>Die Maße <em>Confidence</em>, <em>Lift</em>, und <em>Leverage</em> helfen dabei zu erkennen ob Regeln zufällig sind oder ob es sich um sinnvolle Assoziationen handelt. Die Confidence ist definiert als</p>
+<div class="math notranslate nohighlight">
+\[confidence(X \Rightarrow Y) = \frac{support(X \cup Y)}{support(X)}.\]</div>
+<p>Es handelt sich bei der Confidence also um das Verhältnis die Bedindung <span class="math notranslate nohighlight">\(X\)</span> und Folgerung <span class="math notranslate nohighlight">\(Y\)</span> zusammen in einer Transaktion zu der Beobachtung von nur der Bedingung <span class="math notranslate nohighlight">\(X\)</span>. Eine hohe Confidenz deutet drauf hin, dass Bedindung selten ohne die Folgerung zu beobachten ist, was auf einen starken Zusammenhang hindeutet.</p>
+<p>Der Lift ist definiert als</p>
+<div class="math notranslate nohighlight">
+\[lift(X \Rightarrow Y) = \frac{support(X \cup Y)}{support(X) \cdot support(Y)}.\]</div>
+<p>Der Lift misst das Verhältnis der Erwartung das die Bedingung <span class="math notranslate nohighlight">\(X\)</span> und die Folgerung <span class="math notranslate nohighlight">\(Y\)</span> zusammen zu beobachten im Verhältnis zur Erwartung das <span class="math notranslate nohighlight">\(X\)</span> und <span class="math notranslate nohighlight">\(Y\)</span> unabhängig voneinander auftauchen. Der Support kann nämlich auch einfach als Schätzer für die den Erwartungswert ein Itemset zu beobachten eines Itemsets interpretiert werden. Daher ist <span class="math notranslate nohighlight">\(support(X \cup Y)\)</span> ist nichts anderes als der Erwartungswert von <span class="math notranslate nohighlight">\(X\)</span> und <span class="math notranslate nohighlight">\(Y\)</span> zusammen und <span class="math notranslate nohighlight">\(support(X) \cdot support(Y)\)</span> der Erwartungswert unter der Annahme das <span class="math notranslate nohighlight">\(X\)</span> und <span class="math notranslate nohighlight">\(Y\)</span> unabhängig voneinander sind. Unabhängigkeit ist das direkte gegenteil von assoziiert. Es folgt daraus das der Lift misst, wie viel wahrscheinlicher es ist, das die Teile einer Regel <span class="math notranslate nohighlight">\(X\)</span> und <span class="math notranslate nohighlight">\(Y\)</span> in irgendeiner weise von einander abhängen, als das diese unabhängig sind. Ein Lift von 2 bedeutet also, dass es doppelt so wahrscheinlich ist, dass es eine assoziation gibt, wie das es keine gibt.</p>
+<p>Der Leverage ist definiert als</p>
+<div class="math notranslate nohighlight">
+\[leverage(X \Rightarrow Y) = support(X \cup Y) - support(X) \cdot support(Y).\]</div>
+<p>Diese Definition ist ähnlich zum Lift, nur dass die Differenz statt dem Verhältnis betrachtet wird. Entsprechend sind sich Lift und Leverage sehr ähnlich. Der unterschied ist, das Leverage tendenziell höhere Werte für Itemsets mit einem hohen Support liefert.</p>
+<p>Um Confidence, Lift und Leverage besser zu verstehen, betrachten wir diese nun am Beispiel der Regeln, die wir aus dem Itemset <span class="math notranslate nohighlight">\(\{item2, item3, item4\}\)</span> ableiten können.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># all rules for our data</span>
+<span class="c1"># we drop the column conviction, because this metric is not covered here</span>
+<span class="c1"># we also drop all rules from other itemsets than above. </span>
+<span class="n">association_rules</span><span class="p">(</span><span class="n">frequent_itemsets</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;confidence&quot;</span><span class="p">,</span>
+                  <span class="n">min_threshold</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;conviction&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[</span><span class="mi">6</span><span class="p">:]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>antecedents</th>
+      <th>consequents</th>
+      <th>antecedent support</th>
+      <th>consequent support</th>
+      <th>support</th>
+      <th>confidence</th>
+      <th>lift</th>
+      <th>leverage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>(item2, item3)</td>
+      <td>(item4)</td>
+      <td>0.4</td>
+      <td>0.6</td>
+      <td>0.3</td>
+      <td>0.75</td>
+      <td>1.250000</td>
+      <td>0.06</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>(item2, item4)</td>
+      <td>(item3)</td>
+      <td>0.5</td>
+      <td>0.4</td>
+      <td>0.3</td>
+      <td>0.60</td>
+      <td>1.500000</td>
+      <td>0.10</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>(item3, item4)</td>
+      <td>(item2)</td>
+      <td>0.3</td>
+      <td>0.6</td>
+      <td>0.3</td>
+      <td>1.00</td>
+      <td>1.666667</td>
+      <td>0.12</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>(item2)</td>
+      <td>(item3, item4)</td>
+      <td>0.6</td>
+      <td>0.3</td>
+      <td>0.3</td>
+      <td>0.50</td>
+      <td>1.666667</td>
+      <td>0.12</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>(item3)</td>
+      <td>(item2, item4)</td>
+      <td>0.4</td>
+      <td>0.5</td>
+      <td>0.3</td>
+      <td>0.75</td>
+      <td>1.500000</td>
+      <td>0.10</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>(item4)</td>
+      <td>(item2, item3)</td>
+      <td>0.6</td>
+      <td>0.4</td>
+      <td>0.3</td>
+      <td>0.50</td>
+      <td>1.250000</td>
+      <td>0.06</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Basierend auf den Metriken schneidet die Regel <span class="math notranslate nohighlight">\(\{item3, item4\} \Rightarrow \{item2\}\)</span> klar am besten ab. Diese Regel hat eine perfekte Confidence fon 1, was nichts anderes bedeutet das item2 in jeder Transaktion vorkommt, in denen item3 und item 4 zusammen vorkommen. Der Lift von 1,66 bedeutet, dass dieses gemeinsame Auftreten 1,66-mal Wahrscheinlicher ist, als es sich durch eine zufällige Beziehung erklären liese. Hier sieht man auch den Unterschied zur Regel  <span class="math notranslate nohighlight">\(\{item2\} \Rightarrow \{item3, item4\}\)</span>, also die Regel, die wir bekommen wenn wir Bedingung und Folgerung vertauschen. Diese Regel hat zwar den gleichen Lift (und Leverage), die Confidence ist jedoch nur 0,5. Das bedeutet das item2 genauso häufig alleine vorkommt, wie mit item3 und item4 zusammen. Während also die Regel <span class="math notranslate nohighlight">\(\{item3, item4\} \Rightarrow \{item2\}\)</span> vermutlich fast jedes mal richtig ist, ist die Regel <span class="math notranslate nohighlight">\(\{item2\} \Rightarrow \{item3, item4\}\)</span> in ca. der hälfte der Fälle falsch.</p>
+<p>Das Bespiel zeigt auch die grundlegenden Eigenschaften der drei Maße: Während Lift und Leverage sind symmetrisch, genauso wie der Support. Die Confidence ist das einzige Gütemaße, welches berücksichtigt welcher Teil einer Regel die Bedingung und welcher Teil die Folgerung ist, also das einzige Maß welches die Kausalität berücksichtigt. Daher sollte man die Confidence immer bei der Bewertung von Regeln benutzen. Da Lift und Leverage sich sehr ähnlich verhalten, reicht es in der Regel nur eines der beiden maße zu verwenden. Legt man mehr Wert auf Regeln, die aus Itemsets mit hohem Support gewonnen werden ist Leverage besser, ansonsten sollte man Lift wählen. Der Grund hierfür ist, das es für Lift eine direkt Interpretation gibt, also wie viel wahrscheinlicher etwas ist als es sich durch den reinen Zufall erklären lässt.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapters"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="kapitel_04.html" title="previous page"><span class="section-number">4. </span>Allgemeines zur Datenanalyse</a>
+    <a class='right-next' id="next-link" href="../exercises/uebung_01.html" title="next page">Übung 1</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Steffen Herbold<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
