@@ -263,7 +263,27 @@
      5.2.3. Confidence, Lift, und Leverage
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exponentielles-wachstum">
+     5.2.4. Exponentielles Wachstum
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#die-apriori-eigenschaft">
+     5.2.5. Die Apriori-Eigenschaft
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#einschrankugen-fur-regeln">
+     5.2.6. Einschränkugen für Regeln
+    </a>
+   </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bewertung-von-assoziationsregeln">
+   5.3. Bewertung von Assoziationsregeln
+  </a>
  </li>
 </ul>
 
@@ -647,6 +667,179 @@
 <p>Basierend auf den Metriken schneidet die Regel <span class="math notranslate nohighlight">\(\{item3, item4\} \Rightarrow \{item2\}\)</span> klar am besten ab. Diese Regel hat eine perfekte Confidence fon 1, was nichts anderes bedeutet das item2 in jeder Transaktion vorkommt, in denen item3 und item 4 zusammen vorkommen. Der Lift von 1,66 bedeutet, dass dieses gemeinsame Auftreten 1,66-mal Wahrscheinlicher ist, als es sich durch eine zufällige Beziehung erklären liese. Hier sieht man auch den Unterschied zur Regel  <span class="math notranslate nohighlight">\(\{item2\} \Rightarrow \{item3, item4\}\)</span>, also die Regel, die wir bekommen wenn wir Bedingung und Folgerung vertauschen. Diese Regel hat zwar den gleichen Lift (und Leverage), die Confidence ist jedoch nur 0,5. Das bedeutet das item2 genauso häufig alleine vorkommt, wie mit item3 und item4 zusammen. Während also die Regel <span class="math notranslate nohighlight">\(\{item3, item4\} \Rightarrow \{item2\}\)</span> vermutlich fast jedes mal richtig ist, ist die Regel <span class="math notranslate nohighlight">\(\{item2\} \Rightarrow \{item3, item4\}\)</span> in ca. der hälfte der Fälle falsch.</p>
 <p>Das Bespiel zeigt auch die grundlegenden Eigenschaften der drei Maße: Während Lift und Leverage sind symmetrisch, genauso wie der Support. Die Confidence ist das einzige Gütemaße, welches berücksichtigt welcher Teil einer Regel die Bedingung und welcher Teil die Folgerung ist, also das einzige Maß welches die Kausalität berücksichtigt. Daher sollte man die Confidence immer bei der Bewertung von Regeln benutzen. Da Lift und Leverage sich sehr ähnlich verhalten, reicht es in der Regel nur eines der beiden maße zu verwenden. Legt man mehr Wert auf Regeln, die aus Itemsets mit hohem Support gewonnen werden ist Leverage besser, ansonsten sollte man Lift wählen. Der Grund hierfür ist, das es für Lift eine direkt Interpretation gibt, also wie viel wahrscheinlicher etwas ist als es sich durch den reinen Zufall erklären lässt.</p>
 </div>
+<div class="section" id="exponentielles-wachstum">
+<h3><span class="section-number">5.2.4. </span>Exponentielles Wachstum<a class="headerlink" href="#exponentielles-wachstum" title="Permalink to this headline">¶</a></h3>
+<p>Oben haben wir gezeigt, wie wir Assoziationsregeln bestimmen können: Wir müssen die Frequent Itemsets finden aus denen wir dann Regeln ableiten können. Das finden von Frequent Itemsets ist jedoch leider nicht trivial. Das Problem ist das exponentielle Wachstum mit der Anzahl von Gegenständen. Die Anzahl von möglichen Itemsets ist die Potenzmenge <span class="math notranslate nohighlight">\(\mathcal{P}\)</span> von <span class="math notranslate nohighlight">\(I\)</span>, also die Menge aller möglichen Kombinationen von Gegenständen. Daher gibt es <span class="math notranslate nohighlight">\(\mathcal{P}(I)=2^{|I|}\)</span> Itemsets. Es ist aber gar nicht Sinnvoll, beliebig lange Kombinationen von Gegenständen zu betrachten. Zu lange Regeln würden bedeuten, dass man diese nur in wenigen Fällen anwenden kann. Daher ist man häufig nur an relativ kurzen Regeln interesiert. Leider ist das Wachstum auch mit einer beschränkten Anzahl von Gegenständen in Itemsets noch exponentiell. Hierzu können wir den Binomialkoeffizienten</p>
+<div class="math notranslate nohighlight">
+\[{|I| \choose k} = \frac{|I|!}{(|I|-k)!k!}\]</div>
+<p>nutzen um die Anzahl der Itemsets der Größe <span class="math notranslate nohighlight">\(k\)</span> zu berechnen. Wenn wir zum Beispiel <span class="math notranslate nohighlight">\(|I|=100\)</span> Gegenstände haben, gibt es 161.700 Itemsets der Größe <span class="math notranslate nohighlight">\(k=3\)</span>. Aus jedem dieser Itemsets können wir sechs Regeln ableiten, ohne das die Bedingung oder Folgerung die leere Menge sind, es gibt also 970.200 mögliche Regeln.</p>
+<p>Es ist also nicht möglich, einfach alle Itemsets zu Berechnen und erst anschließend die Frequent Itemsets zu bestimmen. Wir brauchen stattdessen einen Algorithmus, der die exponentielle Natur des Problems beschränkt und der schonend mit den vorhandenen Resourcen umgeht, da sonst schnell die Speicher ausgeht oder die Rechenzeit zum Bestimmen der Frequent Itemsets zu lang wird.</p>
+</div>
+<div class="section" id="die-apriori-eigenschaft">
+<h3><span class="section-number">5.2.5. </span>Die Apriori-Eigenschaft<a class="headerlink" href="#die-apriori-eigenschaft" title="Permalink to this headline">¶</a></h3>
+<p>Die Apriori-Eigenschaft verleiht dem Algorithmus seinen Namen.</p>
+<blockquote>
+<div><p><strong>Apiori-Eigenschaft</strong></p>
+<p>Sei <span class="math notranslate nohighlight">\(IS \subseteq I\)</span> ein Frequent Itemset. Alle Teilmengen <span class="math notranslate nohighlight">\(IS' \subseteq IS\)</span> sind auch Frequent Itemsets und es gilt <span class="math notranslate nohighlight">\(support(IS') \geq support(IS)\)</span>.</p>
+</div></blockquote>
+<p>Wir können die Apriori-Eigenschaft nutzen um gezielt nach Frequent Itemsets zu suchen und damit den Suchraum zu beschränken. Anstatt alle Itemsets zu berechnen und dann zu überprüfen, ob es Frequent Itemsets sind, lassen wir die Frequent Itemsets wachsen. Da alle Teilmenge eines Frequent Itemsets ebenfalls Frequent Itemsets sind, wissen wir auch das ein Itemsets, welches eine Teilmenge hat die kein Frequent Itemsets ist, kein Frequent Itemset sein kann. Basierend auf dieser Beobachtung kriegen können wir folgenden Algorithmus definieren:</p>
+<ol class="simple">
+<li><p>Berechne den Support für alle Itemsets der Größe <span class="math notranslate nohighlight">\(k=1\)</span>.</p></li>
+<li><p>Entferne alle Itemsets, die nicht den minimalen Support haben, so dass nur Frequent Itemsets übrig sind.</p></li>
+<li><p>Erstelle alle möglichen Kombinationen der Größe <span class="math notranslate nohighlight">\(k+1\)</span> aus den Frequent Itemsets der Größe <span class="math notranslate nohighlight">\(k\)</span>.</p></li>
+<li><p>Setze <span class="math notranslate nohighlight">\(k=k+1\)</span> und wiederhole die Schritte 2 und 3 bis</p>
+<ul class="simple">
+<li><p>Es keine Itemsets der Größe <span class="math notranslate nohighlight">\(k+1\)</span> gibt.</p></li>
+<li><p>Ein Grenzwert für <span class="math notranslate nohighlight">\(k\)</span> erreicht ist, also die maximale Länge von Itemsets.</p></li>
+</ul>
+</li>
+</ol>
+<p>Wir lassen also die Frequent Itemsets Stück für Stück wachsen und ignorieren alle Itemsets bei der Überprüfung ob sie Frequent sind, die nicht die Apriori-Eigenschaft erfüllen. Dieser Algorithmus ist immernoch exponentiell. Es könnten zum Beispiel alle Transaktionen alle Gegenstände beinhalten. In dem Fall wären alles ein Frequent Itemsets und man hätte immernoch exponentielles Wachstum. In der Praxis passiert das jedoch sehr selten, so dass der Algorithmus in der Regel gut skalliert, sofern der Support hinreichend hoch gewählt wird.</p>
+<p>Um den Algorithmus besser zu verstehen, sehen wir uns an wie man die Frequent Itemsets für <span class="math notranslate nohighlight">\(minsupp=0.3\)</span> für unsere Beispieldaten bestimmt. Hier sind noch einmal die Daten.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Transaktionen (eine pro Zeile):&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">data</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Transaktionen (eine pro Zeile):
+[&#39;item1&#39;, &#39;item2&#39;, &#39;item3&#39;]
+[&#39;item2&#39;, &#39;item4&#39;]
+[&#39;item1&#39;, &#39;item5&#39;]
+[&#39;item6&#39;, &#39;item7&#39;]
+[&#39;item2&#39;, &#39;item3&#39;, &#39;item4&#39;, &#39;item7&#39;]
+[&#39;item2&#39;, &#39;item3&#39;, &#39;item4&#39;, &#39;item8&#39;]
+[&#39;item2&#39;, &#39;item4&#39;, &#39;item5&#39;]
+[&#39;item2&#39;, &#39;item3&#39;, &#39;item4&#39;]
+[&#39;item4&#39;, &#39;item5&#39;]
+[&#39;item6&#39;, &#39;item7&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Zuerst betrachten wir den Support der einzelnen Gegenstände:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Itemsets mit <span class="math notranslate nohighlight">\(k=1\)</span></p></th>
+<th class="head"><p>support</p></th>
+<th class="head"><p>Entfernen</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\{item1\}\)</span></p></td>
+<td><p>0.2</p></td>
+<td><p>x</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\{item2\}\)</span></p></td>
+<td><p>0.6</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\{item3\}\)</span></p></td>
+<td><p>0.4</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\{item4\}\)</span></p></td>
+<td><p>0.5</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\{item5\}\)</span></p></td>
+<td><p>0.3</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\{item6\}\)</span></p></td>
+<td><p>0.2</p></td>
+<td><p>x</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\{item7\}\)</span></p></td>
+<td><p>0.3</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\{item8\}\)</span></p></td>
+<td><p>0.1</p></td>
+<td><p>x</p></td>
+</tr>
+</tbody>
+</table>
+<p>Die die Gegenstände item1, item6 und item8 nicht den minimalen Support von 0.3 haben, können wir diese entfernen und müsse keine Itemsets der Größe <span class="math notranslate nohighlight">\(k=2\)</span> mit diesen Gegenständen betrachten. Für <span class="math notranslate nohighlight">\(k=2\)</span> haben wir also folgende Itemsets.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Itemsets mit <span class="math notranslate nohighlight">\(k=2\)</span></p></th>
+<th class="head"><p>support</p></th>
+<th class="head"><p>Entfernen</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\{item2, item3\}\)</span></p></td>
+<td><p>0.4</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\{item2, item4\}\)</span></p></td>
+<td><p>0.5</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\{item2, item5\}\)</span></p></td>
+<td><p>0.1</p></td>
+<td><p>x</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\{item2, item7\}\)</span></p></td>
+<td><p>0.1</p></td>
+<td><p>x</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\{item3, item4\}\)</span></p></td>
+<td><p>0.3</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\{item3, item5\}\)</span></p></td>
+<td><p>0.0</p></td>
+<td><p>x</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\{item3, item7\}\)</span></p></td>
+<td><p>0.1</p></td>
+<td><p>x</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\{item4, item5\}\)</span></p></td>
+<td><p>0.2</p></td>
+<td><p>x</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\{item4, item7\}\)</span></p></td>
+<td><p>0.1</p></td>
+<td><p>x</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\{item5, item7\}\)</span></p></td>
+<td><p>0.0</p></td>
+<td><p>x</p></td>
+</tr>
+</tbody>
+</table>
+<p>Wie man sieht sind die Kombinationen der Gegenstände item2, item3, und item4 in Frequent Itemsets. Alle anderen Items müssen also bei der Größe <span class="math notranslate nohighlight">\(k=3\)</span> nicht weiter betrachtet werden. Daher gibt es nur noch ein Itemset was wir noch betrachten müssen.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Itemset with <span class="math notranslate nohighlight">\(k=3\)</span></p></th>
+<th class="head"><p>support</p></th>
+<th class="head"><p>Drop</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\{item2, item3, item4\}\)</span></p></td>
+<td><p>0.3</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p>Da es keine weiteren Itemsets mit <span class="math notranslate nohighlight">\(k=4\)</span> Gegenständen gibt, sind wir fertig. Insgesamt musste der Support von <span class="math notranslate nohighlight">\(8+10+1=19\)</span> Itemsets ausgerechnet werden um alle Frequent Itemsets aus den <span class="math notranslate nohighlight">\(2^8=256\)</span> möglichen Itemsets zu finden. Wir konnten also den Aufwand um 93% reduzieren, in dem wir die Apriori-Eigenschaft ausgenutzt haben.</p>
+</div>
+<div class="section" id="einschrankugen-fur-regeln">
+<h3><span class="section-number">5.2.6. </span>Einschränkugen für Regeln<a class="headerlink" href="#einschrankugen-fur-regeln" title="Permalink to this headline">¶</a></h3>
+<p>Bisher haben wir alle möglichen Kombinationen aus Bedingung und Folgerung, die wir aus einem Itemset bilden können, betrachtet und lediglich die leere Menge wurde bisher verworfen. Für viele Anwendungsfälle ist eine weitere Einschränkung sinnvoll: Nur Regeln, deren Folgerung aus einem Gegenstand bestehen, werden betrachtet. Der Vorteil derartiger Regeln ist, dass die Grundlage für die Folgerung “besser” ist, da die Bedingung länger ist. Hierdurch ist es wahrscheinlicher, das eine Regel gut ist.</p>
+</div>
+</div>
+<div class="section" id="bewertung-von-assoziationsregeln">
+<h2><span class="section-number">5.3. </span>Bewertung von Assoziationsregeln<a class="headerlink" href="#bewertung-von-assoziationsregeln" title="Permalink to this headline">¶</a></h2>
+<p>Nachdem man Assoziationsregeln bestimmt hat, muss man im letzten Schritt ihre Güte bewerten, also ob es sich um echte Assoziationen oder um zufällige Zusammenhänge handelt. Die Gütemaße Confidence, Lift, und Leverage sind bereits ein guter erster Schritt um Regeln zu bewerten, insbesondere wenn sie gemeinsam betrachtet werden. Die Confidence beschreibt ob die Beziehung zufällig ist, weil die Bedingung oft beobachtet wird, Lift und Leverage betrachten ob die Beziehung selbst häufiger als durch den Zufall erklärbar beobachtet wird.</p>
+<p>Die Betrachtung dieser Gütemaße sollte jedoch nicht das einzige Kriterium bei der Bewertung von Regeln sein. Zum einen sollte man auch bei Assozationsregeln mit Trainings- und Testdaten arbeiten. Auf den Testdaten kann man überprüfen, ob die gleichen Regeln gefunden werden. Falls die Überschneidung groß ist, ist das ein Indikator, dass die Regeln generalisieren. Man kann auch noch einen Schritt weiter gehen und in den Testdaten zufällig Gegenstände aus Warenkörben entfernen und überprüfen, wie häufig die Regeln diese fehlenden Gegenstände richtig vorhersagen würden.</p>
+<p>Neben der Auswertung der Güte auf den Daten, sollte man die Regeln auch manuell Bewerten: Findet ein Domänenexperte die Regeln sinnvoll? Jeder, der Regelmäßig in Webshops einkauft wird sich schon das ein oder andere mal über komische Empfehlungen gewundert haben. Hier wurde in der Regel außergewöhnliches Käuferverhalten gelernt und die Regeln nicht ausreichend validiert. Durch eine manuelle Inspektion der Regeln kann man dass Ergebnis daher in der Regel verbessern und das Regelwerk filtern.</p>
 </div>
 </div>
 
