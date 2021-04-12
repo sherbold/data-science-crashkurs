@@ -11,6 +11,8 @@
   - file: chapters/kapitel_03
   - file: chapters/kapitel_04
   - file: chapters/kapitel_05
+  - file: chapters/kapitel_06
+  - file: chapters/kapitel_07
 
 - part: Übungen
   chapters:
