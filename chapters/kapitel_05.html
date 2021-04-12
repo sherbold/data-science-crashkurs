@@ -56,7 +56,7 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Übung 1" href="../exercises/uebung_01.html" />
+    <link rel="next" title="6. Clusteranalyse" href="kapitel_06.html" />
     <link rel="prev" title="4. Allgemeines zur Datenanalyse" href="kapitel_04.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -123,6 +123,16 @@
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    5. Assoziationsregeln
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_06.html">
+   6. Clusteranalyse
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_07.html">
+   7. Klassifikation
   </a>
  </li>
 </ul>
@@ -304,7 +314,7 @@
 <p>Assoziationen sind Beziehungen zwischen Objekten. Die Idee von Assoziationsregeln es also diese Beziehungen durch Regel zu beschreiben, mit dem Ziel zu Wissen welche weiteren Objekte zu den bisherigen Objekten passen. Bei den Assoziationsregeln spricht man statt von Objekten in der Regeln von <em>Gegenständen</em> (engl. <em>items</em>). Das Standardbeispiel für Assoziationsregeln ist die Analyse von Warenkörben und Einkäufen. Ein Kunde fügt Produkte (Gegenstände) dem Warenkorb hinzu. Sobald der Warenkorb nicht mehr leer ist, kann man den Inhalt nutzen um Assoziationen zu weiteren Produkten, die für den Kunden von Interesse herzustellen. Diese können dem Kunden dann zum Beispiel als Werbung vorgeschlagen werden.</p>
 <div class="figure align-default" id="fig-asm-example">
 <a class="reference internal image-reference" href="../_images/associationsrules_general_german.png"><img alt="../_images/associationsrules_general_german.png" src="../_images/associationsrules_general_german.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 5.1 </span><span class="caption-text">Warenkörbe als Beispiel für Assoziationen.</span><a class="headerlink" href="#fig-asm-example" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 5.1 </span><span class="caption-text">Warenkörbe als Beispiel</span><a class="headerlink" href="#fig-asm-example" title="Permalink to this image">¶</a></p>
 </div>
 <p>In diesem Beispiel sind die Assoziationen definiert als “Produkte, die von Kunden gleichzeitig gekauft werden”. Wenn man dies generalisiert hat man <em>Transaktionen</em>, wobei jede Transaktion eine Beobachtung von gemeinsam verarbeiteten Gegenständen ist. Mit Hilfe von <em>Assoziationsanalyse</em> werden Assoziationsregeln aus den Transaktionen gelernt.</p>
 <div class="figure align-default" id="fig-asm-concept">
@@ -839,7 +849,7 @@
 <h2><span class="section-number">5.3. </span>Bewertung von Assoziationsregeln<a class="headerlink" href="#bewertung-von-assoziationsregeln" title="Permalink to this headline">¶</a></h2>
 <p>Nachdem man Assoziationsregeln bestimmt hat, muss man im letzten Schritt ihre Güte bewerten, also ob es sich um echte Assoziationen oder um zufällige Zusammenhänge handelt. Die Gütemaße Confidence, Lift, und Leverage sind bereits ein guter erster Schritt um Regeln zu bewerten, insbesondere wenn sie gemeinsam betrachtet werden. Die Confidence beschreibt ob die Beziehung zufällig ist, weil die Bedingung oft beobachtet wird, Lift und Leverage betrachten ob die Beziehung selbst häufiger als durch den Zufall erklärbar beobachtet wird.</p>
 <p>Die Betrachtung dieser Gütemaße sollte jedoch nicht das einzige Kriterium bei der Bewertung von Regeln sein. Zum einen sollte man auch bei Assozationsregeln mit Trainings- und Testdaten arbeiten. Auf den Testdaten kann man überprüfen, ob die gleichen Regeln gefunden werden. Falls die Überschneidung groß ist, ist das ein Indikator, dass die Regeln generalisieren. Man kann auch noch einen Schritt weiter gehen und in den Testdaten zufällig Gegenstände aus Warenkörben entfernen und überprüfen, wie häufig die Regeln diese fehlenden Gegenstände richtig vorhersagen würden.</p>
-<p>Neben der Auswertung der Güte auf den Daten, sollte man die Regeln auch manuell Bewerten: Findet ein Domänenexperte die Regeln sinnvoll? Jeder, der Regelmäßig in Webshops einkauft wird sich schon das ein oder andere mal über komische Empfehlungen gewundert haben. Hier wurde in der Regel außergewöhnliches Käuferverhalten gelernt und die Regeln nicht ausreichend validiert. Durch eine manuelle Inspektion der Regeln kann man dass Ergebnis daher in der Regel verbessern und das Regelwerk filtern.</p>
+<p>Neben der Auswertung der Güte auf den Daten, sollte man die Regeln auch manuell Bewerten: Findet ein Domänenexperte die Regeln sinnvoll? Jeder, der Regelmäßig in Webshops einkauft wird sich schon das ein oder andere mal über komische Empfehlungen gewundert haben. Hier wurde in der Regel außergewöhnliches Käuferverhalten gelernt und die Regeln nicht ausreichend validiert. Durch eine manuelle Inspektion der Regeln kann man dass Ergebnis daher in der Regel verbessern und das Regelwerk filtern. Dies ist eine Aufgabe die Sie als Data Scientist nicht alleine angehen sollten, sondern immer zusammen mit Domänenexperten.</p>
 </div>
 </div>
 
@@ -869,7 +879,7 @@
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="kapitel_04.html" title="previous page"><span class="section-number">4. </span>Allgemeines zur Datenanalyse</a>
-    <a class='right-next' id="next-link" href="../exercises/uebung_01.html" title="next page">Übung 1</a>
+    <a class='right-next' id="next-link" href="kapitel_06.html" title="next page"><span class="section-number">6. </span>Clusteranalyse</a>
 
         </div>
         

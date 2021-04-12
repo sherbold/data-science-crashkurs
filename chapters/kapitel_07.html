@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Übung 1 &#8212; Einführung in Data Science</title>
+    <title>7. Klassifikation &#8212; Einführung in Data Science</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -52,9 +52,12 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="7. Klassifikation" href="../chapters/kapitel_07.html" />
+    <link rel="next" title="Übung 1" href="../exercises/uebung_01.html" />
+    <link rel="prev" title="6. Clusteranalyse" href="kapitel_06.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -96,39 +99,39 @@
   Kapitel
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../chapters/kapitel_01.html">
+  <a class="reference internal" href="kapitel_01.html">
    1. Big Data und Data Science
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../chapters/kapitel_02.html">
+  <a class="reference internal" href="kapitel_02.html">
    2. Der Prozess von Data Science Projekten
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../chapters/kapitel_03.html">
+  <a class="reference internal" href="kapitel_03.html">
    3. Erkunden der Daten
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../chapters/kapitel_04.html">
+  <a class="reference internal" href="kapitel_04.html">
    4. Allgemeines zur Datenanalyse
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../chapters/kapitel_05.html">
+  <a class="reference internal" href="kapitel_05.html">
    5. Assoziationsregeln
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../chapters/kapitel_06.html">
+  <a class="reference internal" href="kapitel_06.html">
    6. Clusteranalyse
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapters/kapitel_07.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    7. Klassifikation
   </a>
  </li>
@@ -138,9 +141,9 @@
   Übungen
  </span>
 </p>
-<ul class="current nav sidenav_l1">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../exercises/uebung_01.html">
    Übung 1
   </a>
  </li>
@@ -184,7 +187,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/exercises/uebung_01.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/chapters/kapitel_07.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -222,7 +225,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/sherbold/einfuehrung-in-data-science/main?urlpath=tree/content/exercises/uebung_01.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/sherbold/einfuehrung-in-data-science/main?urlpath=tree/content/chapters/kapitel_07.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -239,6 +242,21 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#uberblick">
+   7.1. Überblick
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
         </div>
     </div>
 </div>
@@ -247,9 +265,42 @@
         
               <div>
                 
-  <div class="section" id="ubung-1">
-<h1>Übung 1<a class="headerlink" href="#ubung-1" title="Permalink to this headline">¶</a></h1>
-<p>Dummy Übung</p>
+  <div class="section" id="klassifikation">
+<h1><span class="section-number">7. </span>Klassifikation<a class="headerlink" href="#klassifikation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="uberblick">
+<h2><span class="section-number">7.1. </span>Überblick<a class="headerlink" href="#uberblick" title="Permalink to this headline">¶</a></h2>
+<p>Bei der Klassifikation geht es darum Kategorien zu Objekten zuzuweisen. Betrachten wir das Beispiel in <a class="reference internal" href="#fig-class-example"><span class="std std-numref">Fig. 7.1</span></a>. Das obere Bild zeigt einen Wal vor einem Eisberg. Das unsere Bild zeigt einen Bär in einem Wald. Beides erkennt man als menschlicher Betrachter instinktiv ohne darüber nachzudenken. Das Ziel der Klassifikation ist es diese Kategorisierung von Objekten automatisch durch eine Algorithmus durchführen zu lassen. Eine wichtige Einschränkung gegebenüber unserer menschlichen Kategoriesierung ist, das wir nur mit festen und im vorfeld festgelegten Kategorien arbeiten können Im Beispiel in <a class="reference internal" href="#fig-class-example"><span class="std std-numref">Fig. 7.1</span></a> könnten diese Kategorien zum Beispiel “Wal”, “Bär” und “Sonstiges” sein. Die Klassifikationsaufgabe wäre dann die Zuweisung einer dieser drei Kategorien zu den Bilden. Die Kategorien, in die die Objekte eingeteilt werden, nennt man auch <em>Klassen</em>.</p>
+<div class="figure align-default" id="fig-class-example">
+<a class="reference internal image-reference" href="../_images/classification_example_german.png"><img alt="../_images/classification_example_german.png" src="../_images/classification_example_german.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 7.1 </span><span class="caption-text">Zuweisung der Kategorien Wal und Bär zu Bildern.</span><a class="headerlink" href="#fig-class-example" title="Permalink to this image">¶</a></p>
+</div>
+<p>Etwas abstrakter können wir uns die Klassifikation wie in Abbildung <a class="reference internal" href="#fig-class-abstract"><span class="std std-numref">Fig. 7.2</span></a> vorstellen. Wir haben also Objekte für die wir ein <em>Konzept</em> kennen. Wenden wir unser Konzept auf die Objekte an, bekammen wir die Einteilung in Klassen. Wir kennen also ein Konzept das Wale beschreibt, welches wir auf das Bild wenden können um die Klasse zu bestimmen.</p>
+<div class="figure align-default" id="fig-class-abstract">
+<a class="reference internal image-reference" href="../_images/classification_concept_german.png"><img alt="../_images/classification_concept_german.png" src="../_images/classification_concept_german.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 7.2 </span><span class="caption-text">Abstraktes Konzept der Klassifikation</span><a class="headerlink" href="#fig-class-abstract" title="Permalink to this image">¶</a></p>
+</div>
+<p>Das Ziel von Klassifikationsalgorithmen ist es eine <em>Hypothese</em> aus den Daten abzuleiten, mit der man die Klasse von Objekten anhand der Merkmale bestimmen kann. Als Beispiel betrachten wir das Bild des Wals durch die Merkmale (<a class="reference internal" href="#fig-hypothesis"><span class="std std-numref">Fig. 7.3</span></a>). Über diese Merkmale könnte man auf folgende Hypothese kommen: <em>Objekte mit Flossen, die eine ovale Form haben, welche oben schwarz und unten weiß sind und die sich vor einem blauen Hintergrund befinden, sind Wale</em>. Diese Hypothese mag zwar nicht in jedem Fall richtig sein, sie ist aber eine relativ gute Beschreibung, mit der man viele Wale (bzw. Orcas) richtig erkennt. Fehler würde man zum Beispiel machen, wenn es ein U-Boot mit einer ähnlichen Farbwal gäbe. Die Art der Hypothese, zum Beispiel ob es sich um einen logischen Ausdruck oder eine beliebige mathematische Funktion handelt, hängt von der Wal des Algorithmus ab. Die Hypothese selbst wird vom Lernalgorithmus automatisch aus den Daten bestimmt.</p>
+<div class="figure align-default" id="fig-hypothesis">
+<a class="reference internal image-reference" href="../_images/hypothesis_german.png"><img alt="../_images/hypothesis_german.png" src="../_images/hypothesis_german.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 7.3 </span><span class="caption-text">Abstraktes Konzept der Klassifikation</span><a class="headerlink" href="#fig-hypothesis" title="Permalink to this image">¶</a></p>
+</div>
+<p>Formal haben wir eine Menge von Objekten <span class="math notranslate nohighlight">\(O = \{object_1, object_2, ...\}\)</span> welche möglicherweise unendliche viele Elemente enthält. Außerdem haben wir eine Repräsentation der Objekte als Instanzen im Merkmalsraum <span class="math notranslate nohighlight">\(\mathcal{F} = \{\phi(o): o \in O\}\)</span> und eine endliche Anzahl von Klassen <span class="math notranslate nohighlight">\(C = \{class_1, ..., class_n\}\)</span>. Die Klassifikation wird durch ein <em>Zielkonzept</em> (engl. <em>target concept</em>) beschrieben, welches die Objekte auf ihre Klassen abbildet, also</p>
+<div class="math notranslate nohighlight">
+\[h^*: O \to C.\]</div>
+<p>Das Zielkonzept ist die wahre Klasse der Objekte, also eine perfekte Zuweisung von Objekten zu Klassen. Im normalfall ist keine mathematische Beschreibung des Zielkonzepts bekannt. Es gibt zum Beispiel keine mathematische Beschreibung zur Klassifikation von Bildern in Walbilder und Bärenbilder. Die <em>Hypothese</em> bildet die Merkmale auf die Klassen ab, also</p>
+<div class="math notranslate nohighlight">
+\[h: \mathca{F} \to C.\]</div>
+<p>Die Hypothese wird vom Klassifikationsalgorithmus so bestimmt, dass sie eine gute Approximation des Zielkonzept ist, also</p>
+<div class="math notranslate nohighlight">
+\[h^*(o) \approx h(\phi(o)).\]</div>
+<p>Eine Variante der Klassifikation ist die Berechnung von <em>Scores</em> für jede Klasse <span class="math notranslate nohighlight">\(c \in C\)</span>. In diesem Fall haben wir Scoring-Funktionen</p>
+<div class="math notranslate nohighlight">
+\[h_c^': \mathcal{F} \to \mathbb{R}\]</div>
+<p>für jede Klasse. Die Scores sind ähnlich zum Soft Clustering: Anstatt das wir alle Instanzen genau einer Klasse zuweisen, bestimmen wir eine Wert für jede Klasse, den wir dann für die Entscheidungsfindung nutzen können. Im Normalfall wird dann die Klasse zugewiesen, die den höchsten Score hat. Wir haben also</p>
+<div class="math notranslate nohighlight">
+\[h(x) = \arg\max_{c \in C} h_c'(x)\]</div>
+<p>für <span class="math notranslate nohighlight">\(x \in \mathcal{F}\)</span>. Oft handelt es sich bei den Scores um Wahrscheinlichkeitsverteilungen, so dass der Score für jeder Klasse im Intervall <span class="math notranslate nohighlight">\([0,1]\)</span> liegt und die Summe der Scores aller Klasse 1 ergibt. In diesem Fall geben die Scores die Wahrscheinlichkeit an, dass ein Objekt zu einer bestimmten Klasse gehört.</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -265,7 +316,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./exercises"
+            path: "./chapters"
         },
         predefinedOutput: true
     }
@@ -277,7 +328,8 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../chapters/kapitel_07.html" title="previous page"><span class="section-number">7. </span>Klassifikation</a>
+    <a class='left-prev' id="prev-link" href="kapitel_06.html" title="previous page"><span class="section-number">6. </span>Clusteranalyse</a>
+    <a class='right-next' id="next-link" href="../exercises/uebung_01.html" title="next page">Übung 1</a>
 
         </div>
         
