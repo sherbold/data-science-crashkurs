@@ -319,6 +319,21 @@
    7.6. Entscheidungsbäume
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#random-forests">
+   7.7. Random Forests
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#logistische-regression">
+   7.8. Logistische Regression
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#naive-bayes">
+   7.9. Naive Bayes
+  </a>
+ </li>
 </ul>
 
         </nav>
@@ -665,7 +680,6 @@
 
 <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">(</span><span class="n">as_frame</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">class_names</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">()</span><span class="o">.</span><span class="n">target_names</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="c1"># use only first two columns from iris data</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;sepal length (cm)&#39;</span><span class="p">:</span> <span class="s1">&#39;Kelchblattlänge&#39;</span><span class="p">,</span>
                       <span class="s1">&#39;sepal width (cm)&#39;</span><span class="p">:</span> <span class="s1">&#39;Kelchblattbreite&#39;</span><span class="p">})</span>
@@ -683,10 +697,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sepal length (cm)
-</pre></div>
-</div>
-<img alt="../_images/kapitel_07_9_1.png" src="../_images/kapitel_07_9_1.png" />
+<img alt="../_images/kapitel_07_9_0.png" src="../_images/kapitel_07_9_0.png" />
 </div>
 </div>
 <p>Man erkennt das die Setosas klar von den anderen Arten der Iris getrennt sind, während sich die Versicolor und Virginica überlappen. Wir nutzen jetzt die Hintergrundfarbe um zu zeigen wie ein Decision Surface aussieht: Lila für Setosa, Türkis für Versicolor und Gelb für Virginica. Als Beispiel definieren wir selbst Regeln zu Klassifikation:</p>
@@ -840,6 +851,293 @@
 <img alt="../_images/kapitel_07_19_0.png" src="../_images/kapitel_07_19_0.png" />
 </div>
 </div>
+<p>In diesem Entscheidungsbaum wird als ersten eine Entscheidung mit Hilfe der Kelchblattlänge getroffen. Ist diese kleiner oder gleich 5,55 gehen wir nach links, andernfalls nach rechts. Außerdem sieht man noch weitere Informatione. Das Feld<code class="docutils literal notranslate"><span class="pre">entropy</span></code> ignorieren wir fürs erste. Der Wert von <code class="docutils literal notranslate"><span class="pre">samples</span></code> gibt an, wie viele Instanzen in den Trainingsdaten zur Verfügung standen, um diese Entscheidung zu lernen. Der Wert von <code class="docutils literal notranslate"><span class="pre">value</span></code> gibt an, wie viele Instanzen von jeder Klasse in <code class="docutils literal notranslate"><span class="pre">sample</span></code> enthalten sind. Bei <code class="docutils literal notranslate"><span class="pre">class</span></code> sieht man, welche Klassifikation man hätte, wenn man keine weiteren Entscheidungen trifft. Basierend auf der Entscheidung werden die Daten partioniert: 59 Instanzen haben eine Kelchblattlänge die kleiner oder gleich 5,55 ist, bei 91 Instanzen ist die Kelchblattlänge größer. Dies können wir an den <code class="docutils literal notranslate"><span class="pre">samples</span></code> in den Knoten auf der linken, bzw. rechten Seite ablesen. Bei den 59 Instanzen auf der rechten Seite sind es 47 Instanzen aus der ersten Klasse (Setosa), 11 Instanzen aus der zweiten Klasse (Versicolor), und 1 Instanz aus der dritten Klasse (Virginica). Auf der untersten Ebene (den Blättern des Baums) werden keine weiteren Entscheidungen getroffen.</p>
+<p>Für die Interpretation eines Entscheidungsbaums braucht man weder Expertenwissen, noch ein hohes Verständnis über die Daten selbst. Das ist auch der große Vorteil von Entscheidungsbäumen: Die Klassifikation ist nachvollziehbar und Domänenexperten können durch manuelle Analyse die plausibilität der Regeln bewerten.</p>
+<p>Das Decision Surface des obigen Baums sieht wie folgt aus.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_decision_surface</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Decision Surface des obigen Baums&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_07_21_0.png" src="../_images/kapitel_07_21_0.png" />
+</div>
+</div>
+<p>Wie man sieht trennen die Decision Boundires die Decision Surfaces durch Achsenparallele geraden. Dies ist eine Eigenschaft von Entscheidungsbäume. Dadurch das wir logische Entscheidungen der form <span class="math notranslate nohighlight">\(\leq\)</span> und <span class="math notranslate nohighlight">\(\geq\)</span> (manchmal auch <span class="math notranslate nohighlight">\(=\)</span>) haben, werden die Daten durch jede Entscheidung in zwei Partionen zerteilt, so dass die Entscheidung orthogonal zu einer Achse und parallel zu allen anderen Achsen ist.</p>
+<p>Das Training von Entscheidungsbäumen basiert auf einem relativ einfachen rekursiven Algorithmus.</p>
+<ol class="simple">
+<li><p>Beende den Algorithmus wenn die Daten ausreichen “rein” oder “zu klein” sind, oder die maximale Tiefe des Entscheidungsbaums erreicht ist.</p></li>
+<li><p>Bestimme das “Merkmal mit dem höchsten Informationsgehalt” <span class="math notranslate nohighlight">\(X'\)</span>.</p></li>
+<li><p>Partitioniere die Daten durch eine Regel für das Merkmal <span class="math notranslate nohighlight">\(X'\)</span>.</p></li>
+<li><p>Wende den Algorithmus anfangend mit Schritt 1 rekursiv auf die Partionen an um den linken und rechten Teilbaum zu erstellen.</p></li>
+</ol>
+<p>Wir müssen also nur das “Merkmal mit dem höchsten Informationsgehalt” finden, die Daten partitionieren, und das wiederholen bis die Daten “rein” oder “zu klein” sind oder der Baum zu Tief wird. Das Konzept von “zu klein” ist immer gleich: Die Anzahl der Instanzen in einer Partition unterschreitet einen vorher festgelegten Grenzwert. Durch dieses Kriterium können wir verhindern das Entscheidungen auf zu wenig Daten getroffen werden und somit erzwingen dass es für jede getroffene Entscheidung eine solide Datengrundlage gibt. Die maximale Tiefe beschränkt die Komplexität der Regeln. Die tiefe des Baums ist definiert als die Anzahl der Entscheidungen die getroffen werden, bevor die Klasse bestimmt wird. Der obige Baum hat zum Beispiel eine Tiefe von 2. Zur Bestimmung der Reinheit, des Informationsgehalts und der Partionen gibt es verschiedene Ansätze. Von diesen Ansätzen hängt auch ab um was für eine Art von Entscheidungsbaum es sich handelt, zum Beispiel CART, ID3 oder C4.5.</p>
+<p>Als Beispiel betrachten wir wie man diese Konzepte durch die <em>Informationstheory</em> definieren kann. Die Idee der Reinheit lässt sich Informationstheoretisch aus die Unsicherheit der Daten fassen und der Informationsgehalt die die <em>Gemeinesame Information</em> (engl. <em>mutual information</em>) durch die man den Informationsgewinn (engl. <em>information gain</em>) messen kann. Da sich die Informationstheory mit der Zufallsvariablen befasst, interpretieren wir hier alles als Zufallsvariablen: Die Klassifikation von Instanzen ist eine Zufallsvariable <span class="math notranslate nohighlight">\(C\)</span> und unsere Merkmale sind Zufallsvariablen <span class="math notranslate nohighlight">\(X_1, ..., X_m\)</span>. Das Kernkonzept der Informationstheory ist die <em>Entropie</em>. Je höher die Entropy einer Zufallsvariablen ist, desto unsicherer und zufälliger der Ausgangs eines Zufallsexperiments mit dieser Variablen. Die Entropie einer Zufallsvariable die einen fairen Münzwurf beschreibt (50% Kopf, 50% Zahl) ist zum Beispiel 1, der höchst mögliche Wert der Entropy. Die Entropie einer Zufallsvariable für eine manipulierte Münze die immer auf Kopf landet, hätte eine Entropy von 0, es gäbe als keine Unsicherheit über das Ergebnis. Wenn wir also Entscheidungen mit einer hohen Sicherheit treffen wollen, müssen wir Partionen finden, so dass die Entropy der Klassifikation <span class="math notranslate nohighlight">\(C\)</span> minimiert wird. Die Entropy von <span class="math notranslate nohighlight">\(C\)</span> ist definiert als</p>
+<div class="math notranslate nohighlight">
+\[H(C) = -\sum_{c \in C} p(c) \log p(c)\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(p(c)\)</span> die Wahrscheinlichkeit das eine Instanz einer Partition zu Klasse <span class="math notranslate nohighlight">\(c\)</span> gehört ist. Sobald die Entropy <span class="math notranslate nohighlight">\(H(C)\)</span> unter einen Grenzwert fällt, ist die Entscheidung sicher genug und die Partion “rein”.</p>
+<p>Die <em>bedingte Entropie</em> können wir nutzen um abzuschätzen, wie viel wissen über die Klasse wir durch ein Merkmal bekommen. Hierzu gibt die bedingte Entropy die Unsicherheit der Klasse <span class="math notranslate nohighlight">\(C\)</span> an, wenn ein Merkmal <span class="math notranslate nohighlight">\(X'\)</span> vollständig bekannt ist. Die Entropie der Klassifikation <span class="math notranslate nohighlight">\(C\)</span> bedingt auf das Merkmal <span class="math notranslate nohighlight">\(X'\)</span> ist definiert als</p>
+<div class="math notranslate nohighlight">
+\[H(C|X') = -\sum_{x \in X'} p(x) \sum_{c \in C} p(c|x) \log p(c|x)\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(p(c|x)\)</span> die bedingte Wahrscheinlichkeit der Klasse <span class="math notranslate nohighlight">\(c\)</span> gegebem dem Wert <span class="math notranslate nohighlight">\(x\)</span> des Merkmals <span class="math notranslate nohighlight">\(X' \in \{X_1, ..., X_m\}\)</span> ist. Die bedingte Entropy ist also ein Maß dafür, wie der <em>Informationsgewinn</em> über <span class="math notranslate nohighlight">\(C\)</span> mit <span class="math notranslate nohighlight">\(X'\)</span> ist. Je niedriger die bedingte Entropy, desto höher der Informationsgewinn. Daher nennt man ein Merkmal <em>informativ</em>, wenn es die bedingte Entropie der Klassifikation reduziert. Wenn man die Entropie der Klassifikation mit der bedingte Entropie kombiniert, bekommt man den <em>Informationsgewinn</em> durch die Reduktion der Entropy als</p>
+<div class="math notranslate nohighlight">
+\[I(C; X') = H(C)-H(C|X').\]</div>
+<p>Das informativste Merkmal ist also das Merkmal, was den Informationsgewinn maximiert. Sobald man dieses Merkmal gefunden hat, bestimmt eine Regel, so dass die mittlere Entropy der Klassikation der Partitionen minimiert wird.</p>
+<p>Oben haben wir bereits ein Decision Surface für einen Entscheidungsbaum mit einer niedrigen Tiefe von 2 betrachtet. Dies hat uns zwar geholfen die Struktur von Entscheidungsbäumen und der Entscheidungen zu verstehen, reicht jedoch in der Regel nicht aus um ein gutes Ergebnis aus einem Datensatz zu erzielen. Hierfür benötigt man mehr Entscheidungen, also einen tieferen Entscheidungsbaum. Wenn wir die Tiefe nicht beschränken und keinen Grenzwert für zu wenige Daten um eine Entscheidung zu treffen angeben, bekommen wir folgendes Decision Surface.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_decision_surface</span><span class="p">(</span><span class="n">DecisionTreeClassifier</span><span class="p">(),</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Decision Surface von einem Entscheidungsbaum ohne Einschränkungen&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_07_23_0.png" src="../_images/kapitel_07_23_0.png" />
+</div>
+</div>
+<p>Man sieht das sehr viel mehr Entscheidungen getroffen werden, für jede Achsenparallel Decision Boundary eine Entscheidung getroffen wird. Dies führt aber leider zu <em>Overfitting</em>, das heißt es wurde einzelne Datenpunkte auswendig gelernt. Dies sieht man zum Beispiel bei der kleinen gelbe Flöche die man etwa Kelchblattlänge 7 sieht. Hier liegt nur eine gelbe Instanz mitten in einer ansonsten türkisen Umgebung. Hierfür gibt es noch einige weitere Beispiele, zum Beispiel auch zwische dem lila und dem türkisen Bereich. Um zu verhindert das soetwas passiert, müssen wir die die erlaubten Entscheidungen beschränken. Wenn wir fordern, dass nur Partitionen mit mindestens 5 Instanzen erlaubt sind, verschwinden diese kleinen Bereiche.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_decision_surface</span><span class="p">(</span><span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">min_samples_leaf</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Decision Surface von einem Entscheidungsbaum mit</span><span class="se">\n</span><span class="s2">min. 5 Instanzen in jeder Partition&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_07_25_0.png" src="../_images/kapitel_07_25_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="random-forests">
+<h2><span class="section-number">7.7. </span>Random Forests<a class="headerlink" href="#random-forests" title="Permalink to this headline">¶</a></h2>
+<p>Die Idee von Random Forests ist es viele Entscheidungsbäume zu einem Klassifikationsmodell zu kombinieren. Die einzelnen Entscheidungsbäume nennt man hierbei <em>Random Tree</em>. Man spricht hierbei von <em>Ensemble Learning</em>, der Random Forest ist also ein Ensemble von Random Trees. Wie man aus viel Entscheidungsbäumen die Klassifikation eines Random Forests bekommt sieht man im Folgenden.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">plot_tree</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+
+<span class="c1"># Please note that the parameters we use here are not good and should not be used</span>
+<span class="c1"># for any real examples. We use only four random trees so that we can better demonstrate </span>
+<span class="c1"># the example. Usually, you should use hundreds of trees and more are better, but require</span>
+<span class="c1"># more runtime (both for training and predictions). </span>
+<span class="n">randomforest</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">randomforest</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+
+<span class="n">f</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">plot_tree</span><span class="p">(</span><span class="n">randomforest</span><span class="o">.</span><span class="n">estimators_</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">feature_names</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">class_names</span><span class="o">=</span><span class="n">class_names</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plot_tree</span><span class="p">(</span><span class="n">randomforest</span><span class="o">.</span><span class="n">estimators_</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">feature_names</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">class_names</span><span class="o">=</span><span class="n">class_names</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plot_tree</span><span class="p">(</span><span class="n">randomforest</span><span class="o">.</span><span class="n">estimators_</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">feature_names</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">class_names</span><span class="o">=</span><span class="n">class_names</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plot_tree</span><span class="p">(</span><span class="n">randomforest</span><span class="o">.</span><span class="n">estimators_</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">feature_names</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">class_names</span><span class="o">=</span><span class="n">class_names</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Randomized Trees eines Random Forest&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_07_27_0.png" src="../_images/kapitel_07_27_0.png" />
+</div>
+</div>
+<p>Jeder einzelne Random Trees ist für sich genommen kein gutes Klassifikationsmodell. Dies sieht man gut an den Decision Surfaces.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">plot_decision_surface</span><span class="p">(</span><span class="n">randomforest</span><span class="o">.</span><span class="n">estimators_</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Decision Surfaces vom ersten Random Tree&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plot_decision_surface</span><span class="p">(</span><span class="n">randomforest</span><span class="o">.</span><span class="n">estimators_</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Decision Surfaces vom zweiten Random Tree&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plot_decision_surface</span><span class="p">(</span><span class="n">randomforest</span><span class="o">.</span><span class="n">estimators_</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Decision Surfaces vom dritten Random Tree&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plot_decision_surface</span><span class="p">(</span><span class="n">randomforest</span><span class="o">.</span><span class="n">estimators_</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Decision Surfaces vom vierten Random Tree&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                    <span class="n">top</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">wspace</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">hspace</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_07_29_0.png" src="../_images/kapitel_07_29_0.png" />
+</div>
+</div>
+<p>Der erste und der vierte Random Tree sind so schlecht, dass es keine Türkise region gibt. Für sich genommen haben wir also <em>schwache Klassifikationsmodelle</em> (engl. <em>weak classifier</em>). Wenn wir diese vier schwachen Klassifikationsmodelle zu durch Mitteln der Vorhersagen kombinieren, bekommen wir ein besseres Ergebnis.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_decision_surface</span><span class="p">(</span><span class="n">randomforest</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Decision Surfaces der Kombination von vier Random Trees&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_07_31_0.png" src="../_images/kapitel_07_31_0.png" />
+</div>
+</div>
+<p>Das man aus vielen schwachen Modellen ein gutes Ergebnis bekommt ähnelt dem Prinzip des Publikumsjokers: Wenn man eine zufällige Person fragt, ist die Wahrscheinlichkeit eine richtige Antwort zu bekommen niedriger, als wenn man eine Umfrage macht. Genauso verhält es sich auch mit schwachen Klassifikationsmodellen. Jeder der Random Trees ist zwar schlecht, aber jeder Random Tree hat auch stärken. Zusammengenommen addieren sich die stärken auf und überdecken dadurch die schwächen. Üblicherweise nutzt man bei einem Random Forest nicht nur vier Bäume, sondern hunderte oder sogar tausende von Bäumen. Hier ist das Ergebnis mit 1000 Random Trees.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_decision_surface</span><span class="p">(</span><span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Decision Surfaces eines Random Forest mit 1000 Random Trees&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_07_33_0.png" src="../_images/kapitel_07_33_0.png" />
+</div>
+</div>
+<p>Bisher haben wir nur erklärt, wie ein Random Forest aus einem <em>Ensemble</em> zu einem einzelnen Ergebnis kommt. Warum wir überhaupt unterschiedliche Entscheidungsbäume für die gleichen Trainingsdaten bekommen ist noch unklar. Schließlich ist der Algorithmus zum Training von Entscheidungsbäumen deterministisch: Wenn man einen Entscheidungsbaum wie im vorigen Abschnitt zwei mal mit den gleichen Daten trainiert, bekommt man zwei identische Entscheidungsbäume. Was uns also noch fehlt ist das Verständnis der Rolle des Zufalls beim Training von Random Forests.</p>
+<p>Wenn man sich die einzelnen Random Trees genau anguckt, sieht man bereits einige Hinweise darauf, was randomisiert ist. Hier ist noch einmal der erste der vier Entscheidungsbäume von oben.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plot_tree</span><span class="p">(</span><span class="n">randomforest</span><span class="o">.</span><span class="n">estimators_</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">feature_names</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">class_names</span><span class="o">=</span><span class="n">class_names</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_07_35_0.png" src="../_images/kapitel_07_35_0.png" />
+</div>
+</div>
+<p>Man sieht das es bei in der Wurzel des Baums (die erste Entscheidung) nur 101 Instanzen, statt den gesamten 150 Instanzen gibt. Außerdem gibt es nicht von jeder Irisart gleich viele Instanzen. Dieser Entscheidungsbaum wurde also offensichtlich nicht mit den original Irisdaten trainiert. Was wir hier sehen ist die erste Randomisierung des Trainings: Als Trainingsdaten bekommt jeder Random Tree ein <em>Boostrap Sample</em> der Daten. Wenn wir 150 Instanzen in den Trainingsdaten haben, heißt dass, das wir 150 Instnazen <em>mit zurücklegen</em> aus den Trainingsdaten ziehen. Da wir mit zurücklegen ziehen, bekommen wir einige Instanzen mehrfach, andere gar nicht. Im Mittel bekommt man etwa 63.2% verschiedene Instanzen, der Rest sind duplikate. Alle Random Trees bekommen also andere Trainingsdaten. Bitte beachten Sie, dass <code class="docutils literal notranslate"><span class="pre">samples</span></code> bei einem Random Tree nicht die Anzahl der Instanzen, sondern die Anzahl der Instanzen ohne Duplikate angibt. Das ziehen von Bootstrap Samplen um mehrere Klassifikationsmodelle zu Trainieren nennt man auch auch <em>Bagging</em>, was kur für <em>Boostrap Aggregating</em> ist.</p>
+<p>Es gibt noch eine weitere zufällige Komponenten im Training von Random Forests. Nicht jeder Random Tree bekommt alle Merkmale. Stattdessen bekommt jeder Random Tree nur eine Teilmenge der Merkmale zur Verfügung. Üblicherweise verwendet man die Quadratwurzel der Anzahl der Merkmale pro Baum. Wenn es vier Merkmale gibt, darf bekommt ein Random Tree also nur Zugriff auf <span class="math notranslate nohighlight">\(\sqrt[4}=2\)</span> Merkmale. Der Grund hierfür ist, dass sich die Bäume sonst möglicherweise stark ähneln. Wenn ein Merkmal für die gesamten Daten informativ ist, ist es in der Regel auf einem Bootstrap Sample ähnlich informativ. Daher wäre das Risiko groß, dass die Random Trees alle die gleiche Struktur hätten. Wenn nur eine Teilmenge von Merkmalen zur Verfügung steht, haben auch schwächere Merkmale eine Chance benutzt zu werden und damit ihre Information in den Random Forest einzubringen. So wird sichergestellt, das die einzelnen Random Trees auch wirklich unterschiedliche stärken und schwächen haben.</p>
+</div>
+<div class="section" id="logistische-regression">
+<h2><span class="section-number">7.8. </span>Logistische Regression<a class="headerlink" href="#logistische-regression" title="Permalink to this headline">¶</a></h2>
+<p>Die <em>Logistische Regression</em> (engl. <em>logistic regression</em>) berechnete die <em>Chance</em>, bzw. die <em>Odds</em> das eine Instanz zu einer Klasse gehört. Die Odds sind ein Konzept der Statistik, was man zum Beispiel bei Sportwetten wiederfindet. Sei <span class="math notranslate nohighlight">\(P(Y=c)\)</span> die Wahrscheinlichkeit das eine Zufallsvariable <span class="math notranslate nohighlight">\(Y\)</span> den Wert <span class="math notranslate nohighlight">\(c\)</span> annimmt. Die Odds, dass <span class="math notranslate nohighlight">\(Y\)</span> gleich <span class="math notranslate nohighlight">\(c\)</span> ist, sind dann definiert als</p>
+<div class="math notranslate nohighlight">
+\[odds(c) = \frac{P(Y=c)}{1-P(Y=c)}.\]</div>
+<p>Die Bedeutung der Odds kann man sich gut an einem Beispiel verdeutlichen: Unsere Zufallsvariable <span class="math notranslate nohighlight">\(Y\)</span> könnte die Wahrscheinlichkeit eine Prüfung zu bestehen modellieren und für <span class="math notranslate nohighlight">\(c=pass\)</span> mit <span class="math notranslate nohighlight">\(P(Y=pass)=0,75\)</span> ist die 75% Wahrscheinlichkeit, dass die Prüfung bestanden wird. Die Odds das die Prüfung bestanden wird sind damit</p>
+<div class="math notranslate nohighlight">
+\[odds(pass) = \frac{0.75}{1-0.75} = 3.\]</div>
+<p>Mit anderen Worten, die Odds/Chance die Prüfung zu bestehen ist drei zu eins.</p>
+<p>Die Odds sind verwand mit der <em>Logit</em>-Funktion, welche als</p>
+<div class="math notranslate nohighlight">
+\[logit(P(Y=c)) = \ln \frac{P(Y=c)}{1-P(Y=c)},\]</div>
+<p>definiert ist. Dies ist nichts anderes als der natürliche logarithmus der Odds von <span class="math notranslate nohighlight">\(c\)</span>. Von dieser Funktion hat die Logistische Regression auch ihren Namen. Wenn wir sagen das unsere Zufallsvariable <span class="math notranslate nohighlight">\(Y\)</span> die Wahrscheinlichkeit das eine Instanz zu einer Klasse gehört modelliert und <span class="math notranslate nohighlight">\(c \in C\)</span> eine Klasse ist, dann ist <span class="math notranslate nohighlight">\(logit(P(Y=c))\)</span> nichts anderes als der logarithmus der Odds das eine Instanz zu einer einer gehört. Die Regression die verwendet wird ist eine einfache lineare Regression (TODO ref 8) der Form</p>
+<div class="math notranslate nohighlight">
+\[logit(P(Y=c)) = \ln \frac{P(Y=c)}{1-P(Y=c)} = b_0 + b_1x_1 + ... + b_mx_m\]</div>
+<p>wobei die Merkmale numerisch sein müssen, also <span class="math notranslate nohighlight">\(\mathcal{F} \subseteq \mathbb{R}\)</span>. Im 2-Dimensionalen Fall beschreibt die Formel der Linearen Regression eine Line, im 3-Dimensionalen Fall eine Ebene, im <span class="math notranslate nohighlight">\(m\)</span>-Dimensionalen Fall eine Hyperebene. Das Decision Surface der Logistischen Regression der Irisdaten sieht wie folgt aus.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+
+<span class="n">plot_decision_surface</span><span class="p">(</span><span class="n">LogisticRegression</span><span class="p">(),</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Decision Surfaces von Logistischer Regression&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_07_37_0.png" src="../_images/kapitel_07_37_0.png" />
+</div>
+</div>
+<p>Die Entscheidungen werden also durch Linien getroffen, die den Merkmalsraum unterteilen.</p>
+<p>Ein großer Vorteil der Logistischen Regression ist, dass man den Einfluss der Merkmale aus die Klassifikation direkt nachvollziehen kann. Dies liegt an der Struktur des Regressionsmodells und der Logit-Funktion. Mit einigen Umformungen bekommen wir folgendes.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{split}
+&amp;\ln \frac{P(Y=c)}{1-P(Y=c)} = b_0 + b_1x_1 + ... + b_mx_m \\
+\Rightarrow\quad &amp;\frac{P(Y=c)}{1-P(Y=c)} = \exp( b_0 + b_1x_1 + ... + b_mx_m ) \\
+\Rightarrow\quad &amp;odds(c) = \exp( b_0 ) \cdot \Pi_{i=1}^m \exp(b_ix_i) \\
+\end{split}
+\end{split}\]</div>
+<p>Die Odds einer Klasse ist also das Produkt der den Exponenten von <span class="math notranslate nohighlight">\(b_ix_i\)</span>. Die Auswirkung des <span class="math notranslate nohighlight">\(i\)</span>-ten Merkmals auf die Odds ist damit <span class="math notranslate nohighlight">\(\exp(b_ix_i)\)</span>. Man bezeichnet <span class="math notranslate nohighlight">\(\exp(b_i}\)</span> auch als die <em>Odds Ratio</em>  des <span class="math notranslate nohighlight">\(i\)</span>-ten Merkmals. Die Odds Ratio definiert wie sehr sich die Odds der Klasse in Abhängigkeit eines Merkmals ändern. Eine Odds Ratio von 2 bedeutet zum Beispiel, dass sich die Odds verdoppeln, wenn sich der Wert des Merkmals um eins erhöht. Im Allgemeinen heißt eine Odds Ratio größer als eins, dass sich die Odds erhöhen wenn sich der Wert des Merkmals erhöht. Ein Wert kleiner 1 heißt, dass sich die Odds reduzieren, wenn sich der Wert des Merkmals reduziert. Da man den logarihmus verwenden muss aus <span class="math notranslate nohighlight">\(\exp(b_i)\)</span> den eigentlichen Koeffizienten zu berechnen, spricht man bei den Koeffizienten auch von den <em>Log Odds Ratios</em>.</p>
+<p>Betrachten wir jetzt die Odds Ratios der Logistischen Regression für die Irisarten.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lr</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+<span class="n">lr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">)</span>
+<span class="n">odds_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">lr</span><span class="o">.</span><span class="n">coef_</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">class_names</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">odds_df</span><span class="p">[</span><span class="s1">&#39;Intercept&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">lr</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span>
+<span class="n">odds_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Kelchblattlänge</th>
+      <th>Kelchblattbreite</th>
+      <th>Intercept</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>setosa</th>
+      <td>0.066610</td>
+      <td>10.216701</td>
+      <td>2733.180675</td>
+    </tr>
+    <tr>
+      <th>versicolor</th>
+      <td>1.845467</td>
+      <td>0.207923</td>
+      <td>6.328398</td>
+    </tr>
+    <tr>
+      <th>virginica</th>
+      <td>8.134952</td>
+      <td>0.470746</td>
+      <td>0.000058</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Anhand Odds sehen wir, dass sich die Chance das es sich um eine Setosa handelt stark mit der Kelchblattbreite erhöht und mit der Kelchblattlänge reduziert. Außerdem sehen wir das die Chance das es sich um eine Versicolor oder Virginica handelt steigt, wenn die Kelchblattlänge erhöht und die Kelchblattbreite reduziert wird. Der <em>intercept</em> markiert die Odds, wenn der Wert für alle Merkmale gleich 0 ist, es sich als um <span class="math notranslate nohighlight">\(b_0\)</span> aus der Gleichung der Logistischen Regression. Alle Änderungen der Merkmale müssen also in Relation zum Intercept betrachtet werden. Da der Intercept für Versicolor größer ist als für Virginica, gibt es eine Region wo die Odds für Versivolor größer sind, obwohl sich die Chance das es sich um eine Virginica handelt stärker erhöht, sowohl in der Kelchblattlänge, als auch in der Kelchblattbreite.</p>
+<blockquote>
+<div><p><strong>Bemerkung:</strong></p>
+<p>In diesem Fall ist der Intercept etwas irreführent. Während der Intercept für Setosa sehr hoch ist, sind die Odds für die Sepal Length sehr niedrig. Da alle Instanzen eine Sepal Length größer als vier haben, verschwindet dieser hohe Intercept, bis man bei den Daten angekommen ist. Um solche Effekte zu vermeiden, sollte man die Daten immer zentrieren, so dass die Werte aller Merkmale symmetrisch zur 0 sind. Hierfür ist zum Beispiel die <em>Z-score Standardisierung</em> geeignet. Wenn die Interpretation der Koeffizieten das Hauptziel ist, sollte man außerdem nicht scikit-learn verwenden, sondern stattdessen Paket wie statsmodels. Hier ist die Regressionanalyse deutlich detailierter, insbesondere was die Analyse der statistischen Significanz der Ergebnisse angeht.</p>
+</div></blockquote>
+</div>
+<div class="section" id="naive-bayes">
+<h2><span class="section-number">7.9. </span>Naive Bayes<a class="headerlink" href="#naive-bayes" title="Permalink to this headline">¶</a></h2>
+<p>Der Satz von Bayes (engl. <em>Bayes Law</em>) ist einer der fundamentalen Gleichungen der Stochastik und definiert als</p>
+<div class="math notranslate nohighlight">
+\[P(Y|X) = \frac{P(X|Y)P(Y)}{P(X)}.\]</div>
+<p>Der Satz von Bayes ist ein wichtiges Hilfsmittel um mit bedingten Wahrscheinlichkeiten zu rechnen. Wenn wir unsere Merkmale als Zufallsvariable <span class="math notranslate nohighlight">\(X\)</span> interpretieren und unsere Klassifikation als Zufallsvariable <span class="math notranslate nohighlight">\(Y\)</span>, dann ist <span class="math notranslate nohighlight">\(P(Y|X)\)</span> die bedingte Wahrscheinlichkeit der Klassifikation wenn die Merkmale bekannt sind. In der Theorie ist dies die perfekte Scoring-Funktion für eine Hypothese. Wir haben also</p>
+<div class="math notranslate nohighlight">
+\[P(c|x_1, ..., x_m) = \frac{P(x_1, ..., x_m|c)P(c)}{P(x_1, ..., x_m)}\]</div>
+<p>für eine Klasse <span class="math notranslate nohighlight">\(c \in C\)</span> und eine Instanz <span class="math notranslate nohighlight">\((x_1, ..., x_m) \in \mathcal{F}\)</span>. Aus dem Satz von Bayes folgt also, dass die Wahrscheinlichkeit der Klasse <span class="math notranslate nohighlight">\(c\)</span> für die Instanz <span class="math notranslate nohighlight">\((x_1, ..., x_m)\)</span> gegeben ist als die Wahrscheinlichkeit der Instanz bei Daten der Klasse <span class="math notranslate nohighlight">\(c\)</span> zu beobachten, multipliziert mit der Wahrscheinlichkeit diese Klasse zu beobachten und geteilt durch die Wahrscheinlich die Instanz zu beobachten, unabhängig von der Klasse. Das Problem des Satzes von Bayes ist das man die Wahrscheinlichkeiten <span class="math notranslate nohighlight">\(P(x_1, ..., x_m|c)\)</span> und <span class="math notranslate nohighlight">\(P(x_1, ..., x_m)\)</span> in der Regel nicht berechnen kann, da man entweder ein detailiertes Wissen über die Verteilung der gemeinsamen Wahrscheinlichkeit aller Merkmale braucht oder eine sehr grpße Menge von Daten, so dass es für jede Kombination der Werte von Merkmalen auch Trainingsdaten gibt. Beides ist in der Praxis unrealistisch.</p>
+<p>Stattdessen vereinfachen wir den Satz von Bayes zu <em>Naive Bayes</em>. Der Hauptaspekt von Naive Bayes ist die als <em>Naive Assumption</em> bekannte annahme dass die Merkmale bedingt auf die Klasse unabhängig voneinander sind. Für die Irisdaten würde das bedeuten, dass die Kelchblattlänge einer Setosa unabhängig der Kelchblattbreite einer Setosa ist. Die Daten zeigen, dass dies eindeutig nicht der Fall ist. Da diese Annahme fast nie erfüllt ist, ist sie daher ziemlich Naiv. Aus mathemtischer Sicht ist diese Annahme jedoch äußerst hilfreich, da für bedingte Unabhängig gilt, dass</p>
+<div class="math notranslate nohighlight">
+\[P(x_1, ..., x_m | c) = \Pi_{i=1}^m P(x_i|c),\]</div>
+<p>also das wir nicht mehr die gemeinsame Wahrscheinlichkeit der Merkmale berechnen müssen, sondern stattdessen nur noch die Wahrscheinlichkeiten für die einzelnen Merkmale, bedingt auf die Klasse, berechnen müssen. Wenn wir dies in den Satz von Bayes einsetzen, bekommen wir</p>
+<div class="math notranslate nohighlight">
+\[P(c|x_1, ..., x_m) = \frac{\Pi_{i=1}^m P(x_i|c)P(c)}{P(x_1, ..., x_m)}.\]</div>
+<p>Leider gibt es immernoch die gemeinsame Wahrscheinlichkeit <span class="math notranslate nohighlight">\(P(x_1, ..., x_m)\)</span> im Nenner. Diese Wahrscheinlichkeit ist aber unabhängig von der Klasse <span class="math notranslate nohighlight">\(c\)</span>. Wenn wir statt der exakten Wahrscheinlichkeit nur eine Scoring-Funktion brauchen, können wir den Nenner einfach weglassen, ohne dass sich die Klasse, welche den höchsten Score bekommt, ändert. Damit haben wir als Scoring-Funktion für Naive Bayes</p>
+<div class="math notranslate nohighlight">
+\[score(c|x_1, ..., x_m) = \Pi_{i=1}^m P(x_i|c)P(c).\]</div>
+<p>Um die Scoring-Funktion berechnen zu können, müssen wir <span class="math notranslate nohighlight">\(P(x_i|c)\)</span> und <span class="math notranslate nohighlight">\(P(c)\)</span> berechnen. <span class="math notranslate nohighlight">\(P(c)\)</span> können wir einfach als Anteil der Instanzen der Klasse <span class="math notranslate nohighlight">\(c\)</span> von allen Instanzen berechnen.</p>
+<p>Die beiden wichtigsten Ansätze zur Berechnung von <span class="math notranslate nohighlight">\(P(x_i|c)\)</span> sind <em>Multinomial Naive Bayes</em> und <em>Gaussian Naive Bayes</em>. Beim Multinomial Naive Bayes berechnet man <span class="math notranslate nohighlight">\(P(x_i|c)\)</span> als Anteil der Instanzen der Klasse <span class="math notranslate nohighlight">\(c\)</span> die den Wert <span class="math notranslate nohighlight">\(x_i\)</span> haben. Dieser Ansatz funktioniert sehr gut für kategorische Merkmale und Anzahlen. Für numerische Merkmale funktioniert Multinomial Naive Bayes in der Regel nicht, da die Anzahl der Instanzen die genau einen bestimmten numerischen Wert annehmen häufig 1 ist, da es unwahrscheinlich ist exakt den gleichen Wert mehrfach zu beobachten, wenn eine kontinuierliche Wahrscheinlichkeitsverteilung zugrunde liegt. Gaussian Naive Bayes ist besser geeignet für solche Merkmale. Beim Gaussian Naive Bayes nimmt man an, dass die Merkmale Normalverteilt sind und schätzt die Wahrscheinlichkeit <span class="math notranslate nohighlight">\(P(x_i|c)\)</span> durch die Dichtefunktion der Normalverteilung für dieses Merkmal.</p>
+<p>Unten sieht man die Decision Surfaces von Multinomial Naive Bayes und Gaussian Naive Bayes für die Irisdaten.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">GaussianNB</span><span class="p">,</span> <span class="n">MultinomialNB</span>
+
+<span class="n">f</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">plot_decision_surface</span><span class="p">(</span><span class="n">MultinomialNB</span><span class="p">(),</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Decision Surfaces von Multinomial Naive Bayes&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plot_decision_surface</span><span class="p">(</span><span class="n">GaussianNB</span><span class="p">(),</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Decision Surfaces von Gaussian Naive Bayes&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_07_41_0.png" src="../_images/kapitel_07_41_0.png" />
+</div>
+</div>
+<p>Die Decision Boundaries von Multinomail Naive Bayes sind linear, bei Gaussian Naive Bayes werden die Decision Boundaries durch quadratische Gleichungen beschrieben. Wir sehen das bei diesen Daten Multinomial Naive Bayes nicht gut funktioniert, insbesondere die Trennung von Türkis und Gelb sieht nicht sinnvoll aus. Dies ist aber zu erwarten, da es sich um numerische Daten handelt. Der Gaussian Naive Bayes hat dieses Problem nicht und liefert bessere Ergebnisse.</p>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
 <dt class="label" id="kdnuggets"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
