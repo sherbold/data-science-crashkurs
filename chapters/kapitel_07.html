@@ -283,7 +283,41 @@
      7.3.4. Die Receiver Operator Characteristic (ROC)
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#area-under-the-curve-auc">
+     7.3.5. Area Under the Curve (AUC)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#micro-und-macro-averages">
+     7.3.6. Micro und Macro Averages
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#jenseits-der-confusion-matrix">
+     7.3.7. Jenseits der Confusion Matrix
+    </a>
+   </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#decision-surfaces">
+   7.4. Decision Surfaces
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#k-nearest-neighbor">
+   7.5.
+   <span class="math notranslate nohighlight">
+    \(k\)
+   </span>
+   -Nearest Neighbor
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#entscheidungsbaume">
+   7.6. Entscheidungsbäume
+  </a>
  </li>
 </ul>
 
@@ -567,6 +601,251 @@
 </div>
 </div>
 </div>
+<div class="section" id="area-under-the-curve-auc">
+<h3><span class="section-number">7.3.5. </span>Area Under the Curve (AUC)<a class="headerlink" href="#area-under-the-curve-auc" title="Permalink to this headline">¶</a></h3>
+<p>Wir können dir ROC Curve auch benutzen um ein Gütemaß zu definieren, in dem wir die <em>Fläche unter der Curve</em> (engl. <em>Area Under the Curve</em>, AUC) messen. Die idee ist einfach: Wenn der optimale Wert der ROC Curve in der oberen linken Ecke ist, ist die Fläche in diesem Fall 1. Je kleiner die Fläche unter der Kurve, desto niedriger die Werte von möglichen Kombinationen der TPR und FPR, was bedeutet das wir schlechtere Ergebnisse haben, unabhängig von einem konkreten Grenzwert <span class="math notranslate nohighlight">\(t\)</span>. Wenn wir also das Integral der ROC Kurve berechnen, können wir damit schätzen wie gut eine Hypothese ist. Daher auch der Name dieses Gütemaßes, als die Fläche unter der Kurve.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot ROC Curve with AUC</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkorange&#39;</span><span class="p">,</span>
+         <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;AUC = </span><span class="si">%0.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">roc_auc</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkorange&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;False Positive Rate&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;True Positive Rate&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Receiver operating characteristic example&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;lower right&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_07_7_0.png" src="../_images/kapitel_07_7_0.png" />
+</div>
+</div>
+<p>Je näher der Wer von AUC an 1 ist, desto besser ist die Güte der Hypothese. Was die Interpretation angeht, hat AUC aber ein ähnliches Problem wie MCC: Während ein Wert von 1 optimal ist, ist der schlechteste Werte nicht etwa die 0, sondern die 0,5. Bei der 0 hätte man eine FPR von 1 und eine TPR von 0. Wenn man jetzt das Ergebnis invertiert, hat man eine perfekte Klassifikation. Eine Fläche von 0,5 wiederum bekommt man durch die Diagonale auf der <span class="math notranslate nohighlight">\(TPR=FPR\)</span> gilt. Wenn TPR und FPR gleich groß sind, heißt das aber nichts anderes, als das man so gut ist wie der Zufall. Daher sind Werte von AUC besser, je weiter sie von 0,5 entfernt sind. Falls die Werte jedoch unter 0,5 liegen, sollte man rausfinden warum die Hypothese das Gegenteil der wahren Werte vorhersagt.</p>
+</div>
+<div class="section" id="micro-und-macro-averages">
+<h3><span class="section-number">7.3.6. </span>Micro und Macro Averages<a class="headerlink" href="#micro-und-macro-averages" title="Permalink to this headline">¶</a></h3>
+<p>Die bisherigen Gütemaße haben wir alle über die binäre Confusion Matrix definiert. Die Definition der Accuracy können wir ohne Probleme auf mehr als zwei Klassen verallgemeiners, da es sich um den Anteil der korrekt klassifizierten Instanzen handelt. Für MCC gibt es auch eine Erweiterung für mehr als zwei Klassen, auf die wir hier jedoch nicht näher eingehen. Für die anderen Gütemaße können wir einen Trick anwenden: Statt einer nicht-binären Confusion Matrix betrachten wir mehrere binäre Confusion Matrizen. Wie dieser Trick funktioniert, betrachten wir direkt an einem Beispiel. Hier ist noch einmal die Confusion Matrix für die drei Klassen Wal, Bär, und Sonstiges, die wir oben bereits betrachtet haben.</p>
+<table>
+    <tr><td></td><td colspan=4><b>Actual class</b></td></tr>
+    <tr><td rowspan=4><br><br><b>Predicted class</b></td><td><td><b>whale</b></td><td><b>bear</b></td><td><b>other</b></td></tr>
+    <tr><td><b>whale</b></td><td>29</td><td>1</td><td>3</td></tr>
+    <tr><td><b>bear</b></td><td>2</td><td>22</td><td>13</td></tr>
+    <tr><td><b>other</b></td><td>4</td><td>11</td><td>51</td></tr>
+</table>
+<p>Wir können aus diese Matrix nun Gütemaße für die einzelnen Klassen berechnen, zum Beispiel die TPR für die Klasse Wal als</p>
+<div class="math notranslate nohighlight">
+\[TPR_{whale} = \frac{TP_{whale}}{TP_{whale}+FN_{whale}}.\]</div>
+<p>Wir betrachten also die Klasse Wal als die positive Klasse einer binären Confusion Matrix und die anderen Klassen fassen wir in einer einzigen negativen Klasse zusammen. Basierend auf diesem Konzept können wir jetzt eine Erweiterung unserer Gütemaße für eine beliebige Anzahl von Klassen definieren durch das <em>Macro Averaging</em> und das <em>Micro Averaging</em>. Ein Macro Average ist das arithmetische Mittel von eines Gütemaßes, wenn es individuell auf alle Klassen anwendet wird. Für die TPR ist das Macro Average defieniert als</p>
+<div class="math notranslate nohighlight">
+\[TPR_{macro} = \frac{1}{|C|}\sum_{c \in C}\frac{TP_{c}}{TP_{c}+FN_{c}}.\]</div>
+<p>Mit dem Micro Averaging berechnen wir die Gütemaße direkt, in dem wir die Formeln anpassen um die Summe der Werte aller Klassen zu berechnen. Für die TPR ist das Micro Average definiert als</p>
+<div class="math notranslate nohighlight">
+\[TPR_{micro} = \frac{\sum_{c \in C} TP_C}{\sum_{c \in C} TP_C + \sum_{c \in C} FN_C}.\]</div>
+<p>Ob es sinnvoller ist ein Macro oder ein Micro Average zu berechnen, hängt vom Anwendungsfall und den Daten ab. Wenn es ähnlich viele Instanzen für jede Klasse gibt, sind die Ergebnisse des Macro und Micro Averages nahezu identisch. Wenn es Class Level Imbalance in den Daten gibt, also wenn es für mindestens eine Klasse erheblich mehr oder weniger Instanzen in den Daten gibt, ist die Auswahl der Mittelungsmethode relevant. Beim Macro Average werden alle Klasse gleich gewichtet, unabhängig davon, wie viele Instanzen es in den Daten gibt. Dies liegt daran, dass die Gütemaße individuell für jede Klasse berechnet werden und anschließend ungewichtet gemittelt werden. Im Gegensatz hierzu ist der Einfluss der Klassen auf das Micro Average proportional zur Anzahl der Instanzen die es für eine Klasse in den Daten gibt: Je mehr Daten für eine Klasse vorhanden sind, desto höher der Einfluss. Dies liegt daran, dass die Formeln so angepasst werden, dass die Summen direkt über die Instanzen der Klassen gebildet werden.</p>
+<p>Wenn man also eine hohe Class Level Imbalance hat, sollte man das Makro Average wählen, wenn alle Klassen fair und gleichmäßig vom Gütemaß repräsentiert werden sollen. Die hat den potentiellen Nachteil, das Klassen mit wenigen Instanzen einen sehr großen Einfluss auf das Ergebnis haben könnten. Andersrum sollte man Micro Average verwenden, wenn es in Ordnung ist, dass die Ergebnisse durch die Anzahl der Instanzen pro Klasse gewichtet werden.</p>
+</div>
+<div class="section" id="jenseits-der-confusion-matrix">
+<h3><span class="section-number">7.3.7. </span>Jenseits der Confusion Matrix<a class="headerlink" href="#jenseits-der-confusion-matrix" title="Permalink to this headline">¶</a></h3>
+<p>Alle Gütemaße die wir betrachtet haben basieren auf der Confusion Matrix. Dies ist der übliche Ansatz um die Güte von Klassifikationsalgorithmen zu bestimmen. Die Confusion Matrix basierten Gütemaße basieren jedoch alle auf einer Annahme, die in der Regel unrealistisch ist: Alle Fehler sind gleich wichtig. In der Praxis sind einige Fehler jedoch schlimmer als andere. Das Risiko ist bei einer großen Kreditsumme zum Beispiel höher als bei einer kleineren. Wenn ein Schuldner eine große Summe nicht zurückzahlen kann, ist eine falsch positive Kreditwürdigkeit schlimmer, als bei einem kleinen Kreditsumme. Daher sollte man sich neben der Confusion Matrix auch immer Gedanken über Kosten, Nutzen, und Risiken die mit richtig positiven, falsch positiven, richtig negativen, und falsch negativen Ergebnissen verbunden sind. Man könnte zum Beispiel eine Kostenmatrix definieren, die die Gewinne und Verluste genauer aufschlüsselt. Hierdurch kann man eine bessere Kostenfunktion für den Anwendungsfall bekommen, was üblicherweise zu besseren Ergebnisse führt <a class="footnote-reference brackets" href="#kdnuggets" id="id1">1</a>.</p>
+</div>
+</div>
+<div class="section" id="decision-surfaces">
+<h2><span class="section-number">7.4. </span>Decision Surfaces<a class="headerlink" href="#decision-surfaces" title="Permalink to this headline">¶</a></h2>
+<p>Im Folgenden verwenden wir eine visuelle Unterstützung um zu zeigen, wie verschieden Klassifikationsalgorithmen Hypothesen nutzen, um Instanzen zu klassifizieren: das <em>Decision Surface</em>. Bei einem Decision Surface handelt es sich um eine geometrische interpretation von Klassifikationsergebnissen: Der Raum der Instanzen wird in verschiedene Regionen aufgeteilt, so das jede Region die Instanzen gleich klassifiziert. Bei 2-Dimensionalen Daten heißt das, dass man farbige Flächen zeichnen kann, wobei die Farben die Klassen repräsentieren. In höherdimensionalen Räumen kann man die Decision Surfaces leider nicht gut darstellen. Wir nutzen die Kelchblattlänge und Kelchblattbreite der Irisdaten (TODO REF) als Beispieldatensatz um zu zeigen wie die Klassifikationsalgorithmen arbeiten.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
+
+<span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">(</span><span class="n">as_frame</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">class_names</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">()</span><span class="o">.</span><span class="n">target_names</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="c1"># use only first two columns from iris data</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;sepal length (cm)&#39;</span><span class="p">:</span> <span class="s1">&#39;Kelchblattlänge&#39;</span><span class="p">,</span>
+                      <span class="s1">&#39;sepal width (cm)&#39;</span><span class="p">:</span> <span class="s1">&#39;Kelchblattbreite&#39;</span><span class="p">})</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="o">.</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="o">.</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">scatter</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">c</span><span class="o">=</span><span class="n">Y</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Iris Daten&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="n">scatter</span><span class="o">.</span><span class="n">legend_elements</span><span class="p">()[</span><span class="mi">0</span><span class="p">],</span> <span class="n">labels</span><span class="o">=</span><span class="n">class_names</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sepal length (cm)
+</pre></div>
+</div>
+<img alt="../_images/kapitel_07_9_1.png" src="../_images/kapitel_07_9_1.png" />
+</div>
+</div>
+<p>Man erkennt das die Setosas klar von den anderen Arten der Iris getrennt sind, während sich die Versicolor und Virginica überlappen. Wir nutzen jetzt die Hintergrundfarbe um zu zeigen wie ein Decision Surface aussieht: Lila für Setosa, Türkis für Versicolor und Gelb für Virginica. Als Beispiel definieren wir selbst Regeln zu Klassifikation:</p>
+<ul class="simple">
+<li><p>Alle Instanzen, deren Kelchblattlänge kleiner als 5,5 ist, werden als Setosa klassifiziert.</p></li>
+<li><p>Alle Instanzen, deren Kelchblattlänge zwischen 5,5 und 6 liegt, werden als Versicolor klassifiziert.</p></li>
+<li><p>Alle Instanzen, deren Kelchblattlänge größer als 6 ist, werden als Virginica klassifiziert.</p></li>
+</ul>
+<p>Hierdurch bekommen wir folgendes Decision Surface.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">class</span> <span class="nc">DummyModel</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
+        <span class="k">pass</span>
+    
+    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">))</span> <span class="c1"># init everything as Versicolor</span>
+        <span class="n">result</span><span class="p">[</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">&lt;</span><span class="mf">5.5</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># rule for Setosa</span>
+        <span class="n">result</span><span class="p">[</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">6</span><span class="p">]</span>   <span class="o">=</span> <span class="mi">2</span> <span class="c1"># rule for Virginica</span>
+        <span class="k">return</span> <span class="n">result</span>
+
+<span class="k">def</span> <span class="nf">plot_decision_surface</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="o">.</span><span class="mi">01</span> <span class="c1"># step size in the mesh</span>
+    <span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="o">.</span><span class="mi">5</span>
+    <span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="o">.</span><span class="mi">5</span>
+    <span class="n">xx</span><span class="p">,</span> <span class="n">yy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span> <span class="n">h</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
+    
+    <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+    <span class="n">Z</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">xx</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">yy</span><span class="o">.</span><span class="n">ravel</span><span class="p">()])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">xx</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">xx</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">xx</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">yy</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">yy</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.04</span><span class="p">,</span> <span class="n">shading</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">c</span><span class="o">=</span><span class="n">Y</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+    
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">title</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+    
+<span class="n">plot_decision_surface</span><span class="p">(</span><span class="n">DummyModel</span><span class="p">(),</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Decision Surface of the Example&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_07_11_0.png" src="../_images/kapitel_07_11_0.png" />
+</div>
+</div>
+<p>Die Linie, wo sich die Farben ändert, nennt man <em>Decision Boundary</em>. Die Decision Boundaries bestimmen die Struktur der Ergebnisse und sind eine wesentliche Eigenschaft von Klassifikationsalgorithmen, die sowohl praktische Auswirkungen auf die Ergebnisse, als auch ein wichtiges Hilfsmittel für die mathematische Beschreibung und Analyse ist.</p>
+</div>
+<div class="section" id="k-nearest-neighbor">
+<h2><span class="section-number">7.5. </span><span class="math notranslate nohighlight">\(k\)</span>-Nearest Neighbor<a class="headerlink" href="#k-nearest-neighbor" title="Permalink to this headline">¶</a></h2>
+<p>Der erste Klassifikationsalgorithmus den wir betrachten ist der <span class="math notranslate nohighlight">\(k\)</span>-Nearest Neighbor Algorithmus. Dieser Algorithmus basiert auf der Idee, dass Instanzen der selben Klasse nah beieinander liegen. Diese Idee kennen wir bereits von den Clusteralgorithmen, die die Distanz als Maß für die Ähnlichkeit von Instanzen verwendet haben. Der einfachste Ansatz ist, das man einfach jede Instanz so klassifiziert, wie ihren nächsten Nachbarn. Für die Irisdaten würden mit dieser Strategie das folgende Decision Surface bekommen.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
+
+<span class="n">plot_decision_surface</span><span class="p">(</span><span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Decision Surfaces von 1-Nearest Neighbor&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_07_13_0.png" src="../_images/kapitel_07_13_0.png" />
+</div>
+</div>
+<p>Wir können diese Konzept auf <span class="math notranslate nohighlight">\(k\)</span> Nachbarn erweitern um den vollständigen <span class="math notranslate nohighlight">\(k\)</span>-Nearest Neighbor Algorithmus zu erhalten. Hierfür weisen wir die Klasse als das Mehrheitsvotum der <span class="math notranslate nohighlight">\(k\)</span> nächsten Nachbarn zu. Hierdurch ändern sich auch die Decision Surfaces für verschiedene Werte von <span class="math notranslate nohighlight">\(k\)</span>.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">plot_decision_surface</span><span class="p">(</span><span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span>
+                      <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Decision Surfaces von 1-Nearest Neighbor&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">plot_decision_surface</span><span class="p">(</span><span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">3</span><span class="p">),</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span>
+                      <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Decision Surfaces von 3-Nearest Neighbor&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">plot_decision_surface</span><span class="p">(</span><span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span>
+                      <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Decision Surfaces von 5-Nearest Neighbor&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">plot_decision_surface</span><span class="p">(</span><span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">20</span><span class="p">),</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span>
+                      <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Decision Surfaces von 20-Nearest Neighbor&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                    <span class="n">top</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">wspace</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">hspace</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_07_15_0.png" src="../_images/kapitel_07_15_0.png" />
+</div>
+</div>
+<p>Man erkennt keine klare Struktur für der Decision Boundaries zwischen den Decision Surfaces bei den vom <span class="math notranslate nohighlight">\(k\)</span>-Nearest Neighbor berechneten Hypothesen. Die Decision Boundaries haben viele scharfe Kanten und keine regelmäßige Struktur wie man es erwarten würde, wenn diese zum Beispiel das Ergebnis einer differenzierbaren Funktion wären. Genau dies fehlt beim <span class="math notranslate nohighlight">\(k\)</span>-Nearest Neighbor Algorithmus auch: eine mathematische Beschreibung der Hypothese, welche eine Generalisierung der Daten ist. Stattdessen haben wir einen <em>Instanzbasierentes</em> verfahren, welches die Decision Boundaries durch den direkten Vergleich von Instanzen miteinander definiert. Wenn wir betrachten wie sich das Ergebnis für größere Werte von <span class="math notranslate nohighlight">\(k\)</span> verändert, sehen wir dass der Einfluss einzelner Datenpunkte reduziert wird. Bei <span class="math notranslate nohighlight">\(k=1\)</span> sieht man zum Beispiel noch eine einzelne gelbe Instanz an der linken Seiten der Grafik. Hierbei handelt es sich vermutlich um einen Ausreißer der gelben Klasse (Virginica). Die Konsequenz dieses Ausreißers ist, dass es eine relativ große gelbe Region gibt, obwohl dieser Bereich eher lila oder türkis sein sollte. Bei größeren Nachbarschaftsgrößen verschwindet dieser Effekt. Andererseits bedeutet eine große Nachbarschaft auch, das Instanzen die weiter weg liegen, die Klassifikation beeinflussen. Mit <span class="math notranslate nohighlight">\(k=20\)</span> bekommt man hierdurch eine relativ scharfe Trennung von Türkis und Gelb. Dies liegt aber nicht an den Istanzen, die direkt im Bereich der Trennung liegen, sondern an den Istnazen die weiter im Hintergrund liegen: sobald es mehr gelbe Punkte im Hintergrund gibt, bleibt die Farbe stabil gelb. Durch diese größeren Abstände kann es jedoch auch komische Effekte geben, wie man es zum Beispiel an der “türkisen Insel” in einem Ansonsten stabil gelben Bereich sieht. Das besondere hier ist, dass es in dieser Insel nicht einmal eine türkise Instanz gibt, sie entsteht also nur aufgrund von Datenpunkten die relativ weit weg liegen.</p>
+<p>Um den effekt der Nachbarschaftsgröße weiter zu verdeutlichen betrachen wir den Punkt (6, 3,5) im Detail.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">NearestNeighbors</span>
+
+<span class="k">def</span> <span class="nf">plot_neighborhood</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">pnt</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">nbrs</span> <span class="o">=</span> <span class="n">NearestNeighbors</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">algorithm</span><span class="o">=</span><span class="s1">&#39;ball_tree&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">pnt_neighbors</span> <span class="o">=</span> <span class="n">nbrs</span><span class="o">.</span><span class="n">kneighbors</span><span class="p">(</span><span class="n">pnt</span><span class="p">)</span>
+    <span class="n">Y_pred</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="n">k</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">pnt</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+    <span class="n">sc</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">c</span><span class="o">=</span><span class="n">Y</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">k</span><span class="p">):</span>
+        <span class="n">pnt2</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">pnt_neighbors</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">pnt</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">pnt2</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="p">[</span><span class="n">pnt</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">pnt2</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="n">color</span><span class="o">=</span><span class="n">sc</span><span class="o">.</span><span class="n">to_rgba</span><span class="p">(</span><span class="n">Y</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">pnt_neighbors</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">]]))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">pnt</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">pnt</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">sc</span><span class="o">.</span><span class="n">to_rgba</span><span class="p">(</span><span class="n">Y_pred</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%i</span><span class="s1"> Neighbors&#39;</span> <span class="o">%</span> <span class="n">k</span><span class="p">)</span>
+    
+<span class="n">pnt</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">6</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">]]</span>
+<span class="n">f</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">plot_neighborhood</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">pnt</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plot_neighborhood</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">pnt</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plot_neighborhood</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">pnt</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plot_neighborhood</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">pnt</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                    <span class="n">top</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">wspace</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">hspace</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_07_17_0.png" src="../_images/kapitel_07_17_0.png" />
+</div>
+</div>
+<p>Bei <span class="math notranslate nohighlight">\(k=1\)</span> und <span class="math notranslate nohighlight">\(k=3\)</span> wird dieser Punkt türkis Markiert, da die es zwei relativ nahe türkise Datenpunkte gibt, jedoch nur einen gelben. Bei <span class="math notranslate nohighlight">\(k=5\)</span> wechselt der Punkt zur gelben Klasse, da es jetzt zwei weitere gelbe Punkte in der Nachbarschaft gibt. Bei <span class="math notranslate nohighlight">\(k=20\)</span> sieht man wie der Punkt zwar gelb bleibt, aber sehr viele Punkte mittlerweile mitbestimmen, obwohl die meisten davon sehr weit weg von unserem Datenpunkt liegen.</p>
+</div>
+<div class="section" id="entscheidungsbaume">
+<h2><span class="section-number">7.6. </span>Entscheidungsbäume<a class="headerlink" href="#entscheidungsbaume" title="Permalink to this headline">¶</a></h2>
+<p>Stellen wir uns vor das wir uns ein Auto kaufen wollen. Als Käufer hat man in der Regel ein paar Kriterien, die man sich überlegt, bevor man zum Händler geht: Es sollte zum ein 5-Türer mit einer gewissen Leistung und einer gewissen Kofferraumgräße sein. Manche dieser Kriterien sind wichtiger als andere, sie werden als zuerst Anwendet um Autos auszuschließen. Während die Anzahl der Türen fest steht, könnte es zum Beispiel bei der Leistung einen gewissen Spielraum geben. Dies ist die Intuition von <em>Entscheidungsbäumen</em> (engl. <em>decision tree</em>): Es werden Schrittweise logische Regeln auf die Merkmale angewendet um Entscheidungen zu treffen. Die Entscheidungen sind als Baum organisiert.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span><span class="p">,</span> <span class="n">plot_tree</span>
+
+<span class="n">clf</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">criterion</span><span class="o">=</span><span class="s1">&#39;entropy&#39;</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plot_tree</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">feature_names</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">class_names</span><span class="o">=</span><span class="n">class_names</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_07_19_0.png" src="../_images/kapitel_07_19_0.png" />
+</div>
+</div>
+<hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="kdnuggets"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p><a class="reference external" href="https://www.kdnuggets.com/2016/12/salford-costs-misclassifications.html">https://www.kdnuggets.com/2016/12/salford-costs-misclassifications.html</a></p>
+</dd>
+</dl>
 </div>
 </div>
 
