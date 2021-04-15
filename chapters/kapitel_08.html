@@ -279,6 +279,38 @@
   <a class="reference internal nav-link" href="#lineare-regression">
    8.3. Lineare Regression
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ordinary-least-squares-ols">
+     8.3.1. Ordinary Least Squares (OLS)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ridge">
+     8.3.2. Ridge
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lasso">
+     8.3.3. Lasso
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#elastic-net">
+     8.3.4. Elastic Net
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#auswirkung-der-regularisierung">
+     8.3.5. Auswirkung der Regularisierung
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#jenseits-von-linearer-regression">
+   8.4. Jenseits von Linearer Regression
+  </a>
  </li>
 </ul>
 
@@ -516,7 +548,210 @@ Adjusted R2: 0.68
 <p>Die Lineare Regression ist uns bereits in <a class="reference internal" href="kapitel_07.html"><span class="doc std std-doc">Kapitel 7</span></a> als Teil der Logistischen Regression begegnet, sowie im obigen Beispiel. Jetzt wollen wir die Lineare Regression genauer betrachten. Die Formel für die Regressionsfunktion der Linearen Regression ist</p>
 <div class="math notranslate nohighlight">
 \[y = b_0 + b_1x_1 + ... + b_mx_m = b_0 + \sum_{i=1}^m b_ix_i\]</div>
-<p>mit den <em>Koeffizienten</em> <span class="math notranslate nohighlight">\(b_1, ..., b_m \in \mathbb{R}\)</span> und dem <em>Achsenabschnitt</em> (engl. <em>intercept</em>) <span class="math notranslate nohighlight">\(b_0\)</span>. Die Koeffizienten definieren den Einfluss der Merkmale auf die abhängige Variable.</p>
+<p>mit den <em>Koeffizienten</em> <span class="math notranslate nohighlight">\(b_1, ..., b_m \in \mathbb{R}\)</span> und dem <em>Achsenabschnitt</em> (engl. <em>intercept</em>) <span class="math notranslate nohighlight">\(b_0\)</span>. Die Koeffizienten definieren den Einfluss der Merkmale auf die abhängige Variable. Dies ist ähnlich zur Korrelation und damit auch direkt verwand. Ein positiver Koeffizient bedeutet, dass ein Merkmal positiv mit der abhängigen variable korreliert ist. Ein negative Koeffizient heißt das es eine negative Korrelation gibt. Es gibt jedoch auch Ausnahmen, wie wir in den nächsten Abschnitten sehen werden.</p>
+<p>Der Achsenabschnitt ist das “Basiswert” der abhängigen Variable, also der Wert, wenn alle Merkmale gleich Null wären. Geometrisch betrachtet ist das der Schnittpunkt mit den Achsen des Koordinatensystems.</p>
+<p>Ein wichtiger Aspekt der Linearen Regression ist, wie die Koeffizienten und der Achsenabschnitt bestimmt werden. Dies hat nicht nur Auswirkungen auf die Qualität der Regression, sondern auch auf die Interpretation der Koeffizienten.</p>
+<div class="section" id="ordinary-least-squares-ols">
+<h3><span class="section-number">8.3.1. </span>Ordinary Least Squares (OLS)<a class="headerlink" href="#ordinary-least-squares-ols" title="Permalink to this headline">¶</a></h3>
+<p>Das übliche Verfahren zum Berechnen der Koeffizienten einer linearen Regression ist die Methode der kleinsten Quadrate, bekannt als <em>Ordinary Least Squares</em> (OLS). Hierfür interpretieren wir die Instanzen als Matrix und die abhängigen Variable als Vektor:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{split}
+X &amp;= \begin{pmatrix}
+x_{1,1} &amp; \dots &amp; x_{1,m} \\
+\vdots &amp; \ddots &amp; \vdots \\
+x_{n,1} &amp; \dots &amp; x_{n,m} 
+\end{pmatrix} \\
+y &amp;= (y_1, \dots, y_n) \\
+b &amp;= (b_1, \dots, b_m)
+\end{split}
+\end{split}\]</div>
+<p>Mit dieser Repräsentation können wir einfach die Vorhersagen für alle Instanzen gleichzeit als Matrixoperation berechnen, so dass</p>
+<div class="math notranslate nohighlight">
+\[f(X) = b_0 + Xb.\]</div>
+<p>Da wir die Residuen minimieren wollen, können wir dies als Optimierungsproblem formulieren. Hierzu müssen wir nur die wahren Werte von den Vorhersagen abziehen und dann den quadratischen Fehler berechnen:</p>
+<div class="math notranslate nohighlight">
+\[\min ||f(X) - f^*(X)||_2^2 = \min ||b_0 + Xb - y||_2^2.\]</div>
+<p>Wir minimieren also das Quadrat der euklidischen Distanz, welche wir in <a class="reference internal" href="kapitel_06.html"><span class="doc std std-doc">Kapitel 6</span></a> betrachtet haben. Wir suchen also die eine Lösung, die die <em>kleinsten Quadrate</em> findet.</p>
+<p>Da wir in der Regel mehr Instanzen als Merkmale haben (andernfalls hat man meistens zu viele Merkmale), gibt es viele mögliche Lösungen für dieses Optimierungsproblem. Alle diese Lösungen haben die gleiche Güte, aber unterschiedliche Koeffizienten. Wenn die Koeffizienten korreliert sind, kann dies zu interesanten effekten führen.</p>
+<p>Betrachten wir zwei Merkmale <span class="math notranslate nohighlight">\(x_1, x_2\)</span> und eine abhängige Variable <span class="math notranslate nohighlight">\(y\)</span>, so dass <span class="math notranslate nohighlight">\(y = x_1 = x_2\)</span>. Die folgenden vier Lösungen sind alle optimal:</p>
+<ul class="simple">
+<li><p>Lösung 1: <span class="math notranslate nohighlight">\(b_0 = 0, b_1=0.5, b_2=0.5\)</span></p></li>
+<li><p>Lösung 2: <span class="math notranslate nohighlight">\(b_0 = 0, b_1=1, b_2=0\)</span></p></li>
+<li><p>Lösung 3: <span class="math notranslate nohighlight">\(b_0 = 0, b_1=0, b_2=1\)</span></p></li>
+<li><p>Lösung 4: <span class="math notranslate nohighlight">\(b_0 = 0, b_1=10000, b_2=-9999\)</span></p></li>
+</ul>
+<p>Im Allgemeinen ist in diesem Fall jede Lösung für die gilt <span class="math notranslate nohighlight">\(b_0=0\)</span> und <span class="math notranslate nohighlight">\(b_1+b_2=1\)</span> optimal. Die ersten drei Lösungen sehen vernünftig auch, führen aber zu sehr unterschiedlichen Interpretationen der Koeffizienten. Bei Lösung 2 könnte man denken, dass es keine beziehung zwischen <span class="math notranslate nohighlight">\(x_2\)</span> und <span class="math notranslate nohighlight">\(y\)</span> gibt, bei Lösung 3 ist es genau anders, hier gibt es scheinbar eine sehr starke Beziehung. Dies zeigt, wie die Koeffizienten irreführend sein können. Da <span class="math notranslate nohighlight">\(b_1\)</span> und <span class="math notranslate nohighlight">\(b_2\)</span> beide jeden beliebigen Wert annehmen können, könnte wir für beide Merkmale beliebige “Korrelationen” finden.</p>
+</div>
+<div class="section" id="ridge">
+<h3><span class="section-number">8.3.2. </span>Ridge<a class="headerlink" href="#ridge" title="Permalink to this headline">¶</a></h3>
+<p>Im folgenden zeigen wir, wie man OLS abwandeln kann um die Ergebnisse zu <em>Regularisieren</em>. Durch die Regularisierung kann man extreme Koeffizienten verhinden, auch wenn die Merkmale korreliert sind. Die Idee ist einfach: Wenn ein Optimierungsproblem viele optimale Lösungen hat, benötigen wir einfach ein zusätzliches Kriterium mit dem wir die Lösungen auswählen, die uns besser gefallen. Hierzu fügt man einfach einen <em>Regularisierungsterm</em> zur OLS Formel hinzu.</p>
+<p>Bei der <em>Ridge</em>-Regularisierungist es das Ziel möglichst kleine Werte für die Koeffizienten zu bekommen und dadurch extreme Werte durch Korrelationen zu verhindern. Wir müssen also das Optimierungsproblem so verändern, dass wir neben der Güte der Regression auch noch die größe der Koeffizienten optimieren:</p>
+<div class="math notranslate nohighlight">
+\[\min ||b_0 + Xb - y||_2^2 + \alpha ||b||_2^2\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(\alpha \in \mathbb{R}, \alpha&gt;0\)</span> die Stärke der Regulariesierung bestimmt und <span class="math notranslate nohighlight">\(||b||_2^2 = \sqrt{\sum_{i=1}^m b_i^2}^2 = \sum_{i=1}^m b_i^2\)</span> nichts anderes als die Summe der Quadrate der Koeffizienten ist. Bei unseren vier Lösungen von oben, würden wir folgende Werte für <span class="math notranslate nohighlight">\(||b||_2^2\)</span> bekommen:</p>
+<ul class="simple">
+<li><p>Lösung 1: <span class="math notranslate nohighlight">\(||b||_2^2 = 0.5^2+0.5^2 = 0.5\)</span></p></li>
+<li><p>Lösung 2/3: <span class="math notranslate nohighlight">\(||b||_2^2 = 1^2+0^2 = 1.0\)</span></p></li>
+<li><p>Lösung 4: <span class="math notranslate nohighlight">\(||b||_2^2 = 1^2+0^2 = 1.0\)</span></p></li>
+</ul>
+<p>Mit Ridge-Regularisierung würden wir also die erste Lösung auswählen.</p>
+</div>
+<div class="section" id="lasso">
+<h3><span class="section-number">8.3.3. </span>Lasso<a class="headerlink" href="#lasso" title="Permalink to this headline">¶</a></h3>
+<p>Eine weiterers Regularisierungsverfahren ist <em>Lasso</em>. Während Ridge die absoluten Werte der Koeffizienten minimiert, sind die Werte häufig immernoch nicht Null. Eine Regression die eine ähnliche Güte mit weniger Merkmalen erreicht ist aber oft besser, da die Gefahr von Overfitting reduziert wird. Das Ziel von Lasso-Regularisierung ist es die Koeffizienten nicht nur zu minimieren, sondern dafür zu sorgen, dass sie exakt Null werden. Hierzu modifizieren wir auch wieder das OLS Optimierungsproblem:</p>
+<div class="math notranslate nohighlight">
+\[\min ||b_0 + Xb - y||_2^2 + \alpha ||b||_1,\]</div>
+<p>Der Unterschied zu Ridge ist, das wir jetzt <span class="math notranslate nohighlight">\(||b||_1 = \sum_{i=1}^m b_i||\)</span> als Regularisierungsterm benutzen, also die Manhatten Norm statt der euklidischen Norm. Auf unsere Lösungen wirkt sich das wie folgt aus:</p>
+<ul class="simple">
+<li><p>Lösung 1: <span class="math notranslate nohighlight">\(||b||_1 = |0.5|+|0.5| = 1.0\)</span></p></li>
+<li><p>Lösung 2/3: <span class="math notranslate nohighlight">\(||b||_1 = |1|+|0| = 1.0\)</span></p></li>
+<li><p>Lösung 4: <span class="math notranslate nohighlight">\(||b||_1 = |10000|+|-9999| = 19999.0\)</span></p></li>
+</ul>
+<p>Die Lösungen 1, 2, und 3 sind also Optimal mit Lasso, es gibt also eine hohe Wahrscheinlichkeit das eine Lösung gewählt wird, bei der ein Koeffizient exakt Null ist.</p>
+<blockquote>
+<div><p><strong>Bemerkung:</strong></p>
+<p>Wir überspringen an dieser schnelle die mathematische Begründung, warum Ridge nur die Koeffizienten minimiert, sie aber bei Lasso genau Null werden. Verkürzt kann man sagen, dass es an den Bedingungen des Optimierungsproblems liegt. Die Form diese Bedingungen ist ein Kreis bei Ridge und eine Raute beim Lasso, da dies die Form der Einheitskreise der euklidischen, bzw. Manhatten Norm ist. Aufgrund der Rautenform, die ihre Spitzen auf den Achsen hat, werden die Koeffizienten mit hoher Wahrscheinlichkeit genau Null. Eine vollständige Erklärung finden man zum Beispiel hier <a class="footnote-reference brackets" href="#lasso-ridge" id="id1">1</a>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="elastic-net">
+<h3><span class="section-number">8.3.4. </span>Elastic Net<a class="headerlink" href="#elastic-net" title="Permalink to this headline">¶</a></h3>
+<p>Die letzte Regularisierungsvariante die wir hier betrachten wollen ist das <em>Elastic Net</em>, das Ridge und Lasso kombiniert:</p>
+<div class="math notranslate nohighlight">
+\[\min ||b_0 + Xb - y||_2^2 + \rho \alpha ||b||_1 + \frac{1-\rho}{2}\alpha ||b||_2^2\]</div>
+<p><span class="math notranslate nohighlight">\(\rho \in [0,1]\)</span>  definiert die Gewichtung von Ridge und Lasse. Mit <span class="math notranslate nohighlight">\(\rho=0\)</span> hätten wir Ridge, mit <span class="math notranslate nohighlight">\(\rho=1\)</span> hätten wir Lasso. Mit dem Elastic Net kann man niedrige Koeffizienten erzwingen, die nach Möglichkeit Null werden.</p>
+</div>
+<div class="section" id="auswirkung-der-regularisierung">
+<h3><span class="section-number">8.3.5. </span>Auswirkung der Regularisierung<a class="headerlink" href="#auswirkung-der-regularisierung" title="Permalink to this headline">¶</a></h3>
+<p>Um die Auswirkungen der Regularisierung zu untersuchen, betrachten wir noch einmal die Bostondaten, die wir bereits aus <a class="reference internal" href="kapitel_03.html"><span class="doc std std-doc">Kapitel 3</span></a> kennen und erstellen jetzt eine Lineare Regression für die Daten. Wir Vergleichen die Ergebnisse von OLS, Ridge, Lasso und dem Elastic Net. Wir nutzen eine Regularisierungsstärke von <span class="math notranslate nohighlight">\(\alpha=0,5\)</span> und ein Gewicht von <span class="math notranslate nohighlight">\(\rho=0,25\)</span> für das Verhältnis von Ridge und Lasso beim Elastic Net. Balkendiagramme sind eine gutes Hilfsmittel um die Veränderung der Koeffizienten zu betrachten.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">Ridge</span><span class="p">,</span> <span class="n">Lasso</span><span class="p">,</span> <span class="n">ElasticNet</span>
+
+<span class="n">boston</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_boston</span><span class="p">()</span>
+<span class="n">predictors</span> <span class="o">=</span> <span class="n">boston</span><span class="o">.</span><span class="n">feature_names</span>
+<span class="n">X_boston</span><span class="o">=</span><span class="n">boston</span><span class="o">.</span><span class="n">data</span>
+<span class="n">Y_boston</span><span class="o">=</span><span class="n">boston</span><span class="o">.</span><span class="n">target</span>
+
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span>
+
+<span class="c1"># OLS linear regression</span>
+<span class="n">ols</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">ols</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_boston</span><span class="p">,</span> <span class="n">Y_boston</span><span class="p">)</span>
+<span class="n">Y_ols</span> <span class="o">=</span> <span class="n">ols</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_boston</span><span class="p">)</span>
+
+<span class="n">ridge</span> <span class="o">=</span> <span class="n">Ridge</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
+<span class="n">ridge</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_boston</span><span class="p">,</span> <span class="n">Y_boston</span><span class="p">)</span>
+<span class="n">Y_ridge</span> <span class="o">=</span> <span class="n">ridge</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_boston</span><span class="p">)</span>
+
+<span class="n">lasso</span> <span class="o">=</span> <span class="n">Lasso</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
+<span class="n">lasso</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_boston</span><span class="p">,</span> <span class="n">Y_boston</span><span class="p">)</span>
+<span class="n">Y_lasso</span> <span class="o">=</span> <span class="n">lasso</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_boston</span><span class="p">)</span>
+
+<span class="n">elastic</span> <span class="o">=</span> <span class="n">ElasticNet</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">l1_ratio</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+<span class="n">elastic</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_boston</span><span class="p">,</span><span class="n">Y_boston</span><span class="p">)</span>
+<span class="n">Y_elastic</span> <span class="o">=</span> <span class="n">elastic</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_boston</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;OLS (R2=</span><span class="si">%.2f</span><span class="s1">, Adjusted R2=</span><span class="si">%.2f</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">r2_score</span><span class="p">(</span><span class="n">Y_boston</span><span class="p">,</span> <span class="n">Y_ols</span><span class="p">),</span> <span class="n">adjusted_r2_score</span><span class="p">(</span><span class="n">Y_boston</span><span class="p">,</span> <span class="n">Y_ols</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">Y_boston</span><span class="p">),</span> <span class="nb">sum</span><span class="p">(</span><span class="n">ols</span><span class="o">.</span><span class="n">coef_</span><span class="o">!=</span><span class="mi">0</span><span class="p">))))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">predictors</span><span class="p">,</span> <span class="n">ols</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">labelrotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Ridge (R2=</span><span class="si">%.2f</span><span class="s1">, Adjusted R2=</span><span class="si">%.2f</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">r2_score</span><span class="p">(</span><span class="n">Y_boston</span><span class="p">,</span> <span class="n">Y_ridge</span><span class="p">),</span> <span class="n">adjusted_r2_score</span><span class="p">(</span><span class="n">Y_boston</span><span class="p">,</span> <span class="n">Y_ols</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">Y_boston</span><span class="p">),</span> <span class="nb">sum</span><span class="p">(</span><span class="n">ridge</span><span class="o">.</span><span class="n">coef_</span><span class="o">!=</span><span class="mi">0</span><span class="p">))))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">boston</span><span class="o">.</span><span class="n">feature_names</span><span class="p">,</span> <span class="n">ridge</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">labelrotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Lasso (R2=</span><span class="si">%.2f</span><span class="s1">, Adjusted R2=</span><span class="si">%.2f</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">r2_score</span><span class="p">(</span><span class="n">Y_boston</span><span class="p">,</span> <span class="n">Y_lasso</span><span class="p">),</span> <span class="n">adjusted_r2_score</span><span class="p">(</span><span class="n">Y_boston</span><span class="p">,</span> <span class="n">Y_ols</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">Y_boston</span><span class="p">),</span> <span class="nb">sum</span><span class="p">(</span><span class="n">lasso</span><span class="o">.</span><span class="n">coef_</span><span class="o">!=</span><span class="mi">0</span><span class="p">))))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">boston</span><span class="o">.</span><span class="n">feature_names</span><span class="p">,</span> <span class="n">lasso</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">labelrotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Elastic Net (R2=</span><span class="si">%.2f</span><span class="s1">, Adjusted R2=</span><span class="si">%.2f</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">r2_score</span><span class="p">(</span><span class="n">Y_boston</span><span class="p">,</span> <span class="n">Y_elastic</span><span class="p">),</span> <span class="n">adjusted_r2_score</span><span class="p">(</span><span class="n">Y_boston</span><span class="p">,</span> <span class="n">Y_ols</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">Y_boston</span><span class="p">),</span> <span class="nb">sum</span><span class="p">(</span><span class="n">elastic</span><span class="o">.</span><span class="n">coef_</span><span class="o">!=</span><span class="mi">0</span><span class="p">))))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">boston</span><span class="o">.</span><span class="n">feature_names</span><span class="p">,</span> <span class="n">elastic</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">labelrotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                    <span class="n">top</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">wspace</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">hspace</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_08_9_0.png" src="../_images/kapitel_08_9_0.png" />
+</div>
+</div>
+<p>Man sieht bereits ein sehr starken Effekt durch die Regularisierung. NOX hat den absolut größten Koeffizienten und die Änderung zwischen den Regularisierungen ist sehr groß. Mit OLS ist der Wert von NOX bei ca. -18, mit Ridge nur noch bei ca. -13, und mit Lasso und dem Elastic Net wird der Koeffizient sogar auf 0 gesetzt. Bei Ridge ändert sich der <span class="math notranslate nohighlight">\(R^2\)</span> Wert nicht gegenüber OLS, obwohl es eine derart große Änderung der Koeffizienten gibt. Beim Lasso werden neben NOX auch noch CHAS auf Null gesetzt. Obwohl vier Merkmale entfernt wurden, ändert sich der <span class="math notranslate nohighlight">\(R^2\)</span> Wert nur leicht. Dadurch das es weniger Merkmale sind, hat sich Adjusted <span class="math notranslate nohighlight">\(R^2\)</span> nicht verändert. Man sieht auch das beim Elastic Net weniger Merkmale auf Null gesetzt werden, als mit dem Lasso.</p>
+<p>Insgesamt erkennt man einen starken Einfluss der Regularisierung auf die Koeffizienten und auch, dass gerade NOX scheinbar nicht so relevant ist, wie es ohne Regularisierung erscheint. Dennoch sollte man Regularisierung mit bedacht einsetzen. Wenn man einen zu hohen Wert für die Regularisierungsstärke wählt, kann es sein dass der Fokus des Optimierungsproblems nicht mehr auf einer guten Regression liegt, weil kleine Werte der Koeffizienten zu wichtig sind. Betrachten wir noch einmal das gleiche Beispiel mit <span class="math notranslate nohighlight">\(\alpha=5\)</span>, also eine 10-mal stärkeren Regularisierung.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">Ridge</span><span class="p">,</span> <span class="n">Lasso</span><span class="p">,</span> <span class="n">ElasticNet</span>
+
+<span class="n">boston</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_boston</span><span class="p">()</span>
+<span class="n">predictors</span> <span class="o">=</span> <span class="n">boston</span><span class="o">.</span><span class="n">feature_names</span>
+<span class="n">X_boston</span><span class="o">=</span><span class="n">boston</span><span class="o">.</span><span class="n">data</span>
+<span class="n">Y_boston</span><span class="o">=</span><span class="n">boston</span><span class="o">.</span><span class="n">target</span>
+
+<span class="n">alpha</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="c1"># OLS linear regression</span>
+<span class="n">ols</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">ols</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_boston</span><span class="p">,</span> <span class="n">Y_boston</span><span class="p">)</span>
+<span class="n">Y_ols</span> <span class="o">=</span> <span class="n">ols</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_boston</span><span class="p">)</span>
+
+<span class="n">ridge</span> <span class="o">=</span> <span class="n">Ridge</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
+<span class="n">ridge</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_boston</span><span class="p">,</span> <span class="n">Y_boston</span><span class="p">)</span>
+<span class="n">Y_ridge</span> <span class="o">=</span> <span class="n">ridge</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_boston</span><span class="p">)</span>
+
+<span class="n">lasso</span> <span class="o">=</span> <span class="n">Lasso</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
+<span class="n">lasso</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_boston</span><span class="p">,</span> <span class="n">Y_boston</span><span class="p">)</span>
+<span class="n">Y_lasso</span> <span class="o">=</span> <span class="n">lasso</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_boston</span><span class="p">)</span>
+
+<span class="n">elastic</span> <span class="o">=</span> <span class="n">ElasticNet</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">l1_ratio</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+<span class="n">elastic</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_boston</span><span class="p">,</span><span class="n">Y_boston</span><span class="p">)</span>
+<span class="n">Y_elastic</span> <span class="o">=</span> <span class="n">elastic</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_boston</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;OLS (R2=</span><span class="si">%.2f</span><span class="s1">, Adjusted R2=</span><span class="si">%.2f</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">r2_score</span><span class="p">(</span><span class="n">Y_boston</span><span class="p">,</span> <span class="n">Y_ols</span><span class="p">),</span> <span class="n">adjusted_r2_score</span><span class="p">(</span><span class="n">Y_boston</span><span class="p">,</span> <span class="n">Y_ols</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">Y_boston</span><span class="p">),</span> <span class="nb">sum</span><span class="p">(</span><span class="n">ols</span><span class="o">.</span><span class="n">coef_</span><span class="o">!=</span><span class="mi">0</span><span class="p">))))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">predictors</span><span class="p">,</span> <span class="n">ols</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">labelrotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Ridge (R2=</span><span class="si">%.2f</span><span class="s1">, Adjusted R2=</span><span class="si">%.2f</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">r2_score</span><span class="p">(</span><span class="n">Y_boston</span><span class="p">,</span> <span class="n">Y_ridge</span><span class="p">),</span> <span class="n">adjusted_r2_score</span><span class="p">(</span><span class="n">Y_boston</span><span class="p">,</span> <span class="n">Y_ols</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">Y_boston</span><span class="p">),</span> <span class="nb">sum</span><span class="p">(</span><span class="n">ridge</span><span class="o">.</span><span class="n">coef_</span><span class="o">!=</span><span class="mi">0</span><span class="p">))))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">boston</span><span class="o">.</span><span class="n">feature_names</span><span class="p">,</span> <span class="n">ridge</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">labelrotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Lasso (R2=</span><span class="si">%.2f</span><span class="s1">, Adjusted R2=</span><span class="si">%.2f</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">r2_score</span><span class="p">(</span><span class="n">Y_boston</span><span class="p">,</span> <span class="n">Y_lasso</span><span class="p">),</span> <span class="n">adjusted_r2_score</span><span class="p">(</span><span class="n">Y_boston</span><span class="p">,</span> <span class="n">Y_ols</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">Y_boston</span><span class="p">),</span> <span class="nb">sum</span><span class="p">(</span><span class="n">lasso</span><span class="o">.</span><span class="n">coef_</span><span class="o">!=</span><span class="mi">0</span><span class="p">))))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">boston</span><span class="o">.</span><span class="n">feature_names</span><span class="p">,</span> <span class="n">lasso</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">labelrotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Elastic Net (R2=</span><span class="si">%.2f</span><span class="s1">, Adjusted R2=</span><span class="si">%.2f</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">r2_score</span><span class="p">(</span><span class="n">Y_boston</span><span class="p">,</span> <span class="n">Y_elastic</span><span class="p">),</span> <span class="n">adjusted_r2_score</span><span class="p">(</span><span class="n">Y_boston</span><span class="p">,</span> <span class="n">Y_ols</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">Y_boston</span><span class="p">),</span> <span class="nb">sum</span><span class="p">(</span><span class="n">elastic</span><span class="o">.</span><span class="n">coef_</span><span class="o">!=</span><span class="mi">0</span><span class="p">))))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">boston</span><span class="o">.</span><span class="n">feature_names</span><span class="p">,</span> <span class="n">elastic</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">labelrotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                    <span class="n">top</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">wspace</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">hspace</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_08_11_0.png" src="../_images/kapitel_08_11_0.png" />
+</div>
+</div>
+<p>Bei Ridge werden leidiglich die Werte der Koeffizienten weiter reduziert, ohne das sich das <span class="math notranslate nohighlight">\(R^2\)</span> Wert stark verändert. Das spricht dafür, dass der höhere Wert von <span class="math notranslate nohighlight">\(\alpha\)</span> für Ridge besser ist. Beim Lasso und beim Elastic Net hat sich der <span class="math notranslate nohighlight">\(R^2\)</span> Wert hingegen stark reduziert, weil deutlich mehr Merkmale auf Null gesetzt werden. Die Regression ist also insgesamt schlechter. Das Verhältnis von Modellkomplexität und Güte der Regression ist jedoch unverändert: Adjusted <span class="math notranslate nohighlight">\(R^2\)</span> ist immer noch gut. Hier hat man also die Wahl: Will man ein bessere, aber auch komplexere Regression oder einfachere Regression mit weniger Merkmalen, die jedoch die eine geringere Güte hat.</p>
+</div>
+</div>
+<div class="section" id="jenseits-von-linearer-regression">
+<h2><span class="section-number">8.4. </span>Jenseits von Linearer Regression<a class="headerlink" href="#jenseits-von-linearer-regression" title="Permalink to this headline">¶</a></h2>
+<p>Lineare Regression ist natürlich nicht die einzige Art, auf die man Regressionsproblem lösen kann und gerade für komplexe Beziehungen zwischen den Merkmalen und der abhängigen Variablen in der Regel auch nicht Ausdrucksstark genug. Mit der Ausnahme von Naive Bayes, gibt es für alle Klassifikationsalgorithmen aus <a class="reference internal" href="kapitel_07.html"><span class="doc std std-doc">Kapitel 7</span></a> einen ähnlichen Algorithmus für die Regression: <span class="math notranslate nohighlight">\(k\)</span>-Nearest Neighbor Regression, Regression Trees, Random Forest Regression, und Support Vector Regression. Der Ansatz bleibt der gleiche, nur das einige Details für die Regression angepasst werden müssen. Bei Entscheidungsbäumen wird zum Beispiel die Varianz benutzt um den Informationsgehalt zu schätzen. Neural Netzwerke lösen ohnehin schon ein Regressionsproblem, hier muss man einfach die abhängige Variable als Output Layer modellieren.</p>
+<hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="lasso-ridge"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p><a class="reference external" href="https://towardsdatascience.com/ridge-and-lasso-regression-a-complete-guide-with-python-scikit-learn-e20e34bcbf0b">https://towardsdatascience.com/ridge-and-lasso-regression-a-complete-guide-with-python-scikit-learn-e20e34bcbf0b</a></p>
+</dd>
+</dl>
 </div>
 </div>
 
