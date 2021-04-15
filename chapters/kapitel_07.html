@@ -344,6 +344,58 @@
    7.11. Neuronale Netzwerke
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vergleich-der-klassifikationsalgorithmen">
+   7.12. Vergleich der Klassifikationsalgorithmen
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#grundidee">
+     7.12.1. Grundidee
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     7.12.2. Decision Surfaces
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ausfuhrungszeit">
+     7.12.3. Ausführungszeit
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#interpretierbarkeit-und-darstellung">
+     7.12.4. Interpretierbarkeit und Darstellung
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#scoring">
+     7.12.5. Scoring
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#kategorische-merkmale">
+     7.12.6. Kategorische Merkmale
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fehlende-merkmale">
+     7.12.7. Fehlende Merkmale
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#korrelierte-merkmale">
+     7.12.8. Korrelierte Merkmale
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#zusammenfassung-des-vergleichs">
+     7.12.9. Zusammenfassung des Vergleichs
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
         </nav>
@@ -1391,7 +1443,7 @@
 </div>
 <p>Die einfachste Aktivierungsfunktion ist die Identität, so dass die gewichtete Eingabe der Aktivierung des Neurons entspricht. Die <em>Rectified Linear Unit</em>, kurz <em>RelU</em> ist eine Variante der Identität, die alle negativen Werte auf 0 setzt, es gibt also keine negative Aktivierung. In der Praxis hat sich diese Funktion bewährt und ist für viele Anwendungen die erste Wahl. Die logistische Funktion and <span class="math notranslate nohighlight">\(tanh\)</span> Funktionen haben beide eine “S-Form”. Die logistische Funktion kennen wir bereits von der logistischen Regression. Sie bildet die Eingabe auf eine Wahrscheinlichkeitsverteilung ab. Ist die Eingabe negative, ist die Wahrscheinlichkeit kleiner als 0,5, ist die Eingabe positiv, ist die Wahrscheinlichkeit größer als 0,5. Bei ca. <span class="math notranslate nohighlight">\(\pm3\)</span> konvergiert die Funktion zu 0, bzw. 1. Die <span class="math notranslate nohighlight">\(tanh\)</span> Funktion ist im Intervall <span class="math notranslate nohighlight">\([-1, 1]\)</span> nahezu linear. Außerhalb dieses Bereichs ist konvergiert diese Funktion schnell gegen -1, bzw. +1. Mit der Ausnahme der Identität “normalisieren” die Aktivierungsfunktionen also die Eingaben, um extreme Werte zu verhindern.</p>
 <p>Wenn wir ein neuronales Netz einsetzen wollen, müssen wir die komplette Struktur des Netzwerks definieren: Wie viele Hidden Layer gibt es, wie viele Neuronen hat jeder dieser Layer, wie sind die Neuronen miteinander Verbunden um die Informationen zu propagieren und welche Aktivierungsfunktionen werden benutzt. Das Training vom Neuronalen Netz berechnet die Gewichte <span class="math notranslate nohighlight">\(w_i\)</span>, also den Einfluss von jeden Neuron auf die Aktivierung der folgenden Neuronen. Unten sieht man, wie sich diese Entscheidungen auf die Decision Surfaces für die Irisdaten auswirken.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.neural_network</span> <span class="kn">import</span> <span class="n">MLPClassifier</span>
 
@@ -1433,12 +1485,393 @@
 <li><p>Generative Adversarial Networks (GAN): Man mit neuronalen Netzen auch künstliche Instanzen generieren. Hierbei treten zwei neuronale Netze gegeneinander an: Das erste Netz probiert zu entscheiden, ob eine Instanz aus den echten Trainingsdaten kommt, oder künstlich erzeugt wurde. Das zweite Netz probiert künstliche Daten so zu erzeugen, dass das erste Netz diese für echt hält. Hierdurch kann man sowohl die Qualität des ersten Netzes verbessern, als auch künstliche Daten die wie echt aussehen generieren, zum Beispiel Bilder.</p></li>
 <li><p>Deep Neural Network (DNN): Formal jedes neuronale Netz, was mindestens einen Hidden Layer hat. Hiermit sind jedoch in der Regel sehr große Netzwerke, oft mit vielen Ebenen und extrem vielen Neuronen, teils mehrere Millionen oder sogar Milliarden.</p></li>
 </ul>
+</div>
+<div class="section" id="vergleich-der-klassifikationsalgorithmen">
+<h2><span class="section-number">7.12. </span>Vergleich der Klassifikationsalgorithmen<a class="headerlink" href="#vergleich-der-klassifikationsalgorithmen" title="Permalink to this headline">¶</a></h2>
+<p>Wir haben sieben verschiedene Ansätze zum Lernen von Hypothesen zur Klassifikation betrachtet. Jeder dieser Ansätze hat andere Stärken und Schwächen. Welcher Algorithmus die beste Wahl ist, hängt von den Umständen (Anwendungsfall, verfügbare Daten) ab. In diesem Abschnitt vergleichen wir die Algorithmen direkt miteinander.</p>
+<div class="section" id="grundidee">
+<h3><span class="section-number">7.12.1. </span>Grundidee<a class="headerlink" href="#grundidee" title="Permalink to this headline">¶</a></h3>
+<p>Wir haben diese Algorithmen nicht nur wegen ihrer praktischen Relevanz diskutiert, sondern auch weil alle Algorithmen auf einer anderen Grundidee basieren:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(k\)</span>-Nearest Neighbor ist ein <em>instanzbasiertes</em> Verfahren, was die Klassifikation durch den direkten Vergleich von Instanzen berechnet.</p></li>
+<li><p>Entscheidungsbäume sind <em>regelbasiert</em> und ihre Erstellung basiert auf der Informationstheorie.</p></li>
+<li><p>Random Forests sind ein <em>Ensemble</em> was schwächere Hypothesen zu einer starken Hypothese kombiniert.</p></li>
+<li><p>Logistische Regression <em>schätzt Wahrscheinlichkeiten</em> und zeigt wie <em>Regression</em> zur Klassifikation verwendet hat.</p></li>
+<li><p>Naive Bayes ist aus der <em>Wahrscheinlichkeitsrechnung</em> abgeleitet.</p></li>
+<li><p>SVMs nutzen das Konzept der <em>Margin</em> und und der <em>Feature Expansion</em> durch <em>Kerntransformationen</em>.</p></li>
+<li><p>Neuronale Netze sind ein sehr generischer Ansatz den man für verschiedene Anwendungsfälle anpassen kann. Unter der Haube handelt es sich um sehr komplexe Regressionsmodelle.</p></li>
+</ul>
+<p>Trotz dieser Vielfalt gibt es noch weitere wichtige Algorithmen, die wir nicht betrachtet haben, zum Beispiel Ensemble-Algorithmen die auf <em>Boosting</em> setzen, um bessere Ergebnisse in Bereichen der Daten zu erhalten, wo die Güte bisher schlecht ist. Trotzdem hat man mit diesen Algorithmen eine gute und vielfälte Werkzeugkiste zum Lösen von Klassifikationsproblemen.</p>
+</div>
+<div class="section" id="id2">
+<h3><span class="section-number">7.12.2. </span>Decision Surfaces<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Wesentlich für die Güte der gelernten Hypothesen sind die Decision Surfaces. Daher betrachten wir diese jetzt für verschiedene Beispieldatensätze. Wir fangen mit den Irisdaten an.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.neural_network</span> <span class="kn">import</span> <span class="n">MLPClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">GaussianNB</span><span class="p">,</span> <span class="n">MultinomialNB</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+
+<span class="k">def</span> <span class="nf">plot_clf_comparison</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
+    <span class="n">classifiers</span> <span class="o">=</span> <span class="p">[</span><span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
+                   <span class="n">DecisionTreeClassifier</span><span class="p">(),</span>
+                   <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">3</span><span class="p">),</span>
+                   <span class="n">LogisticRegression</span><span class="p">(),</span>
+                   <span class="n">GaussianNB</span><span class="p">(),</span>
+                   <span class="n">MultinomialNB</span><span class="p">(),</span>
+                   <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mf">0.025</span><span class="p">,</span> <span class="n">probability</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+                   <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;poly&#39;</span><span class="p">,</span> <span class="n">degree</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">probability</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+                   <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">probability</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+                   <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+                                 <span class="n">max_iter</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;identity&#39;</span><span class="p">),</span>
+                   <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+                                 <span class="n">max_iter</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
+                   <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+                                 <span class="n">max_iter</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;logistic&#39;</span><span class="p">),</span>
+                   <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;tanh&#39;</span><span class="p">)]</span>
+
+    <span class="n">clf_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Nearest Neighbors (k=5)&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;Decision Tree&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;Random Forest&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;Logistic Regression&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;Gaussian Naive Bayes&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;Multinomial Naive Bayes&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;SVM (Linear)&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;SVM (Polynomial)&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;SVM (RBF)&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;MLP (Identity)&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;MLP (RelU)&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;MLP (Logistic)&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;MLP (tanh)&quot;</span><span class="p">]</span>
+    <span class="n">f</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="o">.</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="o">.</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">Y</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Trainingsdaten&#39;</span><span class="p">)</span>
+
+    <span class="n">cnt</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">clf</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">classifiers</span><span class="p">,</span> <span class="n">clf_names</span><span class="p">):</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">cnt</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="n">cnt</span> <span class="o">%</span> <span class="mi">3</span>
+        <span class="n">plot_decision_surface</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span>
+        <span class="n">cnt</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">cnt</span> <span class="o">&lt;</span> <span class="mi">15</span><span class="p">:</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">cnt</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="n">cnt</span> <span class="o">%</span> <span class="mi">3</span>
+        <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+        <span class="n">cnt</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span><span class="o">.</span><span class="n">get_axes</span><span class="p">(),</span> <span class="n">xticks</span><span class="o">=</span><span class="p">[],</span>
+             <span class="n">yticks</span><span class="o">=</span><span class="p">[],</span> <span class="n">ylabel</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+
+<span class="n">plot_clf_comparison</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_07_55_0.png" src="../_images/kapitel_07_55_0.png" />
+</div>
+</div>
+<p>Alle Algorithmen können gut die die lila Instanzen von den anderen trennen. Es gibt jedoch größere Unterschiede bei der Trennung von Türkis und Gelb. Beim <span class="math notranslate nohighlight">\(k\)</span>-Nearest Neighbor Algorithmus und die Entscheidungsbäume gibt es einzelne türkise Inseln innerhalb der gelben Region, die auf Overfitting hindeuten. Dies liegt an der instanzbasierten, bzw. durch die Regeln die einfach unzusammenhängende Regionen erzeugen können. Dies wäre auch mit dem Random Forest möglich, wird hier aber durch die flachen Entscheidungsbäume mit einer niedrigen Tiefe von 3, die für das Ensemble benutzt werden, vermieden. Die Decision Boundaries der anderen Algorithmen werden durch kontinuierliche Funktionen beschrieben. Daher gibt es - bis auf bei RelU - keine derartigen Inseln. Bei neuronalen Netzen können die Funktionen leicht so komplex werden, dass man derartiges Overfitting nicht ausschließen kann. Lediglich beim Multinomial Naive Bayes ist das Ergebnis relativ schlecht, was sich aber dadurch begründen lässt das die Daten numerisch und nicht kategorisch sind.</p>
+<p>Ein interesanter Aspekt den man beobachten kann ist, dass während die Decision Surfaces in den Regionen, wo die Trainingsdaten liegen, relativ ähnlich sind, gibt es größere Unterschiede in den Bereichen, wo es keine Daten gibt. Dies liegt an der Natur des maschinellen Lernens: Dort wo es keine Daten im Training gibt, gibt es keine Garantie, dass das Ergebnis sinnvoll ist und auf diese Bereiche generalisiert. Klassifikationsmodelle sind daher nur dort zuverlässig, wo es Daten im Training gab. Deshalb ist es auch wichtig, dass die Daten im produktiven Einsatz die gleiche Verteilung wie die Trainingsdaten haben.</p>
+<p>Der nächste Datensatz den wir betrachten sind zwei Halbmonde, die sehr nach beiander liegen, aber sich (beinahe) nicht überlappen.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_moons</span>
+
+<span class="n">X_moons</span><span class="p">,</span> <span class="n">Y_moons</span> <span class="o">=</span> <span class="n">make_moons</span><span class="p">(</span><span class="n">noise</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plot_clf_comparison</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_moons</span><span class="o">+</span><span class="mi">3</span><span class="p">),</span><span class="n">Y_moons</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_07_57_0.png" src="../_images/kapitel_07_57_0.png" />
+</div>
+</div>
+<p>Bei diesen Daten fangen wir an klare Unterschiede in der Ausdrucksfähigkeit der von den Algorithmen berechneten Hypothesen zu beobachten. Logistische Regression, Naive Bayes, die lineare und polynomielle SVM, sowie alle MLPs die nicht RelU als Aktivierungsfunktion haben, berechnen eine lineare, oder nahezu lineare Trennung der Daten. Dies führt zu Fehlklassifikationen, da die Halbmonde ineinander liegen. Diese Ergebnisse sind zwar nicht extrem schlecht, da immernoch die meisten Daten richtig Klassifiziert werden, die Decision Boundaries spiegeln jedoch nicht die eigentliche Verteilung der Klassen wider. Die anderen Algorithmen schaffen es besser zwischen den Klassen zu unterscheiden und lernen die Form der Halbmonde als Decision Boundary. Lediglich bei den Entscheidungsbäumen sieht man wieder einige anzeichen für Overfitting.</p>
+<p>Der nächste Datensatz sind zwei ineinander liegende Kreise. Auch hier liegen die Instanzen wieder nah beiander, aber es gibt kaum Überschneidungen.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_circles</span>
+
+<span class="n">X_circles</span><span class="p">,</span> <span class="n">Y_circles</span> <span class="o">=</span> <span class="n">make_circles</span><span class="p">(</span><span class="n">noise</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">factor</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plot_clf_comparison</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_circles</span><span class="o">+</span><span class="mi">3</span><span class="p">),</span> <span class="n">Y_circles</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_07_59_0.png" src="../_images/kapitel_07_59_0.png" />
+</div>
+</div>
+<p>Das Ergebnis bei den Kreisen ist ähnlich wie bei den Halbmonden: Die Algorithmen die bei den Halbmonden gute Ergebnisse geliefert haben, funktionieren auch bei den Kreisen. Einige Algorithmen die mit den Halbmonden probleme hatten, können die Kreise gut erkennen, zum Beispiel Gaussian Naive Bayes und das MLP mit <span class="math notranslate nohighlight">\(tanh\)</span> als Aktivierungsfunktion. Dies liegt daran, dass bei den Halbmonden eine etwa lineare Trennung bereits ein halbwegs gutes Ergebnis liefert. Hierdurch gab es keinen großen Druck auf die Algorithmen nach einer komplexeren Decision Boundary zu suchen. Dies ist nicht der Fall bei den Kreisen: Hier funktioniert nur eine runde Decision Boundary, alle anderen Formen liefern schlechte Ergebnisse. Dies übt einen starken Druck auf die intern benutzen Optimierungsverfahren aus, so dass sie sich besser anpassen und eine komplexere Decision Boundary finden.</p>
+<p>Als letztes betrachten wir noch zwei durch eine große Lücke getrennte Klassen.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_classification</span>
+
+<span class="n">X_linear</span><span class="p">,</span> <span class="n">Y_linear</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span><span class="n">n_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_redundant</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_informative</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                           <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_clusters_per_class</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plot_clf_comparison</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_linear</span><span class="o">+</span><span class="mi">3</span><span class="p">),</span> <span class="n">Y_linear</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_07_61_0.png" src="../_images/kapitel_07_61_0.png" />
+</div>
+</div>
+<p>Wie zu erwarten war, können alle Algorithmen diese Daten problemlos korrekt klassifizieren. Wir sehen jedoch große unterschiede in den Margins, die wir bereits von der SVM kennen. Die meisten Algorithmen berechnen die Decision Boundary so, dass die Margin zwar in der Regel nicht optimal, aber zumindest relativ groß ist. Hier sieht man, dass dies insbesondere bei der SVM der Fall ist, bei den Entscheidungsbäumen und Random Forests wird bei der Partionierung auch auf die Margins geachtet. Beim <span class="math notranslate nohighlight">\(k\)</span>-Nearest Neighbor Algorithmus folgt die große Margin direkt aus der Nachbarschaftsbeziehung zwischen den Instanzen. Insbesondere bei den Naive Bayes varianten und bei den MLPs sieht man, dass hier die Margin bei der Berechnung der Ergebnisse nicht berücksichtigt werden. Hierdurch können diese Algorithmen die Daten zwar gut trennen, haben aber ein Risiko dass es Fehlklassifikationen gibt. Bei den MLPs gibt es hierfür eine einfache Erklärung: Das interne Optimierungskriterium ist in der Regel die Accuracy auf den Trainingsdaten, und diese ist unabhängig von der Wal der Margin. Daher beendet die Berechnung der Lösung für die Neuronalen Netze, sobald eine Lösung gefunden wird, egal wie groß die Margin ist. Dies kann man durch Validierungsdaten umgehen.</p>
+</div>
+<div class="section" id="ausfuhrungszeit">
+<h3><span class="section-number">7.12.3. </span>Ausführungszeit<a class="headerlink" href="#ausfuhrungszeit" title="Permalink to this headline">¶</a></h3>
+<p>Die Ausführungszeit kann ein wichtiger Faktor sein, insbesondere wenn das Training oder die Vorhersage strikte Zeitvorgaben einhalten muss oder es große Menge von Daten gibt. Wir vergleichen die Ausführungszeiten für die Halbmonddaten für 1.000, 10.000, 100.000 und 1.000.000 Instanzen. Die Zeiten wurden mit einem normalen Laptop (Intel Core i7-8850 &#64; 2.60GHz, 32 GB RAM) mit scikit-learn 0.24 gemessen.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_moons</span>
+<span class="kn">import</span> <span class="nn">timeit</span>
+
+<span class="n">classifiers</span> <span class="o">=</span> <span class="p">[</span><span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
+               <span class="n">DecisionTreeClassifier</span><span class="p">(),</span>
+               <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">),</span>
+               <span class="n">LogisticRegression</span><span class="p">(),</span>
+               <span class="n">GaussianNB</span><span class="p">(),</span>
+               <span class="n">MultinomialNB</span><span class="p">(),</span>
+               <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mf">0.025</span><span class="p">,</span> <span class="n">probability</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+               <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;poly&#39;</span><span class="p">,</span> <span class="n">degree</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">probability</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+               <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">probability</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+               <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+                             <span class="n">max_iter</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;identity&#39;</span><span class="p">),</span>
+               <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+                             <span class="n">max_iter</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
+               <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+                             <span class="n">max_iter</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;logistic&#39;</span><span class="p">),</span>
+               <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;tanh&#39;</span><span class="p">)]</span>
+
+<span class="n">clf_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Nearest Neighbors (k=5)&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;Decision Tree&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;Random Forest&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;Logistic Regression&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;Gaussian Naive Bayes&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;Multinomial Naive Bayes&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;SVM (Linear)&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;SVM (Polynomial)&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;SVM (RBF)&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;MLP (Identity)&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;MLP (RelU)&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;MLP (Logistic)&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;MLP (tanh)&quot;</span><span class="p">]</span>
+
+
+<span class="n">instances</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1e3</span><span class="p">,</span> <span class="mf">1e4</span><span class="p">,</span> <span class="mf">1e5</span><span class="p">,</span> <span class="mf">1e6</span><span class="p">]</span>
+<span class="n">runtime_fit</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">runtime_predict</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">clf</span> <span class="ow">in</span> <span class="n">classifiers</span><span class="p">:</span>
+    <span class="n">runtime_fit</span><span class="o">.</span><span class="n">append</span><span class="p">([])</span>
+    <span class="n">runtime_predict</span><span class="o">.</span><span class="n">append</span><span class="p">([])</span>
+<span class="k">for</span> <span class="n">num_instances</span> <span class="ow">in</span> <span class="n">instances</span><span class="p">:</span>
+    <span class="n">X_runtime</span><span class="p">,</span> <span class="n">Y_runtime</span> <span class="o">=</span> <span class="n">make_moons</span><span class="p">(</span><span class="n">noise</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_samples</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">num_instances</span><span class="p">))</span>
+    <span class="n">X_runtime</span> <span class="o">=</span> <span class="n">X_runtime</span><span class="o">+</span><span class="mi">3</span> <span class="c1"># ensures no negative values</span>
+    <span class="k">for</span> <span class="n">clf_cnt</span><span class="p">,</span> <span class="n">clf</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">classifiers</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">num_instances</span><span class="o">&gt;</span><span class="mf">1e5</span> <span class="ow">and</span> <span class="n">clf_names</span><span class="p">[</span><span class="n">clf_cnt</span><span class="p">]</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;SVM&#39;</span><span class="p">):</span>
+            <span class="c1"># skip SVMs because they take too long</span>
+            <span class="k">continue</span>
+        <span class="n">start_time</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">default_timer</span><span class="p">()</span>
+        <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_runtime</span><span class="p">,</span> <span class="n">Y_runtime</span><span class="p">)</span>
+        <span class="n">elapsed</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">default_timer</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span>
+        <span class="n">runtime_fit</span><span class="p">[</span><span class="n">clf_cnt</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">elapsed</span><span class="p">)</span>
+        <span class="n">start_time</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">default_timer</span><span class="p">()</span>
+        <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_runtime</span><span class="p">)</span>
+        <span class="n">elapsed</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">default_timer</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span>
+        <span class="n">runtime_predict</span><span class="p">[</span><span class="n">clf_cnt</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">elapsed</span><span class="p">)</span>
+
+<span class="n">f</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">runtime</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">runtime_fit</span><span class="p">,</span> <span class="n">clf_names</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;SVM&#39;</span><span class="p">):</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">instances</span><span class="p">[:</span><span class="mi">3</span><span class="p">],</span> <span class="n">runtime</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">instances</span><span class="p">,</span> <span class="n">runtime</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Laufzeit in Sekunden&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Anzahl der Instanzen&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Dauer des Trainings&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">runtime</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">runtime_predict</span><span class="p">,</span> <span class="n">clf_names</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;SVM&#39;</span><span class="p">):</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">instances</span><span class="p">[:</span><span class="mi">3</span><span class="p">],</span> <span class="n">runtime</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">instances</span><span class="p">,</span> <span class="n">runtime</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Laufzeit in Sekunden&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Anzahl der Instanzen&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Dauer der Klassifikation&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.04</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper left&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_07_63_0.png" src="../_images/kapitel_07_63_0.png" />
+</div>
+</div>
+<p>Die Trainingszeit ist etwa linear für alle Modelle. Die Steigung ist bei den SVMs jedoch deutlich steiler als bei den anderen Modellen. Die Trainingszeiten einiger modelle sind deutlich schneller als der Rest: Entscheidungsbäume, Logistische Regression, <span class="math notranslate nohighlight">\(k\)</span>-Nearest Neighbors und Naive Bayes benötigen für das Training mit 1.000.000 Instanzen etwa so lang, wie ein MLP für 1.000 Instanzen. Der Random Forest liegt zwischen den MLPs und den schnelleren Modellen. Dies liegt daran, dass die Ausführungszeit des Random Forests linear mit der Anzahl der Random Trees im Ensemble wächst. Im obigen Beispiel haben wir 100 Bäume genutzt.</p>
+<p>Die Ergebnisse für die Dauer der Klassifikation sind ähnlich zur Trainingszeit, mit der Ausnahme des <span class="math notranslate nohighlight">\(k\)</span>-Nearest Neighbor Algorithmus. Dies liegt daran, dass es kein echtes Training gibt, da es keine Hypothese gibt. Es kann lediglich ein Suchbaum zum schnelleren Berechnen der paarweisen Distanzen aufgebaut werden. Trotzdem ist die Berechnung der Paarweisen Instanzen relativ teuer, weshalb die Klassifikation relativ lange dauert. Man sieht außerdem, dass es kaum einen Unterschied zwischen den Random Forests und den MLPs bei den Klassifikationszeiten gibt. Dies liegt daran, dass diese Modelle beide ähnliche viele Berechnungen zur Klassifikation erfordern, das Training beim MLP aber langsamer gegen die Hypothese konvergiert.</p>
+<p>Auch wenn man diese grundlegenden Trends bei vielen Datensätzen beobachtet, hängen die Ergebnisse stark von den Daten und der Parametrisierung der Algorithmen ab. Außerdem haben wir nur die Ausführungszeit bezogen auf die Anzahl der Instanzen vergleichen. Die Anzahl der Merkmale kann ebenfalls große Auswirkungen auf die Ausführungszeiten haben. Bei den Neuronalen Netzen haben wir lediglich ein MLP betrachtet. Bei großen Neuronalen Netzen mit Millionen von Neuronen können die Trainigszeiten sehr lang sein oder das Training ohne spezielle Hardware nicht machbar sein.</p>
+</div>
+<div class="section" id="interpretierbarkeit-und-darstellung">
+<h3><span class="section-number">7.12.4. </span>Interpretierbarkeit und Darstellung<a class="headerlink" href="#interpretierbarkeit-und-darstellung" title="Permalink to this headline">¶</a></h3>
+<p>Mit der Ausnahme des <span class="math notranslate nohighlight">\(k\)</span>-Nearest Neighbor Algorithmus, erstellen alle Algorithmen Hypothesen mit einer relative kompakten Darstellung die serialisiert werden kann und unabhängig von den Daten in Produktivsystemen eingesetzt werden kann. Es gibt jedoch große Unterschiede in der Interpretierbarkeit dieser Repräsentationen.</p>
+<p>Entscheidungsbäume können auch ohne Data Science kenntnisse interpertiert werden. Daher kann man die Entscheidungsbäume am einfachsten mit Domänenexperten gemeinsam auf ihre Plausibilität prüfen und aus den Bäumen wissen über die Hypothese gewinnen. Außerdem zeigen die Entscheidungsbäume noch indirekt an, welche Merkmale besonders wichtig sind, da diese sich weiter oben im Entscheidungsbaum befinden. Die Vorhersagen von Random Forests sind zwar in der Regel besser als mit Entscheidungsbäumen, aber sie können nicht ohne weiteres interpretiert werden. Die manuelle analyse von hunderten von Bäumen und ein gleichzeitiges Verständnis davon, wie sich das Mehrheitsvotum zusammensetzt ist nicht realistisch. Beim Random Forest können wir aber ohne großen Aufwand die Relevanz der einzelnen Merkmale bestimmen. Je häufiger ein Merkmal in einem der Bäume zur Klassifikation verwendet wird, desto wichtiger ist das Merkmal. Diese Analyse wird von sogenannten <em>Feature Importance Maps</em> unterstützt.</p>
+<p>Logistische Regression erlaubt es uns über die Koeffizieten die Odds Ratios zu verstehen. Daher ist die Logistische Regression ein mächtiges Werkzeug um den Einfluss von Merkmalen auf die Klassifikation zu verstehen. Dies erfordert jedoch Expertenwissen, um die durch die Koeffizienten dargestellten Log Odds zu interpretieren.</p>
+<p>Die anderen Modelle liefern nahezu keine Erklärung für die Ergebnisse. Bei Naive Bayes könnte man zwar die Wahrscheinlichkeiten für einzelne Merkmale bei den Klassen als Koeffizieten interpretieren, das liefert aber in der Regel aufgrund der Naive Assumption keine guten Ergebnisse. Die Interpretaion von Neuronalen Netzen ist ein aktives Forschungsfeld, zum Beispiel durch die visualisierung der gewichte im Netzwerk, der Aktivierung von Neuronen, oder dem Einfluss von Merkmalen auf die Ergebnisse.</p>
+</div>
+<div class="section" id="scoring">
+<h3><span class="section-number">7.12.5. </span>Scoring<a class="headerlink" href="#scoring" title="Permalink to this headline">¶</a></h3>
+<p>Für <span class="math notranslate nohighlight">\(k&gt;1\)</span> kann man beim <span class="math notranslate nohighlight">\(k\)</span>-Nearest Neighbor den Anteil der Nachbern von jeder Klasse als Scoring-Funktion nutzen. Diese Scores sind häufig jedoch nicht sehr gut, weshalb man falls Scores relevant sind, eher andere Algorithmen einsetzen sollte. Entscheidungsbäume kennen die Verteilung der Instanzen jeder Klasse in jedem Knoten, wodurch man die Scoring-Funktion als Wahrscheinlichkeitsverteilung über die Klassen berechnen kann. Durch das Mitteln dieser Wahrscheinlichkeiten bekommt man die Scoring-Funktion vom Random Forest. Die Logistische Regression berechnet direkt die Wahrscheinlichkeit jeder Klasse und ist daher ohnehin eine Scoring-Funktion. Die Scoring-Funktionen der Entscheidungsbäume, der Random Forests und der logistischen Regression bezeichnet man auch als <em>wohl Kalibriert</em> (engl. <em>well calibrated</em>), was bedeutet das es zuverlässige Schätzer wür die Wahrscheinlichkeiten der Klassen sind. Naive Bayes hat auch eine gut verwendbare Scoring-Funktion, die jedoch nicht wohl kalibriert ist. Bei SVMs gibt es keine Scoring-Funktion. Wenn man unbedingt Scores für eine SVM berechnen möchte, nutzt man ein separates Regressionsmodell um Schätzungen für die Scores der Vorhersagen einer SVM zu berechnen. Dies sollte man jedoch vermeiden. Neuronale Netze berechnen ebenfalls Scores. Die Güte dieser Scores und ob sie wohl kalibriert sind hängt von der Netzwerkstruktur und der Zielfunktion des Trainings ab.</p>
+</div>
+<div class="section" id="kategorische-merkmale">
+<h3><span class="section-number">7.12.6. </span>Kategorische Merkmale<a class="headerlink" href="#kategorische-merkmale" title="Permalink to this headline">¶</a></h3>
+<p>Lediglich Entscheidungsbäume, Random Forests, und Multinomial Naive Bayes können ohne Einschränkungen mit kategorischen Daten arbeiten. Alle anderen Algorithmen kann man mit Hilfe des One-Hot Encoding verwenden. Beim <span class="math notranslate nohighlight">\(k\)</span>-Nearest Neighbor Algorithmus ist dies jedoch problematisch, Distanzen berechnet werden, die bei One-Hot Encodings in der Regel nicht sinnvoll sind.</p>
+</div>
+<div class="section" id="fehlende-merkmale">
+<h3><span class="section-number">7.12.7. </span>Fehlende Merkmale<a class="headerlink" href="#fehlende-merkmale" title="Permalink to this headline">¶</a></h3>
+<p>Keiner der Algorithmen kann ohne weiteres mit fehlenden Merkmalen umgehen. Entscheidungsbäume und Random Forests können unter gewissen Umständen weiterhin korrekt funktionieren. Dies ist zum Beispiel der Fall, wenn ein Entscheidungsbaum zur Klassifikation gelangt, ohne dass das fehlende Merkmal benötigt wird. Beim Random Forest könnte man alle Random Trees ignorieren, in denen das Merkmal verwendet wird. Bei einer großen Anzahl von Bäumen hat man dann dennoch eine gute Chance, ein sinnvolles Ergebnis zu bekommen. Für alle anderen Algorithmen ergeben die berechnungen keine sinn, wenn es Merkmal fehlt. Das ist etwa so wie den Wert von <span class="math notranslate nohighlight">\(x+y\)</span> zu berechnen ohne den Wert von <span class="math notranslate nohighlight">\(y\)</span> zu kennen.</p>
+<p>Während <span class="math notranslate nohighlight">\(k\)</span>-Nearest Neighbors selbst nicht mit fehlenden Merkmalen umgehen kann, wird dieser Algorithmus gerne benutzt um die Werte für fehlende Merkmale zu <em>imputieren</em>, also Anhand anderer Merkmale zu schätzen <a class="footnote-reference brackets" href="#barnard" id="id3">2</a>.</p>
+</div>
+<div class="section" id="korrelierte-merkmale">
+<h3><span class="section-number">7.12.8. </span>Korrelierte Merkmale<a class="headerlink" href="#korrelierte-merkmale" title="Permalink to this headline">¶</a></h3>
+<p>Die meisten Algorithmen können gut mit korrelierten Merkmalen umgehen. Entscheidungsbäume wählen die Merkmale nach ihrer Relevanz für die Klassifikation der aktuellen Partition aus. Wenn es korrelierte Merkmale gibt, sinkt die Relevanz aller dieser Merkmale, sobald das erste ausgewählt wurde. Diest ist ebenfalls der Fall in Random Forests. Hier könnten zu viele korrelierte Merkmale dennoch ein Problem sein, da sie die zufällige Auswahl der Merkmale für jeden Baum beeinflussen: Die Chance das jedes mal eines dieser Merkmale ausgewählt wird und die korrelierte Information damit jedem Random Tree zur Verfügung steht wird mit jeder korrelation erhöht. Gleichzeitig wird hierdurch die Anzahl der unkorrelierten Merkmale in den Random Trees reduziert, was sich negativ auf die Güte auswirken könnten. Bei Neuronalen Netzen sind Korrelationen kein Problem, da diese von den gewichten berücksichtigt werden können. Dies ist ebenfalls bei der Logistischen Regression der Fall, wo die Korrelationen durch die Koeffizienten berücksichtigt werden können. Die Interpretierbarkeit der Logistischen Regression wird durch Korrelationen jedoch reduziert, da die Werte der Koeffizienten möglicherweise nicht zuverlässig sind (TODO REF 8).</p>
+<p>Bei Naive Bayes widersprechen Korrelationen der Naive Assumption. Je mehr Korrelationen es gibt, desto stärker wird die Annahme der Unabhängigkeit der Merkmale verletzt, was die Zuverlässigkeit der Ergebnisse reduziert. In der Praxis ist dies jedoch in der Regel kein Problem und führt lediglich dazu, dass die Scoring-Funktion kein guter Schätzer für die Wahrscheinlichkeit einer Klasse ist. Bei SVMs hängen die Auswirkungen von Korrelation von der Kernfunktion ab. Eine lineare SVM hat keine Probleme mit Korrelationen. Wenn die Distanzen zwischen den Instanzen von der Kernfunktion berücksichtig werden, wie zum Beispiel beim RBF Kernel, werden die korrelierten Merkmale überpresentiert, was zu einer künstlichen Gewichtung der Merkmale führt und sich negativ auf die Güte auswirken kann. Dies ist auch das Problem des <span class="math notranslate nohighlight">\(k\)</span>-Nearest Neighbor Algorithmus mit korrelierten Merkmalen.</p>
+</div>
+<div class="section" id="zusammenfassung-des-vergleichs">
+<h3><span class="section-number">7.12.9. </span>Zusammenfassung des Vergleichs<a class="headerlink" href="#zusammenfassung-des-vergleichs" title="Permalink to this headline">¶</a></h3>
+<p>Die folgenden zwei Tabellen fassen die Stärken und Schwächen der Klassifikationsalgorithmen noch einmal zusammen.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p><span class="xref myst"></span></p></th>
+<th class="head"><p>Decision Surface</p></th>
+<th class="head"><p>Laufzeit</p></th>
+<th class="head"><p>Interpretierbarkeit</p></th>
+<th class="head"><p>Darstellung</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(k\)</span>-Nearest Neighbor</p></td>
+<td><p><span class="math notranslate nohighlight">\(+\)</span></p></td>
+<td><p>o</p></td>
+<td><p><span class="math notranslate nohighlight">\(-\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(-\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Entscheidungsbaum</p></td>
+<td><p>o</p></td>
+<td><p><span class="math notranslate nohighlight">\(+\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(+\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(+\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>Random Forest</p></td>
+<td><p><span class="math notranslate nohighlight">\(+\)</span></p></td>
+<td><p>o</p></td>
+<td><p><span class="math notranslate nohighlight">\(-\)</span></p></td>
+<td><p>o</p></td>
+</tr>
+<tr class="row-odd"><td><p>Logistische Regression</p></td>
+<td><p><span class="math notranslate nohighlight">\(-\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(+\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(+\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(+\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>Naive Bayes</p></td>
+<td><p><span class="math notranslate nohighlight">\(-\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(+\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(-\)</span></p></td>
+<td><p>o</p></td>
+</tr>
+<tr class="row-odd"><td><p>SVM</p></td>
+<td><p><span class="math notranslate nohighlight">\(+\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(-\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(-\)</span></p></td>
+<td><p>o</p></td>
+</tr>
+<tr class="row-even"><td><p>Neurnales Netzwerk</p></td>
+<td><p><span class="math notranslate nohighlight">\(+\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(-\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(-\)</span></p></td>
+<td><p>o</p></td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p><span class="xref myst"></span></p></th>
+<th class="head"><p>Scoring</p></th>
+<th class="head"><p>Kategorische Merkmale</p></th>
+<th class="head"><p>Fehlende Merkmale</p></th>
+<th class="head"><p>Korrelierte Merkmale</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(k\)</span>-Nearest Neighbor</p></td>
+<td><p><span class="math notranslate nohighlight">\(-\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(-\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(+\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(-\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Entscheidungsbaum</p></td>
+<td><p><span class="math notranslate nohighlight">\(+\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(+\)</span></p></td>
+<td><p>o</p></td>
+<td><p><span class="math notranslate nohighlight">\(+\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>Random Forest</p></td>
+<td><p><span class="math notranslate nohighlight">\(+\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(+\)</span></p></td>
+<td><p>o</p></td>
+<td><p><span class="math notranslate nohighlight">\(+\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Logistische Regression</p></td>
+<td><p><span class="math notranslate nohighlight">\(+\)</span></p></td>
+<td><p>o</p></td>
+<td><p><span class="math notranslate nohighlight">\(-\)</span></p></td>
+<td><p>o</p></td>
+</tr>
+<tr class="row-even"><td><p>Naive Bayes</p></td>
+<td><p><span class="math notranslate nohighlight">\(+\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(+\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(-\)</span></p></td>
+<td><p>o</p></td>
+</tr>
+<tr class="row-odd"><td><p>SVM</p></td>
+<td><p><span class="math notranslate nohighlight">\(-\)</span></p></td>
+<td><p>o</p></td>
+<td><p><span class="math notranslate nohighlight">\(-\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(-\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>Neuronales Netzwerk</p></td>
+<td><p><span class="math notranslate nohighlight">\(+\)</span></p></td>
+<td><p>o</p></td>
+<td><p><span class="math notranslate nohighlight">\(-\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(+\)</span></p></td>
+</tr>
+</tbody>
+</table>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
 <dt class="label" id="kdnuggets"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
 <dd><p><a class="reference external" href="https://www.kdnuggets.com/2016/12/salford-costs-misclassifications.html">https://www.kdnuggets.com/2016/12/salford-costs-misclassifications.html</a></p>
 </dd>
+<dt class="label" id="barnard"><span class="brackets"><a class="fn-backref" href="#id3">2</a></span></dt>
+<dd><p><a class="reference external" href="https://doi.org/10.1177%2F096228029900800103">https://doi.org/10.1177/096228029900800103</a></p>
+</dd>
 </dl>
+</div>
 </div>
 </div>
 
