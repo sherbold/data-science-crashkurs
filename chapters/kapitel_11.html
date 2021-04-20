@@ -1,0 +1,821 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>11. Statistik &#8212; Einführung in Data Science</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Übung 1" href="../exercises/uebung_01.html" />
+    <link rel="prev" title="10. Textmining" href="kapitel_10.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Einführung in Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../vorwort.html">
+   Vorwort
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Kapitel
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_01.html">
+   1. Big Data und Data Science
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_02.html">
+   2. Der Prozess von Data Science Projekten
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_03.html">
+   3. Erkunden der Daten
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_04.html">
+   4. Allgemeines zur Datenanalyse
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_05.html">
+   5. Assoziationsregeln
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_06.html">
+   6. Clusteranalyse
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_07.html">
+   7. Klassifikation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_08.html">
+   8. Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_09.html">
+   9. Zeitreihenanalyse
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_10.html">
+   10. Textmining
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   11. Statistik
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Übungen
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../exercises/uebung_01.html">
+   Übung 1
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/chapters/kapitel_11.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/sherbold/einfuehrung-in-data-science"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/sherbold/einfuehrung-in-data-science/main?urlpath=tree/content/chapters/kapitel_11.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#motivation">
+   11.1. Motivation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hypothesentests">
+   11.2. Hypothesentests
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#t-test">
+     11.2.1.
+     <span class="math notranslate nohighlight">
+      \(t\)
+     </span>
+     -Test
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#das-signifikanzniveau">
+     11.2.2. Das Signifikanzniveau
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#wichtige-hypothesentests">
+     11.2.3. Wichtige Hypothesentests
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#anwendung-der-tests">
+     11.2.4. Anwendung der Tests
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ubliche-fehler-bei-hypothesen-tests">
+     11.2.5. Übliche Fehler bei Hypothesen Tests
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#effektstarke">
+   11.3. Effektstärke
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#konfidenzintervalle">
+   11.4. Konfidenzintervalle
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gute-beschreibung-von-ergebnissen">
+   11.5. Gute Beschreibung von Ergebnissen
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="statistik">
+<h1><span class="section-number">11. </span>Statistik<a class="headerlink" href="#statistik" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="motivation">
+<h2><span class="section-number">11.1. </span>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
+<p>Im Laufe der Kapitel haben wir bereits einige Datensätze betrachtet. In [Kapitel 3](kapitel_03] haben wir zum Beispiel die Verteilung von Daten mit Histogrammen visualisiert. Hier sind die Histogramme von zwei weiteren Datensätzen.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+
+<span class="c1"># generate data</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span> 
+<span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.2</span> <span class="c1"># mean and standard deviation</span>
+<span class="n">s1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">mu</span><span class="o">+</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Histogramm von zufällig generierten Daten</span><span class="se">\n</span><span class="s2">Frage: Sind diese Daten normalverteilt?&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;count&quot;</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">s2</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Histogramm von zufällig generierten Daten</span><span class="se">\n</span><span class="s1">mean(&quot;blau&quot;): </span><span class="si">%.2f</span><span class="s1"> - mean(&quot;orange&quot;): </span><span class="si">%.2f</span><span class="se">\n</span><span class="s1">Frage: Sind die Mittelwerte verschieden?&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">s1</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">s2</span><span class="p">)))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;count&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_11_1_0.png" src="../_images/kapitel_11_1_0.png" />
+</div>
+</div>
+<p>Das Histogramm auf der linken Seite hat eine Glockenform, das auf eine Normalverteilung hindeutet. Wie wahrscheinlich es ist, dass es sich um eine Normalverteilung handelt, ist jedoch unklar. Auf der rechten Seite sehen wir die Histogramme von zwei Stichproben <span class="math notranslate nohighlight">\(X_1 = \{x_1^1, ..., x_{n_1}^1\}\)</span> (“blau”) und <span class="math notranslate nohighlight">\(X_2 = \{x_1^2, ..., x_{n_2}^2\}\)</span> (“orange”). Diese Stichproben sind aus der “blauen” und der “orangen” Grundgesamtheit gezogen, die auch <em>Populationen</em> genannt werden. Beide Stichproben sehen sich sehr ähnlich, auch wenn der Mittelwert der blauen Daten etwas kleiner ist als bei den orangen Daten. Ob dies ein zufälliger Effekt der Stichproben ist ist, oder ob die blaue Population im Mittel wirklich etwas kleiner ist, kann man mit dem Histogramm nicht erkennen.</p>
+<p>Statistische Methoden können uns diese Fragen (mit einer gewissen Wahrscheinlichkeit) beantworten. In diesem Kapitel betrachten wir nur eine kurze Einführung in die ziemlich große Welt der Statistik. Unser Ziel ist ein Grundverständis vom Hypothesentesten, Effektstärken, und Konfidenzintervallen. Bitte beachten Sie, dass die Hypothesen in diesem Kapitel nicht mit den Hypothesen eines Klassifikationsmodells zu verwechseln sind (siehe <a class="reference internal" href="kapitel_08.html"><span class="doc std std-doc">Kapitel 8</span></a>).</p>
+</div>
+<div class="section" id="hypothesentests">
+<h2><span class="section-number">11.2. </span>Hypothesentests<a class="headerlink" href="#hypothesentests" title="Permalink to this headline">¶</a></h2>
+<p>Hypothesentests sind das wichtigste Werkzeug der <em>häufigkeitsbasierten Statistik</em> (engl. <em>frequentist statistics</em>). Beim Hypothesentesten hat man Annahmen an die Daten. Durch diese Annahmen kann man Hypothesen über die Daten formulieren. Es gibt immer zwei Hypothesen: Die <em>Null Hypothese</em> und die <em>Alternative Hypothese</em>.</p>
+<ul class="simple">
+<li><p>Null Hypothese (<span class="math notranslate nohighlight">\(H_0\)</span>): Die Annahmen des Tests sind erfüllt und können nicht mit einem vorgegeben Signifikanzniveau verworfen werden.</p></li>
+<li><p>Alternative Hypothese ( <span class="math notranslate nohighlight">\(H_1\)</span>): Die Annahmen des Tests sind nicht erfüllt und können mit einem vorgegeben Signifikanzniveau verworfen werden.</p></li>
+</ul>
+<p>Die Formulierung dieser Hypothesen basiert auf einigen abstrakten Konzepten: Was genau ist eine “Annahme” und was heißt “mit einem vorgegeben Signifikanzniveau verwerfen”? Im folgenden erklären wir die Bedeutung dieser Konzepte am Beispiel des <span class="math notranslate nohighlight">\(t\)</span>-Tests.</p>
+<div class="section" id="t-test">
+<h3><span class="section-number">11.2.1. </span><span class="math notranslate nohighlight">\(t\)</span>-Test<a class="headerlink" href="#t-test" title="Permalink to this headline">¶</a></h3>
+<p>Der <span class="math notranslate nohighlight">\(t\)</span>-Test ist der Urvater der statistischen Tests und wurde von William Gosset unter dem Pseudonym “Student” entwickelt. Die älteste Version des Tests und die Wahrscheinlichkeitsverteilung auf dem dieser Test basiert heißen daher auch Students <span class="math notranslate nohighlight">\(t\)</span>-Test und Students Verteilung. Wir betrachten hier eine neuere Variante des <span class="math notranslate nohighlight">\(t\)</span>-Tests, nämlich Welchs <span class="math notranslate nohighlight">\(t\)</span>-Test. Welchs <span class="math notranslate nohighlight">\(t\)</span>-Test hat folgenden Hypothesen:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(H_0\)</span>: Die Mittelwerte von zwei normalverteilten Populationen <span class="math notranslate nohighlight">\(X_1\)</span> und <span class="math notranslate nohighlight">\(X_2\)</span> sind gleich.</p></li>
+<li><p><span class="math notranslate nohighlight">\(H_1\)</span>: <span class="math notranslate nohighlight">\(X_1\)</span> und <span class="math notranslate nohighlight">\(X_2\)</span> sind keine normalverteilten Populationen mit dem gleichen Mittelwert.</p></li>
+</ul>
+<p>Anhand der Hypothesen kann man bereits den Zweck des <span class="math notranslate nohighlight">\(t\)</span>-Tests erkennen: Wir wollen bestimmen können ob die Mittelwerte unterschiedlich ist. Zum besseren Verständnis hier ein Beispiel: Stellen sie sich vor, sie wollen wissen ob das Durchschnittsalter der Einwohner von Berlin gleich dem von Hamburg ist. In beiden Städten haben sie 10.000 Einwohner zufällig ausgewählt und nach dem Alter gefragt. Die Städte sind ihre Populationen, die ausgewählten Einwohner ihre Stichprobe. Derartige Fragestellungen gibt es häufig: Sind zwei Medikamente gleich wirksam oder auch ist mein Random Forest gleich gut wie mein Neuronales Netz?</p>
+<p>Eine wichtige Eigenschaft vom <span class="math notranslate nohighlight">\(t\)</span>-Test ist, dass die alternative Hypothese nicht aussagt, dass die Mittelwerte nicht gleich sind. Sie sagt lediglich aus, dass wenn <span class="math notranslate nohighlight">\(X_1\)</span> und <span class="math notranslate nohighlight">\(X_2\)</span> beide normalverteilt sind, die Mittelwerte unterschiedlich sind. Wenn eine von beiden Populationen nicht normal verteilt ist, weiß man nicht ob die Nullhypothese verworfen wurde weil die Mittelwerte unterschiedlich sind, oder weil es keine Normalverteilung war. Diese wichtige Eigenschaft wird oft vergessen und ist einer der häufigsten Fehler bei der Benutzung von Hypothesentests.</p>
+<p>Der <span class="math notranslate nohighlight">\(t\)</span>-Test bestimmt ob die Nullhypothese verworfen wird, basierend auf der Überlegung wie wahrscheinlich es ist, die Stichprobe zu beobachten, wenn die Hypothese zu trifft. Für den <span class="math notranslate nohighlight">\(t\)</span>-Test heißt dass, dass man berechnet wie wahrscheinlich es ist, die Stichproben <span class="math notranslate nohighlight">\(X_1\)</span> und <span class="math notranslate nohighlight">\(X_2\)</span> zu beobachten, wenn beide aus normalverteilten Populationen mit dem gleichen Mittelwert gezogen werden. Dies ist der zu gleichenmaßen berühmte wie berüchtigte <em>p-value</em>. Um den p-value zu bestimmen, brauchen wir <em>Teststastistik</em>. Im Fall von <span class="math notranslate nohighlight">\(t\)</span>-Test ist das Students <span class="math notranslate nohighlight">\(t\)</span>-Verteilung.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+
+<span class="n">rv</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">rv</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.0001</span><span class="p">),</span> <span class="n">rv</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.9999</span><span class="p">),</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">rv</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> 
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Students $t$-Verteilung mit 100 Freiheitsgraden&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_11_3_0.png" src="../_images/kapitel_11_3_0.png" />
+</div>
+</div>
+<p>Diese Verteilung sieht auf den ersten Blick aus wie eine Normalverteilung. Die <span class="math notranslate nohighlight">\(t\)</span>-Verteilung hat jedoch eine etwas breitere Glocke als die Normalverteilung, die Fläche ist als in den Randbereichen größer. Diese Ähnlichkeit zur Normalverteilung ist kein Zufall. Die <span class="math notranslate nohighlight">\(t\)</span>-Verteilung ist definiert als die erwartete Abweichung des Mittelwerts von 0 bei einer Stichprobe , die aus der Standardnormalverteilung mit Mittelwert 0 und Standardabweichung 1 gezogen wurden. Die <span class="math notranslate nohighlight">\(t\)</span>-Verteilung sagt also etwas über die Unsicherheit der Mittelwerts einer Stichprobe aus. Diese Unsicherheit können wir natürlich auch für zwei Stichproben bestimmen, was dann schon sehr ähnlich zu unserer Hypothese ist.</p>
+<p>Der Unterschied ist, das die <span class="math notranslate nohighlight">\(t\)</span>-Verteilung die Unsicherheit für eine Mittelwert von 0 und eine Standardabweichung von 1 berechnet, wir haber mit unsere Hypothese beliebige Normalverteilungen zulassen. Daher benötigen wir die Teststatistik. Diese ist für den <span class="math notranslate nohighlight">\(t\)</span>-Test definiert als</p>
+<div class="math notranslate nohighlight">
+\[t = \frac{mean(X_1)-mean(X_2)}{\sqrt{\frac{sd(X_1)^2}{n_1}+\frac{sd(X_2)^2}{n_2}}}.\]</div>
+<p>Diese Gleichung sieht zwar kompliziert aus, ist aber - etwas vereinfacht - nichts anderes als eine Standardisierung der Stichproben, so dass sich die Differenz der Mittelwerte wie bei zwei Standardnormalverteilungen verhält. Daher können wir die <span class="math notranslate nohighlight">\(t\)</span>-Verteilung benutzen, um auszurechnen wie Wahrscheinlich es ist, dass wir diese Abweichung sehen. Hierfür berechnet man die Fläche unter der <span class="math notranslate nohighlight">\(t\)</span>-Verteilung außerhalb von <span class="math notranslate nohighlight">\(\pm t\)</span>.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tvalue</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">xfill</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">tvalue</span><span class="p">,</span> <span class="n">tvalue</span><span class="p">)</span>
+<span class="n">xfill_left</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">rv</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.0001</span><span class="p">),</span><span class="o">-</span><span class="n">tvalue</span><span class="p">)</span>
+<span class="n">xfill_right</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">rv</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.9999</span><span class="p">),</span><span class="n">tvalue</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;p-value mit Students $t$-Verteilung.</span><span class="se">\n</span><span class="s2">Die grüne Fläche ist der p-value.&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">tvalue</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="o">-</span><span class="n">tvalue</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([</span><span class="o">-</span><span class="n">tvalue</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">tvalue</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;-t&#39;</span><span class="p">,</span><span class="s1">&#39;0&#39;</span><span class="p">,</span><span class="s1">&#39;t&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">xfill</span><span class="p">,</span> <span class="n">rv</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">xfill</span><span class="p">),</span> <span class="n">y2</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">xfill_left</span><span class="p">,</span> <span class="n">rv</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">xfill_left</span><span class="p">),</span> <span class="n">y2</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">xfill_right</span><span class="p">,</span> <span class="n">rv</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">xfill_right</span><span class="p">),</span> <span class="n">y2</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_11_5_0.png" src="../_images/kapitel_11_5_0.png" />
+</div>
+</div>
+<p>Die grüne Fläche ist die Wahrscheinlichkeit, dass die Stichprobe einer Standardnormalverteilung um mindestens <span class="math notranslate nohighlight">\(t\)</span> von 0 abweicht. Da wir <span class="math notranslate nohighlight">\(t\)</span> so berechnen, dass es genau die Abweichung der Mittelwerte voneinander darstellt, entspricht dies der Wahrscheinlichkeit das die zwei Stichproben gezogen wurden, wenn doe Populationen normalverteilt sind und den gleichen Mittelwert haben. Das ist der p-value des <span class="math notranslate nohighlight">\(t\)</span>-Tests, also die Wahrscheinlichkeit der Daten, wenn unsere Hypothese zutrifft.</p>
+</div>
+<div class="section" id="das-signifikanzniveau">
+<h3><span class="section-number">11.2.2. </span>Das Signifikanzniveau<a class="headerlink" href="#das-signifikanzniveau" title="Permalink to this headline">¶</a></h3>
+<p>Der p-value gibt also an, wie wahrscheinlich es ist, die Daten zu sehen. Es ist also nur logisch, dass ein kleiner p-value darauf hindeutet, dass die Null Hypothese nicht zutrifft und verworfen werden sollte. Diese Folgerung wird durch das <em>Signifikanzniveau</em> <span class="math notranslate nohighlight">\(\alpha\)</span> formalisiert um die <em>statistische Signifikanz</em> des Testergebnisse zu definieren. Das Signifikanzniveau ist definiert als die Wahrscheinlichkeit, dass die Null Hypothese verworfen wird, obwohl sie zutrifft. Häufig wird ein Signifikanzniveau von 0,05 oder in letzter Zeit auch 0,005 verwendet. Mit dem Signifikanzniveau können wir jetzt basierend auf dem p-value entscheiden, ob wir die Null Hypothese verwerfen:</p>
+<ul class="simple">
+<li><p>Wenn der <span class="math notranslate nohighlight">\(p\)</span>-<span class="math notranslate nohighlight">\(value &gt; \alpha\)</span> können wir die Null Hypothese nicht verwerfen. Das heißt, dass die Stichproben nicht unwahrscheinlich sind, wenn die Null Hypothese wahr ist.</p></li>
+<li><p>Wenn der <span class="math notranslate nohighlight">\(p\)</span>-<span class="math notranslate nohighlight">\(value \leq \alpha\)</span> verwerfen wir die Null Hypothese und haben ein <em>statistisch signifikantes Ergebnis</em>. Die Stichproben sind also sehr unwahrscheinlich, wenn die Null Hypothese wahr ist.</p></li>
+</ul>
+<p>Bitte beachten Sie, dass man mit Hypothesentests keine absolute Sicherheit hat, sondern die Ergebnisse nur mit einer durch das Signifikanzniveau festgelegten Wahrscheinlichkeit stimmen. Das heißt auch, dass wenn wir die Null Hypothese verwerfen, sie trotzdem wahr sein könnte. Es ist nur unwahrscheinlich - aber nicht unmöglich! - das diese Daten vorkommen. Deshalb verwenden wir auch die etwas komplizierten Formulierungen <em>nicht verwerfen können</em>, bzw. <em>verwerfen</em> bezogen auf ein Signifikanzniveau.</p>
+</div>
+<div class="section" id="wichtige-hypothesentests">
+<h3><span class="section-number">11.2.3. </span>Wichtige Hypothesentests<a class="headerlink" href="#wichtige-hypothesentests" title="Permalink to this headline">¶</a></h3>
+<p>Was wir oben im Detail für den <span class="math notranslate nohighlight">\(t\)</span>-Test erklärt haben, gilt für alle statistischen Tests: Es gibt eine Nullhypothese in der wir Annahmen treffen. Dann berechnen wir den <span class="math notranslate nohighlight">\(p\)</span>-value also die Wahrscheinlichkeit der Daten, gegeben den Annahmen. Basierend auf dem <span class="math notranslate nohighlight">\(p\)</span>-value können wir bestimmen ob wir die Null Hypothese mit einem gewissen Signifikanzniveau verwerfen. Es gibt sehr viele derartige statistische Tests. Hier sind die Null Hypothesen einiger sehr wichtiger Tests:</p>
+<ul class="simple">
+<li><p>Welchs <span class="math notranslate nohighlight">\(t\)</span>-Test: Die Mittelwerte zweier unabhängiger normalverteilter Populationen sind gleich.</p></li>
+<li><p>Mann-Whitney-U Test / Wilcoxon-Ranksum-Test: Die Werte einer Population dominieren die Werte einer anderen Population nicht (entspricht in etwa der Frage ob die Median gleich sein).</p></li>
+<li><p>Shapiro-Wilk-Test: Die Population einer Stichprobe mit einer Größe zwischen 3 und 5.000 ist normalverteilt.</p></li>
+<li><p>Levene’s Test: Die Varianz von einer Gruppe von Populationen ist gleich.</p></li>
+<li><p>ANOVA (F-Test): Die Mittelwerte einer Gruppe von normalverteilten Populationen mit gleichen Varianzen sind gleich.</p></li>
+<li><p>Kolmogorov-Smirnoff Test: Zwei Populationen haben die gleichen Wahrscheinlichkeitsverteilung.</p></li>
+</ul>
+<p>Wir wissen bereits, das wir Welchs <span class="math notranslate nohighlight">\(t\)</span>-Test benutzen können um die Mittelwerte von Normalverteilungen zu vergleichen. Wenn die Daten nicht Normalverteilt sind, kann man stattdessen den Mann-Whitney-U test nutzen. Mit Hilfe des Shapiro-Wilk Tests kann man ebstimmen, ob eine Stichprobe normalverteilt ist. Wenn man mehr als zwei Datensätze vergleichen möchte, spricht man von einer Gruppe von Populationen. Mit ANOVA kann man bestimmen, ob die Mittelwerte aller dieser Populationen gleich sind, sofern es sich um Normalverteilungen mit der gleichen Varianz handelt. Die Normalverteilung können wir mit dem Shapiro-Wilk Test überprüfen, für die Varianzen können wir Levene’s Test verwenden.</p>
+<p>Ähnlich wie bei den deskriptiven Statistiken (siehe <a class="reference internal" href="kapitel_03.html"><span class="doc std std-doc">Kapitel 3</span></a>, gibt es <em>parametrische</em> und <em>nicht paramtrische</em> statistische Tests. Die parametrischen Tests haben Annahmen an die Daten (z.B. Normalverteilung), die nicht-parametrischen Tests machen keine derartigen Annahmen. Welchs <span class="math notranslate nohighlight">\(t\)</span>-Test ist zum Beispiel parametrisch und der Mann-Whitney-U Test ist das nicht parametrische Gegenstück.</p>
+<p>Der Kolmogorov-Smirnoff Test ist eine der generischsten statistischen Tests, da er beliebige Populationen mit kontinuierlichen Verteilungen miteinander vergleichen kann. Es gibt also nur wenige Einschränkungen, wann man den Test benutzen kann. Dennoch sollte man ihn als “letztes Mittel” sehen, mit dem man zumindest sagen kann, ob es irgendwelche unterschiede gibt. Was genau unterschiedlich ist, zum Beispiel die Lage, die Variabilität oder die Art der Verteilung, ist unklar. Als Vergleich: Wenn man mit dem Shapiro-Wilk Test bestimmt das die Populationen normalverteilt sind und mit Welchs <span class="math notranslate nohighlight">\(t\)</span>-Test eine signifikanten Unterschied der Mittelwerte feststellt, weiß man sehr genau, wie sich die Populationen voneinander unterscheiden.</p>
+</div>
+<div class="section" id="anwendung-der-tests">
+<h3><span class="section-number">11.2.4. </span>Anwendung der Tests<a class="headerlink" href="#anwendung-der-tests" title="Permalink to this headline">¶</a></h3>
+<p>Mit den jetzt bekannten Wissen über die statistischen Tests, können wir die Fragen vom Anfang des Kapitels beantworten: Sind die Mittelwerte der blauen und orangen Populationen unterschiedlich? Mit Hilfe der Hypothesentests können wir hierzu eine Aussage treffen, die mit hoher Wahrscheinlichkeit richtig ist. Hierzu müssen wir ein Signifikanzniveau <span class="math notranslate nohighlight">\(\alpha\)</span> festlegen. Anschließend können wir den Shapiro-Wilk Test auf beide Stichproben anwenden um zu bestimmen ob die Populationen normalverteilt sind. Wenn dies der Fall ist, können wir die Mittelwerte mit Welch’s <span class="math notranslate nohighlight">\(t\)</span>-Test Vergleichen, ansonsten nehmen wir den Mann-Whitney-U Test.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">textwrap</span> <span class="kn">import</span> <span class="n">TextWrapper</span>
+
+<span class="n">wrapper</span> <span class="o">=</span> <span class="n">TextWrapper</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">65</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">wrap_print</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">wrapper</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">string</span><span class="p">)))</span>
+
+
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
+<span class="n">pval_shapiro1</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">shapiro</span><span class="p">(</span><span class="n">s1</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">pval_shapiro2</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">shapiro</span><span class="p">(</span><span class="n">s2</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">wrap_print</span><span class="p">(</span><span class="s1">&#39;p-value des Shapiro-Wilk Test für die &quot;blauen&quot; Daten: </span><span class="si">%.4f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">pval_shapiro1</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">pval_shapiro1</span><span class="o">&gt;</span><span class="n">alpha</span><span class="p">:</span>
+    <span class="n">wrap_print</span><span class="p">(</span><span class="s1">&#39;Der Test hat ermittelt dass die Daten normalverteilt sind und wir können die Null Hypothese nicht mit einem Signifikanzniveau von alpha=</span><span class="si">%.3f</span><span class="s1"> verwerfen.&#39;</span> <span class="o">%</span> <span class="n">alpha</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">wrap_print</span><span class="p">(</span><span class="s1">&#39;Der Test hat ermittelt das die Daten nicht normalverteilt sind und wir verwerfen die Null Hypothese mit einem Signifikanzniveau von alpha=</span><span class="si">%.3f</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="n">alpha</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;p-value des Shapiro-Wilk Test für die &quot;orangen&quot; Daten: </span><span class="si">%.4f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">pval_shapiro2</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">pval_shapiro1</span><span class="o">&gt;</span><span class="n">alpha</span><span class="p">:</span>
+    <span class="n">wrap_print</span><span class="p">(</span><span class="s1">&#39;Der Test hat ermittelt dass die Daten normalverteilt sind und wir können die Null Hypothese nicht mit einem Signifikanzniveau von alpha=</span><span class="si">%.3f</span><span class="s1"> verwerfen.&#39;</span> <span class="o">%</span> <span class="n">alpha</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">wrap_print</span><span class="p">(</span><span class="s1">&#39;Der Test hat ermittelt das die Daten nicht normalverteilt sind und wir verwerfen die Null Hypothese mit einem Signifikanzniveau von alpha=</span><span class="si">%.3f</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="n">alpha</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">pval_shapiro1</span><span class="o">&gt;</span><span class="n">alpha</span> <span class="ow">and</span> <span class="n">pval_shapiro2</span><span class="o">&gt;</span><span class="n">alpha</span><span class="p">:</span>
+    <span class="n">wrap_print</span><span class="p">(</span><span class="s2">&quot;Beide Populationen sind normalverteilt. Wir benutzen Welch&#39;s t-Test.&quot;</span><span class="p">)</span>
+    <span class="n">pval_equal</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span><span class="n">s2</span><span class="p">,</span><span class="n">equal_var</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">()</span>    
+    <span class="n">wrap_print</span><span class="p">(</span><span class="s2">&quot;p-value von Welch&#39;s t-Test: </span><span class="si">%f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">pval_equal</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">pval_equal</span><span class="o">&gt;</span><span class="n">alpha</span><span class="p">:</span>
+        <span class="n">wrap_print</span><span class="p">(</span><span class="s1">&#39;Der Test hat ermittelt, dass die Mittelwerte wahrscheinlich gleich sind und wir können die Null Hypothese nicht mit einem Signifikanzniveau von alpha=</span><span class="si">%.3f</span><span class="s1"> verwerfen.&#39;</span> <span class="o">%</span> <span class="n">alpha</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">wrap_print</span><span class="p">(</span><span class="s1">&#39;Der Test hat ermittelt, dass die Mittelwerte wahrscheinlich nicht gleich sind und wir verwerfen die Null Hypothese mit einem Signifikanzniveau von alpha=</span><span class="si">%.3f</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="n">alpha</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">wrap_print</span><span class="p">(</span><span class="s2">&quot;Mindestens eine Population ist nicht normalverteilt. Wir benutzen den Mann-Whitney-U Test.&quot;</span><span class="p">)</span>
+    <span class="n">pval_equal</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">mannwhitneyu</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span><span class="n">s2</span><span class="p">,</span><span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;two-sided&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">wrap_print</span><span class="p">(</span><span class="s2">&quot;p-value des Mann-Whitney-U Tests: </span><span class="si">%f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">pval_equal</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">pval_equal</span><span class="o">&gt;</span><span class="n">alpha</span><span class="p">:</span>
+        <span class="n">wrap_print</span><span class="p">(</span><span class="s1">&#39;Der Test hat ermittelt, dass die Populationen sich nicht dominieren wir können die Null Hypothese nicht mit einem Signifikanzniveau von alpha=</span><span class="si">%.3f</span><span class="s1"> verwerfen.&#39;</span> <span class="o">%</span> <span class="n">alpha</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">wrap_print</span><span class="p">(</span><span class="s1">&#39;Der Test hat ermittelt, dass eine Population die andere dominiert und wir verwerfen die Null Hypothese mit einem Signifikanzniveau von alpha=</span><span class="si">%.3f</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="n">alpha</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p-value des Shapiro-Wilk Test für die &quot;blauen&quot; Daten: 0.8290
+Der Test hat ermittelt dass die Daten normalverteilt sind und wir
+können die Null Hypothese nicht mit einem Signifikanzniveau von
+alpha=0.050 verwerfen.
+
+p-value des Shapiro-Wilk Test für die &quot;orangen&quot; Daten: 0.2498
+Der Test hat ermittelt dass die Daten normalverteilt sind und wir
+können die Null Hypothese nicht mit einem Signifikanzniveau von
+alpha=0.050 verwerfen.
+
+Beide Populationen sind normalverteilt. Wir benutzen Welch&#39;s
+t-Test.
+
+p-value von Welch&#39;s t-Test: 0.000102
+Der Test hat ermittelt, dass die Mittelwerte wahrscheinlich nicht
+gleich sind und wir verwerfen die Null Hypothese mit einem
+Signifikanzniveau von alpha=0.050.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Die Tests haben also bestimmt, dass die Daten wahrscheinlich Normalverteilt sind, aber die Mittelwerte nicht gleich. Wir haben also eine statistisch signifikanten Unterschied zwischen den blauen und den orangen Daten mit einem Signifikanzniveau von <span class="math notranslate nohighlight">\(\alpha=0.05\)</span>.</p>
+</div>
+<div class="section" id="ubliche-fehler-bei-hypothesen-tests">
+<h3><span class="section-number">11.2.5. </span>Übliche Fehler bei Hypothesen Tests<a class="headerlink" href="#ubliche-fehler-bei-hypothesen-tests" title="Permalink to this headline">¶</a></h3>
+<p>Bei Hypothesen Tests steckt der Teufel im Detail, da es viele Aspekte gibt die man vergessen oder ungenau darstellen kann, was dazu führen kann das man die Ergebnisse überinterpretiert. Daher wollen wir hier einige größere und häufig vorkommende Fehler nennen, damit wir diese vermeiden können.</p>
+<p>Das größte Problem ist das man Hypothesen Tests nutzt, um binäre Aussagen zu machen, zum Beispiel “die Daten sind Normalverteilt” statt “der statischtische Test indiziert das die Daten mit hoher Wahrscheinlichkeit normalverteilt sind”. Der große Unterschied: Die korrekte Aussage beinhaltet, dass es eine gewisse Unsicherheit über das Ergebnis gibt, was bei der absoluten Aussage nicht der Fall ist. Das derartige Fehler (häufig!) passieren, ist verständlich. Das korrekte Formulieren von statistischen Ergebnissen ist schwierig und die Sätze klingen oft umständlich, was dazu verleitet lieber eine deutlich einfachere absolute Formulierung zu benutzen.</p>
+<p>Ein weiteres Problem ist das p-values häufig falsch benutzt werden. Dies liegt daran, das die Definition vom p-value als die Wahrscheinlichkeit die Daten gegeben der Annahmen zu beobachten relativ komplex ist. Aus diesem Grund gibt es auch viele Forscher, die gerne Hypothesen Tests komplett abschaffen und durch andere Verfahren (Bayesian Statistics) ersetzen würden. Es gibt aber auch sehr viele Forscher, die das Problem in der falschen Verwendung der p-values sehen, so dass lediglich eine bessere Statistikausbildung erforderlich ist. In diesem Sinne betrachten wir hier auch die zwei größten Probleme der p-values: <em>Scoring</em> und <em>p-Hacking</em>.</p>
+<p>Scoring bedeutet, dass der p-value als Punktzahl interpretiert wird und dann unterschiede Anhand ihrer p-values sortiert werden. Dies macht jedoch keinen Sinn, da die p-values eben nicht die Wahrscheinlichkeit, dass eine Hypothese korrekt ist messer, sondern nur das die Daten zur Annahme passen. Eine Sortierung nach wäre also stattdessen eine Art von Bewertung der Daten selbst, was nicht gewollt ist.</p>
+<p>Das p-Hacking passiert oft unbewusst. Auch hier liegt das Problem dadran, dass die p-values die Wahrscheinlichkeit sind, dass die Daten gegeben der Annahmen generiert werden. Ein p-value von 0,05 bedeutet also, dass es eine 5% Wahrscheinlichkeit gibt das diese Daten generiert werden, gegeben das die Null Hypothese zutrifft. Mit anderen Worten, es wird vom Test sogar erwartet, dass es eine gewisse Anzahl von <em>falsch positiven Testergebnisse</em> gibt, also das wir die Null Hypothese verwerfen, obwohl diese zutrifft. Dies ist im Allgemeinen kein Problem, solang die Wahrscheinlichkeit hierfür niedrig ist. Wenn man jedoch 20 Tests durchführt und jeder Test mit 5% Wahrscheinlichkeit falsch positiv ist, ist es fast sicher das es ein falsch positives Ergebnis gibt. Diesem Effekt kann man entgegenwirken, in dem man einen höheres Signifikanzniveau verlangt, was bedeutet das der p-value zum verwerfen der Hypothesen kleiner sein muss, wodurch man die Wahrscheinlichkeit von falsch positiven Ergebnissen reduziert. Man spricht hierbei auch vom <em>p-value adjustment</em>, zum Beispiel durch Bonferonni Korrektur <a class="footnote-reference brackets" href="#bonferroni" id="id1">1</a>. Derartiges p-Hacking ist oft keine Absicht, sondern passiert durch die Analyse von Teilgruppen. Um zum Beispiel vom Alter der Einwohner zurück zu kommen: Auch wenn Berlin und Hamburg das gleiche Durchschnittsalter hätten, würde man sehr sicher Stadtteile finden, wo die Abweichung größer wäre und der Unterschied dadurch signifikant. Ein berühmtes Beispiel dafür ist dieser medizinische Fachartikel <a class="footnote-reference brackets" href="#phacking" id="id2">2</a>: Die Autoren wurden von den Editoren gezwungen Teilgruppen zu analysieren und haben um zu demonstrieren, dass dies zu falsch positiven Ergebnissen führt auch eine Analyse der Auswirkungen der Sternzeichen auf die Behandlung mit aufgenommen.</p>
+</div>
+</div>
+<div class="section" id="effektstarke">
+<h2><span class="section-number">11.3. </span>Effektstärke<a class="headerlink" href="#effektstarke" title="Permalink to this headline">¶</a></h2>
+<p>Die Signifikanz von Ergebnissen bedeutet nicht immer, dass ein Unterschied auch eine Bedeutung hat. Für unsere blauen und orangenen Daten haben wir folgende Mittelwerte und Standardabweichungen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;mean(&quot;blue&quot;)   = </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">s1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;sd(&quot;blue&quot;)     = </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">s1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;mean(&quot;orange&quot;) = </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">s2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;sd(&quot;orange&quot;)   = </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">s2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mean(&quot;blue&quot;)   = -0.01
+sd(&quot;blue&quot;)     = 0.19
+mean(&quot;orange&quot;) = 0.07
+sd(&quot;orange&quot;)   = 0.20
+</pre></div>
+</div>
+</div>
+</div>
+<p>Der Unterschied der Mittelwerte ist im Verhältnis zu Standardabweichung also sehr klein. Die <em>Effektstärke</em> erweitert das Konzept der Signifikanz mit einem Maß dafür, wie groß die Differenz ist. Für normalverteilte Daten kann die Effektstärke vom Unterschied der Mittelwerte durch Cohen’s <span class="math notranslate nohighlight">\(d\)</span>, welche definiert ist als</p>
+<div class="math notranslate nohighlight">
+\[d = \frac{mean(X_1)-mean(X_2)}{s}\]</div>
+<p>mit</p>
+<div class="math notranslate nohighlight">
+\[s = \sqrt{\frac{(n_1-1)\cdot sd(X_1)^2+(n_2-1)\cdot sd(X_2)^2}{n_1+n_2-2}}.\]</div>
+<p>Der Wert <span class="math notranslate nohighlight">\(s\)</span> definiert die <em>gepooled Standardabweichung</em> zweier Stichproben, definiert als das nach der Anzahl der Datenpunkte gewichtete Mittel der Standardabweichungen der Stichproben. Daher ist Cohens <span class="math notranslate nohighlight">\(d\)</span> nichts anderes als das Verhältnis der Mittelwertdifferenz zur Standardabweichung und <span class="math notranslate nohighlight">\(d=1\)</span> bedeutet, dass die Mittelwerte eine Standardabweichung voneinander entfernt liegen. Basierend von Cohen und Sawilowski kann man folgende Tabelle als zur Interpretation der Größenordnung der Effektstärke benutzen.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Cohens <span class="math notranslate nohighlight">\(d\)</span></p></th>
+<th class="head"><p>Effektstärke</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\vert d \vert &lt; 0.01\)</span></p></td>
+<td><p>Vernachlässigbar /  Negligible</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\vert d \vert \geq 0.01\)</span></p></td>
+<td><p>Sehr klein / Very small</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\vert d \vert \geq 0.2\)</span></p></td>
+<td><p>Klein / Small</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\vert d \vert \geq 0.5\)</span></p></td>
+<td><p>Mittel / Medium</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\vert d \vert \geq 0.8\)</span></p></td>
+<td><p>Groß / Large</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\vert d \vert \geq 1.2\)</span></p></td>
+<td><p>Sehr groß / Very large</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\vert d \vert \geq 2.0\)</span></p></td>
+<td><p>Riesig / Huge</p></td>
+</tr>
+</tbody>
+</table>
+<p>Diese Tabelle wurde zwar für die Sozialwissenschaften erstellt, wird jedoch nichtsdestotrotz sehr häufig auch in anderen Domänen verwendet. In unserem Beispiel haben wir folgende Effektstärke.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statistics</span> <span class="kn">import</span> <span class="n">mean</span><span class="p">,</span> <span class="n">stdev</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span> <span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">stdev</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">stdev</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span><span class="o">+</span><span class="nb">len</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">cohens_d</span> <span class="o">=</span> <span class="p">(</span><span class="n">mean</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span> <span class="o">-</span> <span class="n">mean</span><span class="p">(</span><span class="n">s2</span><span class="p">))</span> <span class="o">/</span> <span class="n">s</span>
+
+<span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">cohens_d</span><span class="p">)</span><span class="o">&lt;</span><span class="mf">0.01</span><span class="p">:</span>
+    <span class="n">effsizestr</span> <span class="o">=</span> <span class="s2">&quot;vernachlässigbarre&quot;</span>
+<span class="k">elif</span> <span class="nb">abs</span><span class="p">(</span><span class="n">cohens_d</span><span class="p">)</span><span class="o">&lt;</span><span class="mf">0.2</span><span class="p">:</span>
+    <span class="n">effsizestr</span> <span class="o">=</span> <span class="s2">&quot;sehr kleiner&quot;</span>
+<span class="k">elif</span> <span class="nb">abs</span><span class="p">(</span><span class="n">cohens_d</span><span class="p">)</span><span class="o">&lt;</span><span class="mf">0.5</span><span class="p">:</span>
+    <span class="n">effsizestr</span> <span class="o">=</span> <span class="s2">&quot;kleiner&quot;</span>
+<span class="k">elif</span> <span class="nb">abs</span><span class="p">(</span><span class="n">cohens_d</span><span class="p">)</span><span class="o">&lt;</span><span class="mf">0.8</span><span class="p">:</span>
+    <span class="n">effsizestr</span> <span class="o">=</span> <span class="s2">&quot;mittelerer&quot;</span>
+<span class="k">elif</span> <span class="nb">abs</span><span class="p">(</span><span class="n">cohens_d</span><span class="p">)</span><span class="o">&lt;</span><span class="mf">1.2</span><span class="p">:</span>
+    <span class="n">effsizestr</span> <span class="o">=</span> <span class="s2">&quot;großer&quot;</span>
+<span class="k">elif</span> <span class="nb">abs</span><span class="p">(</span><span class="n">cohens_d</span><span class="p">)</span><span class="o">&lt;</span><span class="mi">2</span><span class="p">:</span>
+    <span class="n">effsizestr</span> <span class="o">=</span> <span class="s2">&quot;sehr großer&quot;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">effsizestr</span> <span class="o">=</span> <span class="s2">&quot;riesiger&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Effektstärke (Cohens d): </span><span class="si">%.3f</span><span class="s2"> - </span><span class="si">%s</span><span class="s2"> Effekt&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">cohens_d</span><span class="p">,</span> <span class="n">effsizestr</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Effektstärke (Cohens d): -0.393 - kleiner Effekt
+</pre></div>
+</div>
+</div>
+</div>
+<p>Es gibt also einen kleine Effekt. Das passt auch zu dem,w as wir im Histogram gesehen haben: Es gibt zwar einen Unterschied zwischen den Stichproben, der ist aber klein, wie wir jetzt mit Hilfe von Cohens <span class="math notranslate nohighlight">\(d\)</span> bestätigt haben.</p>
+</div>
+<div class="section" id="konfidenzintervalle">
+<h2><span class="section-number">11.4. </span>Konfidenzintervalle<a class="headerlink" href="#konfidenzintervalle" title="Permalink to this headline">¶</a></h2>
+<p>Wenn man den Mittelwert anhand einer Stichprobe schätzt, ist es naheliegend zu fragen wie gut diese Schätzung ist. Das hängt von zwei Faktoren ab: Der größe der Stichprobe und der Variabilität der Daten. Dies merk man schnell an einem Beispiel: Angenommen sie wollen das Durchschnittsalter ihrer Kunden bestimmen. Das die Schätzung besser wird, je mehr Kunden man befragt, ist offensichtlich. Wenn die ersten Kunden alle mit Zahlen zwischen 18 und 25 Antworten, haben sie eine kleine Variabilität der Antworten und können den Wert schon gut eingrenzen. Wenn die ersten Kunden jedoch Zahlen zwischen 18 und 86 nennen, haben sie eine größere Unsicherheit und müssen mehr Kunden befragen, um zu einem guten Schätzwert zu kommen.</p>
+<p>Dies ist zum Beispiel auch für die Bewertung von Klassifikationsmodellen relevant. Angenommen wir haben ein Klassifikationsmodell für die Abwanderung von Kunden, welches auf den Daten von fünf Filialien trainiert wird und mit 15 Filialien ausgewertet wird. Es gibt dann 15 Schätzwerte für die Güte dieses Modells. Als fiktive Ergebnisse nehmen wir an, das die Accuracy normalverteilt mit einem Mittelwert von 0,83 und einer Standardabweichung von 0,13 ist. Für die weitere Anwendung ist folgende Frage sehr wichtig: Welchen Mittelwert erwarten wir, wenn wir das Modell bei 15 weiteren Filialen anwenden?</p>
+<p>Dies kann man mit Hilfe von <em>Konfidenzintervallen</em> berechnen. Ein <span class="math notranslate nohighlight">\(C\%\)</span> Konfidenzintervall <span class="math notranslate nohighlight">\(\theta\)</span> für einen Parameter <span class="math notranslate nohighlight">\(p\)</span> ist ein Interval, in dem <span class="math notranslate nohighlight">\(p\)</span> mit <span class="math notranslate nohighlight">\(C\%\)</span> Wahrscheinlichkeit liegt. Konfidenzintervalle kann man für beliebige stastische Merkmale <span class="math notranslate nohighlight">\(p\)</span> berechnen, auch wenn sie meistens für den Mittelwert berechnet werden. Der wahre Wert von <span class="math notranslate nohighlight">\(p\)</span> liegt dann mit hoher Wahrscheinlich, nämlich <span class="math notranslate nohighlight">\(C\%\)</span>, in diesem Interval. Die Wahrscheinlichkeit <span class="math notranslate nohighlight">\(C\)</span> nennt man das Konfidenzniveau. Für ein Konfidenzniveau von <span class="math notranslate nohighlight">\(C=0,95\)</span>, haben wir also eine 95% Chance, das der Mittelwert von weiteren Stichproben im Konfidenzinterval liegt.</p>
+<p>Für die Stichprobe <span class="math notranslate nohighlight">\(X = \{x_1, ..., x_n\}\)</span> einer normalverteilten Population kann man das Konfidenzinterval für den Mittelwert berechnen als</p>
+<div class="math notranslate nohighlight">
+\[\theta = [mean(X) - z_C\frac{sd(X)}{\sqrt{n}},  mean(X) + z_C\frac{sd(X)}{\sqrt{n}}], \]</div>
+<p>wobei <span class="math notranslate nohighlight">\(z_C\)</span> der sogenannte <em>z-value</em> des Konfidenzniveaus ist. Die Formel passt zur Intuition: Das Konfidenzinterval wird kleiner, wenn die Stichprobe größer oder die Standardabweichung kleiner ist. In der Praxis, liest man den Wert <span class="math notranslate nohighlight">\(z_C\)</span> einfach aus einer Tabelle ab.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p><span class="math notranslate nohighlight">\(C\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(z_C\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>90%</p></td>
+<td><p>1,645</p></td>
+</tr>
+<tr class="row-odd"><td><p>95%</p></td>
+<td><p>1,96</p></td>
+</tr>
+<tr class="row-even"><td><p>99%</p></td>
+<td><p>2,58</p></td>
+</tr>
+<tr class="row-odd"><td><p>99,5%</p></td>
+<td><p>2,807</p></td>
+</tr>
+<tr class="row-even"><td><p>99,9%</p></td>
+<td><p>3,291</p></td>
+</tr>
+</tbody>
+</table>
+<p>In dieser Tabelle stehen die z-values der Standardnormalverteilung. Der z-value ist so gewählt, dass die Fläche unter der Dichtefunktion der Normalverteilung <span class="math notranslate nohighlight">\(C\)</span> entspricht.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+
+<span class="n">mu</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">zc</span> <span class="o">=</span> <span class="mf">1.96</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">mu</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">sigma</span><span class="p">,</span> <span class="n">mu</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="n">sigma</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">)</span>
+<span class="n">xfill</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">zc</span><span class="p">,</span> <span class="n">zc</span><span class="p">)</span>
+
+<span class="n">fix</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Dichtefunktion der Standardnormalverteilung (mean=0, sd=1)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">xfill</span><span class="p">,</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">xfill</span><span class="p">),</span> <span class="n">y2</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="o">-</span><span class="n">zc</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">zc</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="s1">&#39;$-z_C$&#39;</span><span class="p">,</span><span class="s1">&#39;0&#39;</span><span class="p">,</span><span class="s1">&#39;$z_C$&#39;</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="s2">&quot;C% Wahrscheinlichkeit&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_11_13_0.png" src="../_images/kapitel_11_13_0.png" />
+</div>
+</div>
+<p>In unseren Beispiel bekommen wir für verschiedene Konfidenzlevel die folgenden Konfidenzintervalle.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mymu</span> <span class="o">=</span> <span class="mf">0.83</span>
+<span class="n">mysd</span> <span class="o">=</span> <span class="mf">0.13</span>
+<span class="n">myn</span> <span class="o">=</span> <span class="mi">15</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.999</span><span class="p">)</span>
+<span class="n">y_upper</span> <span class="o">=</span> <span class="mf">0.83</span><span class="o">+</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">((</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">mysd</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="n">myn</span><span class="p">)</span>
+<span class="n">y_lower</span> <span class="o">=</span> <span class="mf">0.83</span><span class="o">-</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">((</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">mysd</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="n">myn</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y_upper</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;navy&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y_lower</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;navy&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mf">0.7</span><span class="p">,</span><span class="mf">0.999</span><span class="p">],[</span><span class="mf">0.83</span><span class="p">,</span><span class="mf">0.83</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkorange&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_upper</span><span class="p">,</span> <span class="n">y2</span><span class="o">=</span><span class="n">y_lower</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Konfidenzintervalle für verschiedene Konfidenzniveaus</span><span class="se">\n</span><span class="s1">mean=0.83, sd=0.13, n=15&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Konfidenzniveau&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Konfidenzintervall&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_11_15_0.png" src="../_images/kapitel_11_15_0.png" />
+</div>
+</div>
+<p>Ähnlich wie bei p-value, wird auch das Konfidenzintervall häufig falsch interpretiert. Hier sind einige korrekte Interpretation eines <span class="math notranslate nohighlight">\(C\%\)</span> Konfidenzintervals.</p>
+<ul class="simple">
+<li><p>Es gibt eine <span class="math notranslate nohighlight">\(C\%\)</span> Chance, dass der gemessene Wert (zum Beispiel Mittelwert) bei zukünftigen Wiederholungen des gleichen Experiments in das Intervall <span class="math notranslate nohighlight">\(\theta\)</span> fällt.</p></li>
+<li><p>Es gibt keinen statistisch signifikanten Unterschied zwischen dem geschätzten Wert und allen Werten in <span class="math notranslate nohighlight">\(\theta\)</span> mit einem Signifikanzniveau von <span class="math notranslate nohighlight">\(1-C\%\)</span>.</p></li>
+<li><p>Es gibt eine <span class="math notranslate nohighlight">\(1-C\%\)</span> Wahrscheinlichkeit der Stichprobe, wenn der wahre Wert außerhalb des Intervalls <span class="math notranslate nohighlight">\(\theta\)</span> liegt.</p></li>
+</ul>
+<p>Übliche falsche Interpretationen des Konfidenzintervalls sind zum Beispiel:</p>
+<ul class="simple">
+<li><p>Der wahre Wert von <span class="math notranslate nohighlight">\(p\)</span> leigt mit <span class="math notranslate nohighlight">\(C\%\)</span> Wahrscheinlichkeit in <span class="math notranslate nohighlight">\(\theta\)</span>. Ähnlich wie beim p-value bei Hypothesen Tests, liefern Konfidenzintervalle nur eine Aussage über die Wahrscheinlichkeit bei Stichproben.</p></li>
+<li><p><span class="math notranslate nohighlight">\(C\%\)</span> der beobachteten Daten liegen innerhalb von <span class="math notranslate nohighlight">\(\theta\)</span>. Hier wird das Konfidenzinterval mit den Quantilen verwechselt.</p></li>
+</ul>
+</div>
+<div class="section" id="gute-beschreibung-von-ergebnissen">
+<h2><span class="section-number">11.5. </span>Gute Beschreibung von Ergebnissen<a class="headerlink" href="#gute-beschreibung-von-ergebnissen" title="Permalink to this headline">¶</a></h2>
+<p>In der Wissenschaft, aber auch in der Praxis, wird häufig nur geguckt ob es unterschiede gibt und, gerade in der Wissenschaft, noch ob diese signifikant sind. Eine saubere statistische Bewertung von Projektergebnissen sollte aber darüber hinaus gehen und zum Beispiel auch die Effektstärke und die Konfidenzintervalle beinhalten. Außerdem sollte man die statistische Auswertung zu Beginn eines Projekts planen. Andernfalls riskiert man das oben beschriebene p-Hacking, in dem man Experimente immer weiter anpasst, bis man ein gewünschtes Ergebnis gefunden hat. In der Wissenschaft für dies zur Registrierung von Studien, wo das Protokol bereits vor der Durchführung festgelegt wird. Diese vorgehen hat sich bereits bei klinischen Studien in der medizin bewährt und vermeidet falsch positive Ergebnisse.</p>
+<p>In diesem Kapitel haben wir uns nur mit der häufigkeitsbasierten Statistik beschäftig. Es gibt auch noch einen anderen Ansatz, die Bayesian Stastitik die im Kern auf dem Satz von Bayes (siehe <a class="reference internal" href="kapitel_07.html"><span class="doc std std-doc">Kapitel 7</span></a>) basiert. Hier wird direkt geschätzt, wie wahrscheinlich es ist, das eine Hypothese war ist. Dies hat den Vorteil, das die Ergebnisse einfacher zu interpretieren sind. Die Theorie und Anwendung ist hier jedoch etwas komplexer, weshalb die häufigkeitsbasierte Statistik weiterhin bei vielen Analysen das Mittel der Wahl ist.</p>
+<hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="bonferroni"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p><a class="reference external" href="https://mathworld.wolfram.com/BonferroniCorrection.html">https://mathworld.wolfram.com/BonferroniCorrection.html</a></p>
+</dd>
+<dt class="label" id="phacking"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p><a class="reference external" href="https://doi.org/10.1016/S0140-6736%2888%2992833-4">https://doi.org/10.1016/S0140-6736(88)92833-4</a></p>
+</dd>
+</dl>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapters"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="kapitel_10.html" title="previous page"><span class="section-number">10. </span>Textmining</a>
+    <a class='right-next' id="next-link" href="../exercises/uebung_01.html" title="next page">Übung 1</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Steffen Herbold<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

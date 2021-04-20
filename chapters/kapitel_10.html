@@ -1,0 +1,1371 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>10. Textmining &#8212; Einführung in Data Science</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="11. Statistik" href="kapitel_11.html" />
+    <link rel="prev" title="9. Zeitreihenanalyse" href="kapitel_09.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Einführung in Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../vorwort.html">
+   Vorwort
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Kapitel
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_01.html">
+   1. Big Data und Data Science
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_02.html">
+   2. Der Prozess von Data Science Projekten
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_03.html">
+   3. Erkunden der Daten
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_04.html">
+   4. Allgemeines zur Datenanalyse
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_05.html">
+   5. Assoziationsregeln
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_06.html">
+   6. Clusteranalyse
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_07.html">
+   7. Klassifikation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_08.html">
+   8. Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_09.html">
+   9. Zeitreihenanalyse
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   10. Textmining
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_11.html">
+   11. Statistik
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Übungen
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../exercises/uebung_01.html">
+   Übung 1
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/chapters/kapitel_10.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/sherbold/einfuehrung-in-data-science"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/sherbold/einfuehrung-in-data-science/main?urlpath=tree/content/chapters/kapitel_10.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#uberblick">
+   10.1. Überblick
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#preprocessing">
+   10.2. Preprocessing
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#erstellung-eines-korpus">
+     10.2.1. Erstellung eines Korpus
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#relevanter-inhalt">
+     10.2.2. Relevanter Inhalt
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#zeichensetzung-und-groszschreibung">
+     10.2.3. Zeichensetzung und Großschreibung
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stoppworter">
+     10.2.4. Stoppwörter
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stemming-und-lemmatisierung">
+     10.2.5. Stemming und Lemmatisierung
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visualisierung-des-preprocessings">
+     10.2.6. Visualisierung des Preprocessings
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bag-of-words">
+     10.2.7. Bag-of-Words
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inverse-document-frequency">
+     10.2.8. Inverse Document Frequency
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#jenseits-des-bag-of-words">
+     10.2.9. Jenseits des Bag-of-Words
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#herausforderungen-des-textminings">
+   10.3. Herausforderungen des Textminings
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dimensionalitat">
+     10.3.1. Dimensionalität
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mehrdeutigkeiten">
+     10.3.2. Mehrdeutigkeiten
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#weitere-probleme">
+     10.3.3. Weitere Probleme
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="textmining">
+<h1><span class="section-number">10. </span>Textmining<a class="headerlink" href="#textmining" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="uberblick">
+<h2><span class="section-number">10.1. </span>Überblick<a class="headerlink" href="#uberblick" title="Permalink to this headline">¶</a></h2>
+<p>Beim Textmining geht es um die Anwendung der in den vergangenen Kapiteln besprochenen Methoden auf textuelle Daten mit dem Ziel Wissen aus den Daten zu gewinnen. Beispiele für Textmining sind die Analyse von Kundenbewertungen bezüglich der Emotion und Meinung (engl. <em>sentiment</em>) oder die automatische Gruppierung ähnlicher Dokumente. Das Problem bei der Analyse von natürlicher Sprache ist das das Sätze und längere Texte weder numerisch noch kategorisch sind. Es gibt also keine offensichtliche Darstellung durch Merkmale. Hinzu kommt, das Text oft eine innere Struktur hat, zum Beispiel durch Überschriften, Einleitungen, oder Referenzen zu verwandten Inhalten. Wenn wir Text lesen, erkennen wir diese semantische Struktur automatisch und ordnen diese ein. Daher ist es die große Herausforderung des Textmining eine geeignete Struktur der textuellen Daten für das maschinelle Lernen zu finden.</p>
+<p>Hierfür müssen wir den Text <em>kodieren</em> um eine numerische oder kategorische Repräsentation zu erhalten. Ziel der Repräsentation sollte sein möglichst wenig relevante Information aus dem Text zu verlieren. Eine idealle Kodiering beihaltet daher nicht nur die Worte, sondern auch die <em>Bedeutung</em> der Worte im jeweiligen <em>Kontext</em>, die grammatikalische Struktur, und eventuell sogar den Gesamtkontext eines Satzes innerhalb eines Dokuments. Aufgrund dieser komplexität ist die Repräsentation von Texten für das maschinelle Lernen immernoch der Gegenstand der aktuellen Forschung. Durch Fortschritte der letzten Jahre wird das Textmining jedoch zu einem immer mächtigeren und zuverlässigeren Werkzeug. Das Textmining selbst ist ein großes Gebiet, bei dem wir hier nur an der Oberfläche kratzen könnten. Das Ziel dieses Kapitels ist es, dass wir ein gutes Verständnis der Herausforderungen vom Textmining bekommen, grundlegende Verfahren kennen, und außerdem Wissen wie fortgeschrittene Verfahren arbeiten.</p>
+<p>Also Beispiel nutzen wir in diesem Kapitel acht Tweets von Donald Trump. Die Verarbeitungsschritte die wir zeigen haben alles das Ziel, die Analyse des Themas der Tweets zu erlauben.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">textwrap</span> <span class="kn">import</span> <span class="n">TextWrapper</span>
+
+<span class="n">tweets_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Oct 4, 2018 08:03:25 PM Beautiful evening in Rochester, Minnesota. VOTE, VOTE, VOTE! https://t.co/SyxrxvTpZE [Twitter for iPhone]&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;Oct 4, 2018 07:52:20 PM Thank you Minnesota - I love you! https://t.co/eQC2NqdIil [Twitter for iPhone]&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;Oct 4, 2018 05:58:21 PM Just made my second stop in Minnesota for a MAKE AMERICA GREAT AGAIN rally. We need to elect @KarinHousley to the U.S. Senate, and we need the strong leadership of @TomEmmer, @Jason2CD, @JimHagedornMN and @PeteStauber in the U.S. House! [Twitter for iPhone]&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;Oct 4, 2018 05:17:48 PM Congressman Bishop is doing a GREAT job! He helped pass tax reform which lowered taxes for EVERYONE! Nancy Pelosi is spending hundreds of thousands of dollars on his opponent because they both support a liberal agenda of higher taxes and wasteful spending! [Twitter for iPhone]&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;Oct 4, 2018 02:29:27 PM &quot;U.S. Stocks Widen Global Lead&quot; https://t.co/Snhv08ulcO [Twitter for iPhone]&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;Oct 4, 2018 02:17:28 PM Statement on National Strategy for Counterterrorism: https://t.co/ajFBg9Elsj https://t.co/Qr56ycjMAV [Twitter for iPhone]&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;Oct 4, 2018 12:38:08 PM Working hard, thank you! https://t.co/6HQVaEXH0I [Twitter for iPhone]&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;Oct 4, 2018 09:17:01 AM This is now the 7th. time the FBI has investigated Judge Kavanaugh. If we made it 100, it would still not be good enough for the Obstructionist Democrats. [Twitter for iPhone]&#39;</span><span class="p">]</span>
+
+<span class="n">wrapper</span> <span class="o">=</span> <span class="n">TextWrapper</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">65</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">tweet</span> <span class="ow">in</span> <span class="n">tweets_list</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">wrapper</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">tweet</span><span class="p">)))</span>
+    <span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Oct 4, 2018 08:03:25 PM Beautiful evening in Rochester,
+Minnesota. VOTE, VOTE, VOTE! https://t.co/SyxrxvTpZE [Twitter for
+iPhone]
+
+Oct 4, 2018 07:52:20 PM Thank you Minnesota - I love you!
+https://t.co/eQC2NqdIil [Twitter for iPhone]
+
+Oct 4, 2018 05:58:21 PM Just made my second stop in Minnesota for
+a MAKE AMERICA GREAT AGAIN rally. We need to elect @KarinHousley
+to the U.S. Senate, and we need the strong leadership of
+@TomEmmer, @Jason2CD, @JimHagedornMN and @PeteStauber in the U.S.
+House! [Twitter for iPhone]
+
+Oct 4, 2018 05:17:48 PM Congressman Bishop is doing a GREAT job!
+He helped pass tax reform which lowered taxes for EVERYONE! Nancy
+Pelosi is spending hundreds of thousands of dollars on his
+opponent because they both support a liberal agenda of higher
+taxes and wasteful spending! [Twitter for iPhone]
+
+Oct 4, 2018 02:29:27 PM &quot;U.S. Stocks Widen Global Lead&quot;
+https://t.co/Snhv08ulcO [Twitter for iPhone]
+
+Oct 4, 2018 02:17:28 PM Statement on National Strategy for
+Counterterrorism: https://t.co/ajFBg9Elsj https://t.co/Qr56ycjMAV
+[Twitter for iPhone]
+
+Oct 4, 2018 12:38:08 PM Working hard, thank you!
+https://t.co/6HQVaEXH0I [Twitter for iPhone]
+
+Oct 4, 2018 09:17:01 AM This is now the 7th. time the FBI has
+investigated Judge Kavanaugh. If we made it 100, it would still
+not be good enough for the Obstructionist Democrats. [Twitter for
+iPhone]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="preprocessing">
+<h2><span class="section-number">10.2. </span>Preprocessing<a class="headerlink" href="#preprocessing" title="Permalink to this headline">¶</a></h2>
+<p>Durch das Preprocessing wird der Text in eine Repräsentation überführt, die für maschinelles Lernen geeignet ist, also mit der man den Text klassifzieren oder clustern kann.</p>
+<div class="section" id="erstellung-eines-korpus">
+<h3><span class="section-number">10.2.1. </span>Erstellung eines Korpus<a class="headerlink" href="#erstellung-eines-korpus" title="Permalink to this headline">¶</a></h3>
+<p>Der erste Preprocessing-Schritt ist die Erstellung eines <em>Korpus</em> von <em>Dokumenten</em>. Im Sinne der in <a class="reference internal" href="#"><span class="doc std std-doc">Kapitel 4</span></a> eingeführten Begriffe, sind die Dokumente die Objekte und ein Korpus eine Menge von Objekten. In unserem Twitter-Beispiel ist der Korpus eine die Menge von Tweets, jeder Tweet ist ein Dokument. In unserem Fall haben wir bereits eine Liste von Tweets, was einem Korpus entspricht. In anderen Anwendungsfällen, kann die Erstellung des Korpus aufwendiger sein. Dies wäre zum Beispiel der Fall, wenn erst Bewertungen eines Produkts durch Crawling aus dem Internet gesammelt werden müssen. Hierbei ist es relativ wahrscheinlich, dass es auf der gleichen Webseite mehrere Reviews gibt. Diese müssen dann zum Beispiel innerhalb der Webseite identifiziert und anschließend in separate Dokumente aufgeteilt werden.</p>
+</div>
+<div class="section" id="relevanter-inhalt">
+<h3><span class="section-number">10.2.2. </span>Relevanter Inhalt<a class="headerlink" href="#relevanter-inhalt" title="Permalink to this headline">¶</a></h3>
+<p>Die textuellen Daten beinhalten oft irrelavante Informationen für einen bestimmten Anwendungsfall, insbesondere wenn der Text automatisch aus dem Internet gesammelt wurde. Wenn wir am Thema von Tweets interessiert sind, ist der Zeitstempel irrelevant. Es ist ebenfalls nicht wichtig, ob ein Tweet mit einem iPhone oder einer anderen Anwendung verschickt wurde. Links zu Webseiten sind ein knifflig, da sie relevante Informationen enthalten könnten, jedoch auch irrelevant sein können. Wenn eine URL relevante Informationen, wie zum Beispiel den Autoren oder das Thema ähnlich zu einer Überschrift enthält, kann dies Wertvoll für das Textmining sein. Andere Aspekte, wie zum Beispiel das http(s):// zu Beginn eines Links, sind irrelevant. Es gibt auch Links die keine Relevanten informationen enthalten, zum Beispiel wenn Link Shortener benutzt werden. Dann ist der Link nur eine zufällige Zeichenkette. Ob Links beibehalten werden sollen, muss man daher von Anwendungsfall zu Anwendungsfall entscheiden.</p>
+<p>Wenn wir den irrelevanten Inhalt der Tweets (inkl. Links) entfernen, bekommen wir folgendes:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+
+<span class="n">tweets_relevant_content</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">tweet</span> <span class="ow">in</span> <span class="n">tweets_list</span><span class="p">:</span>
+    <span class="c1"># remove the first 24 chars, because they are the time stamp</span>
+    <span class="c1"># remove everything after last [ because this is the source of the tweet</span>
+    <span class="n">modified_tweet</span> <span class="o">=</span> <span class="n">tweet</span><span class="p">[</span><span class="mi">24</span><span class="p">:</span><span class="n">tweet</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s1">&#39;[&#39;</span><span class="p">)]</span>
+    <span class="c1"># drop links</span>
+    <span class="n">modified_tweet</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;http\S+&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">modified_tweet</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">tweets_relevant_content</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">modified_tweet</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">tweet</span> <span class="ow">in</span> <span class="n">tweets_relevant_content</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">wrapper</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">tweet</span><span class="p">)))</span>
+    <span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Beautiful evening in Rochester, Minnesota. VOTE, VOTE, VOTE!
+
+Thank you Minnesota - I love you!
+
+Just made my second stop in Minnesota for a MAKE AMERICA GREAT
+AGAIN rally. We need to elect @KarinHousley to the U.S. Senate,
+and we need the strong leadership of @TomEmmer, @Jason2CD,
+@JimHagedornMN and @PeteStauber in the U.S. House!
+
+Congressman Bishop is doing a GREAT job! He helped pass tax
+reform which lowered taxes for EVERYONE! Nancy Pelosi is spending
+hundreds of thousands of dollars on his opponent because they
+both support a liberal agenda of higher taxes and wasteful
+spending!
+
+&quot;U.S. Stocks Widen Global Lead&quot;
+
+Statement on National Strategy for Counterterrorism:
+
+Working hard, thank you!
+
+This is now the 7th. time the FBI has investigated Judge
+Kavanaugh. If we made it 100, it would still not be good enough
+for the Obstructionist Democrats.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Was relevant und irrelevant ist, hängt auch vom Kontext ab. Ein anderer Anwendungsfall für unsere Twitterdaten wäre die Analyse der Quelle der Tweets, um zum Beispiel zu herauszufinden ob es einen Unterschied macht ob ein Tweet von einem Handy oder von einem Computer verschickt wurde. In diesem Fall kann man die Quelle nicht einfach entfernen, da man sie zur Gruppierung der Tweets braucht. Wenn man wissen möchte, wie sich Tweets im Laufe der Zeit verändern, dann sind die Zeitstempel wichtig. In beiden Fällen würde man aber diese Informationen trotzdem aus dem eigentlichen Text entfernen, und sie stattdesen als separate Merkmale speichern, da es sich um Metadaten über die Dokumente handelt.</p>
+</div>
+<div class="section" id="zeichensetzung-und-groszschreibung">
+<h3><span class="section-number">10.2.3. </span>Zeichensetzung und Großschreibung<a class="headerlink" href="#zeichensetzung-und-groszschreibung" title="Permalink to this headline">¶</a></h3>
+<p>Für das Thema von Dokumenten sind die Zeichensetzung und die Groß- und Kleinschreibung von Buchstaben in der Regel nicht Hilfreich. Stattdessen führen sie dazu, dass es ungewollte unterschiede zwischen Worten gibt. Eine Ausnahme von dieser Regel sind Abkürzungen und Akronyme. Das Akronym <code class="docutils literal notranslate"><span class="pre">U.S.</span></code> der Tweets ein ein perfektes Beispiel hierfür, da es zum Wort <code class="docutils literal notranslate"><span class="pre">us</span></code> werden würde, wenn man einfach alle Zeichen entfernen und alle Buchstaben zu kleinbuchstaben machen würde. Wir würden also eine ganz andere Bedeutung haben. Wenn solche Fälle bekannt ist, sollte man diese manuell adressieren, bevor die Zeichensetzung und Großschreibung entfernt wird. Man könnte zum Beispiel <code class="docutils literal notranslate"><span class="pre">US</span></code> und <code class="docutils literal notranslate"><span class="pre">U.S.</span></code> zu <code class="docutils literal notranslate"><span class="pre">usa</span></code> umwandeln, um zu verhindern das es ein Problem gibt.</p>
+<p>Wenn wir dies bei den Tweets anwenden, bekommen wir folgende Dokumente.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">string</span>
+<span class="n">tweets_lowercase</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">tweet</span> <span class="ow">in</span> <span class="n">tweets_relevant_content</span><span class="p">:</span>
+    <span class="n">modified_tweet</span> <span class="o">=</span> <span class="n">tweet</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">maketrans</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">string</span><span class="o">.</span><span class="n">punctuation</span><span class="p">))</span>
+    <span class="n">modified_tweet</span> <span class="o">=</span> <span class="n">modified_tweet</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;US&#39;</span><span class="p">,</span> <span class="s1">&#39;usa&#39;</span><span class="p">)</span>
+    <span class="n">modified_tweet</span> <span class="o">=</span> <span class="n">modified_tweet</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="n">tweets_lowercase</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">modified_tweet</span><span class="p">)</span>
+    
+<span class="k">for</span> <span class="n">tweet</span> <span class="ow">in</span> <span class="n">tweets_lowercase</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">wrapper</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">tweet</span><span class="p">)))</span>
+    <span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>beautiful evening in rochester minnesota vote vote vote
+
+thank you minnesota  i love you
+
+just made my second stop in minnesota for a make america great
+again rally we need to elect karinhousley to the usa senate and
+we need the strong leadership of tomemmer jason2cd jimhagedornmn
+and petestauber in the usa house
+
+congressman bishop is doing a great job he helped pass tax reform
+which lowered taxes for everyone nancy pelosi is spending
+hundreds of thousands of dollars on his opponent because they
+both support a liberal agenda of higher taxes and wasteful
+spending
+
+usa stocks widen global lead
+
+statement on national strategy for counterterrorism
+
+working hard thank you
+
+this is now the 7th time the fbi has investigated judge kavanaugh
+if we made it 100 it would still not be good enough for the
+obstructionist democrats
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="stoppworter">
+<h3><span class="section-number">10.2.4. </span>Stoppwörter<a class="headerlink" href="#stoppworter" title="Permalink to this headline">¶</a></h3>
+<p>Eine weitere Eigenschaft von Text ist, dass nicht jedes Wort relevant für die Bedeutung ist. Oft werden Worte nur für die korrekte grammatikalische Struktur benötigt, ohne dass sie die Bedeutung eines Dokuments beeinflussen. Beispiel dafür sind Artikel (der, die, das, den, dem, bzw. auf Englisch the, a). Außerdem gibt es noch Worte, die sehr häufig vorkommen, unabhängig vom Inhalt, zum Beispiel die verschiedenen Formen von sein und haben. Daher ist es ein üblicher Preprocessing-Schritt solche Worte zu entfernen. Hierzu nutzt man Wortlisten, die es für viele Sprachen als Teil von Textverarbeitungsbibliotheken gibt.</p>
+<p>Mit einer englischen Stoppwortliste verändern sich unsere Tweets wie folgt.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span> 
+<span class="kn">from</span> <span class="nn">nltk.tokenize</span> <span class="kn">import</span> <span class="n">word_tokenize</span> 
+
+<span class="c1"># this needs only to be run once</span>
+<span class="c1"># uncomment this line to download the stopword and punctuation lists</span>
+<span class="c1"># import nltk; nltk.download(&#39;stopwords&#39;); nltk.download(&#39;punkt&#39;)</span>
+
+<span class="n">stop_words</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;english&#39;</span><span class="p">))</span> 
+
+<span class="n">tweets_no_stopwords</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">tweet</span> <span class="ow">in</span> <span class="n">tweets_lowercase</span><span class="p">:</span>
+    <span class="n">tweet_tokens</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">tweet</span><span class="p">)</span> 
+    <span class="n">modified_tweet</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">w</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">tweet_tokens</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">stop_words</span><span class="p">])</span>
+    <span class="n">tweets_no_stopwords</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">modified_tweet</span><span class="p">)</span>
+    
+<span class="k">for</span> <span class="n">tweet</span> <span class="ow">in</span> <span class="n">tweets_no_stopwords</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">wrapper</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">tweet</span><span class="p">)))</span>
+    <span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>beautiful evening rochester minnesota vote vote vote
+
+thank minnesota love
+
+made second stop minnesota make america great rally need elect
+karinhousley usa senate need strong leadership tomemmer jason2cd
+jimhagedornmn petestauber usa house
+
+congressman bishop great job helped pass tax reform lowered taxes
+everyone nancy pelosi spending hundreds thousands dollars
+opponent support liberal agenda higher taxes wasteful spending
+
+usa stocks widen global lead
+
+statement national strategy counterterrorism
+
+working hard thank
+
+7th time fbi investigated judge kavanaugh made 100 would still
+good enough obstructionist democrats
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="stemming-und-lemmatisierung">
+<h3><span class="section-number">10.2.5. </span>Stemming und Lemmatisierung<a class="headerlink" href="#stemming-und-lemmatisierung" title="Permalink to this headline">¶</a></h3>
+<p>Für die gleiche Grundform gibt es oft viele grammatikalische Formen (z.B. Singular und Plural), was zu verschiedenen Schreibweisen führt. Außerdem gibt es verwandte Verben, Adjektive und Nomen. Hinzu kommen Synonyme, also mehere Worte mit der gleichen Bedeutung. Für das Textmining ist es wichtig, dass der wir erkennen, dass es sich eigentlich um die gleiche Bedeutung handelt. Ein Ansatz ist, das man probiert alle Worte auf ein gemeinsames Merkmal abzubilden. Stemming und Lemmatisierung sind zwei Methoden, mit denen man dies erreichen kann.</p>
+<p>Beim Stemming werden Worte auf ihren Stamm reduziert. Aus dem Deutschen <code class="docutils literal notranslate"><span class="pre">lachte</span></code> und <code class="docutils literal notranslate"><span class="pre">lachen</span></code> wird <code class="docutils literal notranslate"><span class="pre">lach</span></code>, aus dem Englischen <code class="docutils literal notranslate"><span class="pre">spending</span></code> und <code class="docutils literal notranslate"><span class="pre">spends</span></code> wird <code class="docutils literal notranslate"><span class="pre">spend</span></code>. Für das Stemming wird in der Regel ein algorithmischer Ansatz verwendet, zum Beispiel Porters Algorithmus <a class="footnote-reference brackets" href="#porter" id="id1">1</a>. Der Nachteil des Stemming ist, das man nur Worte auf ihren Stamm reduzieren kann. Ähnliche Worte mit einem anderen Stamm werden nicht vereintlicht, zum Beispiel <code class="docutils literal notranslate"><span class="pre">gewinnen</span></code> und <code class="docutils literal notranslate"><span class="pre">gewann</span></code> oder <code class="docutils literal notranslate"><span class="pre">good</span></code> und <code class="docutils literal notranslate"><span class="pre">well</span></code>.</p>
+<p>Bei der Lemmatisierung wird mit Wortlisten gearbeitet. Diese Wortlisten definieren, welche Worte als synonyme behandelt werden sollen. Anschließend kann man eines der Synonyme auswählen. Auf diese Art könnte man zum Beispiel alle Formen von <code class="docutils literal notranslate"><span class="pre">good</span></code> erkennen, inbesondere auch Formen wie <code class="docutils literal notranslate"><span class="pre">well</span></code>, die nicht den gleichen Wortstamm haben. Die Lemmatisierung ist jedoch nur so mächstig, wie es die Wortlisten zulassen.</p>
+<p>Wenn man sowohl Lemmatisierung, als auch Stemming anwenden möchte, sollte man immer zuerst Lemmatisieren. Der Grund ist, das die durch das Stemming gefundenen Wortstämme nicht immer Worte sind, die es in der natürlichen Sprache gibt. Entsprechend gäbe es auch keine Einträge in den Wortlisten für das Lemmatisieren. Man würde also die Mächtigkeit der Lemmatisierung reduzieren, wenn man zuerst Stemming anwendet.</p>
+<p>Für unsere Tweets verwenden wir zuerst eine Lemmatisierung mit einer englischen Wortliste.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The following two lines must be run once in each environment</span>
+<span class="c1"># This downloads the list from nltk for lemmatization</span>
+<span class="c1"># import nltk; nltk.download(&#39;wordnet&#39;)</span>
+
+<span class="kn">from</span> <span class="nn">nltk.stem</span> <span class="kn">import</span> <span class="n">WordNetLemmatizer</span>
+
+<span class="c1"># the wordnet lemmatizer does not only harmonize synonyms but also performs some stemming</span>
+<span class="n">lemmatizer</span> <span class="o">=</span> <span class="n">WordNetLemmatizer</span><span class="p">()</span> 
+
+<span class="n">tweets_lemmatization</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">tweet</span> <span class="ow">in</span> <span class="n">tweets_no_stopwords</span><span class="p">:</span>
+    <span class="n">tweet_tokens</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">tweet</span><span class="p">)</span> 
+    <span class="n">modified_tweet</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">lemmatizer</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">tweet_tokens</span><span class="p">])</span>
+    <span class="n">tweets_lemmatization</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">modified_tweet</span><span class="p">)</span>
+    
+<span class="k">for</span> <span class="n">tweet</span> <span class="ow">in</span> <span class="n">tweets_lemmatization</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">wrapper</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">tweet</span><span class="p">)))</span>
+    <span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>beautiful evening rochester minnesota vote vote vote
+
+thank minnesota love
+
+made second stop minnesota make america great rally need elect
+karinhousley usa senate need strong leadership tomemmer jason2cd
+jimhagedornmn petestauber usa house
+
+congressman bishop great job helped pas tax reform lowered tax
+everyone nancy pelosi spending hundred thousand dollar opponent
+support liberal agenda higher tax wasteful spending
+
+usa stock widen global lead
+
+statement national strategy counterterrorism
+
+working hard thank
+
+7th time fbi investigated judge kavanaugh made 100 would still
+good enough obstructionist democrat
+</pre></div>
+</div>
+</div>
+</div>
+<p>Einige Wörter wurden ersetzt, aus <code class="docutils literal notranslate"><span class="pre">stocks</span></code> wurde zum Beispiel <code class="docutils literal notranslate"><span class="pre">stock</span></code>. Mit Stemming erhalten wir folgende Veränderungen.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.stem</span> <span class="kn">import</span> <span class="n">PorterStemmer</span>
+
+<span class="c1"># porter stemming is a linguistic algorithm that provides additional stemming</span>
+<span class="n">stemmer</span> <span class="o">=</span> <span class="n">PorterStemmer</span><span class="p">()</span>
+
+<span class="n">tweets_stemming</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">tweet</span> <span class="ow">in</span> <span class="n">tweets_lemmatization</span><span class="p">:</span>
+    <span class="n">tweet_tokens</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">tweet</span><span class="p">)</span> 
+    <span class="n">modified_tweet</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">stemmer</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">tweet_tokens</span><span class="p">])</span>
+    <span class="n">tweets_stemming</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">modified_tweet</span><span class="p">)</span>
+    
+<span class="k">for</span> <span class="n">tweet</span> <span class="ow">in</span> <span class="n">tweets_stemming</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">wrapper</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">tweet</span><span class="p">)))</span>
+    <span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>beauti even rochest minnesota vote vote vote
+
+thank minnesota love
+
+made second stop minnesota make america great ralli need elect
+karinhousley usa senat need strong leadership tomemm jason2cd
+jimhagedornmn petestaub usa hous
+
+congressman bishop great job help pa tax reform lower tax everyon
+nanci pelosi spend hundr thousand dollar oppon support liber
+agenda higher tax wast spend
+
+usa stock widen global lead
+
+statement nation strategi counterterror
+
+work hard thank
+
+7th time fbi investig judg kavanaugh made 100 would still good
+enough obstructionist democrat
+</pre></div>
+</div>
+</div>
+</div>
+<p>Viele der Worte sind jetzt kürzer, unter anderem wurde <code class="docutils literal notranslate"><span class="pre">hundred</span></code> auf <code class="docutils literal notranslate"><span class="pre">hundr</span></code>, <code class="docutils literal notranslate"><span class="pre">wasteful</span></code> auf <code class="docutils literal notranslate"><span class="pre">wast</span></code> und <code class="docutils literal notranslate"><span class="pre">spending</span></code> auf <code class="docutils literal notranslate"><span class="pre">spend</span></code> reduziert. Zwei dieser Beispiel sind keine echten Wörter mehr, da die Wortstämme <code class="docutils literal notranslate"><span class="pre">hundr</span></code> und <code class="docutils literal notranslate"><span class="pre">wast</span></code> nicht in der englischen Sprache vorkommen.</p>
+</div>
+<div class="section" id="visualisierung-des-preprocessings">
+<h3><span class="section-number">10.2.6. </span>Visualisierung des Preprocessings<a class="headerlink" href="#visualisierung-des-preprocessings" title="Permalink to this headline">¶</a></h3>
+<p>Eine einfache Möglichkeit textuelle Daten zu visualisierungen sind Wordclouds. Wordclouds zeigen wichtige Worte, die in Texten häufig vorkommen. Je häufiger ein Wort vorkommt, desto größer wird es dargestellt. Mit Hilfe von Wordclouds wir uns gut die Auswirkungen der Preprocessing Schritte auf unsere Tweets veranschaulichen.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">wordcloud</span> <span class="kn">import</span> <span class="n">WordCloud</span>
+
+<span class="n">wc_raw</span> <span class="o">=</span> <span class="n">WordCloud</span><span class="p">(</span><span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+<span class="n">wc_raw</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tweets_list</span><span class="p">))</span>
+
+<span class="n">wc_relevant</span> <span class="o">=</span> <span class="n">WordCloud</span><span class="p">(</span><span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+<span class="n">wc_relevant</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tweets_relevant_content</span><span class="p">))</span>
+
+<span class="n">wc_lowercase</span> <span class="o">=</span> <span class="n">WordCloud</span><span class="p">(</span><span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+<span class="n">wc_lowercase</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tweets_lowercase</span><span class="p">))</span>
+
+<span class="n">wc_stopwords</span> <span class="o">=</span> <span class="n">WordCloud</span><span class="p">(</span><span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+<span class="n">wc_stopwords</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tweets_no_stopwords</span><span class="p">))</span>
+
+<span class="n">wc_lemma</span> <span class="o">=</span> <span class="n">WordCloud</span><span class="p">(</span><span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+<span class="n">wc_lemma</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tweets_lemmatization</span><span class="p">))</span>
+
+<span class="n">wc_stemming</span> <span class="o">=</span> <span class="n">WordCloud</span><span class="p">(</span><span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+<span class="n">wc_stemming</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tweets_stemming</span><span class="p">))</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">wc_raw</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s2">&quot;bilinear&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Kein Preprocessing&#39;</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">wc_relevant</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s2">&quot;bilinear&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Relevanter Inhalt&#39;</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">wc_lowercase</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s2">&quot;bilinear&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Kleinschreibung und keine Satzzeichen&#39;</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">wc_stopwords</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s2">&quot;bilinear&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Stopwords entfernt&#39;</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">wc_lemma</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s2">&quot;bilinear&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Mit Lemmatisierung&#39;</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">wc_stemming</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s2">&quot;bilinear&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Mit Stemming&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_10_13_0.png" src="../_images/kapitel_10_13_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="bag-of-words">
+<h3><span class="section-number">10.2.7. </span>Bag-of-Words<a class="headerlink" href="#bag-of-words" title="Permalink to this headline">¶</a></h3>
+<p>Nach der Vorrverarbeitung können wir eine numerische Repräsentation Namens <em>Bag-of-Words</em> erstellen. Ein Bag-of-Words ist ähnlich zu einem One-Hot Encoding für Text. Jedes Wort ist ein Merkmal. Der Wert des Merkmals ist die Häufigkeit des Worts im Dokument. Die Worthäufigkeit wird in diesem Kontext auch als <em>Term Frequency</em> (TF) bezeichnet. Hier zeigt sich auch, warum die Harmonisierung sinnvoll ist: Ähnliche Worte, die zur gleichen Repräsentation harmonisiert wurden, zählen zur Häufigkeit des gleichen Merkmals. Ein Bag-of-Words für unsere Tweets sieht wie folgt aus.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span>
+
+<span class="n">vectorizer</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">()</span>
+<span class="n">bag_of_words</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">tweets_stemming</span><span class="p">)</span>
+<span class="n">bag_of_words_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">bag_of_words</span><span class="o">.</span><span class="n">todense</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="n">vectorizer</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">())</span>
+<span class="n">bag_of_words_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>100</th>
+      <th>7th</th>
+      <th>agenda</th>
+      <th>america</th>
+      <th>beauti</th>
+      <th>bishop</th>
+      <th>congressman</th>
+      <th>counterterror</th>
+      <th>democrat</th>
+      <th>dollar</th>
+      <th>...</th>
+      <th>thank</th>
+      <th>thousand</th>
+      <th>time</th>
+      <th>tomemm</th>
+      <th>usa</th>
+      <th>vote</th>
+      <th>wast</th>
+      <th>widen</th>
+      <th>work</th>
+      <th>would</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>8 rows × 70 columns</p>
+</div></div></div>
+</div>
+<p>Den Bag-of-Words kann man als Eingabe für Algorihtmen nutzen. Beim Clustering würde man Dokumente, die die gleichen Worte benutzen gemeinsam gruppieren, bei der Klassifikation würde man Scores und Klassen basierend auf den Worthäufigkeiten berechnen.</p>
+</div>
+<div class="section" id="inverse-document-frequency">
+<h3><span class="section-number">10.2.8. </span>Inverse Document Frequency<a class="headerlink" href="#inverse-document-frequency" title="Permalink to this headline">¶</a></h3>
+<p>Eine beliebte Erweiterung des Bag-of-Words ist es die <em>Inverse Document Frequency</em> (IDF) zu benutzen. Hinter der IDF steckt die Idee, dass man die Worte basierend auf ihrer “Einzigartigkeit” gewichten sollte. Wenn ein Wort in nur wenigen Dokumenten vorkommt, könnte es sehr spezifisch sein und sollte daher einen größeren Einfluss haben. Wenn ein Wort in sehr vielen Dokumenten vorkommt, ist es eher unspezifisch und sollte keinen großen Einfluss haben. Diese Idee ist ähnlich zur Entfernung von Stoppwörter, nur dass mit gewichten gearbeitet wird, und keine Begriffe komplett entfernt werden. Die IDF ist definiert als</p>
+<div class="math notranslate nohighlight">
+\[IDF_t = \log\frac{N}{D_t}\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(t\)</span> ein Wort (Term) ist, <span class="math notranslate nohighlight">\(N\)</span> die Anzahl der Dokumente im Korpus und <span class="math notranslate nohighlight">\(D_t\)</span> die Anzahl der Dokumente, die <span class="math notranslate nohighlight">\(t\)</span> enthält. Die TFIDF kombiniert die Term Frequency mit den gewichten der IDF und kann ansatt der TF im Bag-of-Words benutzt werden. TFIDF ist für ein Wort <span class="math notranslate nohighlight">\(t\)</span> definiert als</p>
+<div class="math notranslate nohighlight">
+\[TFIDF_t = TF_t \cdot IDF_t.\]</div>
+<p>Mit unseren Tweets bekommen wir einen Bag-of-Words mit folgenden TFIDF Werten.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">bag_of_words_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">col</span><span class="p">:</span> <span class="n">col</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">col</span><span class="p">)</span><span class="o">/</span><span class="n">col</span><span class="o">.</span><span class="n">gt</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>100</th>
+      <th>7th</th>
+      <th>agenda</th>
+      <th>america</th>
+      <th>beauti</th>
+      <th>bishop</th>
+      <th>congressman</th>
+      <th>counterterror</th>
+      <th>democrat</th>
+      <th>dollar</th>
+      <th>...</th>
+      <th>thank</th>
+      <th>thousand</th>
+      <th>time</th>
+      <th>tomemm</th>
+      <th>usa</th>
+      <th>vote</th>
+      <th>wast</th>
+      <th>widen</th>
+      <th>work</th>
+      <th>would</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>2.079442</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>6.238325</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>1.386294</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>2.079442</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>2.079442</td>
+      <td>2.772589</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>2.079442</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>2.079442</td>
+      <td>2.079442</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>2.079442</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>2.079442</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>2.079442</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.386294</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>2.079442</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>2.079442</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>1.386294</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>2.079442</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>2.079442</td>
+      <td>2.079442</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>2.079442</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>2.079442</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>2.079442</td>
+    </tr>
+  </tbody>
+</table>
+<p>8 rows × 70 columns</p>
+</div></div></div>
+</div>
+<blockquote>
+<div><p><strong>Bemerkung:</strong></p>
+<p>Die IDF wird oft mit einer Glättung als <span class="math notranslate nohighlight">\(IDF_t = \log\frac{N}{D_t+1}\)</span> definiert. Hierdurch werden undefinierte Werte durch einen Logarithmus von 0 vermieden, wenn ein Wort nicht in einem Korpus auftaucht. Es gibt noch andere ähnliche Glättungen. Diese Glättung hat in der Regel keinen Einfluss auf die Ergebnisse, verhindert jedoch oft Schwierigkeiten in dem die numerische stabilität erhöht wird.</p>
+</div></blockquote>
+</div>
+<div class="section" id="jenseits-des-bag-of-words">
+<h3><span class="section-number">10.2.9. </span>Jenseits des Bag-of-Words<a class="headerlink" href="#jenseits-des-bag-of-words" title="Permalink to this headline">¶</a></h3>
+<p>Der Bag-of-Words ist eine gute repräsentation, die sehr gut auch bei großen Datenmengen skalliert. Mit dieser relativ einfachen Repräsentation von Text sind jedoch auch diverse Nachteile verbunden. Zum einen werden alle strukturellen Aspekte von Text ignoriert, zum Beispiel die Grammatik. Hinzu kommt, dass Ähnlichkeiten ignoriert werden. Die Worte <code class="docutils literal notranslate"><span class="pre">dollar</span></code> und <code class="docutils literal notranslate"><span class="pre">euro</span></code> sind, basierend auf dem Bag-of-Words, genauso verschieden voneinander wie <code class="docutils literal notranslate"><span class="pre">elefant</span></code> und <code class="docutils literal notranslate"><span class="pre">computer</span></code>. Hierdurch ist es schwierig, einen abstrakteren Kontext zu lernen, zum Beispiel das etwas mit einer Währung zusammen hängt. Aus diesem Grund sind Bag-of-Words im modernen Textmining eher als Einstieg zu verstehen, der für einfache Anwendungsfälle genügt, aber bei komplexen oft nicht ausreichend ist. Eine relativ einfache Erweiterung sind <span class="math notranslate nohighlight">\(n\)</span>-grams, bei denen nicht individuelle Wörter, sondern Sequenzen aus <span class="math notranslate nohighlight">\(n\)</span> Wörtern als Merkmale verwendet werden. Hierdurch wird der Kontext zu einem gewissen grad erfasst. Da es aber sehr viele Kombinationen von Worten gibt, skallieren <span class="math notranslate nohighlight">\(n\)</span>-grams nur sehr schlecht.</p>
+<p>Neuere Textminingverfahren basieren daher auf Neuronalen Netzen. Zum einen gibt es <em>Word Embeddings</em>, bei denen Wörter als Vektoren in einem hochdimensionalen Raum darstellt werden. Je näher sich zwei Wörter in diesem Word Embedding sind, desto ähnlich sind die Worte. Die Word Embeddings selbst kann man, ähnlich zu den Wortlisten die uns oben begnet sind, häufig direkt runterladen und anwenden. Alternativ kann man für einen Text eigenen Embeddings mit einem einfachen Neuronalen Netz lernen. Die neusten Textminingverfahren basieren auf tiefen Neuronalen Netzen mit einer sogenannten Transformer Architektur. Derartige Neuronale Netze betrachten nicht nur einzelne Wörter, sondern den kompletten Kontext eines Textes. Wie sich der Kontext von Worten zusammensetzt wird aus riesigen Datenmengen gelernt, um dies in Anwendungen ausnutzen zu können.</p>
+</div>
+</div>
+<div class="section" id="herausforderungen-des-textminings">
+<h2><span class="section-number">10.3. </span>Herausforderungen des Textminings<a class="headerlink" href="#herausforderungen-des-textminings" title="Permalink to this headline">¶</a></h2>
+<p>Auch wenn es mittlerweile gute Repräsentation für Text gibt, sind viele Herausforderungen des Textmining immernoch ungelöst, und oft auch gar nicht im Allgemeinen lösbar.</p>
+<div class="section" id="dimensionalitat">
+<h3><span class="section-number">10.3.1. </span>Dimensionalität<a class="headerlink" href="#dimensionalitat" title="Permalink to this headline">¶</a></h3>
+<p>Das erste Problem ist die Dimensionalität. In unserem Beispiel haben wir lediglich acht Tweets, aber trotzdem noch 70 verschiedene Worte nach dem Preprocessing. In einem längeren Text gibt es häufig tausende von Worten. Es gibt also sehr viele Merkmale. Hinzu kommt, dass der Korpus eventuell auch sehr viele Dokumente enthalten kann. Täglich gibt es zum Beispiel über 100 Millionen Tweets, die im Rahmen einer umfassenden Analyse von sozialen Netzwerken betrachtet werden müssten.</p>
+<p>Die Kombination aus vielen Merkmalen und vielen Instanzen führt dazu, dass man für Textmining häufig hohe Anforderungen an die Analyseumgebung hat. Große Textminingprojekte, insbesondere solche die auf Neuronalen Netzen basieren, benötigten daher spezielle Hardware. Dies ist auch ein Grund, warum ein einfacher Ansatz wie der Bag-of-Words immernoch hoch relevant ist: Mit einem Bag-of-Words und einem relativen einfachen Algorithmus wir Multinomial Naive Bayes kann man häufig auch auf einfacher Hardware bereits gute Ergebnisse erreichen.</p>
+</div>
+<div class="section" id="mehrdeutigkeiten">
+<h3><span class="section-number">10.3.2. </span>Mehrdeutigkeiten<a class="headerlink" href="#mehrdeutigkeiten" title="Permalink to this headline">¶</a></h3>
+<p>Das zweite Problem ist das natürliche Sprache häufig mehrdeutig ist. Teilweise ist dieses Problem nicht lösbar, da man häufig den Kontext benötigt um den Inhalt zu verstehen. Der Kontext selbst besteht aber nicht nur aus dem Text, sondern auch den Aspekten rund um ein Dokument. Innerhalb dieses Buchs, ist der Kontext des Wortes “Lernen” zum Beispiel ein anderer, als in einem Buch über Didaktik. Hier sind Beispiel für einen Satz, den man nur um Kontext versteht.</p>
+<ul class="simple">
+<li><p>Ist das sicher genug? (Ist diese Erkenntnis gesichert?</p></li>
+<li><p>Ist das sicher genug? (Ist die Gefahr eines Unfalls gering?)</p></li>
+</ul>
+<p>Es gibt viele Beispiele für derartige Probleme, die unweigerlich zu Problemen und Rauschen beim Textmining führen.</p>
+<p>Häufig liegen diese Probleme schon direkt bei den Worten die wir verwenden: <em>Homonyme</em> sind Worte mit mehreren Bedeutungen. Das Wort “erfassen” kann zum Beispiel heißen, dass man etwas aufnimmt, aber auch das man von einem Fahrzeug überfahren wurde. Um Homonyme korrekt zu verarbeiten, muss man sie in ihrem Kontext interpretieren, was insbesondere beim Bag-of-Words ein Problem ist.</p>
+</div>
+<div class="section" id="weitere-probleme">
+<h3><span class="section-number">10.3.3. </span>Weitere Probleme<a class="headerlink" href="#weitere-probleme" title="Permalink to this headline">¶</a></h3>
+<p>Es gibt noch weitere Probleme, die wir hier aber nicht im Detail diskutieren.</p>
+<ul class="simple">
+<li><p>Rechtschreibfehler führen zu unbekannten Worten und lassen sich häufig nicht automatisch korrigieren.</p></li>
+<li><p>Sprache entwickelt sich weiter, insbesondere in Form von neuen Wörter und Jungendsprache, aber auch durch domänenspezifische Fachbegriffe.</p></li>
+<li><p>Beim Preprocessing ist es einfach Aspekte zu übersehen, zum Beispiel durch mangelhafte Wordlisten.</p></li>
+<li><p>Das lesen von Text selbst ist häufig bereits ein Problem, insbesondere wenn verschiedene Kodierungen (ASCII, UNICODE) und Zeichensätze (Chinesisch, Japanisch, Koreanisch, Arabisch, Kyrillisch, Lateinisch, …) verwendet werden.</p></li>
+</ul>
+<p>Dies heißt auch, das man bei Textmininganwendungen in der Regel kein perfekte Ergebnis bekommt, sondern nur immer weitere Probleme lösen kann. Deshalb ist es bei Textminingprojekten besonder wichtig, klare Ziele zu formulieren und hierdurch sicher zu stellen, dass ein Projekt auch wirklich beendet wird und nicht immer weitere Sonderfälle betrachtet werden.</p>
+<hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="porter"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p><a class="reference external" href="https://doi.org/10.1108/eb046814">https://doi.org/10.1108/eb046814</a></p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapters"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="kapitel_09.html" title="previous page"><span class="section-number">9. </span>Zeitreihenanalyse</a>
+    <a class='right-next' id="next-link" href="kapitel_11.html" title="next page"><span class="section-number">11. </span>Statistik</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Steffen Herbold<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
