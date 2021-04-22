@@ -1,0 +1,918 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>12. Big Data Processing &#8212; Einführung in Data Science</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Übung 1" href="../exercises/uebung_01.html" />
+    <link rel="prev" title="11. Statistik" href="kapitel_11.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Einführung in Data Science</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../vorwort.html">
+   Vorwort
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Kapitel
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_01.html">
+   1. Big Data und Data Science
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_02.html">
+   2. Der Prozess von Data Science Projekten
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_03.html">
+   3. Erkunden der Daten
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_04.html">
+   4. Allgemeines zur Datenanalyse
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_05.html">
+   5. Assoziationsregeln
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_06.html">
+   6. Clusteranalyse
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_07.html">
+   7. Klassifikation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_08.html">
+   8. Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_09.html">
+   9. Zeitreihenanalyse
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_10.html">
+   10. Textmining
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_11.html">
+   11. Statistik
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   12. Big Data Processing
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Übungen
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../exercises/uebung_01.html">
+   Übung 1
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/chapters/kapitel_12.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/sherbold/einfuehrung-in-data-science"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/sherbold/einfuehrung-in-data-science/main?urlpath=tree/content/chapters/kapitel_12.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#verteiltes-rechnen">
+   12.1. Verteiltes Rechnen
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parallelisierung">
+     12.1.1. Parallelisierung
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#verteiltes-rechnen-zur-datenanalyse">
+     12.1.2. Verteiltes Rechnen zur Datenanalyse
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#datenlokalitat">
+     12.1.3. Datenlokalität
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mapreduce">
+   12.2. MapReduce
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#map">
+     12.2.1. map()
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#shuffle">
+     12.2.2. shuffle()
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reduce">
+     12.2.3. reduce()
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#worter-zahlen-mit-mapreduce">
+     12.2.4. Wörter zählen mit MapReduce
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     12.2.5. Parallelisierung
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#apache-hadoop">
+   12.3. Apache Hadoop
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hdfs">
+     12.3.1. HDFS
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#yarn">
+     12.3.2. YARN
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mapreduce-mit-hadoop">
+     12.3.3. MapReduce mit Hadoop
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#streaming-mode">
+     12.3.4. Streaming Mode
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#weitere-komponenten-von-hadoop">
+     12.3.5. Weitere Komponenten von Hadoop
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#grenzen-von-hadoop">
+     12.3.6. Grenzen von Hadoop
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#apache-spark">
+   12.4. Apache Spark
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#architektur">
+     12.4.1. Architektur
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#datenstrukturen">
+     12.4.2. Datenstrukturen
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#infrastruktur">
+     12.4.3. Infrastruktur
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#worter-zahlen-mit-spark">
+     12.4.4. Wörter zählen mit Spark
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#jenseits-von-hadoop-und-spark">
+   12.5. Jenseits von Hadoop und Spark
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="big-data-processing">
+<h1><span class="section-number">12. </span>Big Data Processing<a class="headerlink" href="#big-data-processing" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="verteiltes-rechnen">
+<h2><span class="section-number">12.1. </span>Verteiltes Rechnen<a class="headerlink" href="#verteiltes-rechnen" title="Permalink to this headline">¶</a></h2>
+<p>Wie wir bereits aus <a class="reference internal" href="kapitel_01.html"><span class="doc std std-doc">Kapitel 1</span></a> wissen, gehören neben dem Volume, der Velocity, und der Variety auch <em>innovative Informationsverarbeitungsmethoden</em> zur Definition von Big Data. Hiermit wollen wir uns in diesem Kapitel im Detail beschäftigen um zu verstehen, wie man Big Data verarbeiten kann.</p>
+<p>Die Grundlage für alle großen Berechnungen ist die <em>Paralleliltät</em>. Es gibt hierzu auch ein berühmtes Zitat der Informatikpionierin Grace Hopper: “<em>In pioneer days they used oxen for heavy pulling, and when one ox couldn’t budge a log, they didn’t try to grow a larger ox. We should be trying for bigger computers, but for more systems of computers</em>”. Mit anderen Worten, große Aufgaben können nur gelöst werden, in dem man die Resourcen von vielen kleineren Einheiten gemeinsam nutzt.</p>
+<div class="section" id="parallelisierung">
+<h3><span class="section-number">12.1.1. </span>Parallelisierung<a class="headerlink" href="#parallelisierung" title="Permalink to this headline">¶</a></h3>
+<p>Im Allgemeinen gibt es drei Ansätze zur Parallelisierung von Berechnungen. Der erste Ansatz ist das <em>Message Passing</em>,  bei dem die Aufgaben unabhängig voneinander in einer isolierten Umgebung ausgeführt werden. Wenn zwei Aufgaben kommunizieren möchten, tauschen sie Nachrichten aus. Hierdurch können auch Daten zwischen verschiedenen Aufgaben hin und her kopiert werden. Diese Art der Kommunikation kann sowohl lokal auf einer einzelnen phyischen Maschine, als auch verteilt in einem Netzwerk genutzt werden.</p>
+<p>Der zweite Ansatz ist <em>Shared Memory</em>. Hierbei sind die Umgebungen, in denen die Aufgaben ausgeführt werden, nicht von einander isoliert. Stattdessen haben sie einen gemeinsamen Adressraum, in dem sie die gleichen Variablen lesen und schreiben können. Die Aufgaben interagieren und kommunizieren durch Veränderungen im geteilten Speicher miteinander. Auf einer einzelnen physischen Maschine erlaubt das Betriebssystem in der Regel die Bereitstellung von geteilten Speicher. Bei Threads ist dies sogar bereits Bestandteil der Art und Weise wie Aufgaben erstellt werden. Alle Threads eines Prozesses verwenden den gleichen Speicher, Prozesse die sich Speicher teilen wollen, müssen die explizit anfordern. Geteilter Speicher ist auch in verteilten Systemen möglich, zum Beispiel über Netzwerkspeicher oder ähnliche Lösungen, die aber üblicherweise langsamer sind als lokal geteilter Speicher.</p>
+<p>Der dritte Ansatz ist <em>Data Parallelism</em>. Ähnlich wie beim Message Passing werden hier die Aufgaben unabhängig voneinander auf verschiedenen Partitionen der Daten ausgeführt. Es gibt jedoch einen wichtigen unterschied: Die Aufgaben müssen nicht miteinander kommunizieren, da die Berechnungen keine Ergebnisse der anderen Aufgaben benötigten. Das bedeutet auch, dass Data Parallism nur möglich ist, wenn eine starke Entkopplung der Aufgaben in unabhängige Berechnungen möglich ist. Solche Probleme nenne man auch <em>embarrasingly Parallel</em>, weil man sie fast schon peinlich einfach sehr effizient parallelisieren kann.</p>
+</div>
+<div class="section" id="verteiltes-rechnen-zur-datenanalyse">
+<h3><span class="section-number">12.1.2. </span>Verteiltes Rechnen zur Datenanalyse<a class="headerlink" href="#verteiltes-rechnen-zur-datenanalyse" title="Permalink to this headline">¶</a></h3>
+<p>Da Big Data zu groß zum Verarbeiten mit einer einzelnen physischen Maschine ist, benötigen wir eine verteilte Umgebung für Berechnungen mit Big Data. Bevor Rechenzentren angefangen haben sich an die Eigenheiten von Big Data anzupassen, wurden großteil <em>Rechencluster</em> (engl. <em>compute cluster</em>) eingesetzt. Die Architektur eines Rechenclusters entsprich in etwa <a class="reference internal" href="#fig-computing-architecture"><span class="std std-numref">Fig. 12.1</span></a>. Es gibt eine <em>Storage Layer</em> mit dem Datenspeicher und einen <em>Computational Layer</em> mit den Compute Nodes die als Rechencluster fungieren. Jede Compute Node ist eine physische Maschine. Der Datenspeicher muss den Compute Nodes schnell zur Verfügung stehen (Latenz, Durchsatz, oder beides), benötigt jedoch nicht viel Rechenkraft. Üblicherweise ist dieser Speicher über ein <em>Storage Area Network</em> (SAN) realisiert. Die Compute Nodes sind für Rechenkraft durch CPUs (und evtl. GPUs) und Arbeitsspeicher optimiert, lokaler Speicher ist nebensächlich und wird häufig nur für die Installation des Betriebssystem und von Programmbibliotheken benutzt, sowie eventuell dem Speichern von Zwischenergebnissen. Nutzer übermitteln <em>Jobs</em> an eine <em>Job Queue</em>, die ausgeführt werden, wenn die benötigten Resourcen zur Verfügung stehen. Daten, die Analysiert werden sollen müssen in einer Datenbank oder dem SAN gespeichert werden, so dass die Compute Nodes zugriff haben um die gewünschten Ergebnisse zu berechnen.</p>
+<div class="figure align-default" id="fig-computing-architecture">
+<a class="reference internal image-reference" href="../_images/hpc-german.png"><img alt="../_images/hpc-german.png" src="../_images/hpc-german.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 12.1 </span><span class="caption-text">Übliche Architektur eines Rechenclusters.</span><a class="headerlink" href="#fig-computing-architecture" title="Permalink to this image">¶</a></p>
+</div>
+<p>All drei Ansätze zur Parallelisierung können in einem solchen Rechencluster umgesetz werden. Keiner der Ansätze ist jedoch dazu geeignet mit Big Data zu arbeiten. <a class="reference internal" href="#fig-message-passing"><span class="std std-numref">Fig. 12.2</span></a> zeigt den Bottleneck, der zu Skallierungsproblemen mit Message Passing und Shared Memory führen. Da unklar ist, welche Daten benötigt werden, müssen im schlimmsten Fall alle Daten bei allen Compute Nodes zur Verfügung stehen. Während das bei kleinen Datensätzen kein Problem ist, skalliert dies nicht für große Datensätze, so dass der Transport der Daten über das Netzwerk zum Bottleneck wird. Hinzu kommt noch die Kommunikation zwischen den Aufgaben, die auf verschiedenen Compute Nodes berechnet werden.</p>
+<div class="figure align-default" id="fig-message-passing">
+<a class="reference internal image-reference" href="../_images/message_passing_german.png"><img alt="../_images/message_passing_german.png" src="../_images/message_passing_german.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 12.2 </span><span class="caption-text">Rechencluster mit Message Passing und Shared Memory.</span><a class="headerlink" href="#fig-message-passing" title="Permalink to this image">¶</a></p>
+</div>
+<p>Die Data Parallelism ist etwas besser für große Datenmengen geeignet, wie man in <a class="reference internal" href="#fig-data-parallelism"><span class="std std-numref">Fig. 12.3</span></a> sieht. Hier bekommt jede Compute Node nur die Partition der Daten, die auf der gerechnet wird. Es müssen also nicht alle Daten, sondern nur ein kleinerer Teil geladen werden. Dennoch müssen alle Daten zu einer Compute Node übertragen werden, der Gewinn ist also nur, dass die Daten nicht mehrfach übertragen werden müssen. Daher kann man mit Data Parallelism zwar größere Datenmengen parallelisieren, aber auch hier wird das Datenvolumen irgendwann zu groß, um über das Netzwerk übertragen zu werden.</p>
+<div class="figure align-default" id="fig-data-parallelism">
+<a class="reference internal image-reference" href="../_images/data_parallelism_german.png"><img alt="../_images/data_parallelism_german.png" src="../_images/data_parallelism_german.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 12.3 </span><span class="caption-text">Rechencluster mit Data Parallism.</span><a class="headerlink" href="#fig-data-parallelism" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="datenlokalitat">
+<h3><span class="section-number">12.1.3. </span>Datenlokalität<a class="headerlink" href="#datenlokalitat" title="Permalink to this headline">¶</a></h3>
+<p>Das fundamentale Problem von traditionellen Recheninfrastrukturen ist also, dass die Daten über das Netzwerk angebungen sind, weshalb wir eine <em>innovative Informationsverarbeitungsmethode</em> benötigen. Die Lösung liegt auf der Hand: Wenn das Problem das kopieren der Daten über das Netzwerk das Problem ist, brauchen wir eine Architektur, bei der die Daten nicht kopiert werden müssen. Wenn die Daten nicht mehr kopiert werden müssen, spricht man auch von <em>Datenlokalität</em>. Hierzu bricht man einfach mit der Trennung des Storage Layers vom Compute Layer: Alle Knoten im sind sowohl Datenspeicher, als auch Compute Nodes. Das Ergebnis sieht man in <a class="reference internal" href="#fig-data-locality"><span class="std std-numref">Fig. 12.4</span></a>: Einen Rechencluster mit integrietem verteiltem Speicher.</p>
+<div class="figure align-default" id="fig-data-locality">
+<a class="reference internal image-reference" href="../_images/data_locality_german.png"><img alt="../_images/data_locality_german.png" src="../_images/data_locality_german.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 12.4 </span><span class="caption-text">Datenlokalität für Big Data Infrastrukturen.</span><a class="headerlink" href="#fig-data-locality" title="Permalink to this image">¶</a></p>
+</div>
+<p>Im folgenden erklären wir wir man diese Konzepte in der Praxis umsetzt. Wir besprechen MapReduce als Programmiermodellund betrachten wie dies von Apache Hadoop und Apache Spark umgesetzt wird um verteiltes Rechnen mit Big Data zu ermöglichen.</p>
+</div>
+</div>
+<div class="section" id="mapreduce">
+<h2><span class="section-number">12.2. </span>MapReduce<a class="headerlink" href="#mapreduce" title="Permalink to this headline">¶</a></h2>
+<p>Bei MapReduce handelt es sich ein ein Porgrammiermodell welches Data Parallelism ermöglicht um den Entwurf von Algorithmen für Berechnungen mit Big Data zu vereinfachen. Vorgestellt wurde MapReduce bereits 2004 in einer Publikation von Google <a class="footnote-reference brackets" href="#id5" id="id1">1</a>. Die Grundidee ist das Berechnungen durch zwei Funktionen ausgedrückt werden: <code class="docutils literal notranslate"><span class="pre">map</span></code> und <code class="docutils literal notranslate"><span class="pre">reduce</span></code>. Beide Funktionen arbeiten mit <em>Key-Value</em> Paaren. Die <code class="docutils literal notranslate"><span class="pre">map</span></code> Funktionen sind für ideal für die datenparallele Berechnung innerhalb von Algorithmen, mit <code class="docutils literal notranslate"><span class="pre">reduce</span></code> werden Ergebnisse aggregiert. Das Konzept von <code class="docutils literal notranslate"><span class="pre">map</span></code> und <code class="docutils literal notranslate"><span class="pre">reduce</span></code> existiert auch unabhängig von MapReduce als allgemeinen Konzept welches man in vielen funktionallen Programmiersprachen wiederfindet. Damit MapReduce für Big Data geeignet ist, gibt es noch eine dritte Funktion die man als <code class="docutils literal notranslate"><span class="pre">shuffle</span></code> bezeichnet. Die Aufgabe von <code class="docutils literal notranslate"><span class="pre">shuffle</span></code> ist es die Zwischenergebnisse von Algorithmen zu arrangieren, so dass die effiziente Kommunikation zwischen <code class="docutils literal notranslate"><span class="pre">map</span></code> und <code class="docutils literal notranslate"><span class="pre">reduce</span></code> Funktionen gewährleistet ist. <a class="reference internal" href="#fig-map-reduce"><span class="std std-numref">Fig. 12.5</span></a> fasst die Arbeitsweise von MapReduce zusammen.</p>
+<div class="figure align-default" id="fig-map-reduce">
+<a class="reference internal image-reference" href="../_images/map_reduce_complete_german.png"><img alt="../_images/map_reduce_complete_german.png" src="../_images/map_reduce_complete_german.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 12.5 </span><span class="caption-text">Übersicht über MapReduce.</span><a class="headerlink" href="#fig-map-reduce" title="Permalink to this image">¶</a></p>
+</div>
+<div class="section" id="map">
+<h3><span class="section-number">12.2.1. </span>map()<a class="headerlink" href="#map" title="Permalink to this headline">¶</a></h3>
+<p>Die <code class="docutils literal notranslate"><span class="pre">map</span></code> Funktion bekommt als Eingabe die initialen Key-Value Paare, die analysiert werden sollen. Diese werde zum Beispiel aus einem verteilten Speicher gelesen und könnten auch das Ergebnissen einer bereits erfolgten Berechnung mit MapReduce sein. Die <code class="docutils literal notranslate"><span class="pre">map</span></code> Funktion berechnet für jedes <em>einzelne</em> Key-Value Paar ein von allen anderen Paaren unabhängiges Ergebnis. Das Ergebnis sind neue Key-Value Paare.  Die <code class="docutils literal notranslate"><span class="pre">map</span></code> Funktion ist also definiert als</p>
+<div class="math notranslate nohighlight">
+\[map(f_{map}, &lt;key1, value1&gt;) \rightarrow list(&lt;key2, value2&gt;)\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(f_{map}\)</span> eine <em>User-Defined Function</em> (UDF) ist, also eine Funktion die vom Benutzer an das MapReduce Framework zu Berechnung des Ergebnisses für ein Key-Value Paar übergeben wird. Es hängt von der UDF <span class="math notranslate nohighlight">\(f_{map}\)</span> ab, ob die Schlüssel der Ausgaben die gleichen sind wie bei den Eingaben, oder ob neue Schlüssel berechnet werden. Im Allgemeine sind beliebige Typen für die Schlüssel und Werte der Key-Value Paare möglich, es ist aber auch möglich das dies von der Implementierung in einem MapReduce Framework eingeschränkt wird. Die ursprüngliche MapReduce Implementierung von Google hat zum Beispiel nur Strings erlaubt, so dass die Benutzer alle anderen Datentypen in Strings konvertieren mussten.</p>
+</div>
+<div class="section" id="shuffle">
+<h3><span class="section-number">12.2.2. </span>shuffle()<a class="headerlink" href="#shuffle" title="Permalink to this headline">¶</a></h3>
+<p>Die Key-Value Paare die von der <code class="docutils literal notranslate"><span class="pre">map</span></code> Funktion berechnet werden, werden durch die <code class="docutils literal notranslate"><span class="pre">shuffle</span></code> Funktion so organisiert, dass sie durch den Schlüssel gruppiert sind. Es gilt also</p>
+<div class="math notranslate nohighlight">
+\[shuffle(list&lt;key2, value2&gt;) \rightarrow list(&lt;key2, list(value2)&gt;),\]</div>
+<p>wir bekommen also eine Liste von Werte pro Schlüssel. Häufig werden diese Daten auch noch nach dem Schlüssel sortiert, da dies die effizienz der folgenden Aufgaben erhöhen kann. Die <code class="docutils literal notranslate"><span class="pre">shuffle</span></code> Operation ist in der Regel nicht für den Benutzer sichtbar und wird im Hintergrund vom MapReduce Framework ausgeführt.</p>
+</div>
+<div class="section" id="reduce">
+<h3><span class="section-number">12.2.3. </span>reduce()<a class="headerlink" href="#reduce" title="Permalink to this headline">¶</a></h3>
+<p>Die <code class="docutils literal notranslate"><span class="pre">reduce</span></code> Funktion berechnet basierend auf allen Werte für eine Schlüssel einzelnes Ergebnis pro Schlüssel. Die <code class="docutils literal notranslate"><span class="pre">reduce</span></code> Funktion ist also definiert als</p>
+<div class="math notranslate nohighlight">
+\[reduce(f_{reduce}, &lt;key2, list(value2)&gt;) \rightarrow value3\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(f_{reduce}\)</span> eine UDF ist. Die UDF <span class="math notranslate nohighlight">\(f_{reduce}\)</span> <em>reduziert</em> also alle Werte eines Schlüssel zu einem aggregierten Wert. Ähnlich wie bei der Map Funktion sind die Datentypen im Allgemeinen nicht beschränkt, könnten aber von der Implementierung eingeschränkt sein. Je nach Aufgabenstellung könnten die Ausgaben Key-Value Paare für weitere MapReduce Berechnungen sein, oder auch Endergebnisse der Algorithmen.</p>
+</div>
+<div class="section" id="worter-zahlen-mit-mapreduce">
+<h3><span class="section-number">12.2.4. </span>Wörter zählen mit MapReduce<a class="headerlink" href="#worter-zahlen-mit-mapreduce" title="Permalink to this headline">¶</a></h3>
+<p>Das Konzept von MapReduce ist relativ abstrakt, wenn man es nicht bereits aus der funktionalen Programmierung kennt und gewohnt ist. Wie MapReduce funktioniert kann man sich aber gut an einem Beispiel veranschaulichen. Das “Hello World” von MapReduce ist das zählen der Häufigkeit von Wörtern im Text. Das schöne an diesem Beispiel ist, dass es auch praxisrelevant ist, zum Beispiel für die Erstellung eines Bag-of-Words (siehe <a class="reference internal" href="kapitel_10.html"><span class="doc std std-doc">Kapitel 10</span></a>). Wir benutzen den folgenden Text als Beispiel.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Wie ist ihr Name?
+Der Name ist Bond, James Bond.
+</pre></div>
+</div>
+<p>Unsere Daten sind als Textdatei mit einer Zeile pro Satz gespeichert. Unsere initialen Key-Value Paare haben die Zeilennummer als Schlüssel und den Text der Zeile als Wert.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Wie ist ihr Name?&quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Der Name ist Bond, James Bond.&quot;</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Die <code class="docutils literal notranslate"><span class="pre">map</span></code> Funktion ist definiert, so dass sie ein Paar der Form &lt;Wort, 1&gt; für jedes Wort der Eingabe ausgibt, wobei Satzzeichen ignoriert werden und alles kleingeschrieben wird. Wenn wir dies auf die initialen Paare anwenden, bekommen wir also zehn Paare, für jedes Wort im Text eines:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="s2">&quot;wie&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="s2">&quot;ist&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="s2">&quot;ihr&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="s2">&quot;der&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="s2">&quot;ist&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="s2">&quot;bond&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="s2">&quot;james&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="s2">&quot;bond&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Die <code class="docutils literal notranslate"><span class="pre">shuffle</span></code> Funktion gruppiert diese Daten jetzt nach ihrem Schlüssel und arrangiert die Werte als Listen.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="s2">&quot;bond&quot;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="s2">&quot;ist&quot;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="s2">&quot;james&quot;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="s2">&quot;der&quot;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="s2">&quot;wie&quot;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="s2">&quot;ihr&quot;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Zuletzt erzeugt die <code class="docutils literal notranslate"><span class="pre">reduce</span></code> Funktion als Ausgabe eine Zeile pro Schlüssel mit der Worthäufigkeit des jeweiligen Schlüssels.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bond</span> <span class="mi">2</span>
+<span class="n">ist</span> <span class="mi">2</span>
+<span class="n">james</span> <span class="mi">1</span>
+<span class="n">name</span> <span class="mi">2</span>
+<span class="n">der</span> <span class="mi">1</span>
+<span class="n">wie</span> <span class="mi">1</span>
+<span class="n">ihr</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3><span class="section-number">12.2.5. </span>Parallelisierung<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Das Design von MapReduce erlaubt es uns jeden Schritt zu parallelisieren. Die Eingaben können parallelisiert gelesen werden, sofern dies vom Speicherformat zugelassen wird. Dies ist zum Beispiel der Fall, wenn es mehrere Textdateien gibt, so dass jede Datei 1000 Zeilen enthält. Die Performanz dieser Paralllelisierung ist jedoch durch die Geschwindigkeit des Speichermediums begrenzt und in der Regel nur Sinnvoll, wenn die Daten verteilt auf mehreren physischen Maschinen gespeichert sind.</p>
+<p>Da bei der <code class="docutils literal notranslate"><span class="pre">map</span></code> Funktion die Berechnung für alle Key-Value Paare unabhängig ist, ist die Parallelisierung trivial. Es ist theoretisch möglich das Ergebnis für alle Key-Value Paare parallel zu berechnen.</p>
+<p>Die <code class="docutils literal notranslate"><span class="pre">shuffle</span></code> Funktion kann starten sobald das erste Key-Value Paar von der <code class="docutils literal notranslate"><span class="pre">map</span></code> Funktion berechnet wurde. Hierdurch lassen sich die Wartezeiten reduzieren, da <code class="docutils literal notranslate"><span class="pre">shuffle</span></code> bereits im Hintergrund der <code class="docutils literal notranslate"><span class="pre">map</span></code> Funktionen arbeiten kann und daher häufig das gleichzeitig mit <code class="docutils literal notranslate"><span class="pre">map</span></code> fertig wird.</p>
+<p>Die <code class="docutils literal notranslate"><span class="pre">reduce</span></code> Funktion kann für jeden Schlüssel unabhängig berechnet werden und somit auch parallelisiert werden. Der grad der Parallelisierung hängt somit lediglich von der Anzahl der einzigartigen Schlüssel die von <code class="docutils literal notranslate"><span class="pre">map</span></code> berechnet werden ab. Hinzu kommt, das <code class="docutils literal notranslate"><span class="pre">reduce</span></code> schon starten kann, sobald alle Ergebnisse für einen Schlüssel zur Verfügung stehen. Dies ist auch der Grund, warum sortieren bei <code class="docutils literal notranslate"><span class="pre">shuffle</span></code> sinnvoll sein kann: Wenn die Ergebnisse bei <code class="docutils literal notranslate"><span class="pre">reduce</span></code> sortiert ankommen, kann <code class="docutils literal notranslate"><span class="pre">reduce</span></code> die Verarbeitung der Daten für einen Schlüssel starten, sobald die Daten für den nächsten Schlüssel eintreffen.</p>
+</div>
+</div>
+<div class="section" id="apache-hadoop">
+<h2><span class="section-number">12.3. </span>Apache Hadoop<a class="headerlink" href="#apache-hadoop" title="Permalink to this headline">¶</a></h2>
+<p>Apache Hadoop <a class="footnote-reference brackets" href="#hadoop" id="id3">2</a> ist eine Open Source Implementierung ovn MapReduce. Für viele Jahre war Hadoop die Standardlösung für MapReduce Anwendungen. Auch wenn die Relevanz von Hadoop im laufe der Jahre weniger geworden ist, gibt es immernoch viele Anwendungen die auf Hadoop basieren und es wird von allen großen Clouddienstleister als Service zur Verfügung gestellt. Hinzu kommt, dass Hadoop sehr gut geeignet ist um die technischen Anforderungen an ein MapReduce Framework zu demonstrieren.</p>
+<p>Hadoop 2.0 implementiert MapReduce in einer Architektur mit drei Schichten, die wir in <a class="reference internal" href="#fig-hadoop-architecture"><span class="std std-numref">Fig. 12.6</span></a> sehen. Die unterste Schicht ist das <em>Hadoop Distributed File System</em> (HDFS), welches für das Datenmanagement verantwortlich ist. Hier baut <em>Yet Another Resource Negotiator</em> (YARN) auf um die Rechenresourcen zu verwalten. Anwendungen für die Datenverarbeitung setzen auf YARN auf und sitzen in der dritten und obersten Schicht von Hadoop. Diese Anwendungen kann man zum Beispiel mit dem MapReduce Framework von Hadoop umsetzen. Aufgrund des Erfolgs von Hadoop, insbesondere von HDFS und YARN, gibt es aber noch viele weitere Technologien zur Datenverarbeitung, die hierdrauf aufbauen, wie zum Beispiel Apache Spark, welches wir in diesem Kapitel auch noch betrachten.</p>
+<div class="figure align-default" id="fig-hadoop-architecture">
+<a class="reference internal image-reference" href="../_images/hadoop_architecture_german.png"><img alt="../_images/hadoop_architecture_german.png" src="../_images/hadoop_architecture_german.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 12.6 </span><span class="caption-text">Architektur von Apache Hadoop 2.0.</span><a class="headerlink" href="#fig-hadoop-architecture" title="Permalink to this image">¶</a></p>
+</div>
+<div class="section" id="hdfs">
+<h3><span class="section-number">12.3.1. </span>HDFS<a class="headerlink" href="#hdfs" title="Permalink to this headline">¶</a></h3>
+<p>Das HDFS ist die Kernkomponente von Hadoop. Alle Daten, die analysiert werden sollen, müssen im HDFS gespeichert sein. HDFS wurde für die Verarbeitung von Big Data entwickelt und verhält sich deshalb in einigen wichtgen Aspekten anders als die im Alltag verwendeten Dateisysteme wie NTFS, ext3, oder xfs.</p>
+<ul class="simple">
+<li><p>HDFS ist auf die Durchsatz optimiert und hat im gegenzug eine relativ hohe Latenz. Dies bedeutet, dass Laden und Speichern von großen Datenmengen schnell ist, aber es eventuell etwas dauert, bis diese Operationen starten.</p></li>
+<li><p>HDFS unterstützt extrem große Dateien. Die Dateigröße ist nur durch die größe des <em>verteilten</em> Speichers begrenzt, was bedeutet das Dateien größer sein können, als der Speicher einer physischen Maschine.</p></li>
+<li><p>HDFS wurde für datenlokale Berechnungen entwickelt mit dem Ziel den Austausch von Daten zwischen physischen Maschinen zu minimieren.</p></li>
+<li><p>Da Hardwareausfälle und Softwareprobleme bei einer großen Anzahl von physischen Maschinen nicht die Ausnahmen sind, sondern alltäglich, wurde HDFS robust entwickelt, dass es auch im Fall von Hardwareausfällen keinen Datenverlust gibt und Berechnungen weiterhin möglich sind.</p></li>
+</ul>
+<p>Um diese Designziele zu erreichen, verwendet HDFS eine Master/Worker Paradigma mit einer <em>NameNode</em> welche die <em>DataNodes</em> verwaltet. <a class="reference internal" href="#fig-hdfs"><span class="std std-numref">Fig. 12.7</span></a> zeigt wie die Aufgaben der NameNode und der DataNodes. Clients können auf das HDFS über die NameNode zugreifen. Die Dateisystemoperationen, wie erstellen, löschen und kopieren von Dateien werden aus Nutzersicht daher über die NameNode durchgeführt. Bei der Erstellung werden Dateien in Blöcke unterteilt. Die Blöcke werden entsprechend der Konfiguration des HDFS repliziert, das heißt nicht nur auf einer DataNode gespeichert, sondern auf mehreren. Dies ist eine wesentliche Komponente um den Datenverlust oder Systemausfall bei Hardwarefehler zu vermeiden. Wie die Blöcke auf den DataNodes erstellt, gelöscht, und repliziert werden wird von der NameNode organisiert. Damit das HDFS nicht komplett ausfällt, wenn es ein Problem mit der NameNode gibt, ist auch eine sekundäre NameNode vorgesehen, die im Fehlerfall die Aufgaben der primären NameNode übernehmen kann.</p>
+<div class="figure align-default" id="fig-hdfs">
+<a class="reference internal image-reference" href="../_images/hdfs_german.png"><img alt="../_images/hdfs_german.png" src="../_images/hdfs_german.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 12.7 </span><span class="caption-text">NameNode und DataNodes des HDFS.</span><a class="headerlink" href="#fig-hdfs" title="Permalink to this image">¶</a></p>
+</div>
+<p>Obwohl Benutzer nur über die NameNode auf das HDFS zugreifen, werden die eigentlichen Daten nie über die NameNode geleitet, sondern direkt vom Nutzer zu den DataNodes. Andernfalls wäre die NameNode ein Bottleneck. <a class="reference internal" href="#fig-hdfs-write"><span class="std std-numref">Fig. 12.8</span></a> veranschaulicht wie Daten vom Benutzer in das HDFS gelangen.</p>
+<ol class="simple">
+<li><p>Der Benutzer kontaktiert die NameNode und beantragt eine Datei zu schreiben.</p></li>
+<li><p>Die NameNode beantwortet die Anfrage mit einem Datenstrom, den der Benutzer zum schreiben verwenden kann. Aus der Nutzerperspektive sieht dies wie eine normale Dateioperation aus, ähnlich wie zum Beispiel <code class="docutils literal notranslate"><span class="pre">FileOutputStream</span></code> in Java, <code class="docutils literal notranslate"><span class="pre">std::ofstream</span></code> in C++ und <code class="docutils literal notranslate"><span class="pre">open</span></code> in Python.</p></li>
+<li><p>Der Benutzer schreibt den Inhalt der Datei in den Datenstrom. Die NameNode hat den Datenstrom so konfiguriert, dass er weiß wie Blöcke erstellt werden sollen und wo die Daten hin übermittelt werden müssen. Die Daten werden blockweise direkt an die DataNodes geschickt.</p></li>
+<li><p>Die DataNode empfängt den Block, speichert ihn aber möglicherweise nicht selbst. Stattdessen wird die Block möglicherweise an andere DataNodes zum Speichern weitergeleitet. Jeder Block wird nach Möglichkeit bei einer anderen DataNode gespeichert, so das jede DataNode möglichst wenig Blöcke der gleichen Datei speichert. Außerdem wird jeder Block auf meheren DataNodes gespeichert, abhängig vom <em>Replication Level</em>.</p></li>
+<li><p>Wenn eine DateNode einen Block speichert, wird dies bei der DateNode, die die Daten empfängt, bestätigt.</p></li>
+<li><p>Sobald alle Replikationen eines Blocks gespeichert sind, beginnt der Datenstrom automatisch mit dem Schreiben des nächsten Blocks (Schritt 3), bis alle Blöcke geschrieben sind. Dies passiert im Hintergrund automatisch und ist für den Benutzer nicht transparent.</p></li>
+<li><p>Sobald der Datenstrom alle Daten verarbeitet hat, informiert der Benutzer die NameNode, dass die Schreiboperation beendet ist und der Datenstrom geschlossen werden kann.</p></li>
+</ol>
+<div class="figure align-default" id="fig-hdfs-write">
+<a class="reference internal image-reference" href="../_images/hdfs_write_german.png"><img alt="../_images/hdfs_write_german.png" src="../_images/hdfs_write_german.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 12.8 </span><span class="caption-text">NameNode und DataNodes des HDFS.</span><a class="headerlink" href="#fig-hdfs-write" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="yarn">
+<h3><span class="section-number">12.3.2. </span>YARN<a class="headerlink" href="#yarn" title="Permalink to this headline">¶</a></h3>
+<p>YARN wurde entwickelt um Hadoop Anwendungen die benötigten Resourcen für Berechnungen zur Verfügung zu stellen. YARN wurde so entwickelt, dass die Berechnungen nach Möglichkeit lokale am Speicherort der Daten im HDFS durchgeführt werden. Wie das HDFS auch, setzt YARN auf eine Master/Worker Paradigma in dem ein <em>Resource Manager</em> die <em>NodeManager</em> verwaltet. <a class="reference internal" href="#fig-yarn"><span class="std std-numref">Fig. 12.9</span></a> zeigt die Aufgaben dieser Komponenten. Der Resource Manager fungiert als Scheduler und stellt auf Anfrage die benötigten Rechenresourcen zur Verfügung. Die NodeManager sind eine auf den DataNodes laufende Anwendung, die für die lokale Ausführung von Aufgaben verantwortlich ist. Hierdurch wird jede DataNode zu einer Compute Node von Hadoop. Die Aufgaben werden vom Resourcenmanager so zugeteilt, dass sie nach Möglichkeit von einem NodeManager am Ort wo die benötigten Daten gespeichert sind, ausgeführt werden. Hierzu braucht der Resource Manager detailiertes wissen über die Speicherorte der Daten im HDFS, kann dieses wissen aber benutzen um datenlokale Berechnungen zu erwirken.  Die Aufgaben die durchgeführt werden müssen sind zum Beispiel MapReduce Anwendungen. YARN kann aber auch beliebige andere Anwendungen auführen und ist nicht auf MapReduce beschränkt.</p>
+<div class="figure align-default" id="fig-yarn">
+<a class="reference internal image-reference" href="../_images/yarn_german.png"><img alt="../_images/yarn_german.png" src="../_images/yarn_german.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 12.9 </span><span class="caption-text">Resource Manager und NodeManager von YARN.</span><a class="headerlink" href="#fig-yarn" title="Permalink to this image">¶</a></p>
+</div>
+<p>Der Resource Manger sollte die Rechenzeit so zuteilen, dass die Resourcen (CPU Kerne, Arbeitspeicher) effizient genutzt werden. Dies heißt auch, das jeder NodeManager nur die Aufgaben bekommt, die er mit den lokal verfügbaren Resourcen bewältigen kann, um eine Überauslastung zu vermeiden. Eine Unterauslastung sollte jedoch ebenfalls vermieden werden: Wenn Jobs auf ihre Ausführung warten und es freie Kapazitäten bei den NodeManager gibt, sollten diese Jobs diese Kapazitäten auch nutzen können. Der Resource Manager muss also in der Lage sein mehrere Jobs, möglicherweise von mehreren Benutzern, gleichzeitig durchzuführen und die Resourcen hierbei fair zu verteilen. <a class="reference internal" href="#fig-yarn-exec"><span class="std std-numref">Fig. 12.10</span></a> beschreibt wie YARN Ressourcen verwaltet und Anwendungen verteilt ausführt.</p>
+<ol class="simple">
+<li><p>Der Benutzer schickt eine Anwendung an den Resource Manager. Der Resource Manager fügt diese Anwendung in der Warteschlange hinzu, bis die benötigten Ressouren zu Verfügung stehen.</p></li>
+<li><p>Der Resource Manager allokiert einen <em>Container</em> auf einem der NodeManager und startet den <em>Application Master</em>. Der Application Master ist nicht die Anwendung selbst, sondern ein generisches Programm welches weiß wie die Anwendung ausgeführt werden soll, also welche Aufgaben durchgeführt werden müssen und welche Ressourcen hierfür benötigt werden.</p></li>
+<li><p>Der Application Master beantragt die benötigten Ressourcen beim Resource Manager.</p></li>
+<li><p>Die NodeManager werden vom Resource Manager beauftrage weitere Container zu allokieren. Un unserem Beispiel werden zwei Container benötigt.</p></li>
+<li><p>Der Resource Manager informiert den Application Master, dass die benötigten Ressourcen zur Verfügung stehen. Dem Application Master wird hierbei auch mitgeilt wo sich die Ressourcen befinden und wie auf die Ressourcen zugegriffen werden kann.</p></li>
+<li><p>Der Application Master führt die Anwendung in den Container aus. Wenn die Anwendung aus mehren Aufgaben besteht, wird nur ein Teil der Anwendung ausgeführt und für die weiteren Aufgaben werden neue Ressourcen beantragt. Eventuell konfiguriert der Application Master hierfür die Ausführungsumgebung, zum Beispiel in dem Umgebungsvariablen gesetzt werden. In der Regel benutzen die Anwendungen Ressourcen, die auf dem jeweilgen NodeManager lokal zur Verfügung stehen, zum Beispiel installierte Anwendungen die ausgeführt werden oder Daten aus dem HDFS.</p></li>
+</ol>
+<div class="figure align-default" id="fig-yarn-exec">
+<a class="reference internal image-reference" href="../_images/yarn_exec_german.png"><img alt="../_images/yarn_exec_german.png" src="../_images/yarn_exec_german.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 12.10 </span><span class="caption-text">Resource Manager und NodeManager von YARN.</span><a class="headerlink" href="#fig-yarn-exec" title="Permalink to this image">¶</a></p>
+</div>
+<p>Sobald eine Anwendung beendet ist, werden alle Container zerstört und die Ressourcen wieder frei gegeben. Auf die Ergebnisse der Ausführung kann man nur über das HDFS zugreifen. Um im dritten Schritt Ressourcen zu beantragen werden die folgenden Informationen benötigt:</p>
+<ul class="simple">
+<li><p>Die Anzahl der benötigten Container.</p></li>
+<li><p>Der benötigte Arbeitspeicher und die Anzahl der CPU Kerne pro Container.</p></li>
+<li><p>Die Priorität der Ressourcenanfrage. Diese Priorität ist nur für die Anwendung gültig und nicht global. Das heißt das die Priorität nur wichtig ist, wenn in einer Anwendung mehre Aufgaben durchgeführt werden müssen, bei denen einige wichtiger sind. Eine hohe Priorität verschafft keinen Vorteil gegenüber anderen Anwendungen die parallel ausgeführt werden.</p></li>
+<li><p>Es ist auch möglich bestimmte Ressourcen namentlich zu identifizieren und direkt zu beantragen. Das könnte zum Beispiel eine bestimmte NameNode sein, aber auch eine topographische Komponente aus einem größeren Cluster, zum Beispiel ein NodeManger der auf einer physischen Maschine in einem bestimmten Rack eines Serverschranks läuft.</p></li>
+</ul>
+</div>
+<div class="section" id="mapreduce-mit-hadoop">
+<h3><span class="section-number">12.3.3. </span>MapReduce mit Hadoop<a class="headerlink" href="#mapreduce-mit-hadoop" title="Permalink to this headline">¶</a></h3>
+<p>Es gibt auch ein MapReduce Framework als Teil von Hadoop, dass die Anwendungen mit Hilfe von YARN ausführt. Die MapReduce Anwendungen werden vom Benutzer als Sequenz von <code class="docutils literal notranslate"><span class="pre">map</span></code>/<code class="docutils literal notranslate"><span class="pre">reduce</span></code> Funktionen zum lösen einer Aufgabenstellung definiert. Die Funktionen werden dann von der Java Anwendung <code class="docutils literal notranslate"><span class="pre">MRAppMaster</span></code> ausgeführt. Der <code class="docutils literal notranslate"><span class="pre">MRAppMaster</span></code> definiert einen Application Master der die Ausführung mit Hilfe von YARN organisiert und die Ressourcen für die <code class="docutils literal notranslate"><span class="pre">map</span></code> und <code class="docutils literal notranslate"><span class="pre">reduce</span></code> Aufgaben beantragt und die Funktionen startet. Die Anwendung selbst wird in Java programmiert. Es gibt auch einen <em>Streaming Mode</em> in Hadoop den wir später betrachten, mit dem man auch Anwendungen in anderen Sprachen definieren kann.</p>
+<p>Die <code class="docutils literal notranslate"><span class="pre">map</span></code> und <code class="docutils literal notranslate"><span class="pre">reduce</span></code> Funktionen werden durch Vererbung definiert. Unterklassen der Klasse <code class="docutils literal notranslate"><span class="pre">Mapper</span></code> definieren die <code class="docutils literal notranslate"><span class="pre">map</span></code> Funktionen, Unterklassen von <code class="docutils literal notranslate"><span class="pre">Reducer</span></code> definieren die <code class="docutils literal notranslate"><span class="pre">reduce</span></code> Funktionen. Der folgende Quelltext definiert eine <code class="docutils literal notranslate"><span class="pre">map</span></code> Funktion für das Wörter zählen Beipiel. Bitte beachten Sie, dass wir den Boilerplate Quelltext weglassen, zum Beispiel import statements. Das vollständige Beispiel finden sie in der offiziellen Hadoop Dokumentation <a class="footnote-reference brackets" href="#mr-sample" id="id4">3</a>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">TokenizerMapper</span> <span class="kd">extends</span> <span class="n">Mapper</span><span class="o">&lt;</span><span class="n">Object</span><span class="p">,</span> <span class="n">Text</span><span class="p">,</span> <span class="n">Text</span><span class="p">,</span> <span class="n">IntWritable</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="kd">static</span> <span class="n">IntWritable</span> <span class="n">one</span> <span class="o">=</span> <span class="k">new</span> <span class="n">IntWritable</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="kd">private</span> <span class="n">Text</span> <span class="n">word</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Text</span><span class="p">();</span>
+    
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">map</span><span class="p">(</span><span class="n">Object</span> <span class="n">key</span><span class="p">,</span> <span class="n">Text</span> <span class="n">value</span><span class="p">,</span> <span class="n">Context</span> <span class="n">context</span>
+                   <span class="p">)</span> <span class="kd">throws</span> <span class="n">IOException</span><span class="p">,</span> <span class="n">InterruptedException</span> <span class="p">{</span>
+        <span class="c1">// text into tokens</span>
+        <span class="n">StringTokenizer</span> <span class="n">itr</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringTokenizer</span><span class="p">(</span><span class="n">value</span><span class="p">.</span><span class="na">toString</span><span class="p">().</span><span class="na">toLowerCase</span><span class="p">());</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">its</span><span class="p">.</span><span class="na">hasMoreTokens</span><span class="p">())</span> <span class="p">{</span>
+            <span class="c1">// add an output pair &lt;word, 1&gt; for each token</span>
+            <span class="n">word</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="n">itr</span><span class="p">.</span><span class="na">nextToken</span><span class="p">());</span>
+            <span class="n">context</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">one</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Der <code class="docutils literal notranslate"><span class="pre">TokenizerMapper</span></code> erweitert die generische Klasse <code class="docutils literal notranslate"><span class="pre">Mapper</span></code> mit vier Parameter der Typen <code class="docutils literal notranslate"><span class="pre">Object</span></code>, <code class="docutils literal notranslate"><span class="pre">Text</span></code>, <code class="docutils literal notranslate"><span class="pre">Text</span></code> und <code class="docutils literal notranslate"><span class="pre">IntWritable</span></code>. Die ersten beiden Parameter definieren die Typen der Eingabepaare, also vom Schlüssel und Wert der Eingaben. Die Eingaben haben also Schlüssel vom Typ <code class="docutils literal notranslate"><span class="pre">Object</span></code> und Werte vom Typ <code class="docutils literal notranslate"><span class="pre">Text</span></code>. Die letzten beiden Parameter definieren den Typ der Ausgaben. Die <code class="docutils literal notranslate"><span class="pre">map</span></code> Funktion berechnet also Key-Value Paare mit Schlüsseln vom Typ <code class="docutils literal notranslate"><span class="pre">Text</span></code> und Werten vom Typ <code class="docutils literal notranslate"><span class="pre">IntWritable</span></code>. <code class="docutils literal notranslate"><span class="pre">Text</span></code> und <code class="docutils literal notranslate"><span class="pre">IntWritable</span></code> sind von Hadoop zur Verfügung gestellte Datentype, die ähnlich zu den Java Datentypen <code class="docutils literal notranslate"><span class="pre">String</span></code> und <code class="docutils literal notranslate"><span class="pre">Integer</span></code> sind. Der Hauptunterschied ist, dass diese aus effizienzgründen <em>mutable</em> sind, das heißt das die Werte der Objekte verändert werden können. Außerdem sind die Hadoop Datentypen für die Serialisierung optimiert, um den effizienten Austausch von Key-Value Paaren zwischen <code class="docutils literal notranslate"><span class="pre">map</span></code> und <code class="docutils literal notranslate"><span class="pre">reduce</span></code> Aufgaben zu gewährleisten.</p>
+<p>Die Klasse hat die zwei Attribute <code class="docutils literal notranslate"><span class="pre">one</span></code> und <code class="docutils literal notranslate"><span class="pre">word</span></code> welche für die Erzeugung der Ausgaben benutzt werden. Da es sich um Attribute handelt, werden diese nur einmal initialisiert, was die effizient erhöht. Die <code class="docutils literal notranslate"><span class="pre">map</span></code> Funktion selbst definiert wie die Ausgaben aus den Eingaben berechnet werden. Als Parameter bekommt die <code class="docutils literal notranslate"><span class="pre">map</span></code> Funktion neben dem Eingabe Key-Value Paar auch noch den <code class="docutils literal notranslate"><span class="pre">context</span></code>. Dieser Kontext spezifiziert die Hadoop Ausführungsumgebung und beinhaltet, zum Beispiel, die Werte von Umgebungsvariablen. Außerdem werden die Ausgaben durch den Aufruf von <code class="docutils literal notranslate"><span class="pre">context.write()</span></code> in den Kontext geschrieben. Die <code class="docutils literal notranslate"><span class="pre">map</span></code> Funktion hat also keinen Rückgabewerte. Stattdessen werden die Ergebnisse kontinuierlich in den Kontext geschrieben. Die <code class="docutils literal notranslate"><span class="pre">shuffle</span></code> Funktion ist Teil des Kontexts und kann Key-Value Paare verarbeiten, sobald diese geschrieben wurden. Hierdurch kann <code class="docutils literal notranslate"><span class="pre">shuffle</span></code> nebenläufig zu <code class="docutils literal notranslate"><span class="pre">map</span></code> arbeiten.</p>
+<p>Der folgende Quelltext zeigt die zum Beispiel gehörende <code class="docutils literal notranslate"><span class="pre">reduce</span></code> Funktion.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">IntSumReader</span> <span class="kd">extends</span> <span class="n">Reducer</span><span class="o">&lt;</span><span class="n">Text</span><span class="p">,</span> <span class="n">IntWritable</span><span class="p">,</span> <span class="n">Text</span><span class="p">,</span> <span class="n">IntWritable</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="kd">private</span> <span class="n">IntWritable</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="n">IntWritable</span><span class="p">();</span>
+    
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">reduce</span><span class="p">(</span><span class="n">Text</span> <span class="n">key</span><span class="p">,</span> <span class="n">Iterable</span><span class="o">&lt;</span><span class="n">IntWritable</span><span class="o">&gt;</span> <span class="n">values</span><span class="p">,</span> <span class="n">Context</span> <span class="n">context</span>
+                       <span class="p">)</span> <span class="kd">throws</span> <span class="n">IOException</span><span class="p">,</span> <span class="n">InterruptedException</span> <span class="p">{</span>
+        <span class="c1">// calculate sum of word counts</span>
+        <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">IntWritable</span> <span class="n">val</span> <span class="p">:</span> <span class="n">values</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">sum</span> <span class="o">+=</span> <span class="n">val</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="n">result</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="n">sum</span><span class="p">);</span>
+        <span class="c1">// write result</span>
+        <span class="n">context</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">result</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Der <code class="docutils literal notranslate"><span class="pre">IntSumReader</span></code> erweitert die generische Klasse <code class="docutils literal notranslate"><span class="pre">Reducer</span></code>. Die Parameter beschreiben wie beim <code class="docutils literal notranslate"><span class="pre">TokenizerMapper</span></code> die Typen der Key-Value Paare. Wie oben wird das Attribut <code class="docutils literal notranslate"><span class="pre">result</span></code> aus Effizienzgründen verwendet, und die Ergebnisse in den Kontext geschrieben. Der Hauptunterschied zwischen <code class="docutils literal notranslate"><span class="pre">map</span></code> und <code class="docutils literal notranslate"><span class="pre">reduce</span></code> ist das die <code class="docutils literal notranslate"><span class="pre">reduce</span></code> Funktion ein <code class="docutils literal notranslate"><span class="pre">Iterable</span></code> der Werte übergeben bekommt statt einen einzelnen Wert. Hierdurch kann <code class="docutils literal notranslate"><span class="pre">reduce</span></code> auf alle zu einem Schlüssel gehörenden Werte zugreifen.</p>
+<p>Zuletzt benötigt eine Hadoop MapReduce Anwendung noch eine Klasse, welche die Anwendung selbst definiert in dem die Daten, sowie die Aufrufe der <code class="docutils literal notranslate"><span class="pre">map</span></code> und <code class="docutils literal notranslate"><span class="pre">reduce</span></code> Funktionen, definiert werden.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">WordCount</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="p">{</span>
+        <span class="c1">// Hadoop configuration</span>
+        <span class="n">Configuration</span> <span class="n">conf</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Configuration</span><span class="p">();</span>
+        
+        <span class="c1">// Create a Job with the name &quot;word count&quot;</span>
+        <span class="n">Job</span> <span class="n">job</span> <span class="o">=</span> <span class="n">Job</span><span class="p">.</span><span class="na">getInstance</span><span class="p">(</span><span class="n">conf</span><span class="p">,</span> <span class="s">&quot;word count&quot;</span><span class="p">);</span>
+        <span class="n">job</span><span class="p">.</span><span class="na">setJahrByClass</span><span class="p">(</span><span class="n">WordCount</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+        
+        <span class="c1">// set mapper, reducer, and output types</span>
+        <span class="n">job</span><span class="p">.</span><span class="na">setMapperClass</span><span class="p">(</span><span class="n">TokenizerMapper</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+        <span class="n">job</span><span class="p">.</span><span class="na">setReduczer</span><span class="p">(</span><span class="n">IntSumReducer</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+        <span class="n">job</span><span class="p">.</span><span class="na">setOutputKeyClass</span><span class="p">(</span><span class="n">Text</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+        <span class="n">job</span><span class="p">.</span><span class="na">setOutputValueClass</span><span class="p">(</span><span class="n">IntWritable</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+        
+        <span class="c1">// specify input and output files</span>
+        <span class="n">FileInputFormat</span><span class="p">.</span><span class="na">addInputPath</span><span class="p">(</span><span class="n">job</span><span class="p">,</span> <span class="k">new</span> <span class="n">Path</span><span class="p">(</span><span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">));</span>
+        <span class="n">FileOutputFormat</span><span class="p">.</span><span class="na">setOutputPath</span><span class="p">(</span><span class="n">job</span><span class="p">,</span> <span class="k">new</span> <span class="n">Path</span><span class="p">(</span><span class="n">args</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">));</span>
+        
+        <span class="c1">// run job and wait for completion</span>
+        <span class="n">job</span><span class="p">.</span><span class="na">waitForCompletion</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Es handelt sich hierbei um eine normale Java Anwendung mit einer <code class="docutils literal notranslate"><span class="pre">main</span></code> Methode und der Quelltext ist großteils selbsterklärend. Zuerst wird die Hadoop Anwendung konfiguriert. Das <code class="docutils literal notranslate"><span class="pre">conf</span></code> Objekt beinhaltet unter anderem den Kontext und die MapReduce Aufgaben. Wir benutzen den Kontext um den MapReduce Job zu erstellen. Dann konfigurieren wir den Job. Hierzu definieren wir die Klassen, die die <code class="docutils literal notranslate"><span class="pre">map</span></code> und <code class="docutils literal notranslate"><span class="pre">reduce</span></code> Funktionen bereitstellen, sowie die Typen der Ausgabe. Anschließend definieren wir von wo die Daten gelesen werden und wohin die Ergebnisse geschrieben werden. In der letzten Zeile wird der Job gestartet und die Anwendung wartet auf die Beendigung des Jobs, also den Zeitpunkt wo die <code class="docutils literal notranslate"><span class="pre">map</span></code> und die <code class="docutils literal notranslate"><span class="pre">reduce</span></code> Funktion auf alle Daten angewendet wurden und die Ergebnisse in das Dateisystem geschrieben wurden.</p>
+<p>Diese Anwendung können wir jetzt mit Hilfe von YARN ausführen. Im folgenden erklären wir die durchgeführten Schritte, die auch in <a class="reference internal" href="#fig-wc-1"><span class="std std-numref">Fig. 12.11</span></a> bis <a class="reference internal" href="#fig-wc-6"><span class="std std-numref">Fig. 12.16</span></a> dargestellt sind.</p>
+<ol>
+<li><p>Der Benutzer erstellt ein jar-Archive der MapReduce Anwendung und schickt dieses an den Resource Manager.</p></li>
+<li><p>Der Resource Manager startet den <code class="docutils literal notranslate"><span class="pre">MRAppMaster</span></code> als Application Master für die Anwendung um die Ausführung von <code class="docutils literal notranslate"><span class="pre">WordCount.jar</span></code> zu orchestrieren.</p>
+<div class="figure align-default" id="fig-wc-1">
+<a class="reference internal image-reference" href="../_images/wordcount_1_german.png"><img alt="../_images/wordcount_1_german.png" src="../_images/wordcount_1_german.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 12.11 </span><span class="caption-text">Wörter zählen mit Hadoop: Starten der Anwendung.</span><a class="headerlink" href="#fig-wc-1" title="Permalink to this image">¶</a></p>
+</div>
+</li>
+<li><p>Der <code class="docutils literal notranslate"><span class="pre">MRAppMaster</span></code> wertet die Konfiguration der Hadoop Anwendung in <code class="docutils literal notranslate"><span class="pre">WordCount.jar</span></code> aus und findet einen Job mit einer <code class="docutils literal notranslate"><span class="pre">map</span></code> und einer <code class="docutils literal notranslate"><span class="pre">reduce</span></code> Funktion. Der <code class="docutils literal notranslate"><span class="pre">MRAppMaster</span></code> beantragt die Ressourcen für die <code class="docutils literal notranslate"><span class="pre">map</span></code> Funktion vom Resource Manager.</p></li>
+<li><p>Der Resource Manager stellt die Ressourcen für die Ausführung von <code class="docutils literal notranslate"><span class="pre">map</span></code> bereit. Hierzu werden zwei Container auf den DataNodes, wo die Daten gespeichert sind, allokiert. Hierdurch müssen die Daten nicht über das Netzwerk übertragen werden.</p></li>
+<li><p>Der Resource Manager sendet die Informationen über die Container an den <code class="docutils literal notranslate"><span class="pre">MRAppMaster</span></code>.</p></li>
+<li><p>Der <code class="docutils literal notranslate"><span class="pre">MRAppMaster</span></code> führt die <code class="docutils literal notranslate"><span class="pre">map</span></code> Funktion in den Containern aus. Die Daten werden lokal aus dem HDFS gelesen.</p></li>
+<li><p>Die <code class="docutils literal notranslate"><span class="pre">map</span></code> Funktion wurde ausgeführt und die Zwischenergebnisse werden lokal im HDFS abgelegt.</p>
+<div class="figure align-default" id="fig-wc-2">
+<a class="reference internal image-reference" href="../_images/wordcount_2_german.png"><img alt="../_images/wordcount_2_german.png" src="../_images/wordcount_2_german.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 12.12 </span><span class="caption-text">Wörter zählen mit Hadoop: Ausführen von <code class="docutils literal notranslate"><span class="pre">map</span></code>.</span><a class="headerlink" href="#fig-wc-2" title="Permalink to this image">¶</a></p>
+</div>
+</li>
+<li><p>Der <code class="docutils literal notranslate"><span class="pre">MRAppMaster</span></code>  informiert den Resource Manager, dass die Container für <code class="docutils literal notranslate"><span class="pre">map</span></code> nicht mehr benötigt werden.</p></li>
+<li><p>Der Resource Manager zerstört die für <code class="docutils literal notranslate"><span class="pre">map</span></code> allokierten Container und gibt die Ressourcen wieder frei.</p>
+<div class="figure align-default" id="fig-wc-3">
+<a class="reference internal image-reference" href="../_images/wordcount_3_german.png"><img alt="../_images/wordcount_3_german.png" src="../_images/wordcount_3_german.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 12.13 </span><span class="caption-text">Wörter zählen mit Hadoop: Freigabe der <code class="docutils literal notranslate"><span class="pre">map</span></code> Ressourcen.</span><a class="headerlink" href="#fig-wc-3" title="Permalink to this image">¶</a></p>
+</div>
+</li>
+<li><p>Der <code class="docutils literal notranslate"><span class="pre">MRAppMaster</span></code> beantragt die Ressourcen für die <code class="docutils literal notranslate"><span class="pre">reduce</span></code> Funktion. Hierfür wird nur ein Container benötigt, da die Ergebnisse aggregiert werden sollen.</p></li>
+<li><p>Der Resource Manager allokiert die Ressourcen für einen Container.</p></li>
+<li><p>Der Resource Manager sendet die Informationen über den Container an den <code class="docutils literal notranslate"><span class="pre">MRAppMaster</span></code>.</p></li>
+<li><p>Der <code class="docutils literal notranslate"><span class="pre">MRAppMaster</span></code> führt die <code class="docutils literal notranslate"><span class="pre">reduce</span></code> Funktion in dem Container aus.</p></li>
+<li><p>Der <code class="docutils literal notranslate"><span class="pre">MRAppMaster</span></code> sorgt für die Ausführung von <code class="docutils literal notranslate"><span class="pre">shuffle</span></code> bei den NodeManagern um die Zwischenergebnisse zu gruppieren und an die <code class="docutils literal notranslate"><span class="pre">reduce</span></code> Funktion weiterzuleiten.</p></li>
+<li><p>Die <code class="docutils literal notranslate"><span class="pre">reduce</span></code> Funktion schreibt die Ergebnisse ins HDFS.</p></li>
+</ol>
+<div class="figure align-default" id="fig-wc-4">
+<a class="reference internal image-reference" href="../_images/wordcount_4_german.png"><img alt="../_images/wordcount_4_german.png" src="../_images/wordcount_4_german.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 12.14 </span><span class="caption-text">Wörter zählen mit Hadoop: Ausführen von <code class="docutils literal notranslate"><span class="pre">reduce</span></code>.</span><a class="headerlink" href="#fig-wc-4" title="Permalink to this image">¶</a></p>
+</div>
+<ol class="simple">
+<li><p>Der <code class="docutils literal notranslate"><span class="pre">MRAppMaster</span></code> teilt dem Resource Manager mit das die Ausführung aller Aufgaben beendet ist.</p></li>
+</ol>
+<div class="figure align-default" id="fig-wc-5">
+<a class="reference internal image-reference" href="../_images/wordcount_5_german.png"><img alt="../_images/wordcount_5_german.png" src="../_images/wordcount_5_german.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 12.15 </span><span class="caption-text">Wörter zählen mit Hadoop: Beenden der Anwendung.</span><a class="headerlink" href="#fig-wc-5" title="Permalink to this image">¶</a></p>
+</div>
+<ol class="simple">
+<li><p>Der Resource Manager gibt die noch allokierten Ressourcen frei.</p></li>
+</ol>
+<div class="figure align-default" id="fig-wc-6">
+<a class="reference internal image-reference" href="../_images/wordcount_6_german.png"><img alt="../_images/wordcount_6_german.png" src="../_images/wordcount_6_german.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 12.16 </span><span class="caption-text">Wörter zählen mit Hadoop: Beenden des Application Masters.</span><a class="headerlink" href="#fig-wc-6" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="streaming-mode">
+<h3><span class="section-number">12.3.4. </span>Streaming Mode<a class="headerlink" href="#streaming-mode" title="Permalink to this headline">¶</a></h3>
+<p>Als Teil von Hadoop gibt es auch eine Java Anwendung zur Ausführung von Hadoop im <em>Streaming Mode</em>. Beim Streaming Mode wird die Standardeingabe und die Standardausgabe benutzt, ähnlich wie bei Linux Pipes. Die Daten werden vom HDFS gelesen und an eine beliebige, vom Benutzer definierte, Anwendung über den Standardinput weitergeleitet. Die Ergebnisse der Anwendung werden auf die Standardausgabe geschrieben. Hier ist ein Beispiel für eine Python Anwendung, die die <code class="docutils literal notranslate"><span class="pre">map</span></code> Funktion für das Wörter zählen im Streaming mode definiert.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="sd">&quot;&quot;&quot;mapper.py&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="c1"># read from standard input</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="p">:</span>
+    <span class="c1"># split line into words</span>
+    <span class="n">words</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+    <span class="c1"># create output pairs</span>
+    <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+        <span class="c1"># print output pairs to standard output</span>
+        <span class="c1"># key and value are separated by tab (standard for Hadoop)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="se">\t</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Auf ähnliche Art und Weise können wir auch eine <code class="docutils literal notranslate"><span class="pre">reduce</span></code> Funktion definieren.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="sd">&quot;&quot;&quot;reducer.py&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">operator</span> <span class="kn">import</span> <span class="n">itemgetter</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="c1"># init current word and counter as not existing</span>
+<span class="n">current_word</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">current_count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">word</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="c1"># read from standard input</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="p">:</span>
+    <span class="c1"># read output from mapper.py</span>
+    <span class="n">word</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+    
+    <span class="c1"># Hadoop shuffle sorts by key</span>
+    <span class="c1"># -&gt; all values with same key are next to each other</span>
+    <span class="k">if</span> <span class="n">current_word</span><span class="o">==</span><span class="n">word</span><span class="p">:</span>
+        <span class="n">current_count</span> <span class="o">+=</span> <span class="n">count</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">current_word</span><span class="p">:</span>
+            <span class="c1"># write result to standard output</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="se">\t</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">current_word</span><span class="p">,</span> <span class="n">current_count</span><span class="p">))</span>
+        <span class="c1"># reset counter and update current word</span>
+        <span class="n">current_count</span> <span class="o">=</span> <span class="n">count</span>
+        <span class="n">word</span> <span class="o">=</span> <span class="n">word</span>
+<span class="c1"># output for last word</span>
+<span class="k">if</span> <span class="n">current_word</span><span class="o">==</span><span class="n">word</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="se">\t</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">current_word</span><span class="p">,</span> <span class="n">current_count</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Zur Ausführung des Streaming Modes wird die <code class="docutils literal notranslate"><span class="pre">hadoop-streaming.jar</span></code> Anwendung, die Bestandteil von Hadoop ist, verwendet. Mit dem folgenden Befehl könnten wir mit unseren Pythonanwendungen die Wörter zählen.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hadoop</span> <span class="n">jar</span> <span class="n">hadoop</span><span class="o">-</span><span class="n">streaming</span><span class="o">.</span><span class="n">jar</span> \
+  <span class="o">-</span> <span class="nb">input</span> <span class="n">myInputDirs</span> \
+  <span class="o">-</span> <span class="n">output</span> <span class="n">my</span> <span class="n">OutputDir</span> \
+  <span class="o">-</span> <span class="n">mapper</span> <span class="n">mapper</span><span class="o">.</span><span class="n">py</span> \
+  <span class="o">-</span> <span class="n">reducer</span> <span class="n">reducer</span><span class="o">.</span><span class="n">py</span> \
+  <span class="o">-</span> <span class="n">file</span> <span class="n">mapper</span><span class="o">.</span><span class="n">py</span> \
+  <span class="o">-</span> <span class="n">file</span> <span class="n">reducer</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>Bei <code class="docutils literal notranslate"><span class="pre">hadoop-streaming.jar</span></code> handelt es sich um eine ganz normale MapReduce Anwendung für Hadoop die mit Java wie oben beschrieben definiert ist. Die <code class="docutils literal notranslate"><span class="pre">map</span></code> Funktion dieser Anwendung macht aber nichts anderes die Eingabepaare auf die Standardeingabe zu schreiben, wo sie dann von <code class="docutils literal notranslate"><span class="pre">mapper.py</span></code> gelesen werden. Außerdem liest die <code class="docutils literal notranslate"><span class="pre">map</span></code> Funktion von der Standardeingabe und schreibt die gelesenen Werte in den Kontext. Analog ist auch die <code class="docutils literal notranslate"><span class="pre">reduce</span></code> Funktion bei der <code class="docutils literal notranslate"><span class="pre">hadoop-streaming.jar</span></code> Anwendung definiert. Die <code class="docutils literal notranslate"><span class="pre">input</span></code> und <code class="docutils literal notranslate"><span class="pre">output</span></code> Parameter geben die Speicherorte für die Daten im HDFS an. Die <code class="docutils literal notranslate"><span class="pre">file</span></code> Parameter werden benötigt, um die Pythonanwendungen auf die NodeManager zu kopieren.</p>
+</div>
+<div class="section" id="weitere-komponenten-von-hadoop">
+<h3><span class="section-number">12.3.5. </span>Weitere Komponenten von Hadoop<a class="headerlink" href="#weitere-komponenten-von-hadoop" title="Permalink to this headline">¶</a></h3>
+<p>Neben den bisher beschrieben Kernkomponenten hat Hadoop noch einige weitere wichtige Komponenten. Auch wenn wir diese nicht im Detail diskutieren, wollen hier noch die wichtigsten beiden kurz ansprechen.</p>
+<p>Die <code class="docutils literal notranslate"><span class="pre">combine</span></code> Funktion ist ähnlich zur <code class="docutils literal notranslate"><span class="pre">reduce</span></code> Funktion, läuft jedoch lokal auf den DataNodes bevor die Daten durch <code class="docutils literal notranslate"><span class="pre">shuffle</span></code>zu anderen Nodes für das <code class="docutils literal notranslate"><span class="pre">reduce</span></code> übertragen werden. In vielen Anwendungsfällen ist <code class="docutils literal notranslate"><span class="pre">combine</span></code> identisch zu <code class="docutils literal notranslate"><span class="pre">reduce</span></code>. Beim Wörterzählen können wir zum Beispiel <code class="docutils literal notranslate"><span class="pre">reduce</span></code> problemlos mehrfach in Folge ausführen, da wir einfach nur Werte aufsummieren. Ohne <code class="docutils literal notranslate"><span class="pre">combine</span></code> werden aktuell nur einsen summiert. Mit einer <code class="docutils literal notranslate"><span class="pre">combine</span></code> Funktion würde bereits lokal Worthäufigkeiten berechnet, so dass <code class="docutils literal notranslate"><span class="pre">shuffle</span></code> für jedes lokal vorkommende Wort nur noch ein Key-Value Paar mit dem Häufigkeit dieses Worts an <code class="docutils literal notranslate"><span class="pre">reduce</span></code> übertragen muss. Hierdurch kann <code class="docutils literal notranslate"><span class="pre">combine</span></code> die Daten die für <code class="docutils literal notranslate"><span class="pre">reduce</span></code> übertragen werden müssen erheblich reduzieren. Beim unserem Beispiel müsste man zum Beispiel nur ein Paar <code class="docutils literal notranslate"><span class="pre">&lt;bond,</span> <span class="pre">2&gt;</span></code> statt zwei Paaren <code class="docutils literal notranslate"><span class="pre">&lt;bond,</span> <span class="pre">1&gt;</span></code> übertragen. Je der Anteil der Daten, der bereits lokal aggregiert werden kann, desto störker sind die Auswirkungen einer <code class="docutils literal notranslate"><span class="pre">combine</span></code> Funktion. Damit man wie eben beschrieben Funktionen beliebig mehrfach ausführen kann, müssen diese <em>Idempotent</em> sein.</p>
+<p>Der <em>MapReduce Job History Server</em>  bietet Benutzern die Möglichkeit sich über den Status von Anwendungen zu informieren. Hierzu stellt der Server unter anderem Logdateien der Anwendungsauführung, die Start- und Endzeitpunkte, sowie den Zustand der Anwendung bereit, zum Beispiel ob eine Anwendung auf die Ausführung wartet (<em>pending</em>), aktuell ausgeführt wird (<em>running</em>), bereits beendet ist (<em>finished</em>) oder ob die Ausführung fehlgeschlagen ist (<em>failing</em>).</p>
+</div>
+<div class="section" id="grenzen-von-hadoop">
+<h3><span class="section-number">12.3.6. </span>Grenzen von Hadoop<a class="headerlink" href="#grenzen-von-hadoop" title="Permalink to this headline">¶</a></h3>
+<p>Auch wenn insbesondere das HDFS und YARN von Hadoop immernoch häufig zur Entwicklung von neuen Anwendungen verwendet werden, ist die MapReduce Implementierung von Hadoop etwas in die Jahre gekommen und hat zwei große Probleme. Das erste Problem ist das viele Algorithmen nicht nur aus einer <code class="docutils literal notranslate"><span class="pre">map</span></code> und einer <code class="docutils literal notranslate"><span class="pre">reduce</span></code> Funktion bestehen, sondern viele solche Operationen benötigen, um das gewünschte Ergebnis zu berechnen. Bei Hadoop muss man die Abhängigkeiten hierbei als Entwickler durch die Erstellung und manuelle Verknüpfung von <code class="docutils literal notranslate"><span class="pre">Job</span></code> Objekten definieren. Für mehrere <code class="docutils literal notranslate"><span class="pre">map</span></code> und <code class="docutils literal notranslate"><span class="pre">reduce</span></code> Jobs braucht man also viele <code class="docutils literal notranslate"><span class="pre">Job</span></code> Objekte und man muss für jedes Objekt festlegen welche Jobs vorher beendet sein müssen und wann auf die Beendigung eines Jobs gewartet werden muss, und an welche Jobs Ausgaben weitergeleitet werden müssen. Dies ist aufwendig, fehleranfällig, und führt häufig zu eine nicht optimalen Modellierung der Abhängigkeiten.</p>
+<p>Das zweite große Problem ist, dass alle Zwischenergebnisse im HDFS gespeichert werden. Das ist kein Problem wenn die Daten nur ein einziges mal gelesen und verarbeitet werden müssen. Je mehr Verarbeitungsschritte es für die Daten gibt, desto höher wird der Mehraufwand durch das wiederholte schreiben in das Dateisystem. Es wäre besser wenn die Daten lokal im Arbeitsspeicher vorgehalten werden könnten und so einfacher von folgenden Jobs nachgenutzt werden könnten. In der Konsequenz werden insbesondere iterative Algorithmen von Hadoop nicht sehr effizient ausgeführt.</p>
+</div>
+</div>
+<div class="section" id="apache-spark">
+<h2><span class="section-number">12.4. </span>Apache Spark<a class="headerlink" href="#apache-spark" title="Permalink to this headline">¶</a></h2>
+<p>Apache Spark ist eine Big Data Technologie, die mit dem Ziel die oben beschriebenen Grenzen von Hadoop zu überwinden und <em>In-Memory</em> Analysen zu ermöglichen sowie die Definition von komplexen Algorithmen zu vereinfachen.</p>
+<div class="section" id="architektur">
+<h3><span class="section-number">12.4.1. </span>Architektur<a class="headerlink" href="#architektur" title="Permalink to this headline">¶</a></h3>
+<p>Im Gegensatz zu Hadoop liefert Spark einen mächtigen Softwarestack zu Datenverarbeitung. Hier stellt Hadoop nur grundlegende Funktionen bereit, mit denen die Benutzer selbst Funktionilität definieren können. Die Kernkomponenten von Spark zur Verarbeitung von Big Data sind in <a class="reference internal" href="#fig-spark"><span class="std std-numref">Fig. 12.17</span></a> abgebildet. Auf der untersten Ebene stellt Apache Spark die benötigten Funktionen zur Datenverarbeitung bereit. Darauf aufbauend gibt es vier Bibliotheken, um die Entwicklung von Anwendungen zu Unterstützen.</p>
+<div class="figure align-default" id="fig-spark">
+<a class="reference internal image-reference" href="../_images/spark_architecture.png"><img alt="../_images/spark_architecture.png" src="../_images/spark_architecture.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 12.17 </span><span class="caption-text">Architektur von Apache Spark.</span><a class="headerlink" href="#fig-spark" title="Permalink to this image">¶</a></p>
+</div>
+<p><em>Spark SQL</em> unterstützt an SQL angelehnte Anfragen an die Daten die für die Analyse genutzt werden sollen. Da SQL weit verbreitet ist, hilft Spark SQL beim Einstieg in die Spark Entwicklung erheblich, da die Daten auf bereits bekannte Art und Weise geladen werden können. <em>Spark Streaming</em> unterstützt das Arbeiten mit <em>Streaming Daten</em>. Hierdurch kann Spark mit kontinuierlichen Datenströmen umgehen und diese Verarbeiten. Dies ist mit Hadoop nicht möglich. Mit <em>MLlib</em> und <em>GraphX</em> stellt Spark auch zwei Bibliotheken mit vordefinierten Algorithmen zur Datenverarbeitung zur Verfügung. MLlib beinhaltet viele Algorithmen, die wir in den letzten Kapiteln kennen gelernt haben. GraphX beinhaltet die benötigten Hilfsmittel zur Analyse von Graphen, um zum Beispiel soziale Netzwerke zu analysieren.</p>
+</div>
+<div class="section" id="datenstrukturen">
+<h3><span class="section-number">12.4.2. </span>Datenstrukturen<a class="headerlink" href="#datenstrukturen" title="Permalink to this headline">¶</a></h3>
+<p>Die von Spark verwendeten Datenstrukturen sind für <em>In-Memory</em> Datenverarbeitung entwicklet wurden, was ein starker gegensatz zum dateisystembasierten Ansatz von Hadoop ist. Der Kern von Spark sind die <em>Resilient Distributed Datasets</em> (RDDs). Die Datenstruktur wird als Abstraktionsebene für alle Operationen auf den Daten verwendet, unabhängig vom eigentlichen Datentyp. Die RDDs organisieren die Daten in unveränderbaren Partitionen, so dass alle Elemente innerhalb einer RDD parallel verarbeitet werden können. Die RDDs sind also ähnlich zu den Key-Value Paaren die wir aus MapReduce kennen. Entsprechend ermöglicht Spark auch die Definition von <code class="docutils literal notranslate"><span class="pre">map</span></code> und <code class="docutils literal notranslate"><span class="pre">reduce</span></code> Funktionen auf den RDDs, sofern diese Key-Value Paare beinhalten. Man kann jedoch auch beliebige andere Datentypen in RDDs Speichern, es müssen also keine Key-Value Paare sein. Außerdem sind nicht nur <code class="docutils literal notranslate"><span class="pre">map</span></code> und <code class="docutils literal notranslate"><span class="pre">reduce</span></code> erlaubt, sondern beliebige UDFs. Bei Bedarf können die Inhalte von RDDs auch persistent gespeichert werden, zum Beispiel in einem Dateisystem oder einer Datenbank, zum Beispiel um Ergebnisse zu speichern.</p>
+<p>Seit Spark 2.0 gibt es auch Dataframes in Spark, die als weitere Abstraktionsschicht oberhalb der RDDs liegen. Diese Dataframes sind ähnlich zu den Dataframes die es zum Beispiel in Python mit <code class="docutils literal notranslate"><span class="pre">pandas</span></code> oder in der Programmiersprache R gibt. Die Dateframes sind direkt in Spark SQL integriert. Da Dataframes ein sehr mächtiger und intuitiver Datentyp sind, ist das arbeiten mit Apache Spark daher oft für Benutzer einfacher, als bei anderen Big Data Technologien.</p>
+</div>
+<div class="section" id="infrastruktur">
+<h3><span class="section-number">12.4.3. </span>Infrastruktur<a class="headerlink" href="#infrastruktur" title="Permalink to this headline">¶</a></h3>
+<p>Auch wenn es möglich ist einen Rechencluster direkt mit Apache Spark zu betreiben, ist dies nicht der Hauptanwendungsfall von Spark. Stattdessen werden die RDDs als Kompabilitätssschicht zu anderen Technologien genutzt. Spark kann zum Beispiel mit YARN und dem HDFS benutzt werden, so dass die Daten innerhalb eines Hadoop Cluster mit Spark verarbeitet werden können. Es werdena ber auch viele weitere Technologien unterstützt, zum Beispiel Amazons EC2 Clouds und Kubernetes für Berechnungen und Datenbanken wie Cassandra, HBase und MongoDB. Daher sind Analysen die auch Apache Spark aufbauen nicht an eine bestimmte Infrastruktur gebunden, sondern können relativ flexibel in verschiedene Infrastrukturen portiert werden.</p>
+</div>
+<div class="section" id="worter-zahlen-mit-spark">
+<h3><span class="section-number">12.4.4. </span>Wörter zählen mit Spark<a class="headerlink" href="#worter-zahlen-mit-spark" title="Permalink to this headline">¶</a></h3>
+<p>Auch wenn Spark selbst in Scala entwickelt wird, können Spark Anwendungen neben Scala auch in Java, Python (PySpark) und R (SparkR) entwickelt werden. Benutzer müssen die Abhängigkeiten zwischen Datenverarbeitungsschritten nicht manuell definierne. Stattdessen geht Spark davon aus, dass die Reihenfolge in der die Aufgaben definiert werden, auch die Reihenfolge ist, in der die Aufgaben ausgeführt werden. Aufgaben, die nicht die selben Daten verwenden, werden hierbei parallel ausgeführt. Wenn eine Aufgabe die Ergebnisse einen vorherigen Schritts benötigt, erkennt Spark dies automatisch basierend auf dem Datenfluss und überträgt die Daten mit Hilfe einer <code class="docutils literal notranslate"><span class="pre">shuffle</span></code> Funktion. Daher benötigt man bei Spark weniger Boilerplate Quelltext zum definieren von Formaten als in Hadoop. Mit PySpark sieht das Wörter zählen zum Beispiel wie folgt aus.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># sc is the SparkContext, which is similar to the Configuration of Hadoop</span>
+<span class="n">text_file</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">textFile</span><span class="p">(</span><span class="s2">&quot;hdfs://data.txt&quot;</span><span class="p">)</span>
+<span class="c1"># flatMap can input map the input to multiple outputs</span>
+<span class="c1"># map maps each input to exactly one output</span>
+<span class="c1"># reduce by key is the same as reduce in Hadoop</span>
+<span class="n">counts</span> <span class="o">=</span> <span class="n">text_file</span><span class="o">.</span><span class="n">flatMap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">))</span> \
+             <span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">word</span><span class="p">:</span> <span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> \
+             <span class="o">.</span><span class="n">reduceByKey</span><span class="p">(</span><span class="k">lambda</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+<span class="n">counts</span><span class="o">.</span><span class="n">saveAsTextFile</span><span class="p">(</span><span class="s2">&quot;hdfs://wc.txt&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Der Quelltext ist deutlich kürzer als bei Hadoop und gleichzeit einfacher zu lesen. Außerdem sieht man, dass es bei Spark verschiedene Varianten von <code class="docutils literal notranslate"><span class="pre">map</span></code> und <code class="docutils literal notranslate"><span class="pre">reduce</span></code> gibt. Bei einer <code class="docutils literal notranslate"><span class="pre">flatMap</span></code> wird zum Beispiel für jede Ausgabe genau ein Ausgabepaar erzeugt, bei einer <code class="docutils literal notranslate"><span class="pre">map</span></code> werden, wie oben, beliebig viele Paare erzeugt.</p>
+<blockquote>
+<div><p><strong>Bemerkung:</strong></p>
+<p>Bei <code class="docutils literal notranslate"><span class="pre">lambda</span></code> Funktionen handelt es sich in Python um anonyme Funktionen die in einer Zeile definiert werden. Der Ausdruck <code class="docutils literal notranslate"><span class="pre">lambda</span> <span class="pre">a,</span> <span class="pre">b:</span> <span class="pre">a+b</span></code> ist zum Beispiel identisch zur definition einer Funktion</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>def fun(a, b):
+return a+b```</p>
+</div>
+</div>
+<div class="section" id="jenseits-von-hadoop-und-spark">
+<h2><span class="section-number">12.5. </span>Jenseits von Hadoop und Spark<a class="headerlink" href="#jenseits-von-hadoop-und-spark" title="Permalink to this headline">¶</a></h2>
+<p>Mit Hadoop und Spark haben wir zwei wichtige Big Data Technologien beleuchtet. Aufgrund der Bedeutung von Big Data, sind noch sehr viele weitere Technologien entstanden, insbesondere Datenbanken die für Big Data optimiert wurden, mächtige Streamprocessing Bibliotheken, und Werkzeuge zur Verwaltung von Big Data Rechenclustern. Es gibt alleine ein ganzen Ökosystem innerhalb der Apache Foundation rund um Hadoop, Spark, und weitere Technologien die sich alle zu einem gewissen grad ergänzen und zu einander kompatibel sind. Hinzu kommt ein stetig wachsendes Angebot an vorgefertigten Lösungen von Clouddienstleistern. Diese Technologielandschaft entwickelt sich immernoch schnell weiter, auch wenn eine Kerntechnologien wie Apache Spark, aber auch Apache Kafka für die Streamverarbeitung oder Apache Cassandra als Big Data Datenbank kaum noch wegzudenken sind.</p>
+<p>Ein positiver Aspekt der Big Data Technologielandschaft ist der starke Fokus auf Open Source. Viele State-of-the-Art Werkzeuge werden als Open Source entwickelt, so dass für die Benutzung der Software in der Regel keine Lizenzkosten entstehen. Dennoch ist die Analyse von Big Data in der Regel relativ teuer, da Administration und Wartung von Infrastrukturen kostenintensiv ist, selbst wenn diese bei einem Clouddienstleister gehostet werden.</p>
+<hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p><a class="reference external" href="https://doi.org/10.1145/1327452.1327492">https://doi.org/10.1145/1327452.1327492</a></p>
+</dd>
+<dt class="label" id="hadoop"><span class="brackets"><a class="fn-backref" href="#id3">2</a></span></dt>
+<dd><p><a class="reference external" href="https://hadoop.apache.org/">https://hadoop.apache.org/</a></p>
+</dd>
+<dt class="label" id="mr-sample"><span class="brackets"><a class="fn-backref" href="#id4">3</a></span></dt>
+<dd><p><a class="reference external" href="https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html#Example:_WordCount_v1.0">https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html#Example:_WordCount_v1.0</a></p>
+</dd>
+</dl>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapters"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="kapitel_11.html" title="previous page"><span class="section-number">11. </span>Statistik</a>
+    <a class='right-next' id="next-link" href="../exercises/uebung_01.html" title="next page">Übung 1</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Steffen Herbold<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
