@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>8. Regression &#8212; Einführung in Data Science</title>
     
-  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -19,14 +20,10 @@
 
     
       
-  <link rel="stylesheet"
-    href="../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -34,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -44,7 +41,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -58,14 +55,14 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="9. Zeitreihenanalyse" href="kapitel_09.html" />
     <link rel="prev" title="7. Klassifikation" href="kapitel_07.html" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-
-
-
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -74,32 +71,32 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../index.html">
-  
-  <img src="../_static/logo.png" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">Einführung in Data Science</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Einführung in Data Science</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../vorwort.html">
    Vorwort
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Kapitel
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="kapitel_01.html">
    1. Big Data und Data Science
@@ -161,12 +158,12 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Übungen
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../exercises/uebung_01.html">
    Übung 1
@@ -174,6 +171,7 @@
  </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -236,12 +234,12 @@
     </div>
 </div>
 
-
             <!-- Full screen (wrap in <a> to have style consistency -->
-            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                    title="Fullscreen mode"><i
-                        class="fas fa-expand"></i></button></a>
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
 
@@ -267,12 +265,11 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i>
-            Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#uberblick">
    8.1. Überblick
@@ -334,8 +331,7 @@
  </li>
 </ul>
 
-        </nav>
-        
+            </nav>
         </div>
     </div>
 </div>
@@ -353,7 +349,7 @@
 <a class="reference internal image-reference" href="../_images/regression_example_german.png"><img alt="../_images/regression_example_german.png" src="../_images/regression_example_german.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 8.1 </span><span class="caption-text">Beziehung von Spritverbrauch und Höchstgeschwindigkeit</span><a class="headerlink" href="#fig-regression-example" title="Permalink to this image">¶</a></p>
 </div>
-<p>Etwas allgemeiner kann man Regression wie in <a class="reference internal" href="#fig-regression-concept"><span class="std std-numref">Fig. 8.2</span></a> darstellen. Wir haben Instanzen, deren Merkmale wir kennen. Bei der Regression spricht man statt Merkmalen auch von <em>unabhängigen Variablen</em>. Durch die Regression probiert man die Beziehung von den Merkmalen zu einer <em>abhängigen Variable</em> herzustellen, also den Wert an dem wir interessiert sind. In <a class="reference internal" href="#fig-regression-concept"><span class="std std-numref">Fig. 8.2</span></a> haben wir ein Merkmal <span class="math notranslate nohighlight">\(x\)</span> und eine abhängige Variable <span class="math notranslate nohighlight">\(y\)</span>. Durch die Regression wird beschrieben, wie sich <span class="math notranslate nohighlight">\(y\)</span> verändert, wenn sich <span class="math notranslate nohighlight">\(x\)</span> verändert. Das Beispiel zeigt eine <em>Lineare Regression</em>, also die Regression von <span class="math notranslate nohighlight">\(y\)</span> durch eine lineare Abbildung, was in zwei Dimensionen einer Gerade entspricht.</p>
+<p>Etwas allgemeiner kann man Regression wie in <a class="reference internal" href="#fig-regression-concept"><span class="std std-numref">Fig. 8.2</span></a> darstellen. Wir haben Instanzen, deren Merkmale wir kennen. Bei der Regression spricht man statt Merkmalen auch von <em>unabhängigen Variablen</em>. Durch die Regression probiert man die Beziehung von den Merkmalen zu einer <em>abhängigen Variablen</em> herzustellen, also den Wert an dem wir interessiert sind. In <a class="reference internal" href="#fig-regression-concept"><span class="std std-numref">Fig. 8.2</span></a> haben wir ein Merkmal <span class="math notranslate nohighlight">\(x\)</span> und eine abhängige Variable <span class="math notranslate nohighlight">\(y\)</span>. Durch die Regression wird beschrieben, wie sich <span class="math notranslate nohighlight">\(y\)</span> verändert, wenn sich <span class="math notranslate nohighlight">\(x\)</span> verändert. Das Beispiel zeigt eine <em>Lineare Regression</em>, also die Regression von <span class="math notranslate nohighlight">\(y\)</span> durch eine lineare Abbildung, was in zwei Dimensionen einer Gerade entspricht.</p>
 <div class="figure align-default" id="fig-regression-concept">
 <a class="reference internal image-reference" href="../_images/regression_concept_german.png"><img alt="../_images/regression_concept_german.png" src="../_images/regression_concept_german.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 8.2 </span><span class="caption-text">Beziehung von Spritverbrauch und Höchstgeschwindigkeit</span><a class="headerlink" href="#fig-regression-concept" title="Permalink to this image">¶</a></p>
@@ -365,7 +361,7 @@
 </div>
 <div class="section" id="gute-von-regressionen">
 <h2><span class="section-number">8.2. </span>Güte von Regressionen<a class="headerlink" href="#gute-von-regressionen" title="Permalink to this headline">¶</a></h2>
-<p>Ähnlich wie bei der Klassifikation ist die Bewertung der Güte ein wichtiges Kriterim um eine gute Regressionsfunktion für eine abhängige Variable zu bestimmen. Wir diskutieren die Güte am Beispiel einer Linearen Regression von zwei Beispielen.</p>
+<p>Ähnlich wie bei der Klassifikation ist die Bewertung der Güte ein wichtiges Kriterium um eine gute Regressionsfunktion für eine abhängige Variable zu bestimmen. Wir diskutieren die Güte am Beispiel einer Linearen Regression von zwei Beispielen.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -431,11 +427,11 @@
 <p>Das erste Beispiel zeigt eine sehr gute Regression, wo die blaue Regressionsgerade sehr gut zu den Daten passt. Dies ist auch nicht verwunderlich, da wir die Daten mit Hilfe einer linearen Funktion generiert haben. Im zweiten Beispiel sieht man eine schlechte Regression, da die Regressionsgerade nicht gut zur eigentlichen Form der Daten passt. Auch dies ist nicht verwunderlich, da wir die Daten mit Hilfe der Exponentialfunktion generiert haben. Im Folgenden nennen wir das erste Beispiel einfach nur noch das “gute Ergebnis” und das zweite Beispiel das “schlechte Ergebnis”. Bei der Regression nennt man dies auch guten, bzw. schlechten <em>Fit</em>, um zu betonen ob sich die Regression an die Form der Daten angepasst hat.</p>
 <div class="section" id="visuelle-bewertung-der-gute">
 <h3><span class="section-number">8.2.1. </span>Visuelle Bewertung der Güte<a class="headerlink" href="#visuelle-bewertung-der-gute" title="Permalink to this headline">¶</a></h3>
-<p>In der obigen Abbildung zu unserem Beispiel konnten wir bereits die erste Methode zur Bewertung der Güte sehen: Man kann einfach die Daten als Scatterplot zusammen mit der Regression als Liniendiagram visualisieren. Hierdurch sieht man wie nah die Regression an den Daten liegt und ob sie ein gutes Ergebnis ist. Außerdem kann man auch systematische Fehler gut erkennen. Beim guten Ergebnis sehen wir, dass die Daten gleichmäßig um die blaue Gerade streuen, ohne das es eine sehr große Abweichung gibt. Man sieht also das die Regression zwar den Wert von <span class="math notranslate nohighlight">\(y\)</span> nicht perfekt vorhersagt, aber die Abweichung ist gering und es gibt kein Muster in der Abweichung. Dies ist bei unserem schlechten Ergebnis anders. Zu Beginn sind die meisten Instanzen oberhalb der blauen Geraden, zwischen 0,4 und 0,7 sind alle Instanzen unterhalb der Geraden, und am Ende sind die meisten Instanzen wieder oberhalb der Geraden. Ein derariges Muster ist ein klarar Hinweis darauf, dass die Regression keine gute Beschreibung der Daten ist. Diese systematischen Fehler kann man auch bennen. Wenn der großteil der Instanzen unterhalb der Regressionsgerade liegt, nennt man dies auch <em>Overprediction</em>, da die Regression einen zu hohen Wert vorhersagt. Wenn der großteil der Instanzen oberhalb der Regressionsgeraden liegt, spricht man hingegen von <em>Underprediction</em>.</p>
-<p>Ein weitere Art sich die Ergebnisse der Regression graphisch aufzubereiten ist die Betrachtung der <em>Residuen</em> (engl. <em>residuals</em>). Das Residuum einer Instanz <span class="math notranslate nohighlight">\(x \in \mathcal{F}\)</span> ist definiert als</p>
+<p>In der obigen Abbildung zu unserem Beispiel konnten wir bereits die erste Methode zur Bewertung der Güte sehen: Man kann einfach die Daten als Scatterplot zusammen mit der Regression als Liniendiagram visualisieren. Hierdurch sieht man wie nah die Regression an den Daten liegt und ob sie ein gutes Ergebnis ist. Außerdem kann man auch systematische Fehler gut erkennen. Beim guten Ergebnis sehen wir, dass die Daten gleichmäßig um die blaue Gerade streuen, ohne das es eine sehr große Abweichung gibt. Man sieht also das die Regression zwar den Wert von <span class="math notranslate nohighlight">\(y\)</span> nicht perfekt vorhersagt, aber die Abweichung ist gering und es gibt kein Muster in der Abweichung. Dies ist bei unserem schlechten Ergebnis anders. Zu Beginn sind die meisten Instanzen oberhalb der blauen Geraden, zwischen 0,4 und 0,7 sind alle Instanzen unterhalb der Geraden, und am Ende sind die meisten Instanzen wieder oberhalb der Geraden. Ein derartiges Muster ist ein klarer Hinweis darauf, dass die Regression keine gute Beschreibung der Daten ist. Diese systematischen Fehler kann man auch benennen. Wenn der großteil der Instanzen unterhalb der Regressionsgerade liegt, nennt man dies auch <em>Overprediction</em>, da die Regression einen zu hohen Wert vorhersagt. Wenn der Großteil der Instanzen oberhalb der Regressionsgeraden liegt, spricht man hingegen von <em>Underprediction</em>.</p>
+<p>Eine weitere Art sich die Ergebnisse der Regression graphisch aufzubereiten ist die Betrachtung der <em>Residuen</em> (engl. <em>residuals</em>). Das Residuum einer Instanz <span class="math notranslate nohighlight">\(x \in \mathcal{F}\)</span> ist definiert als</p>
 <div class="math notranslate nohighlight">
 \[e_x = f^*(x)-f(x) = y-f(x),\]</div>
-<p>also die Abweichung der vorhersage vom wahren Wert. Durch die Visualisierung der der Residuen können wir also den Fehler der Regression für verschiedene Werte von <span class="math notranslate nohighlight">\(x\)</span> darstellen.</p>
+<p>also die Abweichung der Vorhersage vom wahren Wert. Durch die Visualisierung der der Residuen können wir also den Fehler der Regression für verschiedene Werte von <span class="math notranslate nohighlight">\(x\)</span> darstellen.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
@@ -460,7 +456,7 @@
 <img alt="../_images/kapitel_08_3_0.png" src="../_images/kapitel_08_3_0.png" />
 </div>
 </div>
-<p>Die Residuen haben eine ähnliche Aussagekraft die direkte Darstellung der Regression und der Daten. Der Vorteil bei den Residuen ist jedoch, dass nur der Fehler dargestellt wird, so dass der Fokus klarer ist. Bei der Darstellung des guten Ergebnisses auf der linken Seite könnte man irrtümlicherweise vermuten, dass das Ergebnis schlecht ist, da die Punkte in der vollen Fläche der Darstellung streuen und nicht unbedingt nah an der blauen Geraden liegen, die einen Fehler von 0 markiert. Wenn man einen Blick auf die y-Achse wirft, erkennt man aber, dass das dass Ergebnis eigentlich sehr gut ist, da der Datenbereich einfach sehr klein ist. Auf der rechten Seite sieht man beim schlechten Ergebnis, dass der Datenbereich auf der y-Achse beinahe 20-mal so groß ist. Dies ist bereits der erste Indikator, dafür dass es ein schlechtes Ergebnis ist. Außerdem sieht man anhand der Residuen auch wieder gut das Muster aus Over- und Underprediction.</p>
+<p>Die Residuen haben eine ähnliche Aussagekraft die direkte Darstellung der Regression und der Daten. Der Vorteil bei den Residuen ist jedoch, dass nur der Fehler dargestellt wird, so dass der Fokus klarer ist. Bei der Darstellung des guten Ergebnisses auf der linken Seite könnte man irrtümlicherweise vermuten, dass das Ergebnis schlecht ist, da die Punkte in der vollen Fläche der Darstellung streuen und nicht unbedingt nah an der blauen Geraden liegen, die einen Fehler von 0 markiert. Wenn man einen Blick auf die y-Achse wirft, erkennt man aber, dass das Ergebnis eigentlich sehr gut ist, da der Datenbereich einfach sehr klein ist. Auf der rechten Seite sieht man beim schlechten Ergebnis, dass der Datenbereich auf der y-Achse beinahe 20-mal so groß ist. Dies ist bereits der erste Indikator, dafür dass es ein schlechtes Ergebnis ist. Außerdem sieht man anhand der Residuen auch wieder gut das Muster aus Over- und Underprediction.</p>
 <p>Unsere bisherigen Analysen funktionieren zwar sehr gut, aber nur wenn es nur ein Merkmal gibt. Sobald es viele Merkmale gibt, kann man weder die Residuen, noch die Daten mit der Regression gut darstellen. Wir können jedoch eine andere Art der Darstellung der Fehler wählen, die unabhängig von der Anzahl der Merkmale ist. Die Grundidee ist ähnlich zur Confusion Matrix, die wir aus der <a class="reference internal" href="kapitel_07.html"><span class="doc std std-doc">Kapitel 7</span></a> kennen: Wir vergleichen die wahren Werte der abhängigen Variablen mit den Vorhersagen.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -486,7 +482,7 @@
 <img alt="../_images/kapitel_08_5_0.png" src="../_images/kapitel_08_5_0.png" />
 </div>
 </div>
-<p>Im Idealfall entsprechen die Vorhersagen den wahren Werten. Dies ist in der Darstellung die blau markierte Diagonale. Je weiter die Instanzen von der Diagonalen entfernt sind, desto schlechter ist die Regression. Für ein gutes Ergebnis, sollten alle Instanzen relativ nah an der Diagonalen sein und es sollte kein Muster in der Streuung geben. Bei einem schlechten Ergebnis sind die Abweichungen größer und/oder es gibt Muster die auf systematische Fehler hindeuten. Beim schlechten Ergebnis beobachten wir beides. Zum seinen sehen die Werte kleiner als 0,35 nahezu zufällig aus und sind weit von der Diagonalen entfernt. Zum Anderen sehen wir wieder das gleiche Muster wie bisher auch.</p>
+<p>Im Idealfall entsprechen die Vorhersagen den wahren Werten. Dies ist in der Darstellung die blau markierte Diagonale. Je weiter die Instanzen von der Diagonalen entfernt sind, desto schlechter ist die Regression. Für ein gutes Ergebnis, sollten alle Instanzen relativ nah an der Diagonalen sein und es sollte kein Muster in der Streuung geben. Bei einem schlechten Ergebnis sind die Abweichungen größer und/oder es gibt Muster die auf systematische Fehler hindeuten. Beim schlechten Ergebnis beobachten wir beides. Zum einen sehen die Werte kleiner als 0,35 nahezu zufällig aus und sind weit von der Diagonalen entfernt. Zum anderen sehen wir wieder das gleiche Muster wie bisher auch.</p>
 </div>
 <div class="section" id="gutemasze">
 <h3><span class="section-number">8.2.2. </span>Gütemaße<a class="headerlink" href="#gutemasze" title="Permalink to this headline">¶</a></h3>
@@ -518,9 +514,9 @@
 </tr>
 </tbody>
 </table>
-<p>Die MAE misst die absolute Abweichung der Vorhersagen und erwarteten Werte. Die MSR ist ähnlich zu MAE, nutzt aber die quadratischen Distanzen. Da MSE die quadratischen Instanzen berücksichtigt, werden Ausreißer stärker bestraft als bei MAE. Sowohl MAE als auch MSE sind absolute Gütemaße und daher schwer zu interpretieren, da es keine festen Referenzpunkte gibt. Bei der Klassifikation waren die Gütemaße fast alle im Interval <span class="math notranslate nohighlight">\([0,1]\)</span> verteilt, so dass eindeutig klar war, was das beste und schlechsteste Ergebnis ist. Um MAE und MSE zu interpretieren braucht man detailiertes Wissen über die abhängige Variable, insbesondere über den Wertebereich und die praktische Relevanz von Abweichungen.</p>
-<p>In dieser Hinsicht ist <span class="math notranslate nohighlight">\(R^2\)</span> ähnlicher zu den Gütemaßen für die Klassifikation: Die Werte liegen im Intervall <span class="math notranslate nohighlight">\([0,1]\)</span>, wobei 1 der best mögliche Wert ist. Mit <span class="math notranslate nohighlight">\(R^2\)</span> kann man die Frage beantworten, ob eine Regression besser ist als einfach nur das arithmetische Mittel der Daten als Schätzung von die abhängige Variable zu nutzen ohne die Merkmale zu betrachten. Die Summe im Zähler entspricht der Summe der quadrierten Residuen. Der Nenner betrachtet sozusagen auch Residuen, nur dass das arithmetische Mittel als Regression genommen wird. Würde man Zähler und Nennen noch durch <span class="math notranslate nohighlight">\(n\)</span> Teilen, hätte man MSE als Zähler und die Varianz als Nenner. <span class="math notranslate nohighlight">\(R^2\)</span> ist also das Verhältnis des MSE des Models zur Varianz der abhängigen Variable. Je kleine der MSR im Verhältnis zur Varianz, desto besser. Hierdurch berücksichtigt <span class="math notranslate nohighlight">\(R^2\)</span> die Unsicherheit in den Daten.</p>
-<p>Eine schwäche von <span class="math notranslate nohighlight">\(R^2\)</span> ist, dass Regressionen mit mehr Mermalen eigentlich immer besser werden. Dies kann jedoch zu Overfitting führen. Adjusted <span class="math notranslate nohighlight">\(R^2\)</span> berücksichtigt daher die Anzahl der Merkmale. Wenn die Verbesserung von <span class="math notranslate nohighlight">\(R^2\)</span> durch eine Verbessung des MSE kleiner ist die Bestrafung durch mehr merkmale, wird der Wert von <span class="math notranslate nohighlight">\(R^2\)</span> kleiner.</p>
+<p>Die MAE misst die absolute Abweichung der Vorhersagen und erwarteten Werte. Die MSR ist ähnlich zu MAE, nutzt aber die quadratischen Distanzen. Da MSE die quadratischen Instanzen berücksichtigt, werden Ausreißer stärker bestraft als bei MAE. Sowohl MAE als auch MSE sind absolute Gütemaße und daher schwer zu interpretieren, da es keine festen Referenzpunkte gibt. Bei der Klassifikation waren die Gütemaße fast alle im Intervall <span class="math notranslate nohighlight">\([0,1]\)</span> verteilt, so dass eindeutig klar war, was das beste und schlechteste Ergebnis ist. Um MAE und MSE zu interpretieren braucht man detailliertes Wissen über die abhängige Variable, insbesondere über den Wertebereich und die praktische Relevanz von Abweichungen.</p>
+<p>In dieser Hinsicht ist <span class="math notranslate nohighlight">\(R^2\)</span> ähnlicher zu den Gütemaßen für die Klassifikation: Die Werte liegen im Intervall <span class="math notranslate nohighlight">\([0,1]\)</span>, wobei 1 der beste mögliche Wert ist. Mit <span class="math notranslate nohighlight">\(R^2\)</span> kann man die Frage beantworten, ob eine Regression besser ist als einfach nur das arithmetische Mittel der Daten als Schätzung von der abhängigen Variable zu nutzen ohne die Merkmale zu betrachten. Die Summe im Zähler entspricht der Summe der quadrierten Residuen. Der Nenner betrachtet sozusagen auch Residuen, nur dass das arithmetische Mittel als Regression genommen wird. Würde man Zähler und Nennen noch durch <span class="math notranslate nohighlight">\(n\)</span> Teilen, hätte man MSE als Zähler und die Varianz als Nenner. <span class="math notranslate nohighlight">\(R^2\)</span> ist also das Verhältnis des MSE des Models zur Varianz der abhängigen Variable. Je kleiner der MSR im Verhältnis zur Varianz, desto besser. Hierdurch berücksichtigt <span class="math notranslate nohighlight">\(R^2\)</span> die Unsicherheit in den Daten.</p>
+<p>Eine schwäche von <span class="math notranslate nohighlight">\(R^2\)</span> ist, dass Regressionen mit mehr Merkmalen eigentlich immer besser werden. Dies kann jedoch zu Overfitting führen. Adjusted <span class="math notranslate nohighlight">\(R^2\)</span> berücksichtigt daher die Anzahl der Merkmale. Wenn die Verbesserung von <span class="math notranslate nohighlight">\(R^2\)</span> durch eine Verbesserung des MSE kleiner ist die Bestrafung durch mehr Merkmale, wird der Wert von <span class="math notranslate nohighlight">\(R^2\)</span> kleiner.</p>
 <p>Betrachten wir jetzt die Werte unserer Gütemaße für unsere zwei Beispiele.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -559,8 +555,8 @@ Adjusted R2: 0.68
 </div>
 </div>
 </div>
-<p>Da wir zufällige Daten generiert haben, können wir die Werte von MAE und MSE nicht bewerten. Ohne den Wertebereich und die bedeutung der abhängigen Variable zu kennen hilft ein Wert von <span class="math notranslate nohighlight">\(MAE=0,08\)</span> nicht weiter, um zu verstehen wie gut eine Regression ist. Man erkennt ledigtlich, dass MAE und MSE beim guten Ergebnis niedriger sind als bem schlechten Ergebnis. Bitte beachten Sie, dass die Werte des MSE kleiner sind als bei MAE, da <span class="math notranslate nohighlight">\(x^2 &lt; x\)</span> für <span class="math notranslate nohighlight">\(x \in (0,1)\)</span>. Auch hier erkennt man wieder die Bedeutung des Wertebereichs für diese Gütemaße.</p>
-<p>Bei <span class="math notranslate nohighlight">\(R^2\)</span> sehen wir das der Wert vom guten Ergebnis viel größer ist, als beim schlechten Ergebnis. Das schlechte Ergebnis erklärt nur etwa 2/3 der Varianz, während das gute Ergebnis was 90% erklärt. Bei Adjusted <span class="math notranslate nohighlight">\(R^2\)</span> verhält es sich genauso, da es nur ein einzige Merkmal gibt.</p>
+<p>Da wir zufällige Daten generiert haben, können wir die Werte von MAE und MSE nicht bewerten. Ohne den Wertebereich und die Bedeutung der abhängigen Variable zu kennen hilft ein Wert von <span class="math notranslate nohighlight">\(MAE=0,08\)</span> nicht weiter, um zu verstehen wie gut eine Regression ist. Man erkennt lediglich, dass MAE und MSE beim guten Ergebnis niedriger sind als bem schlechten Ergebnis. Bitte beachten Sie, dass die Werte des MSE kleiner sind als bei MAE, da <span class="math notranslate nohighlight">\(x^2 &lt; x\)</span> für <span class="math notranslate nohighlight">\(x \in (0,1)\)</span>. Auch hier erkennt man wieder die Bedeutung des Wertebereichs für diese Gütemaße.</p>
+<p>Bei <span class="math notranslate nohighlight">\(R^2\)</span> sehen wir das der Wert vom guten Ergebnis viel größer ist, als beim schlechten Ergebnis. Das schlechte Ergebnis erklärt nur etwa 2/3 der Varianz, während das gute Ergebnis was 90% erklärt. Bei Adjusted <span class="math notranslate nohighlight">\(R^2\)</span> verhält es sich genauso, da es nur ein einziges Merkmal gibt.</p>
 </div>
 </div>
 <div class="section" id="lineare-regression">
@@ -568,8 +564,8 @@ Adjusted R2: 0.68
 <p>Die Lineare Regression ist uns bereits in <a class="reference internal" href="kapitel_07.html"><span class="doc std std-doc">Kapitel 7</span></a> als Teil der Logistischen Regression begegnet, sowie im obigen Beispiel. Jetzt wollen wir die Lineare Regression genauer betrachten. Die Formel für die Regressionsfunktion der Linearen Regression ist</p>
 <div class="math notranslate nohighlight">
 \[y = b_0 + b_1x_1 + ... + b_mx_m = b_0 + \sum_{i=1}^m b_ix_i\]</div>
-<p>mit den <em>Koeffizienten</em> <span class="math notranslate nohighlight">\(b_1, ..., b_m \in \mathbb{R}\)</span> und dem <em>Achsenabschnitt</em> (engl. <em>intercept</em>) <span class="math notranslate nohighlight">\(b_0\)</span>. Die Koeffizienten definieren den Einfluss der Merkmale auf die abhängige Variable. Dies ist ähnlich zur Korrelation und damit auch direkt verwand. Ein positiver Koeffizient bedeutet, dass ein Merkmal positiv mit der abhängigen variable korreliert ist. Ein negative Koeffizient heißt das es eine negative Korrelation gibt. Es gibt jedoch auch Ausnahmen, wie wir in den nächsten Abschnitten sehen werden.</p>
-<p>Der Achsenabschnitt ist das “Basiswert” der abhängigen Variable, also der Wert, wenn alle Merkmale gleich Null wären. Geometrisch betrachtet ist das der Schnittpunkt mit den Achsen des Koordinatensystems.</p>
+<p>mit den <em>Koeffizienten</em> <span class="math notranslate nohighlight">\(b_1, ..., b_m \in \mathbb{R}\)</span> und dem <em>Achsenabschnitt</em> (engl. <em>intercept</em>) <span class="math notranslate nohighlight">\(b_0\)</span>. Die Koeffizienten definieren den Einfluss der Merkmale auf die abhängige Variable. Dies ist ähnlich zur Korrelation und damit auch direkt verwand. Ein positiver Koeffizient bedeutet, dass ein Merkmal positiv mit der abhängigen variable korreliert ist. Ein negativer Koeffizient heißt das es eine negative Korrelation gibt. Es gibt jedoch auch Ausnahmen, wie wir in den nächsten Abschnitten sehen werden.</p>
+<p>Der Achsenabschnitt ist der “Basiswert” der abhängigen Variable, also der Wert, wenn alle Merkmale gleich Null wären. Geometrisch betrachtet ist das der Schnittpunkt mit den Achsen des Koordinatensystems.</p>
 <p>Ein wichtiger Aspekt der Linearen Regression ist, wie die Koeffizienten und der Achsenabschnitt bestimmt werden. Dies hat nicht nur Auswirkungen auf die Qualität der Regression, sondern auch auf die Interpretation der Koeffizienten.</p>
 <div class="section" id="ordinary-least-squares-ols">
 <h3><span class="section-number">8.3.1. </span>Ordinary Least Squares (OLS)<a class="headerlink" href="#ordinary-least-squares-ols" title="Permalink to this headline">¶</a></h3>
@@ -586,7 +582,7 @@ y &amp;= (y_1, \dots, y_n) \\
 b &amp;= (b_1, \dots, b_m)
 \end{split}
 \end{split}\]</div>
-<p>Mit dieser Repräsentation können wir einfach die Vorhersagen für alle Instanzen gleichzeit als Matrixoperation berechnen, so dass</p>
+<p>Mit dieser Repräsentation können wir einfach die Vorhersagen für alle Instanzen gleichzeitig als Matrixoperation berechnen, so dass</p>
 <div class="math notranslate nohighlight">
 \[f(X) = b_0 + Xb.\]</div>
 <p>Da wir die Residuen minimieren wollen, können wir dies als Optimierungsproblem formulieren. Hierzu müssen wir nur die wahren Werte von den Vorhersagen abziehen und dann den quadratischen Fehler berechnen:</p>
@@ -605,11 +601,11 @@ b &amp;= (b_1, \dots, b_m)
 </div>
 <div class="section" id="ridge">
 <h3><span class="section-number">8.3.2. </span>Ridge<a class="headerlink" href="#ridge" title="Permalink to this headline">¶</a></h3>
-<p>Im folgenden zeigen wir, wie man OLS abwandeln kann um die Ergebnisse zu <em>Regularisieren</em>. Durch die Regularisierung kann man extreme Koeffizienten verhinden, auch wenn die Merkmale korreliert sind. Die Idee ist einfach: Wenn ein Optimierungsproblem viele optimale Lösungen hat, benötigen wir einfach ein zusätzliches Kriterium mit dem wir die Lösungen auswählen, die uns besser gefallen. Hierzu fügt man einfach einen <em>Regularisierungsterm</em> zur OLS Formel hinzu.</p>
-<p>Bei der <em>Ridge</em>-Regularisierungist es das Ziel möglichst kleine Werte für die Koeffizienten zu bekommen und dadurch extreme Werte durch Korrelationen zu verhindern. Wir müssen also das Optimierungsproblem so verändern, dass wir neben der Güte der Regression auch noch die größe der Koeffizienten optimieren:</p>
+<p>Im Folgenden zeigen wir, wie man OLS abwandeln kann um die Ergebnisse zu <em>Regularisieren</em>. Durch die Regularisierung kann man extreme Koeffizienten verhindern, auch wenn die Merkmale korreliert sind. Die Idee ist einfach: Wenn ein Optimierungsproblem viele optimale Lösungen hat, benötigen wir einfach ein zusätzliches Kriterium mit dem wir die Lösungen auswählen, die uns besser gefallen. Hierzu fügt man einfach einen <em>Regularisierungsterm</em> zur OLS Formel hinzu.</p>
+<p>Bei der <em>Ridge</em>-Regularisierung ist es das Ziel möglichst kleine Werte für die Koeffizienten zu bekommen und dadurch extreme Werte durch Korrelationen zu verhindern. Wir müssen also das Optimierungsproblem so verändern, dass wir neben der Güte der Regression auch noch die größe der Koeffizienten optimieren:</p>
 <div class="math notranslate nohighlight">
 \[\min ||b_0 + Xb - y||_2^2 + \alpha ||b||_2^2\]</div>
-<p>wobei <span class="math notranslate nohighlight">\(\alpha \in \mathbb{R}, \alpha&gt;0\)</span> die Stärke der Regulariesierung bestimmt und <span class="math notranslate nohighlight">\(||b||_2^2 = \sqrt{\sum_{i=1}^m b_i^2}^2 = \sum_{i=1}^m b_i^2\)</span> nichts anderes als die Summe der Quadrate der Koeffizienten ist. Bei unseren vier Lösungen von oben, würden wir folgende Werte für <span class="math notranslate nohighlight">\(||b||_2^2\)</span> bekommen:</p>
+<p>wobei <span class="math notranslate nohighlight">\(\alpha \in \mathbb{R}, \alpha&gt;0\)</span> die Stärke der Regularisierung bestimmt und <span class="math notranslate nohighlight">\(||b||_2^2 = \sqrt{\sum_{i=1}^m b_i^2}^2 = \sum_{i=1}^m b_i^2\)</span> nichts anderes als die Summe der Quadrate der Koeffizienten ist. Bei unseren vier Lösungen von oben, würden wir folgende Werte für <span class="math notranslate nohighlight">\(||b||_2^2\)</span> bekommen:</p>
 <ul class="simple">
 <li><p>Lösung 1: <span class="math notranslate nohighlight">\(||b||_2^2 = 0.5^2+0.5^2 = 0.5\)</span></p></li>
 <li><p>Lösung 2/3: <span class="math notranslate nohighlight">\(||b||_2^2 = 1^2+0^2 = 1.0\)</span></p></li>
@@ -619,10 +615,10 @@ b &amp;= (b_1, \dots, b_m)
 </div>
 <div class="section" id="lasso">
 <h3><span class="section-number">8.3.3. </span>Lasso<a class="headerlink" href="#lasso" title="Permalink to this headline">¶</a></h3>
-<p>Eine weiterers Regularisierungsverfahren ist <em>Lasso</em>. Während Ridge die absoluten Werte der Koeffizienten minimiert, sind die Werte häufig immernoch nicht Null. Eine Regression die eine ähnliche Güte mit weniger Merkmalen erreicht ist aber oft besser, da die Gefahr von Overfitting reduziert wird. Das Ziel von Lasso-Regularisierung ist es die Koeffizienten nicht nur zu minimieren, sondern dafür zu sorgen, dass sie exakt Null werden. Hierzu modifizieren wir auch wieder das OLS Optimierungsproblem:</p>
+<p>Eine weiteres Regularisierungsverfahren ist <em>Lasso</em>. Während Ridge die absoluten Werte der Koeffizienten minimiert, sind die Werte häufig immer noch nicht Null. Eine Regression die eine ähnliche Güte mit weniger Merkmalen erreicht ist aber oft besser, da die Gefahr von Overfitting reduziert wird. Das Ziel von Lasso-Regularisierung ist es die Koeffizienten nicht nur zu minimieren, sondern dafür zu sorgen, dass sie exakt Null werden. Hierzu modifizieren wir auch wieder das OLS Optimierungsproblem:</p>
 <div class="math notranslate nohighlight">
 \[\min ||b_0 + Xb - y||_2^2 + \alpha ||b||_1,\]</div>
-<p>Der Unterschied zu Ridge ist, das wir jetzt <span class="math notranslate nohighlight">\(||b||_1 = \sum_{i=1}^m b_i||\)</span> als Regularisierungsterm benutzen, also die Manhatten Norm statt der euklidischen Norm. Auf unsere Lösungen wirkt sich das wie folgt aus:</p>
+<p>Der Unterschied zu Ridge ist, das wir jetzt <span class="math notranslate nohighlight">\(||b||_1 = \sum_{i=1}^m b_i||\)</span> als Regularisierungsterm benutzen, also die Manhattan Norm statt der euklidischen Norm. Auf unsere Lösungen wirkt sich das wie folgt aus:</p>
 <ul class="simple">
 <li><p>Lösung 1: <span class="math notranslate nohighlight">\(||b||_1 = |0.5|+|0.5| = 1.0\)</span></p></li>
 <li><p>Lösung 2/3: <span class="math notranslate nohighlight">\(||b||_1 = |1|+|0| = 1.0\)</span></p></li>
@@ -631,7 +627,7 @@ b &amp;= (b_1, \dots, b_m)
 <p>Die Lösungen 1, 2, und 3 sind also Optimal mit Lasso, es gibt also eine hohe Wahrscheinlichkeit das eine Lösung gewählt wird, bei der ein Koeffizient exakt Null ist.</p>
 <blockquote>
 <div><p><strong>Bemerkung:</strong></p>
-<p>Wir überspringen an dieser schnelle die mathematische Begründung, warum Ridge nur die Koeffizienten minimiert, sie aber bei Lasso genau Null werden. Verkürzt kann man sagen, dass es an den Bedingungen des Optimierungsproblems liegt. Die Form diese Bedingungen ist ein Kreis bei Ridge und eine Raute beim Lasso, da dies die Form der Einheitskreise der euklidischen, bzw. Manhatten Norm ist. Aufgrund der Rautenform, die ihre Spitzen auf den Achsen hat, werden die Koeffizienten mit hoher Wahrscheinlichkeit genau Null. Eine vollständige Erklärung finden man zum Beispiel hier <a class="footnote-reference brackets" href="#lasso-ridge" id="id1">1</a>.</p>
+<p>Wir überspringen an dieser schnelle die mathematische Begründung, warum Ridge nur die Koeffizienten minimiert, sie aber bei Lasso genau null werden. Verkürzt kann man sagen, dass es an den Bedingungen des Optimierungsproblems liegt. Die Form diese Bedingungen ist ein Kreis bei Ridge und eine Raute beim Lasso, da dies die Form der Einheitskreise der euklidischen, bzw. Manhattan Norm ist. Aufgrund der Rautenform, die ihre Spitzen auf den Achsen hat, werden die Koeffizienten mit hoher Wahrscheinlichkeit genau null. Eine vollständige Erklärung finden man zum Beispiel hier <a class="footnote-reference brackets" href="#lasso-ridge" id="id1">1</a>.</p>
 </div></blockquote>
 </div>
 <div class="section" id="elastic-net">
@@ -701,8 +697,8 @@ b &amp;= (b_1, \dots, b_m)
 <img alt="../_images/kapitel_08_9_0.png" src="../_images/kapitel_08_9_0.png" />
 </div>
 </div>
-<p>Man sieht bereits ein sehr starken Effekt durch die Regularisierung. NOX hat den absolut größten Koeffizienten und die Änderung zwischen den Regularisierungen ist sehr groß. Mit OLS ist der Wert von NOX bei ca. -18, mit Ridge nur noch bei ca. -13, und mit Lasso und dem Elastic Net wird der Koeffizient sogar auf 0 gesetzt. Bei Ridge ändert sich der <span class="math notranslate nohighlight">\(R^2\)</span> Wert nicht gegenüber OLS, obwohl es eine derart große Änderung der Koeffizienten gibt. Beim Lasso werden neben NOX auch noch CHAS auf Null gesetzt. Obwohl vier Merkmale entfernt wurden, ändert sich der <span class="math notranslate nohighlight">\(R^2\)</span> Wert nur leicht. Dadurch das es weniger Merkmale sind, hat sich Adjusted <span class="math notranslate nohighlight">\(R^2\)</span> nicht verändert. Man sieht auch das beim Elastic Net weniger Merkmale auf Null gesetzt werden, als mit dem Lasso.</p>
-<p>Insgesamt erkennt man einen starken Einfluss der Regularisierung auf die Koeffizienten und auch, dass gerade NOX scheinbar nicht so relevant ist, wie es ohne Regularisierung erscheint. Dennoch sollte man Regularisierung mit bedacht einsetzen. Wenn man einen zu hohen Wert für die Regularisierungsstärke wählt, kann es sein dass der Fokus des Optimierungsproblems nicht mehr auf einer guten Regression liegt, weil kleine Werte der Koeffizienten zu wichtig sind. Betrachten wir noch einmal das gleiche Beispiel mit <span class="math notranslate nohighlight">\(\alpha=5\)</span>, also eine 10-mal stärkeren Regularisierung.</p>
+<p>Man sieht bereits einen sehr starken Effekt durch die Regularisierung. NOX hat den absolut größten Koeffizienten und die Änderung zwischen den Regularisierungen ist sehr groß. Mit OLS ist der Wert von NOX bei ca. -18, mit Ridge nur noch bei ca. -13, und mit Lasso und dem Elastic Net wird der Koeffizient sogar auf 0 gesetzt. Bei Ridge ändert sich der <span class="math notranslate nohighlight">\(R^2\)</span> Wert nicht gegenüber OLS, obwohl es eine derart große Änderung der Koeffizienten gibt. Beim Lasso werden neben NOX auch noch CHAS auf null gesetzt. Obwohl vier Merkmale entfernt wurden, ändert sich der <span class="math notranslate nohighlight">\(R^2\)</span> Wert nur leicht. Dadurch das es weniger Merkmale sind, hat sich Adjusted <span class="math notranslate nohighlight">\(R^2\)</span> nicht verändert. Man sieht auch das beim Elastic Net weniger Merkmale auf Null gesetzt werden, als mit dem Lasso.</p>
+<p>Insgesamt erkennt man einen starken Einfluss der Regularisierung auf die Koeffizienten und auch, dass gerade NOX scheinbar nicht so relevant ist, wie es ohne Regularisierung erscheint. Dennoch sollte man Regularisierung mit Bedacht einsetzen. Wenn man einen zu hohen Wert für die Regularisierungsstärke wählt, kann es sein, dass der Fokus des Optimierungsproblems nicht mehr auf einer guten Regression liegt, weil kleine Werte der Koeffizienten zu wichtig sind. Betrachten wir noch einmal das gleiche Beispiel mit <span class="math notranslate nohighlight">\(\alpha=5\)</span>, also eine 10-mal stärkeren Regularisierung.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -760,12 +756,12 @@ b &amp;= (b_1, \dots, b_m)
 <img alt="../_images/kapitel_08_11_0.png" src="../_images/kapitel_08_11_0.png" />
 </div>
 </div>
-<p>Bei Ridge werden leidiglich die Werte der Koeffizienten weiter reduziert, ohne das sich das <span class="math notranslate nohighlight">\(R^2\)</span> Wert stark verändert. Das spricht dafür, dass der höhere Wert von <span class="math notranslate nohighlight">\(\alpha\)</span> für Ridge besser ist. Beim Lasso und beim Elastic Net hat sich der <span class="math notranslate nohighlight">\(R^2\)</span> Wert hingegen stark reduziert, weil deutlich mehr Merkmale auf Null gesetzt werden. Die Regression ist also insgesamt schlechter. Das Verhältnis von Modellkomplexität und Güte der Regression ist jedoch unverändert: Adjusted <span class="math notranslate nohighlight">\(R^2\)</span> ist immer noch gut. Hier hat man also die Wahl: Will man ein bessere, aber auch komplexere Regression oder einfachere Regression mit weniger Merkmalen, die jedoch die eine geringere Güte hat.</p>
+<p>Bei Ridge werden lediglich die Werte der Koeffizienten weiter reduziert, ohne dass sich das <span class="math notranslate nohighlight">\(R^2\)</span> Wert stark verändert. Das spricht dafür, dass der höhere Wert von <span class="math notranslate nohighlight">\(\alpha\)</span> für Ridge besser ist. Beim Lasso und beim Elastic Net hat sich der <span class="math notranslate nohighlight">\(R^2\)</span> Wert hingegen stark reduziert, weil deutlich mehr Merkmale auf null gesetzt werden. Die Regression ist also insgesamt schlechter. Das Verhältnis von Modellkomplexität und Güte der Regression ist jedoch unverändert: Adjusted <span class="math notranslate nohighlight">\(R^2\)</span> ist immer noch gut. Hier hat man also die Wahl: Will man ein bessere, aber auch komplexere Regression oder einfachere Regression mit weniger Merkmalen, die jedoch die eine geringere Güte hat.</p>
 </div>
 </div>
 <div class="section" id="jenseits-von-linearer-regression">
 <h2><span class="section-number">8.4. </span>Jenseits von Linearer Regression<a class="headerlink" href="#jenseits-von-linearer-regression" title="Permalink to this headline">¶</a></h2>
-<p>Lineare Regression ist natürlich nicht die einzige Art, auf die man Regressionsproblem lösen kann und gerade für komplexe Beziehungen zwischen den Merkmalen und der abhängigen Variablen in der Regel auch nicht Ausdrucksstark genug. Mit der Ausnahme von Naive Bayes, gibt es für alle Klassifikationsalgorithmen aus <a class="reference internal" href="kapitel_07.html"><span class="doc std std-doc">Kapitel 7</span></a> einen ähnlichen Algorithmus für die Regression: <span class="math notranslate nohighlight">\(k\)</span>-Nearest Neighbor Regression, Regression Trees, Random Forest Regression, und Support Vector Regression. Der Ansatz bleibt der gleiche, nur das einige Details für die Regression angepasst werden müssen. Bei Entscheidungsbäumen wird zum Beispiel die Varianz benutzt um den Informationsgehalt zu schätzen. Neural Netzwerke lösen ohnehin schon ein Regressionsproblem, hier muss man einfach die abhängige Variable als Output Layer modellieren.</p>
+<p>Lineare Regression ist natürlich nicht die einzige Art, auf die man Regressionsproblem lösen kann und gerade für komplexe Beziehungen zwischen den Merkmalen und der abhängigen Variablen in der Regel auch nicht Ausdrucksstark genug. Mit der Ausnahme von Naive Bayes, gibt es für alle Klassifikationsalgorithmen aus <a class="reference internal" href="kapitel_07.html"><span class="doc std std-doc">Kapitel 7</span></a> einen ähnlichen Algorithmus für die Regression: <span class="math notranslate nohighlight">\(k\)</span>-Nearest Neighbor Regression, Regression Trees, Random Forest Regression, und Support Vector Regression. Der Ansatz bleibt der gleiche, nur das einige Details für die Regression angepasst werden müssen. Bei Entscheidungsbäumen wird zum Beispiel die Varianz benutzt um den Informationsgehalt zu schätzen. Neuronale Netzwerke lösen ohnehin schon ein Regressionsproblem, hier muss man einfach die abhängige Variable als Output Layer modellieren.</p>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
 <dt class="label" id="lasso-ridge"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
@@ -822,9 +818,8 @@ b &amp;= (b_1, \dots, b_m)
 
       </div>
     </div>
-
     
-  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
 
     

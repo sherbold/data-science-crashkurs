@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>9. Zeitreihenanalyse &#8212; Einführung in Data Science</title>
     
-  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -19,14 +20,10 @@
 
     
       
-  <link rel="stylesheet"
-    href="../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -34,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -44,7 +41,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -58,14 +55,14 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="10. Textmining" href="kapitel_10.html" />
     <link rel="prev" title="8. Regression" href="kapitel_08.html" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-
-
-
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -74,32 +71,32 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../index.html">
-  
-  <img src="../_static/logo.png" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">Einführung in Data Science</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Einführung in Data Science</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../vorwort.html">
    Vorwort
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Kapitel
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="kapitel_01.html">
    1. Big Data und Data Science
@@ -161,12 +158,12 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Übungen
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../exercises/uebung_01.html">
    Übung 1
@@ -174,6 +171,7 @@
  </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -236,12 +234,12 @@
     </div>
 </div>
 
-
             <!-- Full screen (wrap in <a> to have style consistency -->
-            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                    title="Fullscreen mode"><i
-                        class="fas fa-expand"></i></button></a>
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
 
@@ -267,12 +265,11 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i>
-            Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#uberblick">
    9.1. Überblick
@@ -346,8 +343,7 @@
  </li>
 </ul>
 
-        </nav>
-        
+            </nav>
         </div>
     </div>
 </div>
@@ -363,14 +359,14 @@
 <p>Die Zeitreihenanalyse (engl. <em>time series analysis</em>) behandelt die Analyse von geordneten Sequenzen von Daten, zum Beispiel Daten die über die Zeit gemessen wurden. <a class="reference internal" href="#fig-timeseries-example"><span class="std std-numref">Fig. 9.1</span></a> zweigt ein Beispiel für eine Zeitreihe: Das Liniendiagram zeigt die monatlichen Werte der Passagierzahlen einer Fluggesellschaft zwischen 1949 und 1961. Es gibt also für jeden Monat eine Instanz in den Daten. Das Ziel der Zeitreihenanalyse ist es die zeitliche Struktur der Daten zu beschreiben, also ein Modell zu finden was die monatlichen Änderungen erklärt. Mit einem solchen Modell kann man entweder retrospektiv die Daten analysieren um wissen zu extrahieren, oder sogar die Werte für die nächsten Zeitschritte vorhersagen.</p>
 <div class="figure align-default" id="fig-timeseries-example">
 <a class="reference internal image-reference" href="../_images/timeseries_example_german.png"><img alt="../_images/timeseries_example_german.png" src="../_images/timeseries_example_german.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 9.1 </span><span class="caption-text">Entwicklung der Passigierzahlen bei einer amerikanischen Fluggesellschaft.</span><a class="headerlink" href="#fig-timeseries-example" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 9.1 </span><span class="caption-text">Entwicklung der Passagierzahlen bei einer amerikanischen Fluggesellschaft.</span><a class="headerlink" href="#fig-timeseries-example" title="Permalink to this image">¶</a></p>
 </div>
-<p>Etwas abstrakter kann man die Zeitreihenanalyse wie in <a class="reference internal" href="#fig-timeseries-concept"><span class="std std-numref">Fig. 9.2</span></a> beschreiben. Unsere Daten sind zeitlich durchnummerierste Werte. Das Zeitreihenmodell beschreibt wie sich die Werte mit jedem dieser durchnummerierten Zeitschritte ändern. Dieses Problem ist ähnlich zur Regression: Wenn wir sagen das der Zeitpunkt unser Merkmal ist und der Wert zu diesem Zeitpunkt die abhängige Variable, können wir mit einer Regression ein sehr einfaches Zeitreihenmodell berechnen. Wie wir jedoch im folgenden sehen werden, geht die Zeitreihenanalyse über einfache Regressionsmodelle hinaus.</p>
+<p>Etwas abstrakter kann man die Zeitreihenanalyse wie in <a class="reference internal" href="#fig-timeseries-concept"><span class="std std-numref">Fig. 9.2</span></a> beschreiben. Unsere Daten sind zeitlich durchnummerierte Werte. Das Zeitreihenmodell beschreibt wie sich die Werte mit jedem dieser durchnummerierten Zeitschritte ändern. Dieses Problem ist ähnlich zur Regression: Wenn wir sagen das der Zeitpunkt unser Merkmal ist und der Wert zu diesem Zeitpunkt die abhängige Variable, können wir mit einer Regression ein sehr einfaches Zeitreihenmodell berechnen. Wie wir jedoch im Folgenden sehen werden, geht die Zeitreihenanalyse über einfache Regressionsmodelle hinaus.</p>
 <div class="figure align-default" id="fig-timeseries-concept">
 <a class="reference internal image-reference" href="../_images/timeseries_concept_german.png"><img alt="../_images/timeseries_concept_german.png" src="../_images/timeseries_concept_german.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 9.2 </span><span class="caption-text">Konzept der Zeitreihenanalyse.</span><a class="headerlink" href="#fig-timeseries-concept" title="Permalink to this image">¶</a></p>
 </div>
-<p>Formal haben wir diskrete Werte <span class="math notranslate nohighlight">\(\{x_1, .., x_T\} = \{x_t\}_{t=1}^T\)</span> mit <span class="math notranslate nohighlight">\(x_t \in \mathbb{R}\)</span>. Wir nutzen die Notation <span class="math notranslate nohighlight">\(\{x_t\}\)</span> als kurzform für <span class="math notranslate nohighlight">\(\{x_t\}_{t=1}^T\)</span>. Aus mathemtischer Sicht sind diese Werte eine Folge von Zufallsvariablen, bzw. ein diskreter stochastischer Prozess. Aus der Tatsache das wir durchnummerierte Zeitpunkte betrachten, folgt auch das der Abstand zwischen allen Zeitpunkten <span class="math notranslate nohighlight">\(t\)</span> und <span class="math notranslate nohighlight">\(t+1\)</span> dleich sein muss für alle <span class="math notranslate nohighlight">\(t=1, ..., T-1\)</span>. Diese feste Schrittgröße könnte zum Beispiel eine Minute, Stunde, Woche, oder wie in unserem Beispiel, Monat sein.</p>
+<p>Formal haben wir diskrete Werte <span class="math notranslate nohighlight">\(\{x_1, .., x_T\} = \{x_t\}_{t=1}^T\)</span> mit <span class="math notranslate nohighlight">\(x_t \in \mathbb{R}\)</span>. Wir nutzen die Notation <span class="math notranslate nohighlight">\(\{x_t\}\)</span> als Kurzform für <span class="math notranslate nohighlight">\(\{x_t\}_{t=1}^T\)</span>. Aus mathematischer Sicht sind diese Werte eine Folge von Zufallsvariablen, bzw. ein diskreter stochastischer Prozess. Aus der Tatsache das wir durchnummerierte Zeitpunkte betrachten, folgt auch das der Abstand zwischen allen Zeitpunkten <span class="math notranslate nohighlight">\(t\)</span> und <span class="math notranslate nohighlight">\(t+1\)</span> gleich sein muss für alle <span class="math notranslate nohighlight">\(t=1, ..., T-1\)</span>. Diese feste Schrittgröße könnte zum Beispiel eine Minute, Stunde, Woche, oder wie in unserem Beispiel, Monat sein.</p>
 <p>Eine Zeitreihe besteht aus verschiedenen Komponenten. Wir betrachten drei Komponenten:</p>
 <ul class="simple">
 <li><p>Der <em>Trend</em> der Zeitreihe <span class="math notranslate nohighlight">\(T_t\)</span>. Der Trend ist die insgesamte Veränderung über die Zeit, also der zum Beispiel das stetige Wachstum oder die Reduktion der Werte. Ein Beispiel für einen Trend ist der stetig steigende Energiebedarf in vielen Ländern.</p></li>
@@ -383,7 +379,7 @@
 </div>
 <div class="section" id="box-jenkins-verfahren">
 <h2><span class="section-number">9.2. </span>Box-Jenkins Verfahren<a class="headerlink" href="#box-jenkins-verfahren" title="Permalink to this headline">¶</a></h2>
-<p>Zur Zeitreihenanalse betrachten wir sogenannte <em>Box-Jenkins</em> Modelle. Beim Box-Jenkins Ansatz wird zuerst sichergestellt, dass die Zeitreihe <em>stationär</em> ist. Anschließend wird die Autokorrelation als stochastischer Prozess der die Werte der letzten Zeitschritte linear zusammen mit einer zufälligen Komponente kombiniert. Stationär bedeutet, dass sich weder der Mittelwert, noch die Varianz über die Zeit verändern. Für eine Zeitreihe bedeutet dass, dass es keinen Trend und keine Saisonalen Effekte geben darf. Der Trend kann auch als mittlere Veränderung des Mittelwerts über die Zeit betrachtet werden. Die Saisonalität kann man als sich regelmäßig wiederholende lokale Veränderungen des Mittelwerts interpretieren. Die Varianz ist im wesentlichen die zufällige Streuung der Daten um den Mittelwert.</p>
+<p>Zur Zeitreihenanalyse betrachten wir sogenannte <em>Box-Jenkins</em> Modelle. Beim Box-Jenkins Ansatz wird zuerst sichergestellt, dass die Zeitreihe <em>stationär</em> ist. Anschließend wird die Autokorrelation als stochastischer Prozess der die Werte der letzten Zeitschritte linear zusammen mit einer zufälligen Komponente kombiniert. Stationär bedeutet, dass sich weder der Mittelwert, noch die Varianz über die Zeit verändern. Für eine Zeitreihe bedeutet das, dass es keinen Trend und keine Saisonalen Effekte geben darf. Der Trend kann auch als mittlere Veränderung des Mittelwerts über die Zeit betrachtet werden. Die Saisonalität kann man als sich regelmäßig wiederholende lokale Veränderungen des Mittelwerts interpretieren. Die Varianz ist im Wesentlichen die zufällige Streuung der Daten um den Mittelwert.</p>
 <p>Im Folgenden betrachten wir jeden Aspekt des Box-Jenkins Ansatzes. Zuerst betrachten wir, wie man den Trend und die Saisonalität einer Zeitreihe bestimmt und wie man diese anschließend aus den Daten entfernen, damit die Daten stationär sind. Anschließend betrachten wir ARMA Modelle um die Autokorrelationen zu erfassen. Für die Erklärung der Methoden nutzen wie die Daten über Flugpassagiere, die wir oben schon gesehen haben.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -402,7 +398,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_09_2_0.png" src="../_images/kapitel_09_2_0.png" />
+<img alt="../_images/kapitel_09_1_0.png" src="../_images/kapitel_09_1_0.png" />
 </div>
 </div>
 </div>
@@ -449,15 +445,15 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_09_4_0.png" src="../_images/kapitel_09_4_0.png" />
+<img alt="../_images/kapitel_09_3_0.png" src="../_images/kapitel_09_3_0.png" />
 </div>
 </div>
-<p>Links sehen wir die Lineare Regression der Zeitreihe. Wie man sieht passt die Regression sehr gut zur Form der Zeitreihe. Die Steigung der Regession (also der Koeffizient) ist das monatliche Wachstum der Passagierzahl. Dies ist der Vorteil der Regression zur modellieren des Trends: Wir können nicht nur die trendbereinigte Zeitreihe bechnen, sondern bekommen auch noch eine genaue Interpretation des Trends, nämlich das es 2,66 mehr Passigiere jeden Monat gibt.</p>
+<p>Links sehen wir die Lineare Regression der Zeitreihe. Wie man sieht passt die Regression sehr gut zur Form der Zeitreihe. Die Steigung der Regression (also der Koeffizient) ist das monatliche Wachstum der Passagierzahl. Dies ist der Vorteil der Regression zur modellieren des Trends: Wir können nicht nur die trendbereinigte Zeitreihe berechnen, sondern bekommen auch noch eine genaue Interpretation des Trends, nämlich dass es 2,66 mehr Passagiere jeden Monat gibt.</p>
 <p>Rechts sehen wir die trendbereinigte Zeitreihe. Man sieht, dass sich das Mittel der Werte nicht mehr erhöht, die Wert sind also in etwa zentriert um die 0. Dies sollte nach einer erfolgreichen Trendbereinigung immer der Fall sein. Wir können außerdem die Datenbereiche der y-Achsen vergleichen. Links war die Größe des Datenbereichs noch <span class="math notranslate nohighlight">\(600-100=500\)</span>. Rechts ist die Größe nur noch <span class="math notranslate nohighlight">\(150-(-100)=250\)</span>. Der Trend erklärt also in etwa 50% der absoluten Änderung der Werte über die Zeit.</p>
-<p>Die trendbereinigten Daten haben noch ein klares Muster in der Schwankung rund um die Null. Dies sit die Saisonalität der Daten. Da wir monatliche Daten haben, ist es eine vernünftige Annahme, dass es sich um ein jährliches Muster handelt. Dies können wir durch das <em>Saisonale Mittel</em> erfassen. Hierzu müssen wir die Länge der Saison kennen, also die Anzahl von Zeitschritten, nach der eine Saison von vorne beginnt. In unseren Beispieldaten, können wir die Saison durch das <em>monatliche Mitte</em> mit einer Länge von <span class="math notranslate nohighlight">\(s=12\)</span> Zeitschritten für die Saison modellieren. Hierzu berechnen wir Differenz der monatlichen Mittelwerte vom gesamten Mittelwert der Zeitreihe. Das können wir dann von der trendbereinigten Zeitreihe abziehen, um die trend- und saisonbereinigte Zeitreihe zu erhalten als</p>
+<p>Die trendbereinigten Daten haben noch ein klares Muster in der Schwankung rund um die Null. Dies sit die Saisonalität der Daten. Da wir monatliche Daten haben, ist es eine vernünftige Annahme, dass es sich um ein jährliches Muster handelt. Dies können wir durch das <em>saisonale Mittel</em> erfassen. Hierzu müssen wir die Länge der Saison kennen, also die Anzahl von Zeitschritten, nach der eine Saison von vorne beginnt. In unseren Beispieldaten, können wir die Saison durch das <em>monatliche Mitte</em> mit einer Länge von <span class="math notranslate nohighlight">\(s=12\)</span> Zeitschritten für die Saison modellieren. Hierzu berechnen wir Differenz der monatlichen Mittelwerte vom gesamten Mittelwert der Zeitreihe. Das können wir dann von der trendbereinigten Zeitreihe abziehen, um die trend- und saisonbereinigte Zeitreihe zu erhalten als</p>
 <div class="math notranslate nohighlight">
 \[\hat{\hat{x}}_t = \hat{x}_t - (mean(\{\hat{x}_{t'}\}_{\{t' \in 1, ..., T: mod(t',s)=mod(t,s)\}}-mean(\{\hat{x}_t\})),\]</div>
-<p>wobei <span class="math notranslate nohighlight">\(mod(t,s)\)</span> der Rest der Division von <span class="math notranslate nohighlight">\(t\)</span> durch <span class="math notranslate nohighlight">\(s\)</span> ist. Für <span class="math notranslate nohighlight">\(s=12\)</span> und <span class="math notranslate nohighlight">\(t=26\)</span> ist <span class="math notranslate nohighlight">\(mod(t,s)=2\)</span>. Das saisonale Mittel würde man zum Beispiel für alle Zeitpunkte <span class="math notranslate nohighlight">\(t'\)</span> mit <span class="math notranslate nohighlight">\(mod(t's) = 2\)</span> berechnen, also 2, 14, 26, 38, etc. Bei unseren Beispieldaten bekommen für eine Saison der länge <span class="math notranslate nohighlight">\(s=12\)</span> folgendes Ergebnis.</p>
+<p>wobei <span class="math notranslate nohighlight">\(mod(t,s)\)</span> der Rest der Division von <span class="math notranslate nohighlight">\(t\)</span> durch <span class="math notranslate nohighlight">\(s\)</span> ist. Für <span class="math notranslate nohighlight">\(s=12\)</span> und <span class="math notranslate nohighlight">\(t=26\)</span> ist <span class="math notranslate nohighlight">\(mod(t,s)=2\)</span>. Das saisonale Mittel würde man zum Beispiel für alle Zeitpunkte <span class="math notranslate nohighlight">\(t'\)</span> mit <span class="math notranslate nohighlight">\(mod(t's) = 2\)</span> berechnen, also 2, 14, 26, 38, etc. Bei unseren Beispieldaten bekommen für eine Saison der Länge <span class="math notranslate nohighlight">\(s=12\)</span> folgendes Ergebnis.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">monthly_means</span> <span class="o">=</span> <span class="n">air_passengers_detrended</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">air_passengers_detrended</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">month</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
@@ -480,18 +476,18 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_09_6_0.png" src="../_images/kapitel_09_6_0.png" />
+<img alt="../_images/kapitel_09_5_0.png" src="../_images/kapitel_09_5_0.png" />
 </div>
 </div>
 <p>Wie man sieht gibt es im Juli im Mittel über 60 Passagiere mehr als im Gesamtmittel. Im November sind es hingegen 60 Passagiere weniger. Der saisonale Effekt der anderen Monate schwank zwischen diesen beiden Werten. Im März gibt es zum Beispiel fast gar keinen saisonalen Effekt. Das saisonale Mittel liefert, ähnlich wie die Regression, also eine genaue Information über den die Veränderung.</p>
-<p>Wenn wir den saisonalen Effekt entfernen bekommen wir die Zeitreihe in der rechten Grafik. Der Datenbereich der y-Achse ist jetzt auf <span class="math notranslate nohighlight">\(100-(-40)=140\)</span> reduziert. Durch Trend und Saisonalität konnten wir also bereits den großteil der Varianz in den Daten erklären. Leider sieht man immernoch ein Muster in den Daten. Das ursprüngliche Saisonale Muster hatte einen Spitze nach oben, und zwei direkt Nebeneinander liegende Spitzen nach unten. Das saisonbereinigte Muster sieht etwas anders aus.</p>
+<p>Wenn wir den saisonalen Effekt entfernen bekommen wir die Zeitreihe in der rechten Grafik. Der Datenbereich der y-Achse ist jetzt auf <span class="math notranslate nohighlight">\(100-(-40)=140\)</span> reduziert. Durch Trend und Saisonalität konnten wir also bereits den großteil der Varianz in den Daten erklären. Leider sieht man immer noch ein Muster in den Daten. Das ursprüngliche Saisonale Muster hatte einen Spitze nach oben, und zwei direkt nebeneinander liegende Spitzen nach unten. Das saisonbereinigte Muster sieht etwas anders aus.</p>
 <ul class="simple">
 <li><p>Für <span class="math notranslate nohighlight">\(t&lt;70\)</span> gibt es zwei Spitzen nach oben und eine Spitze nach unten.</p></li>
 <li><p>Zwischen <span class="math notranslate nohighlight">\(t=80\)</span> und <span class="math notranslate nohighlight">\(t=100\)</span> gibt es keine klar erkennbaren Spitzen.</p></li>
 <li><p>Für <span class="math notranslate nohighlight">\(t&gt;100\)</span> gibt es eine Spitze nach oben und zwei Spitzen nach unten.</p></li>
 </ul>
-<p>Dies liegt daran, dass der saisonale Effekt nicht vollständig korrigiert wurde. Der Grund dafür ist, dass der saisonale Effekt auch einen Trend hat: Genau wie die Zahl der Passagiere steigt, werden auch die Schwankungen durch die Saison von Jahr zu Jahr stärler. In der Mitte der Daten, passt die Schätzung des saisonalen Mittels. Zu Beginn der Daten ist die Schätzung des saisonalen Mittels höher als die eigentliche saisonale Abweichung, weshalb das saisonale Muster invertiert wird. Am Ende der Daten ist das saisonale Mittel kleiner als die eigentliche saisonale Abweichung, weshalb ein Teil des saisonalen Effekts nicht korrigiert wird.</p>
-<p>Insgesamt ist unsere Zeitreihe also nicht vollständig stationär, da es immernoch Muster in der Daten gibt und insbesondere die Varianz daher nicht überall gleich ist. Dieses Muster ist jedoch relativ schwach, wenn man berücksichtigt wie viel Information wir bereits durch den Trend und die Saison erklärt haben. Dies kann man sich veranschaulichen, indem wir die y-Achse wieder auf mit einem Datenbereich der ursprüngliche Größe von 500 anzeigen.</p>
+<p>Dies liegt daran, dass der saisonale Effekt nicht vollständig korrigiert wurde. Der Grund dafür ist, dass der saisonale Effekt auch einen Trend hat: Genau wie die Zahl der Passagiere steigt, werden auch die Schwankungen durch die Saison von Jahr zu Jahr stärker. In der Mitte der Daten, passt die Schätzung des saisonalen Mittels. Zu Beginn der Daten ist die Schätzung des saisonalen Mittels höher als die eigentliche saisonale Abweichung, weshalb das saisonale Muster invertiert wird. Am Ende der Daten ist das saisonale Mittel kleiner als die eigentliche saisonale Abweichung, weshalb ein Teil des saisonalen Effekts nicht korrigiert wird.</p>
+<p>Insgesamt ist unsere Zeitreihe also nicht vollständig stationär, da es immer noch Muster in den Daten gibt und insbesondere die Varianz daher nicht überall gleich ist. Dieses Muster ist jedoch relativ schwach, wenn man berücksichtigt wie viel Information wir bereits durch den Trend und die Saison erklärt haben. Dies kann man sich veranschaulichen, indem wir die y-Achse wieder auf mit einem Datenbereich der ursprünglichen Größe von 500 anzeigen.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">monthly_means</span> <span class="o">=</span> <span class="n">air_passengers_detrended</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">air_passengers_detrended</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">month</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
@@ -510,7 +506,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_09_8_0.png" src="../_images/kapitel_09_8_0.png" />
+<img alt="../_images/kapitel_09_7_0.png" src="../_images/kapitel_09_7_0.png" />
 </div>
 </div>
 </div>
@@ -526,10 +522,10 @@
 <p>Mit der Differenz erster Ordnung kann man lineare Trends entfernen als</p>
 <div class="math notranslate nohighlight">
 \[\hat{x}_t = \Delta^1 x_t.\]</div>
-<p>Wenn sich die Änderung der Mittelwerts mit der Zeit ändert, müssen wir die <em>Diffenz zweiter Ordnung</em> berechnen, die definiert ist als</p>
+<p>Wenn sich die Änderung des Mittelwerts mit der Zeit ändert, müssen wir die <em>Differenz zweiter Ordnung</em> berechnen, die definiert ist als</p>
 <div class="math notranslate nohighlight">
 \[\Delta^2 x_t = \Delta^1 x_t - \Delta^1 x_{t-1} = x_t - 2\cdot x_{t-1} + x_{t-2}.\]</div>
-<p>Da wir einen etwa lineare Trend in unseren Daten haben, können wir ohne weiteres die Differenz erster Ordnung zur Trendbereinigung benutzen.</p>
+<p>Da wir einen etwa linearen Trend in unseren Daten haben, können wir ohne weiteres die Differenz erster Ordnung zur Trendbereinigung benutzen.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">air_passengers_differenced</span> <span class="o">=</span> <span class="n">air_passengers_df</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -549,14 +545,14 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_09_10_0.png" src="../_images/kapitel_09_10_0.png" />
+<img alt="../_images/kapitel_09_9_0.png" src="../_images/kapitel_09_9_0.png" />
 </div>
 </div>
 <p>Die trendbereinigte Zeitreihe ist um Null zentriert, aber wir sehen noch saisonale Schwankungen. Der Datenbereich der y-Achse ist auf <span class="math notranslate nohighlight">\(75-(-100)=175\)</span> reduziert, der Trend erklärt also bereits etwa zwei Drittel der Änderung der Werte über die Zeit.</p>
-<p>Differencing kann auch zur Modellierung der Saison genutzt werden. Hierzu betrachte man einfach nicht benachbarter Zeitpunkte, sondern aufeinander folgende Punkte der Saison. Wenn unsere Saison eine länge von <span class="math notranslate nohighlight">\(s\)</span> hat, können wir die Saison bereinigen in dem wir <span class="math notranslate nohighlight">\(\hat{\hat{x}} = \Delta_s \hat{x}_t\)</span> berechnen als</p>
+<p>Differencing kann auch zur Modellierung der Saison genutzt werden. Hierzu betrachte man einfach nicht benachbarter Zeitpunkte, sondern aufeinander folgende Punkte der Saison. Wenn unsere Saison eine Länge von <span class="math notranslate nohighlight">\(s\)</span> hat, können wir die Saison bereinigen in dem wir <span class="math notranslate nohighlight">\(\hat{\hat{x}} = \Delta_s \hat{x}_t\)</span> berechnen als</p>
 <div class="math notranslate nohighlight">
 \[\Delta_s \hat{x}_t = \hat{x}_t - \hat{x}_{t-s}.\]</div>
-<p>Das saisonale Differencing mit einer Saisong von <span class="math notranslate nohighlight">\(s=12\)</span> Zeitschritten führt zu folgendem Ergebnis.</p>
+<p>Das saisonale Differencing mit einer Saison von <span class="math notranslate nohighlight">\(s=12\)</span> Zeitschritten führt zu folgendem Ergebnis.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">air_passengers_differenced_seasonal</span> <span class="o">=</span> <span class="n">air_passengers_differenced</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">periods</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
@@ -576,14 +572,14 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_09_12_0.png" src="../_images/kapitel_09_12_0.png" />
+<img alt="../_images/kapitel_09_11_0.png" src="../_images/kapitel_09_11_0.png" />
 </div>
 </div>
-<p>Nach der Bereinigung ist auf der linken seite kein Muster mehr in dern Daten zu erkennen. Die Schwankung um die Null sieht komplett zufällig aus, was ein starker Hinweis darauf ist, das die Daten jetzt stationär sind. Die Bereich der y-Achse ist jetzt auf <span class="math notranslate nohighlight">\(40-(-40)=80\)</span> reduziert, also nochmal halbiert gegenüber der trendbereinigten Zeitreihe.</p>
+<p>Nach der Bereinigung ist auf der linken Seite kein Muster mehr in den Daten zu erkennen. Die Schwankung um die null sieht komplett zufällig aus, was ein starker Hinweis darauf ist, dass die Daten jetzt stationär sind. Die Bereich der y-Achse ist jetzt auf <span class="math notranslate nohighlight">\(40-(-40)=80\)</span> reduziert, also nochmal halbiert gegenüber der trendbereinigten Zeitreihe.</p>
 </div>
 <div class="section" id="vergleich-der-ansatze">
 <h3><span class="section-number">9.3.3. </span>Vergleich der Ansätze<a class="headerlink" href="#vergleich-der-ansatze" title="Permalink to this headline">¶</a></h3>
-<p>Die zwei Ansätze den Trend und die Saison zu Modellieren haben beide Stärken und Schwächen. Der Vorteil der Regression und der saisonalen Mittelwerte ist die Interpretierbarkeit. Da dies jedoch nur bei linearen Trends und saisonalen Effekten ohne Trend funktioniert, ist die Anwendbarkeit des Verfahrens limitiert und die Daten sind hinterher möglicherweise nicht stationär. Beim Differencing ist das Gegenteil der Fall: Die Bereinigung des trends und der saisonalen Effekte funktioniert in der Regel sehr gut, da man auch Differenzen höherer Ordnung verwenden kann.</p>
+<p>Die zwei Ansätze den Trend und die Saison zu Modellieren haben beide Stärken und Schwächen. Der Vorteil der Regression und der saisonalen Mittelwerte ist die Interpretierbarkeit. Da dies jedoch nur bei linearen Trends und saisonalen Effekten ohne Trend funktioniert, ist die Anwendbarkeit des Verfahrens limitiert und die Daten sind hinterher möglicherweise nicht stationär. Beim Differencing ist das Gegenteil der Fall: Die Bereinigung des Trends und der saisonalen Effekte funktioniert in der Regel sehr gut, da man auch Differenzen höherer Ordnung verwenden kann.</p>
 </div>
 </div>
 <div class="section" id="autokorrelationen-mit-arma">
@@ -621,18 +617,18 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_09_14_0.png" src="../_images/kapitel_09_14_0.png" />
+<img alt="../_images/kapitel_09_13_0.png" src="../_images/kapitel_09_13_0.png" />
 </div>
 </div>
-<p>In der ersten Spalte sehen wir die Beziehung zum nächsten Zeitschritt, die zweite Spalte zeigt die Beziehung zwei Schritte in die Zukunft und die dritte Spalte drei Schritte in die Zukunft. Bei der Lineare Regression und dem saisonalen Mittel sehen wir, dass es eine lineare Beziehung zwischen <span class="math notranslate nohighlight">\(x_t\)</span> und <span class="math notranslate nohighlight">\(x_{t+1}\)</span> gibt, welche mit <span class="math notranslate nohighlight">\(x_{t+2}\)</span> schwächer wird und bei <span class="math notranslate nohighlight">\(x_{t+3}\)</span> verschwindet. Diese Beziehung ist die Autokorrelation. In der zweiten Spalte sehen wir keinerlei Beziehungen, die Daten sind zufällig verteilt. Die deutet darauf hin, das es keinen direkten Zusammenhang mehr zwischen den Zeitpunkten gibt.</p>
+<p>In der ersten Spalte sehen wir die Beziehung zum nächsten Zeitschritt, die zweite Spalte zeigt die Beziehung zwei Schritte in die Zukunft und die dritte Spalte drei Schritte in die Zukunft. Bei der Lineare Regression und dem saisonalen Mittel sehen wir, dass es eine lineare Beziehung zwischen <span class="math notranslate nohighlight">\(x_t\)</span> und <span class="math notranslate nohighlight">\(x_{t+1}\)</span> gibt, welche mit <span class="math notranslate nohighlight">\(x_{t+2}\)</span> schwächer wird und bei <span class="math notranslate nohighlight">\(x_{t+3}\)</span> verschwindet. Diese Beziehung ist die Autokorrelation. In der zweiten Spalte sehen wir keinerlei Beziehungen, die Daten sind zufällig verteilt. Die deutet darauf hin, dass es keinen direkten Zusammenhang mehr zwischen den Zeitpunkten gibt.</p>
 <p>Die obige Darstellung der Autokorrelation ignoriert noch einen wichtigen Aspekt:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(x_{t+2}\)</span> ist mit <span class="math notranslate nohighlight">\(x_{t+1}\)</span> korreliert.</p></li>
 <li><p><span class="math notranslate nohighlight">\(x_{t+1}\)</span> ist mit<span class="math notranslate nohighlight">\(x_{t}\)</span> korreliert.</p></li>
 <li><p>Wie viel der Korrelation zwischen <span class="math notranslate nohighlight">\(x_{t+2}\)</span> and <span class="math notranslate nohighlight">\(x_{t}\)</span> wird bereits durch die Korrelation durch die indirekte Korrelation mit <span class="math notranslate nohighlight">\(x_{t+2}\)</span>, die es durch die Korrelation von <span class="math notranslate nohighlight">\(x_{t}\)</span> gibt <span class="math notranslate nohighlight">\(x_{t+1}\)</span>, erklärt?</p></li>
 </ul>
-<p>Es gibt also einen gewissen Übertrag (engl. <em>carry over</em>) zwischen den Zeitpunkten. Dieser Zusammenhang klingt in der abstrakten mathematischen Beschreibung etwas kompliziert, wird aber durch ein Beispiel schnell klar. Wenn die Passigierzahlen vom März mit den Zahlen aus dem Februar zusammenhängen, und der Wert vom Februar mit dem Wert vom Januar, dann hat der Wert aus dem Januar hierdurch eine indirekte Auswirkung auf den März. Das bedeutet, dass ein Teil der Korrelation von Januar und Februar sich auf den März überträgt.</p>
-<p>Das heißt jedoch nicht, dass es nicht auch noch einen direkten Zusammenhang zwischen Januar und März gegeben kann, der sich nicht durch den übertrag erklären lässt. Dies ist die partielle Autokorrelation, also nur die direkte Korrelation zwischen Zeitpunkten ohne den Übertrag. In unseren Beispiel haben wir die folgenden Autokorrelationen und partiellen Autokorrelationen.</p>
+<p>Es gibt also einen gewissen Übertrag (engl. <em>carry over</em>) zwischen den Zeitpunkten. Dieser Zusammenhang klingt in der abstrakten mathematischen Beschreibung etwas kompliziert, wird aber durch ein Beispiel schnell klar. Wenn die Passagierzahlen vom März mit den Zahlen aus dem Februar zusammenhängen, und der Wert vom Februar mit dem Wert vom Januar, dann hat der Wert aus dem Januar hierdurch eine indirekte Auswirkung auf den März. Das bedeutet, dass ein Teil der Korrelation von Januar und Februar sich auf den März überträgt.</p>
+<p>Das heißt jedoch nicht, dass es nicht auch noch einen direkten Zusammenhang zwischen Januar und März gegeben kann, der sich nicht durch den übertrag erklären lässt. Dies ist die partielle Autokorrelation, also nur die direkte Korrelation zwischen Zeitpunkten ohne den Übertrag. In unserem Beispiel haben wir die folgenden Autokorrelationen und partiellen Autokorrelationen.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.graphics.tsaplots</span> <span class="kn">import</span> <span class="n">plot_acf</span><span class="p">,</span> <span class="n">plot_pacf</span>
@@ -650,12 +646,12 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_09_16_0.png" src="../_images/kapitel_09_16_0.png" />
+<img alt="../_images/kapitel_09_15_0.png" src="../_images/kapitel_09_15_0.png" />
 </div>
 </div>
 <p>Die Balken zeigen die Stärke der Korrelation. Auch wenn es keinen festen Richtwert für die Definition einer starken, bzw. schwachen Korrelation gibt, verwenden wir im Folgenden die übliche Konvention das Werte die absolut kleiner als 0,3 sind bedeuten das es keine Korrelation gibt, Werte zwischen 0,3 und 0,5 auf eine schwache Korrelation hindeuten, Werte zwischen 0,5 und 0,7 auf eine moderate Korrelation und Werte größer als 0,7 auf eine starke Korrelation. Für uns sind nur Korrelationen relevant, die mindestens moderat sind.</p>
-<p>In der ersten Zeile der obigen Visualisierung sehen wir die Autokorrelation und die partielle Autokorrelation der trend- und saisonbereinigten Zeitreihe. In der Autokorrelation sieht man ein klares Muster von wechselnden positiven und negativen Korrelation über die Zeit mit einer Periode von 12 Zeitschritten. Dies ist der verbliedende saisonale Effekt, den wir durch die unzureichende Korrektur das Saison übrig haben. Die partielle Autokorrelation zeigt, das es einen direkten Einfluss auf <span class="math notranslate nohighlight">\(t+1\)</span>  gibt und das es außerdem noch eine schwache Korrelation mit den Zeitschritten <span class="math notranslate nohighlight">\(t+10\)</span> und <span class="math notranslate nohighlight">\(t+13\)</span> gibt. Auch hier sieht man also noch noch die nicht vollständig korrigierte Saison, wenn auch deutlich schwächer.</p>
-<p>In der zweiten Zeile sehen wir die Autokorrelation und die partielle Autokorrelation der durch Differencing bereinigten Zeitreihe. We auch schon in den Scatterplots, sieht man keine Hinweise auf eine Korrelation, weder bei der Autokorrelation, noch bei der partiellen Autokorrelation.</p>
+<p>In der ersten Zeile der obigen Visualisierung sehen wir die Autokorrelation und die partielle Autokorrelation der trend- und saisonbereinigten Zeitreihe. In der Autokorrelation sieht man ein klares Muster von wechselnder positiver und negativer Korrelation über die Zeit mit einer Periode von 12 Zeitschritten. Dies ist der saisonale Effekt, den wir durch die unzureichende Korrektur der Saison übrig haben. Die partielle Autokorrelation zeigt, das es einen direkten Einfluss auf <span class="math notranslate nohighlight">\(t+1\)</span>  gibt und das es außerdem noch eine schwache Korrelation mit den Zeitschritten <span class="math notranslate nohighlight">\(t+10\)</span> und <span class="math notranslate nohighlight">\(t+13\)</span> gibt. Auch hier sieht man also noch die nicht vollständig korrigierte Saison, wenn auch deutlich schwächer.</p>
+<p>In der zweiten Zeile sehen wir die Autokorrelation und die partielle Autokorrelation der durch Differencing bereinigten Zeitreihe. Wie auch schon in den Scatterplots, sieht man keine Hinweise auf eine Korrelation, weder bei der Autokorrelation, noch bei der partiellen Autokorrelation.</p>
 </div>
 <div class="section" id="ar-ma-und-arma">
 <h3><span class="section-number">9.4.2. </span>AR, MA und ARMA<a class="headerlink" href="#ar-ma-und-arma" title="Permalink to this headline">¶</a></h3>
@@ -666,20 +662,20 @@
 <p>wobei <span class="math notranslate nohighlight">\(c \in \mathbb{R}\)</span> eine Konstante Veränderung mit jedem Zeitpunkt ist, <span class="math notranslate nohighlight">\(\epsilon_t\)</span>  ist <em>weißes Rauschen</em> (engl. <em>white noise</em>) und <span class="math notranslate nohighlight">\(a_i \in \mathbb{R}, i=1, ..., p\)</span> sind die Koeffizienten, die den Einfluss der letzten Zeitschritte bestimmen. Das AR Modell kombiniert also eine feste Änderung <span class="math notranslate nohighlight">\(c\)</span> mit einer zufälligen Änderung <span class="math notranslate nohighlight">\(\epsilon_t\)</span> und einer linearen Regression der letzten <span class="math notranslate nohighlight">\(p\)</span> Zeitpunkte.</p>
 <blockquote>
 <div><p><strong>Bemerkung:</strong></p>
-<p>Weißes Rauschen entspricht einer Zufallsvariable mit dem Erwartungswert 0. Das heißt, das der Wert im Mittel 0 ist, also den Mittelwert der Zeitreihe nicht beeinflusst. Üblicherweise wird weißes Rauschen durch eine Normalverteilung mit einem Mittelwert von 0 und mit einer kleinen Standardabweichung modelliert.</p>
+<p>Weißes Rauschen entspricht einer Zufallsvariable mit dem Erwartungswert 0. Das heißt, dass der Wert im Mittel 0 ist, also den Mittelwert der Zeitreihe nicht beeinflusst. Üblicherweise wird weißes Rauschen durch eine Normalverteilung mit einem Mittelwert von 0 und mit einer kleinen Standardabweichung modelliert.</p>
 </div></blockquote>
 <p>Ein MA Modell beschreibt wie sich die Zeitreihe nur Aufgrund des Zufalls weiterentwickelt. Dies geht über das <span class="math notranslate nohighlight">\(\epsilon_t\)</span> was wir schon aus dem AR Modell kennen hinaus, indem nicht nur das weiße Rauschen des aktuellen Zeitschritts einen Einfluss hat, sondern auch die letzten <span class="math notranslate nohighlight">\(q\)</span> zufälligen Schwankungen, so dass</p>
 <div class="math notranslate nohighlight">
 \[c + \epsilon_t + \sum_{j=1}^q b_j \epsilon_{t-j}\]</div>
-<p>mit <span class="math notranslate nohighlight">\(c\)</span> und <span class="math notranslate nohighlight">\(\epsilon_t\)</span> wie oben. Die Summe <span class="math notranslate nohighlight">\(\sum_{j=1}^q b_j \epsilon_{t-j}\)</span> beschreibt den Einfluss des vergangen weißen Rauschen auf die Zukunft. Dies kann man sich so vorstellen, dass eine zufällig erhöhte Passigierzahl im Januar möglicherweise zu einer Reduktion im Februar führt. Dies würde man dann durch einen negativen Koeffizienten <span class="math notranslate nohighlight">\(b_1\)</span> im MA Modell beschreiben.</p>
-<p>Wenn wir AR mit MA kombineren, haben wir ein ARMA Modell für die Autokorrelation was definiert ist als</p>
+<p>mit <span class="math notranslate nohighlight">\(c\)</span> und <span class="math notranslate nohighlight">\(\epsilon_t\)</span> wie oben. Die Summe <span class="math notranslate nohighlight">\(\sum_{j=1}^q b_j \epsilon_{t-j}\)</span> beschreibt den Einfluss des vergangen weißen Rauschen auf die Zukunft. Dies kann man sich so vorstellen, dass eine zufällig erhöhte Passagierzahl im Januar möglicherweise zu einer Reduktion im Februar führt. Dies würde man dann durch einen negativen Koeffizienten <span class="math notranslate nohighlight">\(b_1\)</span> im MA Modell beschreiben.</p>
+<p>Wenn wir AR mit MA kombinieren, haben wir ein ARMA Modell für die Autokorrelation was definiert ist als</p>
 <div class="math notranslate nohighlight">
 \[x_t = c + \epsilon_t + \sum_{i=1}^p a_ix_{t-i} + \sum_{j=1}^q b_j \epsilon_{t-j}.\]</div>
-<p>Das ARMA Modell kombiniert also den Einfluss der letzten Zeitreihenwerte mit dem Einfluss des letzten zufälligen Schwankungen.</p>
+<p>Das ARMA Modell kombiniert also den Einfluss der letzten Zeitreihenwerte mit dem Einfluss der letzten zufälligen Schwankungen.</p>
 </div>
 <div class="section" id="auswahl-von-p-und-q">
 <h3><span class="section-number">9.4.3. </span>Auswahl von <span class="math notranslate nohighlight">\(p\)</span> und <span class="math notranslate nohighlight">\(q\)</span><a class="headerlink" href="#auswahl-von-p-und-q" title="Permalink to this headline">¶</a></h3>
-<p>Um ein ARMA Modell zu benutzen, müssen wir die Werte <span class="math notranslate nohighlight">\(p\)</span> und <span class="math notranslate nohighlight">\(q\)</span> bestimmen, also wie viele vergange Zeitschritte einen Einfluss haben sollen. Hierzu benutzen wir die Autokorrelationen und die partiellen Autokorrelatinonen.</p>
+<p>Um ein ARMA Modell zu benutzen, müssen wir die Werte <span class="math notranslate nohighlight">\(p\)</span> und <span class="math notranslate nohighlight">\(q\)</span> bestimmen, also wie viele vergangene Zeitschritte einen Einfluss haben sollen. Hierzu benutzen wir die Autokorrelation und die partielle Autokorrelation.</p>
 <p>Zuerst wählen wir Werte für die mit Regression und saisonalen Mittel bereinigte Zeitreihe. Hier haben wir die folgenden (partiellen) Autokorrelationen.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -691,11 +687,11 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_09_18_0.png" src="../_images/kapitel_09_18_0.png" />
+<img alt="../_images/kapitel_09_17_0.png" src="../_images/kapitel_09_17_0.png" />
 </div>
 </div>
-<p>Die AR den direkten Einfluss der vergangen Werte modelliert, können wir die partiellen Autokorrleation zu wahl von <span class="math notranslate nohighlight">\(p\)</span> nutzen. In unserem Beispiel wären <span class="math notranslate nohighlight">\(p=1\)</span> und <span class="math notranslate nohighlight">\(p=13\)</span> geeignete Werte. Mit <span class="math notranslate nohighlight">\(p=1\)</span> hätte man ein kleines Zeitreihenmodell mit wenig Paramtern, mit <span class="math notranslate nohighlight">\(p=13\)</span> hätte man hingegen ein recht großes Modell. Das große Modell wäre genauer, da es den nicht korrigieren saisonalen Effekt mit erfassen würde. Es wäre jedoch schwieriger das Modell über die Koeffzienten zu interpretieren. Ein so hoher Wert von <span class="math notranslate nohighlight">\(p\)</span> führt außerdem zu einem gewissen Risiko des Overfittings.</p>
-<p>MA modelliert die langfristigen Auswirkungen zufälliger Schwankungen. Wenn man ein reines <span class="math notranslate nohighlight">\(MA\)</span> Modell verwendet (also nicht ARMA), kann man <span class="math notranslate nohighlight">\(q\)</span> anhand der Autokorrelation auswählen, da diese nach <span class="math notranslate nohighlight">\(q\)</span> Zeitschritten gegen Null gehen sollte. Dies wäre in uneserm Beispiel erst nach Ablauf von drei Saisons der Fall. Die ignoriert bei einem ARMA Modell jedoch den übertrag durch die vergangen Werte der Zeitreihe, die ebenfalls vom weißen Rauschen beeinflusst werden, also vom AR Teil des Modells. Die Autokorrelation mit <span class="math notranslate nohighlight">\(t+1\)</span> wird bereits voll hierdurch abgedeckt, und durch den übertrag wird somit auch ein gewisser teil der Autokorrelation zum Zeitpunkt <span class="math notranslate nohighlight">\(t+2\)</span> mit abgedeckt, usw. Wenn wir dies berücksichtigen, ist der verbleidende Einfluss der zufälligen Schwankungen relativ klein, so dass man  <span class="math notranslate nohighlight">\(q=1\)</span> oder <span class="math notranslate nohighlight">\(q=12\)</span> gute Werte währen, je nach Wahl von <span class="math notranslate nohighlight">\(p\)</span>.</p>
+<p>Die AR den direkten Einfluss der vergangen Werte modelliert, können wir die partiellen Autokorrelation zur Wahl von <span class="math notranslate nohighlight">\(p\)</span> nutzen. In unserem Beispiel wären <span class="math notranslate nohighlight">\(p=1\)</span> und <span class="math notranslate nohighlight">\(p=13\)</span> geeignete Werte. Mit <span class="math notranslate nohighlight">\(p=1\)</span> hätte man ein kleines Zeitreihenmodell mit wenig Parametern, mit <span class="math notranslate nohighlight">\(p=13\)</span> hätte man hingegen ein recht großes Modell. Das große Modell wäre genauer, da es den nicht korrigieren saisonalen Effekt miterfassen würde. Es wäre jedoch schwieriger das Modell über die Koeffizienten zu interpretieren. Ein so hoher Wert von <span class="math notranslate nohighlight">\(p\)</span> führt außerdem zu einem gewissen Risiko des Overfittings.</p>
+<p>MA modelliert die langfristigen Auswirkungen zufälliger Schwankungen. Wenn man ein reines <span class="math notranslate nohighlight">\(MA\)</span> Modell verwendet (also nicht ARMA), kann man <span class="math notranslate nohighlight">\(q\)</span> anhand der Autokorrelation auswählen, da diese nach <span class="math notranslate nohighlight">\(q\)</span> Zeitschritten gegen null gehen sollte. Dies wäre in unserem Beispiel erst nach Ablauf von drei Saisons der Fall. Die ignoriert bei einem ARMA Modell jedoch den übertrag durch die vergangenen Werte der Zeitreihe, die ebenfalls vom weißen Rauschen beeinflusst werden, also vom AR Teil des Modells. Die Autokorrelation mit <span class="math notranslate nohighlight">\(t+1\)</span> wird bereits voll hierdurch abgedeckt, und durch den übertrag wird somit auch ein gewisser Teil der Autokorrelation zum Zeitpunkt <span class="math notranslate nohighlight">\(t+2\)</span> mit abgedeckt, usw. Wenn wir dies berücksichtigen, ist der verbleidende Einfluss der zufälligen Schwankungen relativ klein, so dass man  <span class="math notranslate nohighlight">\(q=1\)</span> oder <span class="math notranslate nohighlight">\(q=12\)</span> gute Werte währen, je nach Wahl von <span class="math notranslate nohighlight">\(p\)</span>.</p>
 <p>Insgesamt haben wir also folgenden Kandidaten für paare von <span class="math notranslate nohighlight">\(p\)</span> und <span class="math notranslate nohighlight">\(q\)</span>:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(p=1, q=1\)</span> um eine kompaktes Modell der Zeitreihe zu erhalten, das aber eventuell den saisonalen Effekt nicht vollständig berücksichtigt.</p></li>
@@ -713,14 +709,14 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_09_20_0.png" src="../_images/kapitel_09_20_0.png" />
+<img alt="../_images/kapitel_09_19_0.png" src="../_images/kapitel_09_19_0.png" />
 </div>
 </div>
-<p>Da es keine starke partielle Autokorrelation gibt, wählen wir <span class="math notranslate nohighlight">\(p=0\)</span>. In den Autokorrelationen sieht man lediglich bei <span class="math notranslate nohighlight">\(t+1\)</span> eine Wert von etwa -0,3, anschließend schwanken die Werte um Null. Da wir mit <span class="math notranslate nohighlight">\(p=0\)</span> ein reines MA Modell haben, sollten wir, wie oben erklärt, also <span class="math notranslate nohighlight">\(q=1\)</span> wählen.</p>
+<p>Da es keine starke partielle Autokorrelation gibt, wählen wir <span class="math notranslate nohighlight">\(p=0\)</span>. In den Autokorrelationen sieht man lediglich bei <span class="math notranslate nohighlight">\(t+1\)</span> einen Wert von etwa -0,3, anschließend schwanken die Werte um Null. Da wir mit <span class="math notranslate nohighlight">\(p=0\)</span> ein reines MA Modell haben, sollten wir, wie oben erklärt, also <span class="math notranslate nohighlight">\(q=1\)</span> wählen.</p>
 </div>
 <div class="section" id="arima">
 <h3><span class="section-number">9.4.4. </span>ARIMA<a class="headerlink" href="#arima" title="Permalink to this headline">¶</a></h3>
-<p>Ofter findet man auch ARIMA Modelle für die Zeitreihenanalyse mit den Parametern <span class="math notranslate nohighlight">\(p\)</span>, <span class="math notranslate nohighlight">\(d\)</span> und <span class="math notranslate nohighlight">\(q\)</span>. ARIMA ist genau wie ARMA, nur dass das Bereinigung des Trends durch Differencing über den Parameter <span class="math notranslate nohighlight">\(d\)</span> ein Teil des Modells ist. ARIMA ist also das gleiche wie ein ARMA Modell was auf eine durch Differencing trendbereinigte Zeitreihe angewendet wird.</p>
+<p>Oft findet man auch ARIMA Modelle für die Zeitreihenanalyse mit den Parametern <span class="math notranslate nohighlight">\(p\)</span>, <span class="math notranslate nohighlight">\(d\)</span> und <span class="math notranslate nohighlight">\(q\)</span>. ARIMA ist genau wie ARMA, nur dass die Bereinigung des Trends durch Differencing über den Parameter <span class="math notranslate nohighlight">\(d\)</span> ein Teil des Modells ist. ARIMA ist also das gleiche wie ein ARMA Modell was auf eine durch Differencing trendbereinigte Zeitreihe angewendet wird.</p>
 </div>
 </div>
 <div class="section" id="jenseits-von-box-jenkins">
@@ -776,9 +772,8 @@
 
       </div>
     </div>
-
     
-  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
 
     
