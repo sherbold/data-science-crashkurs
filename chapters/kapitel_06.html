@@ -787,8 +787,8 @@
 <p>Man nennt diese Art zu Clustern EM Clustering weil sie auf dem <em>Expectation-Maximization (EM) Algorithmus</em> basiert. Der Algorithmus ist im Allgemeinen Ähnlich zu <span class="math notranslate nohighlight">\(k\)</span>-Means: Wir starten mit einer zufälligen Initialisierung der Zufallsvariablen und verbessern die Beschreibung der Daten durch die Zufallsvariablen iterativ. Beim EM Algorithmus müssen also für jedes Cluster die Mittelwerte und die Kovarianzmatrizen zufällig initialisiert und stückweise verbessert werden. Die Verbesserung basiert auf der Wahrscheinlichkeit (engl. <em>likelihood</em>), dass die Daten Instanzen dieser Zufallsvariablen sein könnten. Im folgenden Betrachten wir nicht die vollständige mathematische Beschreibung des EM Algorithmus, sondern nur eine vereinfachte Version, in der wir nur die Mittelwerte aktualisieren und die Kovarianzen ignorieren.</p>
 <ol class="simple">
 <li><p>Wähle zufällig <span class="math notranslate nohighlight">\(k\)</span> Normalverteilungen <span class="math notranslate nohighlight">\(C_1 \sim (\mu_1, \Sigma_1), ..., C_k \sim (\mu_k, \Sigma_k)\)</span>, wobei <span class="math notranslate nohighlight">\(\mu_i \in \mathcal{F}\)</span> die Mittelwerte und <span class="math notranslate nohighlight">\(\Sigma_i \in \mathcal{F}\times\mathcal{F}\)</span> die Kovarianzmatrizen sind.</p></li>
-<li><p>Expectation Schritt: Bestimme Gewichte $<span class="math notranslate nohighlight">\(w_i(x) = \frac{p(x|\mu_i, \Sigma_i)}{\sum_{j=1}^k p(x|\mu_j, \Sigma_j)}\)</span><span class="math notranslate nohighlight">\( für alle Instanzen \)</span>x \in X<span class="math notranslate nohighlight">\( und Cluster \)</span>i=1, …, k$.</p></li>
-<li><p>Maximization Schritt: Aktualisiere die Mittelwerte, so dass $<span class="math notranslate nohighlight">\(\mu_i = \frac{1}{|X|}\sum_{x \in X} w_i(x)\cdot x\)</span><span class="math notranslate nohighlight">\( für jedes Cluster \)</span>i=1, …, k$.
+<li><p>Expectation Schritt: Bestimme Gewichte <span class="math notranslate nohighlight">\(w_i(x) = \frac{p(x|\mu_i, \Sigma_i)}{\sum_{j=1}^k p(x|\mu_j, \Sigma_j)}\)</span> für alle Instanzen <span class="math notranslate nohighlight">\(x \in X\)</span> und Cluster <span class="math notranslate nohighlight">\(i=1, ..., k\)</span>.</p></li>
+<li><p>Maximization Schritt: Aktualisiere die Mittelwerte, so dass <span class="math notranslate nohighlight">\(\mu_i = \frac{1}{|X|}\sum_{x \in X} w_i(x)\cdot x\)</span> für jedes Cluster <span class="math notranslate nohighlight">\(i=1, ..., k\)</span>.
 4, Wiederhole die Schritte 2 und 3 bis</p>
 <ul class="simple">
 <li><p>Das Ergebnis konvergiert, also sich die Cluster <span class="math notranslate nohighlight">\(C_1, ..., C_k\)</span> sich nicht mehr verändern.</p></li>
@@ -1647,10 +1647,9 @@
 
       </div>
     </div>
-    
+  
   <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-
-    
+  
   </body>
 </html>
