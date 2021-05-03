@@ -25,7 +25,7 @@
 <!-- f1_1 -->
 <g id="node4" class="node">
 <title>f1_1</title>
-<ellipse fill="gray" stroke="gray" cx="120.55" cy="-180" rx="30.59" ry="18"/>
+<ellipse fill="silver" stroke="silver" cx="120.55" cy="-180" rx="30.59" ry="18"/>
 <text text-anchor="middle" x="120.55" y="-176.3" font-family="Times,serif" font-size="14.00">f1_1</text>
 </g>
 <!-- x_1&#45;&gt;f1_1 -->
@@ -37,7 +37,7 @@
 <!-- f1_2 -->
 <g id="node5" class="node">
 <title>f1_2</title>
-<ellipse fill="gray" stroke="gray" cx="120.55" cy="-126" rx="30.59" ry="18"/>
+<ellipse fill="silver" stroke="silver" cx="120.55" cy="-126" rx="30.59" ry="18"/>
 <text text-anchor="middle" x="120.55" y="-122.3" font-family="Times,serif" font-size="14.00">f1_2</text>
 </g>
 <!-- x_1&#45;&gt;f1_2 -->
@@ -49,7 +49,7 @@
 <!-- f1_3 -->
 <g id="node6" class="node">
 <title>f1_3</title>
-<ellipse fill="gray" stroke="gray" cx="120.55" cy="-72" rx="30.59" ry="18"/>
+<ellipse fill="silver" stroke="silver" cx="120.55" cy="-72" rx="30.59" ry="18"/>
 <text text-anchor="middle" x="120.55" y="-68.3" font-family="Times,serif" font-size="14.00">f1_3</text>
 </g>
 <!-- x_1&#45;&gt;f1_3 -->
@@ -61,7 +61,7 @@
 <!-- f1_4 -->
 <g id="node7" class="node">
 <title>f1_4</title>
-<ellipse fill="gray" stroke="gray" cx="120.55" cy="-18" rx="30.59" ry="18"/>
+<ellipse fill="silver" stroke="silver" cx="120.55" cy="-18" rx="30.59" ry="18"/>
 <text text-anchor="middle" x="120.55" y="-14.3" font-family="Times,serif" font-size="14.00">f1_4</text>
 </g>
 <!-- x_1&#45;&gt;f1_4 -->
@@ -129,7 +129,7 @@
 <!-- f2_1 -->
 <g id="node8" class="node">
 <title>f2_1</title>
-<ellipse fill="grey" stroke="grey" cx="217.64" cy="-180" rx="30.59" ry="18"/>
+<ellipse fill="silver" stroke="silver" cx="217.64" cy="-180" rx="30.59" ry="18"/>
 <text text-anchor="middle" x="217.64" y="-176.3" font-family="Times,serif" font-size="14.00">f2_1</text>
 </g>
 <!-- f1_1&#45;&gt;f2_1 -->
@@ -141,7 +141,7 @@
 <!-- f2_2 -->
 <g id="node9" class="node">
 <title>f2_2</title>
-<ellipse fill="grey" stroke="grey" cx="217.64" cy="-126" rx="30.59" ry="18"/>
+<ellipse fill="silver" stroke="silver" cx="217.64" cy="-126" rx="30.59" ry="18"/>
 <text text-anchor="middle" x="217.64" y="-122.3" font-family="Times,serif" font-size="14.00">f2_2</text>
 </g>
 <!-- f1_1&#45;&gt;f2_2 -->
@@ -153,7 +153,7 @@
 <!-- f2_3 -->
 <g id="node10" class="node">
 <title>f2_3</title>
-<ellipse fill="grey" stroke="grey" cx="217.64" cy="-72" rx="30.59" ry="18"/>
+<ellipse fill="silver" stroke="silver" cx="217.64" cy="-72" rx="30.59" ry="18"/>
 <text text-anchor="middle" x="217.64" y="-68.3" font-family="Times,serif" font-size="14.00">f2_3</text>
 </g>
 <!-- f1_1&#45;&gt;f2_3 -->
@@ -165,7 +165,7 @@
 <!-- f2_4 -->
 <g id="node11" class="node">
 <title>f2_4</title>
-<ellipse fill="grey" stroke="grey" cx="217.64" cy="-18" rx="30.59" ry="18"/>
+<ellipse fill="silver" stroke="silver" cx="217.64" cy="-18" rx="30.59" ry="18"/>
 <text text-anchor="middle" x="217.64" y="-14.3" font-family="Times,serif" font-size="14.00">f2_4</text>
 </g>
 <!-- f1_1&#45;&gt;f2_4 -->
