@@ -1,0 +1,471 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notationen &#8212; Data Science Crashkurs - Eine interaktive und praktische Einführung</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Übung 1" href="../exercises/uebung_01.html" />
+    <link rel="prev" title="12. Big Data Processing" href="kapitel_12.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Data Science Crashkurs - Eine interaktive und praktische Einführung</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../vorwort.html">
+   Vorwort
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Kapitel
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_01.html">
+   1. Big Data und Data Science
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_02.html">
+   2. Der Prozess von Data Science Projekten
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_03.html">
+   3. Erkunden der Daten
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_04.html">
+   4. Allgemeines zur Datenanalyse
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_05.html">
+   5. Assoziationsregeln
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_06.html">
+   6. Clusteranalyse
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_07.html">
+   7. Klassifikation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_08.html">
+   8. Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_09.html">
+   9. Zeitreihenanalyse
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_10.html">
+   10. Textmining
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_11.html">
+   11. Statistik
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_12.html">
+   12. Big Data Processing
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Notationen
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Übungen
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../exercises/uebung_01.html">
+   Übung 1
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/chapters/appendix.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/sherbold/einfuehrung-in-data-science"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/sherbold/einfuehrung-in-data-science/main?urlpath=tree/content/chapters/appendix.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="notationen">
+<h1>Notationen<a class="headerlink" href="#notationen" title="Permalink to this headline">¶</a></h1>
+<p>In diesem Buch verwenden wir viele Mathematische Notation. Hier sind noch einmal die wichtigsten zum Nachschlagen also Tabelle.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Notation</p></th>
+<th class="head"><p>Definition</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\mathbb{R}\)</span></p></td>
+<td><p>Die reellen Zahlen, also mehr oder weniger beliebige numerische Werte.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\mathbb{N}\)</span></p></td>
+<td><p>Die natürlichen Zahlen, also alle ganzen Zahlen die größer null sind.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(O\)</span></p></td>
+<td><p>Objektraum, also die Menge der Objekte aus der realen Welt.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\phi\)</span></p></td>
+<td><p>Feature map, also eine Abbildung die definiert wie Merkmale für Objekte berechnet werden.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\mathcal{F}\)</span></p></td>
+<td><p>Merkmalsraum (engl. feature space), also die Dimension und die möglichen Werte der Merkmale. Häufig ist dies der <span class="math notranslate nohighlight">\(\mathbb{R}^d\)</span>, also die <span class="math notranslate nohighlight">\(d\)</span>-dimensionalen reellen Zahlen. In diesem Fall gibt es <span class="math notranslate nohighlight">\(d \in \mathbb{N}\)</span> Merkmale.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(X\)</span> (Clustering, Klassifikation, Regression)</p></td>
+<td><p>Instanzen von Objekten im Merkmalsraum. Je nach Kontext ist <span class="math notranslate nohighlight">\(X\)</span> entweder eine Menge von Instanzen <span class="math notranslate nohighlight">\(X = \{x_1, ..., x_n\} \subseteq \mathcal{F}\)</span> oder eine Zufallsvariable, so dass die Instanzen Realisierungen dieser Zufallsvariablen sind.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(Y\)</span> (Klassifikation, Regression)</p></td>
+<td><p>Wert von Interesse, also die Klasse oder die abhängige Variable. Wie <span class="math notranslate nohighlight">\(X\)</span> wird <span class="math notranslate nohighlight">\(Y\)</span> auch entweder als Menge <span class="math notranslate nohighlight">\(Y= \{y_1, ..., y_n\}\)</span> oder als Zufallsvariable definiert.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(I\)</span></p></td>
+<td><p>Endliche Menge von Gegenständen  {i_1, …, i_m}.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(T\)</span></p></td>
+<td><p>Endliche Menge von Transaktionen <span class="math notranslate nohighlight">\(T=\{t_1, ..., t_n\}\)</span>, wobei <span class="math notranslate nohighlight">\(t_i \subseteq I\)</span> für <span class="math notranslate nohighlight">\(i=1, ..., n\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(X\)</span> (Assoziationsregeln)</p></td>
+<td><p>Bedingung (engl. antecedent) einer Assoziationsregel.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(Y\)</span> (Assoziationsregeln)</p></td>
+<td><p>Folgerung (engl. consequent) einer Assoziationsregel.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(X \Rightarrow Y\)</span></p></td>
+<td><p>Assoziationsregel, wobei <span class="math notranslate nohighlight">\(X\)</span> die Bedingung und <span class="math notranslate nohighlight">\(Y\)</span> die Folgerung ist.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\({n \choose k}\)</span></p></td>
+<td><p>Binomialkoeffizient <span class="math notranslate nohighlight">\({n \choose k} = \frac{n!}{(n-k)!k!}\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\mathcal{P}(I)\)</span></p></td>
+<td><p>Die Potenzmenge einer endlichen Menge <span class="math notranslate nohighlight">\(I\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\vert \cdot \vert\)</span></p></td>
+<td><p>Die Kardinalität einer Menge, zum Beispiel <span class="math notranslate nohighlight">\(\vert X \vert\)</span> für die Anzahl der Elemente der Menge <span class="math notranslate nohighlight">\(X\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(d(x,y)\)</span></p></td>
+<td><p>Distanz zwischen zwei Vektoren <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(y\)</span>, zum Beispiel die Euklidische Distanz, die Manhattan Distanz oder die Chebyshev Distanz.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(argmin_{i=1,...,k} f(i)\)</span></p></td>
+<td><p>Der Wert <span class="math notranslate nohighlight">\(i\)</span> für den die Funktion <span class="math notranslate nohighlight">\(f\)</span> minimiert wird.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(argmin_{i \in \{1, ..., k\}} f(i)\)</span></p></td>
+<td><p>Andere Schreibweise für <span class="math notranslate nohighlight">\(argmin_{i=1,...,k} f(i)\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\min_{i=1,...,k} f(i)\)</span></p></td>
+<td><p>Das Minimum der Funktion <span class="math notranslate nohighlight">\(f\)</span> über die verschiedenen Werte von <span class="math notranslate nohighlight">\(i\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\min_{i \in \{1, ..., k\}} f(i)\)</span></p></td>
+<td><p>Andere Schreibweise für <span class="math notranslate nohighlight">\(\min_{i=1, ..., k}\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(argmax\)</span></p></td>
+<td><p>Siehe <span class="math notranslate nohighlight">\(argmin\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\max\)</span></p></td>
+<td><p>Siehe <span class="math notranslate nohighlight">\(\min\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\sim\)</span></p></td>
+<td><p>Definiert die Verteilung einer Zufallsvariable. Wir schreiben <span class="math notranslate nohighlight">\(X \sim (\mu, \sigma)\)</span> um zu definieren das <span class="math notranslate nohighlight">\(X\)</span> normalverteilt mit dem Mittelwert <span class="math notranslate nohighlight">\( \mu\)</span> und der Standardabweichung <span class="math notranslate nohighlight">\(\sigma\)</span> ist.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(C\)</span> (Klassifikation)</p></td>
+<td><p>Menge der Klassen.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(C\)</span> (Clustering)</p></td>
+<td><p>Beschreibung der Cluster.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(h\)</span></p></td>
+<td><p>Hypothese, Konzept, Klassifikator, Klassifikationsmodell.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(h^*\)</span></p></td>
+<td><p>Zielkonzept.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(h'_c\)</span></p></td>
+<td><p>Score einer Hypothese für die Klasse <span class="math notranslate nohighlight">\(c\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(P(X=x)\)</span></p></td>
+<td><p>Wahrscheinlichkeit, dass die Zufallsvariable <span class="math notranslate nohighlight">\(X\)</span> den Wert <span class="math notranslate nohighlight">\(x\)</span> annimmt.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(p(x)\)</span></p></td>
+<td><p>Kurzform für <span class="math notranslate nohighlight">\(p(x) = P(X=x)\)</span> bei eine Zufallsvariable <span class="math notranslate nohighlight">\(x\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(P(X \vert Y)\)</span></p></td>
+<td><p>Bedingte Wahrscheinlichkeit einer Zufallsvariablen <span class="math notranslate nohighlight">\(X\)</span> gegeben eine andere Zufallsvariable <span class="math notranslate nohighlight">\(Y\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(H(X)\)</span></p></td>
+<td><p>Entropie einer Zufallsvariablen <span class="math notranslate nohighlight">\(X\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(H(X \vert Y)\)</span></p></td>
+<td><p>Bedingte Entropie der Zufallsvariablen <span class="math notranslate nohighlight">\(X\)</span> gegeben der Zufallsvariable <span class="math notranslate nohighlight">\(Y\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(I(X; Y)\)</span></p></td>
+<td><p>Informationsgewinn (engl. information gain) für <span class="math notranslate nohighlight">\(X\)</span>, bzw. <span class="math notranslate nohighlight">\(Y\)</span>, wenn die andere Variable bekannt ist. Auch bekannt als gemeinsame Information (engl. mutual information).</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(e_x\)</span></p></td>
+<td><p>Residuen einer Regression.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(x_t\)</span></p></td>
+<td><p>Werte einer Zeitreihe <span class="math notranslate nohighlight">\(\{x_1, ..., x_T\} = \{x_t\}_{t=1}^T\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(T_t\)</span></p></td>
+<td><p>Trend einer Zeitreihe.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(S_t\)</span></p></td>
+<td><p>Saisonalität einer Zeitreihe.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(R_t\)</span></p></td>
+<td><p>Autoregressiver Teil einer Zeitreihe.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapters"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="kapitel_12.html" title="previous page"><span class="section-number">12. </span>Big Data Processing</a>
+    <a class='right-next' id="next-link" href="../exercises/uebung_01.html" title="next page">Übung 1</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Steffen Herbold<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
