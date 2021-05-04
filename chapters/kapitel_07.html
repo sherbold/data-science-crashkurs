@@ -560,19 +560,65 @@
 </table>
 <div class="section" id="die-confusion-matrix">
 <h3><span class="section-number">7.3.1. </span>Die Confusion Matrix<a class="headerlink" href="#die-confusion-matrix" title="Permalink to this headline">¶</a></h3>
-<p>Das wichtigste Werkzeug für die Analyse der Qualität von Hypothesen ist die <em>Confusion Matrix</em>, eine tabellenartige Beschreibung der Häufigkeiten mit denen die Hypothese richtig liegt, bzw. Fehler macht, also verwirrt (engl. <em>confused</em>) ist. Die Confusion Matrix für unser Bildklassifikationsbeispiel wie in <code class="xref std std-numref docutils literal notranslate"><span class="pre">tbl-confusion-matrix</span></code> aussehen.</p>
+<p>Das wichtigste Werkzeug für die Analyse der Qualität von Hypothesen ist die <em>Confusion Matrix</em>, eine tabellenartige Beschreibung der Häufigkeiten mit denen die Hypothese richtig liegt, bzw. Fehler macht, also verwirrt (engl. <em>confused</em>) ist. Die Confusion Matrix für unser Bildklassifikationsbeispiel wie in <a class="reference internal" href="#tbl-confusion-matrix"><span class="std std-numref">Table 7.2</span></a> aussehen.</p>
+<table class="colwidths-auto table" id="tbl-confusion-matrix">
+<caption><span class="caption-number">Table 7.2 </span><span class="caption-text">Beispiel von einer Confusion Matrix. Die Spalten stehen für die wahre Klasse und die Zeilen für die Vorhersagen.</span><a class="headerlink" href="#tbl-confusion-matrix" title="Permalink to this table">¶</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Wal</p></th>
+<th class="head"><p>Bär</p></th>
+<th class="head"><p>Sonstiges</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Wal</strong></p></td>
+<td><p>29</p></td>
+<td><p>1</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Bär</strong></p></td>
+<td><p>2</p></td>
+<td><p>22</p></td>
+<td><p>13</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Sonstiges</strong></p></td>
+<td><p>4</p></td>
+<td><p>11</p></td>
+<td><p>51</p></td>
+</tr>
+</tbody>
+</table>
 <p>Im Wesentlichen zählt die Confusion Matrix wie oft Instanzen einer bestimmten Klasse als wie vorhergesagt werden. Man sieht zum Beispiel wie oft Wale als Wale vorhergesagt werden und wie oft sie stattdessen als Bären oder Sonstiges klassifiziert werden. Die Spalten zeigen die wahren Werte der Instanzen, also das Zielkonzept. Die Zeilen zeigen die Vorhersagen, also die Hypothese. In unserem Beispiel haben wir 35 Bilder von Walen. Dies ist die Summe der Werte in der ersten Spalte. 29 dieser Walbilder werden richtig klassifiziert, zwei werden fehlerhaft als Bären klassifiziert und vier werden fehlerhaft als Sonstiges klassifiziert. Wir bekommen mit Hilfe der Confusion Matrix also detailierte statistische Informationen darüber, wie die Instanzen einer Klasse klassifiziert werden. Die Werte auf der Diagonalen sind die richtigen Vorhersagen, die anderen Werte sind die Fehler.</p>
 </div>
 <div class="section" id="die-binare-confusion-matrix">
 <h3><span class="section-number">7.3.2. </span>Die Binäre Confusion Matrix<a class="headerlink" href="#die-binare-confusion-matrix" title="Permalink to this headline">¶</a></h3>
-<p>Die binäre Confusion Matrix ist der Spezialfall der Confusion Matrix für binäre Klassifikationsprobleme. Im Allgemeinen sieht die binäre Confusion Matrix wie in <code class="xref std std-numref docutils literal notranslate"><span class="pre">tbl-binary-confusion-matrix</span></code> aus.</p>
+<p>Die binäre Confusion Matrix ist der Spezialfall der Confusion Matrix für binäre Klassifikationsprobleme. Im Allgemeinen sieht die binäre Confusion Matrix wie in <a class="reference internal" href="#tbl-binary-confusion-matrix"><span class="std std-numref">Table 7.3</span></a> aus.</p>
+<table class="colwidths-auto table" id="tbl-binary-confusion-matrix">
+<caption><span class="caption-number">Table 7.3 </span><span class="caption-text">Die Binäre Confusion Matrix.</span><a class="headerlink" href="#tbl-binary-confusion-matrix" title="Permalink to this table">¶</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Positive / True</p></th>
+<th class="head"><p>Negative / False</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Positive / True</strong></p></td>
+<td><p>Richtig Positiv / True Positive (TP)</p></td>
+<td><p>Falsch Positiv / False Positive (FP)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Negativ / False</strong></p></td>
+<td><p>Falsch Negativ / False Negative (FN)</p></td>
+<td><p>Richtig Negativ / True Negative (TN)</p></td>
+</tr>
+</tbody>
+</table>
 <p>Wir bekommen also abhängig von der wahren Klasse und der Vorhersage die Anzahl der <em>richtig positiven</em> (engl. <em>true positive</em> / TP), <em>richtig negativen</em> (engl. <em>true negative</em> / TN), <em>falsch positiven</em> (engl. <em>false positive</em> / FP) und <em>falsch negativen</em> (<em>false negatives</em> / FN) Ergebnisse. Die binäre Confusion Matrix ist auch jenseits des maschinellen Lernens verbreitet, zum Beispiel in der Medizin zur Bewertung der Qualität von Tests. Aus der Medizin kommen auf die Begriffe des <em>Fehlers 1. Art</em> (engl. <em>type I error</em>) und des <em>Fehlers 2. Art</em> (engl. <em>Type II Fehler</em>). Der Fehler 1. Art misst die Anzahl der falsch positiven. Das könnte zum Beispiel bedeuten, dass das Ergebnis eine Antigentests auf eine bestimmte Krankheit fälschlicherweise ein positives Ergebnis liefert, obwohl der Patient nicht erkrankt ist. Der Fehler 2. Art misst die Anzahl der falsch negativen. Dies würde zum Beispiel bedeuten, dass eine Krankheit von einem Antigentest übersehen wird, obwohl ein Patient erkrankt ist.</p>
 </div>
 <div class="section" id="binare-gutemasze">
 <h3><span class="section-number">7.3.3. </span>Binäre Gütemaße<a class="headerlink" href="#binare-gutemasze" title="Permalink to this headline">¶</a></h3>
-<p>Mit Hilfe der binären Confusion Matrix können wir Gütemaße definieren, welche die Güte einer Hypothese durch eine einzelne Zahl basierend auf einem statistischen Kriterium zusammenfassen. Es gibt viele derartige Gütemaße, die alle unterschiedliche Aspekte der Güte messen. <a class="reference internal" href="#tbl-metrics-class"><span class="std std-numref">Table 7.2</span></a> listet elf derartige Gütemaße.</p>
+<p>Mit Hilfe der binären Confusion Matrix können wir Gütemaße definieren, welche die Güte einer Hypothese durch eine einzelne Zahl basierend auf einem statistischen Kriterium zusammenfassen. Es gibt viele derartige Gütemaße, die alle unterschiedliche Aspekte der Güte messen. <a class="reference internal" href="#tbl-metrics-class"><span class="std std-numref">Table 7.4</span></a> listet elf derartige Gütemaße.</p>
 <table class="colwidths-auto table" id="tbl-metrics-class">
-<caption><span class="caption-number">Table 7.2 </span><span class="caption-text">Gütemaße für die Klassifikation</span><a class="headerlink" href="#tbl-metrics-class" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 7.4 </span><span class="caption-text">Gütemaße für die Klassifikation</span><a class="headerlink" href="#tbl-metrics-class" title="Permalink to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Gütemaß</p></th>
 <th class="head"><p>Beschreibung</p></th>
@@ -715,13 +761,33 @@
 </div>
 <div class="section" id="micro-und-macro-averages">
 <h3><span class="section-number">7.3.6. </span>Micro und Macro Averages<a class="headerlink" href="#micro-und-macro-averages" title="Permalink to this headline">¶</a></h3>
-<p>Die bisherigen Gütemaße haben wir über die binäre Confusion Matrix definiert. Die Definition der Accuracy können wir ohne Probleme auf mehr als zwei Klassen verallgemeinern, da es sich um den Anteil der korrekt klassifizierten Instanzen handelt. Für MCC gibt es auch eine Erweiterung für mehr als zwei Klassen, auf die wir hier jedoch nicht näher eingehen. Für die anderen Gütemaße können wir einen Trick anwenden: Statt einer nicht-binären Confusion Matrix betrachten wir mehrere binäre Confusion Matrizen. Wie dieser Trick funktioniert, betrachten wir direkt an einem Beispiel. Hier ist noch einmal die Confusion Matrix für die drei Klassen Wal, Bär, und Sonstiges, die wir oben bereits betrachtet haben.</p>
-<table>
-    <tr><td></td><td colspan=4><b>Actual class</b></td></tr>
-    <tr><td rowspan=4><br><br><b>Predicted class</b></td><td><td><b>whale</b></td><td><b>bear</b></td><td><b>other</b></td></tr>
-    <tr><td><b>whale</b></td><td>29</td><td>1</td><td>3</td></tr>
-    <tr><td><b>bear</b></td><td>2</td><td>22</td><td>13</td></tr>
-    <tr><td><b>other</b></td><td>4</td><td>11</td><td>51</td></tr>
+<p>Die bisherigen Gütemaße haben wir über die binäre Confusion Matrix definiert. Die Definition der Accuracy können wir ohne Probleme auf mehr als zwei Klassen verallgemeinern, da es sich um den Anteil der korrekt klassifizierten Instanzen handelt. Für MCC gibt es auch eine Erweiterung für mehr als zwei Klassen, auf die wir hier jedoch nicht näher eingehen. Für die anderen Gütemaße können wir einen Trick anwenden: Statt einer nicht-binären Confusion Matrix betrachten wir mehrere binäre Confusion Matrizen. Wie dieser Trick funktioniert, betrachten wir direkt an einem Beispiel. <a class="reference internal" href="#tbl-confusion-matrix-rep"><span class="std std-numref">Table 7.5</span></a> zeigt noch einmal die Confusion Matrix für die drei Klassen Wal, Bär, und Sonstiges, die wir oben bereits betrachtet haben.</p>
+<table class="colwidths-auto table" id="tbl-confusion-matrix-rep">
+<caption><span class="caption-number">Table 7.5 </span><span class="caption-text">Beispiel von einer Confusion Matrix. Die Spalten stehen für die wahre Klasse und die Zeilen für die Vorhersagen (Wiederholung).</span><a class="headerlink" href="#tbl-confusion-matrix-rep" title="Permalink to this table">¶</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Wal</p></th>
+<th class="head"><p>Bär</p></th>
+<th class="head"><p>Sonstiges</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Wal</strong></p></td>
+<td><p>29</p></td>
+<td><p>1</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Bär</strong></p></td>
+<td><p>2</p></td>
+<td><p>22</p></td>
+<td><p>13</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Sonstiges</strong></p></td>
+<td><p>4</p></td>
+<td><p>11</p></td>
+<td><p>51</p></td>
+</tr>
+</tbody>
 </table>
 <p>Wir können aus dieser Matrix nun Gütemaße für die einzelnen Klassen berechnen, zum Beispiel die TPR für die Klasse Wal als</p>
 <div class="math notranslate nohighlight">
