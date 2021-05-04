@@ -318,8 +318,13 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#scatterplots-fur-hochdimensionale-daten">
+     3.3.4. Scatterplots für Hochdimensionale Daten
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#zeitliche-trends">
-     3.3.4. Zeitliche Trends
+     3.3.5. Zeitliche Trends
     </a>
    </li>
   </ul>
@@ -354,7 +359,7 @@
  &quot;cells&quot;: [
   {
    &quot;cell_type&quot;: &quot;markdown&quot;,
-   &quot;id&quot;: &quot;sexual-dubai&quot;,
+   &quot;id&quot;: &quot;hourly-iraqi&quot;,
    &quot;metadata&quot;: {},
    &quot;source&quot;: [
     &quot;# Erkunden der Daten\n&quot;,
@@ -1146,7 +1151,7 @@ AUTOCLASS II
 <span class="n">iris_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;Art&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Art&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Setosa&#39;</span>
 <span class="n">iris_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;Art&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Art&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Versicolour&#39;</span>
 <span class="n">iris_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;Art&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Art&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Virginica&#39;</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">iris_df</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;Species&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">iris_df</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;Art&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1219,7 +1224,7 @@ AUTOCLASS II
 <span class="c1"># we use customized colors</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">cmap</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">diverging_palette</span><span class="p">(</span><span class="mi">220</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="n">square</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=.</span><span class="mi">5</span><span class="p">,</span> 
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="n">square</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> 
             <span class="n">vmin</span><span class="o">=-</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -1235,8 +1240,48 @@ AUTOCLASS II
 Selbstverständlich kann man auch andere Farben zur Darstellung der Korrelationskoeffizienten nutzen. Wichtig ist jedoch, dass man eine Farbskala wählt, bei der man die Stärke der Korrelation gut erkennen kann und man gut zwischen positiver und negativer Korrelation unterscheiden kann. Das bedeutet insbesondere auch, dass man Werte in der Nähe von null gut erkennt.</p>
 </div></blockquote>
 </div>
+<div class="section" id="scatterplots-fur-hochdimensionale-daten">
+<h3><span class="section-number">3.3.4. </span>Scatterplots für Hochdimensionale Daten<a class="headerlink" href="#scatterplots-fur-hochdimensionale-daten" title="Permalink to this headline">¶</a></h3>
+<p>Häufig hat man sehr viele Dimensionen, so dass die Analyse von paarweisen Scatterplots schwierig wird. In diesem Fall kann man Methoden zur <em>Dimensionsreduktion</em> anwenden. Die Idee ist es hierbei, die Korrelationen zwischen den Merkmalen auszunutzen und neue Merkmale zu berechnen, die unkorreliert sind. Bei den neuen Merkmalen beinhalten dann möglichst wenige Merkmale möglichst viel der Information aus den ursprünglichen Daten. Ein beliebtes Verfahren hierfür ist die <em>Hauptkomponentenanalyse</em> (engl. <em>principal component analysis</em> / PCA). Bei der PCA wird der Raum von reellwertigen Merkmalen so transformiert, dass das erste Merkmal möglichst viel der Varianz der Daten erklärt, das zweite Merkmal den zweit größten Anteil, und so fort. Die neuen Merkmale nennt man auch die <em>Hauptkomponenten</em> (engl. <em>principal components</em>) der Daten. Da die Varianz eines Merkmals direkt verwand mit der vorhandenen Information ist, beinhaltet also die erste Hauptkomponente die meiste Information, die zweite Hauptkomponente die zweitmeiste Information, und so fort. Das liegt ganz einfach, dass konstante Merkmale keine Information beinhalten. Für die Irisdaten können wir uns mit der PCA die vier Merkmale auf die ersten zwei Hauptkomponenten reduzieren und mit der Farbe die Art der Iris darstellen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">decomposition</span>
+
+<span class="n">pca</span> <span class="o">=</span> <span class="n">decomposition</span><span class="o">.</span><span class="n">PCA</span><span class="p">()</span>
+<span class="n">pca</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+<span class="n">iris_pca</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">target_names</span><span class="p">):</span>
+    <span class="c1"># we need to plot each type of iris on its own to get colors with a legend</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">iris_pca</span><span class="p">[</span><span class="n">iris</span><span class="o">.</span><span class="n">target</span><span class="o">==</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">iris_pca</span><span class="p">[</span><span class="n">iris</span><span class="o">.</span><span class="n">target</span><span class="o">==</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;1. Hauptkomponente (</span><span class="si">%.2f</span><span class="s1"> Varianz)&#39;</span> <span class="o">%</span> <span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;2. Hauptkomponente (</span><span class="si">%.2f</span><span class="s1"> Varianz)&#39;</span> <span class="o">%</span> <span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;PCA der Irisdaten (</span><span class="si">%.2f</span><span class="s1"> Varianz erklärt)&#39;</span> <span class="o">%</span> <span class="nb">sum</span><span class="p">(</span><span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">[:</span><span class="mi">2</span><span class="p">]))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_03_53_0.png" src="../_images/kapitel_03_53_0.png" />
+</div>
+</div>
+<p>Die zwei Hauptkomponenten erklären bereits 98% der Varianz der Daten, also beinahe alle Information. Man sieht auch, dass sich die Arten der Iris sehr gut unterscheiden lassen und separate Gruppen in den Daten darstellen, auch wenn die Versicolor und die Virginica sehr nah beieinander liegen. Wenn die PCA weniger Varianz der Daten erklärt, kann es sein, dass auch wenn man keine Trennung von Gruppen sieht, sie dennoch da wäre: Man bräuchte dann nur die restliche Information, um dies zu sehen.</p>
+<p>Die PCA ist ein mächtiges Werkzeug um die Dimension von Daten zu reduzieren, ohne den Informationsgehalt zu veringern und insbesondere auch um sich hochdimensionale darzustellen. Dennoch gibt es zwei wesentliche Nachteile, die auch ähnliche Verfahren betreffen. Das erste Problem ist, dass nicht klar ist <em>wofür</em> die Hauptkomponenten stehen. Beim paarweisen Scatterplot war klar, welche Beziehungen gezeigt werden und somit auch welche Information. Die Hauptkomponenten sind linearkombinationen der Merkmale, wie diese kombiniert werden ist jedoch nicht offensichtlich. Hier könnte man sich höchstens noch die Transformation der PCA genauer betrachten, um an diese Information zu kommen. Das ist aber sehr komplex. Daher eignet sich PCA in der Regel nur dafür, um zu analysieren ob Daten entsprechend bestimmter Eigenschaften so aussehen wie erwartet oder erhofft (zum Beispiel ob die Arten von Iris gruppiert sind), es ist jedoch nicht ohne weitere möglich die Verteilung der Datenpunkte zu verstehen. Der zweite Nachteil ist, dass die Information möglichweise nicht mit dem Ziel der Analyse zusammenhängt. Wenn ein Fragebogen zur Kreditwürdigkeit die Lieblingszahl abfragen würde, hätte dies keinen Bezug zum eigentlich Ziel der Analyse und die Varianz dieser Information wäre entsprechend auch irrelevant. Daher sollte man bei der PCA vorher sicherstellen, dass nur Merkmale benutzt werden, die mit dem Ziel der Analyse zusammenhängen.</p>
+<blockquote>
+<div><p><strong>Bermerkung:</strong></p>
+<p>Für die PCA interpretiert man die Daten als Matrix <span class="math notranslate nohighlight">\(A\)</span>, wobei jede Zeile der Matrix eine Instanz ist. Anschließend muss man die folgenden Schritte durchführen.</p>
+<ul class="simple">
+<li><p>Zuerst müssen die Spalten der Matrix <span class="math notranslate nohighlight">\(A\)</span> so skaliert werden, dass der Erwartungswert null ist (<span class="math notranslate nohighlight">\(A_0\)</span>). Hierdurch werden Skaleneffekte zwischen den Merkmalen vermieden und die folgenden Berechnungen vereinfacht.</p></li>
+<li><p>Anschließend wird die Kovarianzmatrix <span class="math notranslate nohighlight">\(Cov_A\)</span> von <span class="math notranslate nohighlight">\(A_0\)</span> berechnet. Wir berechnen also die Kovarianzen um die Korrelation zwischen den Merkmalen auszudrücken.</p></li>
+<li><p>Nun kann man die Eigenwerte und Eigenvektoren von <span class="math notranslate nohighlight">\(Cov_A\)</span> berechnen. Die Eigenvektoren müssen Anhand ihrer Eigenwerte absteigend sortiert werden, so dass jeder Vektor die Spalte einer Matrix <span class="math notranslate nohighlight">\(Eig\)</span> ist. Wenn man die Eigenwerte so reskaliert, dass ihre Summe eins ergibt, erhält man den Anteil der erklärten Varianz der jeweiligen Hauptkomponente.</p></li>
+<li><p>Durch die Matrixmultiplikation von <span class="math notranslate nohighlight">\(Eig\)</span> und <span class="math notranslate nohighlight">\(A_0\)</span> erhält man die Hauptkomponenten von <span class="math notranslate nohighlight">\(A\)</span>.</p></li>
+</ul>
+</div></blockquote>
+</div>
 <div class="section" id="zeitliche-trends">
-<h3><span class="section-number">3.3.4. </span>Zeitliche Trends<a class="headerlink" href="#zeitliche-trends" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.3.5. </span>Zeitliche Trends<a class="headerlink" href="#zeitliche-trends" title="Permalink to this headline">¶</a></h3>
 <p>Die bisherigen Visualisierungen sind alle davon ausgegangen, dass die einzelnen Datenpunkte nicht direkt miteinander zusammenhängen. Häufig gibt es jedoch Zusammenhänge, insbesondere bei Daten, die über einen gewissen Zeitraum erfasst worden sind. Als Beispiel betrachten wir jetzt Fluggastdaten einer US Airline aus den Jahren 1940 bis 1960. Die Werte geben die monatliche Anzahl von Passagieren an.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1273,7 +1318,7 @@ Selbstverständlich kann man auch andere Farben zur Darstellung der Korrelations
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_03_55_0.png" src="../_images/kapitel_03_55_0.png" />
+<img alt="../_images/kapitel_03_57_0.png" src="../_images/kapitel_03_57_0.png" />
 </div>
 </div>
 <p>Es ist nicht so, dass Histogramme bei über die Zeit verteilten Daten keine Informationen liefern würden. Man erkennt das es maximal 600 Passagiere in einem Monat gab und das es circa 20 Monate mit jeweils 100-150, 150-200, …, bzw. 300-350 Passagieren gab. Was man jedoch nicht erkennt ist wie die sich Passagierzahlen mit der Zeit entwickelt haben. Hier könnten wir zum Beispiel einfach einen Scatterplot betrachten, wo die y-Achse die Passagierzahlen und die x-Achse die Monate anzeigt.</p>
@@ -1289,7 +1334,7 @@ Selbstverständlich kann man auch andere Farben zur Darstellung der Korrelations
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_03_57_0.png" src="../_images/kapitel_03_57_0.png" />
+<img alt="../_images/kapitel_03_59_0.png" src="../_images/kapitel_03_59_0.png" />
 </div>
 </div>
 <p>In diesem Scatterplot erkennt man den zeitlichen Verlauf der Daten. Man sieht einen klaren Trend der zeigt, dass die Passagierzahlen mit der Zeit steigen. Wie sich die Passagierzahlen von Monat zu Monat verändern, erkennt man jedoch nicht ohne weiteres. Hierfür müssen wir - im wahrsten Sinne des Wortes - die Punkte miteinander verbinden, um einen <em>Liniendiagramm</em> zu erhalten.</p>
@@ -1305,7 +1350,7 @@ Selbstverständlich kann man auch andere Farben zur Darstellung der Korrelations
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_03_59_0.png" src="../_images/kapitel_03_59_0.png" />
+<img alt="../_images/kapitel_03_61_0.png" src="../_images/kapitel_03_61_0.png" />
 </div>
 </div>
 <p>Im Liniendiagram können wir jetzt sowohl den Trend, als auch die Veränderungen von Monat zu Monat sehen. Man sieht auch ein Muster, welches sich jährlich wiederholt.</p>
