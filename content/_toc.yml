@@ -18,6 +18,11 @@
   - file: chapters/kapitel_10
   - file: chapters/kapitel_11
   - file: chapters/kapitel_12
+  
+- part: Appendix
+  numbered: false
+  chapters:
+  - file: chapters/appendix
 
 - part: Übungen
   chapters:
