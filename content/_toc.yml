@@ -1,6 +1,6 @@
 # Table of contents
 # Learn more at https://jupyterbook.org/customize/toc.html
-- file: vorwort
+- file: chapters/vorwort
   numbered: false
 
 - part: Kapitel
@@ -22,8 +22,9 @@
 - part: Appendix
   numbered: false
   chapters:
-  - file: chapters/appendix
+  - file: chapters/howto
+  - file: chapters/notations
 
-- part: Übungen
-  chapters:
-  - file: exercises/uebung_01
+#- part: Übungen
+#  chapters:
+#  - file: exercises/uebung_01
