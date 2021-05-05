@@ -166,7 +166,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="appendix.html">
-   Notationen
+   Selber Ausführen
   </a>
  </li>
 </ul>
@@ -377,6 +377,13 @@
   <a class="reference internal nav-link" href="#neuronale-netzwerke">
    7.11. Neuronale Netzwerke
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exkurs-cnns-zum-erkennen-von-zahlen">
+     7.11.1. Exkurs: CNNs zum Erkennen von Zahlen
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#vergleich-der-klassifikationsalgorithmen">
@@ -1562,7 +1569,7 @@
 </div>
 </div>
 <p>Wie man sieht sind alle Decision Surfaces anders. Mit der Identität bekommt meine eine lineare Decision Boundary, bei der logistischen Funktion und <span class="math notranslate nohighlight">\(tanh\)</span> haben wir eine glatt aussehende (differenzierbare) Kurve, die Form bei <span class="math notranslate nohighlight">\(RelU\)</span> kann man die Form bestenfalls als unregelmäßig beschreiben. Bei RelU sehen wir auch das große Risiko von Neuronalen Netzen: Overfitting. Bei drei Fully Connected Layern mit je 100 Neuronen pro Layer haben wir <span class="math notranslate nohighlight">\(2*(100*100)=20000\)</span> Gewichte zwischen den Hidden Layern, die berechnet werden. Dazu kommen noch die Gewichte zwischen den Hidden Layern und dem Input, bzw. Output Layer. Wir haben also eine sehr große Anzahl von Modellparametern, so dass es Problemlos möglich ist eine kleine Unregelmäßigkeit in die Decision Boundary einzubauen, um etwa eine einzelne gelbe Instanz zwischen lila und türkis durch Overfitting richtig zu klassifizieren. Das ist ein allgemeines Problem von Neuronalen Netzen. Sind sie zu klein, bekommt man keine guten Ergebnisse, sind sie zu groß riskiert man Overfitting. Die Wahl der Netzwerkstruktur benötigt daher viel Erfahrung und sollte mit Hilfe von Validationsdaten und Visualisierungen unterstützt werden.</p>
-<p>Dies war nur ein grober Überblick über Neuronale Netze. Für den Einsatz in der Praxis ist es oft Ratsam, auf etablierte Netzstrukturen. Deshalb wollen wir zum Abschluss noch kurz einige wichtige Netzwerkstrukturen durchgehen.</p>
+<p>Dies war nur ein grober Überblick über Neuronale Netze. Für den Einsatz in der Praxis ist es oft Ratsam, auf etablierte Netzstrukturen. Deshalb wollen wir noch kurz einige wichtige Netzwerkstrukturen durchgehen. Dieser Überblick ist nicht vollständig, da sich das Feld sehr schnell entwickelt und es immer neue Trends gibt.</p>
 <ul class="simple">
 <li><p><em>Convolutional Neural Networks</em> (CNN) / <em>Convolutional Layer</em>: Hier wird eine räumliche Beziehung zwischen den Merkmalen ausgenutzt. Hat man zum Beispiel ein Bild als Eingabe, gibt es Nachbarschaftsbeziehungen zwischen den Pixeln. Statt also alle Pixel miteinander zu verbinden, wie es bei einem Fully Connected Layer der Fall wäre, verbindet man nur die Nachbarn miteinander. Weiterhin kann man hierbei verschiedene Eingabekanäle nutzen, zum Beispiel für die verschiedenen Farben (RBG). Auch dies kann man als Nachbarschaft betrachten. Hierdurch kann das Netzwerk die lokale Struktur innerhalb von Bildern ausnutzen. Technisch wird das durch <em>Filter</em>, welche auswählen welche Pixel aus der Nachbarschaft zusammenhängen und <em>Pooling Layer</em>, welche dann die Informationen aus der Nachbarschaft verbinden, umgesetzt.</p></li>
 <li><p><em>Dropout Layer</em>: Neuronale Netzte mit vielen Neuronen neigen zum Overfitting. Durch Dropout Layer kann man während des Trainings zufällig einige Bereiche des Netzwerks deaktivieren. Hierdurch soll erreicht werden, dass kein Bereich einfach Informationen auswendig lernen kann, die dann verloren werden. Stattdessen soll dies dazu führen, dass das Netzwerk ein generalisiertes Konzept lernt, was ohne den deaktivierten Bereich zwar nicht mehr perfekt wäre, aber auch kein Totalausfall.</p></li>
@@ -1572,6 +1579,163 @@
 <li><p><em>Generative Adversarial Networks</em> (GAN): Man kann mit Neuronalen Netzen auch künstliche Instanzen generieren. Hierbei treten zwei neuronale Netze gegeneinander an: Das erste Netz probiert zu entscheiden, ob eine Instanz aus den echten Trainingsdaten kommt oder künstlich erzeugt wurde. Das zweite Netz probiert künstliche Daten so zu erzeugen, dass das erste Netz diese für echt hält. Hierdurch kann man sowohl die Qualität des ersten Netzes verbessern, als auch künstliche Daten die wie echt aussehen generieren, zum Beispiel Bilder.</p></li>
 <li><p><em>Deep Neural Network</em> (DNN): Formal jedes neuronale Netz, was mindestens einen Hidden Layer hat. Hiermit sind jedoch in der Regel sehr große Netzwerke, oft mit vielen Ebenen und extrem vielen Neuronen, teils mehrere Millionen oder sogar Milliarden.</p></li>
 </ul>
+<div class="section" id="exkurs-cnns-zum-erkennen-von-zahlen">
+<h3><span class="section-number">7.11.1. </span>Exkurs: CNNs zum Erkennen von Zahlen<a class="headerlink" href="#exkurs-cnns-zum-erkennen-von-zahlen" title="Permalink to this headline">¶</a></h3>
+<p>Als kurzen Einstieg betrachten wir das Hello World des Deep Learning: Die Erkennung von Zahlen mit dem sogenannten MNIST Datensatz. Dieser Datensatz besteht aus einfachen Schwarz/Weiß Bildern von der Ziffern 0 bis 9. Die ersten zehn Ziffern sehen zum Beispiel so aus.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we need three libraries (and matplotlib):</span>
+<span class="c1"># tensorflow is one of the major libraries for deep learning</span>
+<span class="c1"># keras is the standard library to define network for tensorflow</span>
+<span class="c1"># both are compatible with numpy for numerics</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">tensorflow</span> <span class="kn">import</span> <span class="n">keras</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras</span> <span class="kn">import</span> <span class="n">layers</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># we first load the data from the keras samples</span>
+<span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">mnist</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+
+<span class="c1"># rescale features to the interval [0,1]</span>
+<span class="n">min_val</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">x_train</span><span class="p">)</span>
+<span class="n">max_val</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x_train</span><span class="p">)</span>
+<span class="n">x_train</span> <span class="o">=</span> <span class="p">(</span><span class="n">x_train</span><span class="o">-</span><span class="n">min_val</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">max_val</span><span class="o">-</span><span class="n">min_val</span><span class="p">)</span>
+<span class="n">x_test</span> <span class="o">=</span> <span class="p">(</span><span class="n">x_test</span><span class="o">-</span><span class="n">min_val</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">max_val</span><span class="o">-</span><span class="n">min_val</span><span class="p">)</span>
+
+<span class="c1"># we need to add an &quot;empty dimension&quot;, because we need a tensor (3d matrix)</span>
+<span class="n">x_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">x_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># make labels a categorical feature</span>
+<span class="n">num_classes</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">y_train</span><span class="p">))</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">)</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">)</span>
+
+<span class="c1"># show the first ten instances of the data</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">x_train</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_07_55_0.png" src="../_images/kapitel_07_55_0.png" />
+</div>
+</div>
+<p>Dieser Datensatz ist gut geeignet um zu zeigen, wie einige der oben genannten Netzwerkstrukturen funktionieren um ein CNN zu erstellen. Die Bilder der Zahlen haben 28x28 Pixel und bestehen den Graustufen mit Werten 0 bis 255. Zur Verarbeitung der Bilder eignet sich zum Beispiel folgendes Netzwerk:</p>
+<ul class="simple">
+<li><p>Die Eingaben werden zuerst von einem <em>Convolutional Layer</em> mit einem 3x3 Kernel verarbeitet. Das bedeutet, dass jeweils 9 Pixel gemeinsam betrachtet werden, nämlich die drei benachbarten Pixel in der Höhe und Breite. Das passiert, in dem ein <em>Filter</em> gelernt wird, den wir uns einfach als Linearkombination der neun Pixel vorstellen können. Für jeden Pixel wird dieser Filter berechnet, wir haben also als Ein- und Ausgabe die 26x26 Pixel. Das passiert jedoch nicht nur einmal, sondern in unserm Fall 32 mal, damit das Netzwerk mehrere Filter pro Pixel lernen kann. Entsprechend haben wir also 26x26x32 Werte für die Ausgabe.</p></li>
+<li><p>Anschließend wird die Dimension der Daten durch einen <em>Pooling Layer</em> reduziert. Hier werden Quadrate von 2x2 Pixel zusammengefasst. Es gibt verschiedene Varianten vom Pooling. Beim <em>Max Pooling</em> wird das Maximum der vier Werte als neuer Wert genommen. Dadurch, das jeweils vier benachbarte Pixel zusammengefasst werden, bekommen wir 13x13x32 Werte.</p></li>
+<li><p>Durch einen <em>Flatten</em> Layer wird diese dreidimensionale Matrixstruktur (man spricht von einem <em>Tensor</em>) in einen einfachen Vektor verwandelt. Dieser hat dann <span class="math notranslate nohighlight">\(13 \cdot 13 \cdot 13 \cdot 32 = 5408\)</span> Werte. In diesem Layer wird nichts berechnet, sondern nur die Form der Daten verändert.</p></li>
+<li><p>Jetzt haben wir einen <em>Dense Layer</em>, den wir auch schon unter dem Namen <em>Fully Connected Layer</em> beim MLP kennengelernt hat. Wir haben in unserem Fall 128 Neuronen im Dense Layer, die alle die 5408 Werte aus dem Max Pooling als Eingabe bekommen.</p></li>
+<li><p>Als nächstes kommt ein <em>Dropout Layer</em> mit einer Dropout-Wahrscheinlichkeit von 50%. Das heißt, dass jedes der 128 Neuronen aus dem Dense Layer, in jedem Trainingsschritt, mit einer Wahrscheinlichkeit von 50% deaktiviert wird. Das Garantiert, dass jede Eingabe von verschiedenen Bereichen des Netzwerks berücksichtigt wird und verhindert dadurch Overfitting.</p></li>
+<li><p>Als Ausgabe haben wir wieder einen Dense Layer, nur das wir diesmal für jede Klasse ein Neuron haben. Als Aktivierungsfunktion wird die oben bereits erwähnte Softmax-Funktion genutzt, so dass wir als Ausgaben die Wahrscheinlichkeit für jede Zahl haben.</p></li>
+</ul>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we now build define the network structure</span>
+<span class="c1"># each entry in the list defines a layer</span>
+<span class="c1"># the first entry is the input layer</span>
+<span class="c1"># the last entry is the output layer</span>
+<span class="c1"># the other entries are the hidden layer</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+    <span class="n">layers</span><span class="o">=</span><span class="p">[</span><span class="n">keras</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">x_train</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span> <span class="c1"># 28x28 pixel, one input channel (b/w)</span>
+            <span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">),</span>
+            <span class="n">layers</span><span class="o">.</span><span class="n">MaxPooling2D</span><span class="p">(</span><span class="n">pool_size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span>
+            <span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">(),</span>
+            <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
+            <span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span>
+            <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">num_classes</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;softmax&quot;</span><span class="p">)],</span>
+    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;CNN&#39;</span>
+<span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;CNN&quot;
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv2d (Conv2D)              (None, 26, 26, 32)        320       
+_________________________________________________________________
+max_pooling2d (MaxPooling2D) (None, 13, 13, 32)        0         
+_________________________________________________________________
+flatten (Flatten)            (None, 5408)              0         
+_________________________________________________________________
+dense (Dense)                (None, 128)               692352    
+_________________________________________________________________
+dropout (Dropout)            (None, 128)               0         
+_________________________________________________________________
+dense_1 (Dense)              (None, 10)                1290      
+=================================================================
+Total params: 693,962
+Trainable params: 693,962
+Non-trainable params: 0
+_________________________________________________________________
+</pre></div>
+</div>
+</div>
+</div>
+<p>In der Zusammenfassung des Modells von Keras sieht man, dass dieses Netz bereits fast 700.000 Parameter hat, obwohl es für Deep Learning noch relativ klein ist. Daher braucht man auch sehr viele Daten, um solche Netze zu trainieren. Bei den MNIST Daten gibt es 60.000 Trainigsbilder und 10.000 Testbildern. Wir nutzen 10% der Trainingsdaten als Validationsdaten. Das sind insgesamt schon fast zu wenig Daten für ein Netzwerk dieser Größe, reicht aber als Beispiel. Im Training wird nach jeder <em>Epoche</em> die aktuelle Modellqualität auf den Trainingsdaten (accuracy) und den Validierungsdaten (val_accuracy) ausgegeben. Eine Epoche bedeutet, dass jede Trainingsinstanz zum Verbessern der Gewichte des Neuronalen Netzwerks benutzt wurde.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">batch_size</span> <span class="o">=</span> <span class="mi">128</span> <span class="c1"># number of instances used for updated at once</span>
+<span class="n">epochs</span> <span class="o">=</span> <span class="mi">15</span>      <span class="c1"># number of times each instance is used</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Training des Neuronalen Netzwerks:&#39;</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s2">&quot;categorical_crossentropy&quot;</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;accuracy&quot;</span><span class="p">])</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="n">epochs</span><span class="p">,</span> <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">score</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">return_dict</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Accuracy auf den Testdaten: </span><span class="si">%.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">score</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Training des Neuronalen Netzwerks:
+Epoch 1/15
+422/422 - 10s - loss: 0.3750 - accuracy: 0.8866 - val_loss: 0.0902 - val_accuracy: 0.9752
+Epoch 2/15
+422/422 - 6s - loss: 0.1402 - accuracy: 0.9586 - val_loss: 0.0615 - val_accuracy: 0.9837
+Epoch 3/15
+422/422 - 7s - loss: 0.1030 - accuracy: 0.9700 - val_loss: 0.0501 - val_accuracy: 0.9853
+Epoch 4/15
+422/422 - 7s - loss: 0.0786 - accuracy: 0.9767 - val_loss: 0.0463 - val_accuracy: 0.9885
+Epoch 5/15
+422/422 - 8s - loss: 0.0673 - accuracy: 0.9791 - val_loss: 0.0450 - val_accuracy: 0.9892
+Epoch 6/15
+422/422 - 8s - loss: 0.0611 - accuracy: 0.9808 - val_loss: 0.0453 - val_accuracy: 0.9868
+Epoch 7/15
+422/422 - 7s - loss: 0.0546 - accuracy: 0.9836 - val_loss: 0.0473 - val_accuracy: 0.9890
+Epoch 8/15
+422/422 - 8s - loss: 0.0497 - accuracy: 0.9849 - val_loss: 0.0393 - val_accuracy: 0.9892
+Epoch 9/15
+422/422 - 8s - loss: 0.0430 - accuracy: 0.9863 - val_loss: 0.0406 - val_accuracy: 0.9898
+Epoch 10/15
+422/422 - 8s - loss: 0.0398 - accuracy: 0.9877 - val_loss: 0.0445 - val_accuracy: 0.9882
+Epoch 11/15
+422/422 - 8s - loss: 0.0369 - accuracy: 0.9883 - val_loss: 0.0424 - val_accuracy: 0.9897
+Epoch 12/15
+422/422 - 7s - loss: 0.0336 - accuracy: 0.9891 - val_loss: 0.0434 - val_accuracy: 0.9903
+Epoch 13/15
+422/422 - 8s - loss: 0.0302 - accuracy: 0.9902 - val_loss: 0.0436 - val_accuracy: 0.9900
+Epoch 14/15
+422/422 - 8s - loss: 0.0287 - accuracy: 0.9901 - val_loss: 0.0418 - val_accuracy: 0.9895
+Epoch 15/15
+422/422 - 8s - loss: 0.0278 - accuracy: 0.9906 - val_loss: 0.0431 - val_accuracy: 0.9895
+
+Accuracy auf den Testdaten: 0.989
+</pre></div>
+</div>
+</div>
+</div>
+<p>Man sieht, dass das Modell bereits nach der ersten Epoche bereits sehr gut ist. Anschließend verbessert es sich noch weiter, so dass insgesamt fast 99% der Zahlen korrekt erkannt werden. Diese Art von Neuronalem Netz ist sehr verbreitet für die Objekterkennung in beliebigen Bildern. Da es dann aber in der Regel mehr Pixel, mehr Farbkanäle, mehr Arten von Objekten und auch mehr Daten gibt, sind die CNNs dann größer und haben oft viele Convolutional, Pooling und Dropout Layer.</p>
+</div>
 </div>
 <div class="section" id="vergleich-der-klassifikationsalgorithmen">
 <h2><span class="section-number">7.12. </span>Vergleich der Klassifikationsalgorithmen<a class="headerlink" href="#vergleich-der-klassifikationsalgorithmen" title="Permalink to this headline">¶</a></h2>
@@ -1661,7 +1825,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_07_55_0.png" src="../_images/kapitel_07_55_0.png" />
+<img alt="../_images/kapitel_07_61_0.png" src="../_images/kapitel_07_61_0.png" />
 </div>
 </div>
 <p>Alle Algorithmen können gut die lila Instanzen von den anderen trennen. Es gibt jedoch größere Unterschiede bei der Trennung von Türkis und Gelb. Beim <span class="math notranslate nohighlight">\(k\)</span>-Nearest Neighbor Algorithmus und beim Entscheidungsbaum gibt es einzelne türkise Inseln innerhalb der gelben Region, die auf Overfitting hindeuten. Dies liegt an dem instanzbasierten Verfahren, bzw. an den Regeln die einfach nicht zusammenhängende Regionen erzeugen können. Dies wäre auch mit dem Random Forest möglich, wird hier aber durch die flachen Entscheidungsbäume mit einer niedrigen Tiefe von drei vermieden. Die Decision Boundaries der anderen Algorithmen werden durch kontinuierliche Funktionen beschrieben. Daher gibt es - bis auf bei RelU - keine derartigen Inseln. Bei neuronalen Netzen können die Funktionen leicht so komplex werden, dass man derartiges Overfitting nicht ausschließen kann. Lediglich beim Multinomial Naive Bayes ist das Ergebnis relativ schlecht, was sich aber dadurch begründen lässt das die Daten numerisch und nicht kategorisch sind.</p>
@@ -1678,7 +1842,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_07_57_0.png" src="../_images/kapitel_07_57_0.png" />
+<img alt="../_images/kapitel_07_63_0.png" src="../_images/kapitel_07_63_0.png" />
 </div>
 </div>
 <p>Bei diesen Daten fangen wir an klare Unterschiede in der Ausdrucksfähigkeit der von den Algorithmen berechneten Hypothesen zu beobachten. Logistische Regression, Naive Bayes, die lineare und polynomielle SVM, sowie alle MLPs die nicht RelU als Aktivierungsfunktion haben, berechnen eine lineare, oder nahezu lineare Trennung der Daten. Dies führt zu Fehlklassifikationen, da die Halbmonde ineinander liegen. Diese Ergebnisse sind zwar nicht extrem schlecht, da immer noch die meisten Daten richtig Klassifiziert werden, die Decision Boundaries spiegeln jedoch nicht die eigentliche Verteilung der Klassen wider. Die anderen Algorithmen schaffen es besser zwischen den Klassen zu unterscheiden und lernen die Form der Halbmonde als Decision Boundary. Lediglich bei den Entscheidungsbäumen sieht man wieder einige Anzeichen für Overfitting.</p>
@@ -1694,7 +1858,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_07_59_0.png" src="../_images/kapitel_07_59_0.png" />
+<img alt="../_images/kapitel_07_65_0.png" src="../_images/kapitel_07_65_0.png" />
 </div>
 </div>
 <p>Das Ergebnis bei den Kreisen ist ähnlich wie bei den Halbmonden: Die Algorithmen, die bei den Halbmonden gute Ergebnisse geliefert haben, funktionieren auch bei den Kreisen. Einige Algorithmen, die mit den Halbmonden Probleme hatten, können die Kreise gut erkennen, zum Beispiel Gaussian Naive Bayes und das MLP mit <span class="math notranslate nohighlight">\(tanh\)</span> als Aktivierungsfunktion. Dies liegt daran, dass bei den Halbmonden eine etwa lineare Trennung bereits ein halbwegs gutes Ergebnis liefert. Hierdurch gab es keinen großen Druck auf die Algorithmen nach einer komplexeren Decision Boundary zu suchen. Dies ist nicht der Fall bei den Kreisen: Hier funktioniert nur eine runde Decision Boundary, alle anderen Formen liefern schlechte Ergebnisse. Dies übt einen starken Druck auf die intern benutzen Optimierungsverfahren aus, so dass sie sich besser anpassen und eine komplexere Decision Boundary finden.</p>
@@ -1711,7 +1875,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_07_61_0.png" src="../_images/kapitel_07_61_0.png" />
+<img alt="../_images/kapitel_07_67_0.png" src="../_images/kapitel_07_67_0.png" />
 </div>
 </div>
 <p>Wie zu erwarten war, können alle Algorithmen diese Daten problemlos korrekt klassifizieren. Wir sehen jedoch große Unterschiede in den Margins, die wir bereits von der SVM kennen. Die meisten Algorithmen berechnen die Decision Boundary so, dass die Margin zwar in der Regel nicht optimal, aber zumindest relativ groß ist. Hier sieht man, dass dies insbesondere bei der SVM der Fall ist, bei den Entscheidungsbäumen und Random Forests wird bei der Partitionierung auch auf die Margins geachtet. Beim <span class="math notranslate nohighlight">\(k\)</span>-Nearest Neighbor Algorithmus folgt die große Margin direkt aus der Nachbarschaftsbeziehung zwischen den Instanzen. Insbesondere bei Naive Bayes und den MLPs sieht man, dass hier die Margin bei der Berechnung der Ergebnisse nicht berücksichtigt wird. Hierdurch können diese Algorithmen die Daten zwar gut trennen, haben aber ein Risiko, dass es Fehlklassifikationen gibt. Bei den MLPs gibt es hierfür eine einfache Erklärung: Das interne Optimierungskriterium ist in der Regel die Accuracy auf den Trainingsdaten, und diese ist unabhängig von der Wahl der Margin. Daher beendet die Berechnung der Lösung für die Neuronalen Netze, sobald eine Lösung gefunden wird, egal wie groß die Margin ist. Dies kann man durch Validierungsdaten umgehen.</p>
@@ -1806,7 +1970,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_07_63_0.png" src="../_images/kapitel_07_63_0.png" />
+<img alt="../_images/kapitel_07_69_0.png" src="../_images/kapitel_07_69_0.png" />
 </div>
 </div>
 <p>Die Trainingszeit ist etwa linear für alle Modelle. Die Steigung ist bei den SVMs jedoch deutlich steiler als bei den anderen Modellen. Die Trainingszeiten einiger Modelle sind deutlich schneller als der Rest: Entscheidungsbäume, Logistische Regression, <span class="math notranslate nohighlight">\(k\)</span>-Nearest Neighbors und Naive Bayes benötigen für das Training mit 1.000.000 Instanzen etwa so lang, wie ein MLP für 1.000 Instanzen. Der Random Forest liegt zwischen den MLPs und den schnelleren Modellen. Dies liegt daran, dass die Ausführungszeit des Random Forests linear mit der Anzahl der Random Trees im Ensemble wächst. Im obigen Beispiel haben wir 100 Bäume genutzt.</p>
