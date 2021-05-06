@@ -322,6 +322,28 @@
    5.2. Bewertung von Assoziationsregeln
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ubungen">
+   5.3. Übungen
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#finden-von-frequent-itemsets">
+     5.3.1. Finden von Frequent Itemsets
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#erstellen-von-regeln">
+     5.3.2. Erstellen von Regeln
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#validieren-der-regeln">
+     5.3.3. Validieren der Regeln
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
             </nav>
@@ -876,6 +898,32 @@
 <p>Nachdem man Assoziationsregeln bestimmt hat, muss man im letzten Schritt ihre Güte bewerten, also ob es sich um echte Assoziationen oder um zufällige Zusammenhänge handelt. Die Gütemaße Confidence, Lift, und Leverage sind bereits ein guter erster Schritt um Regeln zu bewerten, insbesondere wenn sie gemeinsam betrachtet werden. Die Confidence beschreibt, ob die Beziehung zufällig ist, weil die Bedingung oft beobachtet wird. Lift und Leverage betrachten, ob die Beziehung selbst häufiger als durch den Zufall erklärbar beobachtet wird.</p>
 <p>Die Betrachtung dieser Gütemaße sollte jedoch nicht das einzige Kriterium bei der Bewertung von Regeln sein. Zum einen sollte man auch bei Assoziationsregeln mit Trainings- und Testdaten arbeiten. Auf den Testdaten kann man überprüfen, ob die gleichen Regeln gefunden werden. Falls die Überschneidung groß ist, ist das ein Indikator, dass die Regeln generalisieren. Man kann auch noch einen Schritt weiter gehen und in den Testdaten zufällig Gegenstände aus Warenkörben entfernen und überprüfen, wie häufig die Regeln diese fehlenden Gegenstände richtig vorhersagen würden.</p>
 <p>Neben der Auswertung der Güte auf den Daten, sollte man die Regeln auch manuell bewerten: Findet eine Domänenexpertin die Regeln sinnvoll? Jeder, der Regelmäßig in Webshops einkauft wird sich schon das ein oder andere Mal über komische Empfehlungen gewundert haben. Hier wurde in der Regel außergewöhnliches Kaufverhalten gelernt und die Regeln nicht ausreichend validiert. Durch eine manuelle Inspektion der Regeln kann man dass Ergebnis daher in der Regel verbessern und das Regelwerk filtern. Dies ist eine Aufgabe die man als Data Scientist nicht alleine angehen sollte, sondern immer zusammen mit Domänenexpertinnen.</p>
+</div>
+<div class="section" id="ubungen">
+<h2><span class="section-number">5.3. </span>Übungen<a class="headerlink" href="#ubungen" title="Permalink to this headline">¶</a></h2>
+<p>Prüfen Sie ihr Wissen über Assoziationsregeln in einer praktischen Übung. Lernen sie hierbei Assoziationsregeln aus einem Datensatz aus einem Supermarkt [^datensatz]. Zum Lesen der Daten können Sie folgenden Quelltext nutzen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;store_data.csv&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">records</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">records</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="finden-von-frequent-itemsets">
+<h3><span class="section-number">5.3.1. </span>Finden von Frequent Itemsets<a class="headerlink" href="#finden-von-frequent-itemsets" title="Permalink to this headline">¶</a></h3>
+<p>Nutzen Sie den Apriori-Algorithmus um Frequent Itemsets zu finden. Hierzu müssen sie auch einen geeigneten Grenzwert für den Support finden. Begründen Sie ihre Wahl.</p>
+</div>
+<div class="section" id="erstellen-von-regeln">
+<h3><span class="section-number">5.3.2. </span>Erstellen von Regeln<a class="headerlink" href="#erstellen-von-regeln" title="Permalink to this headline">¶</a></h3>
+<p>Erstellen Sie Regeln aus den Frequent Itemsets. Nutzen Sie Lift und Confidence um zu bestimmen, welche Regeln gut sind.</p>
+</div>
+<div class="section" id="validieren-der-regeln">
+<h3><span class="section-number">5.3.3. </span>Validieren der Regeln<a class="headerlink" href="#validieren-der-regeln" title="Permalink to this headline">¶</a></h3>
+<p>Teilen Sie die Daten zufällig in zwei Datensätze mit je 50% der Transaktionen auf. Wenden Sie den Apriori-Algorithmus auf beide Datensätze an um Regeln zu bestimmen. Vergleichen Sie die gefundenen Regeln miteinander, sowie mit den Regeln, die Sie auf allen Daten gefunden haben. Welche Unterschiede gibt es? Was bedeuten die Unterschiede?</p>
+</div>
 </div>
 </div>
 
