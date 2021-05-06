@@ -86,7 +86,7 @@
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../vorwort.html">
+  <a class="reference internal" href="vorwort.html">
    Vorwort
   </a>
  </li>
@@ -157,6 +157,11 @@
    12. Big Data Processing
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_13.html">
+   13. Weiterführende Konzepte
+  </a>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -165,20 +170,13 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="appendix.html">
+  <a class="reference internal" href="howto.html">
    Selber Ausführen
   </a>
  </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Übungen
- </span>
-</p>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../exercises/uebung_01.html">
-   Übung 1
+  <a class="reference internal" href="notations.html">
+   Notationen
   </a>
  </li>
 </ul>
@@ -283,50 +281,45 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#uberblick">
-   5.1. Überblick
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#der-apriori-algorithmus">
-   5.2. Der Apriori-Algorithmus
+   5.1. Der Apriori-Algorithmus
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#support-und-frequent-itemsets">
-     5.2.1. Support und Frequent Itemsets
+     5.1.1. Support und Frequent Itemsets
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#ableiten-von-regeln">
-     5.2.2. Ableiten von Regeln
+     5.1.2. Ableiten von Regeln
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#confidence-lift-und-leverage">
-     5.2.3. Confidence, Lift, und Leverage
+     5.1.3. Confidence, Lift, und Leverage
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#exponentielles-wachstum">
-     5.2.4. Exponentielles Wachstum
+     5.1.4. Exponentielles Wachstum
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#die-apriori-eigenschaft">
-     5.2.5. Die Apriori-Eigenschaft
+     5.1.5. Die Apriori-Eigenschaft
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#einschrankungen-fur-regeln">
-     5.2.6. Einschränkungen für Regeln
+     5.1.6. Einschränkungen für Regeln
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#bewertung-von-assoziationsregeln">
-   5.3. Bewertung von Assoziationsregeln
+   5.2. Bewertung von Assoziationsregeln
   </a>
  </li>
 </ul>
@@ -342,8 +335,6 @@
                 
   <div class="section" id="assoziationsregeln">
 <h1><span class="section-number">5. </span>Assoziationsregeln<a class="headerlink" href="#assoziationsregeln" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="uberblick">
-<h2><span class="section-number">5.1. </span>Überblick<a class="headerlink" href="#uberblick" title="Permalink to this headline">¶</a></h2>
 <p>Assoziationen sind Beziehungen zwischen Objekten. Die Idee von Assoziationsregeln ist diese Beziehungen durch Regel zu beschreiben, mit dem Ziel zu Wissen welche weiteren Objekte zu den bisherigen Objekten passen. Bei den Assoziationsregeln spricht man statt von Objekten in der Regel von <em>Gegenständen</em> (engl. <em>items</em>). <a class="reference internal" href="#fig-asm-example"><span class="std std-numref">Fig. 5.1</span></a> zeigt das Standardbeispiel für Assoziationsregeln: Die Analyse von Warenkörben bei Einkäufen. Ein Kunde fügt Produkte (Gegenstände) dem Warenkorb hinzu. Sobald der Warenkorb nicht mehr leer ist, kann man den Inhalt nutzen um Assoziationen zu weiteren Produkten, die für den Kunden von Interesse herzustellen. Diese können dem Kunden dann zum Beispiel als Werbung vorgeschlagen werden.</p>
 <div class="figure align-default" id="fig-asm-example">
 <a class="reference internal image-reference" href="../_images/associationsrules_general_german.png"><img alt="../_images/associationsrules_general_german.png" src="../_images/associationsrules_general_german.png" style="width: 600px;" /></a>
@@ -396,12 +387,11 @@
 </div>
 </div>
 <p>In diesem Beispiel tauchen die Gegenstände item2, item3 und item4 oft zusammen auf, was auf eine interessante Beziehung hindeutet. Im Folgenden erklären wir wie man effizient solche Beziehungen findet, hieraus Regeln erstellt und die Güte der Regeln bewertet.</p>
-</div>
 <div class="section" id="der-apriori-algorithmus">
-<h2><span class="section-number">5.2. </span>Der Apriori-Algorithmus<a class="headerlink" href="#der-apriori-algorithmus" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.1. </span>Der Apriori-Algorithmus<a class="headerlink" href="#der-apriori-algorithmus" title="Permalink to this headline">¶</a></h2>
 <p>Der Apriori-Algorithmus ist ein vom Prinzip sehr einfacher, aber dennoch mächtiger, Algorithmus um Assoziation in Daten zu suchen.</p>
 <div class="section" id="support-und-frequent-itemsets">
-<h3><span class="section-number">5.2.1. </span>Support und Frequent Itemsets<a class="headerlink" href="#support-und-frequent-itemsets" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.1.1. </span>Support und Frequent Itemsets<a class="headerlink" href="#support-und-frequent-itemsets" title="Permalink to this headline">¶</a></h3>
 <p>Der Apriori-Algorithmus basiert auf dem Konzept des <em>Support</em> von Itemsets <span class="math notranslate nohighlight">\(IS \subseteq I\)</span>. Der Support eines Itemsets <span class="math notranslate nohighlight">\(IS\)</span> ist definiert als der Anteil der Transaktionen, in denen alle Gegenstände des Itemsets vorkommen. Es gilt also</p>
 <div class="math notranslate nohighlight">
 \[support(IS) = \frac{|\{t \in T: IS \subseteq t\}|}{|T|}.\]</div>
@@ -504,7 +494,7 @@
 </div>
 </div>
 <div class="section" id="ableiten-von-regeln">
-<h3><span class="section-number">5.2.2. </span>Ableiten von Regeln<a class="headerlink" href="#ableiten-von-regeln" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.1.2. </span>Ableiten von Regeln<a class="headerlink" href="#ableiten-von-regeln" title="Permalink to this headline">¶</a></h3>
 <p>Ein Frequent Itemset ist noch keine Assoziationsregel, da es weder eine Bedingung <span class="math notranslate nohighlight">\(X\)</span>, noch eine Folgerung <span class="math notranslate nohighlight">\(Y\)</span> gibt, aus denen eine Regel <span class="math notranslate nohighlight">\(X \Rightarrow Y\)</span> entsteht. Man kann jedoch relativ einfach solche Regeln aus den Frequent Itemsets ableiten. Hierzu betrachtet man alle möglichen Partitionierungen eines Frequent Itemsets, also alle Kombinationen <span class="math notranslate nohighlight">\(X, Y \subset IS\)</span>, so dass <span class="math notranslate nohighlight">\(X \cup Y = IS\)</span> (jeder Gegenstand kommt in X oder Y vor) und <span class="math notranslate nohighlight">\(X \cap Y = \emptyset\)</span> (kein Gegenstand kommt in X und Y vor).</p>
 <p>Im unserem Beispiel können wir acht Regeln aus dem Itemset <span class="math notranslate nohighlight">\(\{item2, item3, item4\}\)</span> ableiten.</p>
 <div class="cell docutils container">
@@ -582,7 +572,7 @@
 <p>Diese Regeln erlauben aber keine bedeutenden Einblicke, so dass wir sie ignorieren können.</p>
 </div>
 <div class="section" id="confidence-lift-und-leverage">
-<h3><span class="section-number">5.2.3. </span>Confidence, Lift, und Leverage<a class="headerlink" href="#confidence-lift-und-leverage" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.1.3. </span>Confidence, Lift, und Leverage<a class="headerlink" href="#confidence-lift-und-leverage" title="Permalink to this headline">¶</a></h3>
 <p>Eine noch ungeklärte Frage ist wie wir erkennen welche der Regeln gut sind oder ob alle Regeln die man aus einem Frequent Itemset ableitet gleich gut sind. Am Beispiel der leeren Menge sieht man recht schnell, dass vermutlich nicht alle Regeln gleich gut sind. Was wir brauchen sind Gütemaße, die es uns erlaubten zwischen bedeutungsvollen Assoziationen und zufälligen Effekten zu unterscheiden. Hierfür ist der Support nicht ausreichend. Stellen Sie sich zum Beispiel vor, das es etwas Gratis gibt. Die Gratisprodukte werden häufig einfach “mitgenommen” und landen entsprechend oft im Warenkorb und später dann in unseren Transaktionen. Diese Gratisprodukte haben einen hohen Support und sind mit hoher Wahrscheinlichkeit ein Teil vieler Frequent Itemsets. Die Gratisprodukte sind aber nicht mit dem Rest von Einkauf assoziiert, die Beziehung ist also zufällig. Eine Schwäche des Supports ist das dieser nicht von der Regel abhängt, insbesondere ist der Support einer Regel <span class="math notranslate nohighlight">\(X \Rightarrow Y\)</span> immer gleich der Regel <span class="math notranslate nohighlight">\(Y \Rightarrow X\)</span> in der Bedingung und Folgerung vertauscht sind. Da aber kausale Zusammenhänge häufig eine Richtung haben, macht diese Symmetrie in vielen Fällen keinen Sinn. Es macht zum Beispiel durchaus Sinn, einem Kunden der eine Spielekonsole in den Warenkorb legt, ein Spiel für diese Konsole vorzuschlagen. Wenn jemand aber ein Spiel in den Warenkorb legt, ist die Konsole im Normalfall bereits vorhanden, und es würde keinen Sinn machen diese vorzuschlagen.</p>
 <p>Die Maße <em>Confidence</em>, <em>Lift</em>, und <em>Leverage</em> helfen zu erkennen ob Regeln zufällig sind oder ob es sich um sinnvolle Assoziationen handelt. Die Confidence ist definiert als</p>
 <div class="math notranslate nohighlight">
@@ -711,7 +701,7 @@
 <p>Das Bespiel zeigt auch die grundlegenden Eigenschaften der drei Maße: Lift und Leverage sind symmetrisch, genauso wie der Support. Die Confidence ist das einzige Gütemaße, welches berücksichtigt welcher Teil einer Regel die Bedingung und welcher Teil die Folgerung ist, also das einzige Maß welches die Kausalität berücksichtigt. Daher sollte man die Confidence immer bei der Bewertung von Regeln benutzen. Da Lift und Leverage sich sehr ähnlich verhalten, reicht es nur eines der beiden Maße zu verwenden. Legt man mehr Wert auf Regeln, die aus Itemsets mit hohem Support gewonnen werden ist Leverage besser, ansonsten sollte man Lift wählen. Der Grund hierfür ist, das es für Lift eine direkt Interpretation hat, also wie viel wahrscheinlicher etwas ist als es sich durch den reinen Zufall erklären lässt.</p>
 </div>
 <div class="section" id="exponentielles-wachstum">
-<h3><span class="section-number">5.2.4. </span>Exponentielles Wachstum<a class="headerlink" href="#exponentielles-wachstum" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.1.4. </span>Exponentielles Wachstum<a class="headerlink" href="#exponentielles-wachstum" title="Permalink to this headline">¶</a></h3>
 <p>Oben haben wir gezeigt, wie wir Assoziationsregeln bestimmen können: Wir müssen die Frequent Itemsets finden aus denen wir dann Regeln ableiten können. Das Finden von Frequent Itemsets ist jedoch leider nicht trivial. Das Problem ist das exponentielle Wachstum mit der Anzahl von Gegenständen. Die Anzahl von möglichen Itemsets ist die Potenzmenge <span class="math notranslate nohighlight">\(\mathcal{P}\)</span> von <span class="math notranslate nohighlight">\(I\)</span>, also die Menge aller möglichen Kombinationen von Gegenständen. Daher gibt es <span class="math notranslate nohighlight">\(\mathcal{P}(I)=2^{|I|}\)</span> Itemsets. Es ist aber gar nicht sinnvoll, beliebig lange Kombinationen von Gegenständen zu betrachten. Zu lange Regeln würden bedeuten, dass man diese nur in wenigen Fällen anwenden kann. Daher ist man häufig nur an relativ kurzen Regeln interessiert. Leider ist das Wachstum auch mit einer beschränkten Anzahl von Gegenständen in Itemsets noch exponentiell. Hierzu können wir den Binomialkoeffizienten</p>
 <div class="math notranslate nohighlight">
 \[{|I| \choose k} = \frac{|I|!}{(|I|-k)!k!}\]</div>
@@ -719,7 +709,7 @@
 <p>Es ist also nicht möglich, einfach alle Itemsets zu berechnen und erst anschließend die Frequent Itemsets zu bestimmen. Wir brauchen stattdessen einen Algorithmus, der die exponentielle Natur des Problems beschränkt und der schonend mit den vorhandenen Ressourcen umgeht, da sonst schnell der Speicher ausgeht oder die Rechenzeit zu lang wird.</p>
 </div>
 <div class="section" id="die-apriori-eigenschaft">
-<h3><span class="section-number">5.2.5. </span>Die Apriori-Eigenschaft<a class="headerlink" href="#die-apriori-eigenschaft" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.1.5. </span>Die Apriori-Eigenschaft<a class="headerlink" href="#die-apriori-eigenschaft" title="Permalink to this headline">¶</a></h3>
 <p>Die Apriori-Eigenschaft verleiht dem Algorithmus seinen Namen.</p>
 <blockquote>
 <div><p><strong>Apiori-Eigenschaft</strong></p>
@@ -877,12 +867,12 @@
 <p>Da es keine weiteren Itemsets mit <span class="math notranslate nohighlight">\(k=4\)</span> Gegenständen gibt, sind wir fertig. Insgesamt musste der Support von <span class="math notranslate nohighlight">\(8+10+1=19\)</span> Itemsets ausgerechnet werden um alle Frequent Itemsets aus den <span class="math notranslate nohighlight">\(2^8=256\)</span> möglichen Itemsets zu finden. Wir konnten also den Aufwand um 93% reduzieren, in dem wir die Apriori-Eigenschaft ausgenutzt haben.</p>
 </div>
 <div class="section" id="einschrankungen-fur-regeln">
-<h3><span class="section-number">5.2.6. </span>Einschränkungen für Regeln<a class="headerlink" href="#einschrankungen-fur-regeln" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.1.6. </span>Einschränkungen für Regeln<a class="headerlink" href="#einschrankungen-fur-regeln" title="Permalink to this headline">¶</a></h3>
 <p>Bisher haben wir alle möglichen Kombinationen aus Bedingung und Folgerung, die wir aus einem Itemset bilden können, betrachtet und lediglich die leere Menge wurde bisher verworfen. Für viele Anwendungsfälle ist eine weitere Einschränkung sinnvoll: Nur Regeln, deren Folgerung aus einem Gegenstand bestehen, werden betrachtet. Der Vorteil derartiger Regeln ist, dass die Grundlage für die Folgerung “besser” ist, da die Bedingung länger ist. Hierdurch ist es wahrscheinlicher, dass eine Regel gut ist.</p>
 </div>
 </div>
 <div class="section" id="bewertung-von-assoziationsregeln">
-<h2><span class="section-number">5.3. </span>Bewertung von Assoziationsregeln<a class="headerlink" href="#bewertung-von-assoziationsregeln" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.2. </span>Bewertung von Assoziationsregeln<a class="headerlink" href="#bewertung-von-assoziationsregeln" title="Permalink to this headline">¶</a></h2>
 <p>Nachdem man Assoziationsregeln bestimmt hat, muss man im letzten Schritt ihre Güte bewerten, also ob es sich um echte Assoziationen oder um zufällige Zusammenhänge handelt. Die Gütemaße Confidence, Lift, und Leverage sind bereits ein guter erster Schritt um Regeln zu bewerten, insbesondere wenn sie gemeinsam betrachtet werden. Die Confidence beschreibt, ob die Beziehung zufällig ist, weil die Bedingung oft beobachtet wird. Lift und Leverage betrachten, ob die Beziehung selbst häufiger als durch den Zufall erklärbar beobachtet wird.</p>
 <p>Die Betrachtung dieser Gütemaße sollte jedoch nicht das einzige Kriterium bei der Bewertung von Regeln sein. Zum einen sollte man auch bei Assoziationsregeln mit Trainings- und Testdaten arbeiten. Auf den Testdaten kann man überprüfen, ob die gleichen Regeln gefunden werden. Falls die Überschneidung groß ist, ist das ein Indikator, dass die Regeln generalisieren. Man kann auch noch einen Schritt weiter gehen und in den Testdaten zufällig Gegenstände aus Warenkörben entfernen und überprüfen, wie häufig die Regeln diese fehlenden Gegenstände richtig vorhersagen würden.</p>
 <p>Neben der Auswertung der Güte auf den Daten, sollte man die Regeln auch manuell bewerten: Findet eine Domänenexpertin die Regeln sinnvoll? Jeder, der Regelmäßig in Webshops einkauft wird sich schon das ein oder andere Mal über komische Empfehlungen gewundert haben. Hier wurde in der Regel außergewöhnliches Kaufverhalten gelernt und die Regeln nicht ausreichend validiert. Durch eine manuelle Inspektion der Regeln kann man dass Ergebnis daher in der Regel verbessern und das Regelwerk filtern. Dies ist eine Aufgabe die man als Data Scientist nicht alleine angehen sollte, sondern immer zusammen mit Domänenexpertinnen.</p>

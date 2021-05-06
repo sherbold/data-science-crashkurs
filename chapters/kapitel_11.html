@@ -86,7 +86,7 @@
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../vorwort.html">
+  <a class="reference internal" href="vorwort.html">
    Vorwort
   </a>
  </li>
@@ -157,6 +157,11 @@
    12. Big Data Processing
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_13.html">
+   13. Weiterführende Konzepte
+  </a>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -165,20 +170,13 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="appendix.html">
+  <a class="reference internal" href="howto.html">
    Selber Ausführen
   </a>
  </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Übungen
- </span>
-</p>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../exercises/uebung_01.html">
-   Übung 1
+  <a class="reference internal" href="notations.html">
+   Notationen
   </a>
  </li>
 </ul>
@@ -283,18 +281,13 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#motivation">
-   11.1. Motivation
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#hypothesentests">
-   11.2. Hypothesentests
+   11.1. Hypothesentests
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#t-test">
-     11.2.1.
+     11.1.1.
      <span class="math notranslate nohighlight">
       \(t\)
      </span>
@@ -303,39 +296,39 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#das-signifikanzniveau">
-     11.2.2. Das Signifikanzniveau
+     11.1.2. Das Signifikanzniveau
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#wichtige-hypothesentests">
-     11.2.3. Wichtige Hypothesentests
+     11.1.3. Wichtige Hypothesentests
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#anwendung-der-tests">
-     11.2.4. Anwendung der Tests
+     11.1.4. Anwendung der Tests
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#ubliche-fehler-bei-hypothesentests">
-     11.2.5. Übliche Fehler bei Hypothesentests
+     11.1.5. Übliche Fehler bei Hypothesentests
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#effektstarke">
-   11.3. Effektstärke
+   11.2. Effektstärke
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#konfidenzintervalle">
-   11.4. Konfidenzintervalle
+   11.3. Konfidenzintervalle
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#gute-beschreibung-von-ergebnissen">
-   11.5. Gute Beschreibung von Ergebnissen
+   11.4. Gute Beschreibung von Ergebnissen
   </a>
  </li>
 </ul>
@@ -351,8 +344,6 @@
                 
   <div class="section" id="statistik">
 <h1><span class="section-number">11. </span>Statistik<a class="headerlink" href="#statistik" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="motivation">
-<h2><span class="section-number">11.1. </span>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
 <p>Im Laufe der Kapitel haben wir bereits einige Datensätze betrachtet. In <a class="reference internal" href="kapitel_03.html"><span class="doc std std-doc">Kapitel 3</span></a> haben wir zum Beispiel die Verteilung von Daten mit Histogrammen visualisiert. Hier sind die Histogramme von zwei weiteren Datensätzen.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -389,9 +380,8 @@
 </div>
 <p>Das Histogramm auf der linken Seite hat eine Glockenform, was auf eine Normalverteilung hindeutet. Wie wahrscheinlich es ist, dass es sich um eine Normalverteilung handelt, ist jedoch unklar. Auf der rechten Seite sehen wir die Histogramme von zwei Stichproben <span class="math notranslate nohighlight">\(X_1 = \{x_1^1, ..., x_{n_1}^1\}\)</span> (“blau”) und <span class="math notranslate nohighlight">\(X_2 = \{x_1^2, ..., x_{n_2}^2\}\)</span> (“orange”). Diese Stichproben sind aus der “blauen” und der “orangen” Grundgesamtheit gezogen, die auch <em>Populationen</em> genannt werden. Beide Stichproben sehen sich sehr ähnlich, auch wenn der Mittelwert der blauen Daten etwas kleiner ist als bei den orangen Daten. Ob dies ein zufälliger Effekt der Stichproben ist, oder ob die blaue Population im Mittel wirklich etwas kleiner ist, kann man mit dem Histogramm nicht erkennen.</p>
 <p>Statistische Methoden können uns diese Fragen (mit einer gewissen Wahrscheinlichkeit) beantworten. In diesem Kapitel betrachten wir nur eine kurze Einführung in die ziemlich große Welt der Statistik. Unser Ziel ist ein Grundverständnis vom Hypothesentests, Effektstärken, und Konfidenzintervallen. Die Hypothesen in diesem Kapitel sind nicht mit den Hypothesen eines Klassifikationsmodells zu verwechseln (siehe <a class="reference internal" href="kapitel_08.html"><span class="doc std std-doc">Kapitel 8</span></a>).</p>
-</div>
 <div class="section" id="hypothesentests">
-<h2><span class="section-number">11.2. </span>Hypothesentests<a class="headerlink" href="#hypothesentests" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.1. </span>Hypothesentests<a class="headerlink" href="#hypothesentests" title="Permalink to this headline">¶</a></h2>
 <p>Hypothesentests sind das wichtigste Werkzeug der <em>häufigkeitsbasierten Statistik</em> (engl. <em>frequentist statistics</em>). Bei Hypothesentests hat man Annahmen an die Daten. Durch diese Annahmen kann man Hypothesen über die Daten formulieren. Es gibt immer zwei Hypothesen: Die <em>Null Hypothese</em> und die <em>Alternative Hypothese</em>.</p>
 <ul class="simple">
 <li><p>Null Hypothese (<span class="math notranslate nohighlight">\(H_0\)</span>): Die Annahmen des Tests sind erfüllt und können nicht mit einem vorgegeben Signifikanzniveau verworfen werden.</p></li>
@@ -399,7 +389,7 @@
 </ul>
 <p>Die Formulierung dieser Hypothesen basiert auf einigen abstrakten Konzepten: Was genau ist eine “Annahme” und was heißt “mit einem vorgegeben Signifikanzniveau verwerfen”? Im Folgenden erklären wir die Bedeutung dieser Konzepte am Beispiel des <span class="math notranslate nohighlight">\(t\)</span>-Tests.</p>
 <div class="section" id="t-test">
-<h3><span class="section-number">11.2.1. </span><span class="math notranslate nohighlight">\(t\)</span>-Test<a class="headerlink" href="#t-test" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">11.1.1. </span><span class="math notranslate nohighlight">\(t\)</span>-Test<a class="headerlink" href="#t-test" title="Permalink to this headline">¶</a></h3>
 <p>Der <span class="math notranslate nohighlight">\(t\)</span>-Test ist der Urvater der statistischen Tests und wurde von William Gosset unter dem Pseudonym “Student” entwickelt. Die älteste Version des Tests und die Wahrscheinlichkeitsverteilung auf dem dieser Test basiert heißen daher auch Students <span class="math notranslate nohighlight">\(t\)</span>-Test und Students Verteilung. Wir betrachten hier eine neuere Variante des <span class="math notranslate nohighlight">\(t\)</span>-Tests, nämlich Welchs <span class="math notranslate nohighlight">\(t\)</span>-Test. Welchs <span class="math notranslate nohighlight">\(t\)</span>-Test hat folgenden Hypothesen:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(H_0\)</span>: Die Mittelwerte von zwei normalverteilten Populationen <span class="math notranslate nohighlight">\(X_1\)</span> und <span class="math notranslate nohighlight">\(X_2\)</span> sind gleich.</p></li>
@@ -461,7 +451,7 @@
 <p>Die grüne Fläche ist die Wahrscheinlichkeit, dass die Stichprobe einer Standardnormalverteilung um mindestens <span class="math notranslate nohighlight">\(t\)</span> von null abweicht. Da wir <span class="math notranslate nohighlight">\(t\)</span> so berechnen, dass es genau die Abweichung der Mittelwerte voneinander darstellt, entspricht dies der Wahrscheinlichkeit, dass die zwei Stichproben gezogen wurden, wenn die Populationen normalverteilt sind und den gleichen Mittelwert haben. Das ist der p-value des <span class="math notranslate nohighlight">\(t\)</span>-Tests: Die Wahrscheinlichkeit der Daten, wenn unsere Hypothese zutrifft.</p>
 </div>
 <div class="section" id="das-signifikanzniveau">
-<h3><span class="section-number">11.2.2. </span>Das Signifikanzniveau<a class="headerlink" href="#das-signifikanzniveau" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">11.1.2. </span>Das Signifikanzniveau<a class="headerlink" href="#das-signifikanzniveau" title="Permalink to this headline">¶</a></h3>
 <p>Der p-value gibt also an, wie wahrscheinlich es ist, die Daten zu sehen. Es ist also nur logisch, dass ein kleiner p-value darauf hindeutet, dass die Null Hypothese nicht zutrifft und verworfen werden sollte. Diese Folgerung wird durch das <em>Signifikanzniveau</em> <span class="math notranslate nohighlight">\(\alpha\)</span> formalisiert um die <em>statistische Signifikanz</em> des Testergebnisses zu definieren. Das Signifikanzniveau ist definiert als die Wahrscheinlichkeit, dass die Null Hypothese verworfen wird, obwohl sie zutrifft. Häufig wird ein Signifikanzniveau von 0,05 oder in letzter Zeit auch 0,005 verwendet. Mit dem Signifikanzniveau können wir basierend auf dem p-value entscheiden, ob wir die Null Hypothese verwerfen:</p>
 <ul class="simple">
 <li><p>Wenn der <span class="math notranslate nohighlight">\(p\)</span>-<span class="math notranslate nohighlight">\(value &gt; \alpha\)</span> können wir die Null Hypothese nicht verwerfen. Das heißt, dass die Stichproben nicht unwahrscheinlich sind, wenn die Null Hypothese wahr ist.</p></li>
@@ -470,7 +460,7 @@
 <p>Mit Hypothesentests hat man keine absolute Sicherheit, die Ergebnisse stimmen nur mit einer durch das Signifikanzniveau festgelegten Wahrscheinlichkeit. Das heißt auch, dass wenn wir die Null Hypothese verwerfen, sie trotzdem wahr sein könnte. Es ist nur unwahrscheinlich - aber nicht unmöglich! - dass diese Daten vorkommen. Deshalb verwenden wir auch die etwas komplizierten Formulierungen <em>nicht verwerfen können</em>, bzw. <em>verwerfen</em> bezogen auf ein Signifikanzniveau.</p>
 </div>
 <div class="section" id="wichtige-hypothesentests">
-<h3><span class="section-number">11.2.3. </span>Wichtige Hypothesentests<a class="headerlink" href="#wichtige-hypothesentests" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">11.1.3. </span>Wichtige Hypothesentests<a class="headerlink" href="#wichtige-hypothesentests" title="Permalink to this headline">¶</a></h3>
 <p>Was wir oben im Detail für den <span class="math notranslate nohighlight">\(t\)</span>-Test erklärt haben, gilt für alle statistischen Tests: Es gibt eine Null Hypothese in der wir Annahmen treffen. Dann berechnen wir den <span class="math notranslate nohighlight">\(p\)</span>-value also die Wahrscheinlichkeit der Daten, gegeben den Annahmen. Basierend auf dem <span class="math notranslate nohighlight">\(p\)</span>-value können wir bestimmen ob wir die Null Hypothese mit einem gewissen Signifikanzniveau verwerfen. Es gibt sehr viele derartige statistische Tests. Hier sind die Null Hypothesen einiger sehr wichtiger Tests:</p>
 <ul class="simple">
 <li><p>Welchs <span class="math notranslate nohighlight">\(t\)</span>-Test: Die Mittelwerte zweier unabhängiger normalverteilter Populationen sind gleich.</p></li>
@@ -485,7 +475,7 @@
 <p>Der Kolmogorov-Smirnoff Test ist ein sehr generischer statistischer Tests, da er beliebige Populationen mit kontinuierlichen Verteilungen miteinander vergleichen kann. Es gibt also nur wenige Einschränkungen, wann man den Test benutzen kann. Dennoch sollte man ihn als “letztes Mittel” sehen, mit dem man zumindest sagen kann, ob es irgendwelche Unterschiede gibt. Was genau unterschiedlich ist, zum Beispiel die Lage, die Variabilität oder die Art der Verteilung, ist unklar. Als Vergleich: Wenn man mit dem Shapiro-Wilk Test bestimmt das die Populationen normalverteilt sind und mit Welchs <span class="math notranslate nohighlight">\(t\)</span>-Test einen signifikanten Unterschied der Mittelwerte feststellt, weiß man sehr genau, wie sich die Populationen voneinander unterscheiden.</p>
 </div>
 <div class="section" id="anwendung-der-tests">
-<h3><span class="section-number">11.2.4. </span>Anwendung der Tests<a class="headerlink" href="#anwendung-der-tests" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">11.1.4. </span>Anwendung der Tests<a class="headerlink" href="#anwendung-der-tests" title="Permalink to this headline">¶</a></h3>
 <p>Mit dem jetzt bekannten Wissen über die statistischen Tests, können wir die Fragen vom Anfang des Kapitels beantworten: Sind die Mittelwerte der blauen und orangen Populationen unterschiedlich? Mit Hilfe der Hypothesentests können wir hierzu eine Aussage treffen, die mit hoher Wahrscheinlichkeit richtig ist. Hierzu müssen wir ein Signifikanzniveau <span class="math notranslate nohighlight">\(\alpha\)</span> festlegen. Anschließend können wir den Shapiro-Wilk Test auf beide Stichproben anwenden um zu bestimmen, ob die Populationen normalverteilt sind. Wenn dies der Fall ist, können wir die Mittelwerte mit Welch’s <span class="math notranslate nohighlight">\(t\)</span>-Test Vergleichen, ansonsten nehmen wir den Mann-Whitney-U Test.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -559,7 +549,7 @@ Signifikanzniveau von alpha=0.050.
 <p>Die Tests haben also bestimmt, dass die Daten wahrscheinlich normalverteilt sind, aber die Mittelwerte nicht gleich. Wir haben also eine statistisch signifikanten Unterschied zwischen den blauen und den orangen Daten mit einem Signifikanzniveau von <span class="math notranslate nohighlight">\(\alpha=0.05\)</span>.</p>
 </div>
 <div class="section" id="ubliche-fehler-bei-hypothesentests">
-<h3><span class="section-number">11.2.5. </span>Übliche Fehler bei Hypothesentests<a class="headerlink" href="#ubliche-fehler-bei-hypothesentests" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">11.1.5. </span>Übliche Fehler bei Hypothesentests<a class="headerlink" href="#ubliche-fehler-bei-hypothesentests" title="Permalink to this headline">¶</a></h3>
 <p>Bei Hypothesentests steckt der Teufel im Detail, da es viele Aspekte gibt die man vergessen oder ungenau darstellen kann, was dazu führen kann das man die Ergebnisse überinterpretiert. Daher wollen wir hier einige größere und häufig vorkommende Fehler nennen, damit wir diese vermeiden können.</p>
 <p>Das größte Problem ist, dass man Hypothesentests nutzt, um binäre Aussagen zu machen, zum Beispiel “die Daten sind Normalverteilt” statt “der statistische Test indiziert das die Daten mit hoher Wahrscheinlichkeit normalverteilt sind”. Der große Unterschied: Die korrekte Aussage beinhaltet, dass es eine gewisse Unsicherheit über das Ergebnis gibt, was bei der absoluten Aussage nicht der Fall ist. Das derartige Fehler (häufig!) passieren, ist verständlich. Das korrekte Formulieren von statistischen Ergebnissen ist schwierig und die Sätze klingen oft umständlich, was dazu verleitet lieber eine deutlich einfachere absolute Formulierung zu benutzen.</p>
 <p>Ein weiteres Problem ist, dass p-values häufig falsch benutzt werden. Dies liegt daran, dass die Definition vom p-value als die Wahrscheinlichkeit die Daten gegeben der Annahmen zu beobachten relativ komplex ist. Aus diesem Grund gibt es auch viele Forscher, die gerne Hypothesentests komplett abschaffen und durch andere Verfahren (<em>Bayesian Statistics</em>) ersetzen würden. Es gibt aber auch sehr viele Forscher, die das Problem in der falschen Verwendung der p-values sehen, so dass lediglich eine bessere Statistikausbildung erforderlich ist. In diesem Sinne betrachten wir hier auch die zwei größten Probleme der p-values: <em>Scoring</em> und <em>p-Hacking</em>.</p>
@@ -568,7 +558,7 @@ Signifikanzniveau von alpha=0.050.
 </div>
 </div>
 <div class="section" id="effektstarke">
-<h2><span class="section-number">11.3. </span>Effektstärke<a class="headerlink" href="#effektstarke" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.2. </span>Effektstärke<a class="headerlink" href="#effektstarke" title="Permalink to this headline">¶</a></h2>
 <p>Die Signifikanz von Ergebnissen bedeutet nicht immer, dass ein Unterschied auch eine Bedeutung hat. Für unsere blauen und orangenen Daten haben wir folgende Mittelwerte und Standardabweichungen.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -663,7 +653,7 @@ sd(&quot;orange&quot;)   = 0.20
 <p>Es gibt also einen kleinen Effekt. Das passt auch zu dem, was wir im Histogramm sehen: Es gibt zwar einen Unterschied zwischen den Stichproben, der ist aber klein, wie wir jetzt mit Hilfe von Cohens <span class="math notranslate nohighlight">\(d\)</span> bestätigt haben.</p>
 </div>
 <div class="section" id="konfidenzintervalle">
-<h2><span class="section-number">11.4. </span>Konfidenzintervalle<a class="headerlink" href="#konfidenzintervalle" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.3. </span>Konfidenzintervalle<a class="headerlink" href="#konfidenzintervalle" title="Permalink to this headline">¶</a></h2>
 <p>Wenn man den Mittelwert anhand einer Stichprobe schätzt, ist es naheliegend zu fragen wie gut diese Schätzung ist. Das hängt von zwei Faktoren ab: Der Größe der Stichprobe und der Variabilität der Daten. Dies merk man schnell an einem Beispiel: Angenommen wir wollen das Durchschnittsalter unserer Kunden bestimmen. Dass die Schätzung besser wird, je mehr Kunden wir befragen, ist offensichtlich. Wenn die ersten Kunden alle mit Zahlen zwischen 18 und 25 Antworten, haben wir eine kleine Variabilität der Antworten und können den Wert schon gut eingrenzen. Wenn die ersten Kunden jedoch Zahlen zwischen 18 und 86 nennen, haben wir eine größere Unsicherheit und müssen mehr Kunden befragen, um zu einem guten Schätzwert zu kommen.</p>
 <p>Dies ist auch für die Bewertung von Klassifikationsmodellen relevant. Angenommen wir haben ein Klassifikationsmodell für die Abwanderung von Kunden, welches auf den Daten von fünf Filialen trainiert wird und mit 15 Filialen ausgewertet wird. Es gibt dann 15 Schätzwerte für die Güte dieses Modells. Als fiktive Ergebnisse nehmen wir an, dass die Accuracy normalverteilt mit einem Mittelwert von 0,83 und einer Standardabweichung von 0,13 ist. Für die weitere Anwendung ist folgende Frage sehr wichtig: Welchen Mittelwert erwarten wir, wenn wir das Modell bei 15 weiteren Filialen anwenden?</p>
 <p>Dies kann man mit Hilfe von <em>Konfidenzintervallen</em> berechnen. Ein <span class="math notranslate nohighlight">\(C\%\)</span> Konfidenzintervall <span class="math notranslate nohighlight">\(\theta\)</span> für einen Parameter <span class="math notranslate nohighlight">\(p\)</span> ist ein Intervall, in dem <span class="math notranslate nohighlight">\(p\)</span> mit <span class="math notranslate nohighlight">\(C\%\)</span> Wahrscheinlichkeit liegt. Konfidenzintervalle kann man für beliebige statistische Merkmale <span class="math notranslate nohighlight">\(p\)</span> berechnen, auch wenn sie meistens für den Mittelwert berechnet werden. Der wahre Wert von <span class="math notranslate nohighlight">\(p\)</span> liegt dann mit hoher Wahrscheinlich, nämlich <span class="math notranslate nohighlight">\(C\%\)</span>, in diesem Interval. Die Wahrscheinlichkeit <span class="math notranslate nohighlight">\(C\)</span> nennt man das Konfidenzniveau. Für ein Konfidenzniveau von <span class="math notranslate nohighlight">\(C=0,95\)</span>, haben wir also eine 95% Chance, dass der Mittelwert von weiteren Stichproben im Konfidenzintervall liegt.</p>
@@ -764,7 +754,7 @@ sd(&quot;orange&quot;)   = 0.20
 </ul>
 </div>
 <div class="section" id="gute-beschreibung-von-ergebnissen">
-<h2><span class="section-number">11.5. </span>Gute Beschreibung von Ergebnissen<a class="headerlink" href="#gute-beschreibung-von-ergebnissen" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.4. </span>Gute Beschreibung von Ergebnissen<a class="headerlink" href="#gute-beschreibung-von-ergebnissen" title="Permalink to this headline">¶</a></h2>
 <p>In der Wissenschaft, aber auch in der Praxis, wird häufig nur geguckt, ob es Wnterschiede gibt und eventuell noch ob diese signifikant sind. Eine saubere statistische Bewertung von Projektergebnissen sollte aber darüber hinaus gehen und zum Beispiel auch die Effektstärke und die Konfidenzintervalle beinhalten. Außerdem sollte man die statistische Auswertung zu Beginn eines Projekts planen. Andernfalls riskiert man das oben beschriebene p-Hacking, in dem man Experimente immer weiter anpasst, bis man ein gewünschtes Ergebnis gefunden hat. In der Wissenschaft führt dies zur Registrierung von Studien, wo das Protokoll bereits vor der Durchführung festgelegt wird. Dieses Vorgehen hat sich bereits bei klinischen Studien in der Medizin bewährt und vermeidet falsch positive Ergebnisse.</p>
 <p>In diesem Kapitel haben wir uns nur mit der häufigkeitsbasierten Statistik beschäftig. Es gibt auch noch einen anderen Ansatz, die Bayesian Stastitik, die im Kern auf dem Satz von Bayes (siehe <a class="reference internal" href="kapitel_07.html"><span class="doc std std-doc">Kapitel 7</span></a>) basiert. Hier wird direkt geschätzt, wie wahrscheinlich es ist, dass eine Hypothese war ist. Dies hat den Vorteil, dass die Ergebnisse einfacher zu interpretieren sind. Die Theorie und Anwendung ist hier jedoch etwas komplexer, weshalb die häufigkeitsbasierte Statistik weiterhin bei vielen Analysen das Mittel der Wahl ist.</p>
 <hr class="footnotes docutils" />

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Übung 1 &#8212; Data Science Crashkurs - Eine interaktive und praktische Einführung</title>
+    <title>13. Weiterführende Konzepte &#8212; Data Science Crashkurs - Eine interaktive und praktische Einführung</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,7 +51,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Selber Ausführen" href="../chapters/appendix.html" />
+    <link rel="next" title="Selber Ausführen" href="howto.html" />
+    <link rel="prev" title="12. Big Data Processing" href="kapitel_12.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -83,7 +84,7 @@
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../vorwort.html">
+  <a class="reference internal" href="vorwort.html">
    Vorwort
   </a>
  </li>
@@ -93,65 +94,70 @@
   Kapitel
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../chapters/kapitel_01.html">
+  <a class="reference internal" href="kapitel_01.html">
    1. Big Data und Data Science
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../chapters/kapitel_02.html">
+  <a class="reference internal" href="kapitel_02.html">
    2. Der Prozess von Data Science Projekten
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../chapters/kapitel_03.html">
+  <a class="reference internal" href="kapitel_03.html">
    3. Erkunden der Daten
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../chapters/kapitel_04.html">
+  <a class="reference internal" href="kapitel_04.html">
    4. Allgemeines zur Datenanalyse
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../chapters/kapitel_05.html">
+  <a class="reference internal" href="kapitel_05.html">
    5. Assoziationsregeln
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../chapters/kapitel_06.html">
+  <a class="reference internal" href="kapitel_06.html">
    6. Clusteranalyse
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../chapters/kapitel_07.html">
+  <a class="reference internal" href="kapitel_07.html">
    7. Klassifikation
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../chapters/kapitel_08.html">
+  <a class="reference internal" href="kapitel_08.html">
    8. Regression
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../chapters/kapitel_09.html">
+  <a class="reference internal" href="kapitel_09.html">
    9. Zeitreihenanalyse
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../chapters/kapitel_10.html">
+  <a class="reference internal" href="kapitel_10.html">
    10. Textmining
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../chapters/kapitel_11.html">
+  <a class="reference internal" href="kapitel_11.html">
    11. Statistik
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../chapters/kapitel_12.html">
+  <a class="reference internal" href="kapitel_12.html">
    12. Big Data Processing
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   13. Weiterführende Konzepte
   </a>
  </li>
 </ul>
@@ -162,20 +168,13 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../chapters/appendix.html">
+  <a class="reference internal" href="howto.html">
    Selber Ausführen
   </a>
  </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Übungen
- </span>
-</p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Übung 1
+ <li class="toctree-l1">
+  <a class="reference internal" href="notations.html">
+   Notationen
   </a>
  </li>
 </ul>
@@ -219,7 +218,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/exercises/uebung_01.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/chapters/kapitel_13.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -257,7 +256,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/sherbold/einfuehrung-in-data-science/main?urlpath=tree/content/exercises/uebung_01.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/sherbold/einfuehrung-in-data-science/main?urlpath=tree/content/chapters/kapitel_13.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -282,9 +281,17 @@
         
               <div>
                 
-  <div class="section" id="ubung-1">
-<h1>Übung 1<a class="headerlink" href="#ubung-1" title="Permalink to this headline">¶</a></h1>
-<p>Dummy Übung</p>
+  <div class="section" id="weiterfuhrende-konzepte">
+<h1><span class="section-number">13. </span>Weiterführende Konzepte<a class="headerlink" href="#weiterfuhrende-konzepte" title="Permalink to this headline">¶</a></h1>
+<p>Zum Abschluss dieses Crashkurses wollen wir noch einige wichtige weiterführende Konzepte benennen, die wir nicht behandelt haben. Dieses Kapitel ist also ein Hilfsmittel für alle, die sich weiter mit dem Thema beschäftigen wollen.</p>
+<p>Nicht alle Merkmale werden von jedem Algorithmus benötigt. Manchmal sind die Merkmale redundant, da es Korrelationen gibt, manchmal helfen die Merkmale auch einfach nicht bei der Analyse. Einige von den betrachteten Algorithmen haben das bereits berücksichtigt. Die Lasso Regulaisierung (siehe <a class="reference internal" href="kapitel_08.html"><span class="doc std std-doc">Kapitel 8</span></a>) eliminiert unwichtige Merkmale, in dem die Koeffizienten auf null gesetzt werden. Entscheidungsbäume wählen nur die informativsten Merkmale aus (siehe <a class="reference internal" href="kapitel_07.html"><span class="doc std std-doc">Kapitel 7</span></a>, so dass einige Merkmale eventuell nicht berücksichtigt werden. Die meisten Algorithmen nutzen aber alle Merkmale, die zur Verfügung stehen. Da mehr Merkmale führen aber zu komplexeren Modellen, was sich auch negativ auf die Rechenzeit auswirkt. Mit Hilfe von Techniken zu Merkmalsauswahl (engl. <em>feature selection</em>), kann man dieses Problem unabhängig vom Algorithmus lösen. Solche Techniken suchen nach einer Teilmenge von Merkmalen, die nicht korreliert sind oder eliminieren Merkmale, die nicht relevant sind. Zwei verfahren haben wir sogar behandelt: Mit der PCA (siehe <a class="reference internal" href="kapitel_03.html"><span class="doc std std-doc">Kapitel 3</span></a>) lassen sich neue Merkmale berechnen, so dass man eine kleinere und unkorrelierte Menge von Merkmalen nutzen könnte. Und der Informationsgewinn, den wir bei den Entscheidungsbäumen kennen gelernt haben, kann auch dazu benutzt werden Merkmale mit einem sehr geringen Informationsgewinn zu entfernen.</p>
+<p>Wir haben auch oft von Skaleneffekten gesprochen, und davon Merkmale zu normalisieren. Im Detail haben wir dieses Thema jedoch nicht behandelt und verglichen wie die Auswirkungen von verschiedenen Techniken sind. Auch ein vollständigen Überblick haben wir nicht gegeben: Neben der im Buch vorkommenden Normierung, Logarithmierung, und der Z-Score Standardisierung, gibt es zum Beispiel auch kernelbasierte Verfahren und quantilbasierte Verfahren. Je nach Datenlage und Anwendungsfall kann dies einen großen Unterschied machen.</p>
+<p>Bei der Klassifikation haben wir im Zuge der Gütemaße auch über die Class Level Imbalance gesprochen, nicht jedoch wie man dieses Problem lösen kann. Hierzu gibt es viele Verfahren, zum Beispiel durch das <em>Resampling</em> oder durch <em>Gewichte</em>. Beim Resampling werden Instanzen der Klasse die seltener vorkommt hinzugefügt (<em>Oversampling</em>) oder der Mehrheitsklasse entfernt (<em>Undersampling</em>), manchmal wird auch beides kombiniert. Mit Gewichten kann man dafür sorgen, dass bestimmte Instanzen eine höheren, bzw. geringeren Einfluss auf das Ergebnis haben. Durch höhere Gewichte der unterrepräsentierten Klasse können wir also Problemen entgegenwirken.</p>
+<p>Außerdem haben wir gesehen, dass die Algorithmen Parameter haben, mit denen man sie konfigurieren kann. Beispiele hierfür sind die Tiefe von Entscheidungsbäumen oder die Struktur eines Neuronalen Netzwerks. Wir haben auch erwähnt, dass man die Validationsdaten zur Wahl geeigneter Parameter benutzen kann. Wie das jedoch genau funktioniert, zum Beispiel durch eine <em>Grid Search</em>, <em>Random Search</em> oder gezielte Suchalgorithmen, haben wir nicht behandelt.</p>
+<p>Mit der Kreuzvalidierung haben wir ein Konzept gelernt, wie man auch bei einer kleinen Datenmenge mit einer Art Testdaten arbeiten kann. Es gibt noch weitere Verfahren, die je nach Datenmenge und Anwendungsfall relevant sein können, zum Beispiel Leave-One-Out (auch <em>Jackknife</em>) genannt, Bootstrap Sampling (kennen wir von den Random Forests), und das <em>Stratified Sampling</em>, welches berücksichtigt, dass sich die Verteilung nicht ändert.</p>
+<p>Außerdem haben wir natürlich nicht alle Algorithmen betrachtet, die es gibt. Insbesondere beim CLustern (z.B. spektrales Clustering, Self-Organizing Maps) und bei der Klassifikation (z.B. Ripper zum lernen von Disjunktionen, AdaBoost und Gradient Boosting Trees als Boostingalgorithmen, gausßsche Prozesse, Bayesian Networks) gibt es noch viele weitere Verfahren. Bei den Neuronalen Netzen haben wir auch nur an der Oberfläche gekratzt, hier gibt es viele weitere Netzwerkstrukturen, die wir nur kurz genannt oder gar nicht betrachtet haben. Mit dem <em>Reinforcement Learning</em> haben wir auch eine wichtigen Anwendungsfall nicht betrachtet: Wie können Systeme sich mit der Zeit selbst verbessern, in dem Sie ihre Beobachtungen nutzen um ständig neue Daten zu erzeugen, die direkt zu Modellverbesserung benutzt werden?</p>
+<p>Bei allem was wir betrachtet haben, blieb außerdem die Theorie im Hintergrund. Wie die meisten Algorithmen ihre Lösungen berechnen, zum Beispiel mit verfahren wie dem <em>Stochastic Gradient Descent</em> haben wir nicht behandelt. Auch die Theorie des maschinellen Lernens, also wie man diesen Bereich in der theoretischen Informatik betrachtet und hier unter bestimmten Annahmen zeigen kann, dass es Lösungen einer bestimmten Güte gibt, haben wir ignoriert.</p>
+<p>Zusammengefasst kann man also sagen, dass dieser Crashkurz zwar ein guter Start in das Thema war, aber es noch viel gibt, was man zusätzlich lernen kann und sollte, bevor man diese Disziplin gemeistert hat.</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -300,7 +307,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./exercises"
+            path: "./chapters"
         },
         predefinedOutput: true
     }
@@ -312,7 +319,8 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../chapters/appendix.html" title="previous page">Selber Ausführen</a>
+    <a class='left-prev' id="prev-link" href="kapitel_12.html" title="previous page"><span class="section-number">12. </span>Big Data Processing</a>
+    <a class='right-next' id="next-link" href="howto.html" title="next page">Selber Ausführen</a>
 
         </div>
         

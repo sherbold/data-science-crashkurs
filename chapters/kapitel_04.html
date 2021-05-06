@@ -86,7 +86,7 @@
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../vorwort.html">
+  <a class="reference internal" href="vorwort.html">
    Vorwort
   </a>
  </li>
@@ -157,6 +157,11 @@
    12. Big Data Processing
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_13.html">
+   13. Weiterführende Konzepte
+  </a>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -165,20 +170,13 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="appendix.html">
+  <a class="reference internal" href="howto.html">
    Selber Ausführen
   </a>
  </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Übungen
- </span>
-</p>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../exercises/uebung_01.html">
-   Übung 1
+  <a class="reference internal" href="notations.html">
+   Notationen
   </a>
  </li>
 </ul>
@@ -320,9 +318,10 @@
                 
   <div class="section" id="allgemeines-zur-datenanalyse">
 <h1><span class="section-number">4. </span>Allgemeines zur Datenanalyse<a class="headerlink" href="#allgemeines-zur-datenanalyse" title="Permalink to this headline">¶</a></h1>
+<p>Bevor wir uns in die Algorithmen zur Modellierung mit Hilfe von Daten stürzen, benötigen wir noch einige Grundlagen. Hierbei handelt es sich um allgemeine Konzepte, die nicht von einer bestimmten Art der Analyse oder Daten abhängen und die wir immer wieder benötigen. Außerdem geben wir in diesem Kapitel auch einen Überblick über die Arten von Algorithmen die es gibt.</p>
 <div class="section" id="das-no-free-lunch-theorem">
 <h2><span class="section-number">4.1. </span>Das No Free Lunch Theorem<a class="headerlink" href="#das-no-free-lunch-theorem" title="Permalink to this headline">¶</a></h2>
-<p>Bevor wir uns in die Algorithmen zur Modellierung mit Hilfe von Daten stürzen, benötigen wir noch einige Grundlagen. Die erste ist eine fundamentale Aussage über Optimierungsalgorithmen, das <em>No Free Lunch Theorem</em> (NFL). Das Theorem selbst ist sehr theoretisch, wenn Sie sich nur für die (sehr wichtigen!) praktischen Auswirkungen interessieren, springen Sie einfach direkt zur umgangssprachlichen Definition. Die mathematische Formulierung des NFL lautet wie folgt.</p>
+<p>Die erste ist eine fundamentale Aussage über Optimierungsalgorithmen, das <em>No Free Lunch Theorem</em> (NFL). Das Theorem selbst ist sehr theoretisch, wenn Sie sich nur für die (sehr wichtigen!) praktischen Auswirkungen interessieren, springen Sie einfach direkt zur umgangssprachlichen Definition. Die mathematische Formulierung des NFL lautet wie folgt.</p>
 <blockquote>
 <div><p><strong>No Free Lunch Theorem:</strong></p>
 <p>Sei <span class="math notranslate nohighlight">\(d_m^y\)</span> eine geordnete Menge der Kardinalität <span class="math notranslate nohighlight">\(m\)</span> mit Kostenwerten <span class="math notranslate nohighlight">\(y \in Y\)</span>. Sei <span class="math notranslate nohighlight">\(f: X \to Y\)</span> eine Funktion die optimiert werden soll. Sei <span class="math notranslate nohighlight">\(P(d_m^y|f, m, a)\)</span> die bedinge Wahrscheinlichkeit die Kosten <span class="math notranslate nohighlight">\(d_m^y\)</span> durch <span class="math notranslate nohighlight">\(m\)</span> wiederholte Ausführungen des Algorithmus <span class="math notranslate nohighlight">\(a\)</span> für die Funktion <span class="math notranslate nohighlight">\(f\)</span> zu beobachten.</p>

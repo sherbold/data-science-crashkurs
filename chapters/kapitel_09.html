@@ -86,7 +86,7 @@
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../vorwort.html">
+  <a class="reference internal" href="vorwort.html">
    Vorwort
   </a>
  </li>
@@ -157,6 +157,11 @@
    12. Big Data Processing
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_13.html">
+   13. Weiterführende Konzepte
+  </a>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -165,20 +170,13 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="appendix.html">
+  <a class="reference internal" href="howto.html">
    Selber Ausführen
   </a>
  </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Übungen
- </span>
-</p>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../exercises/uebung_01.html">
-   Übung 1
+  <a class="reference internal" href="notations.html">
+   Notationen
   </a>
  </li>
 </ul>
@@ -283,55 +281,50 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#uberblick">
-   9.1. Überblick
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#box-jenkins-verfahren">
-   9.2. Box-Jenkins Verfahren
+   9.1. Box-Jenkins Verfahren
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#trends-und-saisonale-effekte">
-   9.3. Trends und Saisonale Effekte
+   9.2. Trends und Saisonale Effekte
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#regression-und-das-saisonale-mittel">
-     9.3.1. Regression und das Saisonale Mittel
+     9.2.1. Regression und das Saisonale Mittel
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#differencing">
-     9.3.2. Differencing
+     9.2.2. Differencing
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#vergleich-der-ansatze">
-     9.3.3. Vergleich der Ansätze
+     9.2.3. Vergleich der Ansätze
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#autokorrelationen-mit-arma">
-   9.4. Autokorrelationen mit ARMA
+   9.3. Autokorrelationen mit ARMA
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#autokorrelation-und-partielle-autokorrelation">
-     9.4.1. Autokorrelation und Partielle Autokorrelation
+     9.3.1. Autokorrelation und Partielle Autokorrelation
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#ar-ma-und-arma">
-     9.4.2. AR, MA und ARMA
+     9.3.2. AR, MA und ARMA
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#auswahl-von-p-und-q">
-     9.4.3. Auswahl von
+     9.3.3. Auswahl von
      <span class="math notranslate nohighlight">
       \(p\)
      </span>
@@ -343,14 +336,14 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#arima">
-     9.4.4. ARIMA
+     9.3.4. ARIMA
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#jenseits-von-box-jenkins">
-   9.5. Jenseits von Box-Jenkins
+   9.4. Jenseits von Box-Jenkins
   </a>
  </li>
 </ul>
@@ -366,8 +359,6 @@
                 
   <div class="section" id="zeitreihenanalyse">
 <h1><span class="section-number">9. </span>Zeitreihenanalyse<a class="headerlink" href="#zeitreihenanalyse" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="uberblick">
-<h2><span class="section-number">9.1. </span>Überblick<a class="headerlink" href="#uberblick" title="Permalink to this headline">¶</a></h2>
 <p>Die Zeitreihenanalyse (engl. <em>time series analysis</em>) behandelt die Analyse von geordneten Sequenzen von Daten, zum Beispiel Daten die über die Zeit gemessen wurden. <a class="reference internal" href="#fig-timeseries-example"><span class="std std-numref">Fig. 9.1</span></a> zeigt ein Beispiel für eine Zeitreihe: Das Liniendiagram zeigt die monatlichen Werte der Passagierzahlen einer Fluggesellschaft zwischen 1949 und 1961. Es gibt also für jeden Monat eine Instanz in den Daten. Das Ziel der Zeitreihenanalyse ist die zeitliche Struktur der Daten zu beschreiben, also ein Modell zu finden was die monatlichen Änderungen erklärt. Mit einem solchen Modell kann man entweder retrospektiv die Daten analysieren um Wissen zu extrahieren, oder sogar die Werte für die nächsten Zeitschritte vorhersagen.</p>
 <div class="figure align-default" id="fig-timeseries-example">
 <a class="reference internal image-reference" href="../_images/timeseries_example_german.png"><img alt="../_images/timeseries_example_german.png" src="../_images/timeseries_example_german.png" style="width: 600px;" /></a>
@@ -388,9 +379,8 @@
 <p>Zusammen ergeben diese drei Komponenten den Wert der Zeitreihe als</p>
 <div class="math notranslate nohighlight">
 \[x_t = T_t + S_t + R_t.\]</div>
-</div>
 <div class="section" id="box-jenkins-verfahren">
-<h2><span class="section-number">9.2. </span>Box-Jenkins Verfahren<a class="headerlink" href="#box-jenkins-verfahren" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.1. </span>Box-Jenkins Verfahren<a class="headerlink" href="#box-jenkins-verfahren" title="Permalink to this headline">¶</a></h2>
 <p>Zur Zeitreihenanalyse betrachten wir sogenannte <em>Box-Jenkins</em> Modelle. Beim Box-Jenkins Ansatz wird zuerst sichergestellt, dass die Zeitreihe <em>stationär</em> ist. Anschließend wird die Autokorrelation als stochastischer Prozess modelliert, der die Werte der letzten Zeitschritte mit einer zufälligen Komponente kombiniert. Stationär bedeutet, dass sich weder der Mittelwert, noch die Varianz über die Zeit verändern. Für eine Zeitreihe bedeutet das, dass es keinen Trend und keine saisonalen Effekte geben darf. Der Trend kann auch als mittlere Veränderung des Mittelwerts über die Zeit betrachtet werden. Die Saisonalität kann man als sich regelmäßig wiederholende lokale Veränderung des Mittelwerts interpretieren. Die Varianz ist im Wesentlichen die zufällige Streuung der Daten um den Mittelwert.</p>
 <p>Im Folgenden betrachten wir jeden Aspekt des Box-Jenkins Ansatzes. Zuerst betrachten wir, wie man den Trend und die Saisonalität einer Zeitreihe bestimmt und wie man diese anschließend aus den Daten entfernt, damit die Daten stationär sind. Anschließend betrachten wir ARMA Modelle um die Autokorrelationen zu erfassen. Für die Erklärung der Methoden nutzen wie die Daten über Flugpassagiere, die wir oben schon gesehen haben.</p>
 <div class="cell tag_hide-input docutils container">
@@ -415,7 +405,7 @@
 </div>
 </div>
 <div class="section" id="trends-und-saisonale-effekte">
-<h2><span class="section-number">9.3. </span>Trends und Saisonale Effekte<a class="headerlink" href="#trends-und-saisonale-effekte" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.2. </span>Trends und Saisonale Effekte<a class="headerlink" href="#trends-und-saisonale-effekte" title="Permalink to this headline">¶</a></h2>
 <p>Unser Ansatz die Daten einer Zeitreihe stationär zu machen ist, dass wir zuerst den Trend <span class="math notranslate nohighlight">\(T_t\)</span> und anschließend die Saisonalität <span class="math notranslate nohighlight">\(S_t\)</span> modellieren und diese von den Daten abziehen. Im Detail ist der Ablauf ist wie folgt.</p>
 <ul class="simple">
 <li><p>Wir modellieren den Trend <span class="math notranslate nohighlight">\(T_t\)</span> der Zeitreihe <span class="math notranslate nohighlight">\(\{x_t\}\)</span>.</p></li>
@@ -425,7 +415,7 @@
 </ul>
 <p>Wir betrachten jeweils zwei Ansätze für die Modellierung des Trends und der Saisonalität.</p>
 <div class="section" id="regression-und-das-saisonale-mittel">
-<h3><span class="section-number">9.3.1. </span>Regression und das Saisonale Mittel<a class="headerlink" href="#regression-und-das-saisonale-mittel" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">9.2.1. </span>Regression und das Saisonale Mittel<a class="headerlink" href="#regression-und-das-saisonale-mittel" title="Permalink to this headline">¶</a></h3>
 <p>Der erste Ansatz für die Trendbereinigung ist eine Regression. Der Trend der Flugpassagierdaten sieht etwa linear aus, das heißt wir sehen ein über die Zeit gleichmäßiges Wachstum. In diesem Fall können wir eine Lineare Regression berechnen um den Trend zu modellieren.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -523,7 +513,7 @@
 </div>
 </div>
 <div class="section" id="differencing">
-<h3><span class="section-number">9.3.2. </span>Differencing<a class="headerlink" href="#differencing" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">9.2.2. </span>Differencing<a class="headerlink" href="#differencing" title="Permalink to this headline">¶</a></h3>
 <p>Der zweite Ansatz zur Bereinigung des Trends und der Saison ist das sogenannte <em>Differencing</em>. Wie der Name schon vermuten lässt, ist das Differencing ist an das Konzept der Ableitung angelehnt und führt zu einer besseren Bereinigung als die Regression und das saisonale Mittel. Die Idee des Differencing ist, dass der Trend nichts anderes als die Steigung der Zeitreihe ist. Die Steigung ist nichts anderes als die erste Ableitung. Wenn der Trend nicht Konstant ist, sondern sich mit der Zeit ändert, sieht man dies in der zweiten Ableitung. Wenn wir also den Trend berechnen und bereinigen wollen, können wir die Ableitung hierfür nutzen.</p>
 <p>Das Differencing bassiert auf einer Variante der <em>Punktsteigungsformel</em> zum Berechnen der Steigung einer Geraden. Die Steigung zwischen zwei Punkten <span class="math notranslate nohighlight">\((x_1, y_1), (x_2, y_2)\)</span> ist dann definiert als <span class="math notranslate nohighlight">\(\frac{y_2-y_1}{x_2-x_1}\)</span>. Da wir äquidistante Zeitschritte <span class="math notranslate nohighlight">\(t\)</span> haben, gilt für zwei benachbarte Zeitpunkte <span class="math notranslate nohighlight">\((t-1, x_{t-1}), (t, x_t)\)</span> und die Steigung ist</p>
 <div class="math notranslate nohighlight">
@@ -590,15 +580,15 @@
 <p>Nach der Bereinigung ist auf der linken Seite kein Muster mehr in den Daten zu erkennen. Die Schwankung um die null sieht komplett zufällig aus, was ein starker Hinweis darauf ist, dass die Daten jetzt stationär sind. Die Bereich der y-Achse ist jetzt auf <span class="math notranslate nohighlight">\(40-(-40)=80\)</span> reduziert, also nochmal halbiert gegenüber der trendbereinigten Zeitreihe.</p>
 </div>
 <div class="section" id="vergleich-der-ansatze">
-<h3><span class="section-number">9.3.3. </span>Vergleich der Ansätze<a class="headerlink" href="#vergleich-der-ansatze" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">9.2.3. </span>Vergleich der Ansätze<a class="headerlink" href="#vergleich-der-ansatze" title="Permalink to this headline">¶</a></h3>
 <p>Die zwei Ansätze den Trend und die Saison zu Modellieren haben beide Stärken und Schwächen. Der Vorteil der Regression und der saisonalen Mittelwerte ist die Interpretierbarkeit. Da dies jedoch nur bei linearen Trends und saisonalen Effekten ohne Trend funktioniert, ist die Anwendbarkeit des Verfahrens limitiert und die Daten sind hinterher möglicherweise nicht stationär. Beim Differencing ist das Gegenteil der Fall: Die Bereinigung des Trends und der saisonalen Effekte funktioniert in der Regel sehr gut, da man auch Differenzen höherer Ordnung verwenden kann. Dafür gibt es keine Formel, die man interpretieren kann.</p>
 </div>
 </div>
 <div class="section" id="autokorrelationen-mit-arma">
-<h2><span class="section-number">9.4. </span>Autokorrelationen mit ARMA<a class="headerlink" href="#autokorrelationen-mit-arma" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.3. </span>Autokorrelationen mit ARMA<a class="headerlink" href="#autokorrelationen-mit-arma" title="Permalink to this headline">¶</a></h2>
 <p>Der letzte Aspekt der Zeitreihe den wir noch modellieren müssen ist die Autokorrelation.</p>
 <div class="section" id="autokorrelation-und-partielle-autokorrelation">
-<h3><span class="section-number">9.4.1. </span>Autokorrelation und Partielle Autokorrelation<a class="headerlink" href="#autokorrelation-und-partielle-autokorrelation" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">9.3.1. </span>Autokorrelation und Partielle Autokorrelation<a class="headerlink" href="#autokorrelation-und-partielle-autokorrelation" title="Permalink to this headline">¶</a></h3>
 <p>Die Autokorrelation ist der direkte Zusammenhang zwischen Werten der Zeitreihe an unterschiedlichen Zeitpunkten. Es handelt sich also um die Korrelation der Zeitreihe mit sich selbst.</p>
 <blockquote>
 <div><p><strong>Bemerkung:</strong></p>
@@ -666,7 +656,7 @@
 <p>In der zweiten Zeile sehen wir die Autokorrelation und die partielle Autokorrelation der durch Differencing bereinigten Zeitreihe. Wie auch schon in den Scatterplots, sieht man keine Hinweise auf eine Korrelation, weder bei der Autokorrelation, noch bei der partiellen Autokorrelation.</p>
 </div>
 <div class="section" id="ar-ma-und-arma">
-<h3><span class="section-number">9.4.2. </span>AR, MA und ARMA<a class="headerlink" href="#ar-ma-und-arma" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">9.3.2. </span>AR, MA und ARMA<a class="headerlink" href="#ar-ma-und-arma" title="Permalink to this headline">¶</a></h3>
 <p>Was noch fehlt ist ein Modell für die Autokorrelation. Ein häufig verwendeter Ansatz ist es einen <em>AutoRegressives</em> (AR) oder ein <em>Moving Average</em> (MA) Modell zu benutzen. Wenn man beides zusammen verwendet, spricht man von einem ARMA Modell.</p>
 <p>Ein AR Model beschreibt die lineare Beziehung der Zeitschritte. Hierzu wird der direkte Einfluss der letzten <span class="math notranslate nohighlight">\(p\)</span> Zeitpunkte auf den aktuellen Zeitpunkt modelliert als</p>
 <div class="math notranslate nohighlight">
@@ -686,7 +676,7 @@
 <p>Das ARMA Modell kombiniert also den Einfluss der letzten Zeitreihenwerte mit dem Einfluss der letzten zufälligen Schwankungen.</p>
 </div>
 <div class="section" id="auswahl-von-p-und-q">
-<h3><span class="section-number">9.4.3. </span>Auswahl von <span class="math notranslate nohighlight">\(p\)</span> und <span class="math notranslate nohighlight">\(q\)</span><a class="headerlink" href="#auswahl-von-p-und-q" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">9.3.3. </span>Auswahl von <span class="math notranslate nohighlight">\(p\)</span> und <span class="math notranslate nohighlight">\(q\)</span><a class="headerlink" href="#auswahl-von-p-und-q" title="Permalink to this headline">¶</a></h3>
 <p>Um ein ARMA Modell zu benutzen, müssen wir die Werte <span class="math notranslate nohighlight">\(p\)</span> und <span class="math notranslate nohighlight">\(q\)</span> bestimmen, also wie viele vergangene Zeitschritte einen Einfluss haben sollen. Hierzu benutzen wir die Autokorrelation und die partielle Autokorrelation.</p>
 <p>Zuerst wählen wir Werte für die mit Regression und saisonalen Mittel bereinigte Zeitreihe. Hier haben wir die folgenden (partiellen) Autokorrelationen.</p>
 <div class="cell tag_hide-input docutils container">
@@ -727,12 +717,12 @@
 <p>Da es keine starke partielle Autokorrelation gibt, wählen wir <span class="math notranslate nohighlight">\(p=0\)</span>. In den Autokorrelationen sieht man lediglich bei <span class="math notranslate nohighlight">\(t+1\)</span> einen Wert von etwa -0,3, anschließend schwanken die Werte um null. Da wir mit <span class="math notranslate nohighlight">\(p=0\)</span> ein reines MA Modell haben, sollten wir, wie oben erklärt, also <span class="math notranslate nohighlight">\(q=1\)</span> wählen.</p>
 </div>
 <div class="section" id="arima">
-<h3><span class="section-number">9.4.4. </span>ARIMA<a class="headerlink" href="#arima" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">9.3.4. </span>ARIMA<a class="headerlink" href="#arima" title="Permalink to this headline">¶</a></h3>
 <p>Oft findet man auch ARIMA Modelle für die Zeitreihenanalyse mit den Parametern <span class="math notranslate nohighlight">\(p\)</span>, <span class="math notranslate nohighlight">\(d\)</span> und <span class="math notranslate nohighlight">\(q\)</span>. ARIMA ist genau wie ARMA, nur dass die Bereinigung des Trends durch Differencing über den Parameter <span class="math notranslate nohighlight">\(d\)</span> ein Teil des Modells ist. ARIMA ist also das gleiche wie ein ARMA Modell was auf eine durch Differencing trendbereinigte Zeitreihe angewendet wird.</p>
 </div>
 </div>
 <div class="section" id="jenseits-von-box-jenkins">
-<h2><span class="section-number">9.5. </span>Jenseits von Box-Jenkins<a class="headerlink" href="#jenseits-von-box-jenkins" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.4. </span>Jenseits von Box-Jenkins<a class="headerlink" href="#jenseits-von-box-jenkins" title="Permalink to this headline">¶</a></h2>
 <p>Man kann Zeitreihen auch komplett anders als wir es beschrieben haben modellieren. Ein gängiger Ansatz ist es, die Werte der letzten <span class="math notranslate nohighlight">\(k\)</span> Zeitschritte als Merkmale zu definieren, und dann eine Regression hierfür zu definieren. In unserem Beispiel könnte man zum Beispiel einfach die letzten <span class="math notranslate nohighlight">\(k=24\)</span> Zeitschritte als Merkmale nehmen um den nächsten Wert vorherzusagen. Dies ist Vergleichbar mit einem AR Modell mit <span class="math notranslate nohighlight">\(p=k\)</span> ohne weißes Rauschen: Das ist nämlich einfach eine Lineare Regression, mit den letzten <span class="math notranslate nohighlight">\(k\)</span> Zeitschritten als Merkmal. Statt der linearen Regression kann man diesen Ansatz aber auch mit beliebigen anderen Regressionsalgorithmen nutzen, die wir am Ende von <a class="reference internal" href="kapitel_08.html"><span class="doc std std-doc">Kapitel 8</span></a> genannt haben. Bei den Neuronalen Netzen gibt es auch spezielle Architekturen für Zeitreihen, wie zum Beispiel die in <a class="reference internal" href="kapitel_07.html"><span class="doc std std-doc">Kapitel 7</span></a> erwähnten Long Short-Term Memory (LSTM) Netzwerke.</p>
 </div>
 </div>

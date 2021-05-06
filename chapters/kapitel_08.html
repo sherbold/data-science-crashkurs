@@ -86,7 +86,7 @@
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../vorwort.html">
+  <a class="reference internal" href="vorwort.html">
    Vorwort
   </a>
  </li>
@@ -157,6 +157,11 @@
    12. Big Data Processing
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_13.html">
+   13. Weiterführende Konzepte
+  </a>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -165,20 +170,13 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="appendix.html">
+  <a class="reference internal" href="howto.html">
    Selber Ausführen
   </a>
  </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Übungen
- </span>
-</p>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../exercises/uebung_01.html">
-   Übung 1
+  <a class="reference internal" href="notations.html">
+   Notationen
   </a>
  </li>
 </ul>
@@ -283,62 +281,57 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#uberblick">
-   8.1. Überblick
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#gute-von-regressionen">
-   8.2. Güte von Regressionen
+   8.1. Güte von Regressionen
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#visuelle-bewertung-der-gute">
-     8.2.1. Visuelle Bewertung der Güte
+     8.1.1. Visuelle Bewertung der Güte
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#gutemasze">
-     8.2.2. Gütemaße
+     8.1.2. Gütemaße
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#lineare-regression">
-   8.3. Lineare Regression
+   8.2. Lineare Regression
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#ordinary-least-squares-ols">
-     8.3.1. Ordinary Least Squares (OLS)
+     8.2.1. Ordinary Least Squares (OLS)
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#ridge">
-     8.3.2. Ridge
+     8.2.2. Ridge
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#lasso">
-     8.3.3. Lasso
+     8.2.3. Lasso
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#elastic-net">
-     8.3.4. Elastic Net
+     8.2.4. Elastic Net
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#auswirkung-der-regularisierung">
-     8.3.5. Auswirkung der Regularisierung
+     8.2.5. Auswirkung der Regularisierung
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#jenseits-von-linearer-regression">
-   8.4. Jenseits von Linearer Regression
+   8.3. Jenseits von Linearer Regression
   </a>
  </li>
 </ul>
@@ -354,8 +347,6 @@
                 
   <div class="section" id="regression">
 <h1><span class="section-number">8. </span>Regression<a class="headerlink" href="#regression" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="uberblick">
-<h2><span class="section-number">8.1. </span>Überblick<a class="headerlink" href="#uberblick" title="Permalink to this headline">¶</a></h2>
 <p>Das Ziel der Regressionsanalyse ist es Beziehungen zwischen Variablen zu finden. <a class="reference internal" href="#fig-regression-example"><span class="std std-numref">Fig. 8.1</span></a> zeigt ein Beispiel für die Beziehung von zwei Eigenschaften von Fahrzeugen mit Verbrennungsmotor: Dem Spritverbrauch und der Höchstgeschwindigkeit. In der Regel haben Fahrzeuge mit einer höheren Höchstgeschwindigkeit auch einen höheren Spritverbrauch. Mit einer Regression kann man diesen Zusammenhang basierend auf einer Stichprobe modellieren.</p>
 <div class="figure align-default" id="fig-regression-example">
 <a class="reference internal image-reference" href="../_images/regression_example_german.png"><img alt="../_images/regression_example_german.png" src="../_images/regression_example_german.png" style="width: 600px;" /></a>
@@ -370,9 +361,8 @@
 <div class="math notranslate nohighlight">
 \[f: \mathcal{F} \to \mathbb{R}\]</div>
 <p>zu bestimmen so dass <span class="math notranslate nohighlight">\(f(\phi(o)) \approx f^*(o)\)</span>. Die Regressionsfunktion <span class="math notranslate nohighlight">\(f\)</span> wird auch einfach Regression von <span class="math notranslate nohighlight">\(y\)</span> genannt. Die Problemstellung der Regression ist also ähnlich zur Klassifikation, nur dass es keine fest definierten Klassen gibt, sondern stattdessen ein numerischer Wert basierend auf den Merkmalen vorhergesagt werden soll.</p>
-</div>
 <div class="section" id="gute-von-regressionen">
-<h2><span class="section-number">8.2. </span>Güte von Regressionen<a class="headerlink" href="#gute-von-regressionen" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.1. </span>Güte von Regressionen<a class="headerlink" href="#gute-von-regressionen" title="Permalink to this headline">¶</a></h2>
 <p>Ähnlich wie bei der Klassifikation ist die Bewertung der Güte ein wichtiges Kriterium um eine gute Regressionsfunktion für eine abhängige Variable zu bestimmen. Wir diskutieren die Güte einer Linearen Regression anhand von zwei Beispielen.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -438,7 +428,7 @@
 </div>
 <p>Das erste Beispiel zeigt eine Regression, wo die blaue Regressionsgerade sehr gut zu den Daten passt. Dies ist auch nicht verwunderlich, da wir die Daten mit Hilfe einer linearen Funktion generiert haben. Im zweiten Beispiel sieht man eine schlechte Regression, da die Regressionsgerade nicht gut zur eigentlichen Form der Daten passt. Auch dies ist nicht verwunderlich, da wir die Daten mit Hilfe der Exponentialfunktion generiert haben. Im Folgenden nennen wir das erste Beispiel einfach nur noch das “gute Ergebnis” und das zweite Beispiel das “schlechte Ergebnis”. Bei der Regression nennt man dies auch guten, bzw. schlechten <em>Fit</em>, um zu betonen ob sich die Regression an die Form der Daten angepasst hat.</p>
 <div class="section" id="visuelle-bewertung-der-gute">
-<h3><span class="section-number">8.2.1. </span>Visuelle Bewertung der Güte<a class="headerlink" href="#visuelle-bewertung-der-gute" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">8.1.1. </span>Visuelle Bewertung der Güte<a class="headerlink" href="#visuelle-bewertung-der-gute" title="Permalink to this headline">¶</a></h3>
 <p>In der obigen Abbildung zu unserem Beispiel konnten wir bereits die erste Methode zur Bewertung der Güte sehen: Man kann einfach die Daten als Scatterplot zusammen mit der Regression als Liniendiagram visualisieren. Hierdurch sieht man wie nah die Regression an den Daten liegt und ob sie ein gutes Ergebnis ist. Außerdem kann man auch systematische Fehler gut erkennen. Beim guten Ergebnis sehen wir, dass die Daten gleichmäßig um die blaue Gerade streuen, ohne das es eine sehr große Abweichung gibt. Man sieht also das die Regression zwar den Wert von <span class="math notranslate nohighlight">\(y\)</span> nicht perfekt vorhersagt, aber die Abweichung ist gering und es gibt kein Muster in der Abweichung. Dies ist bei unserem schlechten Ergebnis anders. Zu Beginn sind die meisten Instanzen oberhalb der blauen Geraden, zwischen 0,4 und 0,7 sind alle Instanzen unterhalb der Geraden, und am Ende sind die meisten Instanzen wieder oberhalb der Geraden. Ein derartiges Muster ist ein klarer Hinweis darauf, dass die Regression keine gute Beschreibung der Daten ist. Diese systematischen Fehler kann man auch benennen. Wenn der Großteil der Instanzen unterhalb der Regressionsgerade liegt, nennt man dies auch <em>Overprediction</em>, da die Regression einen zu hohen Wert vorhersagt. Wenn der Großteil der Instanzen oberhalb der Regressionsgeraden liegt, spricht man hingegen von <em>Underprediction</em>.</p>
 <p>Eine weitere Art sich die Ergebnisse der Regression graphisch aufzubereiten ist die Betrachtung der <em>Residuen</em> (engl. <em>residuals</em>). Das Residuum einer Instanz <span class="math notranslate nohighlight">\(x \in \mathcal{F}\)</span> ist definiert als</p>
 <div class="math notranslate nohighlight">
@@ -497,7 +487,7 @@
 <p>Im Idealfall entsprechen die Vorhersagen den wahren Werten. Dies ist in der Darstellung die blau markierte Diagonale. Je weiter die Instanzen von der Diagonalen entfernt sind, desto schlechter ist die Regression. Für ein gutes Ergebnis sollten alle Instanzen relativ nah an der Diagonalen sein und es sollte kein Muster in der Streuung geben. Bei einem schlechten Ergebnis sind die Abweichungen größer und/oder es gibt Muster die auf systematische Fehler hindeuten. Beim schlechten Ergebnis beobachten wir beides. Zum einen sehen die Werte kleiner als 0,35 nahezu zufällig aus und sind weit von der Diagonalen entfernt. Zum anderen sehen wir wieder das gleiche Muster wie bisher auch.</p>
 </div>
 <div class="section" id="gutemasze">
-<h3><span class="section-number">8.2.2. </span>Gütemaße<a class="headerlink" href="#gutemasze" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">8.1.2. </span>Gütemaße<a class="headerlink" href="#gutemasze" title="Permalink to this headline">¶</a></h3>
 <p>Es gibt auch Gütemaße für die Bewertung von Regressionen. Diese Gütemaße werden mit Hilfe der Residuen definiert. Sei hierfür <span class="math notranslate nohighlight">\(X = \{x_1, ..., x_n\} \subseteq \mathcal{F} \subseteq \mathbb{R}^m\)</span> eine Stichprobe von Instanzen mit <span class="math notranslate nohighlight">\(m\)</span> Merkmalen und <span class="math notranslate nohighlight">\(Y = \{y_i, ..., y_n\} \subseteq \mathbb{R}\)</span> die Werte der dazugehörigen abhängigen Variablen. <a class="reference internal" href="#tbl-metrics-regression"><span class="std std-numref">Table 8.1</span></a> listet die Definition von vier Gütemaßen.</p>
 <table class="colwidths-auto table" id="tbl-metrics-regression">
 <caption><span class="caption-number">Table 8.1 </span><span class="caption-text">Gütemaße für Regressionen</span><a class="headerlink" href="#tbl-metrics-regression" title="Permalink to this table">¶</a></caption>
@@ -572,7 +562,7 @@ Adjusted R2: 0.68
 </div>
 </div>
 <div class="section" id="lineare-regression">
-<h2><span class="section-number">8.3. </span>Lineare Regression<a class="headerlink" href="#lineare-regression" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.2. </span>Lineare Regression<a class="headerlink" href="#lineare-regression" title="Permalink to this headline">¶</a></h2>
 <p>Die Lineare Regression ist uns bereits in <a class="reference internal" href="kapitel_07.html"><span class="doc std std-doc">Kapitel 7</span></a> als Teil der Logistischen Regression begegnet, sowie im obigen Beispiel. Jetzt wollen wir die Lineare Regression genauer betrachten. Die Formel für die Regressionsfunktion der Linearen Regression ist</p>
 <div class="math notranslate nohighlight">
 \[y = b_0 + b_1x_1 + ... + b_mx_m = b_0 + \sum_{i=1}^m b_ix_i\]</div>
@@ -580,7 +570,7 @@ Adjusted R2: 0.68
 <p>Der Achsenabschnitt ist der “Basiswert” der abhängigen Variable, also der Wert, wenn alle Merkmale gleich null wären. Geometrisch betrachtet ist das der Schnittpunkt mit den Achsen des Koordinatensystems.</p>
 <p>Ein wichtiger Aspekt der Linearen Regression ist, wie die Koeffizienten und der Achsenabschnitt bestimmt werden. Dies hat nicht nur Auswirkungen auf die Qualität der Regression, sondern auch auf die Interpretation der Koeffizienten.</p>
 <div class="section" id="ordinary-least-squares-ols">
-<h3><span class="section-number">8.3.1. </span>Ordinary Least Squares (OLS)<a class="headerlink" href="#ordinary-least-squares-ols" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">8.2.1. </span>Ordinary Least Squares (OLS)<a class="headerlink" href="#ordinary-least-squares-ols" title="Permalink to this headline">¶</a></h3>
 <p>Das übliche Verfahren zum Berechnen der Koeffizienten einer linearen Regression ist die Methode der kleinsten Quadrate, bekannt als <em>Ordinary Least Squares</em> (OLS). Hierfür interpretieren wir die Instanzen als Matrix und die abhängigen Variable als Vektor:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -612,7 +602,7 @@ b &amp;= (b_1, \dots, b_m)
 <p>Im Allgemeinen ist in diesem Fall jede Lösung für die gilt <span class="math notranslate nohighlight">\(b_0=0\)</span> und <span class="math notranslate nohighlight">\(b_1+b_2=1\)</span> optimal. Die ersten drei Lösungen sehen vernünftig auch, führen aber zu sehr unterschiedlichen Interpretationen der Koeffizienten. Bei Lösung 2 könnte man denken, dass es keine beziehung zwischen <span class="math notranslate nohighlight">\(x_2\)</span> und <span class="math notranslate nohighlight">\(y\)</span> gibt, bei Lösung 3 ist es genau anders, hier gibt es scheinbar eine sehr starke Beziehung. Dies zeigt, wie die Koeffizienten irreführend sein können. Da <span class="math notranslate nohighlight">\(b_1\)</span> und <span class="math notranslate nohighlight">\(b_2\)</span> beide jeden beliebigen Wert annehmen können, könnte wir für beide Merkmale beliebige “Korrelationen” finden.</p>
 </div>
 <div class="section" id="ridge">
-<h3><span class="section-number">8.3.2. </span>Ridge<a class="headerlink" href="#ridge" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">8.2.2. </span>Ridge<a class="headerlink" href="#ridge" title="Permalink to this headline">¶</a></h3>
 <p>Im Folgenden zeigen wir, wie man OLS abwandeln kann um die Ergebnisse zu <em>Regularisieren</em>. Durch die Regularisierung kann man extreme Koeffizienten verhindern, auch wenn die Merkmale korreliert sind. Die Idee ist einfach: Wenn ein Optimierungsproblem viele optimale Lösungen hat, benötigen wir einfach ein zusätzliches Kriterium mit dem wir die Lösungen auswählen, die uns besser gefallen. Hierzu fügt man einfach einen <em>Regularisierungsterm</em> zur OLS Formel hinzu.</p>
 <p>Bei der <em>Ridge</em>-Regularisierung ist es das Ziel, möglichst kleine Werte für die Koeffizienten zu bekommen und dadurch extreme Werte durch Korrelationen zu verhindern. Wir müssen also das Optimierungsproblem so verändern, dass wir neben der Güte der Regression auch noch die größe der Koeffizienten optimieren:</p>
 <div class="math notranslate nohighlight">
@@ -626,7 +616,7 @@ b &amp;= (b_1, \dots, b_m)
 <p>Mit Ridge-Regularisierung würden wir also die erste Lösung auswählen.</p>
 </div>
 <div class="section" id="lasso">
-<h3><span class="section-number">8.3.3. </span>Lasso<a class="headerlink" href="#lasso" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">8.2.3. </span>Lasso<a class="headerlink" href="#lasso" title="Permalink to this headline">¶</a></h3>
 <p>Eine weiteres Regularisierungsverfahren ist <em>Lasso</em>. Während Ridge die absoluten Werte der Koeffizienten minimiert, sind die Werte häufig nicht null. Eine Regression, die eine ähnliche Güte mit weniger Merkmalen erreicht, ist aber oft besser, da die Gefahr von Overfitting reduziert wird. Das Ziel von Lasso-Regularisierung ist es die Koeffizienten nicht nur zu minimieren, sondern dafür zu sorgen, dass sie exakt null werden. Hierzu modifizieren wir auch wieder das OLS Optimierungsproblem:</p>
 <div class="math notranslate nohighlight">
 \[\min ||b_0 + Xb - y||_2^2 + \alpha ||b||_1,\]</div>
@@ -643,14 +633,14 @@ b &amp;= (b_1, \dots, b_m)
 </div></blockquote>
 </div>
 <div class="section" id="elastic-net">
-<h3><span class="section-number">8.3.4. </span>Elastic Net<a class="headerlink" href="#elastic-net" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">8.2.4. </span>Elastic Net<a class="headerlink" href="#elastic-net" title="Permalink to this headline">¶</a></h3>
 <p>Die letzte Regularisierungsvariante, die wir hier betrachten wollen, ist das <em>Elastic Net</em>, das Ridge und Lasso kombiniert:</p>
 <div class="math notranslate nohighlight">
 \[\min ||b_0 + Xb - y||_2^2 + \rho \alpha ||b||_1 + \frac{1-\rho}{2}\alpha ||b||_2^2\]</div>
 <p><span class="math notranslate nohighlight">\(\rho \in [0,1]\)</span>  definiert die Gewichtung von Ridge und Lasso. Mit <span class="math notranslate nohighlight">\(\rho=0\)</span> hätten wir Ridge, mit <span class="math notranslate nohighlight">\(\rho=1\)</span> hätten wir Lasso. Mit dem Elastic Net kann man niedrige Koeffizienten erzwingen, die nach Möglichkeit null werden.</p>
 </div>
 <div class="section" id="auswirkung-der-regularisierung">
-<h3><span class="section-number">8.3.5. </span>Auswirkung der Regularisierung<a class="headerlink" href="#auswirkung-der-regularisierung" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">8.2.5. </span>Auswirkung der Regularisierung<a class="headerlink" href="#auswirkung-der-regularisierung" title="Permalink to this headline">¶</a></h3>
 <p>Um die Auswirkungen der Regularisierung zu untersuchen, betrachten wir noch einmal die Bostondaten, die wir bereits aus <a class="reference internal" href="kapitel_03.html"><span class="doc std std-doc">Kapitel 3</span></a> kennen und erstellen jetzt eine Lineare Regression für die Daten. Wir vergleichen die Ergebnisse von OLS, Ridge, Lasso und dem Elastic Net. Wir nutzen eine Regularisierungsstärke von <span class="math notranslate nohighlight">\(\alpha=0,5\)</span> und ein Gewicht von <span class="math notranslate nohighlight">\(\rho=0,25\)</span> für das Verhältnis von Ridge und Lasso beim Elastic Net. Balkendiagramme sind eine gutes Hilfsmittel um die Veränderung der Koeffizienten zu betrachten.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -772,7 +762,7 @@ b &amp;= (b_1, \dots, b_m)
 </div>
 </div>
 <div class="section" id="jenseits-von-linearer-regression">
-<h2><span class="section-number">8.4. </span>Jenseits von Linearer Regression<a class="headerlink" href="#jenseits-von-linearer-regression" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.3. </span>Jenseits von Linearer Regression<a class="headerlink" href="#jenseits-von-linearer-regression" title="Permalink to this headline">¶</a></h2>
 <p>Lineare Regression ist natürlich nicht die einzige Art, auf die man Regressionsproblem lösen kann und gerade für komplexe Beziehungen zwischen den Merkmalen und der abhängigen Variablen in der Regel auch nicht Ausdrucksstark genug. Mit der Ausnahme von Naive Bayes gibt es für alle Klassifikationsalgorithmen aus <a class="reference internal" href="kapitel_07.html"><span class="doc std std-doc">Kapitel 7</span></a> einen ähnlichen Algorithmus für die Regression: <span class="math notranslate nohighlight">\(k\)</span>-Nearest Neighbor Regression, Regression Trees, Random Forest Regression, und Support Vector Regression. Der Ansatz bleibt der Gleiche, nur das einige Details für die Regression angepasst werden müssen. Bei Entscheidungsbäumen wird zum Beispiel die Varianz benutzt um den Informationsgehalt zu schätzen. Neuronale Netzwerke lösen ohnehin schon ein Regressionsproblem, hier muss man einfach die abhängige Variable als Output Layer modellieren.</p>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">

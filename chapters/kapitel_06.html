@@ -86,7 +86,7 @@
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../vorwort.html">
+  <a class="reference internal" href="vorwort.html">
    Vorwort
   </a>
  </li>
@@ -157,6 +157,11 @@
    12. Big Data Processing
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kapitel_13.html">
+   13. Weiterführende Konzepte
+  </a>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -165,20 +170,13 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="appendix.html">
+  <a class="reference internal" href="howto.html">
    Selber Ausführen
   </a>
  </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Übungen
- </span>
-</p>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../exercises/uebung_01.html">
-   Übung 1
+  <a class="reference internal" href="notations.html">
+   Notationen
   </a>
  </li>
 </ul>
@@ -283,25 +281,18 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#uberblick">
-   6.1. Überblick
+  <a class="reference internal nav-link" href="#ahnlichkeitsmasze">
+   6.1. Ähnlichkeitsmaße
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ahnlichkeitsmasze">
-     6.1.1. Ähnlichkeitsmaße
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#stadte-und-hauser">
-     6.1.2. Städte und Häuser
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stadte-und-hauser">
+   6.2. Städte und Häuser
+  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#k-means-algorithmus">
-   6.2.
+   6.3.
    <span class="math notranslate nohighlight">
     \(k\)
    </span>
@@ -309,18 +300,13 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#grundidee">
-     6.2.1. Grundidee
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#der-algorithmus">
-     6.2.2. Der Algorithmus
+     6.3.1. Der Algorithmus
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#bestimmen-von-k">
-     6.2.3. Bestimmen von
+     6.3.2. Bestimmen von
      <span class="math notranslate nohighlight">
       \(k\)
      </span>
@@ -328,7 +314,7 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#probleme-des-k-means-algorithmus">
-     6.2.4. Probleme des
+     6.3.3. Probleme des
      <span class="math notranslate nohighlight">
       \(k\)
      </span>
@@ -339,22 +325,17 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#em-clustering">
-   6.3. EM Clustering
+   6.4. EM Clustering
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id1">
-     6.3.1. Grundidee
+     6.4.1. Der Algorithmus
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     6.3.2. Der Algorithmus
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
-     6.3.3. Bestimmen von
+    <a class="reference internal nav-link" href="#id3">
+     6.4.2. Bestimmen von
      <span class="math notranslate nohighlight">
       \(k\)
      </span>
@@ -362,23 +343,18 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#probleme-des-em-clusterings">
-     6.3.4. Probleme des EM Clusterings
+     6.4.3. Probleme des EM Clusterings
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#dbscan">
-   6.4. DBSCAN
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id5">
-   6.5. Grundidee
+   6.5. DBSCAN
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id6">
+    <a class="reference internal nav-link" href="#id4">
      6.5.1. Der Algorithmus
     </a>
    </li>
@@ -483,8 +459,6 @@
                 
   <div class="section" id="clusteranalyse">
 <h1><span class="section-number">6. </span>Clusteranalyse<a class="headerlink" href="#clusteranalyse" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="uberblick">
-<h2><span class="section-number">6.1. </span>Überblick<a class="headerlink" href="#uberblick" title="Permalink to this headline">¶</a></h2>
 <p>Bei der Clusteranalyse, häufig auch einfach Clustern oder Clustering genannt, sucht man Gruppen von verwandten Objekten in einer Menge von Instanzen. Diese Gruppen nennt man auch Cluster. Betrachten wir das Beispiel in  <a class="reference internal" href="#fig-clust-example"><span class="std std-numref">Fig. 6.1</span></a>. Auf der linken Seite sehen wir verschiedene Emoticons, unsere Objekte. Beim Clustern werden die Objekte jetzt in Gruppen unterteilt, in diesem Fall in zwei Gruppen: Die glücklichen Emoticons und traurigen Emoticons. Die Gruppen werden basierend auf den Merkmalen der Objekte bestimmt, andere Informationen stehen nicht zur Verfügung. Um die Trennung in glücklich und traurig zu erreichen, müssen diese Emotionen also von den Merkmalen repräsentiert werden. Wenn die Merkmale etwas anderes beschreiben würden, zum Beispiel die Farbe, würde das Ergebnis des Clusterns ein anderes sein: Eine Trennung in gelbe und orange Emoticons. Wenn die Merkmale die Menge der Haare im Gesicht der Emoticons beschreiben würden, dann würde man die Emoticons ohne Bart von denen mit einem Schnauzer trennen. Auch wenn dies auf den ersten Blick offensichtlich erscheint, ist dieser Punkt extrem wichtig: Wenn die Merkmale nicht zur gewünschten Gruppierung passen, finden wir vielleicht trotzdem Gruppen, doch diese sind Möglicherweise nicht sinnvoll für unseren Anwendungsfall.</p>
 <div class="figure align-default" id="fig-clust-example">
 <a class="reference internal image-reference" href="../_images/clustering_general.png"><img alt="../_images/clustering_general.png" src="../_images/clustering_general.png" style="width: 600px;" /></a>
@@ -497,7 +471,7 @@
 </div>
 <p>Formal haben wir eine Menge von Objekten <span class="math notranslate nohighlight">\(O = \{object_1, object_2, ...\}\)</span> welche möglicherweise unendlich viele Elemente enthält. Außerdem haben wir eine Repräsentation der Objekte als Instanzen im Merkmalsraum <span class="math notranslate nohighlight">\(\mathcal{F} = \{\phi(o): o \in O\}\)</span>. Beim Clustern betrachtet man in der Regel numerische Merkmale, das heißt jede Instanz ist ein reell wertiger Vektor und es gilt also <span class="math notranslate nohighlight">\(\mathcal{F} \subseteq \mathbb{R}^d\)</span>. Das Gruppieren der Objekte wird beschrieben durch eine Abbildung <span class="math notranslate nohighlight">\(c: \mathcal{F} \to G\)</span> wobei <span class="math notranslate nohighlight">\(G =\{1, ..., k\}\)</span> die Cluster sind und <span class="math notranslate nohighlight">\(k \in \mathbb{N}\)</span> die Anzahl der Cluster.</p>
 <div class="section" id="ahnlichkeitsmasze">
-<h3><span class="section-number">6.1.1. </span>Ähnlichkeitsmaße<a class="headerlink" href="#ahnlichkeitsmasze" title="Permalink to this headline">¶</a></h3>
+<h2><span class="section-number">6.1. </span>Ähnlichkeitsmaße<a class="headerlink" href="#ahnlichkeitsmasze" title="Permalink to this headline">¶</a></h2>
 <p>Die Grundvoraussetzung um ähnliche Objekte gruppieren zu können ist, dass man ihre Ähnlichkeit messen kann. Beim Clustern ist der Ansatz hierfür die Ähnlichkeit über den <em>Abstand</em> im Merkmalsraum zu messen. Je näher die Instanzen von Objekten einander sind, desto ähnlicher sind sie. Je weiter entfernt sie voneinander sind, desto verschiedener. Es gibt verschiede Metriken, mit denen man Distanzen messen kann. In der Regel wird eine der folgenden drei Metriken verwendet.</p>
 <p>Die mit großem Abstand üblichste Metrik ist die <em>euklidische Abstand</em>, welche wir uns geometrisch als die direkte Verbindung zwischen zwei Punkten vorstellen kann (<a class="reference internal" href="#fig-euclidean"><span class="std std-numref">Fig. 6.3</span></a>). Der euklidische Abstand wird über die euklidische Norm <span class="math notranslate nohighlight">\(||\cdot||_2\)</span> definiert als</p>
 <div class="math notranslate nohighlight">
@@ -524,14 +498,11 @@
 </div>
 </div>
 <div class="section" id="stadte-und-hauser">
-<h3><span class="section-number">6.1.2. </span>Städte und Häuser<a class="headerlink" href="#stadte-und-hauser" title="Permalink to this headline">¶</a></h3>
+<h2><span class="section-number">6.2. </span>Städte und Häuser<a class="headerlink" href="#stadte-und-hauser" title="Permalink to this headline">¶</a></h2>
 <p>Wir benutzen eine Analogie um die Konzepte der Clusteralgorithmen zu erklären: Unsere Objekte sind Häuser und unsere Cluster sind Städte. Das Schöne an dieser Analogie ist, dass sie intuitiv Sinn macht. Man muss nicht wissen zu welcher Stadt ein Haus gehört, um zu erkennen welche weiteren Häuser zu dieser Stadt gehören. Man muss auch nicht wissen wie viele Städte es gibt um das zu erkennen. Es reicht, wenn man die Position der Häuser betrachtet. Das ist genau das Problem, welches wir mit Clusteralgorithmen lösen wollen: Welche Objekte gehören zum gleichen Cluster und wie viele Cluster gibt es?</p>
 </div>
-</div>
 <div class="section" id="k-means-algorithmus">
-<h2><span class="section-number">6.2. </span><span class="math notranslate nohighlight">\(k\)</span>-Means Algorithmus<a class="headerlink" href="#k-means-algorithmus" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="grundidee">
-<h3><span class="section-number">6.2.1. </span>Grundidee<a class="headerlink" href="#grundidee" title="Permalink to this headline">¶</a></h3>
+<h2><span class="section-number">6.3. </span><span class="math notranslate nohighlight">\(k\)</span>-Means Algorithmus<a class="headerlink" href="#k-means-algorithmus" title="Permalink to this headline">¶</a></h2>
 <p>Eine Variante wie man Städte definieren könnte ist mit Hilfe der Rathäuser. Man könnte sagen das jedes Haus zu der Stadt gehört, deren Rathaus ihr man nächsten liegt. Diese Idee ist die Essenz des <span class="math notranslate nohighlight">\(k\)</span>-Means Algorithmus. Man beschreibt Cluster durch ihr <em>Zentrum</em>. Dieses Zentrum nennt man auch <em>Centroid</em>, weshalb man es sich bei <span class="math notranslate nohighlight">\(k\)</span>-Means auch um einen Vertreter der <em>centroidbasierten Clusteralgorithmen</em> handelt.</p>
 <p>Wenn man wissen möchte zu welchem Cluster eine Instanz gehört, muss man lediglich rausfinden, welcher Centroid am nächsten ist. Das <span class="math notranslate nohighlight">\(k\)</span> im Namen des Algorithmus steht für die Anzahl der Cluster. Formal haben wir Centroids <span class="math notranslate nohighlight">\(C_1, ..., C_k\)</span>  und eine Metrik <span class="math notranslate nohighlight">\(d\)</span> um den Abstand zu messen. Wir können für jede Instanz <span class="math notranslate nohighlight">\(x \in \mathcal{F}\)</span> bestimmen zu welchem Cluster sie gehört, in dem wir das Minimum</p>
 <div class="math notranslate nohighlight">
@@ -578,9 +549,8 @@
 </div>
 </div>
 <p>Diese Darstellung der Cluster ist einfach, effektive und intuitiv. Der Nachteil dieser Darstellung von Clustern ist, dass dies nur mit zwei Merkmalen funktioniert. Wenn man mehr als zwei Merkmale hat, muss man entweder paarweise Scatterplots nutzen oder eine Technik wir die PCA einsetzen um eine zweidimensionale Darstellung zu bekommen (siehe <a class="reference internal" href="kapitel_03.html"><span class="doc std std-doc">Kapitel 3</span></a>).</p>
-</div>
 <div class="section" id="der-algorithmus">
-<h3><span class="section-number">6.2.2. </span>Der Algorithmus<a class="headerlink" href="#der-algorithmus" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.3.1. </span>Der Algorithmus<a class="headerlink" href="#der-algorithmus" title="Permalink to this headline">¶</a></h3>
 <p>Ziel des Clusteralgorithmus ist es die Positionen der Centroids zu bestimmen. Wenn wir uns wieder eine Stadt vorstellen, könnte man Argumentieren, dass der Platz an dem ein Rathaus gebaut werden soll so gewählt werden sollte, dass der mittlere Abstand der Häuser zum Rathaus minimiert wird. Dann haben die Bewohner - im Mittel - den kürzesten Weg zum Rathaus. Jetzt stellen Sie sich vor das ein Neubaugebiet entsteht, außerdem werden an anderer Stelle ein paar alte Häuser abgerissen. Hierdurch ist der Ort des Rathauses nicht mehr optimal und idealerweise wird es so neu gebaut, dass der Abstand wieder minimiert wird. Hier ist die Analogie problematisch: Der Neubau eines Rathauses ist teuer, einen Centroid zu verschieben jedoch sehr einfach. Diese Idee ist also genau das, was der Algorithmus macht.</p>
 <p>Seien <span class="math notranslate nohighlight">\(X \subseteq \mathcal{F}\)</span> unsere Daten. Der <span class="math notranslate nohighlight">\(k\)</span>-Means Algorithmus bestimmt die Cluster, bzw. die Centroids durch folgenden iterativen Algorithmus.</p>
 <ol class="simple">
@@ -625,7 +595,7 @@
 </ul>
 </div>
 <div class="section" id="bestimmen-von-k">
-<h3><span class="section-number">6.2.3. </span>Bestimmen von <span class="math notranslate nohighlight">\(k\)</span><a class="headerlink" href="#bestimmen-von-k" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.3.2. </span>Bestimmen von <span class="math notranslate nohighlight">\(k\)</span><a class="headerlink" href="#bestimmen-von-k" title="Permalink to this headline">¶</a></h3>
 <p>Im obigen Beispiel haben wir <span class="math notranslate nohighlight">\(k=4\)</span> benutzt, also nach vier Clustern gesucht. Wie man einen geeigneten Wert für <span class="math notranslate nohighlight">\(k\)</span> bestimmt haben wie noch offengelassen. Bevor wir uns im Detail damit befassen, betrachten wir erst einmal wie sich das Ergebnis mit verschiedenen Werten für <span class="math notranslate nohighlight">\(k\)</span> ändert.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -690,7 +660,7 @@
 <p>Die WSS-Kurve fällt monoton ab. Das bedeutet das <span class="math notranslate nohighlight">\(WSS(k+1) \leq WSS(K)\)</span> für alle <span class="math notranslate nohighlight">\(k&gt;1\)</span>. Daher kann man <span class="math notranslate nohighlight">\(k\)</span> auch leider nicht als das Minimum der WSS auswählen, da dies einfach bei <span class="math notranslate nohighlight">\(k=|X|\)</span> erreicht wird. Der Grund dafür ist, dass die Varianz sich reduziert, wenn wir mehr Cluster hinzufügen. Das Minimum wird erreicht, wenn <span class="math notranslate nohighlight">\(d(x, C_{c(x)})=0\)</span> für alle <span class="math notranslate nohighlight">\(x \in X\)</span>. Unter der Annahme das es keine Instanzen mit identischen Werten gibt, braucht man also <span class="math notranslate nohighlight">\(|X|\)</span> Cluster um das Minimum zu erreichen. Wie man in der obigen Grafik aber sieht, wird der Abfall der WSS schon deutlich früher sehr klein, im Beispiel bei <span class="math notranslate nohighlight">\(k=4\)</span>. Entsprechend kann man <span class="math notranslate nohighlight">\(k\)</span> gut durch eine visuelle Analyse der WSS auswählen, nicht jedoch durch einen Automatismus der die WSS minimiert.</p>
 </div>
 <div class="section" id="probleme-des-k-means-algorithmus">
-<h3><span class="section-number">6.2.4. </span>Probleme des <span class="math notranslate nohighlight">\(k\)</span>-Means Algorithmus<a class="headerlink" href="#probleme-des-k-means-algorithmus" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.3.3. </span>Probleme des <span class="math notranslate nohighlight">\(k\)</span>-Means Algorithmus<a class="headerlink" href="#probleme-des-k-means-algorithmus" title="Permalink to this headline">¶</a></h3>
 <p>Obwohl das Konzept des <span class="math notranslate nohighlight">\(k\)</span>-Means Algorithmus relativ einfach ist, bekommt man häufig gute Ergebnisse. Es gibt jedoch einige Probleme mit <span class="math notranslate nohighlight">\(k\)</span>-Means, die man kennen sollte.</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(k\)</span>-Means ist sensitiv bezüglich der Auswahl der Startcentroids. Je nachdem wie die Centroids gewählt werden, kann es andere Clusterergebnisse geben. Man sagt dann, dass das Ergebnis nicht stabil ist. Entsprechend sollte man <span class="math notranslate nohighlight">\(k\)</span>-Means mehrfach mit verschiedenen Startcentroids ausführen. Wenn das Ergebnis instabil ist, ist das ein Indikator das die Anzahl der Cluster eventuell anders gewählt werden sollte.</p></li>
@@ -727,9 +697,7 @@
 </div>
 </div>
 <div class="section" id="em-clustering">
-<h2><span class="section-number">6.3. </span>EM Clustering<a class="headerlink" href="#em-clustering" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id1">
-<h3><span class="section-number">6.3.1. </span>Grundidee<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<h2><span class="section-number">6.4. </span>EM Clustering<a class="headerlink" href="#em-clustering" title="Permalink to this headline">¶</a></h2>
 <p>Wir könnten uns Städte auch als Zufallsvariablen vorstellen und die Häuser wären dann Instanzen dieser Zufallsvariablen. Die Zuweisung von Häusern zu Städten würde also von Wahrscheinlichkeitsverteilungen abhängen. Dies ist die Idee hinter einer Verallgemeinerung des <span class="math notranslate nohighlight">\(k\)</span>-Means Algorithmus die wir jetzt betrachten wollen. Unsere Rathäuser sind immer noch das Zentrum der Stadt. Aber wir berücksichtigen, dass Häuser, die sehr nah am Rathaus liegen, mit einer höheren Wahrscheinlichkeit zur Stadt gehören, also solche die weiter weg liegen. Wenn wir dies weiterdenken, kann man dies zu einer Eigenschaft der Städte werden lassen: Es gibt Städte, die sich nicht sehr stark räumlich ausbreiten und andere Städte, die eine große Fläche einnehmen. Wir wollen also die <em>Verteilung</em> der Häuser berücksichtigen. Daher nennt man diese Art zu Clustern auch <em>verteilungsbasiertes Clustern</em> (engl. <em>distribution-based clustering</em>).</p>
 <p>Formal haben wir eine Anzahl von Clustern <span class="math notranslate nohighlight">\(k\)</span> die durch Zufallsvariablen <span class="math notranslate nohighlight">\(C_1, ..., C_k\)</span> beschrieben werden. Wir können die Wahrscheinlichkeit, dass eine Instanz <span class="math notranslate nohighlight">\(x \in \mathcal{F}\)</span> zu einem Cluster <span class="math notranslate nohighlight">\(C_i\)</span> gehört als <span class="math notranslate nohighlight">\(P(C_i = x), i=1, ..., k\)</span> berechnen. Jede Instanz hat also eine gewisse Wahrscheinlichkeit, zu jedem Cluster zu gehören. Da man aber trotzdem für jede Instanz wissen möchte, zu welchem Cluster sie jetzt gehört, kann man das <em>wahrscheinlichste</em> Cluster berechnen, also das Cluster <span class="math notranslate nohighlight">\(C_i\)</span> welches <span class="math notranslate nohighlight">\(P(C_i = x)\)</span> maximiert. Entsprechend ist die Zuweisung der Instanzen zu Clustern definiert als</p>
 <div class="math notranslate nohighlight">
@@ -791,9 +759,8 @@
 </div>
 </div>
 <p>Auch wenn die Beschreibung der Cluster durch Zufallsvariablen komplexer ist als durch Centroids, sieht man in der obigen Grafik den Vorteil: Die Kovarianzen erlauben es, die Verteilung der Daten in die Clusterbeschreibung mit aufzunehmen. Wir haben also mehr Informationen über die Daten als Teil der Clusterbeschreibung.</p>
-</div>
-<div class="section" id="id2">
-<h3><span class="section-number">6.3.2. </span>Der Algorithmus<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h3><span class="section-number">6.4.1. </span>Der Algorithmus<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>Man nennt diese Art zu Clustern EM Clustering weil sie auf dem <em>Expectation-Maximization (EM) Algorithmus</em> basiert. Der Algorithmus ist im Allgemeinen ähnlich zu <span class="math notranslate nohighlight">\(k\)</span>-Means: Wir starten mit einer zufälligen Initialisierung der Zufallsvariablen und verbessern die Beschreibung der Daten durch die Zufallsvariablen iterativ. Beim EM Algorithmus müssen also für jedes Cluster die Mittelwerte und die Kovarianzmatrizen zufällig initialisiert und stückweise verbessert werden. Die Verbesserung basiert auf der Wahrscheinlichkeit (engl. <em>likelihood</em>), dass die Daten Instanzen dieser Zufallsvariablen sein könnten. Im folgenden Betrachten wir nicht die vollständige mathematische Beschreibung des EM Algorithmus, sondern nur eine vereinfachte Version, in der wir nur die Mittelwerte aktualisieren und die Kovarianzen ignorieren.</p>
 <ol class="simple">
 <li><p>Wähle zufällig <span class="math notranslate nohighlight">\(k\)</span> Normalverteilungen <span class="math notranslate nohighlight">\(C_1 \sim (\mu_1, \Sigma_1), ..., C_k \sim (\mu_k, \Sigma_k)\)</span>, wobei <span class="math notranslate nohighlight">\(\mu_i \in \mathcal{F}\)</span> die Mittelwerte und <span class="math notranslate nohighlight">\(\Sigma_i \in \mathcal{F}\times\mathcal{F}\)</span> die Kovarianzmatrizen sind.</p></li>
@@ -854,11 +821,11 @@
 <p>Im Beispiel erkennt man zwei wichtige Eigenschaften des EM Clustering. Zum einen konvergiert der Algorithmus deutlich langsamer als <span class="math notranslate nohighlight">\(k\)</span>-Means. Dies liegt daran, dass mehr Parameter optimiert werden müssen, also nicht nur die Mittelwerte, sondern auch die Kovarianzen. Außerdem bremst das Soft Clustering die Konvergenz: Hierdurch bewegen sich die Mittelwerte nur langsam, da sie auch von anderen Instanzen, die eigentlich schon anderen Clustern zugeordnet werden, noch angezogen werden, wenn auch schwächer. Zum anderen sieht man, dass die Cluster möglicherweise keine zusammenhängende Region beschreiben. In Iteration 41 gibt es einige grüne Instanzen am linken Rand, der Rest befindet sich unten. Dazwischen befinden sich Instanzen, die dem lila Cluster zugeordnet sind. Es gibt also zwei getrennte Regionen im grünen Cluster. Diese Trennung wird durch die Form der Kovarianzmatrizen ermöglicht. Da die Kovarianz der grünen Verteilung größer ist, haben Instanzen die weit weg vom Mittel liegen noch eine relativ hohe Wahrscheinlichkeit. Die Kovarianz der lila Verteilung ist deutlich kleiner, so dass die Wahrscheinlichkeit mit der Distanz stärker abnimmt. Derart getrennte Regionen sind ungewöhnlich und mit den meisten Clusteralgorithmen gar nicht möglich. Beim <span class="math notranslate nohighlight">\(k\)</span>-Means Algorithmus ist dies zum Beispiel ausgeschlossen, da sich die Distanz für jeden Centroid in alle Richtungen gleich verändert.</p>
 <blockquote>
 <div><p><strong>Bemerkung:</strong></p>
-<p>Die Gemeinsamkeiten des <span class="math notranslate nohighlight">\(k\)</span>-Means Algorithmus und des EM Clustering gehen noch über die obige Beschreibung hinaus. Genau genommen ist <span class="math notranslate nohighlight">\(k\)</span>-Means nur ein Spezialfall des EM Clustering in dem Voronoi Zellen <a class="footnote-reference brackets" href="#voronoi" id="id3">1</a> zur Modellierung der Wahrscheinlichkeiten genutzt werden.</p>
+<p>Die Gemeinsamkeiten des <span class="math notranslate nohighlight">\(k\)</span>-Means Algorithmus und des EM Clustering gehen noch über die obige Beschreibung hinaus. Genau genommen ist <span class="math notranslate nohighlight">\(k\)</span>-Means nur ein Spezialfall des EM Clustering in dem Voronoi Zellen <a class="footnote-reference brackets" href="#voronoi" id="id2">1</a> zur Modellierung der Wahrscheinlichkeiten genutzt werden.</p>
 </div></blockquote>
 </div>
-<div class="section" id="id4">
-<h3><span class="section-number">6.3.3. </span>Bestimmen von <span class="math notranslate nohighlight">\(k\)</span><a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h3><span class="section-number">6.4.2. </span>Bestimmen von <span class="math notranslate nohighlight">\(k\)</span><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>Genau vom beim <span class="math notranslate nohighlight">\(k\)</span>-Means Clustern, muss auch beim EM Clustern die Anzahl der Cluster durch den Benutzer vorgegeben werden. Der Ansatz ist ähnlich: Domänenwissen und Visualisierungen sind auch hier gute Mittel um <span class="math notranslate nohighlight">\(k\)</span> zu bestimmen.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -935,7 +902,7 @@
 </div></blockquote>
 </div>
 <div class="section" id="probleme-des-em-clusterings">
-<h3><span class="section-number">6.3.4. </span>Probleme des EM Clusterings<a class="headerlink" href="#probleme-des-em-clusterings" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.4.3. </span>Probleme des EM Clusterings<a class="headerlink" href="#probleme-des-em-clusterings" title="Permalink to this headline">¶</a></h3>
 <p>EM Clustering löst zwei Probleme des <span class="math notranslate nohighlight">\(k\)</span>-Means Algorithmus: Unterschiedliche Wertebereiche der Merkmale können durch die Kovarianzmatrizen berücksichtigt werden. Hierdurch lassen sich auch ellipsoide Cluster beschreiben, was mächtiger als die eher runde Form beim <span class="math notranslate nohighlight">\(k\)</span>-Means Clustering ist. Die anderen Probleme des <span class="math notranslate nohighlight">\(k\)</span>-Means Algorithmus hat man auch weiterhin mit dem EM Clustering.</p>
 <ul class="simple">
 <li><p>EM Clustering ist sensitiv bezüglich der Startwerte. Eine schlechte Startposition kann dazu führen, dass der Algorithmus nur sehr langsam konvergiert oder sogar ein schlechtes Ergebnis liefert. Ein guter Ansatz das EM Clustering zu initialisieren ist es, die Centroids vom <span class="math notranslate nohighlight">\(k\)</span>-Means Clustering als Startwerte für die Mittelwerte der Cluster zu nutzen.</p></li>
@@ -945,10 +912,7 @@
 </div>
 </div>
 <div class="section" id="dbscan">
-<h2><span class="section-number">6.4. </span>DBSCAN<a class="headerlink" href="#dbscan" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="id5">
-<h2><span class="section-number">6.5. </span>Grundidee<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.5. </span>DBSCAN<a class="headerlink" href="#dbscan" title="Permalink to this headline">¶</a></h2>
 <p>Bisher haben wir immer die Rathäuser als Referenzpunkt für die Definition von Städten benutzt. Wenn wir aus dem Fenster gucken, erkennen wir jedoch, dass die Nachbarhäuser zur gleichen Stadt gehören auch ohne zu wissen wo das Rathaus liegt. Das Gleiche gilt für die Nachbarn ihrer Nachbarn. Und so weiter und so fort. Im Endeffekt sind alle ihre direkten oder indirekten Nachbarn Teil der gleichen Stadt. Dies ist die Grundidee des <em>dichtebasierten Clustering</em> (engl. <em>density-based clustering</em>).</p>
 <p>Dieser Ansatz ist grundverschieden vom <span class="math notranslate nohighlight">\(k\)</span>-Means Algorithmus und vom EM Clustering, weil es keine Formel gibt, mit der man angeben kann, welche Instanzen zu einem Cluster gehören. Stattdessen beschreiben die Instanzen die Cluster: Wenn wir wissen wollen, welche Instanzen zum gleichen Cluster gehören, müssen wir uns die Nachbarschaften angucken.</p>
 <p>Der DBSCAN Algorithmus ist weit verbreiteter dichtebasierte Clusteralgorithmus. Auf unseren Beispieldaten liefert DBSCAN das folgende Ergebnis.</p>
@@ -987,8 +951,8 @@
 </div>
 </div>
 <p>Wir können dieselben vier Cluster wie auch bisher sehen. Es gibt jedoch auch einige Instanzen die mit einem grauen Kreuz markiert sind. Diese Instanzen sind keinem Cluster zugeordnet und werden als <em>Rauschen</em> (engl. <em>noise</em>) identifiziert. Dies kann passieren, wenn es Instanzen gibt, die sich nicht in einer dichten Nachbarschaft befinden. In unserer Analogie sind das die Häuser, die sich außerhalb der Stadtgrenzen befinden, zum Beispiel ein Bauernhof an einer Landstraße.</p>
-<div class="section" id="id6">
-<h3><span class="section-number">6.5.1. </span>Der Algorithmus<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h3><span class="section-number">6.5.1. </span>Der Algorithmus<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>Der DBSCAN Algorithmus basiert auf dem Konzept von <em>dichten Nachbarschaften</em>. Eine Nachbarschaft wird über die Distanz <span class="math notranslate nohighlight">\(\epsilon \in \mathbb{R}\)</span> definiert, so dass die Nachbarn einer Instanz <span class="math notranslate nohighlight">\(x \in X\)</span> definiert sind als <span class="math notranslate nohighlight">\(neighbors(x) = \{x' \in X: d(x, x') \leq \epsilon\}\)</span>. Eine Nachbarschaft heißt <em>dicht</em>, wenn sie mehr als <span class="math notranslate nohighlight">\(minPts \in \mathbb{N}\)</span> Instanzen beinhaltet. Alle Instanzen, die eine dichte Nachbarschaft haben, nennt man <em>Kernpunkt</em> (engl. <em>core points</em>). Wir nutzen die Notation <span class="math notranslate nohighlight">\(core(C) = \{x \in X: |neighbors(x)| \geq minPts\}\)</span> um alle Kernpunkte innerhalb eines Clusters <span class="math notranslate nohighlight">\(X \subseteq X\)</span> zu beschreiben und <span class="math notranslate nohighlight">\(core(X)\)</span> um alle Kernpunkte zu beschreiben.</p>
 <p>Sobald man alle Kernpunkte bestimmt hat, kann man Cluster <em>wachsen</em> lassen. Hierzu wählt man einen beliebigen Kernpunkt aus und definiert das dieser Kernpunkt zum ersten Cluster gehört. Dann fügt man alle Nachbarn dem Cluster hinzu. Für alle Nachbarn, die ebenfalls Kernpunkte sind, wird dies wiederholt bis man irgendwann alle Nachbarn von allen Kernpunkten im Cluster hat. Dann wählt man den nächsten Kernpunkt der noch zu keinem Cluster gehört aus, und lässt das nächste Cluster wachsen.</p>
 <ol class="simple">
@@ -1516,7 +1480,7 @@
 </div>
 <div class="section" id="fehlende-merkmale">
 <h3><span class="section-number">6.7.6. </span>Fehlende Merkmale<a class="headerlink" href="#fehlende-merkmale" title="Permalink to this headline">¶</a></h3>
-<p>In der Praxis kommt es häufig vor das es Instanzen gibt, bei denen nicht die Werte für alle Merkmale bekannt sind. Man spricht hier von fehlenden Werten, bzw. fehlenden Merkmalen. Es gibt drei Möglichkeiten, mit fehlenden Merkmalen umzugehen: Entweder kann der Algorithmus von sich aus mit unvollständigen Daten arbeiten. Dies ist, bis auf in wenigen Ausnahmefällen, nicht der Fall. Die zweite Möglichkeit ist es, alle unvollständigen Instanzen zu entfernen. Hier hat man jedoch möglicherweise in der Operationalisierung ein Problem. Die dritte Möglichkeit ist es durch <em>Imputation</em> eine Schätzung für die fehlenden Werte zu berechnen, zum Beispiel durch eine Regression basierend auf den vorhandenen Daten. Details zur Imputation finden sie in der Literatur, zum Beispiel bei Barnard und Menge <a class="footnote-reference brackets" href="#barnard" id="id7">2</a>.</p>
+<p>In der Praxis kommt es häufig vor das es Instanzen gibt, bei denen nicht die Werte für alle Merkmale bekannt sind. Man spricht hier von fehlenden Werten, bzw. fehlenden Merkmalen. Es gibt drei Möglichkeiten, mit fehlenden Merkmalen umzugehen: Entweder kann der Algorithmus von sich aus mit unvollständigen Daten arbeiten. Dies ist, bis auf in wenigen Ausnahmefällen, nicht der Fall. Die zweite Möglichkeit ist es, alle unvollständigen Instanzen zu entfernen. Hier hat man jedoch möglicherweise in der Operationalisierung ein Problem. Die dritte Möglichkeit ist es durch <em>Imputation</em> eine Schätzung für die fehlenden Werte zu berechnen, zum Beispiel durch eine Regression basierend auf den vorhandenen Daten. Details zur Imputation finden sie in der Literatur, zum Beispiel bei Barnard und Menge <a class="footnote-reference brackets" href="#barnard" id="id5">2</a>.</p>
 </div>
 <div class="section" id="korrelierte-merkmale">
 <h3><span class="section-number">6.7.7. </span>Korrelierte Merkmale<a class="headerlink" href="#korrelierte-merkmale" title="Permalink to this headline">¶</a></h3>
@@ -1602,10 +1566,10 @@
 </table>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
-<dt class="label" id="voronoi"><span class="brackets"><a class="fn-backref" href="#id3">1</a></span></dt>
+<dt class="label" id="voronoi"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
 <dd><p><a class="reference external" href="https://mathworld.wolfram.com/VoronoiDiagram.html">https://mathworld.wolfram.com/VoronoiDiagram.html</a></p>
 </dd>
-<dt class="label" id="barnard"><span class="brackets"><a class="fn-backref" href="#id7">2</a></span></dt>
+<dt class="label" id="barnard"><span class="brackets"><a class="fn-backref" href="#id5">2</a></span></dt>
 <dd><p><a class="reference external" href="https://doi.org/10.1177%2F096228029900800103">https://doi.org/10.1177/096228029900800103</a></p>
 </dd>
 </dl>
