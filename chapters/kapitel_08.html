@@ -109,12 +109,12 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="kapitel_03.html">
-   3. Erkunden der Daten
+   3. Allgemeines zur Datenanalyse
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="kapitel_04.html">
-   4. Allgemeines zur Datenanalyse
+   4. Erkunden der Daten
   </a>
  </li>
  <li class="toctree-l1">
@@ -333,6 +333,28 @@
   <a class="reference internal nav-link" href="#jenseits-von-linearer-regression">
    8.3. Jenseits von Linearer Regression
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ubung">
+   8.4. Übung
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#trainings-und-testdaten">
+     8.4.1. Trainings- und Testdaten
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#trainieren-testen-bewerten">
+     8.4.2. Trainieren, Testen, Bewerten
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nichtlineare-regression">
+     8.4.3. Nichtlineare Regression
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -641,7 +663,7 @@ b &amp;= (b_1, \dots, b_m)
 </div>
 <div class="section" id="auswirkung-der-regularisierung">
 <h3><span class="section-number">8.2.5. </span>Auswirkung der Regularisierung<a class="headerlink" href="#auswirkung-der-regularisierung" title="Permalink to this headline">¶</a></h3>
-<p>Um die Auswirkungen der Regularisierung zu untersuchen, betrachten wir noch einmal die Bostondaten, die wir bereits aus <a class="reference internal" href="kapitel_03.html"><span class="doc std std-doc">Kapitel 3</span></a> kennen und erstellen jetzt eine Lineare Regression für die Daten. Wir vergleichen die Ergebnisse von OLS, Ridge, Lasso und dem Elastic Net. Wir nutzen eine Regularisierungsstärke von <span class="math notranslate nohighlight">\(\alpha=0,5\)</span> und ein Gewicht von <span class="math notranslate nohighlight">\(\rho=0,25\)</span> für das Verhältnis von Ridge und Lasso beim Elastic Net. Balkendiagramme sind eine gutes Hilfsmittel um die Veränderung der Koeffizienten zu betrachten.</p>
+<p>Um die Auswirkungen der Regularisierung zu untersuchen, betrachten wir noch einmal die Bostondaten, die wir bereits aus <a class="reference internal" href="kapitel_04.html"><span class="doc std std-doc">Kapitel 4</span></a> kennen und erstellen jetzt eine Lineare Regression für die Daten. Wir vergleichen die Ergebnisse von OLS, Ridge, Lasso und dem Elastic Net. Wir nutzen eine Regularisierungsstärke von <span class="math notranslate nohighlight">\(\alpha=0,5\)</span> und ein Gewicht von <span class="math notranslate nohighlight">\(\rho=0,25\)</span> für das Verhältnis von Ridge und Lasso beim Elastic Net. Balkendiagramme sind eine gutes Hilfsmittel um die Veränderung der Koeffizienten zu betrachten.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -764,12 +786,31 @@ b &amp;= (b_1, \dots, b_m)
 <div class="section" id="jenseits-von-linearer-regression">
 <h2><span class="section-number">8.3. </span>Jenseits von Linearer Regression<a class="headerlink" href="#jenseits-von-linearer-regression" title="Permalink to this headline">¶</a></h2>
 <p>Lineare Regression ist natürlich nicht die einzige Art, auf die man Regressionsproblem lösen kann und gerade für komplexe Beziehungen zwischen den Merkmalen und der abhängigen Variablen in der Regel auch nicht Ausdrucksstark genug. Mit der Ausnahme von Naive Bayes gibt es für alle Klassifikationsalgorithmen aus <a class="reference internal" href="kapitel_07.html"><span class="doc std std-doc">Kapitel 7</span></a> einen ähnlichen Algorithmus für die Regression: <span class="math notranslate nohighlight">\(k\)</span>-Nearest Neighbor Regression, Regression Trees, Random Forest Regression, und Support Vector Regression. Der Ansatz bleibt der Gleiche, nur das einige Details für die Regression angepasst werden müssen. Bei Entscheidungsbäumen wird zum Beispiel die Varianz benutzt um den Informationsgehalt zu schätzen. Neuronale Netzwerke lösen ohnehin schon ein Regressionsproblem, hier muss man einfach die abhängige Variable als Output Layer modellieren.</p>
+</div>
+<div class="section" id="ubung">
+<h2><span class="section-number">8.4. </span>Übung<a class="headerlink" href="#ubung" title="Permalink to this headline">¶</a></h2>
+<p>In dieser Übung vertiefen wir die Regression. Hierzu vergleichen wir die varianten der Linearen Regression auf einem Datensatz und bewerten die Güte. Außerdem probieren wir die Modelle anhand der Koeeffizienten zu verstehen. Als Daten verwenden wir wieder Hauspreise, nur diesmal aus Kalifornien <a class="footnote-reference brackets" href="#california" id="id2">2</a>.</p>
+<div class="section" id="trainings-und-testdaten">
+<h3><span class="section-number">8.4.1. </span>Trainings- und Testdaten<a class="headerlink" href="#trainings-und-testdaten" title="Permalink to this headline">¶</a></h3>
+<p>Laden Sie die Daten. Teilen Sie die Daten so auf, dass sie 50% der Daten zum Training und 50% der Daten zum Testen verwenden.</p>
+</div>
+<div class="section" id="trainieren-testen-bewerten">
+<h3><span class="section-number">8.4.2. </span>Trainieren, Testen, Bewerten<a class="headerlink" href="#trainieren-testen-bewerten" title="Permalink to this headline">¶</a></h3>
+<p>Benutzen Sie die verschiedenen Varianten der Linearen Regression um ein Modell der Hauspreise zu erstellen. Was sind die Unterschiede zwischen OLS/Ridge/Lasso/Elastic Net? Finden sie gute Werte für die Stärke der Regularisierung. Betrachten Sie, wie sich die Güte gemessen mit <span class="math notranslate nohighlight">\(R^2\)</span> und Adjusted <span class="math notranslate nohighlight">\(R^2\)</span> auf den Testdaten verändert. Visualisieren Sie die Koeffizienten als Balkendiagramme um die Modelle und die Auswirkung der Regularisierung zu verstehen.</p>
+</div>
+<div class="section" id="nichtlineare-regression">
+<h3><span class="section-number">8.4.3. </span>Nichtlineare Regression<a class="headerlink" href="#nichtlineare-regression" title="Permalink to this headline">¶</a></h3>
+<p>Verwenden Sie eines der Modelle die wir zum Abschluss des Kapitels genannt haben, zum Beispiel eine Random Forest Regression. Vergleichen Sie die Güte mit den Linearen Modellen.</p>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
 <dt class="label" id="lasso-ridge"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
 <dd><p><a class="reference external" href="https://towardsdatascience.com/ridge-and-lasso-regression-a-complete-guide-with-python-scikit-learn-e20e34bcbf0b">https://towardsdatascience.com/ridge-and-lasso-regression-a-complete-guide-with-python-scikit-learn-e20e34bcbf0b</a></p>
 </dd>
+<dt class="label" id="california"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_california_housing.html#sklearn.datasets.fetch_california_housing">https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_california_housing.html#sklearn.datasets.fetch_california_housing</a></p>
+</dd>
 </dl>
+</div>
 </div>
 </div>
 

@@ -109,12 +109,12 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="kapitel_03.html">
-   3. Erkunden der Daten
+   3. Allgemeines zur Datenanalyse
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="kapitel_04.html">
-   4. Allgemeines zur Datenanalyse
+   4. Erkunden der Daten
   </a>
  </li>
  <li class="toctree-l1">
@@ -354,6 +354,28 @@
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ubung">
+   10.3. Übung
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#wordcloud-ohne-preprocessing">
+     10.3.1. Wordcloud ohne Preprocessing
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#wordcloud-mit-preprocessing">
+     10.3.2. Wordcloud mit Preprocessing
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tf-idf">
+     10.3.3. TF-IDF
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
             </nav>
@@ -433,7 +455,7 @@ iPhone]
 <p>Durch das Preprocessing wird der Text in eine Repräsentation überführt, die für maschinelles Lernen geeignet ist, also mit der man den Text klassifizieren oder clustern kann.</p>
 <div class="section" id="erstellung-eines-korpus">
 <h3><span class="section-number">10.1.1. </span>Erstellung eines Korpus<a class="headerlink" href="#erstellung-eines-korpus" title="Permalink to this headline">¶</a></h3>
-<p>Der erste Preprocessing-Schritt ist die Erstellung eines <em>Korpus</em> von <em>Dokumenten</em>. Im Sinne der in <a class="reference internal" href="#"><span class="doc std std-doc">Kapitel 4</span></a> eingeführten Begriffe, sind die Dokumente die Objekte und ein Korpus eine Menge von Objekten. In unserem Twitter-Beispiel ist der Korpus eine Menge von Tweets, jeder Tweet ist ein Dokument. Wir bereits eine Liste von Tweets, was einem Korpus entspricht. In anderen Anwendungsfällen kann die Erstellung des Korpus aufwendiger sein. Dies wäre zum Beispiel der Fall, wenn erst Bewertungen eines Produkts durch Crawling aus dem Internet gesammelt werden müssen. Hierbei ist es relativ wahrscheinlich, dass es auf der gleichen Webseite mehrere Bewertungen gibt. Diese müssen dann zum Beispiel innerhalb der Webseite identifiziert und anschließend in separate Dokumente aufgeteilt werden.</p>
+<p>Der erste Preprocessing-Schritt ist die Erstellung eines <em>Korpus</em> von <em>Dokumenten</em>. Im Sinne der in <span class="xref myst">Kapitel 3</span> eingeführten Begriffe, sind die Dokumente die Objekte und ein Korpus eine Menge von Objekten. In unserem Twitter-Beispiel ist der Korpus eine Menge von Tweets, jeder Tweet ist ein Dokument. Wir bereits eine Liste von Tweets, was einem Korpus entspricht. In anderen Anwendungsfällen kann die Erstellung des Korpus aufwendiger sein. Dies wäre zum Beispiel der Fall, wenn erst Bewertungen eines Produkts durch Crawling aus dem Internet gesammelt werden müssen. Hierbei ist es relativ wahrscheinlich, dass es auf der gleichen Webseite mehrere Bewertungen gibt. Diese müssen dann zum Beispiel innerhalb der Webseite identifiziert und anschließend in separate Dokumente aufgeteilt werden.</p>
 </div>
 <div class="section" id="relevanter-inhalt">
 <h3><span class="section-number">10.1.2. </span>Relevanter Inhalt<a class="headerlink" href="#relevanter-inhalt" title="Permalink to this headline">¶</a></h3>
@@ -1307,10 +1329,29 @@ enough obstructionist democrat
 <li><p>Das lesen von Text selbst ist häufig bereits ein Problem, insbesondere wenn verschiedene Kodierungen (ASCII, UNICODE) und Zeichensätze (Chinesisch, Japanisch, Koreanisch, Arabisch, Kyrillisch, Lateinisch, …) verwendet werden.</p></li>
 </ul>
 <p>Dies heißt auch, dass man bei Textmininganwendungen in der Regel kein perfektes Ergebnis bekommt, sondern nur immer weitere Probleme lösen kann. Deshalb ist es bei Textminingprojekten besonders wichtig, klare Ziele zu formulieren und hierdurch sicher zu stellen, dass ein Projekt auch wirklich beendet wird und nicht immer weitere Sonderfälle betrachtet werden.</p>
+</div>
+</div>
+<div class="section" id="ubung">
+<h2><span class="section-number">10.3. </span>Übung<a class="headerlink" href="#ubung" title="Permalink to this headline">¶</a></h2>
+<p>In dieser Übung wollen wir das Textmining mit einem größeren Beispiel vertiefen. Hierzu betrachten wir eine Erweiterung der oben genannten Tweets: Statt nur acht Tweets, betrachten wir die vollständingen Korpus der Tweets von Donald Trump aus dem Jahr 2017 <a class="footnote-reference brackets" href="#tweets" id="id2">2</a>.</p>
+<div class="section" id="wordcloud-ohne-preprocessing">
+<h3><span class="section-number">10.3.1. </span>Wordcloud ohne Preprocessing<a class="headerlink" href="#wordcloud-ohne-preprocessing" title="Permalink to this headline">¶</a></h3>
+<p>Laden Sie die Daten. Erstellen Sie eine Wordcloud ohne jegliches Preprocessing. Welche Probleme gibt es? Was erkennt man eventuell trotzdem bereits?</p>
+</div>
+<div class="section" id="wordcloud-mit-preprocessing">
+<h3><span class="section-number">10.3.2. </span>Wordcloud mit Preprocessing<a class="headerlink" href="#wordcloud-mit-preprocessing" title="Permalink to this headline">¶</a></h3>
+<p>Wenden sie die Preprocessing Schritte die wir disktuiert haben an und erstellen Sie eine neue Wordcloud.</p>
+</div>
+<div class="section" id="tf-idf">
+<h3><span class="section-number">10.3.3. </span>TF-IDF<a class="headerlink" href="#tf-idf" title="Permalink to this headline">¶</a></h3>
+<p>Die Wordclouds benutzen üblicherweise die Worthäufigkeiten. Berechnen Sie die <span class="math notranslate nohighlight">\(tf-idf\)</span> und erstellen Sie neue Word Clouds basierend auf den auf diese Art gewichteten Worthäufigkeiten. Wie verändert sich das Ergebnis?</p>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
 <dt class="label" id="porter"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
 <dd><p><a class="reference external" href="https://doi.org/10.1108/eb046814">https://doi.org/10.1108/eb046814</a></p>
+</dd>
+<dt class="label" id="tweets"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p><a class="reference external" href="https://user.informatik.uni-goettingen.de/~sherbold/trump-tweets-2017.txt">https://user.informatik.uni-goettingen.de/~sherbold/trump-tweets-2017.txt</a></p>
 </dd>
 </dl>
 </div>

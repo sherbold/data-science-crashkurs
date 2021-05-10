@@ -109,12 +109,12 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="kapitel_03.html">
-   3. Erkunden der Daten
+   3. Allgemeines zur Datenanalyse
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="kapitel_04.html">
-   4. Allgemeines zur Datenanalyse
+   4. Erkunden der Daten
   </a>
  </li>
  <li class="toctree-l1">
@@ -345,6 +345,23 @@
   <a class="reference internal nav-link" href="#jenseits-von-box-jenkins">
    9.4. Jenseits von Box-Jenkins
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ubung">
+   9.5. Übung
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#trend-und-saisonbereinigung">
+     9.5.1. Trend- und Saisonbereinigung
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vorhersagen-mit-arma">
+     9.5.2. Vorhersagen mit ARMA
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -724,6 +741,24 @@
 <div class="section" id="jenseits-von-box-jenkins">
 <h2><span class="section-number">9.4. </span>Jenseits von Box-Jenkins<a class="headerlink" href="#jenseits-von-box-jenkins" title="Permalink to this headline">¶</a></h2>
 <p>Man kann Zeitreihen auch komplett anders als wir es beschrieben haben modellieren. Ein gängiger Ansatz ist es, die Werte der letzten <span class="math notranslate nohighlight">\(k\)</span> Zeitschritte als Merkmale zu definieren, und dann eine Regression hierfür zu definieren. In unserem Beispiel könnte man zum Beispiel einfach die letzten <span class="math notranslate nohighlight">\(k=24\)</span> Zeitschritte als Merkmale nehmen um den nächsten Wert vorherzusagen. Dies ist Vergleichbar mit einem AR Modell mit <span class="math notranslate nohighlight">\(p=k\)</span> ohne weißes Rauschen: Das ist nämlich einfach eine Lineare Regression, mit den letzten <span class="math notranslate nohighlight">\(k\)</span> Zeitschritten als Merkmal. Statt der linearen Regression kann man diesen Ansatz aber auch mit beliebigen anderen Regressionsalgorithmen nutzen, die wir am Ende von <a class="reference internal" href="kapitel_08.html"><span class="doc std std-doc">Kapitel 8</span></a> genannt haben. Bei den Neuronalen Netzen gibt es auch spezielle Architekturen für Zeitreihen, wie zum Beispiel die in <a class="reference internal" href="kapitel_07.html"><span class="doc std std-doc">Kapitel 7</span></a> erwähnten Long Short-Term Memory (LSTM) Netzwerke.</p>
+</div>
+<div class="section" id="ubung">
+<h2><span class="section-number">9.5. </span>Übung<a class="headerlink" href="#ubung" title="Permalink to this headline">¶</a></h2>
+<p>Mit dieser Übung wollen wir unsere Kenntnisse der Zeitreihenanalyse vertiefen in dem wir die Methoden aus diesem Kapitel anwenden. Als Daten verwenden wir den Umsatz von Online- und Versandshops von 2002 bis 2014 aus den USA <a class="footnote-reference brackets" href="#sales" id="id1">1</a>.</p>
+<div class="section" id="trend-und-saisonbereinigung">
+<h3><span class="section-number">9.5.1. </span>Trend- und Saisonbereinigung<a class="headerlink" href="#trend-und-saisonbereinigung" title="Permalink to this headline">¶</a></h3>
+<p>Laden Sie die Daten. Verwenden Sie sowohl die Lineare Regression und saisonale Mittel, als auch Differencing um den Trend und die Saison zu bereinigen. Vergleichen Sie die Ergebnisse mit hilfe von Visualisierungen.</p>
+</div>
+<div class="section" id="vorhersagen-mit-arma">
+<h3><span class="section-number">9.5.2. </span>Vorhersagen mit ARMA<a class="headerlink" href="#vorhersagen-mit-arma" title="Permalink to this headline">¶</a></h3>
+<p>Trainieren Sie ein ARMA Modell mit geeigneten Paramter für <span class="math notranslate nohighlight">\(p\)</span> und <span class="math notranslate nohighlight">\(q\)</span> für beide Varianten der Trend- und Saisonbereinigten Daten. Entfernen Sie für das Training die Daten aus dem Jahr 2013. Benutzen Sie anschließend die Modelle um Werte für das Jahr 2013 vorherzusagen und visualisieren Sie den Unterschied zwischen den Vorhersagen und den wahren Werten. Dieser Vergleich sollte nicht nur die autoregressive Komponente (<span class="math notranslate nohighlight">\(R_t\)</span>), sondern die echten Werte <span class="math notranslate nohighlight">\(x_t = T_t+S_t+R_t\)</span> berücksichten. Hierzu müssen Sie die Saison und den Trend auf die Vorhersage aus dem ARMA Modell addieren.</p>
+<hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="sales"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p><a class="reference external" href="https://user.informatik.uni-goettingen.de/~sherbold/online_and_mail_shopping.csv">https://user.informatik.uni-goettingen.de/~sherbold/online_and_mail_shopping.csv</a></p>
+</dd>
+</dl>
+</div>
 </div>
 </div>
 

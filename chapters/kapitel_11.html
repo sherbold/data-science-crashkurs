@@ -109,12 +109,12 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="kapitel_03.html">
-   3. Erkunden der Daten
+   3. Allgemeines zur Datenanalyse
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="kapitel_04.html">
-   4. Allgemeines zur Datenanalyse
+   4. Erkunden der Daten
   </a>
  </li>
  <li class="toctree-l1">
@@ -331,6 +331,28 @@
    11.4. Gute Beschreibung von Ergebnissen
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ubung">
+   11.5. Übung
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mehrfaches-training">
+     11.5.1. Mehrfaches Training
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#statistischer-vergleich">
+     11.5.2. Statistischer Vergleich
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mehr-vergleiche">
+     11.5.3. Mehr Vergleiche
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
             </nav>
@@ -344,7 +366,7 @@
                 
   <div class="section" id="statistik">
 <h1><span class="section-number">11. </span>Statistik<a class="headerlink" href="#statistik" title="Permalink to this headline">¶</a></h1>
-<p>Im Laufe der Kapitel haben wir bereits einige Datensätze betrachtet. In <a class="reference internal" href="kapitel_03.html"><span class="doc std std-doc">Kapitel 3</span></a> haben wir zum Beispiel die Verteilung von Daten mit Histogrammen visualisiert. Hier sind die Histogramme von zwei weiteren Datensätzen.</p>
+<p>Im Laufe der Kapitel haben wir bereits einige Datensätze betrachtet. In <a class="reference internal" href="kapitel_04.html"><span class="doc std std-doc">Kapitel 4</span></a> haben wir zum Beispiel die Verteilung von Daten mit Histogrammen visualisiert. Hier sind die Histogramme von zwei weiteren Datensätzen.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -471,7 +493,7 @@
 <li><p>Kolmogorov-Smirnoff Test: Zwei Populationen haben die gleichen Wahrscheinlichkeitsverteilung.</p></li>
 </ul>
 <p>Wir wissen bereits, dass wir Welchs <span class="math notranslate nohighlight">\(t\)</span>-Test benutzen können um die Mittelwerte von Normalverteilungen zu vergleichen. Wenn die Daten nicht normalverteilt sind, können wir stattdessen den Mann-Whitney-U test nutzen. Mit Hilfe des Shapiro-Wilk Tests können wir bestimmen, ob eine Stichprobe normalverteilt ist. Wenn man mehr als zwei Datensätze vergleichen möchte, spricht man von einer Gruppe von Populationen. Mit ANOVA kann man bestimmen, ob die Mittelwerte aller dieser Populationen gleich sind, sofern es sich um Normalverteilungen mit der gleichen Varianz handelt. Die Normalverteilung können wir mit dem Shapiro-Wilk Test überprüfen, für die Varianzen können wir Levene’s Test verwenden.</p>
-<p>Ähnlich wie bei den deskriptiven Statistiken (siehe <a class="reference internal" href="kapitel_03.html"><span class="doc std std-doc">Kapitel 3</span></a>), gibt es <em>parametrische</em> und <em>nicht paramtrische</em> statistische Tests. Die parametrischen Tests haben Annahmen an die Daten (z.B. Normalverteilung), die nicht-parametrischen Tests machen keine derartigen Annahmen. Welchs <span class="math notranslate nohighlight">\(t\)</span>-Test ist zum Beispiel parametrisch und der Mann-Whitney-U Test ist das nicht parametrische Gegenstück.</p>
+<p>Ähnlich wie bei den deskriptiven Statistiken (siehe <a class="reference internal" href="kapitel_04.html"><span class="doc std std-doc">Kapitel 4</span></a>), gibt es <em>parametrische</em> und <em>nicht paramtrische</em> statistische Tests. Die parametrischen Tests haben Annahmen an die Daten (z.B. Normalverteilung), die nicht-parametrischen Tests machen keine derartigen Annahmen. Welchs <span class="math notranslate nohighlight">\(t\)</span>-Test ist zum Beispiel parametrisch und der Mann-Whitney-U Test ist das nicht parametrische Gegenstück.</p>
 <p>Der Kolmogorov-Smirnoff Test ist ein sehr generischer statistischer Tests, da er beliebige Populationen mit kontinuierlichen Verteilungen miteinander vergleichen kann. Es gibt also nur wenige Einschränkungen, wann man den Test benutzen kann. Dennoch sollte man ihn als “letztes Mittel” sehen, mit dem man zumindest sagen kann, ob es irgendwelche Unterschiede gibt. Was genau unterschiedlich ist, zum Beispiel die Lage, die Variabilität oder die Art der Verteilung, ist unklar. Als Vergleich: Wenn man mit dem Shapiro-Wilk Test bestimmt das die Populationen normalverteilt sind und mit Welchs <span class="math notranslate nohighlight">\(t\)</span>-Test einen signifikanten Unterschied der Mittelwerte feststellt, weiß man sehr genau, wie sich die Populationen voneinander unterscheiden.</p>
 </div>
 <div class="section" id="anwendung-der-tests">
@@ -757,6 +779,21 @@ sd(&quot;orange&quot;)   = 0.20
 <h2><span class="section-number">11.4. </span>Gute Beschreibung von Ergebnissen<a class="headerlink" href="#gute-beschreibung-von-ergebnissen" title="Permalink to this headline">¶</a></h2>
 <p>In der Wissenschaft, aber auch in der Praxis, wird häufig nur geguckt, ob es Wnterschiede gibt und eventuell noch ob diese signifikant sind. Eine saubere statistische Bewertung von Projektergebnissen sollte aber darüber hinaus gehen und zum Beispiel auch die Effektstärke und die Konfidenzintervalle beinhalten. Außerdem sollte man die statistische Auswertung zu Beginn eines Projekts planen. Andernfalls riskiert man das oben beschriebene p-Hacking, in dem man Experimente immer weiter anpasst, bis man ein gewünschtes Ergebnis gefunden hat. In der Wissenschaft führt dies zur Registrierung von Studien, wo das Protokoll bereits vor der Durchführung festgelegt wird. Dieses Vorgehen hat sich bereits bei klinischen Studien in der Medizin bewährt und vermeidet falsch positive Ergebnisse.</p>
 <p>In diesem Kapitel haben wir uns nur mit der häufigkeitsbasierten Statistik beschäftig. Es gibt auch noch einen anderen Ansatz, die Bayesian Stastitik, die im Kern auf dem Satz von Bayes (siehe <a class="reference internal" href="kapitel_07.html"><span class="doc std std-doc">Kapitel 7</span></a>) basiert. Hier wird direkt geschätzt, wie wahrscheinlich es ist, dass eine Hypothese war ist. Dies hat den Vorteil, dass die Ergebnisse einfacher zu interpretieren sind. Die Theorie und Anwendung ist hier jedoch etwas komplexer, weshalb die häufigkeitsbasierte Statistik weiterhin bei vielen Analysen das Mittel der Wahl ist.</p>
+</div>
+<div class="section" id="ubung">
+<h2><span class="section-number">11.5. </span>Übung<a class="headerlink" href="#ubung" title="Permalink to this headline">¶</a></h2>
+<p>In dieser Übung wenden wir die eingeführten statistischen Methoden zum besseren Verständnis an. Hierzu vergleichen wir verschiedene Klassifikationsmodelle auf den Irisdaten <a class="footnote-reference brackets" href="#iris" id="id3">3</a>.</p>
+<div class="section" id="mehrfaches-training">
+<h3><span class="section-number">11.5.1. </span>Mehrfaches Training<a class="headerlink" href="#mehrfaches-training" title="Permalink to this headline">¶</a></h3>
+<p>Erstellen sie fünf zufällige Aufteilungen der Irisdaten in je 50% Trainingsdaten und 50% Testdaten. Trainieren Sie einen 5-nearest Neighbor Modell und einen Random Forest (mit 100 Random Trees) für jede dieser Aufteilungen. Berechnen Sie die Güte für jedes dieser Modelle mit MCC und erstellen Sie für jedes Modell eine Liste mit den Ergebnissen.</p>
+</div>
+<div class="section" id="statistischer-vergleich">
+<h3><span class="section-number">11.5.2. </span>Statistischer Vergleich<a class="headerlink" href="#statistischer-vergleich" title="Permalink to this headline">¶</a></h3>
+<p>Vergleichen Sie das arithmetische Mittel, die Standardabweichung, den Median, das Minimum, und das Maximum des MCC für beide Algorithmen. Benutzen Sie geeignete statistische Tests und zu bestimmen ob der Unterschied signifikant ist. Falls der Unterschied signifikant ist, berechnen sie Cohens <span class="math notranslate nohighlight">\(d\)</span> um die Effektstärke zu bestimmen. Berechnen Sie außerdem das 95% Konfidenzinterval des arithmetischen Mittels von MCC.</p>
+</div>
+<div class="section" id="mehr-vergleiche">
+<h3><span class="section-number">11.5.3. </span>Mehr Vergleiche<a class="headerlink" href="#mehr-vergleiche" title="Permalink to this headline">¶</a></h3>
+<p>Wiederholen Sie diese Auswertung mit 10, 50, und 100 zufälligen Aufteilungen der Irisdaten. Wie verändern sich die Ergebnisse?</p>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
 <dt class="label" id="bonferroni"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
@@ -765,7 +802,11 @@ sd(&quot;orange&quot;)   = 0.20
 <dt class="label" id="phacking"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
 <dd><p><a class="reference external" href="https://doi.org/10.1016/S0140-6736%2888%2992833-4">https://doi.org/10.1016/S0140-6736(88)92833-4</a></p>
 </dd>
+<dt class="label" id="iris"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
+<dd><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_iris.html">https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_iris.html</a></p>
+</dd>
 </dl>
+</div>
 </div>
 </div>
 

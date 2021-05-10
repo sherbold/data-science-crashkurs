@@ -109,12 +109,12 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="kapitel_03.html">
-   3. Erkunden der Daten
+   3. Allgemeines zur Datenanalyse
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="kapitel_04.html">
-   4. Allgemeines zur Datenanalyse
+   4. Erkunden der Daten
   </a>
  </li>
  <li class="toctree-l1">
@@ -426,6 +426,28 @@
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#zusammenfassung-des-vergleichs">
      7.11.9. Zusammenfassung des Vergleichs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ubung">
+   7.12. Übung
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#trainings-und-testdaten">
+     7.12.1. Trainings- und Testdaten
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#trainieren-testen-bewerten">
+     7.12.2. Trainieren, Testen, Bewerten
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#automatische-parameterwahl">
+     7.12.3. Automatische Parameterwahl
     </a>
    </li>
   </ul>
@@ -2103,6 +2125,29 @@ Accuracy auf den Testdaten: 0.989
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+<div class="section" id="ubung">
+<h2><span class="section-number">7.12. </span>Übung<a class="headerlink" href="#ubung" title="Permalink to this headline">¶</a></h2>
+<p>In dieser Übung geht es um praktische Erfahrung mit den Klassifikationsalgorithmen. Hierzu wenden wir die Algorithmen auf einen Datensatz an, vergleichen die Güte und probieren gute Parameter zu finden. Letzteres, also die Wahl der Parameter, ist das wichtigste an dieser Übung: Wie tief sollten Entscheidungsbäume sein, welche Aktivierungsfunktion ist beim MLP gut, wie viele Nachbarn braucht der <span class="math notranslate nohighlight">\(k\)</span>-Nearest Neighbar und welche Kernfunktion liefert bei der SVM gute Ergebnisse?</p>
+<p>Für dieses Datensatz benutzen wir Daten über die Arten von Bäumen in einem Wald aus scikit-learn <a class="footnote-reference brackets" href="#covtype" id="id4">3</a>.</p>
+<div class="section" id="trainings-und-testdaten">
+<h3><span class="section-number">7.12.1. </span>Trainings- und Testdaten<a class="headerlink" href="#trainings-und-testdaten" title="Permalink to this headline">¶</a></h3>
+<p>Laden Sie die Daten. Teilen Sie die Daten so auf, dass Sie 5% der Daten zum Training verwenden und 95% der Daten zum Testen <a class="footnote-reference brackets" href="#train-test-split" id="id5">4</a>. Auch wenn man in der Praxis mehr Daten zum Training verwenden würde, macht die kleinere Trainingsmenge für diese Übung aufgrund der Laufzeit mehr sinn. Verwenden sie <em>Stratified Sampling</em> um sicherzustellen, dass alle Klassen entsprechend ihrer Verteilung in den Trainings- und Testdaten repräsentiert sind.</p>
+</div>
+<div class="section" id="trainieren-testen-bewerten">
+<h3><span class="section-number">7.12.2. </span>Trainieren, Testen, Bewerten<a class="headerlink" href="#trainieren-testen-bewerten" title="Permalink to this headline">¶</a></h3>
+<p>Nutzen Sie die Trainingdaten um die Algorithmen aus diesem Kapitel auszuprobieren. Hierbei werden Sie erhebliche Laufzeitunterschiede feststellen. Einige Algorithmen sind möglicherweise gar nicht für diese Daten geeignet.</p>
+<p>Finden sie einen guten Algorithmus für die Daten. Dieser sollte zwei Bedingungen erfüllen:</p>
+<ul class="simple">
+<li><p>Das Training und die Vorhersagen sollten in einer akzeptablen Zeit durchführbar sein. Nutzen sie “weniger als 10 Minuten” als Definition von “akzeptabel” für diese Übung.</p></li>
+<li><p>Die Güte gemessen mit MCC, recall, prediction, und F-Measure sollte gut sein.</p></li>
+</ul>
+<p>Probieren sie verschiedene Parameter aus, um die Ergebnisse zu verbessern.</p>
+</div>
+<div class="section" id="automatische-parameterwahl">
+<h3><span class="section-number">7.12.3. </span>Automatische Parameterwahl<a class="headerlink" href="#automatische-parameterwahl" title="Permalink to this headline">¶</a></h3>
+<p>Sie können gute Parameter auch automatisch bestimmen. Nutzen sie hierfür die <em>Grid Search</em>, bei der alle Paare von Parametern aus einem vorgegeben Wertebereich kombiniert werden <a class="footnote-reference brackets" href="#grid" id="id6">5</a>. Beachten Sie, dass der Aufwand hierbei exponentiell mit der Anzahl der Parameter wächst. Probieren sie die Grid Search aus um noch bessere Parameter zu finden, ohne dabei länger als eine Stunde Rechenzeit zu investieren.</p>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
 <dt class="label" id="kdnuggets"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
@@ -2110,6 +2155,15 @@ Accuracy auf den Testdaten: 0.989
 </dd>
 <dt class="label" id="barnard"><span class="brackets"><a class="fn-backref" href="#id3">2</a></span></dt>
 <dd><p><a class="reference external" href="https://doi.org/10.1177%2F096228029900800103">https://doi.org/10.1177/096228029900800103</a></p>
+</dd>
+<dt class="label" id="covtype"><span class="brackets"><a class="fn-backref" href="#id4">3</a></span></dt>
+<dd><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_covtype.html#sklearn.datasets.fetch_covtype">https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_covtype.html#sklearn.datasets.fetch_covtype</a></p>
+</dd>
+<dt class="label" id="train-test-split"><span class="brackets"><a class="fn-backref" href="#id5">4</a></span></dt>
+<dd><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html">https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html</a></p>
+</dd>
+<dt class="label" id="grid"><span class="brackets"><a class="fn-backref" href="#id6">5</a></span></dt>
+<dd><p><a class="reference external" href="https://scikit-learn.org/stable/modules/grid_search.html">https://scikit-learn.org/stable/modules/grid_search.html</a></p>
 </dd>
 </dl>
 </div>

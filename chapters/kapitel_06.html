@@ -109,12 +109,12 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="kapitel_03.html">
-   3. Erkunden der Daten
+   3. Allgemeines zur Datenanalyse
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="kapitel_04.html">
-   4. Allgemeines zur Datenanalyse
+   4. Erkunden der Daten
   </a>
  </li>
  <li class="toctree-l1">
@@ -446,6 +446,42 @@
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ubung">
+   6.8. Übung
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     6.8.1.
+     <span class="math notranslate nohighlight">
+      \(k\)
+     </span>
+     -Means Algorithmus
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     6.8.2. EM Clustering
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     6.8.3. DBSCAN
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#slink">
+     6.8.4. SLINK
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vergleichen-sie-die-ergebnisse">
+     6.8.5. Vergleichen Sie die Ergebnisse
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
             </nav>
@@ -548,7 +584,7 @@
 <img alt="../_images/kapitel_06_1_0.png" src="../_images/kapitel_06_1_0.png" />
 </div>
 </div>
-<p>Diese Darstellung der Cluster ist einfach, effektive und intuitiv. Der Nachteil dieser Darstellung von Clustern ist, dass dies nur mit zwei Merkmalen funktioniert. Wenn man mehr als zwei Merkmale hat, muss man entweder paarweise Scatterplots nutzen oder eine Technik wir die PCA einsetzen um eine zweidimensionale Darstellung zu bekommen (siehe <a class="reference internal" href="kapitel_03.html"><span class="doc std std-doc">Kapitel 3</span></a>).</p>
+<p>Diese Darstellung der Cluster ist einfach, effektive und intuitiv. Der Nachteil dieser Darstellung von Clustern ist, dass dies nur mit zwei Merkmalen funktioniert. Wenn man mehr als zwei Merkmale hat, muss man entweder paarweise Scatterplots nutzen oder eine Technik wir die PCA einsetzen um eine zweidimensionale Darstellung zu bekommen (siehe <a class="reference internal" href="kapitel_04.html"><span class="doc std std-doc">Kapitel 4</span></a>).</p>
 <div class="section" id="der-algorithmus">
 <h3><span class="section-number">6.3.1. </span>Der Algorithmus<a class="headerlink" href="#der-algorithmus" title="Permalink to this headline">¶</a></h3>
 <p>Ziel des Clusteralgorithmus ist es die Positionen der Centroids zu bestimmen. Wenn wir uns wieder eine Stadt vorstellen, könnte man Argumentieren, dass der Platz an dem ein Rathaus gebaut werden soll so gewählt werden sollte, dass der mittlere Abstand der Häuser zum Rathaus minimiert wird. Dann haben die Bewohner - im Mittel - den kürzesten Weg zum Rathaus. Jetzt stellen Sie sich vor das ein Neubaugebiet entsteht, außerdem werden an anderer Stelle ein paar alte Häuser abgerissen. Hierdurch ist der Ort des Rathauses nicht mehr optimal und idealerweise wird es so neu gebaut, dass der Abstand wieder minimiert wird. Hier ist die Analogie problematisch: Der Neubau eines Rathauses ist teuer, einen Centroid zu verschieben jedoch sehr einfach. Diese Idee ist also genau das, was der Algorithmus macht.</p>
@@ -1564,6 +1600,36 @@
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+<div class="section" id="ubung">
+<h2><span class="section-number">6.8. </span>Übung<a class="headerlink" href="#ubung" title="Permalink to this headline">¶</a></h2>
+<p>In dieser Übung wollen wir das Clustering vertiefen. Das Ziel ist es, die Parameterauswahl und die Interpretation der Cluster bei hochdimensionalen Daten zu üben. Die Interpretation ist auch die größte Schwierigkeit dieser Übung.</p>
+<p>Als Daten verwenden wir die Bostondaten. Hier noch ein paar Tipps vorweg.</p>
+<ul class="simple">
+<li><p>Denken Sie an die Wertebereiche der Merkmale. Diese könnten eine Einfluss auf die Ergebnisse haben.</p></li>
+<li><p>Durch die Dimensionalität ist es schwierig die Cluster zu interpretieren. Setzen sie die PCA und paarweise Scatterplots ein (siehe <a class="reference internal" href="kapitel_04.html"><span class="doc std std-doc">Kapitel 4</span></a>). Beide haben gewissen Vor- und Nachteile, auf die Sie hier auch achten können.</p></li>
+</ul>
+<p>In jedem der folgenden Aufgabenteile sollten Sie probieren, die Bedeutung jedes Clusters zu bestimmen, also eine Beschreibung der Instanzen, die gemeinsam gruppiert werden, als eine Art Gruppenname.</p>
+<div class="section" id="id6">
+<h3><span class="section-number">6.8.1. </span><span class="math notranslate nohighlight">\(k\)</span>-Means Algorithmus<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>Benutzen Sie den <span class="math notranslate nohighlight">\(k\)</span>-Means Algorithmus um die Daten zu Clustern. Bestimmen Sie eine geeignete Clusteranzahl <span class="math notranslate nohighlight">\(k\)</span>. Benutzen Sie ihr Wissen über die Daten, Visualisierungen, und WSS um eine geeignete Anzahl Cluster zu bestimmen.</p>
+</div>
+<div class="section" id="id7">
+<h3><span class="section-number">6.8.2. </span>EM Clustering<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>Benutzen Sie das EM Clustering um die Daten zu Clustern. Bestimmen Sie eine geeignete Clusteranzahl <span class="math notranslate nohighlight">\(k\)</span>. Benutzen Sie ihr Wissen über die Daten, Visualisierungen, und NIC um eine geeignete Anzahl Cluster zu bestimmen.</p>
+</div>
+<div class="section" id="id8">
+<h3><span class="section-number">6.8.3. </span>DBSCAN<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>Benutzen Sie DBSCAN um die Daten zu Clustern. Bestimmen Sie geeignete Werte für <span class="math notranslate nohighlight">\(\epsilon\)</span> und <span class="math notranslate nohighlight">\(minPts\)</span>. Benutzen Sie ihr Wissen über die Daten und Visualisierungen um geeignete Werte zu finden.</p>
+</div>
+<div class="section" id="slink">
+<h3><span class="section-number">6.8.4. </span>SLINK<a class="headerlink" href="#slink" title="Permalink to this headline">¶</a></h3>
+<p>Benutzen sie den SLINK Algorithmus um die Daten zu Clustern. Bestimmen Sie mit Hilfe eine Dendrogramms einen geeigneten Grenzwert für die Level.</p>
+</div>
+<div class="section" id="vergleichen-sie-die-ergebnisse">
+<h3><span class="section-number">6.8.5. </span>Vergleichen Sie die Ergebnisse<a class="headerlink" href="#vergleichen-sie-die-ergebnisse" title="Permalink to this headline">¶</a></h3>
+<p>Vergleichen Sie die Ergebnisse der Algorithmen. Welche Unterschiede gibt es zum Beispiel in der Clusteranzahl und der Form der Cluster? Identifizieren Sie eventuelle Probleme der Algorithmen.</p>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
 <dt class="label" id="voronoi"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>

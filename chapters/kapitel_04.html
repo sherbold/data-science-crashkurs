@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>4. Allgemeines zur Datenanalyse &#8212; Data Science Crashkurs - Eine interaktive und praktische Einführung</title>
+    <title>4. Erkunden der Daten &#8212; Data Science Crashkurs - Eine interaktive und praktische Einführung</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -54,7 +54,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="5. Assoziationsregeln" href="kapitel_05.html" />
-    <link rel="prev" title="3. Erkunden der Daten" href="kapitel_03.html" />
+    <link rel="prev" title="3. Allgemeines zur Datenanalyse" href="kapitel_03.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -109,12 +109,12 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="kapitel_03.html">
-   3. Erkunden der Daten
+   3. Allgemeines zur Datenanalyse
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   4. Allgemeines zur Datenanalyse
+   4. Erkunden der Daten
   </a>
  </li>
  <li class="toctree-l1">
@@ -281,29 +281,85 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#das-no-free-lunch-theorem">
-   4.1. Das No Free Lunch Theorem
+  <a class="reference internal nav-link" href="#texteditoren-und-die-kommandozeile">
+   4.1. Texteditoren und die Kommandozeile
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#definition-von-maschinellem-lernen">
-   4.2. Definition von maschinellem Lernen
+  <a class="reference internal nav-link" href="#deskriptive-statistik">
+   4.2. Deskriptive Statistik
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lagemasze">
+     4.2.1. Lagemaße
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#variabilitat">
+     4.2.2. Variabilität
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#datenbereich">
+     4.2.3. Datenbereich
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#merkmale">
-   4.3. Merkmale
+  <a class="reference internal nav-link" href="#visualisierung">
+   4.3. Visualisierung
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#anscombes-quartett">
+     4.3.1. Anscombes Quartett
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#einzelne-merkmale">
+     4.3.2. Einzelne Merkmale
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#beziehungen-zwischen-merkmalen">
+     4.3.3. Beziehungen zwischen Merkmalen
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#scatterplots-fur-hochdimensionale-daten">
+     4.3.4. Scatterplots für Hochdimensionale Daten
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#zeitliche-trends">
+     4.3.5. Zeitliche Trends
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#trainings-und-testdaten">
-   4.4. Trainings- und Testdaten
+  <a class="reference internal nav-link" href="#ubungen">
+   4.4. Übungen
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#kategorien-von-algorithmen">
-   4.5. Kategorien von Algorithmen
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deskriptive-statistiken">
+     4.4.1. Deskriptive Statistiken
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visualisierungen-einzelner-merkmale">
+     4.4.2. Visualisierungen einzelner Merkmale
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#paarweise-beziehungen">
+     4.4.3. Paarweise Beziehungen
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -316,210 +372,1049 @@
         
               <div>
                 
-  <div class="section" id="allgemeines-zur-datenanalyse">
-<h1><span class="section-number">4. </span>Allgemeines zur Datenanalyse<a class="headerlink" href="#allgemeines-zur-datenanalyse" title="Permalink to this headline">¶</a></h1>
-<p>Bevor wir uns in die Algorithmen zur Modellierung mit Hilfe von Daten stürzen, benötigen wir noch einige Grundlagen. Hierbei handelt es sich um allgemeine Konzepte, die nicht von einer bestimmten Art der Analyse oder Daten abhängen und die wir immer wieder benötigen. Außerdem geben wir in diesem Kapitel auch einen Überblick über die Arten von Algorithmen die es gibt.</p>
-<div class="section" id="das-no-free-lunch-theorem">
-<h2><span class="section-number">4.1. </span>Das No Free Lunch Theorem<a class="headerlink" href="#das-no-free-lunch-theorem" title="Permalink to this headline">¶</a></h2>
-<p>Die erste ist eine fundamentale Aussage über Optimierungsalgorithmen, das <em>No Free Lunch Theorem</em> (NFL). Das Theorem selbst ist sehr theoretisch, wenn Sie sich nur für die (sehr wichtigen!) praktischen Auswirkungen interessieren, springen Sie einfach direkt zur umgangssprachlichen Definition. Die mathematische Formulierung des NFL lautet wie folgt.</p>
-<blockquote>
-<div><p><strong>No Free Lunch Theorem:</strong></p>
-<p>Sei <span class="math notranslate nohighlight">\(d_m^y\)</span> eine geordnete Menge der Kardinalität <span class="math notranslate nohighlight">\(m\)</span> mit Kostenwerten <span class="math notranslate nohighlight">\(y \in Y\)</span>. Sei <span class="math notranslate nohighlight">\(f: X \to Y\)</span> eine Funktion die optimiert werden soll. Sei <span class="math notranslate nohighlight">\(P(d_m^y|f, m, a)\)</span> die bedinge Wahrscheinlichkeit die Kosten <span class="math notranslate nohighlight">\(d_m^y\)</span> durch <span class="math notranslate nohighlight">\(m\)</span> wiederholte Ausführungen des Algorithmus <span class="math notranslate nohighlight">\(a\)</span> für die Funktion <span class="math notranslate nohighlight">\(f\)</span> zu beobachten.</p>
-<p>Für jedes Paar von Algorithmen <span class="math notranslate nohighlight">\(a_1\)</span> und <span class="math notranslate nohighlight">\(a_2\)</span> gilt:</p>
-<div class="math notranslate nohighlight">
-\[\sum_f P(d_m^y|f, m, a_1) = \sum_f P(d_m^y|f, m, a_2)\]</div>
-</div></blockquote>
-<p>Einen Beweis für das Theorem findet man in der Literatur <a class="footnote-reference brackets" href="#nfl" id="id1">1</a>. Die Gleichung des NFL besagt das die Summe der Wahrscheinlichkeiten bestimmte Kosten zu erhalten gleich ist, wenn man die Gesamtheit aller Funktionen <span class="math notranslate nohighlight">\(f\)</span> betrachtet, unabhängig vom Algorithmus. Einfacher formuliert bedeutet das NFL:</p>
-<blockquote>
-<div><p><strong>No Free Lunch Theorem (Umgangssprachlich):</strong></p>
-<p>Alle Algorithmen sind gleich, wenn man alle möglichen Optimierungsprobleme betrachtet.</p>
-</div></blockquote>
-<p>Diese Aussage entspricht nicht der Intuition, die man durch das praktische Arbeiten mit Daten hat. Für bestimmte Probleme merkt man sehr wohl, das einige Algorithmen besser sind als andere. Dies wird durch das NFL aber auch gar nicht ausgeschlossen, im Gegenteil. Ein Algorithmus kann durchaus für einige Funktionen <span class="math notranslate nohighlight">\(f\)</span> besser sein als andere Algorithmen. Aus dem NFL folgt aber, dass dieser Algorithmus dann auf allen anderen Problemen unterdurchschnittlich sein muss. Das ist auch die wichtige praktische Konsequenz des NFL: <em>Es gibt keinen Algorithmus, der für alle Probleme optimal ist!</em> Stattdessen hängt der optimale Algorithmus zur Lösung eines Problems vom Problem selbst ab. Daher auch der Name des Theorems: Es gibt kein “Gratisessen”, also einen Algorithmus für alle Probleme. Stattdessen müssen sich Data Scientist ihr Essen verdienen, in dem sie passende Algorithmen kennen und auswählen.</p>
-<p>Das heißt natürlich auch, dass es nicht ausreicht sich auf eine bestimmte Art von Algorithmus zu spezialisieren. Dieser Algorithmus kann mathematisch beweisbar gar nicht in jeder Situation die beste Wahl sein. Die Falle in die man tappen könnte ist, dass man nicht mehr den Algorithmus an das Problem anpasst, sondern das Problem an den Algorithmus. Denn wenn man einen Hammer hat, sieht manchmal alles aus wie ein Nagel. Stattdessen sollten wir eine ganze Werkzeugbox an Algorithmen kennen. Nur dann können wir basierend auf der Problemstellung, den zur Verfügung stehenden Daten und unserer Erfahrung den am besten geeigneten Algorithmus auswählen. Dies lernt man nicht über Nacht, sondern nur aus der Erfahrung von vielen Projekten in denen man mit verschiedenen Datensätzen und Methoden arbeitet.</p>
+  <div class="section" id="erkunden-der-daten">
+<h1><span class="section-number">4. </span>Erkunden der Daten<a class="headerlink" href="#erkunden-der-daten" title="Permalink to this headline">¶</a></h1>
+<p>In diesem Kapitel befassen wir uns mit Methoden, die wir einsetzen können um die Daten zu verstehen. Man spricht auch vom <em>Lernen der Daten</em>. Das heißt das wir die Struktur, den Umfang (z.B. Größe und Anzahl von Datenpunkten), sowie den Wertebereich der Daten lernen müssen. Eventuell wird auch ein Verständnis der Datenquellen benötigt, wenn die Richtigkeit und Zuverlässigkeit der Daten relevant ist oder wir die Gründe für unvollständige Daten näher beleuchten wollen.</p>
+<p>Es gibt sehr viele Methoden, die man zur Erkundung von Daten einsetzen kann. Die Erkundung selbst ist ein durch Werkzeuge unterstützter interaktiver Prozess. Es ist üblich verschiedene Werkzeuge zu benutzen, basierend auf dem Aspekt den man aktuell erkunden möchte. Im Folgenden gehen wir einige wichtige Werkzeuge durch, die uns dabei helfen Daten zu verstehen.</p>
+<p>Im nutzen wir die Notation <span class="math notranslate nohighlight">\(x = (x_1, ..., x_n)\)</span> mit <span class="math notranslate nohighlight">\(x_1, ..., x_n \in \mathbb{R}\)</span>. Der Wert <span class="math notranslate nohighlight">\(x\)</span> beschreibt also einen Vektor von reellen Zahlen. Wenn es sich bei <span class="math notranslate nohighlight">\(x\)</span> um eine Teilmenge der möglichen Daten handelt, nennt man <span class="math notranslate nohighlight">\(x\)</span> auch <em>Stichprobe</em> (engl. <em>sample</em>). Der Einfachheit halber können Sie sich <span class="math notranslate nohighlight">\(x\)</span> auch einfach als Menge von Zahlen vorstellen. Dies ist zwar für die Vorstellung of einfacher, jedoch formal nicht korrekt, da Mengen nicht das gleiche Element mehrfach enthalten können, Datensätze jedoch schon.</p>
+<div class="section" id="texteditoren-und-die-kommandozeile">
+<h2><span class="section-number">4.1. </span>Texteditoren und die Kommandozeile<a class="headerlink" href="#texteditoren-und-die-kommandozeile" title="Permalink to this headline">¶</a></h2>
+<p>Bereits sehr einfache Werkzeuge können uns helfen, die Daten zu verstehen. Texteditoren und einfache Kommandozeilenbefehle wie <code class="docutils literal notranslate"><span class="pre">head</span></code>, <code class="docutils literal notranslate"><span class="pre">more</span></code>, und <code class="docutils literal notranslate"><span class="pre">less</span></code> ermöglichen es sich den Inhalt Textdateien direkt anzusehen. Hierdurch kann man beliebige Daten, die nicht im Binärformat vorliegen, inspizieren. Das ist durchaus häufig der Fall, zum Beispiel bei <em>Comma-Separated Values</em> (CSV), der <em>eXtensible Markup Language</em> (XML), oder der <em>JavaScript Object Notation</em> (JSON). Wir könnten uns zum Beispiel direkt den Quelltext dieses Kapitels angucken, um das Format der Daten, die in Jupyter Notebooks gespeichert werden, zu verstehen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>head kapitel_04.ipynb
+</pre></div>
 </div>
-<div class="section" id="definition-von-maschinellem-lernen">
-<h2><span class="section-number">4.2. </span>Definition von maschinellem Lernen<a class="headerlink" href="#definition-von-maschinellem-lernen" title="Permalink to this headline">¶</a></h2>
-<p>Maschinelles Lernen ist derzeit eines der heißesten Themen in der Informatik, da es in den letzten Jahren große Fortschritte bei der Lösung von praxisrelevanten Problemen durch die immer höher werdende  Rechenkraft, die größeren Datenmengen die zur Verfügung stehen, und innovatives Design von Lernalgorithmen, gab. Einige Problem die noch vor wenigen Jahren als extrem schwierig galten, sind jetzt durch maschinelles Lernen gelöst (siehe <a class="reference internal" href="kapitel_01.html"><span class="doc std std-doc">Kapitel 1</span></a>). Wenn man sich näher mit dem maschinellen Lernen beschäftigen möchte, muss man zuerst die Bedeutung des Begriffs verstehen. Es gibt viele Definition in der Literatur. Eine sehr mächtige und gleichzeitig intuitive kommt von Tom Mitchel <a class="footnote-reference brackets" href="#mitchel" id="id2">2</a>:</p>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+ &quot;cells&quot;: [
+  {
+   &quot;cell_type&quot;: &quot;markdown&quot;,
+   &quot;id&quot;: &quot;hourly-iraqi&quot;,
+   &quot;metadata&quot;: {},
+   &quot;source&quot;: [
+    &quot;# Erkunden der Daten\n&quot;,
+    &quot;\n&quot;,
+    &quot;In diesem Kapitel befassen wir uns mit Methoden, die wir einsetzen können um die Daten zu verstehen. Man spricht auch vom *Lernen der Daten*. Das heißt das wir die Struktur, den Umfang (z.B. Größe und Anzahl von Datenpunkten), sowie den Wertebereich der Daten lernen müssen. Eventuell wird auch ein Verständnis der Datenquellen benötigt, wenn die Richtigkeit und Zuverlässigkeit der Daten relevant ist oder wir die Gründe für unvollständige Daten näher beleuchten wollen. \n&quot;,
+</pre></div>
+</div>
+</div>
+</div>
+<p>Durch diesen einfachen Befehl, der nur die ersten Zeilen der Datei anzeigt, können wir viel über die Daten lernen: Die Daten sind im JSON Format als Liste von Zellen (<code class="docutils literal notranslate"><span class="pre">cells</span></code>) gespeichert. Für jede Zelle werden der Typ, eine Identifier, eventuelle Metadaten, sowie der Quelltext der Zelle als Liste gespeichert, wobei jeder Listeneintrag eine Zeile des Quelltextes ist. All das, nur mit einem einfachen Kommandozeilenbefehl.</p>
 <blockquote>
-<div><p><strong>Definition von maschinellem Lernen:</strong></p>
-<p>Ein Computerprogramm lernt aus Erfahrung <span class="math notranslate nohighlight">\(E\)</span> in Bezug auf eine Klasse von Aufgaben <span class="math notranslate nohighlight">\(T\)</span> und ein Gütemaß <span class="math notranslate nohighlight">\(P\)</span>, wenn die Güte der Lösungen von <span class="math notranslate nohighlight">\(T\)</span> gemessen durch <span class="math notranslate nohighlight">\(P\)</span> sich mit mehr Erfahrung <span class="math notranslate nohighlight">\(E\)</span> verbessert.</p>
+<div><p><strong>Bemerkung:</strong></p>
+<p>Man kann durch ein Ausrufezeichen als Präfix beliebige Kommandozeilenbefehle (z.B. bash) direkt aus einem Jupyter Notebook aufrufen. Daher ist <code class="docutils literal notranslate"><span class="pre">!head</span></code> in einem Juypter Notebook äquivalent zur Eingabe von <code class="docutils literal notranslate"><span class="pre">head</span></code> direkt in der Kommandozeile. Welche Befehle zur Verfügung stehen, hängt von der Ausführungsumgebung ab. Weil die Kommandozeile von Windows den Befehl <code class="docutils literal notranslate"><span class="pre">head</span></code> nicht kennt, würde dies zum Beispiel eventuell nicht funktionieren.</p>
 </div></blockquote>
-<p>Auf den ersten Blick wirkt diese Definition sehr abstrakt wirkt und ist schwer zu lesen. Insbesondere die abstrakten Begriffe von <em>Erfahrung</em>, einer <em>Klasse von Aufgaben</em>, und der <em>Güte</em> sind intuitiv in diesem Zusammenhang schwer einzuordnen. Das ist aber der Grund, weshalb die Definition so gut ist: Maschinelles Lernen ist ein sehr vielseitiges Gebiet, was anders kaum zu fassen ist. Außerdem ist die Definition nur auf den ersten Blick komplex. Bei einer genaueren  Betrachtung was mit Erfahrung, Aufgaben, und Güte gemeint ist, erscheint die Definition sehr naheliegend.</p>
+<p>Dies ist natürlich nur eine Möglichkeit die Art, wie Jupyter Notebooks Daten speichern, zu betrachten. Und wie die meisten sehr einfachen Lösungen, gibt es natürlich auch schwächen. Es ist zum Beispiel nicht klar, ob es noch weitere Informationen gibt, die für Zellen gespeichert werden könnten, da der betrachtete Auszug eventuell nicht alle Möglichkeiten des Datenformats ausschöpft. Daher ist es auch wichtig, dass die Metadaten betrachtet werden, in diesem Fall die Dokumentation des Datenformats <a class="footnote-reference brackets" href="#jupyterformat" id="id1">1</a>. Dort findet man zum Bespiel raus, dass es noch weitere Felder gibt, wie zum Beispiel das Feld <code class="docutils literal notranslate"><span class="pre">nbformat</span></code> um die Version des Datenformats anzuzeigen. Eine gute Dokumentation der Metadaten beschreibt das Datenformat vollständig, das heißt welche Felder es gibt, welche Informationen in einem Feld gespeichert werden und wie die Felder zusammenhängen.</p>
+<p>Die Metadaten sind nicht notwendigerweise auf die Beschreibung der Daten selbst beschränkt. Es könnten zum Beispiel auch Links zu weiterführenden Informationen zur Verfügung gestellt werden. Außerdem könnten auch die Datenquellen beschrieben sein. Was man in den Metadaten üblicherweise nicht vorfindet ist eine Beschreibung der Werte, welche die Daten in einem Datensatz haben. Hier findet man höchstens Beispiele, die veranschaulichen welche Werte angenommen werden können. Dies ist ein Nachteil gegenüber der direkten Betrachtung der Daten, wobei die Erkenntnisse über die Daten Werte der Daten, die man mit Hilfe eines Texteditors bekommen kann ebenfalls stark limitiert ist, gerade bei großen Datenmengen. Hierfür sind die Statistiken und Visualisierungen, die wir im Folgenden betrachten, deutlich besser geeignet.</p>
+</div>
+<div class="section" id="deskriptive-statistik">
+<h2><span class="section-number">4.2. </span>Deskriptive Statistik<a class="headerlink" href="#deskriptive-statistik" title="Permalink to this headline">¶</a></h2>
+<p>Die <em>deskriptive</em> Statistiik beschäftigt sich mit der Beschreibung von Eigenschaften eines Datensatzes durch einzelne, häufig numerische, Werte. Deskriptive Statistiken sollten nicht mit <em>induktiver</em> Statistik verwechselt werden, bei der es darum geht Eigenschaften von Daten vorherzusagen. Entsprechend sollte man nicht annehmen, dass deskriptive Statistiken für zuverlässige Vorhersagen von zukünftigen Werten geeignet sind.</p>
+<p>In diesem Kapitel betrachten wir die folgenden deskriptiven Statistiken:</p>
 <ul class="simple">
-<li><p>Die <em>Erfahrung</em> ist (im Normalfall) unser Datensatz. Je mehr Daten wir haben, desto mehr Erfahrung haben wir. Es gibt außerdem auch selbst-lernende System, die keine externen Daten benötigen und die stattdessen ihre eigenen Daten generieren, wie AlphaZero <a class="footnote-reference brackets" href="#alphazero" id="id3">3</a>, das durch das Spielen gegen sich selbst lernt. In diesem Fall steigt die Erfahrung mit jedem Spiel.</p></li>
-<li><p>Die <em>Aufgaben</em> sind nichts anderes als die Probleme, die wir mit maschinellem Lernen lösen möchten. Wir wollen Fußgänger erkennen, damit diese von ihrem autonomen Fahrzeug nicht überfahren werden? Wir wollen Spiele spielen und gewinnen? Wir wollen das die Besucher unserer Website auf die Werbung klicken? Das sind die Aufgaben. Im Allgemeinen ist die Aufgabe eng verwandt mit dem Anwendungsfalls und den Projektzielen. Etwas Abstrakter kann man Klassen von Aufgaben auf Kategorien von Algorithmen abbilden, wie wir am Ende dieses Kapitels sehen werden.</p></li>
-<li><p>Die <em>Gütemaße</em> messen wie gut die Aufgabe erfüllt wird. Das könnte zum Beispiel die Anzahl der korrekt erkannten Fußgänger, der gewonnen Spiele oder die Zahl der Klicks auf Werbung sein.</p></li>
+<li><p>Die <em>Lage</em> der Daten (engl. <em>central tendency</em>), durch das <em>arithmetische Mittel</em>, den <em>Median</em>, und den <em>Modus</em>.</p></li>
+<li><p>Die Variabilität der Daten, durch die <em>Standardabweichung</em>, den <em>Interquartilsabstand</em> (IQR), und den <em>Median der absoluten Abweichung vom Median</em> (MAD).</p></li>
+<li><p>Die Datenbereich (engl. <em>range</em>), durch das <em>Minimum</em> und <em>Maximum</em>.</p></li>
 </ul>
-<p>Mit diesem Wissen erscheint die Definition ganz einfach: Wir betrachten einfach Algorithmen, die besser werden, wenn ihnen mehr Daten zur Verfügung stehen.</p>
+<p>Es gibt noch viele weitere deskriptive Statistiken für die obigen Eigenschaften, die wir in diesem Kapitel nicht betrachten, zum Beispiel das harmonische Mittel für die Lage. Weiterhin gibt es noch weitere Eigenschaften, die sich durch deskriptive Statistiken erfassen lassen, zum Beispiel die <em>Form</em> (engl. <em>shape</em>) der Daten durch die <em>Kurtose</em> (Wölbung) und die <em>Schiefe</em> (engl. <em>skewness</em>). Diese gehen jedoch über die Betrachtungen dieses Kapitels hinaus und werden häufig auch nicht benötigt, insbesondere wenn man deskriptive Statistiken zusammen mit Visualisierungen benutzt.</p>
+<div class="section" id="lagemasze">
+<h3><span class="section-number">4.2.1. </span>Lagemaße<a class="headerlink" href="#lagemasze" title="Permalink to this headline">¶</a></h3>
+<p>Die Lage der Daten ist ein wichtiges statistisches Merkmal welches den <em>typischen Wert</em> im Zentrum der Daten beschreibt. Dies bedeutet nicht, das viele Datenpunkte exakt diesen Wert haben oder das man in der Zukunft erwarten könnte häufig diesen Wert zu beobachten. Stattdessen markiert die Lage die “Mitte” der Daten. Wenn Sie sich die Daten als Stadt vorstellen, markiert die Lage also nur den Mittelpunkt der Stadt. Das heißt jedoch nicht, dass dort besonders viele Häuser stehen.</p>
+<p>Es gibt verschiedene Wege die Lage von Daten zu definieren. Das <em>arithmetische Mittel</em> ist definiert als</p>
+<div class="math notranslate nohighlight">
+\[mean(x) = \frac{1}{n}\sum_{i=1}^{n} x_i,\]</div>
+<p>also die Summe der Datenpunkte geteilt durch ihre Anzahl. Häufig spricht man auch einfach vom <em>Mittelwert</em> der Daten (engl. <em>mean</em>). Das arithmetische Mittel ist eine gute Beschreibung der Lage, wenn die Daten normalverteilt oder gleichverteilt sind. Im Allgemeinen sollte man das arithmetische Mittel nur verwenden, wenn zwei Eigenschaften erfüllt sind:</p>
+<ol class="simple">
+<li><p>Es gibt keine “Lücken” in den Daten, also größere Bereiche in denen keine Werte liegen. Dies bedeutet insbesondere auch, dass die Daten keine Ausreißer haben sollten.</p></li>
+<li><p>Die Daten sind symmetrisch um das arithmetische Mittel verteilt, das heißt, dass die Verteilung links und rechts des arithmetische Mittels ist in etwa gleich sein sollten.</p></li>
+</ol>
+<p>Statistische Methoden, die derartige Annahmen an die Verteilung von Daten machen nennt man auch <em>parametrische</em> Statistiken. Wenn diese Eigenschaften nicht erfüllt sind, sollte man das arithmetische Mittel nicht verwenden, da der Wert eventuell die Lage nicht gut beschreibt. Wir werden uns später noch anhand von Anscombes Quartet sehen, wie die Werte von Statistiken irreführend sein können.</p>
+<p>Eine alternative zum arithmetischen Mittel ist der <em>Median</em>, der definiert ist als</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}median(x) = \begin{cases}\bar{x}_{m} &amp; \text{wenn}~n~\text{ungerade ist mit}~m=\frac{n+1}{2} \\ \frac{1}{2}(\bar{x}_{m}+\bar{x}_{m+1}) &amp; \text{wenn}~n~\text{gerade ist mit}~m=\frac{n}{2},\end{cases}\end{split}\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(\bar{x}\)</span> eine nach der Größe sortierter Vektor der Werte von <span class="math notranslate nohighlight">\(x\)</span> ist. Entsprechend ist der Median wortwörtlich in der Mitte der der Daten: 50% der Daten sind kleiner oder gleich dem Median und 50% sind größer oder gleich dem Median. Im Gegensatz zum arithmetischen Mittel ist der Median eine <em>nicht parametrische</em> Statistik. Das bedeutet das der Median unabhängig von der Verteilung eingesetzt werden kann, zum Beispiel wenn die Annahmen an das arithmetische Mittel nicht erfüllt sind. Insbesondere ist der Median robust gegen Ausreißer, kann also nicht durch wenige besonders hohe oder niedrige Werte beeinflusst werden.</p>
+<p>Dies kann man sich auch an einem einfachen Beispiel verdeutlichen. Zuerst betrachten wir das arithmetische Mittel und den Median für Daten, bei denen die Annahmen des arithmetischen Mittels erfüllt sind:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statistics</span>  <span class="c1"># we use the statistics from the Python standard library</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mf">8.04</span><span class="p">,</span> <span class="mf">6.95</span><span class="p">,</span> <span class="mf">7.58</span><span class="p">,</span> <span class="mf">8.81</span><span class="p">,</span> <span class="mf">8.33</span><span class="p">,</span> <span class="mf">9.96</span><span class="p">,</span> <span class="mf">7.24</span><span class="p">,</span> <span class="mf">4.26</span><span class="p">,</span> <span class="mf">10.84</span><span class="p">,</span> <span class="mf">4.82</span><span class="p">,</span> <span class="mf">5.68</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Daten ohne Ausreißer:&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;mean:  &#39;</span><span class="p">,</span> <span class="n">statistics</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;median:&#39;</span><span class="p">,</span> <span class="n">statistics</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</pre></div>
 </div>
-<div class="section" id="merkmale">
-<h2><span class="section-number">4.3. </span>Merkmale<a class="headerlink" href="#merkmale" title="Permalink to this headline">¶</a></h2>
-<p>Im letzten Kapitel haben wir bereits oft von <em>Merkmalen</em> (engl. <em>feature</em>) gesprochen, ohne jedoch genau zu Erklären was wir damit eigentlich meinen. Die Merkmale sind eine Kernkomponente von maschinellem Lernen. Die Bedeutung von Merkmalen kann man sich gut an einem Beispiel verdeutlichen. Wenn wir uns <a class="reference internal" href="#fig-whale"><span class="std std-numref">Fig. 4.1</span></a> angucken, erkennen wir sofort, dass es sich um einen Wal handelt. Wie genau wir als Menschen erkennen, dass es sich um einen Wal handelt ist nicht abschließend geklärt und immer noch der Gegenstand der Forschung. Nichtsdestotrotz nehmen wir hier an, dass wir verschiedene Aspekte vom Bild erkennen und Aufgrund der Aspekte dann zur Erkenntnis gelangen, dass es sich um einen Wal handelt. Man könnte zum Beispiel erkennen, dass sich ein etwa <em>ovales</em> Objekt im Vordergrund befindet, welches <em>oben schwarz und unten weiß</em> ist, das <em>Flossen hat</em> und das der <em>Hintergrund blau</em> ist. Das alles sind <em>Merkmale</em> des Bilds.</p>
-<div class="figure align-default" id="fig-whale">
-<a class="reference internal image-reference" href="../_images/whale.png"><img alt="../_images/whale.png" src="../_images/whale.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 4.1 </span><span class="caption-text">Bild von einem Wal.</span><a class="headerlink" href="#fig-whale" title="Permalink to this image">¶</a></p>
 </div>
-<p>Und so funktioniert auch maschinelles Lernen: Schlussfolgerungen über Objekte werden anhand ihrer Merkmale gezogen. Formal haben wir einen <em>Objektraum</em> <span class="math notranslate nohighlight">\(O\)</span> mit Objekten aus der realen Welt und einen <em>Merkmalsraum</em> (engl. <em>feaature space</em>) <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> mit Beschreibungen der Objekte durch ihre Merkmale. Eine <em>Feature Map</em> <span class="math notranslate nohighlight">\(\phi: 0 \to \mathcal{F}\)</span> bildet die Objekte auf ihre Repräsentation im Merkmalsraum ab. Für unser Walbild ist der Objektraum <span class="math notranslate nohighlight">\(O\)</span> die Menge der Bilder und der Merkmalsraum hätte fünf Dimensionen: Form, Farbe oben, Farbe unten, Hintergrundfarbe, Flossen. Die Represenation des Bilds im Merkmalsraum wäre daher <span class="math notranslate nohighlight">\(\phi(Walbild) = (Oval, Schwarz, Wei\text{ß}, Blau, Ja)\)</span>.</p>
-<p>Es gibt verschiedene <em>Skalen</em> über die Merkmale definiert sein können. Die am häufigsten verwendete Skalendefinition geht auf Steven zurück und ist auch als <em>Steven’s Levels of Measurements</em>, bzw. <em>NOIR</em>-Skalen bekannt <a class="footnote-reference brackets" href="#stevens" id="id4">4</a>. NOIR ist ein Akronym für die vier Arten von Skalen: Nominal, Ordinal, Intervall, und Rational.</p>
-<table class="colwidths-auto table" id="tbl-scales">
-<caption><span class="caption-number">Table 4.1 </span><span class="caption-text">Skalen für Merkmale.</span><a class="headerlink" href="#tbl-scales" title="Permalink to this table">¶</a></caption>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Daten ohne Ausreißer: [8.04, 6.95, 7.58, 8.81, 8.33, 9.96, 7.24, 4.26, 10.84, 4.82, 5.68]
+mean:   7.500909090909091
+median: 7.58
+</pre></div>
+</div>
+</div>
+</div>
+<p>In diesem Beispiel sind die Werte vom Median und vom arithmetischen Mittel ähnlich und beide sind gut geeignet und die Lage zu beschreiben. Jetzt erweitern wir die Daten um einen einzelnen Ausreißer.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Daten mit Ausreißer:&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;mean:  &#39;</span><span class="p">,</span> <span class="n">statistics</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;median:&#39;</span><span class="p">,</span> <span class="n">statistics</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Daten mit Ausreißer: [8.04, 6.95, 7.58, 8.81, 8.33, 9.96, 7.24, 4.26, 10.84, 4.82, 5.68, 100]
+mean:   15.209166666666667
+median: 7.81
+</pre></div>
+</div>
+</div>
+</div>
+<p>Durch den Ausreißer wird das arithmetische Mittel stark beeinflusst, so dass es jetzt deutlich höher ist. Es ist sogar höher als alle Datenpunkte, die wir ursprünglich betrachtet haben. Das ist offensichtlich keine gute Beschreibung der Mitte der Daten. Im Vergleich dazu, hat sich der Median kaum verändert und ist nur zum nächsthöheren Wert der sortieren Liste gesprungen.</p>
+<p>Eine berechtigte Frage ist, warum wir das das arithmetische Mittel überhaupt betrachten, wenn der Median scheinbar aufgrund seiner Robustheit überlegen ist. Die Gründe hierfür kommen aus der Stochastik. Das arithmetische Mittel ist eng verwandt mit dem Erwartungswert von Zufallsvariablen. Die Normalverteilung kann man vollständig durch den Mittelwert und die Standardabweichung beschreiben. Hieraus folgt, dass das arithmetische Mittel für die Normalverteilung der bestmögliche Schätzer für die Mitte der Daten ist. Trotzdem ist es ratsam den Median zu verwenden, wenn wir die Verteilung der Daten nicht kennen oder wir befürchten das es Ausreißer gibt.</p>
+<p>Das arithmetische Mittel und der Median sind nur für numerische Daten definiert. Es gibt jedoch auch nicht-numerische Daten. Die Größe von Kleidungsstücken wird häufig in den Kategorien “Small”, “Medium”, und “Large” angegeben. Man spricht hierbei von kategorischen Daten (siehe <a class="reference internal" href="kapitel_03.html"><span class="doc std std-doc">Kapitel 3</span></a>). Der <em>Modus</em> der Daten kann benutzt werden um die Lage von kategorischen Daten zu bestimmen. Der Modus ist definiert als der Wert, den man am häufigsten in einer Stichprobe <span class="math notranslate nohighlight">\(x\)</span> beobachtet.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;small&#39;</span><span class="p">,</span> <span class="s1">&#39;medium&#39;</span><span class="p">,</span> <span class="s1">&#39;small&#39;</span><span class="p">,</span> <span class="s1">&#39;large&#39;</span><span class="p">,</span> <span class="s1">&#39;large&#39;</span><span class="p">,</span> <span class="s1">&#39;medium&#39;</span><span class="p">,</span> <span class="s1">&#39;medium&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Daten:&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Modus:&#39;</span><span class="p">,</span> <span class="n">statistics</span><span class="o">.</span><span class="n">mode</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Daten: [&#39;small&#39;, &#39;medium&#39;, &#39;small&#39;, &#39;large&#39;, &#39;large&#39;, &#39;medium&#39;, &#39;medium&#39;]
+Modus: medium
+</pre></div>
+</div>
+</div>
+</div>
+<p>Bitte beachten Sie, dass der Modus zwar gut für kategorische Daten (und manchmal auch für diskret Verteilte numerische Daten) geeignet ist, aber irreführend sein kann, wenn die Daten <em>Bimodal</em> oder <em>Multimodal</em> sind. Derartige Daten setzen sich aus zwei oder mehr Verteilungen zusammen und haben daher mehrere “Mittelpunkte”, was sich dadurch äußert das mehrere Werte besonders häufig auftreten. Im Extremfall sind die Kategorien gleichverteilt, so dass es gleich viele Beobachtungen jeder Kategorie gibt. Da dann jede Kategorie die gleiche Wahrscheinlichkeit hat, ist der Modus zufällig. Außerdem sollte man den Modus nicht für kontinuierliche numerische Daten benutzen, da es hier sehr unwahrscheinlich ist mehrfach den exakt gleichen Wert zu beobachten.</p>
+</div>
+<div class="section" id="variabilitat">
+<h3><span class="section-number">4.2.2. </span>Variabilität<a class="headerlink" href="#variabilitat" title="Permalink to this headline">¶</a></h3>
+<p>Die Variabilität misst wie stark die Daten verstreut sind. Eine kleine Variabilität heißt, dass sich viele Daten in der Nähe der Mitte befinden. Eine hohe Variabilität heißt dagegen, dass die Daten sich über einen großen Bereich verteilen.</p>
+<p>Das am häufigsten verwendete Maß für die Variabilität ist die <em>Standardabweichung</em>, die als</p>
+<div class="math notranslate nohighlight">
+\[sd(x) = \sqrt{\frac{\sum_{i=1}^n (x_i-mean(x))^2}{n-1}}\]</div>
+<p>definiert ist. Die Standardabweichung ist die Quadratwurzel des arithmetischen Mittels von der Abweichung der einzelnen Datenpunkte vom arithmetischen Mittel, nur dass bei der Standardabweichung durch <span class="math notranslate nohighlight">\(n-1\)</span> statt <span class="math notranslate nohighlight">\(n\)</span> geteilt wird. Der Grund hierfür sind die sogenannten <em>Freiheitsgrade</em>, auf die wir hier jedoch nicht näher eingehen. Auch wenn die Formulierung etwas kompliziert klingt, ist das Konzept einfach: Die Standardabweichung misst, wie stark die beobachteten Werte vom arithmetischen Mittel abweichen. Dadurch, dass die quadratischen Abweichungen betrachtet werden, beeinflussen große Abweichungen die Standardabweichung stärker als kleine Abweichungen. Da die Standardabweichung die Variabilität in Bezug auf das arithmetische  Mittel misst, ist auch klar, dass die Standardabweichung nur dann benutzt werden sollte, wenn das arithmetische Mittel eine geeignete Repräsentation für die Lage der Daten ist. Hieraus folgt auch, das die Standardabweichung ebenfalls ein parametrisches Maß für die Variabilität ist.</p>
+<p>Ebenso wie es mit dem Median eine nicht-parametrisches Gegenstück zum arithmetischen Mittel gibt, gibt es auch nicht-parametrische Statistiken für die Variabilität. Der Interquartilsabstand (engl. <em>interquartile range</em>) is definiert als</p>
+<div class="math notranslate nohighlight">
+\[IQR(X) = Q_{upper}-Q_{lower}\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(Q_{upper}\)</span> und <span class="math notranslate nohighlight">\(Q_{lower}\)</span> das obere und untere <em>Quartil</em> der Daten sind. Die Quartile sind analog zum Median definiert, nur mit 75%, bzw. 25% der Daten: 75% der Daten sind kleiner oder gleich dem oberen Quartil und 25% der Daten sind kleiner oder gleich dem unteren Quartil. Entsprechend sind mindestens 50% der Daten größer oder gleich dem unteren Quartil und gleichzeitig kleiner oder gleich dem oberen Quartil. Der Interquartilsabstand misst also die Größe des Bereichs, in dem sich die mittleren 50% der Daten befinden.</p>
+<p>Eine gute Faustregel ist, dass sie die Standabweichung nutzen sollten, wenn sie das arithmetische Mittel für die Lage benutzen, und den Interquartilsabstand, wenn sie den Median betrachten. Hier ist ein Beispiel, was demonstriert wie sich die Probleme mit Ausreißern auch in der Standardabweichung wiederspiegeln.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>  <span class="c1"># we use scipy for the IQR</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mf">8.04</span><span class="p">,</span> <span class="mf">6.95</span><span class="p">,</span> <span class="mf">7.58</span><span class="p">,</span> <span class="mf">8.81</span><span class="p">,</span> <span class="mf">8.33</span><span class="p">,</span> <span class="mf">9.96</span><span class="p">,</span> <span class="mf">7.24</span><span class="p">,</span> <span class="mf">4.26</span><span class="p">,</span> <span class="mf">10.84</span><span class="p">,</span> <span class="mf">4.82</span><span class="p">,</span> <span class="mf">5.68</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Daten ohne Ausreißer:&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;sd: &#39;</span><span class="p">,</span> <span class="n">statistics</span><span class="o">.</span><span class="n">stdev</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;IQR:&#39;</span><span class="p">,</span> <span class="n">stats</span><span class="o">.</span><span class="n">iqr</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+
+<span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Daten mit Ausreißer:&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;sd: &#39;</span><span class="p">,</span> <span class="n">statistics</span><span class="o">.</span><span class="n">stdev</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;IQR:&#39;</span><span class="p">,</span> <span class="n">stats</span><span class="o">.</span><span class="n">iqr</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Daten ohne Ausreißer: [8.04, 6.95, 7.58, 8.81, 8.33, 9.96, 7.24, 4.26, 10.84, 4.82, 5.68]
+sd:  2.031568135925815
+IQR: 2.255000000000001
+Daten mit Ausreißer: [8.04, 6.95, 7.58, 8.81, 8.33, 9.96, 7.24, 4.26, 10.84, 4.82, 5.68, 100]
+sd:  26.77235292350312
+IQR: 2.465
+</pre></div>
+</div>
+</div>
+</div>
+<p>Obwohl bis auf einen Datenpunkt alle Daten zwischen 4,82 und 9,96 liegen, ist die Standardabweichung ein Vielfaches von diesem Datenbereich, durch den einen Ausreißer. Der Interquartilsabstand ist jedoch, ähnlich wie der Median, kaum beeinflusst.</p>
+<p>Wenn die Annahmen an die Standardabweichung erfüllt sind, ist es jedoch ein sehr gutes Maß für die Variabilität der Daten. Ähnlich wie beim arithmetischen Mittel, ist dies insbesondere bei normalverteilten Daten der Fall, die sich durch diese beiden Maße komplett beschreiben lassen. Außerdem kann man für Normalverteilung beweisen, dass 68% der Daten nicht mehr als eine Standardabweichung vom arithmetischen Mittel entfernt sind, 95% der Daten nicht mehr als zwei Standardabweichungen, und 99.7% nicht mehr als 3 Standardabweichungen. Dies ist auch als 68-95-99,7 Regel bekannt. Für andere Verteilungen kann man ähnliche, wenn auch schwächere Aussagen über die Verteilung mit Hilfe der Standardabweichung treffen. Die Chebychev-Ungleichung gilt für alle Verteilungen mit einem endlichen Erwartungswert (vereinfacht gesagt mit einem endlichen arithmetischen Mittel) und einer endlichen Varianz die nicht null ist. Die Varianz ist nichts anderes als das Quadrat der Standardabweichung. Aus der Chebychev-Ungleichung folgt das 50% der Daten nicht mehr als <span class="math notranslate nohighlight">\(\sqrt{2} \cdot sd\)</span> vom arithmetischen Mittel entfernt sind. Hierdurch ergibt sich auch ein direkter Zusammenhang zum Interquartilsabstand, der ebenfalls eine Aussage über die mittleren 50% der Daten ist.</p>
+<p>Bitte beachten Sie dass es für Variabilität für kategorische Daten hier nicht im Detail betrachten <a class="footnote-reference brackets" href="#categorical" id="id2">2</a>. Die Grundidee ist, dass man betrachtet, wie häufig Daten in den einzelnen Kategorien vorkommen und wie stark diese Beobachtungen einer Gleichverteilung ähneln. Je gleichmäßiger sich die Daten auf die Kategorien verteilen, desto höher die Variabilität.</p>
+</div>
+<div class="section" id="datenbereich">
+<h3><span class="section-number">4.2.3. </span>Datenbereich<a class="headerlink" href="#datenbereich" title="Permalink to this headline">¶</a></h3>
+<p>Der Datenbereich gibt den Bereich an in dem Werte beobachtet werden können. Für numerische Daten ist dieser durch das Minimum (den kleinsten möglichen Wert) und das Maximum (den größten möglichen Wert) definiert. Beide kann Anhand einer Stichprobe <span class="math notranslate nohighlight">\(x\)</span> schätzen, in dem den kleinsten und größten <em>beobachteten</em> Wert als <span class="math notranslate nohighlight">\(min\)</span> und <span class="math notranslate nohighlight">\(max\)</span> ermittelt. Die Differenz dieser Werte ist dann die Größe des Datenbereichs</p>
+<div class="math notranslate nohighlight">
+\[range = max-min.\]</div>
+<p>Auch wenn diese statistischen Merkmale auf den ersten Blick trivial erscheinen, sind sie in der Praxis sehr hilfreich, insbesondere um Probleme mit den Daten zu bemerken. Wenn der Datenbereich nicht Plausibel ist, erkennt man zum Beispiel das es ungültige Werte gibt. Beobachtet man ein Minimum von -1 bei einem Merkmal welches das Alter in Jahren angibt, könnte dies auf fehlende Werte hindeuten. Bei einem zu hohen Maximum könnte es Fehler beim übertragen der Daten gegeben haben. Da ungültige Werte nicht notwendigerweise Ausreißer sind, bemerkt man diese unter Umständen nicht, wenn man nur die Lage und die Variabilität von Daten betrachtet.</p>
+</div>
+</div>
+<div class="section" id="visualisierung">
+<h2><span class="section-number">4.3. </span>Visualisierung<a class="headerlink" href="#visualisierung" title="Permalink to this headline">¶</a></h2>
+<p>Visualisierungen sind ein sehr mächtiges Werkzeug um etwas über Daten zu lernen und diese zu Verstehen. Hier ein Beispiel von einem Tortendiagramm (die Prozentzahlen sind ausgedacht und haben keine wissenschaftliche Bedeutung).</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we use matplotlib for the creation of visualizations</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="c1"># this is only required for Jupyter notebooks</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline 
+
+<span class="c1"># data to plot</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Schnelleres Verständnis&#39;</span><span class="p">,</span> <span class="s1">&#39;Besseres Langzeitmemorierung&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;Kann Muster zeigen&#39;</span><span class="p">,</span> <span class="s1">&#39;Kann komplexe Informationen vereinfachen&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;Kann lustige Bilder beinhalten&#39;</span><span class="p">]</span>
+<span class="n">sizes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;gold&#39;</span><span class="p">,</span> <span class="s1">&#39;yellowgreen&#39;</span><span class="p">,</span> <span class="s1">&#39;lightcoral&#39;</span><span class="p">,</span> <span class="s1">&#39;lightskyblue&#39;</span><span class="p">,</span> <span class="s1">&#39;pink&#39;</span><span class="p">]</span>
+
+<span class="c1"># plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">sizes</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span> <span class="n">autopct</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%1.1f%%</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_04_11_0.png" src="../_images/kapitel_04_11_0.png" />
+</div>
+</div>
+<p>Es gibt viele Vorteile von Visualisierungen gegenüber anderen Arten Daten darzustellen, zum Beispiel Tabellen oder deskriptiver Statistik. Im Allgemeine verarbeitet man visuelle Informationen schneller. Hierdurch kann man in der Regel schneller etwas über die Daten lernen. Hinzu kommt das viele Menschen sich visualisierte Informationen besser merken können.</p>
+<p>Die Vorteile von Visualisierungen gehen jedoch über die Verarbeitungsgeschwindigkeit und die Memorisierung hinaus. Visualisierungen können auch ein Verständnis der Daten ermöglichen, welches man andernfalls nicht erlangen könnten, zum Beispiel über Muster in Daten und komplexe Zusammenhänge, die man sonst nicht sehen könnte. Hierfür betrachten wir das folgende Beispiel. Alice kennt Bob und Dan, Dan kennt Bob, Bob kennt Carol und Alace, und Carol kennt Alice, Bob und Dan. Diese textuelle Beschreibung ist sehr komplex und schwer zu folgen. Außerdem bekommt man kein intuitives Verständnis der Beziehung zwischen Alice, Bob, Carol und Dan. Jetzt betrachten wir das gleiche als gerichteten Graph:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>  <span class="c1"># networkx is a powerful library for working with graphs</span>
+
+<span class="c1"># Create the graph by adding edges</span>
+<span class="c1"># The vertices are implicitly defined through the endpoints of the edges</span>
+<span class="n">graph</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
+<span class="n">graph</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;Bob&#39;</span><span class="p">)</span>
+<span class="n">graph</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;Dan&#39;</span><span class="p">)</span>
+<span class="n">graph</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s1">&#39;Dan&#39;</span><span class="p">,</span> <span class="s1">&#39;Bob&#39;</span><span class="p">)</span>
+<span class="n">graph</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Carol&#39;</span><span class="p">)</span>
+<span class="n">graph</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Alice&#39;</span><span class="p">)</span>
+<span class="n">graph</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s1">&#39;Carol&#39;</span><span class="p">,</span> <span class="s1">&#39;Alice&#39;</span><span class="p">)</span>
+<span class="n">graph</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s1">&#39;Carol&#39;</span><span class="p">,</span> <span class="s1">&#39;Bob&#39;</span><span class="p">)</span>
+<span class="n">graph</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s1">&#39;Carol&#39;</span><span class="p">,</span> <span class="s1">&#39;Dan&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot the graph with a shell layout</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_shell</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;lightblue&#39;</span><span class="p">,</span>
+              <span class="n">arrowsize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">connectionstyle</span><span class="o">=</span><span class="s1">&#39;arc3, rad = 0.1&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_04_13_0.png" src="../_images/kapitel_04_13_0.png" />
+</div>
+</div>
+<p>Dieser Graph ist einfach zu lesen und gibt uns ein intuitives Verständnis der Beziehungen.</p>
+<p>Bitte beachten Sie, dass wir bei allen Grafiken in diesem Kapitel Legenden und andere Details bewusst weglassen. Stattdessen generieren wir die Grafiken mit so möglichst wenig Quelltext, so dass sie trotzdem die gewünschten Erkenntnisse liefern. Der Grund hierfür ist, dass wir hier Visualisierungen als Werkzeug zur Erkundung von Daten betrachten. Wenn man Visualisierungen für Texte (Bücher und sonstige Publikationen) oder Präsentation erstellt, sind andere Aspekte ebenfalls relevant, zum Beispiel die konsistente Beschriftung, Farbwahl, Legenden, und Titel.</p>
+<div class="section" id="anscombes-quartett">
+<h3><span class="section-number">4.3.1. </span>Anscombes Quartett<a class="headerlink" href="#anscombes-quartett" title="Permalink to this headline">¶</a></h3>
+<p>Anscombes Quartett ist ein berühmtes Beispiel für Daten, in dem deskriptive Statistiken irreführend sind. Das Beispiel basiert auf vier Datensätzen  <span class="math notranslate nohighlight">\((x_1, y_1), ..., (x_4, y_4)\)</span> mit je elf Paaren aus zwei Variablen <span class="math notranslate nohighlight">\(x_i\)</span> und <span class="math notranslate nohighlight">\(y_i\)</span>, <span class="math notranslate nohighlight">\(i=1, ..., 4\)</span>. <a class="reference internal" href="#tbl-anscombe"><span class="std std-numref">Table 4.1</span></a> zeigt die Werte für jedes der Paare.</p>
+<table class="colwidths-auto table" id="tbl-anscombe">
+<caption><span class="caption-number">Table 4.1 </span><span class="caption-text">Anscombes Quartett.</span><a class="headerlink" href="#tbl-anscombe" title="Permalink to this table">¶</a></caption>
 <thead>
-<tr class="row-odd"><th class="head"><p>Skala</p></th>
-<th class="head"><p>Eigenschaft</p></th>
-<th class="head"><p>Erlaubte Operationen</p></th>
-<th class="head"><p>Beispiel</p></th>
+<tr class="row-odd"><th class="head"><p><span class="math notranslate nohighlight">\(x_{1,2,3}\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(y_1\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(y_2\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(y_3\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(x_4\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(y_4\)</span></p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Nominal</p></td>
-<td><p>Klassifikation oder Zugehörigkeit</p></td>
-<td><p><span class="math notranslate nohighlight">\(=, \neq\)</span></p></td>
-<td><p>Farben als Schwarz, Weiß und Blau.</p></td>
+<tr class="row-even"><td><p>10</p></td>
+<td><p>8.04</p></td>
+<td><p>9.14</p></td>
+<td><p>7.46</p></td>
+<td><p>8</p></td>
+<td><p>6.58</p></td>
 </tr>
-<tr class="row-odd"><td><p>Ordinal</p></td>
-<td><p>Vergleichbare Level</p></td>
-<td><p><span class="math notranslate nohighlight">\(=, \neq, &gt;, &lt;\)</span></p></td>
-<td><p>Größe in Small, Medium und Large</p></td>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>6.95</p></td>
+<td><p>8.14</p></td>
+<td><p>6.77</p></td>
+<td><p>8</p></td>
+<td><p>5.76</p></td>
 </tr>
-<tr class="row-even"><td><p>Intervall</p></td>
-<td><p>Unterschiede und Abstände</p></td>
-<td><p><span class="math notranslate nohighlight">\(=, \neq, &gt;, &lt;, + ,-\)</span></p></td>
-<td><p>Daten, Temperaturen</p></td>
+<tr class="row-even"><td><p>13</p></td>
+<td><p>7.58</p></td>
+<td><p>8.74</p></td>
+<td><p>12.74</p></td>
+<td><p>8</p></td>
+<td><p>7.71</p></td>
 </tr>
-<tr class="row-odd"><td><p>Rational</p></td>
-<td><p>Absolute Größen und Mengen</p></td>
-<td><p><span class="math notranslate nohighlight">\(=, \neq, &gt;, &lt;, +, -, *, /\)</span></p></td>
-<td><p>Größe in cm, Dauer in Sekunden</p></td>
+<tr class="row-odd"><td><p>9</p></td>
+<td><p>8.81</p></td>
+<td><p>8.77</p></td>
+<td><p>7.11</p></td>
+<td><p>8</p></td>
+<td><p>8.84</p></td>
+</tr>
+<tr class="row-even"><td><p>11</p></td>
+<td><p>8.33</p></td>
+<td><p>9.26</p></td>
+<td><p>7.81</p></td>
+<td><p>8</p></td>
+<td><p>8.47</p></td>
+</tr>
+<tr class="row-odd"><td><p>14</p></td>
+<td><p>9.96</p></td>
+<td><p>8.10</p></td>
+<td><p>8.84</p></td>
+<td><p>8</p></td>
+<td><p>7.04</p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>7.24</p></td>
+<td><p>6.13</p></td>
+<td><p>6.08</p></td>
+<td><p>8</p></td>
+<td><p>5.25</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>4.26</p></td>
+<td><p>3.10</p></td>
+<td><p>5.39</p></td>
+<td><p>19</p></td>
+<td><p>12.50</p></td>
+</tr>
+<tr class="row-even"><td><p>12</p></td>
+<td><p>10.84</p></td>
+<td><p>9.13</p></td>
+<td><p>8.15</p></td>
+<td><p>8</p></td>
+<td><p>5.56</p></td>
+</tr>
+<tr class="row-odd"><td><p>7</p></td>
+<td><p>4.82</p></td>
+<td><p>7.26</p></td>
+<td><p>6.42</p></td>
+<td><p>8</p></td>
+<td><p>7.91</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>5.68</p></td>
+<td><p>4.74</p></td>
+<td><p>5.73</p></td>
+<td><p>8</p></td>
+<td><p>6.89</p></td>
 </tr>
 </tbody>
 </table>
-<p><a class="reference internal" href="#tbl-scales"><span class="std std-numref">Table 4.1</span></a> fasst die Eigenschaften der SKalen zusammen.  Nominale und ordinale Merkmale nennt man auch <em>kategorische</em> Merkmale, da sie ihre Werte in Kategorien darstellen. Bei nominalen Merkmalen gibt es keine Ordnung der Kategorien, das heißt, dass man zum Beispiel nicht sagen kann welche Kategorie größer oder kleiner ist. Bei ordinalen Merkmalen gibt es eine wohldefinierte Ordnung, wir können die Kategorien also sortieren. Der Abstand zwischen den Kategorien ist nicht bekannt und auch nicht notwendigerweise gleich zwischen benachbarten Kategorien. Entsprechend kann man nur sagen, dass T-Shirts der Größe <em>Small</em> kleiner sind als <em>Medium</em> und <em>Medium</em> wiederum kleiner als <em>Large</em>. Aber wie groß der Unterschied zwischen <em>Small</em> und <em>Medium</em> ist, und ob der Unterschied zwischen <em>Medium</em> und <em>Large</em> gleich groß sind, ist nicht bekannt. Dieses Wissen hat man erst, wenn man eine Intervallskala verwendet, auf der man die Unterschiede quantifizieren kann. Wir können zum Temperaturdifferenz von 10° C und 5° C berechnen. Was jedoch auf Intervalskalen keinen Sinn ergibt, sind Verhältnisse. Man kann zum Beispiel nicht Sinnvoll sagen, dass dass das Datum 2000-01-01 doppelt so hoch ist wie 1000-01-01. Daher kann man Verhältnisse nur bei Merkmalen mit einer rationalen Skala sinnvoll berechnen. Wenn wir zum Beispiel die Zeit messen, die im Gregorianischen Kalender seit dem Jahr 0 vergangen ist, kann man durchaus sagen das 2000 Jahre unterschied doppelt so viel ist wie 1000 Jahre.</p>
-<p>Viele Algorithmen gehen davon aus, dass die Merkmale durch Zahlen repräsentiert werden. Während das auf Intervall- und Rationalskalen kein Problem ist, sind Nominal- und Ordinalskalen nicht numerisch. Ein einfacher Ansatz wäre es die Kategorien einfach durchzunummerieren, zum Beispiel Schwarz als eins, Weiß als zwei und Blau als drei. Diesen Ansatz sollte man jedoch in der Regel vermeiden, da die Gefahr besteht das Algorithmen dann mit diesen Zahlen rechnen und zum Beispiel Differenzen bilden. Dann wäre Blau Minus Weiß auf einmal Schwarz, was natürlich keinen Sinn ergibt. Eine bessere Lösung ist daher das <em>One-Hot Encoding</em>. Das Konzept hinter dem One-Hot Encoding ist eine Nominal-, bzw. Ordinalskala durch viele Merkmale mit den Werten null und eins zu ersetzen. Für jede Kategorie der ursprünglichen Skala gibt es ein neues Merkmal. Für einen Datenpunkt ist der Wert dieses neuen Merkmals eins, wenn der Datenpunkt zur entsprechenden Kategorie gehört und ansonsten null.</p>
-<p>Als Beispiel betrachten wir die Nominalskala mit den Werten Schwarz, Weiß, und Blau, es gilt also <span class="math notranslate nohighlight">\(x \in \{Schwarz, Wei\text{ß}, Blau\}\)</span>. Wir ersetzen dieses Feature durch drei neue Feature <span class="math notranslate nohighlight">\(x^{Schwarz}, x^{Wei\text{ß}}, x^{Blaub} \in \{0,1\}\)</span>. Die Werte der neuen Merkmale sind definiert als</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}x^{Schwarz} = \begin{cases}1 &amp; \text{wenn}~x=\text{Schwarz} \\ 0 &amp; \text{sonst}\end{cases}\end{split}\]</div>
-<div class="math notranslate nohighlight">
-\[\begin{split}x^{Wei\text{ß}} = \begin{cases}1 &amp; \text{wenn}~x=\text{Wei\text{ß}} \\ 0 &amp; \text{sonst}\end{cases}\end{split}\]</div>
-<div class="math notranslate nohighlight">
-\[\begin{split}x^{Blau} =  \begin{cases}1 &amp; \text{wenn}~x=\text{Blau}  \\ 0 &amp; \text{sonst}\end{cases}\end{split}\]</div>
-<p>Mit diesem Ansatz transformiert man also <span class="math notranslate nohighlight">\(n\)</span> Kategorien in <span class="math notranslate nohighlight">\(n\)</span> neue Merkmale. Es ist auch möglich ein One-Hot Encoding mit <span class="math notranslate nohighlight">\(n-1\)</span> neuen Merkmalen zu definieren. Wir könnten im Beispiel einfach <span class="math notranslate nohighlight">\(x^{Blau}\)</span> weglassen und wüssten trotzdem noch eindeutig, welche Farbe es ist: Wenn <span class="math notranslate nohighlight">\(x^{Schwarz} = x^{Wei\text{ß}} = 0\)</span> gilt, muss die Farbe stattdessen Blau sein. Diese Eigenschaft sollte man insbesondere dann ausnutzen, wenn man eine Skala mit zwei Kategorien umwandelt.</p>
-<p>Bitte beachten Sie, dass One-Hot Encoding möglicherweise nicht gut funktioniert, wenn sie sehr viele verschiedene Kategorien haben. Dies führt zu vielen neuen Merkmalen, welches bei der anschließenden Modellierung zum Problem werden kann. Hinzu kommt, dass man bei der Umwandlung von Ordinalskalen die Informationen über die Ordnung verliert. In solchen Fällen sollte man nach Möglichkeit auch Analysemethoden zurückgreifen, die direkt mit Nominal-, bzw. Ordinalskalen arbeiten können.</p>
+<p>Wenn wir das arithmetische Mittel und die Standardabweichung betrachten, sehen wir das die Werte für alle <span class="math notranslate nohighlight">\(x_i\)</span> und für alle <span class="math notranslate nohighlight">\(y_i\)</span> gleich sind.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>  <span class="c1"># we now also need numpy, the commonly used numerics libarary for Python</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span> <span class="c1"># same for x1, x2, and x3</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">8.04</span><span class="p">,</span> <span class="mf">6.95</span><span class="p">,</span> <span class="mf">7.58</span><span class="p">,</span> <span class="mf">8.81</span><span class="p">,</span> <span class="mf">8.33</span><span class="p">,</span> <span class="mf">9.96</span><span class="p">,</span>
+               <span class="mf">7.24</span><span class="p">,</span> <span class="mf">4.26</span><span class="p">,</span> <span class="mf">10.84</span><span class="p">,</span> <span class="mf">4.82</span><span class="p">,</span> <span class="mf">5.68</span><span class="p">])</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">9.14</span><span class="p">,</span> <span class="mf">8.14</span><span class="p">,</span> <span class="mf">8.74</span><span class="p">,</span> <span class="mf">8.77</span><span class="p">,</span> <span class="mf">9.26</span><span class="p">,</span>
+               <span class="mf">8.10</span><span class="p">,</span> <span class="mf">6.13</span><span class="p">,</span> <span class="mf">3.10</span><span class="p">,</span> <span class="mf">9.13</span><span class="p">,</span> <span class="mf">7.26</span><span class="p">,</span> <span class="mf">4.74</span><span class="p">])</span>
+<span class="n">y3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">7.46</span><span class="p">,</span> <span class="mf">6.77</span><span class="p">,</span> <span class="mf">12.74</span><span class="p">,</span> <span class="mf">7.11</span><span class="p">,</span> <span class="mf">7.81</span><span class="p">,</span>
+               <span class="mf">8.84</span><span class="p">,</span> <span class="mf">6.08</span><span class="p">,</span> <span class="mf">5.39</span><span class="p">,</span> <span class="mf">8.15</span><span class="p">,</span> <span class="mf">6.42</span><span class="p">,</span> <span class="mf">5.73</span><span class="p">])</span>
+<span class="n">x4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+<span class="n">y4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">6.58</span><span class="p">,</span> <span class="mf">5.76</span><span class="p">,</span> <span class="mf">7.71</span><span class="p">,</span> <span class="mf">8.84</span><span class="p">,</span> <span class="mf">8.47</span><span class="p">,</span> <span class="mf">7.04</span><span class="p">,</span>
+               <span class="mf">5.25</span><span class="p">,</span> <span class="mf">12.50</span><span class="p">,</span> <span class="mf">5.56</span><span class="p">,</span> <span class="mf">7.91</span><span class="p">,</span> <span class="mf">6.89</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Arithmetisches Mittel&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x1, x2, x3 = &#39;</span><span class="p">,</span> <span class="n">statistics</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x4         = &#39;</span><span class="p">,</span> <span class="n">statistics</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y1         = &#39;</span><span class="p">,</span> <span class="n">statistics</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y1         = &#39;</span><span class="p">,</span> <span class="n">statistics</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y1         = &#39;</span><span class="p">,</span> <span class="n">statistics</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y1         = &#39;</span><span class="p">,</span> <span class="n">statistics</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y4</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Standardabweichung&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x1, x2, x3 = &#39;</span><span class="p">,</span> <span class="n">statistics</span><span class="o">.</span><span class="n">stdev</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x4         = &#39;</span><span class="p">,</span> <span class="n">statistics</span><span class="o">.</span><span class="n">stdev</span><span class="p">(</span><span class="n">x4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y1         = &#39;</span><span class="p">,</span> <span class="n">statistics</span><span class="o">.</span><span class="n">stdev</span><span class="p">(</span><span class="n">y1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y1         = &#39;</span><span class="p">,</span> <span class="n">statistics</span><span class="o">.</span><span class="n">stdev</span><span class="p">(</span><span class="n">y2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y1         = &#39;</span><span class="p">,</span> <span class="n">statistics</span><span class="o">.</span><span class="n">stdev</span><span class="p">(</span><span class="n">y3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y1         = &#39;</span><span class="p">,</span> <span class="n">statistics</span><span class="o">.</span><span class="n">stdev</span><span class="p">(</span><span class="n">y4</span><span class="p">))</span>
+</pre></div>
 </div>
-<div class="section" id="trainings-und-testdaten">
-<h2><span class="section-number">4.4. </span>Trainings- und Testdaten<a class="headerlink" href="#trainings-und-testdaten" title="Permalink to this headline">¶</a></h2>
-<p>Daten sind das Herz von jedem Data Science Projekt. Die Daten bestehen aus <em>Instanzen</em> von <em>Merkmalen</em>, wobei eine Instanz die Representation eines Objekts der realen Welt durch seine Merkmale ist. <a class="reference internal" href="kapitel_07.html#tbl-data"><span class="std std-numref">Table 7.1</span></a> zeigt uns ein Beispiel von Daten.</p>
-<table class="colwidths-auto table" id="tbl-data">
-<caption><span class="caption-number">Table 4.2 </span><span class="caption-text">Beispiel für Instanzen von Objekten mit ihren Merkmalen.</span><a class="headerlink" href="#tbl-data" title="Permalink to this table">¶</a></caption>
-<thead>
-<tr class="row-odd"><th class="head"><p>Form</p></th>
-<th class="head"><p>Farbe oben</p></th>
-<th class="head"><p>Farbe unten</p></th>
-<th class="head"><p>Hintergrundfarbe</p></th>
-<th class="head"><p>Flossen</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Oval</p></td>
-<td><p>Schwarz</p></td>
-<td><p>Weiß</p></td>
-<td><p>Blau</p></td>
-<td><p>Ja</p></td>
-</tr>
-<tr class="row-odd"><td><p>Rechteck</p></td>
-<td><p>Braun</p></td>
-<td><p>Braun</p></td>
-<td><p>Grün</p></td>
-<td><p>Nein</p></td>
-</tr>
-<tr class="row-even"><td><p>…</p></td>
-<td><p>…</p></td>
-<td><p>…</p></td>
-<td><p>…</p></td>
-<td><p>…</p></td>
-</tr>
-</tbody>
-</table>
-<p>Jede Zeile in der Tabelle ist eine Instanz, jede Spalte beinhaltet wie Werte von einem Merkmal. Häufig gibt es noch eine gewissen Eigenschaft die man aus den Merkmalen lernen möchte, sozusagen einen <em>Wert von Interesse</em> der mit jeder Instanz verbunden wird. <a class="reference internal" href="#tbl-data-label"><span class="std std-numref">Table 4.3</span></a> zeigt die Erweiterung der Instanzen.</p>
-<table class="colwidths-auto table" id="tbl-data-label">
-<caption><span class="caption-number">Table 4.3 </span><span class="caption-text">Beispiel für Instanzen von Objekten mit ihren Merkmalen mit Werten von Interesse. Diese werden häufig auch als <em>Label</em> bezeichnet.</span><a class="headerlink" href="#tbl-data-label" title="Permalink to this table">¶</a></caption>
-<thead>
-<tr class="row-odd"><th class="head"><p>Form</p></th>
-<th class="head"><p>Farbe oben</p></th>
-<th class="head"><p>Farbe unten</p></th>
-<th class="head"><p>Hintergrundfarbe</p></th>
-<th class="head"><p>Flossen</p></th>
-<th class="head"><p>Wert von Interesse</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Oval</p></td>
-<td><p>Schwarz</p></td>
-<td><p>Weiß</p></td>
-<td><p>Blau</p></td>
-<td><p>Ja</p></td>
-<td><p>Wal</p></td>
-</tr>
-<tr class="row-odd"><td><p>Rechteck</p></td>
-<td><p>Braun</p></td>
-<td><p>Braun</p></td>
-<td><p>Grün</p></td>
-<td><p>Nein</p></td>
-<td><p>Bär</p></td>
-</tr>
-<tr class="row-even"><td><p>…</p></td>
-<td><p>…</p></td>
-<td><p>…</p></td>
-<td><p>…</p></td>
-<td><p>…</p></td>
-<td><p>…</p></td>
-</tr>
-</tbody>
-</table>
-<p>Je nachdem ob dieser Wert bekannt ist und für die Erstellung eines Modells verwendet wird oder nicht, spricht man vom <em>überwachten</em>, bzw. <em>unüberwachten Lernen</em> (engl. <em>supervised/unsupersized</em>).</p>
-<p>Daten sind häufig in Form von Datensätzen organisiert. In diesem Zusammenhang sind die Begriffe <em>Trainingsdaten</em> und <em>Testdaten</em> für die Datenanalyse besonders wichtig. Die Trainingsdaten werden für die Erstellung von Modellen benutzt, das heißt für alles von der Datenexploration, über die Bestimmung von geeigneten Modellen, als auch für Experimente um das beste Modell auszuwählen. Man kann die Trainingsdaten so oft man will benutzt und beliebig transformieren.</p>
-<p>Die Testdaten werden jedoch idealerweise nur ein einziges Mal verwendet, und zwar am Ende des Projekts um zu überprüfen ob die Ergebnisse von den Trainingsdaten auch auf andere Daten verallgemeinern und um hierdurch abzuschätzen wie gut ein Modell im operationellen Betrieb funktionieren würde. Hierzu wird das auf den Trainingsdaten ermittelte Modell mit den Testdaten gefüttert um die Güte, basierend auf den in der Discovery definierten Kriterien, zu messen.</p>
-<p>Die Unterscheidung zwischen Trainings- und Testdaten ist wichtig um sicherzustellen das man <em>Overfitting</em> verhindert und stattdessen die <em>Generalisierung</em> sicherstellt. Overfitting bedeutet, dass das Modell die Daten auswendig lernt, statt das eigentliche Problem zu lösen. Es ist nämlich relativ einfach ein perfektes Modell für die Trainingsdaten zu erstellen: Man lernt diese einfach auswendig und gibt diese später wieder aus. Bei beliebigen anderen Daten würde dieses Modell jedoch nicht mehr funktionieren. Die Testdaten verhindern genau das. Wenn das Modell nur auswendig gelernt hat statt Zusammenhänge zu erkennen, wird es auf den Testdaten nicht gut funktionieren. Andersrum gilt aber auch, dass wenn ein Modell auch auf den Testdaten gute Ergebnisse liefert, dass es wahrscheinlich ist das es auch in der realen Anwendung wie gewünscht funktioniert.</p>
-<p>Leider sind Daten häufig eine nur begrenzt verfügbare Ressource, da das Sammeln von Daten häufig zeitaufwendig und/oder kostenintensiv ist. Auf der einen Seite wissen wir, dass maschinelles Lernen bessere Ergebnisse liefert, wenn mehr Daten zur Verfügung stehen. Auf der anderen Seite ist die Bewertung der Güte auf den Testdaten  genauer, wenn mehr Testdaten zur Verfügung stehen. Wie viele und welche Daten fürs Testen verwendend werden ist also immer eine Abwägung die innerhalb von einem Projekt gemacht werden muss. Im Idealfall stehen genug Daten zur Verfügung, dass man mit <em>Hold-Out</em> Daten arbeiten kann. Das bedeutet man hat einen echten Testdatensatz, der auch nur zu diesem Zweck verwendet wird. Wie viele Daten als Hold-Out-Daten genutzt werden legt man üblicherweise als Prozentsatz der zur Verfügung stehenden Daten fest, zum Beispiel</p>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Arithmetisches Mittel
+x1, x2, x3 =  9
+x4         =  9
+y1         =  7.500909090909091
+y1         =  7.500909090909091
+y1         =  7.5
+y1         =  7.500909090909091
+Standardabweichung
+x1, x2, x3 =  3.3166247903554
+x4         =  3.3166247903554
+y1         =  2.031568135925815
+y1         =  2.0316567355016177
+y1         =  2.030423601123667
+y1         =  2.0305785113876023
+</pre></div>
+</div>
+</div>
+</div>
+<p>Es gibt sogar noch mehr Gemeinsamkeiten. Wenn wir eine lineare Regression von <span class="math notranslate nohighlight">\(y_i\)</span> durch <span class="math notranslate nohighlight">\(x_i\)</span> bestimmen würden (siehe <a class="reference internal" href="kapitel_08.html"><span class="doc std std-doc">Kapitel 8</span></a>), würden wir jedes Mal die gleiche Regressionsgerade <span class="math notranslate nohighlight">\(y=3+0.5\cdot x\)</span> finden. Statistisch sind sich diese vier Datensätze also sehr ähnlich. Wenn wir uns die Daten durch einen einfach <em>Scatterplot</em> visualisieren, sehen wir das die Datensätze eigentlich sehr unterschiedlich sind.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xfit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
+<span class="n">yfit</span> <span class="o">=</span> <span class="mi">3</span><span class="o">+</span><span class="mf">0.5</span><span class="o">*</span><span class="n">xfit</span>
+
+<span class="n">f</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkorange&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xfit</span><span class="p">,</span> <span class="n">yfit</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;navy&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;$x_1, y_1$&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkorange&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xfit</span><span class="p">,</span> <span class="n">yfit</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;navy&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;$x_2, y_2$&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkorange&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xfit</span><span class="p">,</span> <span class="n">yfit</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;navy&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;$x_3, y_3$&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x4</span><span class="p">,</span> <span class="n">y4</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkorange&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xfit</span><span class="p">,</span> <span class="n">yfit</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;navy&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;$x_4, y_4$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_04_17_0.png" src="../_images/kapitel_04_17_0.png" />
+</div>
+</div>
+<p>Die orangen Punkte visualisieren die Daten selbst, die blauen Linien zeigen die Regressionsgerade für <span class="math notranslate nohighlight">\(y=3+0.5\cdot x\)</span>, die optimal ist für die Daten. Nur basierend auf den statistischen Informationen über die Daten, würde man erwarten dass die Daten etwa so wie beim Paar <span class="math notranslate nohighlight">\(x_1\)</span>, <span class="math notranslate nohighlight">\(y_1\)</span> aussehen: Die Daten haben eine etwa lineare Beziehung mit einer leichten Streuung ohne ein klar erkennbares Muster um die Regressionsgerade. Eine lineare Beziehung zwischen <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(y\)</span> bedeutet, dass wenn <span class="math notranslate nohighlight">\(x\)</span> sich verändert, sich <span class="math notranslate nohighlight">\(y\)</span> um ein konstantes vielfaches von <span class="math notranslate nohighlight">\(x\)</span> verändert. Das bedeutet umgekehrt auch, dass man die Beziehung von <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(y\)</span> sich etwa als Gerade vorstellen kann. Beim Paar <span class="math notranslate nohighlight">\(x_2\)</span>, <span class="math notranslate nohighlight">\(y_2\)</span> is dies nicht der Fall, stattdessen sehen die Daten eher aus wie eine auf den Kopf gestellte Parabel. Das Paar <span class="math notranslate nohighlight">\(x_3\)</span>, <span class="math notranslate nohighlight">\(y_3\)</span> ist eigentlich perfekt linear, bis auf einen einzelnen Datenpunkt, der nach oben ausreißt und dafür sorgt das die blaue Regressionsgerade nicht zur eigentlichen Geraden, auf der die Daten liegen, passt. Das Paar <span class="math notranslate nohighlight">\(x_4\)</span>, <span class="math notranslate nohighlight">\(y_4\)</span> passt nicht zu dem was die Statistiken aussagen, welche auch wieder von einem Ausreißer stark beeinflusst werden.</p>
+<p>Die Aussage von Anscombes Quartett ist somit eindeutig: Auch wenn Statistiken gut geeignet sein können Daten zusammenzufassen, ist es ebenso möglich, dass die Statistiken irreführend sind. Der kritische Leser wird vielleicht bemerkt haben, dass die durch Ausreißer verursachten Probleme beim arithmetischen Mittel und der Standardabweichung zu erwarten sind. Die Probleme von Statistiken sind jedoch grundlegender und es gibt weitere Beispiele die auch mehr statistische Marker berücksichtigen <a class="footnote-reference brackets" href="#datasaurus" id="id3">3</a>.</p>
+</div>
+<div class="section" id="einzelne-merkmale">
+<h3><span class="section-number">4.3.2. </span>Einzelne Merkmale<a class="headerlink" href="#einzelne-merkmale" title="Permalink to this headline">¶</a></h3>
+<p>Eine grundlegende Betrachtung der Daten ist die Visualisierung einzelner Merkmale der Daten. Hierdurch kann man die Verteilung dieser Merkmale verstehen, ähnlich zur Beschreibung durch Statistiken. Hierzu betrachten wir Histogramme, Densityplots, Rugs, und Boxplots.</p>
+<p>Wir betrachten diese Feature anhand von Daten über Hauspreise aus Boston die 1978 veröffentlich wurden, welche wir im Folgenden einfach als Bostondaten bezeichnen werden.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sklearn is a large machine learning library that we use</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<span class="kn">from</span> <span class="nn">textwrap</span> <span class="kn">import</span> <span class="n">TextWrapper</span>
+
+<span class="c1"># we use this wrapper to avoid printing lines that are too long because this should be readable as a book</span>
+<span class="c1"># usually you would still just use print</span>
+<span class="n">wrapper</span> <span class="o">=</span> <span class="n">TextWrapper</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">65</span><span class="p">,</span> <span class="n">replace_whitespace</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">break_long_words</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">wrap_print</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">wrapper</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">line</span><span class="p">)))</span>
+
+<span class="n">boston</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">fetch_openml</span><span class="p">(</span><span class="n">data_id</span><span class="o">=</span><span class="mi">531</span><span class="p">)</span>
+<span class="n">wrap_print</span><span class="p">(</span><span class="n">boston</span><span class="o">.</span><span class="n">DESCR</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>**Author**:
+**Source**: Unknown - Date unknown
+**Please cite**:
+
+The Boston house-price data of Harrison, D. and Rubinfeld, D.L.
+&#39;Hedonic
+prices and the demand for clean air&#39;, J. Environ. Economics &amp;
+Management,
+vol.5, 81-102, 1978.   Used in Belsley, Kuh &amp; Welsch, &#39;Regression
+diagnostics
+...&#39;, Wiley, 1980.   N.B. Various transformations are used in the
+table on
+pages 244-261 of the latter.
+Variables in order:
+CRIM     per capita crime rate by town
+ZN       proportion of residential land zoned for lots over
+25,000 sq.ft.
+INDUS    proportion of non-retail business acres per town
+CHAS     Charles River dummy variable (= 1 if tract bounds river;
+0 otherwise)
+NOX      nitric oxides concentration (parts per 10 million)
+RM       average number of rooms per dwelling
+AGE      proportion of owner-occupied units built prior to 1940
+DIS      weighted distances to five Boston employment centres
+RAD      index of accessibility to radial highways
+TAX      full-value property-tax rate per $10,000
+PTRATIO  pupil-teacher ratio by town
+B        1000(Bk - 0.63)^2 where Bk is the proportion of blacks
+by town
+LSTAT    % lower status of the population
+MEDV     Median value of owner-occupied homes in $1000&#39;s
+
+
+Information about the dataset
+CLASSTYPE: numeric
+CLASSINDEX: last
+
+Downloaded from openml.org.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Die obige Beschreibung beinhaltet ist ein Beispiel von Metadaten, in diesem Fall die Dokumentation der Daten.</p>
+<blockquote>
+<div><p><strong>Bemerkung:</strong></p>
+<p>Die Bostondaten werden immer häufiger kritisiert und wurden zum Beispiel auch als Beispieldatensatz aus scikit-learn entfernt. Der Grund hierfür ist, dass die Daten aus ethischer Sicht hochproblematisch sind: Die Daten sind teilweise rassistisch, insbesondere das Merkmal <code class="docutils literal notranslate"><span class="pre">B</span></code>. In diesem Buch verwenden wir diese Daten dennoch weiter und Nutzen den Datensatz, um nicht nur zu zeigen wie man Daten analysieren kann, sondern auch als Beispiel das man ethische Aspekte von Daten und Modellen niemals vergessen sollte.</p>
+</div></blockquote>
+<p>Wir werfen jetzt einen genaueren Blick auf das Merkmal <code class="docutils literal notranslate"><span class="pre">MEDV</span></code>, den Median des Werts der Eigenheime in 1000 Dollar. <em>Histogramme</em> sind eine einfache und oft effektive Art etwas über die Verteilung von Daten zu lernen.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">boston</span><span class="o">.</span><span class="n">target</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Wert in 1000 $&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Häufigkeit&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_04_21_0.png" src="../_images/kapitel_04_21_0.png" />
+</div>
+</div>
+<p>Das Histogramm zeigt wie häufig Werte vorkommen. Hierfür wird der Wertebereich in sogenannte <em>Bins</em> unterteilt. Das Begriff Bin ist vom Englischen Wort für gruppieren abgeleitet. Das Histogramm zeigt an wie viele Datenpunkte in jedem Bin liegen. Im obigen Beispiel haben wir 50 Bins. Das Histogramm verrät uns viel über die Daten.</p>
 <ul class="simple">
-<li><p>50% Trainingsdaten, 50% Testdaten,</p></li>
-<li><p>66,6% Trainingsdaten, 33,4% Testdaten, oder auch</p></li>
-<li><p>75% Trainingsdaten, 25% Testdaten.</p></li>
+<li><p>Die Daten zwischen 0 und 30 scheinen normalverteilt zu sein. Dies erkennt man daran, dass die Daten etwa eine <em>Glockenform</em> (engl. bell-shape) haben, was für die Normalverteilung typisch ist. Der Mittelwert dieser Normalverteilung liegt ca. bei 22. Dies erkennt man am <em>Peak</em> in diesem Wertbereich. Die Standardabweichung kann man nicht genau ablesen, aber mit Hilfe der oben diskutierten 68-95-99 Regel grob abschätzen. Der Wert sollte sich zwischen 7 und 11 befinden.</p></li>
+<li><p>Neben dieser Normalverteilung gibt es noch viele Werte am rechten Rand der Grafik, also bei genau 50. Dies deutet darauf hin, dass es in Wirklichkeit vermutlich auch noch Werte oberhalb von 50 gibt, diese aber zusammengefasst wurden. Die eigentliche Bedeutung des Werts 50 ist somit nicht Häuser mit einem Wert von 50.000 Dollar, sondern Häuser die mindestens 50.000 Dollar Wert sind.</p></li>
+<li><p>Es gibt einen <em>Tail</em> auf der rechten Seite des Grafik, also Häuser die teuer sind. Diese Häuser kommen zwar vor, lassen sich aber nicht mehr durch die Normalverteilung erklären. Solche Daten nennt man auch <em>Rechtsschief</em> (engl. right skew).</p></li>
 </ul>
-<p>Es kann auch Sinn machen, zusätzlich noch <em>Validationsdaten</em> zu nutzen. Validationsdaten sind “wiederverwendbare Testdaten zur Modellauswahl”. Das heißt, dass man die Daten ähnlich wie die Testdaten verwendet, jedoch nicht nur am Ende des Projekts zur abschließenden Bewertung. Stattdessen kann man diese Daten bereits vorher nutzen, zum Beispiel um verschiedene Modelle miteinander zu vergleichen und oder um Modellparameter zu optimieren. Validationsdaten können ebenfalls als Hold-Out Daten erstellt werden, zum Beispiel mit 50% Trainingsdaten, 25% Validationsdaten und 25% Testdaten.</p>
-<p>Für den Fall das nicht genug Daten zu Verfügung stehen um mit Hold-Out Daten zu arbeiten, kann man <em>Kreuzvalidierung</em> (engl. <em>cross-validation</em>) nutzen um die Wahrscheinlichkeit von Overfittung zu reduzieren. Bei der Kreuzvalidierung gibt es keine klare Trennung zwischen Trainings- und Testdaten. Stattdessen werden alle Daten sowohl für das Training, als auch für die Bewertung der Güte benutzt. <a class="reference internal" href="#fig-cv"><span class="std std-numref">Fig. 4.2</span></a> beschreibt die Kreuzvalidierung. Bei <span class="math notranslate nohighlight">\(k\)</span>-Facher Kreuzvalidierung (engl. <span class="math notranslate nohighlight">\(k\)</span>-fold cross-validation) werden die Daten hierfür in <span class="math notranslate nohighlight">\(k\)</span> gleichgroße Partitionen unterteilt. Jede Partition wird einmal für das Testen benutzt und alle anderen Partitionen für das Training.</p>
-<div class="figure align-default" id="fig-cv">
-<a class="reference internal image-reference" href="../_images/cv-german.png"><img alt="../_images/cv-german.png" src="../_images/cv-german.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 4.2 </span><span class="caption-text">Verwendung von Daten zur Kreuzvalidierung.</span><a class="headerlink" href="#fig-cv" title="Permalink to this image">¶</a></p>
+<p>Wir können uns <code class="docutils literal notranslate"><span class="pre">MEDV</span></code> auch mit Hilfe von einem Densityplot angucken.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>  <span class="c1"># seaborn is a visualization libary build on top of matplotlib</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">boston</span><span class="o">.</span><span class="n">target</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Wert in 1000 $&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Dichte&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
 </div>
-<p>Die Güte wird als arithmetisches Mittel der Güte auf der jeweiligen Testpartition berechnet. Bei der Kreuzvalidierung wird somit jede Instanz der Daten genau einmal in den Testdaten und <span class="math notranslate nohighlight">\(k-1\)</span> mal zum Training verwendet. Die Nachteil der Kreuzvalidierung ist das es keine echten Testdaten gibt. Stattdessen handelt es sich vielmehr um Validierungsdaten. Dennoch verwenden wir hier auch den Begriff Testdaten, da dies in der Literatur üblich ist. Da es keine echte Testdaten gibt ist das Risiko von Overfitting bei der Kreuzvalidierung höher als bei der Verwendung von Hold-Out Daten. Daher sollte man, sofern möglich, Hold-Out Daten verwenden und Kreuzvalidierung nur als Notlösung betrachten.</p>
 </div>
-<div class="section" id="kategorien-von-algorithmen">
-<h2><span class="section-number">4.5. </span>Kategorien von Algorithmen<a class="headerlink" href="#kategorien-von-algorithmen" title="Permalink to this headline">¶</a></h2>
-<p>Data Science ist ein vielseitiges Gebiet. Je nach Problemstellung gibt es unterschiedliche Algorithmen, die für ein Projekt geeignet sind.</p>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_04_23_0.png" src="../_images/kapitel_04_23_0.png" />
+</div>
+</div>
+<p>Vereinfacht gesagt, zeigen Densityplots eine Schätzung der Dichtefunktion der Wahrscheinlichkeitsverteilung der Daten. Wir können uns das als eine Art kontinuierliches Histogramm vorstellen. Der Vorteil von Densityplots gegenüber Histogrammen ist, dass es oft einfacher ist die Verteilung der Daten zu erkennen. Im obigen Beispiel erkennt man die Glockenform und die Position des Peaks besser und kann dadurch die Normalverteilung in der linken Hälfte des Plots besser erkennen. Densityplots haben jedoch auch einige Nachteile im Vergleich zu Histogrammen. Ein kleiner Nachteil ist, das es schwierig ist, die Werte der y-Achse zu interpretieren. Während ein Histogram eine klare Aussage über die Anzahl der Datenpunkte in einem Bin erlaubt, sieht man im Densityplot lediglich die <em>Dichte</em> als Wert zwischen 0,0 und 1,0. Die Dichte ist mehr oder weniger der Anteil der Daten, der an einem bestimmten Punkt auf der x-Achse zu erwarten ist.</p>
+<p>Der zweite Nachteil der Densityplots ist gravierender. Das Histogramm zeigt uns klar die vielen Datenpunkte mit dem Wert 50 und auch, dass es keine Datenpunkte mit einem höheren Wert gibt. Im Densityplot sieht man bei der 50 nur einen kleinen Peak, den man auch als weitere Normalverteilung mit dem Mittelwert 50 am rechten Rand der Daten interpretieren könnte. Das ist irreführend und versteckt die wahre Verteilung der Daten. Dieses Risiko lässt sich bei Densityplots auch nicht vermeiden, da es mit der Technik, wie die Dichte geschätzt wird, zusammenhängt. Solche Fehlinterpretationen  der Daten sind dann wahrscheinlich, wenn die Daten nicht sehr dicht verteilt sind (großer Datenbereich mit verhältnismäßig wenig Datenpunkten) sowie an den Grenzen der beobachteten Daten. Hier geht die geschätzte Dichtefunktion automatisch über den beobachteten Datenbereich hinaus, was eventuell aber der Interpretation eines Merkmals widerspricht. Man erkennt im obigen Plot zum Beispiel auch, das die Werte kleiner 0 nicht eine Dichte von 0 haben, was bedeuten würde das einige Eigenheime einen negativen Wert hätten.</p>
+<blockquote>
+<div><p><strong>Bemerkung:</strong></p>
+<p>Densityplots werden mit Hilfe von <em>Kernel Density Functions</em> (KDE) erstellt, in der Regel mit Hilfe der Dichtefunktion der Normalverteilung. Diese Dichtefunktion wird dann an jeden Datenpunkt mit <em>Skalierungs-</em> und <em>Bandbreitenparametern</em> geschätzt. Anschließend werden alle diese geschätzten Dichtefunktionen aufaddiert um den Densityplot zu erstellen. Hierdurch kann man auch das Verhalten an den Grenzen erklären: Die Dichtefunktion die an den äußersten Punkten der Daten geschätzt wird geht Aufgrund der Symmetrie der Normalverteilung automatisch über den Datenbereich hinaus. Die Skalierung der Schätzung führt dazu, dass ein seltsames Verhalten wie viele gleiche Werte an einer Grenze in der aufsummierten Dichtefunktion nicht stark auffällt.</p>
+</div></blockquote>
+<p>Ein einfaches Mittel dieses Problem zu vermeiden ist es einen <em>Rug</em> anzuzeigen. Der <em>Rug</em> hat seinem Namen da er wie ein Teppich unter den Plot gelegt wird.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">boston</span><span class="o">.</span><span class="n">target</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">rugplot</span><span class="p">(</span><span class="n">boston</span><span class="o">.</span><span class="n">target</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Wert in 1000 $&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Dichte&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_04_25_0.png" src="../_images/kapitel_04_25_0.png" />
+</div>
+</div>
+<p>Der Rug zeigt wo sich wirklich Datenpunkte befinden. In Kombination mit dem Densityplot können wir also sehen, dass es keine Datenpunkte kleiner als 5 oder größer 50 gibt. Wir sehen auch, dass die die Region zwischen 38 und 50 nur relativ dünn besiedelt ist, wobei die Punkte in diesem Bereich etwa gleichverteilt zu sein scheinen. Hierzu passt dass der Densityplot in diesem Bereich fast parallel zur x-Achse ist. Dies zeigt das der Rug hilft weitere Erkenntnisse über die Daten zu gewinnen und Fehlinterpretationen  zu vermeiden.</p>
+<p>Man kann auch einfach alle oben betrachten Ansätze kombinieren und Histogramm, Densityplot, und Rug zusammen visualisieren.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="c1"># stat=&#39;density&#39; scales the plot to match the y-axis of the density plot</span>
+<span class="c1"># alpha=0.2 makes the bars transparent for better readability</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">boston</span><span class="o">.</span><span class="n">target</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s1">&#39;density&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">boston</span><span class="o">.</span><span class="n">target</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">rugplot</span><span class="p">(</span><span class="n">boston</span><span class="o">.</span><span class="n">target</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Wert in 1000 $&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Dichte&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_04_27_0.png" src="../_images/kapitel_04_27_0.png" />
+</div>
+</div>
+<p>In diesem Plot können wir sehen wo es Datenpunkte gibt (Rug), wie viele Daten in jedem Bereich liegen (Bins), und bekommen außerdem noch eine Schätzung der Dichtefunktion (Densityplot). Wir kombinieren also alle Vorteile von Histogrammen und Densityplots. Lediglich das Problem der Interpretation der y-Achse der Densityplots bleibt, wir können also nicht ablesen, wie viele Datenpunkte genau in einem Bin liegen. Falls dies relevant ist, muss man auf ein reines Histogramm zurückgreifen.</p>
+<p>Das Merkmal <code class="docutils literal notranslate"><span class="pre">MEDV</span></code> verhält sich aus statistischer Sicht relativ gut: Es ist großteils normalverteilt, wenn auch etwas rechtsschief. Außerdem gibt es noch eine Gruppierung aller Werte die größer sind als 50. Dies kann unter Umständen später zu Problemen führen und sollte berücksichtigt werden. Jetzt gucken wir uns ein zweites Merkmal an, bei dem es nicht ganz so einfach ist. <code class="docutils literal notranslate"><span class="pre">CRIM</span></code> ist in den Bostondaten definiert als die Kriminalitätsrate in einer Gegend.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">boston</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;CRIM&#39;</span><span class="p">],</span> <span class="n">stat</span><span class="o">=</span><span class="s1">&#39;density&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">boston</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;CRIM&#39;</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">rugplot</span><span class="p">(</span><span class="n">boston</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;CRIM&#39;</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Kriminalitätsrate&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Dichte&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_04_29_0.png" src="../_images/kapitel_04_29_0.png" />
+</div>
+</div>
+<p>Der Plot zeigt, dass die meisten Daten sehr nah bei null liegen, der Datenbereich bis ca. 15 jedoch insgesamt sehr dicht Besiedelt ist. Bei höheren Werten scheint es sich eher im Ausreißer zu handeln. Da die Daten nahe null so dicht sind, ist es sehr schwer mehr zu erkennen. Bei solchen Daten könnte es sich um exponentiell verteilte Daten handeln. Daher sollte an einen einfachen Trick ausprobieren und den Logarithmus der Daten betrachten. Wir betrachten also nicht die Daten <span class="math notranslate nohighlight">\(x\)</span> direkt, sondern stattdessen <span class="math notranslate nohighlight">\(\log(x+1)\)</span>. Die Addition von eins ist ein Glättungsparameter der auch als <em>Laplace Smoothing</em> bekannt ist. Durch diesen Glättungsfaktor vermeiden wir das Problem, dass der Logarithmus von 0 undefiniert ist. Da <span class="math notranslate nohighlight">\(\log(1)=0\)</span> ist insbesondere auch <span class="math notranslate nohighlight">\(\log(0+1)=0\)</span>, was bedeutet das sich der Nullpunkt der Daten nicht verschiebt.</p>
+<blockquote>
+<div><p><strong>Bemerkung:</strong></p>
+<p>Laplace Smoothing ist sogar etwas generischer als die einfache Addition von eins. Im Allgemeinen kann jede beliebige Konstante addiert werden. Die obige Variante wird daher auch oft als <em>Add-One Smoothing</em> bezeichnet. Diese Art der Glättung des Logarithmus ist so verbreitet, dass die Bibliothek numpy sogar extra die Funktion log1p sowie auch die Umkehrfunktion exp1m zu Verfügung stellt.</p>
+</div></blockquote>
+<p>Betrachten wir jetzt also den Logarithmus der Kriminalitätsrate.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log1p</span><span class="p">(</span><span class="n">boston</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;CRIM&#39;</span><span class="p">]),</span> <span class="n">stat</span><span class="o">=</span><span class="s1">&#39;density&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log1p</span><span class="p">(</span><span class="n">boston</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;CRIM&#39;</span><span class="p">]),</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">rugplot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log1p</span><span class="p">(</span><span class="n">boston</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;CRIM&#39;</span><span class="p">]),</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;log(Kriminalitätsrate+1)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Dichte&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_04_31_0.png" src="../_images/kapitel_04_31_0.png" />
+</div>
+</div>
+<p>In diesem Plot erkennt man schon mehr Informationen über die Kriminalitätsrate:</p>
 <ul class="simple">
-<li><p><em>Assoziationsregeln</em> befassen sich mit Zusammenhängen zwischen Gegenständen in Transaktionen. Der klassische Anwendungsfall von Assoziationsregeln ist die Vorhersage von Gegenständen, die zu einem Warenkorb noch hinzugefügt werden, basierend auf dem aktuellen Inhalt des Warenkorbs. Wir betrachten den Apriori-Algorithmus zum Bestimmen von Assoziationsregeln in <a class="reference internal" href="kapitel_05.html"><span class="doc std std-doc">Kapitel 5</span></a>.</p></li>
-<li><p><em>Clustern</em> beschäftigt sich mit der Suche von Gruppen, also Daten die zueinander ähnlich sind und daher zur selben Gruppe gehören. Wir betrachten den <span class="math notranslate nohighlight">\(k\)</span>-Means Algorithmus, den EM Algorithmus, DBSCAN und Single Linkage Clustern in <a class="reference internal" href="kapitel_06.html"><span class="doc std std-doc">Kapitel 6</span></a>.</p></li>
-<li><p><em>Klassifikation</em> behandelt das Zuweisen von Labeln zu Objekten. Wir behandeln den <span class="math notranslate nohighlight">\(k\)</span>-Nearest Neighbor Algorithmus, Entscheidungsbäume, Random Forests, Logistische Regression, Naive Bayes, Support Vector Machines und Neuronale Netze in <a class="reference internal" href="kapitel_07.html"><span class="doc std std-doc">Kapitel 7</span></a>.</p></li>
-<li><p><em>Regression</em> sucht nach Zusammenhängen zwischen Merkmalen, eventuell mit dem Ziel einen numerischen Wert vorherzusagen. Wir beschäftigen uns mit der linearen Regression durch Ordinary Least Squares (OLS), Ridge, Lasso, und das Elastic Net in <a class="reference internal" href="kapitel_08.html"><span class="doc std std-doc">Kapitel 8</span></a>.</p></li>
-<li><p><em>Zeitreihenanalyse</em> berücksichtig die zeitliche Struktur von Daten, zum Beispiel bei täglichen, wöchentlichen, oder monatlichen Daten. Die Zeitreihenanalyse geht über die Regression hinaus, da auch Aspekte wie die Saisonalität berücksichtig werden. Wir betrachten ARIMA in <a class="reference internal" href="kapitel_09.html"><span class="doc std std-doc">Kapitel 9</span></a>.</p></li>
-<li><p><em>Text Mining</em> befasst sich mit der Analyse von unstrukturierten textuellen Daten. Grundsätzlich können alle Arten von Algorithmen zum Textmining verwendet werden. Die Schwierigkeit liegt darin, eine geeignete Struktur für den Text zu finden und die Daten zu verarbeiten. Wir betrachten ein einfaches Text Mining Verfahren basierend auf einem Bag-of-Words in <a class="reference internal" href="kapitel_10.html"><span class="doc std std-doc">Kapitel 10</span></a>.</p></li>
+<li><p>Etwa 80% der Gegenden sind nahezu ohne Kriminalität. Das viele Daten nah bei null sind konnte man zwar bereits ohne den Logarithmus erkennen, aber den Anteil der Daten kann man jetzt klarer erkennen. Man erkennt auch das die Kriminalitätsrate zwischen null und eins nahezu monoton abfällt, so dass dieser Teil der Daten etwa wie die Rechte hälfte der Glockenform einer Normalverteilung aussieht.</p></li>
+<li><p>Die restlichen 20% der Daten anfangend ab ca. eins scheinen einer <em>Log-Normal</em> Verteilung zu Folgen. Man nennt eine Verteilung Log-Normal, wenn die Daten Normalverteilt sind nachdem man sie logarithmiert hat. Dies scheint hier der Fall zu sein, wie man an der sehr flachen Glockenform in der Mitte des Plots erkennt. Der Mittelwert scheint bei ca. 2,2 zu sein und die Standardabweichung scheint relativ groß zu sein, weshalb die Daten weit streuen. Bitte beachten sie das der Mittelwert von 2,2 für die logarithmierten Kriminalitätsraten gilt, das heißt wir müssen erst die Umkehrung des Logarithmus berechnen um den eigentlichen Wert zu ermitteln. Wenn wir das tun finden wir heraus das der Log-Normale Abschnitt der Daten bei einer Kriminalitätsrate von etwa <span class="math notranslate nohighlight">\(e^1-1 \approx 1,7\)</span> mit einem Mittel bei ca. <span class="math notranslate nohighlight">\(e^{2,2}-1 \approx 8,0\)</span>.</p></li>
 </ul>
-<p>Bei der Suche nach Assoziationsregeln und beim Clustern werden unüberwachte Lernverfahren, die Anhand der Merkmale nach Mustern in den Daten suchen, verwendet. Daher werden solche Verfahren auch manchmal als Musterkennung (engl. <em>pattern recognition</em>) bezeichnet. Klassifikation, Regression, und Zeitreihenanalyse sind Beispiele für überwachtes Lernen. Das heißt, dass man für diese Ansätze den Wert von Interesse kennen muss und die Verfahren den Zusammenhang zu den Merkmalen lernen.</p>
+<p>Um zu überprüfen ob unsere Einschätzung, das der hintere Teil der Daten Log-Normal ist stimmt, können wir uns diese Daten auch noch einmal genauer angucken, in dem wir den Anzeigebereich einschränken und hierdurch den hinteren Bereich in der Anzeige vergrößern.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log1p</span><span class="p">(</span><span class="n">boston</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;CRIM&#39;</span><span class="p">]),</span> <span class="n">stat</span><span class="o">=</span><span class="s1">&#39;density&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log1p</span><span class="p">(</span><span class="n">boston</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;CRIM&#39;</span><span class="p">]),</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">rugplot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log1p</span><span class="p">(</span><span class="n">boston</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;CRIM&#39;</span><span class="p">]),</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;log(Kriminalitätsrate+1)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Dichte&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_04_33_0.png" src="../_images/kapitel_04_33_0.png" />
+</div>
+</div>
+<p>Wie man sieht wird die Einschätzung hierdurch bestätigt.</p>
+<p>Für die nächsten Beispiele nutzen wir einen anderen Datensatz, nämlich die <em>Irisdaten</em>.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+
+<span class="n">iris</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_iris</span><span class="p">()</span>
+<span class="n">wrap_print</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">DESCR</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.. _iris_dataset:
+
+Iris plants dataset
+--------------------
+
+**Data Set Characteristics:**
+
+    :Number of Instances: 150 (50 in each of three classes)
+    :Number of Attributes: 4 numeric, predictive attributes and
+the class
+    :Attribute Information:
+        - sepal length in cm
+        - sepal width in cm
+        - petal length in cm
+        - petal width in cm
+        - class:
+                - Iris-Setosa
+                - Iris-Versicolour
+                - Iris-Virginica
+
+    :Summary Statistics:
+
+    ============== ==== ==== ======= ===== ====================
+                    Min  Max   Mean    SD   Class Correlation
+    ============== ==== ==== ======= ===== ====================
+    sepal length:   4.3  7.9   5.84   0.83    0.7826
+    sepal width:    2.0  4.4   3.05   0.43   -0.4194
+    petal length:   1.0  6.9   3.76   1.76    0.9490  (high!)
+    petal width:    0.1  2.5   1.20   0.76    0.9565  (high!)
+    ============== ==== ==== ======= ===== ====================
+
+    :Missing Attribute Values: None
+    :Class Distribution: 33.3% for each of 3 classes.
+    :Creator: R.A. Fisher
+    :Donor: Michael Marshall (MARSHALL%PLU@io.arc.nasa.gov)
+    :Date: July, 1988
+
+The famous Iris database, first used by Sir R.A. Fisher. The
+dataset is taken
+from Fisher&#39;s paper. Note that it&#39;s the same as in R, but not as
+in the UCI
+Machine Learning Repository, which has two wrong data points.
+
+This is perhaps the best known database to be found in the
+pattern recognition literature.  Fisher&#39;s paper is a classic in
+the field and
+is referenced frequently to this day.  (See Duda &amp; Hart, for
+example.)  The
+data set contains 3 classes of 50 instances each, where each
+class refers to a
+type of iris plant.  One class is linearly separable from the
+other 2; the
+latter are NOT linearly separable from each other.
+
+.. topic:: References
+
+   - Fisher, R.A. &quot;The use of multiple measurements in taxonomic
+problems&quot;
+     Annual Eugenics, 7, Part II, 179-188 (1936); also in
+&quot;Contributions to
+     Mathematical Statistics&quot; (John Wiley, NY, 1950).
+   - Duda, R.O., &amp; Hart, P.E. (1973) Pattern Classification and
+Scene Analysis.
+     (Q327.D83) John Wiley &amp; Sons.  ISBN 0-471-22361-1.  See page
+218.
+   - Dasarathy, B.V. (1980) &quot;Nosing Around the Neighborhood: A
+New System
+     Structure and Classification Rule for Recognition in
+Partially Exposed
+     Environments&quot;.  IEEE Transactions on Pattern Analysis and
+Machine
+     Intelligence, Vol. PAMI-2, No. 1, 67-71.
+   - Gates, G.W. (1972) &quot;The Reduced Nearest Neighbor Rule&quot;.
+IEEE Transactions
+     on Information Theory, May 1972, 431-433.
+   - See also: 1988 MLC Proceedings, 54-64.  Cheeseman et al&quot;s
+AUTOCLASS II
+     conceptual clustering system finds 3 classes in the data.
+   - Many, many more ...
+</pre></div>
+</div>
+</div>
+</div>
+<p>Oben sehen wir die Beschreibung der Irisdaten. Es handelt sich um einen Datensatz über drei verschiedene Arten von der Blume Iris (Setosa, Versicolour, Virginica) durch jeweils vier Merkmale. Diese Merkmale sind die die Länge und Breite der Blütenblätter (engl. <em>sepal</em>) und der Kelchblätter (engl. <em>petal</em>).</p>
+<p>Boxplots sind eine weitere Möglichkeit, wie wir uns einzelne Merkmale, aber auch mehrere Merkmale gleichzeitig visualisieren können.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>  <span class="c1"># pandas is a powerful library for working with data</span>
+
+<span class="c1"># we need that data as dataframe for the pairplot feature of seaborn</span>
+<span class="n">iris_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span>
+    <span class="s1">&#39;Blütenblattlänge&#39;</span><span class="p">,</span> <span class="s1">&#39;Blütenblattbreite&#39;</span><span class="p">,</span> <span class="s1">&#39;Kelchblattlänge&#39;</span><span class="p">,</span> <span class="s1">&#39;Kelchblattbreite&#39;</span><span class="p">])</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">iris_df</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;h&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;cm&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_04_37_0.png" src="../_images/kapitel_04_37_0.png" />
+</div>
+</div>
+<p>Ein Boxplot besteht aus einer Box, die an jeder Seite noch eine Linie hat, die sogenannten <em>Whisker</em>. Daher sind diese Plots auch als <em>Box-Whisker-Plots</em> bekannt. Die Grenzen der Box sind durch das untere Quartil <span class="math notranslate nohighlight">\(Q_{lower}\)</span> und das obere Quartil <span class="math notranslate nohighlight">\(Q_{upper}\)</span> bestimmt. Daraus folgt, dass die Länge der Box der Interquartilsabstand ist. In der Box sieht man noch eine Linie. Diese Linie markiert den Median der Daten. Die Definition der Whisker ist etwas komplizierter. Das Ende der unteren Linie ist der kleinste beobachtete Datenpunkt, der maximal das 1,5-Fache das Interquartilsabstands vom unteren Quartil entfernt ist, also <span class="math notranslate nohighlight">\(\min \{x_i: x_i&gt;Q_{lower}-1.5\cdot IQR, i=1, ..., n\}\)</span>. Analog ist das Ende der oberen Linie der größte beobachtete Datenpunkt, der maximal das 1,5-Fache des Interquartilsabstands vom oberen Quartil entfernt ist, also <span class="math notranslate nohighlight">\(\max \{x_i: x_i&gt;Q_{upper}+1.5\cdot IQR, i=1, ..., n\}\)</span>. Die Idee der Whisker ist es den Datenbereich ohne Ausreißer darzustellen. Entsprechend ist jeder Wert, der mehr als das 1,5-Fache des Interquartilsabstands von den Quartilen entfernt ist, ein Ausreißer. Sollte es Ausreißer geben, werden diese als Punkte dargestellt, wie man sie zum Beispiel bei der <code class="docutils literal notranslate"><span class="pre">sepal_width</span></code> sieht.</p>
+<p>Im Endeffekt ist ein Boxplot also nur eine Visualisierung von nicht-parametrischen deskriptiven Statistiken und von Ausreißern. Dennoch kann man mit Boxplots auf einen Blick viel über die Daten lernen:</p>
+<ul class="simple">
+<li><p>Die Lage der Boxen zeigt den Bereich an, in dem sich der Großteil der Daten befindet.</p></li>
+<li><p>Die Größe der Boxen zeigt, wie stark der mittlere Bereich verstreut ist.</p></li>
+<li><p>Die Länge der Whisker zeigt den Datenbereich (ohne Ausreißer).</p></li>
+<li><p>Sowohl die Existenz, Anzahl und Lage von Ausreißern wird dargestellt. Hierdurch erkennt man insbesondere auch ob Ausreißer sich in der Nähe der Whisker befinden oder weit sie von den Daten entfernt.</p></li>
+<li><p>Die Lage des Medians sowie die Länge der Whisker geben darüber Aufschluss ob die Daten möglicherweise symmetrisch sein könnten. Dies erkennt man, indem man überprüft ob der Median etwa in der Mitte der Box liegt und die Whisker gleich lang.</p></li>
+</ul>
+<p>Über die Irisdaten können wir zum Beispiel folgendes Lernen:</p>
+<ul class="simple">
+<li><p>Die Merkmale haben nicht den gleichen Datenbereich. Der Datenbereich der Kelchblattlänge ist etwa doppelt so groß wie der Bereich der Kelch- und Blütenblattbreite und ebenfalls deutlich größer als der Datenbereich der Blütenblattlänge.</p></li>
+<li><p>Es gibt nur wenige Ausreißer in den Daten. Nur bei der Blütenblattbreite gibt es einige Ausreißer. Diese liegen aber sehr nah an den Whiskern. Außerdem ist der Interquartilsabstand sehr klein, wodurch natürlich auch das 1.5-Fache des Interquartilsabstands sehr klein ist. Es handelt sich bei diesen Ausreißern daher nicht um implausibel große Datenpunkte, sondern vielmehr um ein Artefakt in Folge der Strategie wie die Ausreißer bestimmt werden.</p></li>
+</ul>
+<p>Wie man sieht sind die Informationen von der Art her anders als bei Histogrammen und Densityplots. Die Histogramme und Densityplots gut geeignet um die Verteilung von Daten zu verstehen und ein sehr detailliertes Bild der Daten zu bekommen. Bei Boxplots liegt der Fokus auf allgemeinen statistischen Eigenschaften der Daten. Mit Hilfe eines Boxplots kann man schnell statistische Merkmale der Verteilungen von mehreren Merkmalen erfassen und miteinander vergleichen.</p>
+</div>
+<div class="section" id="beziehungen-zwischen-merkmalen">
+<h3><span class="section-number">4.3.3. </span>Beziehungen zwischen Merkmalen<a class="headerlink" href="#beziehungen-zwischen-merkmalen" title="Permalink to this headline">¶</a></h3>
+<p>Bisher haben wir Merkmale nur unabhängig voneinander visualisiert. Bei den Boxplots haben wir zwar bereits Boxen für mehrere Merkmale in einer Visualisierung angezeigt, die Boxen haben sich jedoch dennoch nur auf ein einzelnes Merkmal bezogen. Man kann zu einem gewissen Grad die Beziehung zwischen einem kategorischen Merkmal und numerischen Merkmalen mit Hilfe von Boxplots darstellen. Wir können zum Beispiel die Kelchblattlänge für die verschiedenen Arten der Iris darstellen.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;Kelchblattlänge&#39;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">iris</span><span class="o">.</span><span class="n">target</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;h&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Boxplots der Kelchblattlänge für jede Art&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Kelchblattlänge in cm&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">((</span><span class="s1">&#39;Setosa&#39;</span><span class="p">,</span> <span class="s1">&#39;Versicolour&#39;</span><span class="p">,</span> <span class="s1">&#39;Virginica&#39;</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_04_39_0.png" src="../_images/kapitel_04_39_0.png" />
+</div>
+</div>
+<p>Aus diesem Boxplot können wir viel über die Beziehung der Kelchblattlänge und den Arten der Iris lernen.</p>
+<ul class="simple">
+<li><p>Die Kelchblattlänge von Setosa ist immer kleiner als 2,5 cm. Die anderen Arten haben immer eine Kelchblattlänger die größer als 2,5 cm ist.</p></li>
+<li><p>Die Virginica hat immer eine Kelchblattlänge größer als 4,3 cm. Aus diesen beiden Beobachtungen folgt, dass alle Iris mit einer Kelchblattlänge zwischen 2,5 cm und 4,3 cm Versicolours sein müssen.</p></li>
+<li><p>Die Kelchblattlänge der Versicolour ist immer kleiner als 5,1 cm. Es folgt also dass alle Iris mit einer Kelchblattlänge größer als 5,1 cm Virginica sein müssen.</p></li>
+<li><p>Iris mit einer Kelchblattlänge zwischen 4,3 cm und 5,1 cm könnten sowohl Versicolour, als auch Virginica sein.</p></li>
+</ul>
+<p>Der Nachteil von Boxplots ist, das man Merkmale nur anhand von wenigen statistischen Eigenschaften vergleichen kann. Außerdem sind die Vergleiche beschränkt, da man nur ein kategorisches mit einem numerischen Merkmal vergleichen kann. Außerdem sollte das kategorische Merkmal nicht zu viele Kategorien haben, da es sonst sehr viele Boxen geben würde.</p>
+<p>Eine weitere Art sich Beziehungen zwischen Merkmalen anzugucken sind <em>paarweise Scatterplots</em>.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">iris_df</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;reg&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_04_41_0.png" src="../_images/kapitel_04_41_0.png" />
+</div>
+</div>
+<p>In einem paarweisen Scatterplot hat man nicht nur einen einzigen Plot, sondern eine Sammlung von Plots die als Matrix organisiert sind. Auf der Diagonale findet man Histogramme der Merkmale. Die anderen Plots zeigen die paarweisen Beziehungen zwischen je zwei Merkmalen. Die Geraden zeigen den linearen Zusammenhang zwischen den Daten, wie wir es schon von Anscombes Quartett kennen. Die Schattierung um die Geraden zeigen zusätzlich noch die Unsicherheit dieses Zusammehangs an. Je näher die Datenpunkte an den Geraden sind, desto kleiner die Unsicherheit und desto größer die Wahrscheinlichkeit, dass es tatsächlich einen linearen Zusammenhang gibt. Wenn die Steigung der Geraden negativ ist (abwärts), dann ist die Korrelation zwischen den Merkmalen negativ. Wenn die Steigung positiv ist, dann ist Korrelation zwischen den Merkmalen positiv. Die Werte welcher Merkmale auf der x-Achse, beziehungsweise y-Achse aufgetragen sind kann man am unteren, beziehungsweise linken Rand des Plots sehen. Der zweite Plot in der ersten Zeile zeigt zum Beispiel die Beziehung zwischen der Blütenblattbreite auf der x-Achse und der Blütenblattlänge auf der y-Achse.</p>
+<p>Ein paarweiser Scatterplot ermöglicht es uns viel über die Beziehungen zwischen Merkmalen zu lernen, aber auch über einzelne Merkmale über die Histogramme auf der Diagonalen.</p>
+<ul class="simple">
+<li><p>Die Blütenblattbreite scheint normalverteilt zu sein, die Kelchblattbreite sieht eher wie ein Mix von zwei Normalverteilungen aus.</p></li>
+<li><p>Die Beziehung zwischen der Blütenblattbreite und der Blütenblattlänge sieht zufällig aus. Dies erkennt man daran, dass sich die Punkte auf die komplette Fläche des Plots verteilen.</p></li>
+<li><p>Die Kelchblattbreite hat eine positive Korrelation mit der Kelchblattlänge. Dies bedeutet, dass wenn sich die Länge erhöht, sich die Breite ebenfalls erhöht und umgekehrt. Diese Korrelation scheint linear zu sein, wie man daran erkennt das alle Datenpunkte sehr nah an der Regressionslinie sind. Es gibt also ein festes Verhältnis zwischen der Kelchblattbreite und Kelchblattlänge.</p></li>
+<li><p>Man kann in den Plots der Kelchblätter zwei Gruppen in den Daten erkennen. Eine kleinere Gruppe wo die Werte niedrig sind und eine größere Gruppe mit höheren Werten. Zwischen den Gruppen ist eine größere Lücke. Ähnliche Gruppen findet man in nahezu allen Plots, wenn auch nichts so eindeutig.</p></li>
+</ul>
+<blockquote>
+<div><p><strong>Bemerkung:</strong></p>
+<p>Wir betrachten das Konzept der Korrelation hier nicht im Detail. Die Idee ist aber relativ einfach: Man nennt zwei Merkmale X und Y <em>positiv korreliert</em>, wenn der Wert von X steigt in der Regel auch der Wert von Y steigt. Je häufiger dies der Fall ist, desto stärker die Korrelation. Umgekehrt nennt man eine Korrelation negativ, wenn der Wert von X fällt in der Regel auch der Wert von Y fällt. Eine <em>lineare Korrelation</em> bedeutet zusätzlich noch, dass es ein Muster gibt, so dass <span class="math notranslate nohighlight">\(X \approx a+b \cdot Y\)</span> für zwei Konstanten <span class="math notranslate nohighlight">\(a, b \in \mathbb{R}\)</span>. Die Korrelation wird häufig mit Hilfe von <em>Korrelationskoeffizienten</em> gemessen deren Werte zwischen <span class="math notranslate nohighlight">\([-1, 1]\)</span> liegen. Eine Korrelationskoeffizient von 0 bedeutet, das zwei Merkmale nicht korreliert sind. Je näher die Werte an -1/1 sind, desto stärker ist die negative/positive Korrelation.</p>
+</div></blockquote>
+<p>Für kategorische Variablen wie die Art der Iris kann man noch weitere Information aus einem paarweisen Scatterplot holen, in dem man die Kategorien als Farben nutzt. Zusätzlich kann man dann auch noch Densityplots pro Kategorie auf der Diagonalen anzeigen.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;Art&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">target</span>
+<span class="n">iris_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;Art&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Art&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Setosa&#39;</span>
+<span class="n">iris_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;Art&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Art&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Versicolour&#39;</span>
+<span class="n">iris_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;Art&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Art&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Virginica&#39;</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">iris_df</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;Art&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_04_43_0.png" src="../_images/kapitel_04_43_0.png" />
+</div>
+</div>
+<p>Durch die Farben können wir die Bedeutung der Gruppen erkennen, die wir oben schon gesehen haben: Die kleinere Gruppe sind die Setosas, während die größere Gruppe aus den Versicolours und Virginicas besteht. Diese Trennung ist ähnlich zu dem, was wir bereits im Boxplot gesehen haben. Wir sehen auch, dass man die Arten nur schwer mit Hilfe der Blütenblätter unterscheiden kann, insbesondere nicht zwischen Versicolours und Virginicas. Man sieht aber auch, dass man die drei Arten fast perfekt anhand der Kelchblätter unterscheiden kann.</p>
+<p>Ein mögliches Problem von Scatterplots ist, dass man häufig sehr viele Datenpunkte in einem kleinen Bereich hat, so dass sich die Daten überlappen. Man spricht dann auch von einem <em>dichten</em> Bereich. Wenn man solche Daten als Scatterplot darstellt sieht man häufig nur einen großen Fleck.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">+</span> <span class="mf">3.0</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="mf">4.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="n">xmin</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+<span class="n">xmax</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">ymin</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+<span class="n">ymax</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Scatterplot von 10000 Datenpunkten&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_04_45_0.png" src="../_images/kapitel_04_45_0.png" />
+</div>
+</div>
+<p>Innerhalb der dichten Region kann man die Struktur der Daten nicht erkennen. Im obigen Beispiel könnten die Daten in der Region zum Beispiel gleichverteilt, normalverteilt oder eine Mischung aus mehreren Verteilungen mit unterschiedlichen Peaks sein. Man verliert also wegen der Dichte wertvolle Informationen über die Daten. Es gibt zwei Arten, wie man mit dieses Problem lösen kann. Eine schnelle und sehr einfache Lösung ist es, die Datenpunkte transparent zu machen.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Scatterplot von 10000 transparenten Datenpunkten&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_04_47_0.png" src="../_images/kapitel_04_47_0.png" />
+</div>
+</div>
+<p>Durch die Transparenz kann man die Struktur erkennen und sieht, dass die Daten normalverteilt sind mit dem Mittelwert im Zentrum der dichten Region. Der Nachteil dieser Lösung ist, dass man immer noch nicht sieht wie viele Daten genau in einer Region liegen, da es keine Farbskala gibt. Wenn dies ebenfalls wichtig ist, sollte man Hexbinplots verwenden. Hexbinplots sind mehr oder weniger zwei-dimensionale Histogramme: Die Daten sind in sechseckige Bins unterteilt und die Farbe zeigt wie viele Daten in einer Region liegen.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">hb</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hexbin</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">gridsize</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;binary&#39;</span><span class="p">)</span>
+<span class="n">cb</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">hb</span><span class="p">)</span>
+<span class="n">cb</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;Anzahl&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Hexagonales Binning (Hexbin) der Daten&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_04_49_0.png" src="../_images/kapitel_04_49_0.png" />
+</div>
+</div>
+<p>Im Hexbinplot können wir jetzt nicht nur die Struktur der Daten erkennen, sondern auch ablesen wie viele Datenpunkte sich in der dichten Region befinden.</p>
+<p>Die letzte Visualisierung, die wir uns bezüglich des Zusammenhangs von Merkmalen angucken wollen, betrachtet die Korrelationen zwischen den Merkmalen. Wir haben uns Korrelationen bereits im Zusammenhang mit Scatterplots durch die Regressionsgeraden angesehen. Dies ist jedoch relativ aufwendig, insbesondere wenn es viele Merkmale gibt. Der Aufwand steigt quadratisch mit der Anzahl der Merkmale. Eine effizientere Methode einen Überblick über die Korrelationen zu bekommen ist eine <em>Korrelationsheatmap</em>.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute the correlation matrix that contains the correlation coefficients</span>
+<span class="n">corr</span> <span class="o">=</span> <span class="n">iris_df</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+
+<span class="c1"># we use customized colors</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">diverging_palette</span><span class="p">(</span><span class="mi">220</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="n">square</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> 
+            <span class="n">vmin</span><span class="o">=-</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_04_51_0.png" src="../_images/kapitel_04_51_0.png" />
+</div>
+</div>
+<p>Eine Korrelationsheatmap visualisiert die Werte von Korrelationskoeffizienten zwischen den Merkmalen. Rot heißt, dass es eine positive Korrelation gibt, blau steht für negative Korrelation. Je schwächer die Farbe, desto schwächer die Korrelation. Konsequenterweise heißt weiß also, dass es keine Korrelation gibt. Auf der Diagonalen gibt es immer eine perfekte positive Korrelation, da selbstverständlich jedes Merkmal mit sich selbst korreliert ist. Außerdem sehen wir die Bestätigung unserer Erkenntnisse über die Korrelationen aus den paarweisen Scatterplots: Es gibt eine starke positive Korrelation zwischen der Breite und Länge der Kelchblätter und keine Korrelation bei den Blütenblättern. Man sieht jedoch noch weitere Korrelationen, zum Beispiel eine negative Korrelation zwischen der Kelchblattlänge und der Blütenblattbreite.</p>
+<blockquote>
+<div><p><strong>Bemerkung:</strong>
+Selbstverständlich kann man auch andere Farben zur Darstellung der Korrelationskoeffizienten nutzen. Wichtig ist jedoch, dass man eine Farbskala wählt, bei der man die Stärke der Korrelation gut erkennen kann und man gut zwischen positiver und negativer Korrelation unterscheiden kann. Das bedeutet insbesondere auch, dass man Werte in der Nähe von null gut erkennt.</p>
+</div></blockquote>
+</div>
+<div class="section" id="scatterplots-fur-hochdimensionale-daten">
+<h3><span class="section-number">4.3.4. </span>Scatterplots für Hochdimensionale Daten<a class="headerlink" href="#scatterplots-fur-hochdimensionale-daten" title="Permalink to this headline">¶</a></h3>
+<p>Häufig hat man sehr viele Dimensionen, so dass die Analyse von paarweisen Scatterplots schwierig wird. In diesem Fall kann man Methoden zur <em>Dimensionsreduktion</em> anwenden. Die Idee ist es hierbei, die Korrelationen zwischen den Merkmalen auszunutzen und neue Merkmale zu berechnen, die unkorreliert sind. Bei den neuen Merkmalen beinhalten dann möglichst wenige Merkmale möglichst viel der Information aus den ursprünglichen Daten. Ein beliebtes Verfahren hierfür ist die <em>Hauptkomponentenanalyse</em> (engl. <em>principal component analysis</em> / PCA). Bei der PCA wird der Raum von reellwertigen Merkmalen so transformiert, dass das erste Merkmal möglichst viel der Varianz der Daten erklärt, das zweite Merkmal den zweit größten Anteil, und so fort. Die neuen Merkmale nennt man auch die <em>Hauptkomponenten</em> (engl. <em>principal components</em>) der Daten. Da die Varianz eines Merkmals direkt verwand mit der vorhandenen Information ist, beinhaltet also die erste Hauptkomponente die meiste Information, die zweite Hauptkomponente die zweitmeiste Information, und so fort. Das liegt ganz einfach, dass konstante Merkmale keine Information beinhalten. Für die Irisdaten können wir uns mit der PCA die vier Merkmale auf die ersten zwei Hauptkomponenten reduzieren und mit der Farbe die Art der Iris darstellen.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">decomposition</span>
+
+<span class="n">pca</span> <span class="o">=</span> <span class="n">decomposition</span><span class="o">.</span><span class="n">PCA</span><span class="p">()</span>
+<span class="n">pca</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+<span class="n">iris_pca</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">target_names</span><span class="p">):</span>
+    <span class="c1"># we need to plot each type of iris on its own to get colors with a legend</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">iris_pca</span><span class="p">[</span><span class="n">iris</span><span class="o">.</span><span class="n">target</span><span class="o">==</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">iris_pca</span><span class="p">[</span><span class="n">iris</span><span class="o">.</span><span class="n">target</span><span class="o">==</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;1. Hauptkomponente (</span><span class="si">%.2f</span><span class="s1"> Varianz)&#39;</span> <span class="o">%</span> <span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;2. Hauptkomponente (</span><span class="si">%.2f</span><span class="s1"> Varianz)&#39;</span> <span class="o">%</span> <span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;PCA der Irisdaten (</span><span class="si">%.2f</span><span class="s1"> Varianz erklärt)&#39;</span> <span class="o">%</span> <span class="nb">sum</span><span class="p">(</span><span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">[:</span><span class="mi">2</span><span class="p">]))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_04_53_0.png" src="../_images/kapitel_04_53_0.png" />
+</div>
+</div>
+<p>Die zwei Hauptkomponenten erklären bereits 98% der Varianz der Daten, also beinahe alle Information. Man sieht auch, dass sich die Arten der Iris sehr gut unterscheiden lassen und separate Gruppen in den Daten darstellen, auch wenn die Versicolor und die Virginica sehr nah beieinander liegen. Wenn die PCA weniger Varianz der Daten erklärt, kann es sein, dass auch wenn man keine Trennung von Gruppen sieht, sie dennoch da wäre: Man bräuchte dann nur die restliche Information, um dies zu sehen.</p>
+<p>Die PCA ist ein mächtiges Werkzeug um die Dimension von Daten zu reduzieren, ohne den Informationsgehalt zu veringern und insbesondere auch um sich hochdimensionale darzustellen. Dennoch gibt es zwei wesentliche Nachteile, die auch ähnliche Verfahren betreffen. Das erste Problem ist, dass nicht klar ist <em>wofür</em> die Hauptkomponenten stehen. Beim paarweisen Scatterplot war klar, welche Beziehungen gezeigt werden und somit auch welche Information. Die Hauptkomponenten sind linearkombinationen der Merkmale, wie diese kombiniert werden ist jedoch nicht offensichtlich. Hier könnte man sich höchstens noch die Transformation der PCA genauer betrachten, um an diese Information zu kommen. Das ist aber sehr komplex. Daher eignet sich PCA in der Regel nur dafür, um zu analysieren ob Daten entsprechend bestimmter Eigenschaften so aussehen wie erwartet oder erhofft (zum Beispiel ob die Arten von Iris gruppiert sind), es ist jedoch nicht ohne weitere möglich die Verteilung der Datenpunkte zu verstehen. Der zweite Nachteil ist, dass die Information möglichweise nicht mit dem Ziel der Analyse zusammenhängt. Wenn ein Fragebogen zur Kreditwürdigkeit die Lieblingszahl abfragen würde, hätte dies keinen Bezug zum eigentlich Ziel der Analyse und die Varianz dieser Information wäre entsprechend auch irrelevant. Daher sollte man bei der PCA vorher sicherstellen, dass nur Merkmale benutzt werden, die mit dem Ziel der Analyse zusammenhängen.</p>
+<blockquote>
+<div><p><strong>Bermerkung:</strong></p>
+<p>Für die PCA interpretiert man die Daten als Matrix <span class="math notranslate nohighlight">\(A\)</span>, wobei jede Zeile der Matrix eine Instanz ist. Anschließend muss man die folgenden Schritte durchführen.</p>
+<ul class="simple">
+<li><p>Zuerst müssen die Spalten der Matrix <span class="math notranslate nohighlight">\(A\)</span> so skaliert werden, dass der Erwartungswert null ist (<span class="math notranslate nohighlight">\(A_0\)</span>). Hierdurch werden Skaleneffekte zwischen den Merkmalen vermieden und die folgenden Berechnungen vereinfacht.</p></li>
+<li><p>Anschließend wird die Kovarianzmatrix <span class="math notranslate nohighlight">\(Cov_A\)</span> von <span class="math notranslate nohighlight">\(A_0\)</span> berechnet. Wir berechnen also die Kovarianzen um die Korrelation zwischen den Merkmalen auszudrücken.</p></li>
+<li><p>Nun kann man die Eigenwerte und Eigenvektoren von <span class="math notranslate nohighlight">\(Cov_A\)</span> berechnen. Die Eigenvektoren müssen Anhand ihrer Eigenwerte absteigend sortiert werden, so dass jeder Vektor die Spalte einer Matrix <span class="math notranslate nohighlight">\(Eig\)</span> ist. Wenn man die Eigenwerte so reskaliert, dass ihre Summe eins ergibt, erhält man den Anteil der erklärten Varianz der jeweiligen Hauptkomponente.</p></li>
+<li><p>Durch die Matrixmultiplikation von <span class="math notranslate nohighlight">\(Eig\)</span> und <span class="math notranslate nohighlight">\(A_0\)</span> erhält man die Hauptkomponenten von <span class="math notranslate nohighlight">\(A\)</span>.</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="zeitliche-trends">
+<h3><span class="section-number">4.3.5. </span>Zeitliche Trends<a class="headerlink" href="#zeitliche-trends" title="Permalink to this headline">¶</a></h3>
+<p>Die bisherigen Visualisierungen sind alle davon ausgegangen, dass die einzelnen Datenpunkte nicht direkt miteinander zusammenhängen. Häufig gibt es jedoch Zusammenhänge, insbesondere bei Daten, die über einen gewissen Zeitraum erfasst worden sind. Als Beispiel betrachten wir jetzt Fluggastdaten einer US Airline aus den Jahren 1940 bis 1960. Die Werte geben die monatliche Anzahl von Passagieren an.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>head data/AirPassengers.csv
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Month,#Passengers
+1949-01,112
+1949-02,118
+1949-03,132
+1949-04,129
+1949-05,121
+1949-06,135
+1949-07,148
+1949-08,148
+1949-09,136
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wir könnten auch solche Daten einfach unabhängig von der Zeit betrachten, zum Beispiel als Histogramm.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">air_passengers_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/AirPassengers.csv&quot;</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">parse_dates</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Month&#39;</span><span class="p">,</span> <span class="s1">&#39;Passengers&#39;</span><span class="p">],</span> <span class="n">index_col</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">squeeze</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">air_passengers_df</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Passagiere&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Anzahl&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_04_57_0.png" src="../_images/kapitel_04_57_0.png" />
+</div>
+</div>
+<p>Es ist nicht so, dass Histogramme bei über die Zeit verteilten Daten keine Informationen liefern würden. Man erkennt das es maximal 600 Passagiere in einem Monat gab und das es circa 20 Monate mit jeweils 100-150, 150-200, …, bzw. 300-350 Passagieren gab. Was man jedoch nicht erkennt ist wie die sich Passagierzahlen mit der Zeit entwickelt haben. Hier könnten wir zum Beispiel einfach einen Scatterplot betrachten, wo die y-Achse die Passagierzahlen und die x-Achse die Monate anzeigt.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">air_passengers_df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Scatterplot der Passigierzahlen über die Zeit&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Zeit&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Passagiere&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_04_59_0.png" src="../_images/kapitel_04_59_0.png" />
+</div>
+</div>
+<p>In diesem Scatterplot erkennt man den zeitlichen Verlauf der Daten. Man sieht einen klaren Trend der zeigt, dass die Passagierzahlen mit der Zeit steigen. Wie sich die Passagierzahlen von Monat zu Monat verändern, erkennt man jedoch nicht ohne weiteres. Hierfür müssen wir - im wahrsten Sinne des Wortes - die Punkte miteinander verbinden, um einen <em>Liniendiagramm</em> zu erhalten.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">air_passengers_df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Liniendiagramm der Passigierzahlen über die Zeit&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Zeit&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Passagiere&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kapitel_04_61_0.png" src="../_images/kapitel_04_61_0.png" />
+</div>
+</div>
+<p>Im Liniendiagram können wir jetzt sowohl den Trend, als auch die Veränderungen von Monat zu Monat sehen. Man sieht auch ein Muster, welches sich jährlich wiederholt.</p>
+</div>
+</div>
+<div class="section" id="ubungen">
+<h2><span class="section-number">4.4. </span>Übungen<a class="headerlink" href="#ubungen" title="Permalink to this headline">¶</a></h2>
+<p>In der ersten praktischen Übung geht es darum, selbst einige Daten zu erkunden. Hierzu benutzen wir auch die Bostondaten, die wir auch vorher schon in diesem Kapitel benutzt haben.</p>
+<div class="section" id="deskriptive-statistiken">
+<h3><span class="section-number">4.4.1. </span>Deskriptive Statistiken<a class="headerlink" href="#deskriptive-statistiken" title="Permalink to this headline">¶</a></h3>
+<p>Betrachten Sie die Bostondaten mit Hilfe von deskriptiven Statistiken. Berechnen die die Lage durch das arithmetische Mittel und den Median, die Variabilität durch die Standardabweichung und die IQR, sowie die Datenbereiche der Merkmale. Das Ziel dieser Aufgabe ist aber nicht die Berechnung dieser Werte, sondern ihre Interpretation. Überlegen Sie sich zum Beispiel, was man über das Merkmal CRIM über das arithmetische Mittel und den Median lernt.</p>
+</div>
+<div class="section" id="visualisierungen-einzelner-merkmale">
+<h3><span class="section-number">4.4.2. </span>Visualisierungen einzelner Merkmale<a class="headerlink" href="#visualisierungen-einzelner-merkmale" title="Permalink to this headline">¶</a></h3>
+<p>Betrachten Sie die Merkmale <code class="docutils literal notranslate"><span class="pre">zn</span></code> und <code class="docutils literal notranslate"><span class="pre">indus</span></code> mit Hilfe von Histogrammen und Densityplots (mit und ohne Rug). Was lernen Sie über diese Daten? Was sind die Vor- und Nachteile der verschiedenen Visualisierungen?</p>
+</div>
+<div class="section" id="paarweise-beziehungen">
+<h3><span class="section-number">4.4.3. </span>Paarweise Beziehungen<a class="headerlink" href="#paarweise-beziehungen" title="Permalink to this headline">¶</a></h3>
+<p>Betrachten Sie die paarweisen Beziehungen der Bostondaten. Benutzen Sie hierfür Scatterplots und eine Korrelationsheatmap. Was lernen Sie über die Beziehungen aus den Daten? Beachten Sie hierbei insbesondere auch, ob sie ethisch problematische Eigenschaften finden.</p>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
-<dt class="label" id="nfl"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p><a class="reference external" href="https://doi.org/10.1109/4235.585893">https://doi.org/10.1109/4235.585893</a></p>
+<dt class="label" id="jupyterformat"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p><a class="reference external" href="https://nbformat.readthedocs.io/en/latest/format_description.html">https://nbformat.readthedocs.io/en/latest/format_description.html</a></p>
 </dd>
-<dt class="label" id="mitchel"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
-<dd><p><a class="reference external" href="https://doi.org/10.1007/978-3-662-12405-5">https://doi.org/10.1007/978-3-662-12405-5</a></p>
+<dt class="label" id="categorical"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p><a class="reference external" href="https://doi.org/10.1080/10691898.2007.11889465">https://doi.org/10.1080/10691898.2007.11889465</a></p>
 </dd>
-<dt class="label" id="alphazero"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
-<dd><p><a class="reference external" href="https://arxiv.org/abs/1712.01815">https://arxiv.org/abs/1712.01815</a></p>
-</dd>
-<dt class="label" id="stevens"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
-<dd><p><a class="reference external" href="https://doi.org/10.1126/science.103.2684.677">https://doi.org/10.1126/science.103.2684.677</a></p>
+<dt class="label" id="datasaurus"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
+<dd><p><a class="reference external" href="https://doi.org/10.1145/3025453.3025912">https://doi.org/10.1145/3025453.3025912</a></p>
 </dd>
 </dl>
+</div>
 </div>
 </div>
 
@@ -548,7 +1443,7 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="kapitel_03.html" title="previous page"><span class="section-number">3. </span>Erkunden der Daten</a>
+    <a class='left-prev' id="prev-link" href="kapitel_03.html" title="previous page"><span class="section-number">3. </span>Allgemeines zur Datenanalyse</a>
     <a class='right-next' id="next-link" href="kapitel_05.html" title="next page"><span class="section-number">5. </span>Assoziationsregeln</a>
 
         </div>
