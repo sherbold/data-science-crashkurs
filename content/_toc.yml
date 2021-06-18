@@ -1,9 +1,7 @@
-# Table of contents
-# Learn more at https://jupyterbook.org/customize/toc.html
-- file: chapters/vorwort
-  numbered: false
-
-- part: Kapitel
+format: jb-book
+root: chapters/vorwort
+parts:
+- caption: Kapitel
   numbered: true
   chapters:
   - file: chapters/kapitel_01
@@ -19,13 +17,7 @@
   - file: chapters/kapitel_11
   - file: chapters/kapitel_12
   - file: chapters/kapitel_13
-  
-- part: Appendix
-  numbered: false
+- caption: Appendix
   chapters:
   - file: chapters/howto
   - file: chapters/notations
-
-#- part: Übungen
-#  chapters:
-#  - file: exercises/uebung_01
