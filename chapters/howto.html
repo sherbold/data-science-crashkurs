@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Selber Ausführen &#8212; ARBEITSVERSION - Data Science Crashkurs - Eine interaktive und praktische Einführung - Bitte lesen sie das Vorwort für weitere Informationen</title>
+    <title>Selbst ausführen &#8212; ARBEITSVERSION - Data Science Crashkurs - Eine interaktive und praktische Einführung - Bitte lesen sie das Vorwort für weitere Informationen</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -146,7 +146,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="kapitel_10.html">
-   10. Textmining
+   10. Text Mining
   </a>
  </li>
  <li class="toctree-l1">
@@ -173,7 +173,7 @@
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Selber Ausführen
+   Selbst ausführen
   </a>
  </li>
  <li class="toctree-l1">
@@ -285,17 +285,17 @@
         
               <div>
                 
-  <div class="section" id="selber-ausfuhren">
-<h1>Selber Ausführen<a class="headerlink" href="#selber-ausfuhren" title="Permalink to this headline">¶</a></h1>
-<p>Das Buch ist so geschrieben, das nicht nur alle Quelltextbeispiele vorhanden sind. Es ist sogar möglich sich das komplette Buch runterzuladen und alles selbst auszuführen, anzupassen, und mit den Beispielen zu experimentieren. Hier ist eine kurze Erklärung, wie das unter Linux (getestet mit Ubuntu 20.04) geht. Windowsnutzer müssen entweder Python unter Windows installieren oder - wie ich selbst - mit dem Windows Subsystem for Linux (WSL) arbeiten <a class="footnote-reference brackets" href="#wsl" id="id1">1</a>.</p>
+  <div class="section" id="selbst-ausfuhren">
+<h1>Selbst ausführen<a class="headerlink" href="#selbst-ausfuhren" title="Permalink to this headline">¶</a></h1>
+<p>Das Buch ist so geschrieben, dass nicht nur alle Quelltextbeispiele vorhanden sind. Es ist sogar möglich, sich das komplette Buch herunterzuladen und alles selbst auszuführen, anzupassen und mit den Beispielen zu experimentieren. Hier ist eine kurze Erklärung, wie das unter Linux (getestet mit Ubuntu 20.04) geht. Windows-Nutzer müssen entweder Python unter Windows installieren oder – wie ich selbst – mit dem Windows Subsystem for Linux (WSL) arbeiten <a class="footnote-reference brackets" href="#wsl" id="id1">1</a>:</p>
 <ol>
-<li><p>Wir beginnen mit dem Installieren der benötigten Linuxpakete. Python sollte bereits installiert sein (mindestens Version 3.6). Wir brauchen noch eine virtuelle Umgebung für Python (<code class="docutils literal notranslate"><span class="pre">venv</span></code> genannt). Außerdem wird noch Graphviz benötigt, jedoch nur für das Zeichnen der Struktur des Neuronalen Netzes in <a class="reference internal" href="kapitel_07.html"><span class="doc std std-doc">Kapitel 7</span></a>.</p>
+<li><p>Wir beginnen mit dem Installieren der benötigten Linuxpakete. Python sollte bereits installiert sein (mindestens Version 3.6). Wir brauchen noch eine virtuelle Umgebung für Python (venv genannt). Außerdem wird noch Graphviz benötigt, je-doch nur für das Zeichnen der Struktur des neuronalen Netzes in <a class="reference internal" href="kapitel_07.html"><span class="doc std std-doc">Kapitel 7</span></a>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
 <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python3</span><span class="o">-</span><span class="n">venv</span> <span class="n">graphviz</span>
 </pre></div>
 </div>
 </li>
-<li><p>Jetzt können wir Inhalte runterladen, entpacken und in den Ordner wechseln.</p>
+<li><p>Jetzt können wir Inhalte herunterladen, entpacken und in den Ordner wechseln.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~</span>
 <span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">sherbold</span><span class="o">/</span><span class="n">einfuehrung</span><span class="o">-</span><span class="ow">in</span><span class="o">-</span><span class="n">data</span><span class="o">-</span><span class="n">science</span><span class="o">/</span><span class="n">archive</span><span class="o">/</span><span class="n">refs</span><span class="o">/</span><span class="n">heads</span><span class="o">/</span><span class="n">main</span><span class="o">.</span><span class="n">zip</span>
 <span class="n">unzip</span> <span class="n">main</span><span class="o">.</span><span class="n">zip</span>
@@ -303,22 +303,22 @@
 </pre></div>
 </div>
 </li>
-<li><p>Jetzt können wir uns in diesem Ordner eine virtuelle Pythonumgebung erstellen, aktivieren und die benötigten Pythonpakete installieren.</p>
+<li><p>Jetzt können wir uns in diesem Ordner eine virtuelle Python-Umgebung erstellen, aktivieren und die benötigten Python-Pakete installieren.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="n">venv</span>
 <span class="n">source</span> <span class="n">venv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>
 <span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
 </pre></div>
 </div>
 </li>
-<li><p>Jetzt muss noch noch das Jupyter Lab gestartet werden.</p>
+<li><p>Jetzt muss noch das Jupyter Lab gestartet werden.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">content</span>
-<span class="n">juypter</span><span class="o">-</span><span class="n">lab</span>
+<span class="n">jupyter</span><span class="o">-</span><span class="n">lab</span>
 </pre></div>
 </div>
 </li>
-<li><p>Fertig! Jetzt können wir das Juypter Lab im Browser öffnen (der Link wird ja angezeigt) und sehen die Jupyter Notebooks für alle Kapitel, mit denen wir alles selbst ausprobieren können. Die Daten für die Übungen sind auch direkt mitgeliefert.</p></li>
+<li><p>Fertig! Jetzt können wir das Jupyter Lab im Browser öffnen (der Link wird ja angezeigt) und sehen die Jupyter Notebooks für alle Kapitel, mit denen wir alles selbst ausprobieren können. Die Daten für die Übungen sind auch direkt mitgeliefert.</p></li>
 </ol>
-<p>Wenn wir fertig sind, können wir die Notebooks einfach schließen und mit <code class="docutils literal notranslate"><span class="pre">Strg+C</span></code> das Jupyter Lab im Terminal beenden. Beim nächsten Starten müssen wir nur in den Ordner wechseln, die <code class="docutils literal notranslate"><span class="pre">venv</span></code> aktivieren, und können dann direkt das Jupyter Lab starten.</p>
+<p>Wenn wir fertig sind, können wir die Notebooks einfach schließen und mit <code class="docutils literal notranslate"><span class="pre">Strg+C</span></code> das Jupyter Lab im Terminal beenden. Beim nächsten Starten müssen wir nur in den Ordner wechseln, die <code class="docutils literal notranslate"><span class="pre">venv</span></code> aktivieren und können dann direkt das Jupyter Lab starten.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~</span>
 <span class="n">cd</span> <span class="n">einfuehrung</span><span class="o">-</span><span class="ow">in</span><span class="o">-</span><span class="n">data</span><span class="o">-</span><span class="n">science</span><span class="o">-</span><span class="n">main</span><span class="o">/</span><span class="n">content</span>
 <span class="n">source</span> <span class="n">venv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>
