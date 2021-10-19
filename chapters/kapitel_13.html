@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -33,17 +33,17 @@
     
   <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -93,7 +93,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Kapitel
  </span>
@@ -165,7 +165,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Appendix
  </span>
@@ -285,7 +285,7 @@
         
               <div>
                 
-  <div class="section" id="weiterfuhrende-konzepte">
+  <div class="tex2jax_ignore mathjax_ignore section" id="weiterfuhrende-konzepte">
 <h1><span class="section-number">13. </span>Weiterführende Konzepte<a class="headerlink" href="#weiterfuhrende-konzepte" title="Permalink to this headline">¶</a></h1>
 <p>Zum Abschluss dieses Crashkurses wollen wir noch einige wichtige weiterführende Konzepte erwähnen, die wir nicht behandelt haben. Dieses Kapitel ist also ein Hilfsmittel für alle, die sich weiter mit dem Thema beschäftigen wollen.</p>
 <p>Nicht alle Merkmale werden von jedem Algorithmus benötigt. Manchmal sind die Merkmale redundant, da es Korrelationen gibt, manchmal helfen die Merkmale auch einfach nicht bei der Analyse. Einige von den betrachteten Algorithmen haben das bereits berücksichtigt. Die Lasso-Regularisierung (siehe <a class="reference internal" href="kapitel_08.html"><span class="doc std std-doc">Kapitel 8</span></a>) eliminiert unwichtige Merkmale, indem die Koeffizienten auf null gesetzt werden. Entscheidungsbäume wählen nur die informativsten Merkmale aus (siehe <a class="reference internal" href="kapitel_07.html"><span class="doc std std-doc">Kapitel 7</span></a>), sodass einige Merkmale eventuell nicht berücksichtigt werden. Die meisten Algorithmen nutzen aber alle Merkmale, die zur Verfügung stehen. Mehr Merkmale führen aber zu komplexeren Modellen, was sich auch negativ auf die Rechenzeit auswirkt. Mithilfe von Techniken zur *Merkmalsauswahl (engl. <em>feature selection</em>) kann man dieses Problem unabhängig vom Algorithmus lösen. Solche Techniken suchen nach einer Teilmenge von Merkmalen, die nicht korreliert sind, oder eliminieren Merkmale, die nicht relevant sind. Zwei Verfahren haben wir sogar behandelt: Mit der PCA (siehe <a class="reference internal" href="kapitel_04.html"><span class="doc std std-doc">Kapitel 4</span></a>) lassen sich neue Merkmale berechnen, sodass man eine kleinere und unkorrelierte Menge von Merkmalen nutzen könnte. Und der Informationsgewinn, den wir bei den Entscheidungsbäumen kennengelernt haben, kann auch dazu benutzt werden, Merkmale mit einem sehr geringen Informationsgewinn zu entfernen.</p>

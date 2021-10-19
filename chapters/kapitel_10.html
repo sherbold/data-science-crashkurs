@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -33,19 +33,19 @@
     
   <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -95,7 +95,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Kapitel
  </span>
@@ -167,7 +167,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Appendix
  </span>
@@ -391,7 +391,7 @@
         
               <div>
                 
-  <div class="section" id="text-mining">
+  <div class="tex2jax_ignore mathjax_ignore section" id="text-mining">
 <h1><span class="section-number">10. </span>Text Mining<a class="headerlink" href="#text-mining" title="Permalink to this headline">¶</a></h1>
 <p>Beim <em>Text Mining</em> geht es um die Anwendung der in den vergangenen Kapiteln besprochenen Methoden auf textuelle Daten mit dem Ziel, Wissen aus den Daten zu gewinnen. Beispiele für Text Mining sind die Analyse von Kundenbewertungen bezüglich der Emotion und Meinung (engl. <em>sentiment</em>) oder die automatische Gruppierung ähnlicher Dokumente. Das Problem bei der Analyse von natürlicher Sprache ist, dass Sätze und längere Texte weder numerisch noch kategorisch sind. Es gibt also keine offensichtliche Darstellung durch Merkmale. Hinzu kommt, dass Text oft eine innere Struktur hat, zum Beispiel durch Überschriften, Einleitungen oder Referenzen zu verwandten Inhalten. Wenn wir Text lesen, erkennen wir diese semantische Struktur automatisch und ordnen diese ein. Daher ist es die große Herausforderung des Text Mining, eine geeignete Struktur der textuellen Daten für das maschinelle Lernen zu finden.</p>
 <p>Hierfür müssen wir den Text <em>codieren</em>, um eine numerische oder kategorische Repräsentation zu erhalten. Ziel der Repräsentation sollte sein, möglichst wenig relevante Information aus dem Text zu verlieren. Eine ideale Codierung beinhaltet daher nicht nur die Worte, sondern auch die <em>Bedeutung</em> der Worte im jeweiligen <em>Kontext</em>, die grammatikalische Struktur und eventuell sogar den Gesamtkontext eines Satzes innerhalb eines Dokuments. Aufgrund dieser Komplexität ist die Repräsentation von Texten für das maschinelle Lernen immer noch der Gegenstand der aktuellen Forschung. Durch Fortschritte der letzten Jahre wird das Text Mining jedoch zu einem immer mächtigeren und zuverlässigeren Werkzeug. Das Text Mining selbst ist ein großes Gebiet, bei dem wir hier nur an der Oberfläche kratzen können. Das Ziel dieses Kapitels ist es, dass wir ein gutes Verständnis der Herausforderungen vom Text Mining bekommen, grundlegende Verfahren kennenlernen und außerdem Wissen wie fortgeschrittene Verfahren erarbeiten.</p>

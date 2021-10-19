@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -33,19 +33,19 @@
     
   <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -95,7 +95,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Kapitel
  </span>
@@ -167,7 +167,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Appendix
  </span>
@@ -357,7 +357,7 @@
         
               <div>
                 
-  <div class="section" id="allgemeines-zur-datenanalyse">
+  <div class="tex2jax_ignore mathjax_ignore section" id="allgemeines-zur-datenanalyse">
 <h1><span class="section-number">3. </span>Allgemeines zur Datenanalyse<a class="headerlink" href="#allgemeines-zur-datenanalyse" title="Permalink to this headline">¶</a></h1>
 <p>Bevor wir uns in die Algorithmen zur Modellierung mithilfe von Daten stürzen, brauchen wir noch einige Grundlagen. Hierbei handelt es sich um allgemeine Konzepte, die nicht von einer bestimmten Art der Analyse oder Daten abhängen und die wir immer wieder benötigen. Außerdem geben wir in diesem Kapitel auch einen Überblick über die Arten von Algorithmen, die es gibt.</p>
 <div class="section" id="das-no-free-lunch-theorem">
@@ -403,7 +403,7 @@
 <p>Und so funktioniert auch maschinelles Lernen: Schlussfolgerungen über Objekte werden anhand ihrer Merkmale gezogen. Formal haben wir einen <em>Objektraum</em> <span class="math notranslate nohighlight">\(O\)</span> mit Objekten aus der realen Welt und einen <em>Merkmalsraum</em> (engl. <em>feature space</em>) <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> mit Beschreibungen der Objekte durch ihre Merkmale. Eine <em>Feature Map</em> <span class="math notranslate nohighlight">\(\phi: 0 \to \mathcal{F}\)</span> bildet die Objekte auf ihre Repräsentation im Merkmalsraum ab. Für unser Walbild ist der Objektraum <span class="math notranslate nohighlight">\(O\)</span> die Menge der Bilder und der Merkmalsraum hätte fünf Dimensionen: Form, Farbe oben, Farbe unten, Hintergrundfarbe und Flossen. Die Repräsentation des Bilds im Merkmalsraum wäre daher <span class="math notranslate nohighlight">\(\phi(Walbild) = (Oval, Schwarz, Wei\text{ß}, Blau, Ja)\)</span>.</p>
 <p>Es gibt verschiedene <em>Skalen</em>, über die Merkmale definiert sein können. Die am häufigsten verwendete Skalendefinition geht auf Steven zurück und ist auch als <em>Steven’s Levels of Measurements</em> bzw. <em>NOIR</em>-Skalen bekannt <a class="footnote-reference brackets" href="#stevens" id="id4">4</a>. NOIR ist ein Akronym für die vier Arten von Skalen: Nominal, Ordinal, Intervall, und Rational.</p>
 <table class="colwidths-auto table" id="tbl-scales">
-<caption><span class="caption-number">Table 3.1 </span><span class="caption-text">Skalen für Merkmale</span><a class="headerlink" href="#tbl-scales" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 3.1 </span><span class="caption-text">Skalen für Merkmale </span><a class="headerlink" href="#tbl-scales" title="Permalink to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Skala</p></th>
 <th class="head"><p>Eigenschaft</p></th>
@@ -436,7 +436,7 @@
 </table>
 <p><a class="reference internal" href="#tbl-scales"><span class="std std-numref">Table 3.1</span></a> fasst die Eigenschaften der Skalen zusammen. Nominale und ordinale Merkmale nennt man auch <em>kategorische</em> Merkmale, da sie ihre Werte in Kategorien darstellen. Bei nominalen Merkmalen gibt es keine Ordnung der Kategorien, das heißt, dass man zum Beispiel nicht sagen kann, welche Kategorie größer oder kleiner ist. Bei ordinalen Merkmalen gibt es eine wohldefinierte Ordnung, wir können die Kategorien also sortieren. Der Abstand zwischen den Kategorien ist nicht bekannt und auch nicht notwendigerweise gleich zwischen benachbarten Kategorien. Entsprechend kann man nur sagen, dass T-Shirts der Größe <em>Small</em> kleiner sind als <em>Medium</em> und <em>Medium</em> wiederum kleiner als <em>Large</em>. Aber wie groß der Unterschied zwischen Small und Medium ist, und ob der Unterschied zwischen Medium und Large gleich groß ist, ist nicht bekannt. Dieses Wissen hat man erst, wenn man eine Intervallskala verwendet, auf der man die Unterschiede quantifizieren kann. Wir können zum Beispiel die Temperaturdifferenz von 10° C und 5° C berechnen. Was jedoch auf Intervallskalen keinen Sinn ergibt, sind Verhältnisse. Man kann beispielsweise nicht sinnvoll sagen, dass das Datum 2000-01-01 doppelt so hoch ist wie 1000-01-01. Daher kann man Verhältnisse nur bei Merkmalen mit einer rationalen Skala sinnvoll berechnen. Wenn wir zum Beispiel die Zeit messen, die im Gregorianischen Kalender seit dem Jahr 0 vergangen ist, kann man durchaus sagen, dass 2000 Jahre Unterschied doppelt so viel ist wie 1000 Jahre.</p>
 <p>Viele Algorithmen gehen davon aus, dass die Merkmale durch Zahlen repräsentiert werden. Während das auf Intervall- und Rationalskalen kein Problem ist, sind Nominal- und Ordinalskalen nicht numerisch. Ein einfacher Ansatz wäre es, die Kategorien einfach durchzunummerieren, zum Beispiel Schwarz als eins, Weiß als zwei und Blau als drei. Diesen Ansatz sollte man jedoch in der Regel vermeiden, da die Gefahr besteht, dass Algorithmen dann mit diesen Zahlen rechnen und zum Beispiel Differenzen bilden. Dann wäre Blau minus Weiß auf einmal Schwarz, was natürlich keinen Sinn ergibt. Eine bessere Lösung ist daher das <em>One-Hot Encoding</em>. Das Konzept hinter dem One-Hot Encoding besteht darin, eine Nominal- bzw. Ordinalskala durch viele Merkmale mit den Werten null und eins zu ersetzen. Für jede Kategorie der ursprünglichen Skala gibt es ein neues Merkmal. Für einen Datenpunkt ist der Wert dieses neuen Merkmals eins, wenn der Datenpunkt zur entsprechenden Kategorie gehört, und ansonsten null.</p>
-<p>Als Beispiel betrachten wir die Nominalskala mit den Werten Schwarz, Weiß, und Blau, es gilt also <span class="math notranslate nohighlight">\(x \in \{Schwarz, Wei\text{ß}, Blau\}\)</span>. Wir ersetzen dieses Feature durch drei neue Features <span class="math notranslate nohighlight">\(x^{Schwarz}, x^{Wei\text{ß}}, x^{Blaub} \in \{0,1\}\)</span>. Die Werte der neuen Merkmale sind folgendermaßen definiert:</p>
+<p>Als Beispiel betrachten wir die Nominalskala mit den Werten Schwarz, Weiß, und Blau, es gilt also <span class="math notranslate nohighlight">\(x \in \{Schwarz, Wei\text{ß}, Blau\}\)</span>. Wir ersetzen dieses Feature durch drei neue Features <span class="math notranslate nohighlight">\(x^{Schwarz}, x^{Wei\text{ß}}, x^{Blau} \in \{0,1\}\)</span>. Die Werte der neuen Merkmale sind folgendermaßen definiert:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}x^{Schwarz} = \begin{cases}1 &amp; \text{wenn}~x=\text{Schwarz} \\ 0 &amp; \text{sonst}\end{cases}\end{split}\]</div>
 <div class="math notranslate nohighlight">
