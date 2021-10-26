@@ -21,3 +21,4 @@ parts:
   chapters:
   - file: chapters/howto
   - file: chapters/notations
+  - file: chapters/acronyms
