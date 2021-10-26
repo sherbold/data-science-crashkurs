@@ -424,7 +424,7 @@
 <p>Der Support ist sehr ähnlich zur generischen Definition von “interessanten Beziehungen”, die wir oben eingeführt haben, da der Support ein Maß für die Häufigkeit ist, mit der Kombinationen von Gegenständen auftauchen. Entsprechend kann man den Support als indirektes Maß für die Interessantheit sehen. Was noch fehlt ist ein Mindestmaß an Interessantheit, sodass eine Kombination von Gegenständen relevant genug ist, um diese als Grundlage für Assoziationsregeln zu nutzen. Es ist nur logisch, dass man hierfür einen Grenzwert für den Support festlegt: Ist dieser Grenzwert überschritten, ist ein Itemset interessant und wir sprechen von einem Frequent Itemset. Formal nennen wir ein Itemset <span class="math notranslate nohighlight">\(IS\)</span> <em>frequent</em>, wenn Folgendes gilt:</p>
 <div class="math notranslate nohighlight">
 \[support(IS) \geq minsupp\]</div>
-<p>für einen Grenzwertminsupp \in [0,1].$$</p>
+<p>für einen Grenzwert <span class="math notranslate nohighlight">\(minsupp \in [0,1].\)</span></p>
 <p>Im obigen Beispiel hat das Itemset der Gegenstände item2, item3 und item4 einen Support von</p>
 <p><span class="math notranslate nohighlight">\(support(\{item2, item3, item4\}) = \frac{3}{10}\)</span>,</p>
 <p>da alle drei Gegenstände zusammen in drei von zehn Transaktionen vorkommen. Wenn wir also <span class="math notranslate nohighlight">\(minsupp=0,3\)</span> wählen, wäre das Itemset <span class="math notranslate nohighlight">\(\{item2, item3, item4\}\)</span> ein Frequent Itemset. Insgesamt finden wir mit diesem Grenzwert die folgenden Frequent Itemsets.</p>

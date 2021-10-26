@@ -687,7 +687,7 @@
 <div><p><strong>Bemerkung:</strong></p>
 <p>Weißes Rauschen entspricht einer Zufallsvariablen mit dem Erwartungswert null. Das heißt, dass der Wert im Mittel null ist, also den Mittelwert der Zeitreihe nicht beeinflusst. Üblicherweise wird weißes Rauschen durch eine Normalverteilung mit einem Mittelwert von null und mit einer kleinen Standardabweichung modelliert.</p>
 </div></blockquote>
-<p>Ein MA-Modell beschreibt, wie sich die Zeitreihe nur aufgrund des Zufalls weiterentwickelt. Dies geht über das  , das wir schon aus dem AR-Modell kennen, hinaus, indem nicht nur das weiße Rauschen des aktuellen Zeitschritts einen Einfluss hat, sondern auch die letzten <span class="math notranslate nohighlight">\(q\)</span> zufälligen Schwankungen, sodass</p>
+<p>Ein MA-Modell beschreibt, wie sich die Zeitreihe nur aufgrund des Zufalls weiterentwickelt. Dies geht über das <span class="math notranslate nohighlight">\(\epsilon\)</span>, das wir schon aus dem AR-Modell kennen, hinaus, indem nicht nur das weiße Rauschen des aktuellen Zeitschritts einen Einfluss hat, sondern auch die letzten <span class="math notranslate nohighlight">\(q\)</span> zufälligen Schwankungen, sodass</p>
 <div class="math notranslate nohighlight">
 \[c + \epsilon_t + \sum_{j=1}^q b_j \epsilon_{t-j}\]</div>
 <p>mit <span class="math notranslate nohighlight">\(c\)</span> und <span class="math notranslate nohighlight">\(\epsilon_t\)</span> wie oben. Die Summe <span class="math notranslate nohighlight">\(\sum_{j=1}^q b_j \epsilon_{t-j}\)</span> beschreibt den Einfluss des vergangenen weißen Rauschens auf die Zukunft. Dies kann man sich so vorstellen, dass eine zufällig erhöhte Passagierzahl im Januar möglicherweise zu einer Reduktion im Februar führt. Dies würde man dann durch einen negativen Koeffizienten <span class="math notranslate nohighlight">\(b_1\)</span> im MA-Modell beschreiben.</p>
@@ -739,7 +739,7 @@
 </div>
 <div class="section" id="arima">
 <h3><span class="section-number">9.3.4. </span>ARIMA<a class="headerlink" href="#arima" title="Permalink to this headline">¶</a></h3>
-<p>Oft findet man auch ARIMA-Modelle für die Zeitreihenanalyse mit den Parametern <span class="math notranslate nohighlight">\(p\)</span>, <span class="math notranslate nohighlight">\(d\)</span> und <span class="math notranslate nohighlight">\(q\)</span> ARIMA funktioniert genau wie ARMA, nur dass die Bereinigung des Trends durch Differencing über den Parameter <span class="math notranslate nohighlight">\(d\)</span> ein Teil des Modells ist. ARIMA ist also das Gleiche wie ein ARMA-Modell, das auf eine durch Differencing trendbereinigte Zeitreihe angewendet wird.</p>
+<p>Oft findet man auch ARIMA-Modelle für die Zeitreihenanalyse mit den Parametern <span class="math notranslate nohighlight">\(p\)</span>, <span class="math notranslate nohighlight">\(d\)</span> und <span class="math notranslate nohighlight">\(q\)</span>. ARIMA funktioniert genau wie ARMA, nur dass die Bereinigung des Trends durch Differencing über den Parameter <span class="math notranslate nohighlight">\(d\)</span> ein Teil des Modells ist. ARIMA ist also das Gleiche wie ein ARMA-Modell, das auf eine durch Differencing trendbereinigte Zeitreihe angewendet wird.</p>
 </div>
 </div>
 <div class="section" id="jenseits-von-box-jenkins">
