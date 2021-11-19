@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>6. Clusteranalyse &#8212; ARBEITSVERSION - Data Science Crashkurs - Eine interaktive und praktische Einführung - Bitte lesen sie das Vorwort für weitere Informationen</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -31,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -42,7 +42,7 @@
     <script src="../_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
@@ -56,7 +56,10 @@
     <link rel="next" title="7. Klassifikation" href="kapitel_07.html" />
     <link rel="prev" title="5. Assoziationsregeln" href="kapitel_05.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -95,7 +98,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Kapitel
  </span>
@@ -167,7 +170,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Appendix
  </span>
@@ -551,7 +554,7 @@
 <p>Eine Variante, um Städte zu definieren, könnte mithilfe der Rathäuser erfolgen. Man könnte sagen, dass jedes Haus zu der Stadt gehört, deren Rathaus am nächsten liegt. Diese Idee ist die Essenz des <span class="math notranslate nohighlight">\(k\)</span>-Means-Algorithmus. Man beschreibt Cluster durch ihr <em>Zentrum</em>. Dieses Zentrum nennt man auch <em>Centroid</em>, weshalb es sich bei <span class="math notranslate nohighlight">\(k\)</span>-Means auch um einen Vertreter der <em>centroidbasierten Clusteralgorithmen</em> handelt.</p>
 <p>Wenn man wissen möchte, zu welchem Cluster eine Instanz gehört, muss man lediglich herausfinden, welcher Centroid am nächsten ist. Das <span class="math notranslate nohighlight">\(k\)</span> im Namen des Algorithmus steht für die Anzahl der Cluster. Formal haben wir die Centroids <span class="math notranslate nohighlight">\(C_1, ..., C_k\)</span> und eine Metrik <span class="math notranslate nohighlight">\(d\)</span>, um den Abstand zu messen. Wir können für jede Instanz <span class="math notranslate nohighlight">\(x \in \mathcal{F}\)</span> estimmen, zu welchem Cluster sie gehört, indem wir das Minimum bestimmen:</p>
 <div class="math notranslate nohighlight">
-\[c(x) = argmin_{i=1,...,k} d(x, C_i)\]</div>
+\[c(x) = \arg\min_{i=1,...,k} d(x, C_i)\]</div>
 <p>bestimmen.</p>
 <p>Das folgende Beispiel zeigt, wie wir Daten in <span class="math notranslate nohighlight">\(k=4\)</span> Cluster unterteilen. Die Centroids sind als große graue Punkte dargestellt, die anderen Farben zeigen die Clusterzugehörigkeit.</p>
 <div class="cell tag_hide-input docutils container">
@@ -820,7 +823,7 @@
 </ol>
 <p>Der größte Unterschied zwischen dem EM-Algorithmus und dem <span class="math notranslate nohighlight">\(k\)</span>-Means-Algorithmus sind die Gewichte. Diese Gewichte geben die Wahrscheinlichkeit an, dass eine Instanz <span class="math notranslate nohighlight">\(x \in X\)</span> zu einem bestimmten Cluster gehört. Der Wert <span class="math notranslate nohighlight">\(w_i(x)=0,9\)</span> bedeutet also, dass die Instanz <span class="math notranslate nohighlight">\(x\)</span> mit 90% Wahrscheinlichkeit zu Cluster <span class="math notranslate nohighlight">\(i\)</span> gehört. Die Zuweisung der Instanzen zu den Clustern erfolgt nach der oben beschriebenen Regel: Jede Instanz wird dem Cluster zugewiesen, das die Wahrscheinlichkeit maximiert, also</p>
 <div class="math notranslate nohighlight">
-\[c(x) = argmax_{i=1, ..., k} w_i(x).\]</div>
+\[c(x) = \arg\max_{i=1, ..., k} w_i(x).\]</div>
 <p>Durch die Berechnung der Wahrscheinlichkeit für jedes Cluster kann man beim EM-Clustering die Unsicherheit der Ergebnisse gut nachvollziehen. Wenn eine Instanz für verschiedene Cluster eine hohe Wahrscheinlichkeit hat, erkennt man, dass diese Zuweisung unsicher ist. Diese Art zu clustern nennt man auch <em>Soft Clustering</em>, da die Instanzen nicht “hart” genau einem Cluster zugewiesen werden, sondern stattdessen eine “weiche” Zuweisung über Wahrscheinlichkeiten erfolgt.</p>
 <p>Um ein tieferes Verständnis für den EM-Algorithmus zu bekommen, betrachten wir jetzt an einem Beispiel, wie die Cluster aktualisiert werden.</p>
 <div class="cell tag_hide-input docutils container">
@@ -1678,31 +1681,22 @@ Als Daten verwenden wir die Bostondaten. Hier noch ein paar Tipps vorweg:</p>
               </div>
               
         
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="kapitel_05.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title"><span class="section-number">5. </span>Assoziationsregeln</p>
-            </div>
-        </a>
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="kapitel_05.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">5. </span>Assoziationsregeln</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="kapitel_07.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Klassifikation</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="kapitel_07.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">7. </span>Klassifikation</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
         
         </div>
@@ -1723,8 +1717,7 @@ Als Daten verwenden wir die Bostondaten. Hier noch ein paar Tipps vorweg:</p>
       </div>
     </div>
   
-  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>
