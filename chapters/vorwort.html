@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WICHTIG: Arbeitsversion &#8212; ARBEITSVERSION - Data Science Crashkurs - Eine interaktive und praktische Einführung - Bitte lesen sie das Vorwort für weitere Informationen</title>
+    <title>Vorwort &#8212; Data Science Crashkurs - Eine interaktive und praktische Einführung</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -41,7 +41,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe"
@@ -80,7 +80,7 @@
       <img src="../_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">ARBEITSVERSION - Data Science Crashkurs - Eine interaktive und praktische Einführung - Bitte lesen sie das Vorwort für weitere Informationen</h1>
+      <h1 class="site-logo" id="site-title">Data Science Crashkurs - Eine interaktive und praktische Einführung</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -91,7 +91,7 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1 current">
   <a class="reference internal" href="#">
-   WICHTIG: Arbeitsversion
+   Vorwort
   </a>
  </li>
 </ul>
@@ -234,7 +234,7 @@
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -282,46 +282,32 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   WICHTIG: Arbeitsversion
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#vorwort">
-   Vorwort
-  </a>
-  <ul class="visible nav section-nav flex-column">
-  </ul>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Vorwort</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="wichtig-arbeitsversion">
-<h1>WICHTIG: Arbeitsversion<a class="headerlink" href="#wichtig-arbeitsversion" title="Permalink to this headline">¶</a></h1>
-<p>Dieses Buch ist noch im Entstehen und wird in Zusammenarbeit mit dem <a class="reference external" href="https://dpunkt.de/">dpunkt.verlag</a> veröffentlicht. Es handelt sich nur um eine Vorabversion an der noch intensiv gearbeitet wird und an der noch Änderungen möglich sind.</p>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="vorwort">
+  <div class="tex2jax_ignore mathjax_ignore section" id="vorwort">
 <h1>Vorwort<a class="headerlink" href="#vorwort" title="Permalink to this headline">¶</a></h1>
 <p>Willkommen beim Data-Science-Crashkurs. Wenn Sie bereits öfter etwas von Big Data, maschinellem Lernen, der künstlichen Intelligenz oder Data Science gehört haben und wissen wollen, welche Methoden sich hinter diesen Begriffen verbergen, sind Sie hier genau richtig. Dieses Buch richtet sich an alle, die mehr über die Möglichkeiten der Datenanalyse lernen wollen, ohne gleich tief in die Theorie oder bestimmte Methoden einzusteigen. Auch wenn Sie sich am besten schon etwas in der Informatik und/oder Mathematik auskennen, so kann man den Großteil auch verstehen, wenn man sich einfach nur für Daten interessiert und vor Mathe in der Schule keine Angst hatte.</p>
 <p>Wir fangen an, indem wir die Definitionen der Begriffe einführen und dann betrachten, wie Data-Science-Projekte üblicherweise ablaufen. Dann geht’s los mit den Daten. Zuerst lernen wir die Daten selbst mithilfe von Statistiken und Visualisierungen kennen. Sodann tauchen wir in die Welt der Algorithmik ein: Assoziationsregeln zum Auffinden von Beziehungen, Clustering, um Gruppen ähnlicher Daten zu finden, Klassifikation, um Kategorien zuzuweisen, Regression, um Zusammenhänge zu lernen, Zeitreihenanalyse, um zeitliche Zusammenhänge auszunutzen. Im letzten Teil betrachten wir, wie wir Texte zu Zahlen werden lassen, mit denen wir rechnen können, welche Rolle die Statistik für die Bewer-tung von Ergebnissen spielt und wie man mit Big Data arbeiten kann.</p>
 <p>Wenn Sie wollen, können Sie sich nur mit den Methoden beschäftigen. Alle Methoden werden aber auch praktisch demonstriert: Im ganzen Buch befinden sich Quelltextbeispiele und das Ergebnis der Ausgabe. Hierdurch können Sie gleichzeitig verstehen, welche Methoden es gibt und wie Sie diese anwenden. Das Buch selbst wurde komplett mithilfe von <em>Jupyter Notebooks</em> geschrieben. In diesen Notebooks können Sie direkt im Webbrowser den Quelltext selbst ausführen, um die Ergebnisse interaktiv nachzuvollziehen. Sie können den Quelltext hierbei auch beliebig anpassen, zum Beispiel, um besser zu verstehen, was passiert, wenn sich Parameter eines Modells ändern. Im Anhang wird erklärt, wie Sie sich das Buch auf Ihrem eigenen Rechner “installieren”.</p>
-<p>Am Ende der meisten Kapitel gibt es praktische Übungen, die Sie zur Vertie-fung und für ein besseres Verständnis bearbeiten können. Beispiellösungen für diese Aufgaben können Sie sich in der Onlineversion des Buches anschauen <a class="footnote-reference brackets" href="#online" id="id1">1</a>. Wenn Sie mal unterwegs sind, können Sie auch einfach in der Onlineversion weiterlesen. Für einige Kapitel gibt es keine Übungen. In diesen Kapiteln geht es großteils um Definitionen (Kapitel 1 und 2) oder einen Ausblick (Kapitel 13). Bei Kapitel 12 wird eine Big-Data-Umgebung benötigt. Auch wenn man hierfür kleinere Beispiele definieren könnte, müssten sowohl eine Python- als auch eine Java-Umgebung für eine Übung eingerichtet und passend konfiguriert werden, was aber über den bei einem Crashkurs angebrachten Aufwand hinausgeht.</p>
+<p>Am Ende der meisten Kapitel gibt es praktische Übungen, die Sie zur Vertiefung und für ein besseres Verständnis bearbeiten können. Beispiellösungen für diese Aufgaben können Sie sich in der Onlineversion des Buches anschauen <a class="footnote-reference brackets" href="#online" id="id1">1</a>. Wenn Sie mal unterwegs sind, können Sie auch einfach in der Onlineversion weiterlesen. Für einige Kapitel gibt es keine Übungen. In diesen Kapiteln geht es großteils um Definitionen (Kapitel 1 und 2) oder einen Ausblick (Kapitel 13). Bei Kapitel 12 wird eine Big-Data-Umgebung benötigt. Auch wenn man hierfür kleinere Beispiele definieren könnte, müssten sowohl eine Python- als auch eine Java-Umgebung für eine Übung eingerichtet und passend konfiguriert werden, was aber über den bei einem Crashkurs angebrachten Aufwand hinausgeht.</p>
 <p>Mit Quellenangaben wird in diesem Buch insgesamt eher sparsam umgegan-gen: Das Ziel ist ein breiter Überblick und ein Verständnis des Themas. Für die Vertiefung gibt es zu jedem Kapitel, häufig sogar zu den Abschnitten innerhalb der Kapitel, ausreichend eigene Fachliteratur. Welche Bücher jeweils für Sie geeignet sind, kann man nicht pauschal sagen, das hängt vom jeweiligen Ziel und Wissensstand der Leserschaft ab. Durch die aktuelle Verbreitung findet man zu jedem Thema auch zusätzliche Informationen im Internet, wenn man nach den entsprechenden Begriffen sucht. Die meisten Quellen, die hier im Buch genannt sind, verweisen auf besonders wichtige Definitionen oder Anwendungen; in wenigen Fällen, wenn ein Thema wirklich nur sehr kurz behandelt wird, auch zur weiterführenden Fachliteratur. In der Printversion des Buches sind diese Quellen durch die Autoren, Titel und Jahreszahlen angegeben, wie es in Literaturlisten üblich ist. In der Onlineversion wird direkt auf die Quellen verlinkt, falls möglich mithilfe von <em>Document Object Identifiern</em> (DOIs): Dies sind persistente Identifier, die auch in vielen Jahren noch funktionieren sollten und zu den Homepages der Verlage weiterleiten.</p>
 <p>Der Fokus des Buches liegt darauf, wie Analysen für Daten erstellt werden. Drei für die Anwendung wichtige Aspekte betrachten wir nicht: Wie man Daten sammelt, wie man Daten aus einer Datenbank laden kann und den operativen Einsatz von erstellten Analysen. Das Datensammeln ist von Anwendungsfall zu Anwendungsfall verschieden. Oft liegen schon Daten vor. Andernfalls muss individuell auf Basis der Problemstellung eine Lösung entwickelt werden. Das Laden von Daten hängt vom Datenformat ab. Bei kleineren Projekten werden häufig CSV-Dateien verwendet, wie wir es in den Übungen machen. Aber auch andere Formate wie JSON sind bei Dateien üblich. Hier muss man einfach bei den Bibliotheken nach den entsprechenden Möglichkeiten zum Laden suchen. Im Fall von Datenbanken kann man die Daten häufig mit der Anfragesprache SQL laden. SQL ist für sich genommen jedoch bereits ein Thema, das ganze Bücher füllt. Da das Laden von Daten für unseren Crashkurs sekundär ist, verzichten wir daher auf eine Einführung in Datenbanken und SQL. Beim operativen Einsatz geht es nicht nur um die Modelle und ihre Güte, sondern auch darum, wie diese in ein Softwaresystem eingebunden werden, wie dieses System getestet wird und wie hiermit bei einer Continuous Integration umgegangen wird. Hierbei handelt es sich um für die Softwaretechnik wesentliche Fragen, die jedoch die Analysen nicht direkt beeinflussen.</p>
 <p>In diesem Buch verwenden wir vorwiegend die weibliche Bezeichnung von Rollen. Die Ausnahme ist die Rolle des Data Scientist. Im Englischen ist das Wort geschlechtslos und die Begriffe “Scientistin” oder “die Data Scientist” klingen eher komisch.</p>
@@ -360,8 +346,8 @@
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
+            
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'>
     <a class='right-next' id="next-link" href="kapitel_01.html" title="next page">
     <div class="prev-next-info">
@@ -371,19 +357,17 @@
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Steffen Herbold<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      By Steffen Herbold<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
 </main>
 
 
