@@ -1,4 +1,4 @@
-# Einführung in Data Science (Working Title)
+# Data-Science-Crashkurs
 
-Hier entsteht in den nächsten Wochen und Monaten mein neues Data Science Buch. Mehr Infos folgen im Laufe der Zeit. 
+Repository des Buchs Data-Science-Crashkurs ([Print](https://dpunkt.de/produkt/data-science-crashkurs/) / [Online](https://data-science-crashkurs.de/)).
 
