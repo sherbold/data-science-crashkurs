@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>2. Der Prozess von Data-Science-Projekten &#8212; Data Science Crashkurs - Eine interaktive und praktische Einführung</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +20,16 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -39,12 +37,13 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -62,7 +61,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -71,9 +84,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -91,14 +105,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="vorwort.html">
-   Vorwort
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="vorwort.html">
+                    Vorwort
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Kapitel
  </span>
@@ -194,104 +209,177 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Gefällt Ihnen das Buch? Möchten Sie es in den Händen halten und weitere Open Access Bücher unterstützen? <a href="https://dpunkt.de/produkt/data-science-crashkurs/">Dann kaufen Sie die Print Edition.</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/chapters/kapitel_02.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/sherbold/einfuehrung-in-data-science"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/sherbold/einfuehrung-in-data-science/main?urlpath=tree/content/chapters/kapitel_02.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Gefällt Ihnen das Buch? Möchten Sie es in den Händen halten und weitere Open Access Bücher unterstützen? <a href="https://dpunkt.de/produkt/data-science-crashkurs/">Dann kaufen Sie die Print Edition.</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/sherbold/einfuehrung-in-data-science/main?urlpath=tree/content/chapters/kapitel_02.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/sherbold/einfuehrung-in-data-science"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/chapters/kapitel_02.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#der-generische-data-science-prozess">
    2.1. Der generische Data-Science-Prozess
@@ -400,12 +488,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Der Prozess von Data-Science-Projekten</h1>
@@ -530,29 +617,34 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="der-prozess-von-data-science-projekten">
-<h1><span class="section-number">2. </span>Der Prozess von Data-Science-Projekten<a class="headerlink" href="#der-prozess-von-data-science-projekten" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="der-prozess-von-data-science-projekten">
+<h1><span class="section-number">2. </span>Der Prozess von Data-Science-Projekten<a class="headerlink" href="#der-prozess-von-data-science-projekten" title="Permalink to this headline">#</a></h1>
 <p>Prozesse sind der Kern jeder Aktivität, auch wenn man sich dessen oft gar nicht bewusst ist. Menschen führen Aktivitäten durch das Anwenden von Techniken durch. Die Prozesse steuern und organisieren diese Aktivitäten und beschreiben die Techniken, die eingesetzt werden. <a class="reference internal" href="#fig-processes"><span class="std std-numref">Fig. 2.1</span></a> zeigt die Beziehung von Menschen, Techniken und Prozessen.</p>
-<div class="figure align-default" id="fig-processes">
+<figure class="align-default" id="fig-processes">
 <a class="reference internal image-reference" href="../_images/processes.png"><img alt="../_images/processes.png" src="../_images/processes.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.1 </span><span class="caption-text">Beziehung von Menschen, Techniken und Prozessen</span><a class="headerlink" href="#fig-processes" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 2.1 </span><span class="caption-text">Beziehung von Menschen, Techniken und Prozessen</span><a class="headerlink" href="#fig-processes" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>Das Ziel eines guten Prozesses ist es, die Menschen zu unterstützen, zum Beispiel indem sichergestellt wird, dass wichtige Aktivitäten nicht vergessen werden, oder durch die Verwendung von geeigneten Werkzeugen zum Lösen von Problemen. Prozesse erreichen dies, indem sie geeignete Best Practices beschreiben. Diese Best Practices sollten auf Basis der erfolgreichen Anwendung in der Vergangenheit bestimmt werden. Hierdurch soll das Wissen und der Erfolg aus vergangenen Projekten konserviert und genutzt werden, um die Fähigkeiten der Menschen zu unterstützen und das Risiko, dass ein Projekt fehlschlägt, zu reduzieren. Dies funktioniert jedoch nur, wenn die Prozesse von Menschen auch unterstützt werden.</p>
 <p>Wenn die Menschen den Prozess nicht akzeptieren oder nicht an seinen Nutzen glauben, erreicht man das Gegenteil und erhöht stattdessen das Risiko von Projekten. Daher sollten die Personen die notwendigen Schulungen erhalten, um die Techniken einzusetzen und ihren Nutzen zu kennen. Außerdem muss man sicherstellen, dass die Techniken auch zum Prozess passen.</p>
 <p>Man sollte sich auch immer bewusst sein, dass es nicht den einen Prozess gibt, der perfekt zu jedem Projekt passt. Man sollte den Prozess daher immer an die Situation anpassen, man spricht hier auch vom <em>Tailoring</em>. Hierbei sind die zur Verfügung stehenden Techniken und der Projektkontext zu berücksichtigen, zum Beispiel die Größe und Priorität des Projekts, ob es sicherheitskritische Aspekte gibt oder ob die Mitarbeiterinnen Vorwissen aus ähnlichen Projekten mitbringen.</p>
-<div class="section" id="der-generische-data-science-prozess">
-<h2><span class="section-number">2.1. </span>Der generische Data-Science-Prozess<a class="headerlink" href="#der-generische-data-science-prozess" title="Permalink to this headline">¶</a></h2>
+<section id="der-generische-data-science-prozess">
+<h2><span class="section-number">2.1. </span>Der generische Data-Science-Prozess<a class="headerlink" href="#der-generische-data-science-prozess" title="Permalink to this headline">#</a></h2>
 <p><a class="reference internal" href="#fig-dsprocess"><span class="std std-numref">Fig. 2.2</span></a> zeigt den generischen Prozess für Data-Science-Projekte, der aus sechs Phasen besteht.</p>
-<div class="figure align-default" id="fig-dsprocess">
+<figure class="align-default" id="fig-dsprocess">
 <a class="reference internal image-reference" href="../_images/process_german.png"><img alt="../_images/process_german.png" src="../_images/process_german.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.2 </span><span class="caption-text">Überblick über den generellen Prozess von Data-Science-Projekten.</span><a class="headerlink" href="#fig-dsprocess" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 2.2 </span><span class="caption-text">Überblick über den generellen Prozess von Data-Science-Projekten.</span><a class="headerlink" href="#fig-dsprocess" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>Der Prozess ist iterativ, das heißt, dass mehrere Wiederholungen aller Phasen innerhalb eines Projekts möglich sind. Innerhalb einer Iteration kann man nur zu den vorherigen Phasen zurück, solange man die Ergebnisse der Iteration noch nicht kommuniziert hat. Der Grund hierfür ist offensichtlich: Sobald man die Projektergebnisse übermittelt hat, zum Beispiel an das Management, die Kunden oder andere Forscher in Form einer Publikation, kann man diese nicht ohne Weiteres ändern. Im Folgenden betrachten wir die Projektphasen im Detail.ail.</p>
-<div class="section" id="discovery">
-<h3><span class="section-number">2.1.1. </span>Discovery<a class="headerlink" href="#discovery" title="Permalink to this headline">¶</a></h3>
+<section id="discovery">
+<h3><span class="section-number">2.1.1. </span>Discovery<a class="headerlink" href="#discovery" title="Permalink to this headline">#</a></h3>
 <p>Jedes Data-Science-Projekt beginnt mit der <em>Discovery Phase</em>. Das Ziel der Discovery ist es, die Projektdomäne, Ziele und Daten zu verstehen. Anhand der gesammelten Informationen wird beurteilt, ob die für das Projekt notwendigen Ressourcen verfügbar sind, und die weiteren Projektschritte werden geplant.</p>
 <p>Der Data Scientist muss das notwendige Wissen erlangen, um die Domäne des Projekts zu verstehen, insbesondere den Anwendungsfall, der adressiert werden soll. Häufig wird der Data Scientist hierbei von Domänenexpertinnen unterstützt, die die notwendigen Informationen liefern. Dies kann zum Beispiel bedeuten, dass sie zur Verfügung stehen, um Fragen zu beantworten, oder auch dass Anforderungen in Form von Interviews und Workshops gesammelt werden. Hierdurch lernt der Data Scientist auch bereits die Daten und Informationsquellen kennen. Dieses Wissen ist notwendig, um das Projekt zu verstehen und die Ergebnisse zu interpretieren. Es kann sein, dass der Data Scientist bereits selbst Experte oder Expertin in der Anwendungsdomäne ist, zum Beispiel weil dies nicht das erste derartige Projekt ist. Dennoch ist es häufig sinnvoll, den Anwendungsfall zusammen mit weiteren Domänenexpertinnen zu betrachten, um sicherzustellen, dass keine wesentlichen Aspekte übersehen werden.</p>
 <p>Als Teil des Lernprozesses der Domäne sollte auch die Vergangenheit nicht außer acht gelassen werden. Bei Forschungsprojekten ist es in der akademischen Welt üblich, zuerst die verwandten Forschungsarbeiten zu identifizieren und den Stand der Forschung aufzuarbeiten. Ähnlich sollte man auch in der Wirtschaft vorgehen: Gab es vielleicht bereits frühere Projekte mit einem ähnlichen Ziel? Falls ja, warum sind diese gescheitert bzw. warum wird dieses Projekt jetzt neu durchgeführt? Die alten Projektergebnisse – sowohl positive als auch negative – sind ideale Quellen, um Projektrisiken zu identifizieren. Hierbei sollte man sich auch nicht nur auf das eigene Unternehmen beschränken. Im Rahmen der Möglichkeiten des Urheber- und Patentrechts ist eine Analyse der Konkurrenzprodukte oft hilfreich, um mögliche Lösungen zu verstehen.</p>
@@ -599,9 +691,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>Wir sind der Meinung, dass die Ressourcen ausreichen, um eine Pilotstudie durchzuführen, in der die Machbarkeit von nützlichen Vorhersagen für Cross-Selling-Werbung geprüft wird. Eine detaillierte Evaluation der Benutzererfahrung sowie eine Operationalisierung der Ergebnisse für den produktiven Betrieb ist mit den zur Verfügung stehenden Ressourcen nicht realistisch. Im Falle einer erfolgreichen Machbarkeit der Vorhersagen wird dies in einem Folgeprojekt umgesetzt.</p></li>
 </ul>
 </div></blockquote>
-</div>
-<div class="section" id="datenvorbereitung">
-<h3><span class="section-number">2.1.2. </span>Datenvorbereitung<a class="headerlink" href="#datenvorbereitung" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="datenvorbereitung">
+<h3><span class="section-number">2.1.2. </span>Datenvorbereitung<a class="headerlink" href="#datenvorbereitung" title="Permalink to this headline">#</a></h3>
 <p>Mit dem Abschluss der Discovery beginnt die technische Arbeit des Projekts, bei der die <em>Daten für die Analyse vorbereitet</em> werden (engl. <em>preprocessing</em>). Hierbei gibt es zwei wesentliche Ziele:</p>
 <ol class="simple">
 <li><p>Die Infrastruktur für die Datenanalyse muss erstellt werden und alle relevanten Daten müssen in diese Infrastruktur geladen werden.</p></li>
@@ -629,9 +721,9 @@ Wir bestimmen außerdem vier Repräsentationen der Transaktionen, die für die C
 Die verschiedenen Repräsentationen ermöglichen es Ihnen, das Cross-Selling auf bestimmte Kleidungstypen oder Marken zu fokussieren.</p></li>
 </ul>
 </div></blockquote>
-</div>
-<div class="section" id="modellplanung">
-<h3><span class="section-number">2.1.3. </span>Modellplanung<a class="headerlink" href="#modellplanung" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="modellplanung">
+<h3><span class="section-number">2.1.3. </span>Modellplanung<a class="headerlink" href="#modellplanung" title="Permalink to this headline">#</a></h3>
 <p>Das Ziel der <em>Modellplanung</em> ist das Design des Analysemodells. Hierzu muss man aus den verschiedenen Möglichkeiten, wie die Datenanalyse gestaltet werden kann, ein geeignetes Modell auswählen, das sowohl zu den Daten als auch zum Analyseziel passt. Es gibt verschiedene Aspekte, die bei der Modellauswahl berücksichtigt werden müssen. Das Projektziel gibt üblicherweise die grundsätzliche Art des Modells vor:</p>
 <ol class="simple">
 <li><p><em>Assoziationsregeln</em> können benutzt werden, um Regeln zu finden, die relevante Beziehungen innerhalb von Transaktionen beschreiben (<a class="reference internal" href="kapitel_05.html"><span class="doc std std-doc">Kapitel 5</span></a>).</p></li>
@@ -648,10 +740,12 @@ Die verschiedenen Repräsentationen ermöglichen es Ihnen, das Cross-Selling auf
 <li><p>Mit welchen Modellen hat das Projektteam die meiste Erfahrung? Gerade wenn es mehrere geeignete Kandidaten gibt, ist es sinnvoll, ein Modell zu wählen, das von den Mitarbeiterinnen bereits gut verstanden wird.</p></li>
 </ol>
 <p>Damit Data Scientists ein geeignetes Modell auswählen können, ist es wichtig, dass sie nicht nur Detailwissen über wenige Modelle haben, sondern eine Vielzahl von Modellen kennen, um für jeden Kontext geeignete Modelle identifizieren zu können.</p>
-<div class="figure align-default" id="fig-ceiling">
+<figure class="align-default" id="fig-ceiling">
 <a class="reference internal image-reference" href="../_images/ceiling.png"><img alt="../_images/ceiling.png" src="../_images/ceiling.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.3 </span><span class="caption-text">Vergleich der Güte zweier fiktiver Modelle, bezogen auf die Datengröße.</span><a class="headerlink" href="#fig-ceiling" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 2.3 </span><span class="caption-text">Vergleich der Güte zweier fiktiver Modelle, bezogen auf die Datengröße.</span><a class="headerlink" href="#fig-ceiling" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>In <a class="reference internal" href="#fig-ceiling"><span class="std std-numref">Fig. 2.3</span></a> ist zu erkennen, dass das orange Modell besser ist, wenn nur wenige Daten zur Verfügung stehen. Das blaue Modell ist besser, wenn viele Daten verfügbar sind. In diesem fiktiven Beispiel könnte das orange Modell für Random Forests und das blaue Modell für tiefe neuronale Netze stehen. Diese Modelle werden in <a class="reference internal" href="kapitel_07.html"><span class="doc std std-doc">Kapitel 7</span></a> eingeführt.</p>
 <p>Auch wenn die Auswahl des Modells ein entscheidender Faktor für den Projekterfolg ist, macht sie in der Regel nur einen relativ kleinen Teil der Modellplanung aus. Weitere wichtige Aktivitäten sind:</p>
 <ul class="simple">
@@ -665,27 +759,27 @@ Die verschiedenen Repräsentationen ermöglichen es Ihnen, das Cross-Selling auf
 <div><p><strong>Beispiel:</strong></p>
 <p>Wir entscheiden uns für den Apriori-Algorithmus zum Bestimmen von Assoziationsregeln, um Produkte, die häufig gemeinsam gekauft wurden, zu identifizieren. Für die Varianten der Daten, in denen wir die Produkte durch Kategorien ersetzt haben, möchten wir ein Random-Forest-Regressionsmodell nutzen, um vorherzusagen, mit welcher Wahrscheinlichkeit bestimmte Produkte gekauft werden, basierend auf dem Inhalt des Warenkorbs. Je nach Qualität der Ergebnisse dieser Modelle planen wir außerdem noch, die Modelle gegebenenfalls in einer zweiten Iteration zu verändern, um Verbesserungen zu erreichen. Als ein Risiko, das zu einer solchen zweiten Iteration führen kann, sehen wir, dass eventuell zu viele günstige Produkte vorhergesagt werden, sodass selbst richtige Vorhersagen nur geringe Auswirkungen auf den Umsatz haben würden. Die Güte der Modellquali-tät bewerten wir auf Basis der Häufigkeit wie zufällig aus dem Warenkorb entfernte Gegenstände richtig vorhergesagt werden. Um die Analyse der Modellqualität zu unterstützen, planen wir, eine Visualisierung zu erstellen, die uns hilft zu verstehen, welche Produkte häufig gemeinsam gekauft werden. Außerdem entschließen wir uns, unsere Daten anhand der Zeitstempel in drei Teildatensätze zu unterteilen: Die ältesten 50% der Daten sollen zum Trainieren der Modelle benutzt werden, die nächsten 25% als Validierungsdaten und die neuesten 25% als Testdaten.</p>
 </div></blockquote>
-</div>
-<div class="section" id="modellerstellung">
-<h3><span class="section-number">2.1.4. </span>Modellerstellung<a class="headerlink" href="#modellerstellung" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="modellerstellung">
+<h3><span class="section-number">2.1.4. </span>Modellerstellung<a class="headerlink" href="#modellerstellung" title="Permalink to this headline">#</a></h3>
 <p>Zur <em>Modellerstellung</em> müssen wir den notwendigen Code schreiben, um die geplanten Modelle zu trainieren. Häufig gibt es mehrere Iterationen zwischen der Modellplanung und der Modellerstellung. Innerhalb dieser Iterationen wird das Modell stückweise basierend auf den Erkenntnissen von Zwischenauswertungen verbessert. So können zum Beispiel Probleme, die man spät in den Daten entdeckt, noch behoben oder Potenziale für die Verbesserung genutzt werden. Wichtig ist jedoch, dass für diese iterativen Verbesserungen nur die Trainings- und Validierungsdaten verwendet werden. Die Testdaten darf man nur zur abschließenden Bewertung der Modellqualität benutzen. Wenn die Testdaten mehrfach verwendet werden, degenerieren sie zu Validierungsdaten (siehe <a class="reference internal" href="kapitel_03.html"><span class="doc std std-doc">Kapitel 3</span></a>).</p>
 <p>Man könnte die Modellplanung und die Modellerstellung auch als eine Phase betrachten. Der Grund, weshalb wir diese hier als getrennte Phasen beschreiben, besteht darin, dass die Modellerstellung sehr teuer und zeitintensiv sein kann, zum Beispiel wenn riesige neuronale Netze in einem gemieteten Cluster in der Cloud trainiert werden. Da dies nicht oft wiederholt werden kann, hilft es, das Training als separaten Teil des Prozesses hervorzuheben.</p>
 <blockquote>
 <div><p><strong>Beispiel:</strong></p>
 <p>Wir entschließen uns, das Modell mit der Programmiersprache Python basierend auf den Bibliotheken pandas, scikit-learn und mlextend zu erstellen. Wir können das Modell auf einer normalen Workstation trainieren und evaluieren.</p>
 </div></blockquote>
-</div>
-<div class="section" id="kommunikation-der-ergebnisse">
-<h3><span class="section-number">2.1.5. </span>Kommunikation der Ergebnisse<a class="headerlink" href="#kommunikation-der-ergebnisse" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="kommunikation-der-ergebnisse">
+<h3><span class="section-number">2.1.5. </span>Kommunikation der Ergebnisse<a class="headerlink" href="#kommunikation-der-ergebnisse" title="Permalink to this headline">#</a></h3>
 <p>Irgendwann kommt der Punkt, an dem der Zyklus von iterativen Modellplanungs- und Modellerstellungsschritten beendet wird und die finalen <em>Projektergebnisse kommuniziert</em> werden. Üblicherweise ist dies entweder der Fall, wenn die Zeit oder die geplanten Ressourcen verbraucht sind, die gewünschte Modellqualität erreicht ist, keine Verbesserungen mehr möglich sind oder es absehbar ist, dass kein adäquates Modell gefunden wird. Die Projektergebnisse müssen dann den relevanten Stakeholdern mitgeteilt werden. Welche dies sind, hängt vom Projekt ab. In der Industrie können das zum Beispiel die Kunden oder das höhere Management sein. In der Hochschule könnte das der Betreuer einer Abschlussarbeit sein oder andere forschende Personen. Die Form, in der die Ergebnisse kommuniziert werden, hängt ebenfalls vom Kontext ab. Häufig gibt es eine Abschlusspräsentation, eventuell auch Projektberichte oder wissenschaftliche Fachartikel.</p>
 <p>Egal in welcher Form die Ergebnisse kommuniziert werden, der wichtigste Aspekt ist, dass klar wird, ob die Projektziele erreicht wurden oder nicht und, als direkte Folgerung, ob das Projekt erfolgreich war. Zusätzlich sollte man noch die wichtigsten Erkenntnisse des Projekts herausstreichen, zum Beispiel ob das Modell Gewinne erhöht oder Kosten reduziert, wie der erwartete Return on Investment (ROI) ist oder welche Auswirkungen auf das operative Geschäft oder weitere Projekte erwartet werden. Domänenexpertinnen sind häufig auch an Details interessiert, zum Beispiel welche Merkmale wichtig sind und wie diese mit den Ergebnissen zusammenhängen. Gerade wenn etwas Unerwartetes passiert, kann dies zu spannenden Erkenntnissen führen. Bei Forschungsprojekten kommt hinzu, dass man auch klar kommunizieren muss, inwiefern die Erkenntnisse den Stand der Forschung voranbringen.</p>
 <blockquote>
 <div><p><strong>Beispiel:</strong></p>
 <p>Die Assoziationsregeln für Kategorien von Produkten in Kombination mit der Vorhersage von geeigneten Gegenständen durch das Regressionsmodell liefern die besten Ergebnisse. Wir schätzen, dass sich die Verkäufe um 10% erhöhen lassen und dass der Umsatz hierdurch um 6% steigen wird. Wir finden außerdem heraus, dass unsere Modelle nur dann zuverlässig funktionieren, wenn wir zwischen Damen- und Herrenbekleidung unterscheiden. Andernfalls sagt das Regressionsmodell zu häufig Damenbekleidung voraus.</p>
 </div></blockquote>
-</div>
-<div class="section" id="operationalisierung">
-<h3><span class="section-number">2.1.6. </span>Operationalisierung<a class="headerlink" href="#operationalisierung" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="operationalisierung">
+<h3><span class="section-number">2.1.6. </span>Operationalisierung<a class="headerlink" href="#operationalisierung" title="Permalink to this headline">#</a></h3>
 <p>Wenn die Ergebnisse des Modells gut genug sind, wird unter Umständen die Entscheidung getroffen, das Modell im <em>operationellen Betrieb</em> einzusetzen. Hiermit ist in der Regel ein signifikanter Aufwand verbunden: Oft muss das Modell in der operationellen Umgebung neu implementiert werden. Hierbei müssen sowohl die Sicherheitsaspekte der Umgebung als auch die Lauftzeitanforderungen respektiert werden. Wenn das Modell zum Beispiel direkt innerhalb einer Datenbank ausgeführt werden soll, muss man es in der Regel von Grund auf neu programmieren. Wegen dieses oft hohen Aufwands ist die Operationalisierung häufig ein separates Projekt.</p>
 <p>Wenn man sich dafür entscheidet, ein Modell in den operationellen Betrieb zu übernehmen, sollte dies pilotiert, also zuerst in einem kleinen Kontext ausprobiert werden. Diese Pilotstudie ist ein Sicherheitsnetz und soll gewährleisten, dass die Erwartungen bezüglich der Modelleigenschaften, die man auf den Testdaten überprüft hat, auch im operationellen Betrieb gültig sind. Es kann zum Beispiel Unterschiede geben, weil sich die Benutzer nicht so verhalten, wie wir dies erwarten, da sich das Nutzerverhalten im Laufe der Zeit verändert hat.</p>
 <p>Die Alterung der Daten ist ein Problem für die Operationalisierung, das man nicht unterschätzen sollte: Nicht nur die Daten altern, sondern auch die Modelle. Als Folge verschlechtert sich häufig die Güte der Modelle mit der Zeit. Damit dies kein Problem wird, sollte als Teil der Operationalisierung definiert werden, wann und wie die Modellqualität regelmäßig überprüft wird und unter welchen Umständen das Modell durch ein auf neuen Daten trainiertes Modell ersetzt wird.</p>
@@ -693,62 +787,62 @@ Die verschiedenen Repräsentationen ermöglichen es Ihnen, das Cross-Selling auf
 <div><p><strong>Beispiel:</strong></p>
 <p>Unser Kunde ist zufrieden mit den Projektergebnissen und möchte das Modell in seinem Webshop durch eine Pilotstudie testen. Die Pilotstudie zeigt die Vorhersagen bei zufällig ausgewählten Kunden und protokolliert, ob weitere Produkte basierend auf den Vorhersagen gekauft wurden. Die Pilotstudie läuft einen Monat. Unabhängig davon, ob Nutzer die Vorhersagen sehen oder nicht, werden alle Nutzer eingeladen, an einer Umfrage zur Zufriedenheit mit dem Webshop teilzunehmen. Diese Umfrage soll zeigen, wie sich die gezielt platzierte Werbung auf die Kundenzufriedenheit auswirkt. Nach Abschluss der Pilotstudie wird die Entscheidung getroffen, ob das Modell in Zukunft immer eingesetzt wird, ob basierend auf der Umfrage Verbesserungen in Bezug auf die Kundenzufriedenheit notwendig sind oder ob sich der Einsatz nicht lohnt, da die platzierte Werbung ignoriert wird.</p>
 </div></blockquote>
-</div>
-</div>
-<div class="section" id="rollen-in-data-science-projekten">
-<h2><span class="section-number">2.2. </span>Rollen in Data-Science-Projekten<a class="headerlink" href="#rollen-in-data-science-projekten" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="rollen-in-data-science-projekten">
+<h2><span class="section-number">2.2. </span>Rollen in Data-Science-Projekten<a class="headerlink" href="#rollen-in-data-science-projekten" title="Permalink to this headline">#</a></h2>
 <p>In jedem Prozess gibt es <em>Rollen</em>, die ausgefüllt werden müssen. Eine Rolle ist eine Funktion oder Tätigkeit, die einen bestimmten Teil einer Operation oder eines Prozesses durchführt. Mit anderen Worten: Rollen beschreiben die Verantwort-lichkeiten und Aufgaben der Personen, die an einem Prozess beteiligt sind. In der Praxis sind Rollen oft mit Jobtiteln verbunden, zum Beispiel “Softwareentwickle-rin”, “Projektmanagerin” oder “Data Scientist”. Im Allgemeinen gibt es jedoch keine Eins-zu-eins-Beziehung von Rollen und Personen. Eine Person kann mehrere Rollen ausfüllen und mehrere Personen können die gleiche Rolle haben. Es kann zum Beispiel mehrere “Data Scientists” in einem Projekt geben und diese “Data Scientists” können noch weitere Rollen haben. Einer könnte zum Beispiel noch zusätzlich der “Projektmanager” sein, eine andere die “Datenbankadminist-ratorin”.</p>
 <p>Wir betrachten sieben Rollen in Data-Science-Projekten. Bitte beachten Sie, dass es in der Praxis, insbesondere in großen Projekten oder im Rahmen der Operationalisierung, häufig noch weitere Rollen gibt, zum Beispiel Softwareentwicklerinnen, Softwarearchitektinnen, Cloud-Architektinnen, Community Managerinnen und Testerinnen. Außerdem betrachten wir das Rollenmodell aus der Perspektive der Industrie. Es gibt jedoch für jede Rolle auch ein Gegenstück in der akademischen Welt, das wir auch anführen.</p>
-<div class="section" id="anwenderin">
-<h3><span class="section-number">2.2.1. </span>Anwenderin<a class="headerlink" href="#anwenderin" title="Permalink to this headline">¶</a></h3>
+<section id="anwenderin">
+<h3><span class="section-number">2.2.1. </span>Anwenderin<a class="headerlink" href="#anwenderin" title="Permalink to this headline">#</a></h3>
 <p>Die Anwenderinnen sind der Teil der Zielgruppe, die später die Projektergebnisse direkt benutzen sollen. Sie sind daher wichtige Stakeholder und häufig auch Domänenexpertinnen, die man für ein besseres Verständnis konsultieren kann. Die Anwenderinnen können helfen, die Daten zu verstehen und die Güte der Ergebnisse einzuordnen, um die Rolle eines Projekts in einem Geschäftsprozess zu verstehen. Auch wenn man die Anwenderinnen immer konsultieren sollte, ist dies spätestens dann zwingend notwendig, wenn die Projektergebnisse operationalisiert werden sollen. In akademischen Projekten sind alle, die die Forschungsergebnisse direkt oder indirekt in ihrer täglichen Arbeit nutzen, die Anwender. Wenn Forschung sich bereits im Stadium des Industrietransfers befindet, sind die Anwenderinnen die gleichen wie bei industriellen Projekten. In der akademischen Welt sind die Anwenderinnen in der Regel andere Forscherinnen.</p>
 <p>Auch wenn die Anwenderinnen eine wichtige Rolle in Projekten innehaben, was sich auch insbesondere in modernen agilen Prozessmodellen wie Scrum widerspiegelt , werden sie häufig nicht im Tagesgeschäft von Projekten, sondern eher zu festen Zeitpunkten konsultiert.</p>
-</div>
-<div class="section" id="projektsponsorin">
-<h3><span class="section-number">2.2.2. </span>Projektsponsorin<a class="headerlink" href="#projektsponsorin" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="projektsponsorin">
+<h3><span class="section-number">2.2.2. </span>Projektsponsorin<a class="headerlink" href="#projektsponsorin" title="Permalink to this headline">#</a></h3>
 <p>Ohne die Sponsorin gäbe es kein Projekt. Die Projektsponsorinnen entscheiden, welche Projekte gestartet werden, und stellen die benötigten Ressourcen bereit. Entsprechend könnten die Projektsponsorinnen die Mitglieder des Managements einer Firma sein oder aber auch Kundinnen, die einen Auftrag erteilen. Die Projektsponsorinnen sind auch für die Beurteilung, ob ein Projekt erfolgreich ist, wichtig. Sie entscheiden, ob sie mit den Ergebnissen zufrieden sind und ob weitere Ressourcen für Folgeprojekte bereitgestellt werden, zum Beispiel um ein Ergebnis zu operationalisieren. In der akademischen Welt sind die Projektsponsorinnen in der Regel die <em>Principal Investigator</em> (PIs), also Professorinnen und Postdoktorandinnen.</p>
 <p>Ähnlich wie die Anwenderinnen sind die Projektsponsorinnen in der Regel nicht im Tagesgeschäft involviert. Stattdessen sind sie nur an Meilensteinen beteiligt, wenn wesentliche Projektergebnisse vorgestellt werden und wichtige Entscheidungen getroffen werden müssen.</p>
-</div>
-<div class="section" id="projektmanagerin">
-<h3><span class="section-number">2.2.3. </span>Projektmanagerin<a class="headerlink" href="#projektmanagerin" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="projektmanagerin">
+<h3><span class="section-number">2.2.3. </span>Projektmanagerin<a class="headerlink" href="#projektmanagerin" title="Permalink to this headline">#</a></h3>
 <p>Die Projektmanagerin organisiert die Projektarbeit und das Tagesgeschäft. Die Aufgaben umfassen unter anderem die Ressourcenplanung (finanziell, Betreuung der Mitarbeiterinnen, Rechenzeit) sowie die Überwachung des Projektfortschritts. Die Projektmanagerin ist dafür verantwortlich, dass Meilensteine und Projektziele zu den geplanten Zeitpunkten erreicht und die Qualitätsziele dabei erfüllt werden. Damit dies gewährleistet ist, bewertet die Projektmanagerin regelmäßig die Risiken und leitet sofern notwendig Maßnahmen zur Minimierung des Risikos ein. Im Extremfall kann das bedeuten, dass die Projektmanagerin auch entscheiden muss, dass ein Projekt gescheitert ist und nicht fortgeführt wird. Alternativ könnten aber auch zusätzliche Ressourcen beantragt oder die Ziele angepasst werden. Im akademischen Umfeld ist die Projektmanagerin in der Regel auch die Projektsponsorin oder eine wissenschaftliche Mitarbeiterin der Projektsponsorin.</p>
-</div>
-<div class="section" id="dateningenieurinnen">
-<h3><span class="section-number">2.2.4. </span>Dateningenieurinnen<a class="headerlink" href="#dateningenieurinnen" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="dateningenieurinnen">
+<h3><span class="section-number">2.2.4. </span>Dateningenieurinnen<a class="headerlink" href="#dateningenieurinnen" title="Permalink to this headline">#</a></h3>
 <p>Eine Dateningenieurin beschäftigt sich mit dem ELT/ETL der Daten und ist verantwortlich dafür, die Daten in einer skalierbaren Analyseumgebung zur Verfügung zu stellen. Die Dateningenieurinnen brauchen daher ein gutes Verständnis der Technologien zum Sammeln, Speichern und Verarbeiten von Daten. Insbesondere bei Big-Data-Projekten oder wenn größere Mengen an Daten noch gesammelt werden müssen, kann dies sehr herausfordernd sein. In akademischen Projekten gibt es in der Regel keine Trennung zwischen der Dateningenieurin und dem Data Scientist. In einigen Disziplinen ist das Bereitstellen der Daten jedoch so aufwendig, dass es auch hier Spezialistinnen gibt, zum Beispiel in der Genetik und der Hochenergiephysik. Das Human Genome Project <a class="footnote-reference brackets" href="#genome" id="id3">2</a> und das CERN <a class="footnote-reference brackets" href="#cern" id="id4">3</a> sind daher nicht nur für die Biologie und Physik hochrelevant, sondern auch Treiber von Technologien zum Umgang mit großen Datenmengen.</p>
-</div>
-<div class="section" id="datenbankadministratorin">
-<h3><span class="section-number">2.2.5. </span>Datenbankadministratorin<a class="headerlink" href="#datenbankadministratorin" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="datenbankadministratorin">
+<h3><span class="section-number">2.2.5. </span>Datenbankadministratorin<a class="headerlink" href="#datenbankadministratorin" title="Permalink to this headline">#</a></h3>
 <p>Die Datenbankadministratorin unterstützt die Dateningenieurinnen und Data Scientists durch die Bereitstellung und Administration von Datenbanken als Teil der Analyseumgebung für das Projekt. Die Aufgaben umfassen die Installation und Konfiguration von (verteilten) Datenbanken und Rechenclustern, inklusive der benötigten Werkzeuge für die Datenanalyse. Ob diese Rolle mit der Dateningenieurin oder dem Data Scientist zusammenfällt, hängt von der Organisation ab: Wenn es zum Beispiel ein extra Rechenzentrum gibt oder eine Organisationseinheit für die Nutzung und Bereitstellung von Cloud-Ressourcen, wird die Rolle in der Regel separat gehandhabt. Andernfalls fallen diese Aufgaben häufig direkt mit anderen Tätigkeiten im Projekt zusammen.</p>
-</div>
-<div class="section" id="data-scientist">
-<h3><span class="section-number">2.2.6. </span>Data Scientist<a class="headerlink" href="#data-scientist" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="data-scientist">
+<h3><span class="section-number">2.2.6. </span>Data Scientist<a class="headerlink" href="#data-scientist" title="Permalink to this headline">#</a></h3>
 <p>Der Data Scientist ist Experte für die Datenanalyse und Modellierung und hierfür verantwortlich. Daher muss man als Data Scientist ein detailliertes Verständnis von Modellierungs- und Analysetechniken mitbringen, damit für ein Projekt geeignete Methoden ausgewählt werden können. Als Data Scientist trägt man wesentliche Verantwortung für den Projekterfolg und das Erreichen der Projektziele. Wenn klar wird, dass dies nicht möglich ist oder Risiken identifiziert werden, muss man als Data Scientist eng mit dem Projektmanagement zusammenarbeiten, um geeignete Schritte einzuleiten. Die Rolle des Data Scientist ist eng verwandt mit der Rolle von Business Intelligence Analysts, die es bereits in der Industrie gibt. Bei Business Intelligence handelt es sich gewissermaßen um den Vorreiter von Data Science in der Industrie, wobei hier der Fokus eher auf der Analyse des Status quo liegt, während Data-Science-Projekte häufig auch in die Zukunft blicken, um Vorhersagen und automatisierte Entscheidungen zu ermöglichen.</p>
-</div>
-</div>
-<div class="section" id="deliverables">
-<h2><span class="section-number">2.3. </span>Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="deliverables">
+<h2><span class="section-number">2.3. </span>Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this headline">#</a></h2>
 <p>Als <em>Deliverables</em> bezeichnet man greifbare und virtuelle Projektergebnisse. Welche Deliverables erstellt werden, wird häufig als Teil des Projektplans und in Verträgen definiert und ist eng verbunden mit den Meilensteinen von Projekten. Die Deliverables müssen die Erwartung der Stakeholder erfüllen und sind ein wesentliches Kriterium für den Projekterfolg. Bei Data-Science-Projekten gibt es üblicherweise verschiedene Deliverables, von denen wir die wichtigsten hier nennen wollen.</p>
-<div class="section" id="sponsorenprasentation">
-<h3><span class="section-number">2.3.1. </span>Sponsorenpräsentation<a class="headerlink" href="#sponsorenprasentation" title="Permalink to this headline">¶</a></h3>
+<section id="sponsorenprasentation">
+<h3><span class="section-number">2.3.1. </span>Sponsorenpräsentation<a class="headerlink" href="#sponsorenprasentation" title="Permalink to this headline">#</a></h3>
 <p>Die Sponsorenpräsentation adressiert das große Ganze und hat in der Regel eine nicht technische Zielgruppe, wie Anwenderinnen, Projektsponsorinnen und das Projektmanagement. Der Fokus der Sponsorenpräsentation sollte daher auf klaren Botschaften bezüglich des Anwendungsfalls liegen. Man sollte die Güte eines Modells zum Beispiel nicht durch eines der im maschinellen Lernen verwendeten Gütemaße ausdrücken, sondern eher in für den Geschäftsprozess relevanten Kriterien. Man sollte zum Beispiel nicht von “wahr-positiven”, sondern von dem Prozentsatz von korrekt identifizierten Kundinnen sprechen. Die Präsentation sollte darauf ausgelegt sein, die Entscheidungsfindung zu stützen. Was genau das bedeutet, hängt vom Kontext und den Adressatinnen ab. Für Anwenderinnen könnte man die Präsentation zum Beispiel auf die zu erwartenden Änderungen im Geschäftsprozess zuschneiden.</p>
 <p>Einfache Visualisierungen wie Balkendiagramme, Liniendiagramme und eventuell einfache Histogramme können hierbei unterstützend eingesetzt werden. Bei Histogrammen sollten die Bins so gewählt werden, dass sie intuitiv Sinn ergeben. Detaillierte Visualisierungen über Modelldetails sollten vermieden werden.</p>
-</div>
-<div class="section" id="analystenprasentation">
-<h3><span class="section-number">2.3.2. </span>Analystenpräsentation<a class="headerlink" href="#analystenprasentation" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="analystenprasentation">
+<h3><span class="section-number">2.3.2. </span>Analystenpräsentation<a class="headerlink" href="#analystenprasentation" title="Permalink to this headline">#</a></h3>
 <p>Die Analystenpräsentation ist an eine technisch versierte Zielgruppe gerichtet, zum Beispiel andere Data Scientists. Diese Präsentation sollte ebenfalls das große Ganze und die Kernbotschaften abdecken. Es sollte jedoch auch betrachtet werden, wie die Datenanalyse durchgeführt wurde, zum Beispiel welche Algorithmen verwendet wurden. Je nach Zielgruppe und der zur Verfügung stehenden Zeit kann man beliebig tief in die Modelldetails abtauchen oder muss diese eher oberflächlich behandeln. Im Allgemeinen sollte man in dieser Präsentation nichts “Offensichtliches” wiederholen: Wenn Standardalgorithmen verwendet wurden, sollte man diese zum Beispiel nicht ausführlich beschreiben. Stattdessen sollte der Fokus eher auf Aspekten wie unerwarteten Problemen, die aufgetaucht sind, kreativen Lösungsansätzen und neu entwickelten Verfahren liegen.</p>
 <p>Insgesamt kann die Analystenpräsentation also deutlich komplexer sein als die Sponsorenpräsentation. Dennoch sollte man immer im Blick behalten, dass die Zielgruppe in der zur Verfügung stehenden Zeit die präsentierten Inhalte auch “verdauen” kann. Man kann also durchaus komplexere Visualisierungen verwenden, wenn diese jedoch mit Details überladen werden, ist dies kontraproduktiv.</p>
-</div>
-<div class="section" id="quelltext">
-<h3><span class="section-number">2.3.3. </span>Quelltext<a class="headerlink" href="#quelltext" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="quelltext">
+<h3><span class="section-number">2.3.3. </span>Quelltext<a class="headerlink" href="#quelltext" title="Permalink to this headline">#</a></h3>
 <p>Der zur Datenanalyse entwickelte Quelltext ist in der Regel auch ein Deliverable. Dieser Quelltext ist oft nur ein Prototyp und kein auf Wiederverwendbarkeit ausgelegtes Werkzeug oder eine Programmbibliothek. Meistens liegt nur ein Haufen von Quelltextdateien und ausführbaren Skripten vor. Im schlimmsten Fall beinhalten diese sogar noch maschinenspezifische Informationen, wie lokale Pfade zu den Daten. Auch wenn Clean Code ein sekundärer Aspekt ist, sollte dennoch auch hier bereits auf die Wiederverwendbarkeit geachtet werden. Der Quelltext ist nämlich gleichzeitig auch eine exakte Spezifikation der erstellten Modelle. Daher ist der Quelltext, egal wie “hacky” er ist, eine wichtige Ressource, auch wenn er möglicherweise neu geschrieben, aufgeräumt oder adaptiert werden muss.</p>
-</div>
-<div class="section" id="technische-spezifikation">
-<h3><span class="section-number">2.3.4. </span>Technische Spezifikation<a class="headerlink" href="#technische-spezifikation" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="technische-spezifikation">
+<h3><span class="section-number">2.3.4. </span>Technische Spezifikation<a class="headerlink" href="#technische-spezifikation" title="Permalink to this headline">#</a></h3>
 <p>Zur Ausführung des Quelltextes muss man die technische Spezifikation kennen. Hier werden die Befehle und die Umgebung zur Ausführung beschrieben, zum Beispiel welche Betriebssysteme unterstützt werden, welche Softwarepakete benötigt werden, welche Abhängigkeiten verfügbar sein müssen und wie der Quelltext übersetzt und ausgeführt werden kann. Häufig wird dies vernachlässigt, sodass die technische Spezifikation fehlt, nicht aktuell oder unvollständig ist. In der Konsequenz ist der Quelltext nicht oder nur mit hohem Aufwand nutzbar. Gute Data Scientists sorgen dafür, dass dies nicht der Fall ist, zum Beispiel durch Replication Kits mit allen Informationen zur Replikation der Ergebnisse in der Forschung und saubere Paketierung des Quelltextes in der Industrie.</p>
-</div>
-<div class="section" id="daten">
-<h3><span class="section-number">2.3.5. </span>Daten<a class="headerlink" href="#daten" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="daten">
+<h3><span class="section-number">2.3.5. </span>Daten<a class="headerlink" href="#daten" title="Permalink to this headline">#</a></h3>
 <p>Wenn im Rahmen eines Projekts Daten gesammelt werden, sind diese Daten selbst eventuell auch ein Deliverable. Durch das Teilen oder Archivieren der Daten kann man die Durchführung zukünftiger Projekte ermöglichen oder unterstützen. Insbesondere in der Forschung ist das Teilen von Daten üblich und wichtig, um es anderen forschenden Personen zu ermöglichen, Ergebnisse nachzuvollziehen und darauf aufzubauen. Ob und wie die Daten geteilt werden können, hängt von der Sensitivität und dem Volumen der Daten ab. Das Teilen großer Datensätze kann kostenintensiv sein, was hier eventuell abschreckt. Wenn die Daten persönliche Informationen beinhalten, sodass die <em>Data Privacy</em> eine Rolle spielt, kann es notwendig sein, die Daten zu anonymisieren, oder auch komplett verboten sein, die Daten zu teilen. Ähnliches kann auch in einem industriellen Kontext mit internen Daten eines Unternehmens gelten. Wenn Daten geteilt werden, sollte dies den <em>FAIR-Prinzipien</em> genügen:</p>
 <ul class="simple">
 <li><p><em>Findable</em>: Die Daten müssen einfach zu finden sein, zum Beispiel durch einen Digital Object Identifier (DOI).</p></li>
@@ -768,9 +862,9 @@ Die verschiedenen Repräsentationen ermöglichen es Ihnen, das Cross-Selling auf
 <dd><p><a class="reference external" href="https://home.cern/">https://home.cern/</a></p>
 </dd>
 </dl>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -794,9 +888,11 @@ Die verschiedenen Repräsentationen ermöglichen es Ihnen, das Cross-Selling auf
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="kapitel_01.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -812,24 +908,28 @@ Die verschiedenen Repräsentationen ermöglichen es Ihnen, das Cross-Selling auf
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Steffen Herbold<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Steffen Herbold<br/>
-    
-        &copy; Copyright 2022.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

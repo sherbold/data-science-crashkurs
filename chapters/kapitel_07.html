@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>7. Klassifikation &#8212; Data Science Crashkurs - Eine interaktive und praktische Einführung</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +20,16 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -39,12 +37,13 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -64,7 +63,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -73,9 +86,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -93,14 +107,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="vorwort.html">
-   Vorwort
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="vorwort.html">
+                    Vorwort
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Kapitel
  </span>
@@ -196,104 +211,177 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Gefällt Ihnen das Buch? Möchten Sie es in den Händen halten und weitere Open Access Bücher unterstützen? <a href="https://dpunkt.de/produkt/data-science-crashkurs/">Dann kaufen Sie die Print Edition.</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/chapters/kapitel_07.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/sherbold/einfuehrung-in-data-science"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/sherbold/einfuehrung-in-data-science/main?urlpath=tree/content/chapters/kapitel_07.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Gefällt Ihnen das Buch? Möchten Sie es in den Händen halten und weitere Open Access Bücher unterstützen? <a href="https://dpunkt.de/produkt/data-science-crashkurs/">Dann kaufen Sie die Print Edition.</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/sherbold/einfuehrung-in-data-science/main?urlpath=tree/content/chapters/kapitel_07.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/sherbold/einfuehrung-in-data-science"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/chapters/kapitel_07.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#binare-klassifikation-und-grenzwerte">
    7.1. Binäre Klassifikation und Grenzwerte
@@ -468,12 +556,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Klassifikation</h1>
@@ -664,26 +751,33 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="klassifikation">
-<h1><span class="section-number">7. </span>Klassifikation<a class="headerlink" href="#klassifikation" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="klassifikation">
+<h1><span class="section-number">7. </span>Klassifikation<a class="headerlink" href="#klassifikation" title="Permalink to this headline">#</a></h1>
 <p>Bei der Klassifikation werden Kategorien zu Objekten zugewiesen. Betrachten wir das Beispiel in <a class="reference internal" href="#fig-class-example"><span class="std std-numref">Fig. 7.1</span></a>. Das obere Bild zeigt einen Wal vor einem Eisberg. Das untere Bild zeigt einen Bär in einem Wald. Beides erkennt man als menschlicher Betrachter instinktiv, ohne darüber nachzudenken. Das Ziel der Klassifikation ist es, diese Kategorisierung von Objekten automatisch durch einen Algorithmus durchführen zu lassen. Eine wichtige Einschränkung im Vergleich zu unserer menschlichen Kategorisierung ist, dass wir nur mit bestimmten und im Vorfeld festgelegten Kategorien arbeiten können. Im Beispiel in <a class="reference internal" href="#fig-class-example"><span class="std std-numref">Fig. 7.1</span></a> könnten diese Kategorien zum Beispiel “Wal”, “Bär” und “Sonstiges” sein. Die Klassifikationsaufgabe wäre dann die Zuweisung einer dieser drei Kategorien zu den Bildern. Die Kategorien, in die die Objekte eingeteilt werden, nennt man auch <em>Klassen</em>3.</p>
-<div class="figure align-default" id="fig-class-example">
+<figure class="align-default" id="fig-class-example">
 <a class="reference internal image-reference" href="../_images/classification_example_german.png"><img alt="../_images/classification_example_german.png" src="../_images/classification_example_german.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 7.1 </span><span class="caption-text">Zuweisung der Kategorien Wal und Bär zu Bildern</span><a class="headerlink" href="#fig-class-example" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 7.1 </span><span class="caption-text">Zuweisung der Kategorien Wal und Bär zu Bildern</span><a class="headerlink" href="#fig-class-example" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>Etwas abstrakter können wir uns die Klassifikation wie in Abbildung <a class="reference internal" href="#fig-class-abstract"><span class="std std-numref">Fig. 7.2</span></a> vorstellen. Wir haben also Objekte, für die wir ein <em>Konzept</em> kennen. Wenden wir unser Konzept auf die Objekte an, erhalten wir die Einteilung in Klassen. Wir kennen also ein Konzept, das Wale beschreibt und das wir auf das Bild anwenden können, um die Klasse zu bestimmen.</p>
-<div class="figure align-default" id="fig-class-abstract">
+<figure class="align-default" id="fig-class-abstract">
 <a class="reference internal image-reference" href="../_images/classification_concept_german.png"><img alt="../_images/classification_concept_german.png" src="../_images/classification_concept_german.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 7.2 </span><span class="caption-text">Abstraktes Konzept der Klassifikation</span><a class="headerlink" href="#fig-class-abstract" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 7.2 </span><span class="caption-text">Abstraktes Konzept der Klassifikation</span><a class="headerlink" href="#fig-class-abstract" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>Mit Klassifikationsalgorithmen können wir eine <em>Hypothese</em> aus den Daten ableiten, mit der die Klasse von Objekten anhand der Merkmale bestimmt werden kann. Als Beispiel betrachten wir das Bild des Wals mittels der Merkmale (<a class="reference internal" href="#fig-hypothesis"><span class="std std-numref">Fig. 7.3</span></a>). Über diese Merkmale könnte man auf folgende Hypothese kommen: <em>Objekte mit Flossen, die eine ovale Form haben, die oben schwarz und unten weiß sind und die sich vor einem blauen Hintergrund befinden, sind Wale.</em> Diese Hypothese mag zwar nicht in jedem Fall richtig sein, sie ist aber eine relativ gute Beschreibung, mit der man viele Wale (bzw. Orcas) richtig erkennt. Fehler würde man zum Beispiel machen, wenn es ein U-Boot mit einer ähnlichen Farbwahl gäbe. Die Art der Hypothese, zum Beispiel ob es sich um einen logischen Ausdruck oder eine beliebige mathematische Funktion handelt, hängt von der Wahl des Algorithmus ab. Die Hypothese selbst wird vom Lernalgorithmus automatisch aus den Daten bestimmt.</p>
-<div class="figure align-default" id="fig-hypothesis">
+<figure class="align-default" id="fig-hypothesis">
 <a class="reference internal image-reference" href="../_images/hypothesis_german.png"><img alt="../_images/hypothesis_german.png" src="../_images/hypothesis_german.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 7.3 </span><span class="caption-text">Beispiel für Merkmale, die für eine Hypothese über das Objekt verwendet werden können.</span><a class="headerlink" href="#fig-hypothesis" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 7.3 </span><span class="caption-text">Beispiel für Merkmale, die für eine Hypothese über das Objekt verwendet werden können.</span><a class="headerlink" href="#fig-hypothesis" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>Formal haben wir eine Menge von Objekten <span class="math notranslate nohighlight">\(O = \{object_1, object_2, ...\}\)</span>, die möglicherweise unendliche viele Elemente enthält. Außerdem haben wir eine Repräsentation der Objekte als Instanzen im Merkmalsraum <span class="math notranslate nohighlight">\(\mathcal{F} = \{\phi(o): o \in O\}\)</span> und eine endliche Anzahl von Klassen <span class="math notranslate nohighlight">\(C = \{class_1, ..., class_n\}\)</span>. Die Klassifikation wird durch ein <em>Zielkonzept</em> (engl. <em>target concept</em>) beschrieben, das die Objekte auf ihre Klassen abbildet, also</p>
 <div class="math notranslate nohighlight">
 \[h^*: O \to C.\]</div>
@@ -700,8 +794,8 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="math notranslate nohighlight">
 \[h(x) = \arg\max_{c \in C} h_c'(x)\]</div>
 <p>für <span class="math notranslate nohighlight">\(x \in \mathcal{F}\)</span>. Oft handelt es sich bei den Scores um Wahrscheinlichkeitsverteilungen, sodass der Score für jede Klasse im Intervall <span class="math notranslate nohighlight">\([0,1]\)</span> liegt und die Summe der Scores aller Klassen eins ergibt. In diesem Fall geben die Scores die Wahrscheinlichkeit an, dass ein Objekt zu einer bestimmten Klasse gehört.</p>
-<div class="section" id="binare-klassifikation-und-grenzwerte">
-<h2><span class="section-number">7.1. </span>Binäre Klassifikation und Grenzwerte<a class="headerlink" href="#binare-klassifikation-und-grenzwerte" title="Permalink to this headline">¶</a></h2>
+<section id="binare-klassifikation-und-grenzwerte">
+<h2><span class="section-number">7.1. </span>Binäre Klassifikation und Grenzwerte<a class="headerlink" href="#binare-klassifikation-und-grenzwerte" title="Permalink to this headline">#</a></h2>
 <p>Ein häufig betrachteter Spezialfall der Klassifikation ist die binäre Klassifikation, bei der es genau zwei Klassen gibt. Auch wenn es sich hierbei um eine starke Einschränkung handelt, gibt es viele Probleme, die man mithilfe von binärer Klassifikation lösen kann. Beispiele hierfür sind die Vorhersage, ob ein Schuldner einen Kredit abbezahlen kann, ob es sich bei einer Transaktion um Kreditkartenbetrug handelt oder ob eine E-Mail Spam ist.</p>
 <p>Bei der binären Klassifikation nennt man eine Klasse <em>positiv</em> und die andere <em>negativ</em>. Da es nur die zwei Klassen <span class="math notranslate nohighlight">\(C = \{positiv, negativ\}\)</span> gibt, kann man das Berechnen der Scores unter der Annahme, dass es sich bei den Scores um Wahrscheinlichkeiten handelt, vereinfachen. Es gilt dann nämlich</p>
 <div class="math notranslate nohighlight">
@@ -749,13 +843,13 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>Die orangen Balken zeigen die Scores von Spam-E-Mails, die blauen Balken die Scores aller regulären E-Mails. Wenn man keinen Grenzwert auswählt, würde man einfach die Klasse mit dem höchsten Score vorhersagen. Dies ist äquivalent zu einem Grenzwert von 0,5, dargestellt durch die graue vertikale Linie. In diesem Beispiel würden wir also die meisten E-Mails richtig vorhersagen, aber auch einige E-Mails als Spam markieren, obwohl sie eigentlich kein Spam sind, und auch einige E-Mails nicht als Spam erkennen, obwohl es sich um Spam handelt. Wir haben es hier mit unterschiedlichen Arten von Fehlern zu tun, die für diesen Anwendungsfall nicht gleichwertig sind. Auch wenn Spam nervig ist, ist das Löschen einer E-Mail nicht sehr aufwendig, es sei denn, man hat es mit Hunderten oder gar Tausenden von Spam-E-Mails zu tun. Wenn jedoch auch nur eine einzige wichtige E-Mail versehentlich als Spam markiert wird und der Empfänger diese E-Mail dadurch nicht angezeigt bekommt, kann dies große negative Konsequenzen haben. Dieses Problem können wir durch die Auswahl eines geeigneten Grenz-werts lösen. Die schwarze Linie markiert einen Grenzwert von 0,1. Mit diesem Grenzwert würde man nur Spam-E-Mails als solche kennzeichnen. In der Folge würde man zwar auch mehr Spam-E-Mails nicht erkennen, aber es würden keine regulären E-Mails durch den Spamfilter abgefangen. Dies zeigt, dass die Wahl eines geeigneten Grenzwerts den Unterschied zwischen einer guten Lösung für einen Anwendungsfall und einem ungeeigneten Modell machen kann.</p>
-</div>
-<div class="section" id="gutemasze">
-<h2><span class="section-number">7.2. </span>Gütemaße<a class="headerlink" href="#gutemasze" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="gutemasze">
+<h2><span class="section-number">7.2. </span>Gütemaße<a class="headerlink" href="#gutemasze" title="Permalink to this headline">#</a></h2>
 <p>Eine Kernfrage der Klassifikation ist, wie gut die Hypothese <span class="math notranslate nohighlight">\(h\)</span> das Zielkonzept <span class="math notranslate nohighlight">\(h^*\)</span> approximiert. In der Regel erreicht man keine perfekte Lösung, es gibt also Instanzen, die falsch durch die Hypothese klassifiziert werden. Das obige Spamerkennungsbeispiel zeigt bereits, dass es unterschiedliche Arten von Fehlern gibt, die wir berücksichtigen müssen.</p>
 <p>Die Grundlage für die Bewertung der Güte von Klassifikationsalgorithmen sind Testdaten. Hierzu wird die Hypothese auf die Merkmale der Testdaten angewandt. Anschließend kann man die Vorhersageergebnisse mit der wahren Klasse vergleichen. Die <a class="reference internal" href="#tbl-data-cls"><span class="std std-numref">Table 7.1</span></a> zeigt dies am Beispiel der Wal- und Bärenbilder. Die erste Instanz wird korrekt vorhersagt, bei der zweiten Instanz macht unsere fiktive Hypothese einen Fehler. Wenn es Tausende oder sogar Millionen von Instanzen in den Testdaten gibt, ist es nicht machbar, die Ergebnisse anhand einer solchen Tabelle auszuwerten. Stattdessen brauchen wir eine kompaktere Darstellung der Güte der Ergebnisse, um die Vorhersagen mit den wahren Klassen zu vergleichen.</p>
 <table class="colwidths-auto table" id="tbl-data-cls">
-<caption><span class="caption-number">Table 7.1 </span><span class="caption-text">Beispiel für Daten und Vorhersagen</span><a class="headerlink" href="#tbl-data-cls" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 7.1 </span><span class="caption-text">Beispiel für Daten und Vorhersagen</span><a class="headerlink" href="#tbl-data-cls" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Form</p></th>
 <th class="head"><p>Farbe oben</p></th>
@@ -793,11 +887,11 @@ const thebe_selector_output = ".output, .cell_output"
 </tr>
 </tbody>
 </table>
-<div class="section" id="die-confusion-matrix">
-<h3><span class="section-number">7.2.1. </span>Die Confusion Matrix<a class="headerlink" href="#die-confusion-matrix" title="Permalink to this headline">¶</a></h3>
+<section id="die-confusion-matrix">
+<h3><span class="section-number">7.2.1. </span>Die Confusion Matrix<a class="headerlink" href="#die-confusion-matrix" title="Permalink to this headline">#</a></h3>
 <p>Das wichtigste Werkzeug für die Analyse der Qualität von Hypothesen ist die <em>Confusion Matrix</em>, eine tabellenartige Beschreibung der Häufigkeiten, mit denen die Hypothese richtig liegt bzw. Fehler macht, also verwirrt (engl. <em>confused</em>) ist. Die Confusion Matrix für unser Bildklassifikationsbeispiel könnte wie in <a class="reference internal" href="#tbl-confusion-matrix"><span class="std std-numref">Table 7.2</span></a> aussehen.</p>
 <table class="colwidths-auto table" id="tbl-confusion-matrix">
-<caption><span class="caption-number">Table 7.2 </span><span class="caption-text">Beispiel einer Confusion Matrix. Die Spalten stehen für die wahre Klasse und die Zeilen für die Vorhersagen.</span><a class="headerlink" href="#tbl-confusion-matrix" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 7.2 </span><span class="caption-text">Beispiel einer Confusion Matrix. Die Spalten stehen für die wahre Klasse und die Zeilen für die Vorhersagen.</span><a class="headerlink" href="#tbl-confusion-matrix" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p></p></th>
 <th class="head"><p>Wal</p></th>
@@ -824,12 +918,12 @@ const thebe_selector_output = ".output, .cell_output"
 </tbody>
 </table>
 <p>Im Wesentlichen zählt die Confusion Matrix, wie oft Instanzen einer bestimmten Klasse als welche Klasse vorhergesagt werden. Man sieht zum Beispiel, wie oft Wale als Wale vorhergesagt werden und wie oft sie stattdessen als Bären oder Sonstiges klassifiziert werden. Die Spalten zeigen die wahren Werte der Instanzen, also das Zielkonzept. Die Zeilen zeigen die Vorhersagen, also die Hypothese. In unserem Beispiel haben wir 35 Bilder von Walen. Dies ist die Summe der Werte in der ersten Spalte. 29 dieser Walbilder werden richtig klassifiziert, zwei werden fehlerhaft als Bären erkannt und vier werden fehlerhaft als Sonstiges eingeordnet. Wir bekommen mithilfe der Confusion Matrix also detaillierte statistische Informationen darüber, wie die Instanzen einer Klasse klassifiziert werden. Die Werte auf der Diagonale sind die richtigen Vorhersagen, die anderen Werte sind die Fehler.</p>
-</div>
-<div class="section" id="die-binare-confusion-matrix">
-<h3><span class="section-number">7.2.2. </span>Die binäre Confusion Matrix<a class="headerlink" href="#die-binare-confusion-matrix" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="die-binare-confusion-matrix">
+<h3><span class="section-number">7.2.2. </span>Die binäre Confusion Matrix<a class="headerlink" href="#die-binare-confusion-matrix" title="Permalink to this headline">#</a></h3>
 <p>Die binäre Confusion Matrix ist der Spezialfall der Confusion Matrix für binäre Klassifikationsprobleme. Im Allgemeinen sieht die binäre Confusion Matrix wie in <a class="reference internal" href="#tbl-binary-confusion-matrix"><span class="std std-numref">Table 7.3</span></a> aus.</p>
 <table class="colwidths-auto table" id="tbl-binary-confusion-matrix">
-<caption><span class="caption-number">Table 7.3 </span><span class="caption-text">Die binäre Confusion Matrix</span><a class="headerlink" href="#tbl-binary-confusion-matrix" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 7.3 </span><span class="caption-text">Die binäre Confusion Matrix</span><a class="headerlink" href="#tbl-binary-confusion-matrix" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p></p></th>
 <th class="head"><p>Positive / True</p></th>
@@ -848,12 +942,12 @@ const thebe_selector_output = ".output, .cell_output"
 </tbody>
 </table>
 <p>Wir bekommen also abhängig von der wahren Klasse und der Vorhersage die Anzahl der <em>wahr-positiven</em> (engl. <em>true positive</em> / TP), <em>wahr-negativen</em> (engl. <em>true negative</em> / TN), <em>falsch-positiven</em> (engl. <em>false positive</em> / FP) und <em>falsch-negativen</em> (<em>false negatives</em> / FN) Ergebnisse. Die binäre Confusion Matrix ist auch jenseits des maschinellen Lernens verbreitet, zum Beispiel in der Medizin zur Bewertung der Qualität von Tests. Aus der Medizin stammen auch die Begriffe des <em>Fehlers 1. Art</em> (engl. <em>type I error</em>) und des <em>Fehlers 2. Art</em> (engl. <em>type II error</em>). Der Fehler 1. Art misst die Anzahl der falsch-positiven Ergebnisse. Das könnte zum Beispiel bedeuten, dass das Ergebnis eines Antigentests auf eine bestimmte Krankheit fälschlicherweise ein positives Ergebnis liefert, obwohl der Patient nicht erkrankt ist. Der Fehler 2. Art misst die Anzahl der falsch-negativen Ergebnisse. Dies würde zum Beispiel bedeuten, dass eine Krankheit von einem Antigentest übersehen wird, obwohl ein Patient erkrankt ist.</p>
-</div>
-<div class="section" id="binare-gutemasze">
-<h3><span class="section-number">7.2.3. </span>Binäre Gütemaße<a class="headerlink" href="#binare-gutemasze" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="binare-gutemasze">
+<h3><span class="section-number">7.2.3. </span>Binäre Gütemaße<a class="headerlink" href="#binare-gutemasze" title="Permalink to this headline">#</a></h3>
 <p>Mithilfe der binären Confusion Matrix können wir Gütemaße definieren, die die Güte einer Hypothese durch eine einzelne Zahl auf Basis eines statistischen Kriteriums zusammenfassen. Es gibt viele derartige Gütemaße, die alle unterschiedliche Aspekte der Güte messen. <a class="reference internal" href="#tbl-metrics-class"><span class="std std-numref">Table 7.4</span></a> listet elf derartige Gütemaße auf.</p>
 <table class="colwidths-auto table" id="tbl-metrics-class">
-<caption><span class="caption-number">Table 7.4 </span><span class="caption-text">Gütemaße für die Klassifikation</span><a class="headerlink" href="#tbl-metrics-class" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 7.4 </span><span class="caption-text">Gütemaße für die Klassifikation</span><a class="headerlink" href="#tbl-metrics-class" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Gütemaß</p></th>
 <th class="head"><p>Beschreibung</p></th>
@@ -914,9 +1008,9 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Es gibt auch Gütemaße, die nicht nur einzelne Aspekte der Güte betrachten, sondern die Güte als Ganzes und daher als einziges Kriterium verwendet werden können. Die letzten drei Gütemaße sind Beispiele hierfür. Diese Metriken nutzen die komplette Confusion Matrix, um die Güte einer Hypothese zu berechnen. Die Accuracy misst den Anteil der Vorhersagen, die richtig sind. Dies ist ähnlich zu den ersten vier Gütemaßen, mit dem Unterschied, dass beide Klassen gleichzeitig betrachtet werden. Der Nachteil der Accuracy ist, dass sie im Fall von einem <em>Ungleichgewicht der Klassen</em> (engl. <em>Class Level Imbalance</em>) irreführend sein kann. Man spricht von einem Ungleichgewicht der Klassen, wenn es deutlich mehr Instanzen aus einer Klasse als aus der anderen gibt. Wenn zum Beispiel 95% der Instanzen positiv sind, würde unsere triviale Hypothese <span class="math notranslate nohighlight">\(h^+\)</span> bereits eine Accuracy von 95% erreichen. Dieser sehr gute Wert ist aber irreführend, da er nicht abbildet, dass alle negativen Instanzen falsch klassifiziert werden. Daher sollte man die Accuracy nur mit Bedacht einsetzen und sicherstellen, dass es etwa gleich viele Instanzen für alle Klassen gibt.</p>
 <p>Der F1-Score ist das <em>harmonische Mittel</em> aus dem TPR/Recall und dem PPV/Precision. Der F1-Score berücksichtigt also den Anteil der positiven Instanzen, die korrekt klassifiziert sind, und den Anteil der positiven Vorhersagen, die korrekt sind. Das harmonische Mittel ist eine Alternative zum arithmetischen Mittel, mit dem man Verhältnisse gut vergleichen kann. Beim harmonischen Mittel wird der niedrigere Wert höher gewichtet. Der F1-Score basiert auf der Idee, dass es einen Trade-off zwischen Recall und Precision gibt. Um den Recall zu erhöhen, müssen wir mehr Instanzen als positiv klassifizieren. Hierdurch bekommen wir in der Regel mehr falsch-positive Instanzen. Durch den höheren Anteil an falsch-positiven Ergebnissen reduziert sich die Precision. Da durch das harmonische Mittel der kleinere Wert überproportional in der Berechnung berücksichtigt wird, strebt eine Optimierung des F1-Scores ähnliche Werte für Recall und Precision an.</p>
 <p>Das letzte Gütemaß in der obigen Tabelle ist MCC, der die direkte Korrelation zwischen den wahren Werten und den Vorhersagen berechnet. Im Wesentlichen misst MCC, wie der Anteil der wahr-positiven und wahr-negativen Vorhersagen mit dem erwarteten Ergebnis korreliert ist. Der MCC ist robust gegen die Class Level Imbalance und liefert im Allgemeinen eine gute Schätzung der Güte. Er hat aber den Nachteil, dass es keine einfache Interpretation gibt, die auch Laien zugänglich ist. Alle anderen Gütemaße kann man in wenigen Sätzen natürlicher Sprache erklären. Für MCC gibt es keine ähnlich zugängliche Erklärung. Hierdurch ist es auch schwerer, die Werte von MCC einzuordnen. Hinzu kommt, dass die Werte von MCC nicht im Intervall <span class="math notranslate nohighlight">\([0, 1]\)</span> liegen, sondern in <span class="math notranslate nohighlight">\([-1, 1]\)</span>, da es sich um ein Korrelationsmaß handelt. Ein hoher negativer Wert bedeutet, dass die Hypothese das Gegenteil der erwarteten Ergebnisse vorhersagt. Je nach Kontext können hohe negative Werte also auch gut sein, da man theoretisch einfach alle Vorhersagen invertieren kann. Zusammenfassend können wir also sagen, dass MCC ein sehr robustes Gütemaß ist, die Interpretation der Ergebnisse erfordert aber etwas Übung und Expertenwissen.</p>
-</div>
-<div class="section" id="die-receiver-operator-characteristic-roc">
-<h3><span class="section-number">7.2.4. </span>Die Receiver Operator Characteristic (ROC)<a class="headerlink" href="#die-receiver-operator-characteristic-roc" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="die-receiver-operator-characteristic-roc">
+<h3><span class="section-number">7.2.4. </span>Die Receiver Operator Characteristic (ROC)<a class="headerlink" href="#die-receiver-operator-characteristic-roc" title="Permalink to this headline">#</a></h3>
 <p>Die oben diskutierten Gütemaße basieren alle auf der Confusion Matrix. Ein Nachteil der Confusion Matrix ist, dass diese die Scores nicht berücksichtigt. Man kann die Confusion Matrix für eine Scoring-Funktion <span class="math notranslate nohighlight">\(h'\)</span> nur für einen festen Grenzwert <span class="math notranslate nohighlight">\(t\)</span> berechnen. Wie sich die Confusion Matrix für verschiedene Werte von <span class="math notranslate nohighlight">\(t\)</span> verändert, kann man nicht ablesen. Hierzu kann man <em>ROC-Kurven</em> (Receiver Operator Characteristic) einsetzen. Eine ROC-Kurve repräsentiert alle möglichen Werte für TPR und FPR, die eine Scoring-Funktion   mit beliebigen Grenzwerten <span class="math notranslate nohighlight">\(t \in [0,1]\)</span> erreichen kann. Die ROC-Kurve von unserem Spamerkennungsbeispiel sieht wie folgt aus.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -967,9 +1061,9 @@ const thebe_selector_output = ".output, .cell_output"
 <img alt="../_images/kapitel_07_5_0.png" src="../_images/kapitel_07_5_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="area-under-the-curve-auc">
-<h3><span class="section-number">7.2.5. </span>Area Under the Curve (AUC)<a class="headerlink" href="#area-under-the-curve-auc" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="area-under-the-curve-auc">
+<h3><span class="section-number">7.2.5. </span>Area Under the Curve (AUC)<a class="headerlink" href="#area-under-the-curve-auc" title="Permalink to this headline">#</a></h3>
 <p>Wir können die ROC-Kurve auch benutzen, um ein Gütemaß zu definieren, indem wir die <em>Fläche unter der Kurve</em> (engl. <em>Area Under the Curve</em>, AUC) messen. Die Idee ist einfach: Wenn der optimale Wert der ROC-Kurve in der oberen linken Ecke liegt, ist die Fläche in diesem Fall 1. Je kleiner die Fläche unter der Kurve, desto niedriger sind die Werte von möglichen Kombinationen der TPR und FPR, was bedeutet, dass wir schlechtere Ergebnisse haben, unabhängig von einem konkreten Grenzwert <span class="math notranslate nohighlight">\(t\)</span>. Wenn wir also das Integral der ROC-Kurve berechnen, können wir damit schätzen, wie gut eine Hypothese ist. Daher kommt auch der Name dieses Gütemaßes: die Fläche unter der Kurve.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -993,12 +1087,12 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>Je näher der Wert von AUC an 1 ist, desto besser ist die Güte der Hypothese. Was die Interpretation angeht, hat AUC aber ein ähnliches Problem wie MCC: Während ein Wert von 1 optimal ist, ist der schlechteste Werte nicht etwa 0, sondern 0,5. Bei 0 hätte man eine FPR von 1 und eine TPR von 0. Wenn man jetzt das Ergebnis invertiert, hat man eine perfekte Klassifikation. Eine Fläche von 0,5 wiederum bekommt man durch die Diagonale, auf der <span class="math notranslate nohighlight">\(TPR=FPR\)</span> gilt. Wenn TPR und FPR gleich groß sind, heißt das aber nichts anderes, als dass man so gut ist wie der Zufall. Daher sind Werte von AUC besser, je weiter sie von 0,5 entfernt sind. Falls die Werte jedoch unter 0,5 liegen, sollte man herausfinden, warum die Hypothese das Gegenteil der wahren Werte vorhersagt.</p>
-</div>
-<div class="section" id="micro-und-macro-averages">
-<h3><span class="section-number">7.2.6. </span>Micro und Macro Averages<a class="headerlink" href="#micro-und-macro-averages" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="micro-und-macro-averages">
+<h3><span class="section-number">7.2.6. </span>Micro und Macro Averages<a class="headerlink" href="#micro-und-macro-averages" title="Permalink to this headline">#</a></h3>
 <p>Die bisherigen Gütemaße haben wir über die binäre Confusion Matrix definiert. Die Definition der Accuracy können wir ohne Probleme auf mehr als zwei Klassen verallgemeinern, da es sich um den Anteil der korrekt klassifizierten Instanzen handelt. Für MCC gibt es auch eine Erweiterung für mehr als zwei Klassen, auf die wir hier jedoch nicht näher eingehen. Für die anderen Gütemaße können wir einen Trick anwenden: Statt einer nicht binären Confusion Matrix betrachten wir mehrere binäre Confusion Matrizen. Wie dieser Trick funktioniert, schauen wir uns direkt an einem Beispiel an. <a class="reference internal" href="#tbl-confusion-matrix-rep"><span class="std std-numref">Table 7.5</span></a> zeigt noch einmal die Confusion Matrix für die drei Klassen Wal, Bär und Sonstiges, die wir oben bereits betrachtet haben.</p>
 <table class="colwidths-auto table" id="tbl-confusion-matrix-rep">
-<caption><span class="caption-number">Table 7.5 </span><span class="caption-text">Beispiel von einer Confusion Matrix. Die Spalten stehen für die wahre Klasse und die Zeilen für die Vorhersagen (Wiederholung).</span><a class="headerlink" href="#tbl-confusion-matrix-rep" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 7.5 </span><span class="caption-text">Beispiel von einer Confusion Matrix. Die Spalten stehen für die wahre Klasse und die Zeilen für die Vorhersagen (Wiederholung).</span><a class="headerlink" href="#tbl-confusion-matrix-rep" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p></p></th>
 <th class="head"><p>Wal</p></th>
@@ -1035,14 +1129,14 @@ const thebe_selector_output = ".output, .cell_output"
 \[TPR_{micro} = \frac{\sum_{c \in C} TP_C}{\sum_{c \in C} TP_C + \sum_{c \in C} FN_C}.\]</div>
 <p>Ob es sinnvoller ist, ein Macro oder ein Micro Average zu berechnen, hängt vom Anwendungsfall und den Daten ab. Wenn jede Klasse ähnlich viele Instanzen hat, sind die Ergebnisse des Macro und Micro Average nahezu identisch. Wenn es Class Level Imbalance in den Daten gibt, wenn also für mindestens eine Klasse erheblich mehr oder weniger Instanzen in den Daten enthalten sind, ist die Auswahl der Mittelungsmethode relevant. Beim Macro Average werden alle Klassen gleich gewichtet, unabhängig davon, wie viele Instanzen es in den Daten gibt. Dies liegt daran, dass die Gütemaße individuell für jede Klasse berechnet werden und anschließend ungewichtet gemittelt werden. Im Gegensatz hierzu ist der Einfluss der Klassen auf das Micro Average proportional zur Anzahl der Instanzen, die es für eine Klasse in den Daten gibt: Je mehr Daten für eine Klasse vorhanden sind, desto höher der Einfluss. Dies liegt daran, dass die Formeln so angepasst werden, dass die Summen direkt über die Instanzen der Klassen gebildet werden.</p>
 <p>Wenn man also eine hohe Class Level Imbalance hat und alle Klassen fair und gleichmäßig vom Gütemaß repräsentiert werden sollen, sollte man das Macro Average wählen. Das hat den potenziellen Nachteil, dass Klassen mit wenigen Instanzen einen sehr großen Einfluss auf das Ergebnis haben könnten. Andersherum sollte man Micro Average verwenden, wenn es in Ordnung ist, dass die Ergebnisse durch die Anzahl der Instanzen pro Klasse gewichtet werden.</p>
-</div>
-<div class="section" id="jenseits-der-confusion-matrix">
-<h3><span class="section-number">7.2.7. </span>Jenseits der Confusion Matrix<a class="headerlink" href="#jenseits-der-confusion-matrix" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="jenseits-der-confusion-matrix">
+<h3><span class="section-number">7.2.7. </span>Jenseits der Confusion Matrix<a class="headerlink" href="#jenseits-der-confusion-matrix" title="Permalink to this headline">#</a></h3>
 <p>Alle Gütemaße, die wir betrachtet haben, basieren auf der Confusion Matrix. Dies ist der übliche Ansatz, um die Güte von Klassifikationsalgorithmen zu bestimmen. Die auf der Confusion Matrix basierenden Gütemaße beruhen jedoch alle auf einer Annahme, die in der Regel unrealistisch ist: Alle Fehler sind gleich wichtig. In der Praxis sind einige Fehler jedoch schlimmer als andere. Das Risiko ist bei einer großen Kreditsumme zum Beispiel höher als bei einer kleineren. Wenn ein Schuldner eine große Summe nicht zurückzahlen kann, ist eine falsch-positive Kreditwürdigkeit schlimmer als bei einer kleinen Kreditsumme. Daher sollte man sich neben der Confusion Matrix auch immer Gedanken über Kosten, Nutzen und Risiken machen, die mit wahr-positiven, falsch-positiven, wahr-negativen und falsch-negativen Ergebnissen verbunden sind. Man könnte zum Beispiel eine Kostenmatrix definieren, die die Gewinne und Verluste genauer aufschlüsselt. Hierdurch kann man eine bessere Kostenfunktion für den Anwen-dungsfall erhalten, was üblicherweise zu besseren Ergebnissen führt <a class="footnote-reference brackets" href="#kdnuggets" id="id1">1</a>.</p>
-</div>
-</div>
-<div class="section" id="decision-surfaces">
-<h2><span class="section-number">7.3. </span>Decision Surfaces<a class="headerlink" href="#decision-surfaces" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="decision-surfaces">
+<h2><span class="section-number">7.3. </span>Decision Surfaces<a class="headerlink" href="#decision-surfaces" title="Permalink to this headline">#</a></h2>
 <p>Im Folgenden verwenden wir eine visuelle Unterstützung, um zu zeigen, wie Hypothesen von verschiedenen Klassifikationsalgorithmen Instanzen klassifizieren: das <em>Decision Surface</em>. Bei einem Decision Surface handelt es sich um eine geometrische Interpretation von Klassifikationsergebnissen. Der Raum der Instanzen wird in verschiedene Regionen aufgeteilt, sodass jede Region die Instanzen gleich klassifiziert. Bei zweidimensionalen Daten heißt das, dass man farbige Flächen zeichnen kann, wobei die Farben die Klassen repräsentieren. In höherdimensionalen Räumen kann man die Decision Surfaces leider nicht gut darstellen. Wir nutzen die Kelchblattlänge und Kelchblattbreite der Irisdaten (siehe <a class="reference internal" href="kapitel_04.html"><span class="doc std std-doc">Kapitel 4</span></a>) als Beispieldatensatz, um zu zeigen, wie die Klassifikationsalgorithmen arbeiten.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -1125,9 +1219,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>Die Gerade, wo sich die Farbe ändert, nennt man <em>Decision Boundary</em>. Die Decision Boundaries bestimmen die Struktur der Ergebnisse und sind eine wesentliche Eigenschaft von Klassifikationsalgorithmen, die sowohl praktische Auswirkungen auf die Ergebnisse als auch ein wichtiges Hilfsmittel für die mathematische Beschreibung und Analyse ist.</p>
-</div>
-<div class="section" id="k-nearest-neighbor">
-<h2><span class="section-number">7.4. </span><span class="math notranslate nohighlight">\(k\)</span>-Nearest Neighbor<a class="headerlink" href="#k-nearest-neighbor" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="k-nearest-neighbor">
+<h2><span class="section-number">7.4. </span><span class="math notranslate nohighlight">\(k\)</span>-Nearest Neighbor<a class="headerlink" href="#k-nearest-neighbor" title="Permalink to this headline">#</a></h2>
 <p>Der erste Klassifikationsalgorithmus, den wir betrachten, ist der <span class="math notranslate nohighlight">\(k\)</span><em>-Nearest-Neighbor</em>-Algorithmus. Dieser Algorithmus basiert auf der Idee, dass Instanzen derselben Klasse nah beieinander liegen. Diese Idee kennen wir bereits von den Clusteralgorithmen, die die Distanz als Maß für die Ähnlichkeit von Instanzen verwendet haben. Der einfachste Ansatz ist, dass man einfach jede Instanz so klassifiziert wie ihren nächsten Nachbarn. Für die Irisdaten würden wir mit dieser Strategie das folgende Decision Surface bekommen.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -1203,9 +1297,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>Bei <span class="math notranslate nohighlight">\(k=1\)</span> und <span class="math notranslate nohighlight">\(k=3\)</span> wird dieser Punkt türkis markiert, da es zwei relativ nahe türkise Datenpunkte gibt, jedoch nur einen gelben. Bei <span class="math notranslate nohighlight">\(k=5\)</span> wechselt der Punkt zur gelben Klasse, da es jetzt zwei weitere gelbe Punkte in der Nachbarschaft gibt. Bei <span class="math notranslate nohighlight">\(k=20\)</span> sieht man, wie der Punkt zwar gelb bleibt, aber sehr viele Punkte mittlerweile mitbestimmen, obwohl die meisten davon sehr weit weg von unserem Datenpunkt liegen.</p>
-</div>
-<div class="section" id="entscheidungsbaume">
-<h2><span class="section-number">7.5. </span>Entscheidungsbäume<a class="headerlink" href="#entscheidungsbaume" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="entscheidungsbaume">
+<h2><span class="section-number">7.5. </span>Entscheidungsbäume<a class="headerlink" href="#entscheidungsbaume" title="Permalink to this headline">#</a></h2>
 <p>Stellen wir uns vor, dass wir uns ein Auto kaufen wollen. Als Käufer hat man in der Regel ein paar Kriterien, die man sich überlegt, bevor man zum Händler geht: Es sollte ein 5-Türer mit einer gewissen Leistung und einem gewissen Kofferraumvolumen sein. Manche dieser Kriterien sind wichtiger als andere, sie werden also zuerst angewandt, um Autos auszuschließen. Während die Anzahl der Türen fest steht, könnte es zum Beispiel bei der Leistung einen gewissen Spielraum geben. Dies ist die Intuition von <em>Entscheidungsbäumen</em> (engl. <em>decision tree</em>): Es werden schrittweise logische Regeln auf die Merkmale angewandt, um Entscheidungen zu treffen. Die Entscheidungen sind als Baum organisiert.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -1281,9 +1375,9 @@ const thebe_selector_output = ".output, .cell_output"
 <img alt="../_images/kapitel_07_25_0.png" src="../_images/kapitel_07_25_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="random-forests">
-<h2><span class="section-number">7.6. </span>Random Forests<a class="headerlink" href="#random-forests" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="random-forests">
+<h2><span class="section-number">7.6. </span>Random Forests<a class="headerlink" href="#random-forests" title="Permalink to this headline">#</a></h2>
 <p>Mit einem <em>Random Forest</em> kombiniert man viele Entscheidungsbäume zu einem Klassifikationsmodell. Die einzelnen Entscheidungsbäume nennt man <em>Random Tree</em>. Man spricht hierbei von <em>Ensemble Learning</em>, da der Random Forest ein Ensemble von Random Trees ist. Wie man aus vielen Entscheidungsbäumen die Klassifikation eines Random Forest erhält, sieht man im Folgenden.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -1369,9 +1463,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <p>Man sieht, dass es in der Wurzel des Baums (die erste Entscheidung) nur 101 Instanzen statt der gesamten 150 Instanzen gibt. Außerdem sind nicht von jeder Irisart gleich viele Instanzen vorhanden. Dieser Entscheidungsbaum wurde also offensichtlich nicht mit den originalen Irisdaten trainiert. Was wir hier sehen, ist die erste Randomisierung des Trainings: Als Trainingsdaten bekommt jeder Random Tree ein <em>Bootstrap Sample</em> der Daten. Wenn wir 150 Instanzen in den Trainingsdaten haben, heißt das, dass wir 150 Instanzen <em>mit Zurücklegen</em> aus den Trainingsdaten ziehen. Da wir mit Zurücklegen ziehen, bekommen wir einige Instanzen mehrfach, andere gar nicht. Im Mittel bekommt man etwa 63,2% verschiedene Instanzen, der Rest sind Duplikate. Alle Random Trees erhalten also andere Trainingsdaten. Bitte beachten Sie, dass <code class="docutils literal notranslate"><span class="pre">samples</span></code> bei einem Random Tree nicht die Anzahl der Instanzen, sondern die Anzahl der Instanzen ohne Duplikate angibt. Das Ziehen von Bootstrap Samples, um mehrere Klassifikationsmodelle zu trainieren, nennt man auch <em>Bagging</em>, was die Kurzform für <em>Bootstrap Aggregating</em> ist.</p>
 <p>Es gibt noch eine weitere zufällige Komponente im Training von Random Forests. Nicht jeder Random Tree erhält alle Merkmale. Stattdessen bekommt jeder Random Tree nur eine Teilmenge der Merkmale zur Verfügung gestellt. Üblicherweise verwendet man die Quadratwurzel der Anzahl der Merkmale pro Baum. Wenn es vier Merkmale gibt, erhält ein Random Tree also nur Zugriff auf <span class="math notranslate nohighlight">\(\sqrt{4}=2\)</span> Merkmale. Der Grund hierfür ist, dass sich die Bäume sonst möglicherweise stark ähneln. Wenn ein Merkmal für die gesamten Daten informativ ist, ist es in der Regel auf einem Bootstrap Sample ähnlich informativ. Daher wäre das Risiko groß, dass die Random Trees die gleiche Struktur haben. Wenn nur eine Teilmenge von Merkmalen zur Verfügung steht, haben auch schwächere Merkmale eine Chance, benutzt zu werden und damit ihre Information in den Random Forest einzubringen. So wird sichergestellt, dass die einzelnen Random Trees auch wirklich unterschiedliche Stärken und Schwächen haben.</p>
-</div>
-<div class="section" id="logistische-regression">
-<h2><span class="section-number">7.7. </span>Logistische Regression<a class="headerlink" href="#logistische-regression" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="logistische-regression">
+<h2><span class="section-number">7.7. </span>Logistische Regression<a class="headerlink" href="#logistische-regression" title="Permalink to this headline">#</a></h2>
 <p>Die <em>logistische Regression</em> (engl. <em>logistic regression</em>) berechnet die <em>Chance</em> bzw. die <em>Odds</em>, dass eine Instanz zu einer Klasse gehört. Die Chancen sind ein Konzept der Statistik, das man zum Beispiel bei Sportwetten wiederfindet. Sei <span class="math notranslate nohighlight">\(P(Y=c)\)</span> die Wahrscheinlichkeit, dass eine Zufallsvariable <span class="math notranslate nohighlight">\(Y\)</span> den Wert <span class="math notranslate nohighlight">\(c\)</span> annimmt. Die Chancen, dass <span class="math notranslate nohighlight">\(Y\)</span> gleich <span class="math notranslate nohighlight">\(c\)</span> ist, sind dann definiert als</p>
 <div class="math notranslate nohighlight">
 \[odds(c) = \frac{P(Y=c)}{1-P(Y=c)}.\]</div>
@@ -1472,9 +1566,9 @@ const thebe_selector_output = ".output, .cell_output"
 <div><p><strong>Bemerkung:</strong></p>
 <p>In diesem Fall ist der Achsenabschnitt etwas irreführend. Während der Achsenabschnitt für Setosa sehr hoch ist, sind die Chancen für die Kelchblattlänge sehr niedrig. Da alle Instanzen eine Kelchblattlänge größer als vier haben, verschwindet dieser hohe Achsenabschnitt, bis man bei den Daten angekommen ist. Um solche Effekte zu vermeiden, sollte man die Daten immer zentrieren, sodass die Werte aller Merkmale symmetrisch zur Null sind. Hierfür ist zum Beispiel die <em>Z-Score-Standardisierung</em> geeignet. Wenn die Interpretation der Koeffizienten das Hauptziel ist, sollte man außerdem nicht scikit-learn verwenden, sondern stattdessen ein Paket wie statsmodels. Hier ist die Regressionsanalyse deutlich detaillierter, insbesondere was die Analyse der statistischen Signifikanz der Ergebnisse angeht.</p>
 </div></blockquote>
-</div>
-<div class="section" id="naive-bayes">
-<h2><span class="section-number">7.8. </span>Naive Bayes<a class="headerlink" href="#naive-bayes" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="naive-bayes">
+<h2><span class="section-number">7.8. </span>Naive Bayes<a class="headerlink" href="#naive-bayes" title="Permalink to this headline">#</a></h2>
 <p>Der <em>Satz von Bayes</em> (engl. <em>Bayes Law</em>) ist eines der fundamentalen Gesetze der Stochastik und definiert als</p>
 <div class="math notranslate nohighlight">
 \[P(Y|X) = \frac{P(X|Y)P(Y)}{P(X)}.\]</div>
@@ -1510,9 +1604,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>Die Decision Boundaries von Multinomial Naive Bayes sind linear, bei Gaussian Naive Bayes werden die Decision Boundaries durch quadratische Gleichungen beschrieben. Wir sehen, dass Multinomial Naive Bayes nicht gut funktioniert, insbesondere die Trennung von Türkis und Gelb sieht nicht sinnvoll aus. Dies war aber zu erwarten, da es sich um numerische Daten handelt. Der Gaussian Naive Bayes hat dieses Problem nicht und liefert bessere Ergebnisse.</p>
-</div>
-<div class="section" id="support-vector-machines-svms">
-<h2><span class="section-number">7.9. </span>Support Vector Machines (SVMs)<a class="headerlink" href="#support-vector-machines-svms" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="support-vector-machines-svms">
+<h2><span class="section-number">7.9. </span>Support Vector Machines (SVMs)<a class="headerlink" href="#support-vector-machines-svms" title="Permalink to this headline">#</a></h2>
 <p><em>Support Vector Machines</em> (SVMs) betrachten die Klassifikation als Optimierungsproblem und definieren hierdurch eine Strategie, die Decision Boundary auszuwählen. Wir betrachten hier nur die Grundidee von SVMs und nicht die vollständige mathematische Beschreibung. Die Idee von SVMs können wir uns gut mithilfe von Decision Boundaries veranschaulichen.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -1655,9 +1749,9 @@ const thebe_selector_output = ".output, .cell_output"
 <div><p><strong>Bemerkung:</strong></p>
 <p>Die Kernfunktionen der SVMs haben häufig noch Parameter, mit denen diese skaliert werden. Für den praktischen Einsatz von SVMs sind die Parameter extrem wichtig und sie haben einen großen Einfluss auf das Ergebnis der Klassifikation. SVMs können sehr mächtig sein, jedoch nur wenn eine geeignete Kernfunktion mit passenden Parametern gewählt wird.</p>
 </div></blockquote>
-</div>
-<div class="section" id="neuronale-netzwerke">
-<h2><span class="section-number">7.10. </span>Neuronale Netzwerke<a class="headerlink" href="#neuronale-netzwerke" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="neuronale-netzwerke">
+<h2><span class="section-number">7.10. </span>Neuronale Netzwerke<a class="headerlink" href="#neuronale-netzwerke" title="Permalink to this headline">#</a></h2>
 <p><em>Neuronale Netzwerke</em> basieren auf der Idee, die Kommunikation zwischen Neuronen im menschlichen Hirn zu simulieren, um Entscheidungen zu treffen. Die Grundidee ist einfach: Neuronen werden <em>aktiviert</em> und sie <em>propagieren</em> den Wert ihrer Aktivierung an weitere Neuronen. Diese Neuronen bestimmen dann wiederum den Wert ihrer Aktivierung und propagieren diesen weiter.</p>
 <p>Hier ist ein Beispiel für ein einfaches neuronales Netzwerk.</p>
 <div class="cell tag_hide-input docutils container">
@@ -1795,8 +1889,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><em>Generative Adversarial Network</em> (GAN): Man kann mit neuronalen Netzen auch künstliche Instanzen generieren. Hierbei treten zwei neuronale Netze gegeneinander an: Das erste Netz versucht zu entscheiden, ob eine Instanz aus den echten Trainingsdaten kommt oder künstlich erzeugt wurde. Das zweite Netz versucht künstliche Daten so zu erzeugen, dass das erste Netz diese für echt hält. Hierdurch kann man sowohl die Qualität des ersten Netzes verbessern als auch künstliche Daten, die wie echt aussehen, generieren, zum Beispiel Bilder.</p></li>
 <li><p><em>Deep Neural Network</em> (DNN): Formal ist jedes neuronale Netz, das mindestens einen Hidden Layer hat, ein DNN. Hiermit sind jedoch in der Regel sehr große Netzwerke gemeint, die oft viele Ebenen und extrem viele Neuronen besitzen, teils mehrere Millionen oder sogar Milliarden.</p></li>
 </ul>
-<div class="section" id="exkurs-cnns-zum-erkennen-von-zahlen">
-<h3><span class="section-number">7.10.1. </span>Exkurs: CNNs zum Erkennen von Zahlen<a class="headerlink" href="#exkurs-cnns-zum-erkennen-von-zahlen" title="Permalink to this headline">¶</a></h3>
+<section id="exkurs-cnns-zum-erkennen-von-zahlen">
+<h3><span class="section-number">7.10.1. </span>Exkurs: CNNs zum Erkennen von Zahlen<a class="headerlink" href="#exkurs-cnns-zum-erkennen-von-zahlen" title="Permalink to this headline">#</a></h3>
 <p>Als kurzen Einstieg betrachten wir das Hello World des Deep Learning: Die Erkennung von Zahlen mit dem sogenannten MNIST-Datensatz. Dieser Datensatz besteht aus einfachen Schwarz-Weiß-Bildern der Ziffern 0 bis 9. Die ersten zehn Ziffern sehen zum Beispiel folgendermaßen aus.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -1952,13 +2046,13 @@ Accuracy auf den Testdaten: 0.988
 </div>
 </div>
 <p>Man erkennt, dass das Modell bereits nach der ersten Epoche sehr gut ist. Anschließend verbessert es sich noch weiter, sodass insgesamt fast 99% der Zahlen korrekt erkannt werden. Diese Art von neuronalem Netz ist sehr verbreitet für die Objekterkennung in beliebigen Bildern. Da es dann aber in der Regel mehr Pixel, mehr Farbkanäle, mehr Arten von Objekten und auch mehr Daten gibt, sind die CNNs größer und haben oft viele Convolutional, Pooling und Dropout Layers.</p>
-</div>
-</div>
-<div class="section" id="vergleich-der-klassifikationsalgorithmen">
-<h2><span class="section-number">7.11. </span>Vergleich der Klassifikationsalgorithmen<a class="headerlink" href="#vergleich-der-klassifikationsalgorithmen" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="vergleich-der-klassifikationsalgorithmen">
+<h2><span class="section-number">7.11. </span>Vergleich der Klassifikationsalgorithmen<a class="headerlink" href="#vergleich-der-klassifikationsalgorithmen" title="Permalink to this headline">#</a></h2>
 <p>Wir haben sieben verschiedene Ansätze zum Lernen von Hypothesen zur Klassifikation betrachtet. Jeder dieser Ansätze hat andere Stärken und Schwächen. Welcher Algorithmus die beste Wahl ist, hängt von den Umständen (Anwendungsfall, verfügbare Daten) ab. In diesem Abschnitt vergleichen wir die Algorithmen direkt miteinander.</p>
-<div class="section" id="grundidee">
-<h3><span class="section-number">7.11.1. </span>Grundidee<a class="headerlink" href="#grundidee" title="Permalink to this headline">¶</a></h3>
+<section id="grundidee">
+<h3><span class="section-number">7.11.1. </span>Grundidee<a class="headerlink" href="#grundidee" title="Permalink to this headline">#</a></h3>
 <p>Wir haben diese Algorithmen nicht nur wegen ihrer praktischen Relevanz diskutiert, sondern auch weil alle Algorithmen auf einer anderen Grundidee basieren:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(k\)</span>-Nearest Neighbor ist ein <em>instanzbasiertes</em> Verfahren, das die Klassifikation durch den direkten Vergleich von Instanzen berechnet.</p></li>
@@ -1970,9 +2064,9 @@ Accuracy auf den Testdaten: 0.988
 <li><p>Neuronale Netze sind ein sehr generischer Ansatz, den man für verschiedene Anwendungsfälle anpassen kann. Unter der Haube handelt es sich um sehr komplexe Regressionsmodelle.</p></li>
 </ul>
 <p>Trotz dieser Vielfalt gibt es noch weitere wichtige Algorithmen, die wir nicht betrachtet haben, zum Beispiel Ensemble-Algorithmen, die auf <em>Boosting</em> setzen, um bessere Ergebnisse in Bereichen der Daten zu erhalten, wo die Güte bisher schlecht ist. Trotzdem hat man mit diesen Algorithmen eine gute und vielfältige Werkzeugkiste zum Lösen von Klassifikationsproblemen.</p>
-</div>
-<div class="section" id="id2">
-<h3><span class="section-number">7.11.2. </span>Decision Surfaces<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id2">
+<h3><span class="section-number">7.11.2. </span>Decision Surfaces<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
 <p>Wesentlich für die Güte der gelernten Hypothesen sind die Decision Surfaces. Daher betrachten wir diese jetzt für verschiedene Beispieldatensätze und fangen mit den Irisdaten an.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -2096,9 +2190,9 @@ Accuracy auf den Testdaten: 0.988
 </div>
 </div>
 <p>Wie zu erwarten war, können alle Algorithmen diese Daten problemlos korrekt klassifizieren. Wir sehen jedoch große Unterschiede in den Margins, die wir bereits von der SVM kennen. Die meisten Algorithmen berechnen die Decision Boundary so, dass die Margin zwar in der Regel nicht optimal, aber zumindest relativ groß ist. Hier sieht man, dass dies insbesondere bei der SVM der Fall ist, bei den Entscheidungsbäumen und Random Forests wird bei der Partitionierung ebenfalls auf die Margins geachtet. Beim <span class="math notranslate nohighlight">\(k\)</span>-Nearest-Neighbor-Algorithmus folgt die große Margin direkt aus der Nachbarschaftsbeziehung zwischen den Instanzen. Insbesondere bei Naive Bayes und den MLPs sieht man, dass hier die Margin bei der Berechnung der Ergebnisse nicht berücksichtigt wird. Hierdurch können diese Algorithmen die Daten zwar gut trennen, haben aber ein Risiko, dass es zu Fehlklassifikationen kommt. Bei den MLPs gibt es hierfür eine einfache Erklärung: Das interne Optimierungskriterium ist in der Regel die Accuracy auf den Trainingsdaten, und diese ist unabhängig von der Wahl der Margin. Daher endet die Berechnung der Lösung für die neuronalen Netze, sobald eine Lösung gefunden wird, egal wie groß die Margin ist. Dies kann man durch Validierungsdaten umgehen.</p>
-</div>
-<div class="section" id="ausfuhrungszeit">
-<h3><span class="section-number">7.11.3. </span>Ausführungszeit<a class="headerlink" href="#ausfuhrungszeit" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="ausfuhrungszeit">
+<h3><span class="section-number">7.11.3. </span>Ausführungszeit<a class="headerlink" href="#ausfuhrungszeit" title="Permalink to this headline">#</a></h3>
 <p>Die Ausführungszeit kann ein wichtiger Faktor sein, insbesondere wenn das Training oder die Vorhersage strikte Zeitvorgaben einhalten muss oder es große Menge von Daten gibt. Wir vergleichen die Ausführungszeiten für die Halbmonddaten für 1.000, 10.000, 100.000 und 1.000.000 Instanzen. Die Zeiten wurden mit einem normalen Laptop (Intel Core i7-8850 &#64; 2.60GHz, 32 GB RAM) mit scikit-learn 0.24 gemessen.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -2193,37 +2287,37 @@ Accuracy auf den Testdaten: 0.988
 <p>Die Trainingszeit ist etwa linear für alle Modelle. Die Steigung ist bei den SVMs jedoch deutlich steiler als bei den anderen Modellen und die Trainingszeiten einiger Modelle sind erkennbar schneller als der Rest: Entscheidungsbäume, logistische Regression, <span class="math notranslate nohighlight">\(k\)</span>-Nearest Neighbors und Naive Bayes benötigen für das Training mit 1.000.000 Instanzen etwa so lang wie ein MLP für 1.000 Instanzen. Der Random Forest liegt zwischen den MLPs und den schnelleren Modellen, da die Ausführungszeit des Random Forest linear mit der Anzahl der Random Trees im Ensemble wächst. Im obigen Beispiel haben wir 100 Bäume genutzt.</p>
 <p>Die Ergebnisse für die Dauer der Klassifikation sind ähnlich zur Trainingszeit, mit der Ausnahme des <span class="math notranslate nohighlight">\(k\)</span>-Nearest-Neighbor-Algorithmus. Dies liegt daran, dass es kein echtes Training gibt, da keine Hypothese existiert. Es kann lediglich ein Suchbaum zum schnelleren Berechnen der paarweisen Distanzen aufgebaut werden. Trotzdem ist die Berechnung der paarweisen Distanzen relativ teuer, weshalb die Klassifikation ziemlich lange dauert. Man sieht außerdem, dass es kaum einen Unterschied zwischen dem Random Forest und den MLPs bei den Klassifikationszeiten gibt. Dies liegt daran, dass diese Modelle beide ähnlich viele Berechnungen zur Klassifikation erfordern, das Training beim MLP aber langsamer gegen die Hypothese konvergiert.</p>
 <p>Auch wenn man diese grundlegenden Trends bei vielen Datensätzen beobachtet, hängen die Ergebnisse stark von den Daten und der Parametrisierung der Algorithmen ab. Außerdem haben wir nur die Ausführungszeit bezogen auf die Anzahl der Instanzen verglichen. Die Anzahl der Merkmale kann ebenfalls große Auswirkungen auf die Ausführungszeiten haben. Bei den neuronalen Netzen haben wir lediglich ein MLP betrachtet. Bei großen neuronalen Netzen mit Millionen von Neuronen können die Trainingszeiten sehr lang dauern oder das Training ohne spezielle Hardware nicht machbar sein.</p>
-</div>
-<div class="section" id="interpretierbarkeit-und-darstellung">
-<h3><span class="section-number">7.11.4. </span>Interpretierbarkeit und Darstellung<a class="headerlink" href="#interpretierbarkeit-und-darstellung" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="interpretierbarkeit-und-darstellung">
+<h3><span class="section-number">7.11.4. </span>Interpretierbarkeit und Darstellung<a class="headerlink" href="#interpretierbarkeit-und-darstellung" title="Permalink to this headline">#</a></h3>
 <p>Mit der Ausnahme des <span class="math notranslate nohighlight">\(k\)</span>-Nearest-Neighbor-Algorithmus erstellen alle Algorithmen Hypothesen mit einer relativ kompakten Darstellung, die serialisiert und unabhängig von den Daten in Produktivsystemen eingesetzt werden kann. Es gibt jedoch große Unterschiede in der Interpretierbarkeit dieser Repräsentationen.</p>
 <p>Entscheidungsbäume können auch ohne Data-Science-Kenntnisse interpretiert werden. Daher kann man die Entscheidungsbäume am einfachsten mit Domänenexpertinnen gemeinsam auf ihre Plausibilität prüfen und aus den Bäumen Wissen über die Hypothese gewinnen. Außerdem zeigen die Entscheidungsbäume noch indirekt an, welche Merkmale besonders wichtig sind, da diese sich weiter oben im Entscheidungsbaum befinden. Die Vorhersagen von Random Forests sind zwar in der Regel besser als mit Entscheidungsbäumen, aber sie können nicht ohne Weiteres interpretiert werden. Die manuelle Analyse von Hunderten von Bäumen und ein gleichzeitiges Verständnis davon, wie sich das Mehrheitsvotum zusammensetzt, ist nicht realistisch. Bei Random Forests können wir aber ohne großen Aufwand die Relevanz der einzelnen Merkmale bestimmen. Je häufiger ein Merkmal in einem der Bäume zur Klassifikation verwendet wird, desto wichtiger ist das Merkmal. Diese Analyse wird von sogenannten <em>Feature Importance Maps</em> unterstützt.</p>
 <p>Logistische Regression ermöglicht es uns, über die Koeffizienten die Odds Ratios zu verstehen. Daher ist die logistische Regression ein mächtiges Werkzeug, um den Einfluss von Merkmalen auf die Klassifikation richtig einzuschätzen. Dies erfordert jedoch Expertenwissen, um die durch die Koeffizienten dargestellten Log Odds zu interpretieren.</p>
 <p>Die anderen Modelle bieten nahezu keine Erklärung für die Ergebnisse. Bei Naive Bayes könnte man zwar die Wahrscheinlichkeiten für einzelne Merkmale bei den Klassen als Koeffizienten interpretieren, das liefert aber in der Regel aufgrund der Naive Assumption keine guten Ergebnisse. Die Interpretation von neuronalen Netzen ist ein aktives Forschungsfeld, zum Beispiel durch die Visualisierung der Gewichte im Netzwerk, der Aktivierung von Neuronen oder des Einflusses von Merkmalen auf die Ergebnisse.</p>
-</div>
-<div class="section" id="scoring">
-<h3><span class="section-number">7.11.5. </span>Scoring<a class="headerlink" href="#scoring" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="scoring">
+<h3><span class="section-number">7.11.5. </span>Scoring<a class="headerlink" href="#scoring" title="Permalink to this headline">#</a></h3>
 <p>Für <span class="math notranslate nohighlight">\(k&gt;1\)</span> kann man beim <span class="math notranslate nohighlight">\(k\)</span>-Nearest Neighbor den Anteil der Nachbarn von jeder Klasse als Scoring-Funktion nutzen. Diese Scores sind häufig jedoch nicht sehr gut, weshalb man, falls Scores relevant sind, eher andere Algorithmen einsetzen sollte. Entscheidungsbäume kennen die Verteilung der Instanzen jeder Klasse in jedem Knoten, wodurch man die Scoring-Funktion als Wahrscheinlichkeitsverteilung über die Klassen berechnen kann. Durch das Mitteln dieser Wahrscheinlichkeiten erhält man die Scoring-Funktion vom Random Forest. Die logistische Regression berechnet direkt die Wahrscheinlichkeit jeder Klasse und ist daher ohnehin eine Scoring-Funktion. Die Scoring-Funktionen der Entscheidungsbäume, der Random Forests und der logistischen Regression bezeichnet man auch als <em>wohlkalibriert</em> (engl. <em>well calibrated</em>), was bedeutet, dass sie zuverlässige Schätzungen für die Wahrscheinlichkeiten der Klassen liefern. Naive Bayes hat auch eine gut verwendbare Scoring-Funktion, die jedoch nicht wohlkalibriert ist. Bei SVMs gibt es keine Scoring-Funktion. Wenn man unbedingt Scores für eine SVM berechnen möchte, nutzt man ein separates Regressionsmodell, um Schätzungen für die Scores der Vorhersagen einer SVM zu berechnen. Dies sollte man jedoch vermeiden. Neuronale Netze berechnen ebenfalls Scores. Die Güte dieser Scores und ob sie wohlkalibriert sind, hängt von der Netzwerkstruktur und der Zielfunktion des Trainings ab.</p>
-</div>
-<div class="section" id="kategorische-merkmale">
-<h3><span class="section-number">7.11.6. </span>Kategorische Merkmale<a class="headerlink" href="#kategorische-merkmale" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="kategorische-merkmale">
+<h3><span class="section-number">7.11.6. </span>Kategorische Merkmale<a class="headerlink" href="#kategorische-merkmale" title="Permalink to this headline">#</a></h3>
 <p>Lediglich Entscheidungsbäume, Random Forests und Multinomial Naive Bayes können ohne Einschränkungen mit kategorischen Daten arbeiten. Alle anderen Algorithmen kann man mithilfe des One-Hot Encoding verwenden. Beim <span class="math notranslate nohighlight">\(k\)</span>-Nearest-Neighbor-Algorithmus ist dies jedoch problematisch, da Distanzen beim One-Hot Encoding in der Regel nicht sinnvoll sind.</p>
-</div>
-<div class="section" id="fehlende-merkmale">
-<h3><span class="section-number">7.11.7. </span>Fehlende Merkmale<a class="headerlink" href="#fehlende-merkmale" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="fehlende-merkmale">
+<h3><span class="section-number">7.11.7. </span>Fehlende Merkmale<a class="headerlink" href="#fehlende-merkmale" title="Permalink to this headline">#</a></h3>
 <p>Keiner der Algorithmen kann ohne Weiteres mit fehlenden Merkmalen umgehen. Entscheidungsbäume und Random Forests können unter gewissen Umständen weiterhin korrekt funktionieren. Dies ist zum Beispiel der Fall, wenn ein Entscheidungsbaum zur Klassifikation gelangt, ohne dass das fehlende Merkmal benötigt wird. Beim Random Forest könnte man alle Random Trees ignorieren, in denen das Merkmal verwendet wird. Bei einer großen Anzahl von Bäumen hat man dann dennoch eine gute Chance, ein sinnvolles Ergebnis zu erhalten. Für alle anderen Algorithmen ergeben die Berechnungen keinen Sinn, wenn ein Merkmal fehlt. Das ist etwa so, wie den Wert von <span class="math notranslate nohighlight">\(x+y\)</span> zu berechnen, ohne den Wert von <span class="math notranslate nohighlight">\(y\)</span> zu kennen.</p>
 <p>Während <span class="math notranslate nohighlight">\(k\)</span>-Nearest Neighbor selbst nicht mit fehlenden Merkmalen umgehen kann, wird dieser Algorithmus gerne benutzt, um die Werte für fehlende Merkmale zu <em>imputieren</em>, also anhand anderer Merkmale zu schätzen <a class="footnote-reference brackets" href="#barnard" id="id3">2</a>.</p>
-</div>
-<div class="section" id="korrelierte-merkmale">
-<h3><span class="section-number">7.11.8. </span>Korrelierte Merkmale<a class="headerlink" href="#korrelierte-merkmale" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="korrelierte-merkmale">
+<h3><span class="section-number">7.11.8. </span>Korrelierte Merkmale<a class="headerlink" href="#korrelierte-merkmale" title="Permalink to this headline">#</a></h3>
 <p>Die meisten Algorithmen können gut mit korrelierten Merkmalen umgehen. Entscheidungsbäume wählen die Merkmale nach ihrer Relevanz für die Klassifikation der aktuellen Partition aus. Wenn es korrelierte Merkmale gibt, sinkt die Relevanz aller dieser Merkmale, sobald das erste ausgewählt wurde. Dies ist ebenfalls der Fall in Random Forests. Hier könnten zu viele korrelierte Merkmale dennoch ein Problem darstellen, da sie die zufällige Auswahl der Merkmale für jeden Baum beeinflussen: Die Chance, dass jedes Mal eines dieser Merkmale ausgewählt wird und die korrelierte Information damit jedem Random Tree zur Verfügung steht, wird mit jeder Korrelation erhöht. Gleichzeitig wird hierdurch die Anzahl der unkorrelierten Merkmale in den Random Trees reduziert, was sich negativ auf die Güte auswirken könnte. Bei neuronalen Netzen sind Korrelationen kein Problem, da diese von den Gewichten berücksichtigt werden können. Dies ist ebenfalls bei der logistischen Regression der Fall, wo die Korrelationen durch die Koeffizienten berücksichtigt werden können. Die Interpretierbarkeit der logistischen Regression wird durch Korrelationen jedoch reduziert, da die Werte der Koeffizienten möglicherweise nicht zuverlässig sind (siehe <a class="reference internal" href="kapitel_08.html"><span class="doc std std-doc">Kapitel 8</span></a>).</p>
 <p>Bei Naive Bayes widersprechen Korrelationen der Naive Assumption. Je mehr Korrelationen es gibt, desto stärker wird die Annahme der Unabhängigkeit der Merkmale verletzt, was die Zuverlässigkeit der Ergebnisse reduziert. In der Praxis ist dies jedoch kein Problem und führt lediglich dazu, dass die Scoring-Funktion keine gute Schätzungen für die Wahrscheinlichkeit einer Klasse liefert. Bei SVMs hängen die Auswirkungen von Korrelationen von der Kernfunktion ab. Eine lineare SVM hat keine Probleme mit Korrelationen. Wenn die Distanzen zwischen den Instanzen von der Kernfunktion berücksichtigt werden, wie zum Beispiel beim RBF-Kernel, werden die korrelierten Merkmale überrepräsentiert, was zu einer künstlichen Gewichtung der Merkmale führt und sich negativ auf die Güte auswirken kann. Dies ist auch das Problem des <span class="math notranslate nohighlight">\(k\)</span>-Nearest-Neighbor-Algorithmus mit korrelierten Merkmalen.</p>
-</div>
-<div class="section" id="zusammenfassung-des-vergleichs">
-<h3><span class="section-number">7.11.9. </span>Zusammenfassung des Vergleichs<a class="headerlink" href="#zusammenfassung-des-vergleichs" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="zusammenfassung-des-vergleichs">
+<h3><span class="section-number">7.11.9. </span>Zusammenfassung des Vergleichs<a class="headerlink" href="#zusammenfassung-des-vergleichs" title="Permalink to this headline">#</a></h3>
 <p>Die Tabellen <a class="reference internal" href="#tbl-class1"><span class="std std-numref">Table 7.6</span></a> und <a class="reference internal" href="#tbl-class2"><span class="std std-numref">Table 7.7</span></a> fassen die Stärken und Schwächen der Klassifikationsalgorithmen noch einmal zusammen.</p>
 <table class="colwidths-auto table" id="tbl-class1">
-<caption><span class="caption-number">Table 7.6 </span><span class="caption-text">Zusammenfassung der Vor- und Nachteile der Klassifikationsalgorithmen (1/2)</span><a class="headerlink" href="#tbl-class1" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 7.6 </span><span class="caption-text">Zusammenfassung der Vor- und Nachteile der Klassifikationsalgorithmen (1/2)</span><a class="headerlink" href="#tbl-class1" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p><span class="xref myst"></span></p></th>
 <th class="head"><p>Decision Surface</p></th>
@@ -2278,7 +2372,7 @@ Accuracy auf den Testdaten: 0.988
 </tbody>
 </table>
 <table class="colwidths-auto table" id="tbl-class2">
-<caption><span class="caption-number">Table 7.7 </span><span class="caption-text">Zusammenfassung der Vor- und Nachteile der Klassifikationsalgorithmen (2/2)</span><a class="headerlink" href="#tbl-class2" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 7.7 </span><span class="caption-text">Zusammenfassung der Vor- und Nachteile der Klassifikationsalgorithmen (2/2)</span><a class="headerlink" href="#tbl-class2" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p><span class="xref myst"></span></p></th>
 <th class="head"><p>Scoring</p></th>
@@ -2332,18 +2426,18 @@ Accuracy auf den Testdaten: 0.988
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="section" id="ubung">
-<h2><span class="section-number">7.12. </span>Übung<a class="headerlink" href="#ubung" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="ubung">
+<h2><span class="section-number">7.12. </span>Übung<a class="headerlink" href="#ubung" title="Permalink to this headline">#</a></h2>
 <p>In dieser Übung geht es um die praktische Erfahrung mit den Klassifikationsalgorithmen. Hierzu wenden wir die Algorithmen auf einen Datensatz an, vergleichen die Güte und versuchen, gute Parameter zu finden. Letzteres, also die Wahl der Parameter, ist das Wichtigste an dieser Übung: Wie tief sollten Entscheidungsbäume sein, welche Aktivierungsfunktion ist beim MLP gut, wie viele Nachbarn braucht der <span class="math notranslate nohighlight">\(k\)</span>-Nearest Neighbor und welche Kernfunktion liefert bei der SVM gute Ergebnisse?</p>
 <p>Für dieses Datensatz benutzen wir Daten über die Arten von Bäumen in einem Wald aus scikit-learn <a class="footnote-reference brackets" href="#covtype" id="id4">3</a>.</p>
-<div class="section" id="trainings-und-testdaten">
-<h3><span class="section-number">7.12.1. </span>Trainings- und Testdaten<a class="headerlink" href="#trainings-und-testdaten" title="Permalink to this headline">¶</a></h3>
+<section id="trainings-und-testdaten">
+<h3><span class="section-number">7.12.1. </span>Trainings- und Testdaten<a class="headerlink" href="#trainings-und-testdaten" title="Permalink to this headline">#</a></h3>
 <p>Laden Sie die Daten. Teilen Sie die Daten so auf, dass Sie 5% der Daten zum Training verwenden und 95% der Daten zum Testen <a class="footnote-reference brackets" href="#train-test-split" id="id5">4</a>. Auch wenn man in der Praxis mehr Daten zum Training nutzen würde, ist die kleinere Trainingsmenge für diese Übung aufgrund der Laufzeit sinnvoller. Verwenden Sie <em>Stratified Sampling</em>, um sicherzustellen, dass alle Klassen entsprechend ihrer Verteilung in den Trainings- und Testdaten repräsentiert sind.</p>
-</div>
-<div class="section" id="trainieren-testen-bewerten">
-<h3><span class="section-number">7.12.2. </span>Trainieren, Testen, Bewerten<a class="headerlink" href="#trainieren-testen-bewerten" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="trainieren-testen-bewerten">
+<h3><span class="section-number">7.12.2. </span>Trainieren, Testen, Bewerten<a class="headerlink" href="#trainieren-testen-bewerten" title="Permalink to this headline">#</a></h3>
 <p>Nutzen Sie die Trainingsdaten, um die Algorithmen aus diesem Kapitel auszuprobieren. Hierbei werden Sie erhebliche Laufzeitunterschiede feststellen. Einige Algorithmen sind möglicherweise gar nicht für diese Daten geeignet.</p>
 <p>Finden Sie einen guten Algorithmus für die Daten. Dieser sollte zwei Bedingungen erfüllen:</p>
 <ul class="simple">
@@ -2351,9 +2445,9 @@ Accuracy auf den Testdaten: 0.988
 <li><p>Die Güte, gemessen mit MCC, Recall, Prediction und F1-Score, sollte gut sein.</p></li>
 </ul>
 <p>Probieren Sie verschiedene Parameter aus, um die Ergebnisse zu verbessern.</p>
-</div>
-<div class="section" id="automatische-parameterwahl">
-<h3><span class="section-number">7.12.3. </span>Automatische Parameterwahl<a class="headerlink" href="#automatische-parameterwahl" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="automatische-parameterwahl">
+<h3><span class="section-number">7.12.3. </span>Automatische Parameterwahl<a class="headerlink" href="#automatische-parameterwahl" title="Permalink to this headline">#</a></h3>
 <p>Sie können gute Parameter auch automatisch bestimmen. Nutzen Sie hierfür die <em>Grid Search</em>, bei der alle Paare von Parametern aus einem vorgegebenen Wertebereich kombiniert werden <a class="footnote-reference brackets" href="#grid" id="id6">5</a>. Beachten Sie, dass der Aufwand hierbei exponentiell mit der Anzahl der Parameter wächst. Probieren Sie die Grid Search aus, um noch bessere Parameter zu finden, ohne dabei länger als eine Stunde Rechenzeit zu investieren.</p>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
@@ -2373,9 +2467,9 @@ Accuracy auf den Testdaten: 0.988
 <dd><p><a class="reference external" href="https://scikit-learn.org/stable/modules/grid_search.html">https://scikit-learn.org/stable/modules/grid_search.html</a></p>
 </dd>
 </dl>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -2399,9 +2493,11 @@ Accuracy auf den Testdaten: 0.988
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="kapitel_06.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -2417,24 +2513,28 @@ Accuracy auf den Testdaten: 0.988
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Steffen Herbold<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Steffen Herbold<br/>
-    
-        &copy; Copyright 2022.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>11. Statistik &#8212; Data Science Crashkurs - Eine interaktive und praktische Einführung</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +20,16 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -39,12 +37,13 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -64,7 +63,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -73,9 +86,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -93,14 +107,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="vorwort.html">
-   Vorwort
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="vorwort.html">
+                    Vorwort
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Kapitel
  </span>
@@ -196,104 +211,177 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Gefällt Ihnen das Buch? Möchten Sie es in den Händen halten und weitere Open Access Bücher unterstützen? <a href="https://dpunkt.de/produkt/data-science-crashkurs/">Dann kaufen Sie die Print Edition.</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/chapters/kapitel_11.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/sherbold/einfuehrung-in-data-science"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/sherbold/einfuehrung-in-data-science/main?urlpath=tree/content/chapters/kapitel_11.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Gefällt Ihnen das Buch? Möchten Sie es in den Händen halten und weitere Open Access Bücher unterstützen? <a href="https://dpunkt.de/produkt/data-science-crashkurs/">Dann kaufen Sie die Print Edition.</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/sherbold/einfuehrung-in-data-science/main?urlpath=tree/content/chapters/kapitel_11.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/sherbold/einfuehrung-in-data-science"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/chapters/kapitel_11.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#hypothesentests">
    11.1. Hypothesentests
@@ -369,12 +457,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Statistik</h1>
@@ -466,11 +553,12 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="statistik">
-<h1><span class="section-number">11. </span>Statistik<a class="headerlink" href="#statistik" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="statistik">
+<h1><span class="section-number">11. </span>Statistik<a class="headerlink" href="#statistik" title="Permalink to this headline">#</a></h1>
 <p>Im Laufe der Kapitel haben wir bereits einige Datensätze betrachtet. Einen wichtigen Aspekt haben wir aber bisher ignoriert: die Rolle des Zufalls, um Unterschiede zu erklären. Daher wollen wir uns an dieser Stelle noch mit Methoden aus der Statistik beschäftigen, die dazu geeignet sind, Aussagen darüber zu treffen, ob wir einen echten Effekt beobachten oder lediglich zufällige Schwankungen. Um zu verstehen, warum das relevant ist, betrachten wir direkt zwei Beispiele. In <a class="reference internal" href="kapitel_04.html"><span class="doc std std-doc">Kapitel 4</span></a> haben wir zum Beispiel die Verteilung von Daten mit Histogrammen visualisiert. Hier sind die Histogramme von zwei weiteren Datensätzen:</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -507,16 +595,16 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <p>Das Histogramm auf der linken Seite hat eine Glockenform, was auf eine Normalverteilung hindeutet. Wie wahrscheinlich es ist, dass es sich um eine Normalverteilung handelt, ist jedoch unklar. Auf der rechten Seite sehen wir die Histogramme von zwei Stichproben <span class="math notranslate nohighlight">\(X_1 = \{x_1^1, ..., x_{n_1}^1\}\)</span> (“blau”) und <span class="math notranslate nohighlight">\(X_2 = \{x_1^2, ..., x_{n_2}^2\}\)</span> (“orange”). Diese Stichproben sind aus der “blauen” und der “orangen” Grundgesamtheit gezogen, die auch <em>Populationen</em> genannt werden. Beide Stichproben sehen sich sehr ähnlich, auch wenn der Mittelwert der blauen Daten etwas kleiner ist als bei den orangen Daten. Ob dies ein zufälliger Effekt der Stichproben ist oder ob die blaue Population im Mittel wirklich etwas kleiner ist, kann man mit dem Histogramm nicht erkennen.</p>
 <p>Statistische Methoden können uns diese Fragen (mit einer gewissen Wahrscheinlichkeit) beantworten. In diesem Kapitel befassen wir uns in einer kurzen Einführung mit der ziemlich großen Welt der Statistik. Unser Ziel ist ein Grundverständnis von Hypothesentests, Effektstärken und Konfidenzintervallen. Die Hypothesen in diesem Kapitel sind nicht mit den Hypothesen eines Klassifikationsmodells zu verwechseln (siehe <a class="reference internal" href="kapitel_08.html"><span class="doc std std-doc">Kapitel 8</span></a>).</p>
-<div class="section" id="hypothesentests">
-<h2><span class="section-number">11.1. </span>Hypothesentests<a class="headerlink" href="#hypothesentests" title="Permalink to this headline">¶</a></h2>
+<section id="hypothesentests">
+<h2><span class="section-number">11.1. </span>Hypothesentests<a class="headerlink" href="#hypothesentests" title="Permalink to this headline">#</a></h2>
 <p>Hypothesentests sind das wichtigste Werkzeug der <em>häufigkeitsbasierten Statistik</em> (engl. <em>frequentist statistics</em>). Bei Hypothesentests hat man Annahmen an die Daten. Durch diese Annahmen kann man Hypothesen über die Daten formulieren. Es gibt immer zwei Hypothesen: die <em>Nullhypothese</em> und die <em>Alternativhypothese</em>.</p>
 <ul class="simple">
 <li><p>Nullhypothese (<span class="math notranslate nohighlight">\(H_0\)</span>): Die Annahmen des Tests sind erfüllt und können nicht mit einem vorgegebenen Signifikanzniveau verworfen werden.</p></li>
 <li><p>Alternativhypothese (<span class="math notranslate nohighlight">\(H_1\)</span>): Die Annahmen des Tests sind nicht erfüllt und können mit einem vorgegebenen Signifikanzniveau verworfen werden.</p></li>
 </ul>
 <p>Die Formulierung dieser Hypothesen basiert auf einigen abstrakten Konzepten: Was genau ist eine “Annahme” und was heißt “mit einem vorgegebenen Signifikanzniveau verwerfen”? Im Folgenden erklären wir die Bedeutung dieser Konzepte am Beispiel des  <span class="math notranslate nohighlight">\(t\)</span>-Tests.</p>
-<div class="section" id="t-test">
-<h3><span class="section-number">11.1.1. </span><span class="math notranslate nohighlight">\(t\)</span>-Test<a class="headerlink" href="#t-test" title="Permalink to this headline">¶</a></h3>
+<section id="t-test">
+<h3><span class="section-number">11.1.1. </span><span class="math notranslate nohighlight">\(t\)</span>-Test<a class="headerlink" href="#t-test" title="Permalink to this headline">#</a></h3>
 <p>Der <span class="math notranslate nohighlight">\(t\)</span>-Test ist der Urvater der statistischen Tests und wurde von William Gosset unter dem Pseudonym “Student” entwickelt. Die älteste Version des Tests und die Wahrscheinlichkeitsverteilung, auf dem dieser Test basiert, heißen daher auch Students <span class="math notranslate nohighlight">\(t\)</span>-Test und Students <span class="math notranslate nohighlight">\(t\)</span>-Verteilung. Wir betrachten hier eine neuere Variante des <span class="math notranslate nohighlight">\(t\)</span>-Tests, nämlich Welchs <span class="math notranslate nohighlight">\(t\)</span>-Test. Welchs <span class="math notranslate nohighlight">\(t\)</span>-Test hat folgende Hypothesen:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(H_0\)</span>: Die Mittelwerte von zwei normalverteilten Populationen <span class="math notranslate nohighlight">\(X_1\)</span> und <span class="math notranslate nohighlight">\(X_2\)</span> sind gleich.</p></li>
@@ -576,18 +664,18 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>Die grüne Fläche ist die Wahrscheinlichkeit, dass die Stichprobe einer Standardnormalverteilung um mindestens <span class="math notranslate nohighlight">\(t\)</span> von null abweicht. Da wir <span class="math notranslate nohighlight">\(t\)</span> so berechnen, dass es genau die Abweichung der Mittelwerte voneinander darstellt, entspricht dies der Wahrscheinlichkeit, dass die zwei Stichproben gezogen wurden, wenn die Populationen normalverteilt sind und den gleichen Mittelwert haben. Das ist der p-value des <span class="math notranslate nohighlight">\(t\)</span>-Tests: Die Wahrscheinlichkeit, dass die Daten beobachtet werden, wenn unsere Nullhypothese zutrifft.</p>
-</div>
-<div class="section" id="das-signifikanzniveau">
-<h3><span class="section-number">11.1.2. </span>Das Signifikanzniveau<a class="headerlink" href="#das-signifikanzniveau" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="das-signifikanzniveau">
+<h3><span class="section-number">11.1.2. </span>Das Signifikanzniveau<a class="headerlink" href="#das-signifikanzniveau" title="Permalink to this headline">#</a></h3>
 <p>Der p-value gibt also an, wie wahrscheinlich es ist, die Daten zu sehen. Es ist also nur logisch, dass ein kleiner p-value darauf hindeutet, dass die Nullhypothese nicht zutrifft und verworfen werden sollte. Diese Folgerung wird durch das <em>Signifikanzniveau</em> <span class="math notranslate nohighlight">\(\alpha\)</span> formalisiert, um die <em>statistische Signifikanz</em> des Testergebnisses zu definieren. Das Signifikanzniveau ist definiert als die Wahrscheinlichkeit, dass die Nullhypothese verworfen wird, obwohl sie zutrifft. Häufig wird ein Signifikanzniveau von 0,05 oder in letzter Zeit auch 0,005 verwendet. Mit dem Signifikanzniveau können wir anhand von p-value entscheiden, ob wir die Nullhypothese verwerfen:</p>
 <ul class="simple">
 <li><p>Wenn <span class="math notranslate nohighlight">\(\text{p-value} &gt; \alpha\)</span> ist, können wir die Nullhypothese nicht verwerfen. Das heißt, dass die Stichproben nicht unwahrscheinlich sind, wenn die Nullhypothese wahr ist.</p></li>
 <li><p>Wenn <span class="math notranslate nohighlight">\(\text{p-value} \leq \alpha\)</span> ist, verwerfen wir die Nullhypothese und haben ein statistisch signifikantes Ergebnis. Die Stichproben sind also sehr unwahrscheinlich, wenn die Nullhypothese wahr ist.</p></li>
 </ul>
 <p>Mit Hypothesentests erhält man keine absolute Sicherheit, die Ergebnisse stimmen nur mit einer durch das Signifikanzniveau festgelegten Wahrscheinlichkeit. Das heißt auch, dass wenn wir die Nullhypothese verwerfen, sie trotzdem wahr sein könnte. Es ist nur unwahrscheinlich - aber nicht unmöglich! -, dass diese Daten vorkommen. Deshalb verwenden wir auch die etwas komplizierten Formulierungen nicht verwerfen können bzw. verwerfen bezogen auf ein Signifikanzniveau.</p>
-</div>
-<div class="section" id="wichtige-hypothesentests">
-<h3><span class="section-number">11.1.3. </span>Wichtige Hypothesentests<a class="headerlink" href="#wichtige-hypothesentests" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="wichtige-hypothesentests">
+<h3><span class="section-number">11.1.3. </span>Wichtige Hypothesentests<a class="headerlink" href="#wichtige-hypothesentests" title="Permalink to this headline">#</a></h3>
 <p>Was wir oben im Detail für den <span class="math notranslate nohighlight">\(t\)</span>-Test erklärt haben, gilt für alle statistischen Tests: Es gibt eine Nullhypothese, in der wir Annahmen treffen. Dann berechnen wir den p-value, also die Wahrscheinlichkeit der Daten, entsprechend den Annahmen. Basierend auf dem p-value können wir bestimmen, ob wir die Nullhypothese mit einem gewissen Signifikanzniveau verwerfen. Es gibt sehr viele derartige statistische Tests. Hier sind die Nullhypothesen einiger sehr wichtiger Tests:</p>
 <ul class="simple">
 <li><p>Welchs <span class="math notranslate nohighlight">\(t\)</span>-Test: Die Mittelwerte zweier unabhängiger normalverteilter Populationen sind gleich.</p></li>
@@ -600,9 +688,9 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Wir wissen bereits, dass wir Welchs <span class="math notranslate nohighlight">\(t\)</span>-Test benutzen können, um die Mittelwerte von Normalverteilungen zu vergleichen. Wenn die Daten nicht normalverteilt sind, können wir stattdessen den Mann-Whitney-U-Test nutzen. Mithilfe des Shapiro-Wilk-Tests können wir bestimmen, ob eine Stichprobe normalverteilt ist. Wenn man mehr als zwei Datensätze vergleichen möchte, spricht man von einer Gruppe von Populationen. Mit ANOVA kann man bestimmen, ob die Mittelwerte aller dieser Populationen gleich sind, sofern es sich um Normalverteilungen mit der gleichen Varianz handelt. Die Normalverteilung können wir mit dem Shapiro-Wilk-Test überprüfen, für die Varianzen können wir den Levene-Test verwenden.</p>
 <p>Ähnlich wie bei den deskriptiven Statistiken (siehe <a class="reference internal" href="kapitel_04.html"><span class="doc std std-doc">Kapitel 4</span></a>) gibt es <em>parametrische</em> und <em>nicht parametrische</em> statistische Tests. Die parametrischen Tests haben Annahmen an die Daten (z.B. Normalverteilung), die nicht parametrischen Tests machen keine derartigen Annahmen. Welchs <span class="math notranslate nohighlight">\(t\)</span>-Test ist zum Beispiel parametrisch und der Mann-Whitney-U-Test ist das nicht parametrische Gegenstück.</p>
 <p>Der Kolmogorow-Smirnow-Test ist ein sehr generischer statistischer Test, da er beliebige Populationen mit kontinuierlichen Verteilungen miteinander vergleichen kann. Es gibt also nur wenige Einschränkungen, wann man den Test benutzen kann. Dennoch sollte man ihn als “letztes Mittel” betrachten, mit dem man zumindest sagen kann, ob es irgendwelche Unterschiede gibt. Was genau unterschiedlich ist, zum Beispiel die Lage, die Variabilität oder die Art der Verteilung, ist unklar. Als Vergleich: Wenn man mit dem Shapiro-Wilk-Test bestimmt, dass die Populationen normalverteilt sind, und mit Welchs <span class="math notranslate nohighlight">\(t\)</span>-Test einen signifikanten Unterschied der Mittelwerte feststellt, weiß man sehr genau, wie sich die Populationen voneinander unterscheiden.</p>
-</div>
-<div class="section" id="anwendung-der-tests">
-<h3><span class="section-number">11.1.4. </span>Anwendung der Tests<a class="headerlink" href="#anwendung-der-tests" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="anwendung-der-tests">
+<h3><span class="section-number">11.1.4. </span>Anwendung der Tests<a class="headerlink" href="#anwendung-der-tests" title="Permalink to this headline">#</a></h3>
 <p>Mit dem uns jetzt bekannten Wissen über die statistischen Tests können wir die Fragen vom Anfang des Kapitels beantworten: Sind die Mittelwerte der blauen und der orangen Population unterschiedlich? Mithilfe der Hypothesentests können wir hierzu eine Aussage treffen, die mit hoher Wahrscheinlichkeit richtig ist. Hierzu müssen wir ein Signifikanzniveau <span class="math notranslate nohighlight">\(\alpha\)</span> festlegen. Anschließend können wir den Shapiro-Wilk-Test auf beide Stichproben anwenden, um zu bestimmen, ob die Populationen normalverteilt sind. Wenn dies der Fall ist, können wir die Mittelwerte mit Welchs <span class="math notranslate nohighlight">\(t\)</span>-Test vergleichen, ansonsten nehmen wir den Mann-Whitney-U-Test.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -674,18 +762,18 @@ Signifikanzniveau von alpha=0.050.
 </div>
 </div>
 <p>Die Tests haben also festgestellt, dass die Daten wahrscheinlich normalverteilt sind, aber die Mittelwerte nicht gleich sind. Wir haben also einen statistisch signifikanten Unterschied zwischen den blauen und den orangen Daten mit einem Signifikanzniveau von <span class="math notranslate nohighlight">\(\alpha=0.05\)</span>.</p>
-</div>
-<div class="section" id="ubliche-fehler-bei-hypothesentests">
-<h3><span class="section-number">11.1.5. </span>Übliche Fehler bei Hypothesentests<a class="headerlink" href="#ubliche-fehler-bei-hypothesentests" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="ubliche-fehler-bei-hypothesentests">
+<h3><span class="section-number">11.1.5. </span>Übliche Fehler bei Hypothesentests<a class="headerlink" href="#ubliche-fehler-bei-hypothesentests" title="Permalink to this headline">#</a></h3>
 <p>Bei Hypothesentests steckt der Teufel im Detail, da es viele Aspekte gibt, die man vergessen oder ungenau darstellen kann, was dazu führen kann, dass man die Ergebnisse überinterpretiert. Daher wollen wir hier einige größere und häufig vorkommende Fehler nennen, damit wir diese vermeiden können.</p>
 <p>Das größte Problem ist, dass man Hypothesentests nutzt, um binäre Aussagen zu machen, zum Beispiel “die Daten sind normalverteilt” statt “der statistische Test indiziert, dass die Daten mit hoher Wahrscheinlichkeit normalverteilt sind”. Der große Unterschied: Die korrekte Aussage beinhaltet, dass es eine gewisse Unsicherheit über das Ergebnis gibt, was bei der absoluten Aussage nicht der Fall ist. Dass derartige Fehler (häufig!) passieren, ist verständlich. Das korrekte Formulieren von statistischen Ergebnissen ist schwierig und die Sätze klingen oft umständlich, was dazu verleitet, lieber eine deutlich einfachere absolute Formulierung zu benutzen.</p>
 <p>Ein weiteres Problem ist, dass p-values häufig falsch benutzt werden. Dies liegt daran, dass die Definition von p-value als die Wahrscheinlichkeit, die Daten unter den gegebenen Annahmen zu beobachten, relativ komplex ist. Aus diesem Grund gibt es auch viele Forscher, die am liebsten Hypothesentests komplett abschaffen und durch andere Verfahren (<em>Bayesian Statistics</em>) ersetzen würden. Es gibt aber auch sehr viele Forscher, die das Problem in der falschen Verwendung der p-values sehen, sodass lediglich eine bessere Statistikausbildung erforderlich ist. In diesem Sinne betrachten wir hier auch die zwei größten Probleme der p-values: <em>Scoring</em> und <em>p-Hacking</em>.</p>
 <p>Scoring bedeutet, dass der p-value als Punktzahl interpretiert wird und dann die Unterschiede der Populationen anhand ihrer p-values sortiert werden. Dies macht jedoch keinen Sinn, da die p-values eben nicht die Wahrscheinlichkeit, dass eine Hypothese korrekt ist, schätzen, sondern nur, dass die Daten zur Annahme passen. Eine Sortierung wäre also stattdessen eine Art Bewertung der Daten, was nicht gewollt ist.</p>
 <p>Das p-Hacking passiert oft unbewusst. Auch hier liegt das Problem daran, dass die p-values die Wahrscheinlichkeit sind, dass die Daten unter Berücksichtigung der Annahmen generiert werden. Ein p-value von 0,05 bedeutet also, dass es eine 5%ige Wahrscheinlichkeit gibt, dass diese Daten generiert werden, unter der Annahme, dass die Nullhypothese zutrifft. Mit anderen Worten, es wird vom Test sogar erwartet, dass es eine gewisse Anzahl von <em>falsch-positiven Testergebnissen</em> gibt, also dass wir die Nullhypothese verwerfen, obwohl diese zutrifft. Dies ist im Allgemeinen kein Problem, solange die Wahrscheinlichkeit hierfür niedrig ist. Wenn man jedoch 20 Tests durchführt und jeder Test mit 5% Wahrscheinlichkeit falsch-positiv ist, ist es fast sicher, dass es falsch-positive Ergebnisse gibt. Diesem Effekt kann man entgegenwirken, indem man ein höheres Signifikanzniveau verlangt, was bedeutet, dass der p-value zum Verwerfen der Hypothesen kleiner sein muss, wodurch man die Wahrscheinlichkeit von falsch-positiven Ergebnissen reduziert. Man spricht hierbei auch vom <em>p-value adjustment</em>, zum Beispiel durch die <em>Bonferonni-Korrektur</em> <a class="footnote-reference brackets" href="#bonferroni" id="id1">1</a>. Derartiges p-Hacking ist oft keine Absicht, sondern geschieht durch die Analyse von Teilgruppen. Um zu unserem Beispiel vom Alter der Einwohner zurückzukommen: Auch wenn Berlin und Hamburg das gleiche Durchschnittsalter hätten, würde man sehr sicher Stadtteile finden, wo die Abweichung größer wäre und der Unterschied dadurch signifikant. Ein berühmtes Beispiel dafür ist dieser medizinische Fachartikel <a class="footnote-reference brackets" href="#phacking" id="id2">2</a>: Die Autoren wurden von den Herausgebern gezwungen, Teilgruppen zu analysieren. Um zu demonstrieren, dass dies zu falsch-positiven Ergebnissen führt, haben sie auch eine Analyse der Auswirkungen der Sternzeichen auf die Behandlung mit aufgenommen.</p>
-</div>
-</div>
-<div class="section" id="effektstarke">
-<h2><span class="section-number">11.2. </span>Effektstärke<a class="headerlink" href="#effektstarke" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="effektstarke">
+<h2><span class="section-number">11.2. </span>Effektstärke<a class="headerlink" href="#effektstarke" title="Permalink to this headline">#</a></h2>
 <p>Die Signifikanz von Ergebnissen bedeutet nicht immer, dass ein Unterschied auch eine Bedeutung hat. Für unsere blauen und orangen Daten haben wir folgende Mittelwerte und Standardabweichungen:</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -714,7 +802,7 @@ sd(&quot;orange&quot;)   = 0.20
 \[s = \sqrt{\frac{(n_1-1)\cdot sd(X_1)^2+(n_2-1)\cdot sd(X_2)^2}{n_1+n_2-2}}.\]</div>
 <p>Der Wert <span class="math notranslate nohighlight">\(s\)</span> definiert die <em>gepoolte Standardabweichung</em> zweier Stichproben, definiert als das nach der Anzahl der Datenpunkte gewichtete Mittel der Standardabweichungen der Stichproben. Daher ist Cohens <span class="math notranslate nohighlight">\(d\)</span> nichts anderes als das Verhältnis der Mittelwertdifferenz zur Standardabweichung und <span class="math notranslate nohighlight">\(d=1\)</span> bedeutet, dass die Mittelwerte eine Standardabweichung voneinander entfernt liegen. Basierend auf Cohen und Sawilowski kann man <a class="reference internal" href="#tbl-effects"><span class="std std-numref">Table 11.1</span></a> zur Interpretation der Größenordnung der Effektstärke benutzen <a class="footnote-reference brackets" href="#sawilowski" id="id3">3</a>.</p>
 <table class="colwidths-auto table" id="tbl-effects">
-<caption><span class="caption-number">Table 11.1 </span><span class="caption-text">Effektstärken von Cohens <span class="math notranslate nohighlight">\(d\)</span></span><a class="headerlink" href="#tbl-effects" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 11.1 </span><span class="caption-text">Effektstärken von Cohens <span class="math notranslate nohighlight">\(d\)</span></span><a class="headerlink" href="#tbl-effects" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Cohens <span class="math notranslate nohighlight">\(d\)</span></p></th>
 <th class="head"><p>Effektstärke</p></th>
@@ -779,9 +867,9 @@ sd(&quot;orange&quot;)   = 0.20
 </div>
 </div>
 <p>Es gibt also einen kleinen Effekt. Das passt auch zu dem, was wir im Histogramm sehen: Es gibt zwar einen Unterschied zwischen den Stichproben, der ist aber klein, wie wir jetzt mithilfe von Cohens <span class="math notranslate nohighlight">\(d\)</span> bestätigt haben.</p>
-</div>
-<div class="section" id="konfidenzintervalle">
-<h2><span class="section-number">11.3. </span>Konfidenzintervalle<a class="headerlink" href="#konfidenzintervalle" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="konfidenzintervalle">
+<h2><span class="section-number">11.3. </span>Konfidenzintervalle<a class="headerlink" href="#konfidenzintervalle" title="Permalink to this headline">#</a></h2>
 <p>Wenn man den Mittelwert anhand einer Stichprobe schätzt, ist es naheliegend, zu fragen, wie gut diese Schätzung ist. Das hängt von zwei Faktoren ab: der Größe der Stichprobe und der Variabilität der Daten. Dies erkennt man schnell an einem Beispiel: Angenommen wir wollen das Durchschnittsalter unserer Kunden bestimmen. Dass die Schätzung besser wird, je mehr Kunden wir befragen, ist offensichtlich. Wenn die ersten Kunden alle mit Zahlen zwischen 18 und 25 antworten, haben wir eine kleine Variabilität der Antworten und können den Wert schon gut eingrenzen. Wenn die ersten Kunden jedoch Zahlen zwischen 18 und 86 nennen, haben wir eine größere Unsicherheit und müssen mehr Kunden befragen, um zu einem guten Schätzwert zu kommen.</p>
 <p>Dies ist auch für die Bewertung von Klassifikationsmodellen relevant. Angenommen wir haben ein Klassifikationsmodell für die Abwanderung von Kunden, das auf den Daten von fünf Filialen trainiert wird und mit 15 Filialen ausgewertet wird. Es gibt dann 15 Schätzwerte für die Güte dieses Modells. Als fiktive Ergebnisse nehmen wir an, dass die Accuracy normalverteilt mit einem Mittelwert von 0,83 und einer Standardabweichung von 0,13 ist. Für die weitere Anwendung ist folgende Frage sehr wichtig: Welchen Mittelwert erwarten wir, wenn wir das Modell bei 15 weiteren Filialen anwenden?</p>
 <p>Dies kann man mithilfe von <em>Konfidenzintervallen</em> berechnen. Ein <span class="math notranslate nohighlight">\(C\%\)</span>-Konfidenzintervall <span class="math notranslate nohighlight">\(\theta\)</span> für einen Parameter <span class="math notranslate nohighlight">\(p\)</span> ist ein Intervall, in dem <span class="math notranslate nohighlight">\(p\)</span> mit <span class="math notranslate nohighlight">\(C\%\)</span> Wahrscheinlichkeit liegt. Konfidenzintervalle kann man für beliebige statistische Merkmale <span class="math notranslate nohighlight">\(p\)</span> berechnen, auch wenn sie meistens für den Mittelwert berechnet werden. Der wahre Wert von <span class="math notranslate nohighlight">\(p\)</span> liegt dann mit hoher Wahrscheinlichkeit, nämlich mit <span class="math notranslate nohighlight">\(C\%\)</span>, in diesem Intervall. Die Wahrscheinlichkeit <span class="math notranslate nohighlight">\(C\)</span> nennt man das Konfidenzniveau. Für ein Konfidenzniveau von <span class="math notranslate nohighlight">\(C=0,95\)</span> haben wir also eine 95%-Chance, dass der Mittelwert von weiteren Stichproben im Konfidenzintervall liegt.</p>
@@ -790,7 +878,7 @@ sd(&quot;orange&quot;)   = 0.20
 \[\theta = [mean(X) - z_C\frac{sd(X)}{\sqrt{n}},  mean(X) + z_C\frac{sd(X)}{\sqrt{n}}], \]</div>
 <p>wobei <span class="math notranslate nohighlight">\(z_C\)</span> der sogenannte <em>z-value</em> des Konfidenzniveaus ist. Die Formel passt zur Intuition: Das Konfidenzintervall wird kleiner, wenn die Stichprobe größer oder die Standardabweichung kleiner ist. In der Praxis liest man den Wert <span class="math notranslate nohighlight">\(z_C\)</span> einfach aus einer Tabelle ab, zum Beispiel direkt aus <a class="reference internal" href="#tbl-zvalues"><span class="std std-numref">Table 11.2</span></a>.</p>
 <table class="colwidths-auto table" id="tbl-zvalues">
-<caption><span class="caption-number">Table 11.2 </span><span class="caption-text">z-values für häufig verwendete Konfidenzniveaus</span><a class="headerlink" href="#tbl-zvalues" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 11.2 </span><span class="caption-text">z-values für häufig verwendete Konfidenzniveaus</span><a class="headerlink" href="#tbl-zvalues" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p><span class="math notranslate nohighlight">\(C\)</span></p></th>
 <th class="head"><p><span class="math notranslate nohighlight">\(z_C\)</span></p></th>
@@ -880,25 +968,25 @@ sd(&quot;orange&quot;)   = 0.20
 <li><p>Der wahre Wert von <span class="math notranslate nohighlight">\(p\)</span> liegt mit <span class="math notranslate nohighlight">\(C\%\)</span> Wahrscheinlichkeit in <span class="math notranslate nohighlight">\(\theta\)</span>. Ähnlich wie beim p-value bei Hypothesentests liefern Konfidenzintervalle nur eine Aussage über die Wahrscheinlichkeit bei Stichproben.</p></li>
 <li><p><span class="math notranslate nohighlight">\(C\%\)</span> der beobachteten Daten liegen innerhalb von <span class="math notranslate nohighlight">\(\theta\)</span>. Hier wird das Konfidenzintervall mit den Quantilen verwechselt.</p></li>
 </ul>
-</div>
-<div class="section" id="gute-beschreibung-von-ergebnissen">
-<h2><span class="section-number">11.4. </span>Gute Beschreibung von Ergebnissen<a class="headerlink" href="#gute-beschreibung-von-ergebnissen" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="gute-beschreibung-von-ergebnissen">
+<h2><span class="section-number">11.4. </span>Gute Beschreibung von Ergebnissen<a class="headerlink" href="#gute-beschreibung-von-ergebnissen" title="Permalink to this headline">#</a></h2>
 <p>In der Wissenschaft, aber auch in der Praxis, wird häufig nur geschaut, ob es Unterschiede gibt und eventuell noch ob diese signifikant sind. Eine saubere statistische Bewertung von Projektergebnissen sollte aber darüber hinaus gehen und zum Beispiel auch die Effektstärke und die Konfidenzintervalle beinhalten. Außerdem sollte man die statistische Auswertung zu Beginn eines Projekts planen. Andernfalls riskiert man das oben beschriebene p-Hacking, indem man Experimente immer weiter anpasst, bis man ein gewünschtes Ergebnis gefunden hat. In der Wissenschaft führt dies zur Registrierung von Studien, bei denen das Protokoll bereits vor der Durchführung festgelegt wird. Dieses Vorgehen hat sich bereits bei klinischen Studien in der Medizin bewährt und vermeidet falsch-positive Ergebnisse.</p>
 <p>In diesem Kapitel haben wir uns nur mit der häufigkeitsbasierten Statistik beschäftigt. Es gibt auch noch einen anderen Ansatz, die Bayesian Statistik, die im Kern auf dem Satz von Bayes (siehe <a class="reference internal" href="kapitel_07.html"><span class="doc std std-doc">Kapitel 7</span></a>) basiert. Hier wird direkt geschätzt, wie wahrscheinlich es ist, dass eine Hypothese wahr ist. Dies hat den Vorteil, dass die Ergebnisse einfacher zu interpretieren sind. Die Theorie und Anwendung ist hier jedoch etwas komplexer, weshalb die häufigkeitsbasierte Statistik weiterhin bei vielen Analysen das Mittel der Wahl ist.</p>
-</div>
-<div class="section" id="ubung">
-<h2><span class="section-number">11.5. </span>Übung<a class="headerlink" href="#ubung" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="ubung">
+<h2><span class="section-number">11.5. </span>Übung<a class="headerlink" href="#ubung" title="Permalink to this headline">#</a></h2>
 <p>In dieser Übung wenden wir die eingeführten statistischen Methoden zum besseren Verständnis an. Hierzu vergleichen wir verschiedene Klassifikationsmodelle auf den Irisdaten <a class="footnote-reference brackets" href="#iris" id="id4">4</a>.</p>
-<div class="section" id="mehrfaches-training">
-<h3><span class="section-number">11.5.1. </span>Mehrfaches Training<a class="headerlink" href="#mehrfaches-training" title="Permalink to this headline">¶</a></h3>
+<section id="mehrfaches-training">
+<h3><span class="section-number">11.5.1. </span>Mehrfaches Training<a class="headerlink" href="#mehrfaches-training" title="Permalink to this headline">#</a></h3>
 <p>Erstellen Sie fünf zufällige Aufteilungen der Irisdaten in je 50% Trainingsdaten und 50% Testdaten. Trainieren Sie ein 5-Nearest-Neighbor-Modell und einen Random Forest (mit 100 Random Trees) für jede dieser Aufteilungen. Berechnen Sie die Güte für jedes dieser Modelle mit MCC und erstellen Sie für jedes Modell eine Liste mit den Ergebnissen.</p>
-</div>
-<div class="section" id="statistischer-vergleich">
-<h3><span class="section-number">11.5.2. </span>Statistischer Vergleich<a class="headerlink" href="#statistischer-vergleich" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="statistischer-vergleich">
+<h3><span class="section-number">11.5.2. </span>Statistischer Vergleich<a class="headerlink" href="#statistischer-vergleich" title="Permalink to this headline">#</a></h3>
 <p>Vergleichen Sie das arithmetische Mittel, die Standardabweichung, den Median, das Minimum und das Maximum des MCC für beide Algorithmen. Benutzen Sie geeignete statistische Tests, um zu bestimmen, ob der Unterschied signifikant ist. Falls der Unterschied signifikant ist, berechnen Sie Cohens <span class="math notranslate nohighlight">\(d\)</span>, um die Effektstärke zu bestimmen. Berechnen Sie außerdem das 95%-Konfidenzintervall des arithmetischen Mittels von MCC.</p>
-</div>
-<div class="section" id="mehr-vergleiche">
-<h3><span class="section-number">11.5.3. </span>Mehr Vergleiche<a class="headerlink" href="#mehr-vergleiche" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="mehr-vergleiche">
+<h3><span class="section-number">11.5.3. </span>Mehr Vergleiche<a class="headerlink" href="#mehr-vergleiche" title="Permalink to this headline">#</a></h3>
 <p>Wiederholen Sie diese Auswertung mit 10, 50 und 100 zufälligen Aufteilungen der Irisdaten. Wie verändern sich die Ergebnisse?</p>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
@@ -915,9 +1003,9 @@ sd(&quot;orange&quot;)   = 0.20
 <dd><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_iris.html">https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_iris.html</a></p>
 </dd>
 </dl>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -941,9 +1029,11 @@ sd(&quot;orange&quot;)   = 0.20
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="kapitel_10.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -959,24 +1049,28 @@ sd(&quot;orange&quot;)   = 0.20
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Steffen Herbold<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Steffen Herbold<br/>
-    
-        &copy; Copyright 2022.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>
