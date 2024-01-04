@@ -1,48 +1,60 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>5. Assoziationsregeln &#8212; Data Science Crashkurs - Eine interaktive und praktische Einführung</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -52,61 +64,104 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/kapitel_05';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="6. Clusteranalyse" href="kapitel_06.html" />
     <link rel="prev" title="4. Erkunden der Daten" href="kapitel_04.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
 
-    
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="vorwort.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/bookcover.jpg" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Data Science Crashkurs - Eine interaktive und praktische Einführung</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../_static/bookcover.jpg" class="logo__image only-light" alt="Data Science Crashkurs - Eine interaktive und praktische Einführung - Home"/>
+    <script>document.write(`<img src="../_static/bookcover.jpg" class="logo__image only-dark" alt="Data Science Crashkurs - Eine interaktive und praktische Einführung - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -115,432 +170,219 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Kapitel
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Kapitel</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_01.html">
-   1. Big Data und Data Science
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_02.html">
-   2. Der Prozess von Data-Science-Projekten
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_03.html">
-   3. Allgemeines zur Datenanalyse
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_04.html">
-   4. Erkunden der Daten
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   5. Assoziationsregeln
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_06.html">
-   6. Clusteranalyse
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_07.html">
-   7. Klassifikation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_08.html">
-   8. Regression
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_09.html">
-   9. Zeitreihenanalyse
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_10.html">
-   10. Text Mining
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_11.html">
-   11. Statistik
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_12.html">
-   12. Big Data Processing
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_13.html">
-   13. Weiterführende Konzepte
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_01.html">1. Big Data und Data Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_02.html">2. Der Prozess von Data-Science-Projekten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_03.html">3. Allgemeines zur Datenanalyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_04.html">4. Erkunden der Daten</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">5. Assoziationsregeln</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_06.html">6. Clusteranalyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_07.html">7. Klassifikation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_08.html">8. Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_09.html">9. Zeitreihenanalyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_10.html">10. Text Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_11.html">11. Statistik</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_12.html">12. Big Data Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_13.html">13. Weiterführende Konzepte</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Appendix
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="howto.html">
-   Selbst ausführen
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="notations.html">
-   Notationen
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="acronyms.html">
-   Abkürzungen
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="howto.html">Selbst ausführen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notations.html">Notationen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acronyms.html">Abkürzungen</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Gefällt Ihnen das Buch? Möchten Sie es in den Händen halten und weitere Open Access Bücher unterstützen? <a href="https://dpunkt.de/produkt/data-science-crashkurs/">Dann kaufen Sie die Print Edition.</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/sherbold/einfuehrung-in-data-science/main?urlpath=tree/content/chapters/kapitel_05.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
-</div>
+  
+  <div id="rtd-footer-container"></div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/sherbold/einfuehrung-in-data-science" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-<a href="https://github.com/sherbold/einfuehrung-in-data-science"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="bottom"
-title="Source repository"
->
-  
-
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fab fa-github"></i>
   </span>
 
 </a>
 
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/chapters/kapitel_05.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapters/kapitel_05.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.ipynb</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
-
-      </li>
+</li>
+      
+      
+      
       
       <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file-pdf"></i>
   </span>
-<span class="headerbtn__text-container">.pdf</span>
+<span class="btn__text-container">.pdf</span>
 </button>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
   </span>
 
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#der-apriori-algorithmus">
-   5.1. Der Apriori-Algorithmus
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#support-und-frequent-itemsets">
-     5.1.1. Support und Frequent Itemsets
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ableiten-von-regeln">
-     5.1.2. Ableiten von Regeln
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#confidence-lift-und-leverage">
-     5.1.3. Confidence, Lift und Leverage
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exponentielles-wachstum">
-     5.1.4. Exponentielles Wachstum
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#die-apriori-eigenschaft">
-     5.1.5. Die Apriori-Eigenschaft
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#einschrankungen-fur-regeln">
-     5.1.6. Einschränkungen für Regeln
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#bewertung-von-assoziationsregeln">
-   5.2. Bewertung von Assoziationsregeln
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ubung">
-   5.3. Übung
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#finden-von-frequent-itemsets">
-     5.3.1. Finden von Frequent Itemsets
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#erstellen-von-regeln">
-     5.3.2. Erstellen von Regeln
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#validieren-der-regeln">
-     5.3.3. Validieren der Regeln
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Assoziationsregeln</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#der-apriori-algorithmus">
-   5.1. Der Apriori-Algorithmus
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#support-und-frequent-itemsets">
-     5.1.1. Support und Frequent Itemsets
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ableiten-von-regeln">
-     5.1.2. Ableiten von Regeln
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#confidence-lift-und-leverage">
-     5.1.3. Confidence, Lift und Leverage
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exponentielles-wachstum">
-     5.1.4. Exponentielles Wachstum
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#die-apriori-eigenschaft">
-     5.1.5. Die Apriori-Eigenschaft
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#einschrankungen-fur-regeln">
-     5.1.6. Einschränkungen für Regeln
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#bewertung-von-assoziationsregeln">
-   5.2. Bewertung von Assoziationsregeln
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ubung">
-   5.3. Übung
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#finden-von-frequent-itemsets">
-     5.3.1. Finden von Frequent Itemsets
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#erstellen-von-regeln">
-     5.3.2. Erstellen von Regeln
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#validieren-der-regeln">
-     5.3.3. Validieren der Regeln
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Assoziationsregeln</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#der-apriori-algorithmus">5.1. Der Apriori-Algorithmus</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#support-und-frequent-itemsets">5.1.1. Support und Frequent Itemsets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ableiten-von-regeln">5.1.2. Ableiten von Regeln</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#confidence-lift-und-leverage">5.1.3. Confidence, Lift und Leverage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exponentielles-wachstum">5.1.4. Exponentielles Wachstum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#die-apriori-eigenschaft">5.1.5. Die Apriori-Eigenschaft</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#einschrankungen-fur-regeln">5.1.6. Einschränkungen für Regeln</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bewertung-von-assoziationsregeln">5.2. Bewertung von Assoziationsregeln</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung">5.3. Übung</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finden-von-frequent-itemsets">5.3.1. Finden von Frequent Itemsets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#erstellen-von-regeln">5.3.2. Erstellen von Regeln</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#validieren-der-regeln">5.3.3. Validieren der Regeln</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="assoziationsregeln">
-<h1><span class="section-number">5. </span>Assoziationsregeln<a class="headerlink" href="#assoziationsregeln" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">5. </span>Assoziationsregeln<a class="headerlink" href="#assoziationsregeln" title="Permalink to this heading">#</a></h1>
 <p>Assoziationen sind Beziehungen zwischen Objekten. Die Idee hinter den Assoziationsregeln besteht darin, diese Beziehungen durch Regeln so zu beschreiben, dass wir erkennen können, welche weiteren Objekte zu den bisherigen Objekten passen. Bei den Assoziationsregeln spricht man statt von Objekten in der Regel von <em>Gegenständen</em> (engl. <em>items</em>). <a class="reference internal" href="#fig-asm-example"><span class="std std-numref">Fig. 5.1</span></a> zeigt das Standardbeispiel für Assoziationsregeln: die Analyse von Warenkörben bei Einkäufen. Ein Kunde fügt Produkte (Gegenstände) dem Warenkorb hinzu. Sobald der Warenkorb nicht mehr leer ist, kann man den Inhalt nutzen, um Assoziationen zu weiteren Produkten, die für den Kunden von Interesse sind, herzustellen. Diese können dem Kunden dann zum Beispiel als Werbung vorgeschlagen werden.</p>
 <figure class="align-default" id="fig-asm-example">
 <a class="reference internal image-reference" href="../_images/associationsrules_general_german.png"><img alt="../_images/associationsrules_general_german.png" src="../_images/associationsrules_general_german.png" style="width: 600px;" /></a>
@@ -562,6 +404,11 @@ title="Print to PDF"
 </div></blockquote>
 <p>Das Ziel der Assoziationsanalyse ist es, gute Assoziationsregeln zu finden, basierend auf einer Menge von Transaktionen. Eine generische Definition von “interessante Beziehung” besteht darin, dass Gegenstände häufig zusammen in Transaktionen auftreten. Hier ist ein Beispiel mit zehn Transaktionen.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we define each transaction as a list</span>
 <span class="c1"># a set of transactions is a list of lists</span>
@@ -580,6 +427,7 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Transaktionen (eine pro Zeile):
 [&#39;item1&#39;, &#39;item2&#39;, &#39;item3&#39;]
@@ -598,10 +446,10 @@ title="Print to PDF"
 </div>
 <p>In diesem Beispiel tauchen die Gegenstände item2, item3 und item4 oft zusammen auf, was auf eine interessante Beziehung hindeutet. Im Folgenden erklären wir, wie man effizient solche Beziehungen findet, hieraus Regeln erstellt und die Güte der Regeln bewertet.</p>
 <section id="der-apriori-algorithmus">
-<h2><span class="section-number">5.1. </span>Der Apriori-Algorithmus<a class="headerlink" href="#der-apriori-algorithmus" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.1. </span>Der Apriori-Algorithmus<a class="headerlink" href="#der-apriori-algorithmus" title="Permalink to this heading">#</a></h2>
 <p>Der Apriori-Algorithmus ist ein vom Prinzip sehr einfacher, aber dennoch mächtiger Algorithmus, um Assoziation in Daten zu suchen.</p>
 <section id="support-und-frequent-itemsets">
-<h3><span class="section-number">5.1.1. </span>Support und Frequent Itemsets<a class="headerlink" href="#support-und-frequent-itemsets" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">5.1.1. </span>Support und Frequent Itemsets<a class="headerlink" href="#support-und-frequent-itemsets" title="Permalink to this heading">#</a></h3>
 <p>Der Apriori-Algorithmus basiert auf dem Konzept des <em>Supports</em> von Itemsets <span class="math notranslate nohighlight">\(IS \subseteq I\)</span>. Der Support eines Itemsets <span class="math notranslate nohighlight">\(IS\)</span> ist definiert als der Anteil der Transaktionen, in denen alle Gegenstände des Itemsets vorkommen. Es gilt also:</p>
 <div class="math notranslate nohighlight">
 \[support(IS) = \frac{|\{t \in T: IS \subseteq t\}|}{|T|}.\]</div>
@@ -613,12 +461,17 @@ title="Print to PDF"
 <p><span class="math notranslate nohighlight">\(support(\{item2, item3, item4\}) = \frac{3}{10}\)</span>,</p>
 <p>da alle drei Gegenstände zusammen in drei von zehn Transaktionen vorkommen. Wenn wir also <span class="math notranslate nohighlight">\(minsupp=0,3\)</span> wählen, wäre das Itemset <span class="math notranslate nohighlight">\(\{item2, item3, item4\}\)</span> ein Frequent Itemset. Insgesamt finden wir mit diesem Grenzwert die folgenden Frequent Itemsets.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we need pandas and mlxtend for the association rules</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">mlxtend.frequent_patterns</span> <span class="kn">import</span> <span class="n">apriori</span>
 <span class="kn">from</span> <span class="nn">mlxtend.preprocessing</span> <span class="kn">import</span> <span class="n">TransactionEncoder</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.latex.repr&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;styler.render.repr&#39;</span><span class="p">,</span> <span class="s1">&#39;latex&#39;</span><span class="p">)</span>
 
 <span class="c1"># we first need to create a one-hot encoding of our transactions</span>
 <span class="n">te</span> <span class="o">=</span> <span class="n">TransactionEncoder</span><span class="p">()</span>
@@ -632,6 +485,7 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output text_html"><div>
 <style scoped>
@@ -684,7 +538,7 @@ title="Print to PDF"
     <tr>
       <th>5</th>
       <td>0.4</td>
-      <td>(item2, item3)</td>
+      <td>(item3, item2)</td>
     </tr>
     <tr>
       <th>6</th>
@@ -699,7 +553,7 @@ title="Print to PDF"
     <tr>
       <th>8</th>
       <td>0.3</td>
-      <td>(item2, item3, item4)</td>
+      <td>(item3, item2, item4)</td>
     </tr>
   </tbody>
 </table>
@@ -707,7 +561,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="ableiten-von-regeln">
-<h3><span class="section-number">5.1.2. </span>Ableiten von Regeln<a class="headerlink" href="#ableiten-von-regeln" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">5.1.2. </span>Ableiten von Regeln<a class="headerlink" href="#ableiten-von-regeln" title="Permalink to this heading">#</a></h3>
 <p>Ein Frequent Itemset ist noch keine Assoziationsregel, da es weder eine Bedingung <span class="math notranslate nohighlight">\(X\)</span> noch eine Folgerung <span class="math notranslate nohighlight">\(Y\)</span> gibt, aus denen eine Regel <span class="math notranslate nohighlight">\(X \Rightarrow Y\)</span> entsteht. Man kann jedoch relativ einfach solche Regeln aus den Frequent Itemsets ableiten. Hierzu betrachtet man alle möglichen Partitionierungen eines Frequent Itemsets, also alle Kombinationen <span class="math notranslate nohighlight">\(X, Y \subset IS\)</span>, sodass <span class="math notranslate nohighlight">\(X \cup Y = IS\)</span> (jeder Gegenstand kommt in X oder Y vor) und <span class="math notranslate nohighlight">\(X \cap Y = \emptyset\)</span> (kein Gegenstand kommt in X und Y vor).</p>
 <p>Im unserem Beispiel können wir acht Regeln aus dem Itemset <span class="math notranslate nohighlight">\(\{item2, item3, item4\}\)</span> ableiten.</p>
 <div class="cell docutils container">
@@ -745,33 +599,33 @@ title="Print to PDF"
   <tbody>
     <tr>
       <th>0</th>
-      <td>(item2, item3)</td>
+      <td>(item3, item2)</td>
       <td>(item4)</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>(item2, item4)</td>
-      <td>(item3)</td>
+      <td>(item3, item4)</td>
+      <td>(item2)</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>(item3, item4)</td>
-      <td>(item2)</td>
+      <td>(item2, item4)</td>
+      <td>(item3)</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>(item2)</td>
-      <td>(item3, item4)</td>
+      <td>(item3)</td>
+      <td>(item2, item4)</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>(item3)</td>
-      <td>(item2, item4)</td>
+      <td>(item2)</td>
+      <td>(item3, item4)</td>
     </tr>
     <tr>
       <th>5</th>
       <td>(item4)</td>
-      <td>(item2, item3)</td>
+      <td>(item3, item2)</td>
     </tr>
   </tbody>
 </table>
@@ -785,7 +639,7 @@ title="Print to PDF"
 <p>Diese Regeln erlauben aber keine bedeutenden Einblicke, sodass wir sie ignorieren können.</p>
 </section>
 <section id="confidence-lift-und-leverage">
-<h3><span class="section-number">5.1.3. </span>Confidence, Lift und Leverage<a class="headerlink" href="#confidence-lift-und-leverage" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">5.1.3. </span>Confidence, Lift und Leverage<a class="headerlink" href="#confidence-lift-und-leverage" title="Permalink to this heading">#</a></h3>
 <p>Eine noch ungeklärte Frage ist, wie wir erkennen, welche der Regeln gut sind, oder ob alle Regeln, die man aus einem Frequent Itemset ableitet, gleich gut sind. Am Beispiel der leeren Menge sieht man recht schnell, dass vermutlich nicht alle Regeln gleich gut sind. Was wir brauchen, sind Gütemaße, die es uns erlauben, zwischen bedeutungsvollen Assoziationen und zufälligen Effekten zu unterscheiden. Hierfür ist der Support nicht ausreichend. Stellen Sie sich zum Beispiel vor, dass es etwas gratis gibt. Die Gratisprodukte werden häufig einfach “mitgenommen” und landen entsprechend oft im Warenkorb und später dann in unseren Transaktionen. Diese Gratisprodukte haben einen hohen Support und sind mit hoher Wahrscheinlichkeit ein Teil vieler Frequent Itemsets. Die Gratisprodukte sind aber nicht mit dem Rest vom Einkauf assoziiert, die Beziehung ist also zufällig. Eine Schwäche des Supports ist, dass dieser nicht von der Regel abhängt, insbesondere ist der Support einer Regel <span class="math notranslate nohighlight">\(X \Rightarrow Y\)</span> immer gleich der Regel <span class="math notranslate nohighlight">\(Y \Rightarrow X\)</span>, in der Bedingung und Folgerung vertauscht sind. Da aber kausale Zusammenhänge häufig eine Richtung haben, macht diese Symmetrie in vielen Fällen keinen Sinn. Es ist zum Beispiel sinnvoll, einem Kunden, der eine Spielekonsole in den Warenkorb legt, ein Spiel für diese Konsole vorzuschlagen. Wenn jemand aber ein Spiel in den Warenkorb legt, ist die Konsole im Normalfall bereits vorhanden, und es würde keinen Sinn machen, diese vorzuschlagen.</p>
 <p>Die Maße <em>Confidence</em>, <em>Lift</em> und <em>Leverage</em> helfen zu erkennen, ob Regeln zufällig sind oder ob es sich um sinnvolle Assoziationen handelt. Die Confidence ist definiert als</p>
 <div class="math notranslate nohighlight">
@@ -801,6 +655,11 @@ title="Print to PDF"
 <p>Diese Definition ist ähnlich zum Lift, nur dass die Differenz statt des Verhältnisses betrachtet wird. Entsprechend gibt es eine enge Beziehung zwischen Lift und Leverage. Der Unterschied besteht darin, dass Leverage tendenziell höhere Werte für Itemsets mit einem hohen Support liefert.</p>
 <p>Um Confidence, Lift und Leverage besser zu verstehen, betrachten wir diese nun am Beispiel der Regeln, die wir aus dem Itemset <span class="math notranslate nohighlight">\(\{item2, item3, item4\}\)</span> ableiten können.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># all rules for our data</span>
 <span class="c1"># we drop the column conviction, because this metric is not covered here</span>
@@ -810,6 +669,7 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output text_html"><div>
 <style scoped>
@@ -837,12 +697,13 @@ title="Print to PDF"
       <th>confidence</th>
       <th>lift</th>
       <th>leverage</th>
+      <th>zhangs_metric</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>(item2, item3)</td>
+      <td>(item3, item2)</td>
       <td>(item4)</td>
       <td>0.4</td>
       <td>0.6</td>
@@ -850,20 +711,10 @@ title="Print to PDF"
       <td>0.75</td>
       <td>1.250000</td>
       <td>0.06</td>
+      <td>0.333333</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>(item2, item4)</td>
-      <td>(item3)</td>
-      <td>0.5</td>
-      <td>0.4</td>
-      <td>0.3</td>
-      <td>0.60</td>
-      <td>1.500000</td>
-      <td>0.10</td>
-    </tr>
-    <tr>
-      <th>2</th>
       <td>(item3, item4)</td>
       <td>(item2)</td>
       <td>0.3</td>
@@ -872,20 +723,22 @@ title="Print to PDF"
       <td>1.00</td>
       <td>1.666667</td>
       <td>0.12</td>
+      <td>0.571429</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>(item2, item4)</td>
+      <td>(item3)</td>
+      <td>0.5</td>
+      <td>0.4</td>
+      <td>0.3</td>
+      <td>0.60</td>
+      <td>1.500000</td>
+      <td>0.10</td>
+      <td>0.666667</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>(item2)</td>
-      <td>(item3, item4)</td>
-      <td>0.6</td>
-      <td>0.3</td>
-      <td>0.3</td>
-      <td>0.50</td>
-      <td>1.666667</td>
-      <td>0.12</td>
-    </tr>
-    <tr>
-      <th>4</th>
       <td>(item3)</td>
       <td>(item2, item4)</td>
       <td>0.4</td>
@@ -894,17 +747,31 @@ title="Print to PDF"
       <td>0.75</td>
       <td>1.500000</td>
       <td>0.10</td>
+      <td>0.555556</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>(item2)</td>
+      <td>(item3, item4)</td>
+      <td>0.6</td>
+      <td>0.3</td>
+      <td>0.3</td>
+      <td>0.50</td>
+      <td>1.666667</td>
+      <td>0.12</td>
+      <td>1.000000</td>
     </tr>
     <tr>
       <th>5</th>
       <td>(item4)</td>
-      <td>(item2, item3)</td>
+      <td>(item3, item2)</td>
       <td>0.6</td>
       <td>0.4</td>
       <td>0.3</td>
       <td>0.50</td>
       <td>1.250000</td>
       <td>0.06</td>
+      <td>0.500000</td>
     </tr>
   </tbody>
 </table>
@@ -914,7 +781,7 @@ title="Print to PDF"
 <p>Das Beispiel zeigt auch die grundlegenden Eigenschaften der drei Maße: Lift und Leverage sind symmetrisch, genauso wie der Support. Die Confidence ist das einzige Gütemaße, das berücksichtigt, welcher Teil einer Regel die Bedingung und welcher Teil die Folgerung ist, also das einzige Maß, das die Kausalität einbezieht. Daher sollte man die Confidence immer bei der Bewertung von Regeln benutzen. Da Lift und Leverage sich sehr ähnlich verhalten, reicht es, nur eines der beiden Maße zu verwenden. Legt man mehr Wert auf Regeln, die aus Itemsets mit hohem Support gewonnen werden, ist Leverage besser, ansonsten sollte man Lift wählen. Der Grund hierfür ist, dass es für Lift eine direkte Interpretation gibt, also wie viel wahrscheinlicher etwas ist, als es sich durch den reinen Zufall erklären lässt.</p>
 </section>
 <section id="exponentielles-wachstum">
-<h3><span class="section-number">5.1.4. </span>Exponentielles Wachstum<a class="headerlink" href="#exponentielles-wachstum" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">5.1.4. </span>Exponentielles Wachstum<a class="headerlink" href="#exponentielles-wachstum" title="Permalink to this heading">#</a></h3>
 <p>Oben haben wir gezeigt, wie wir Assoziationsregeln bestimmen können: Wir müssen die Frequent Itemsets finden, aus denen wir dann Regeln ableiten können. Das Finden von Frequent Itemsets ist jedoch leider nicht trivial. Das Problem ist das exponentielle Wachstum der Itemsets mit der Anzahl von Gegenständen. Die Anzahl von möglichen Itemsets ist die Potenzmenge <span class="math notranslate nohighlight">\(\mathcal{P}\)</span> von <span class="math notranslate nohighlight">\(I\)</span>, also die Menge aller möglichen Kombinationen von Gegenständen. Daher gibt es <span class="math notranslate nohighlight">\(\mathcal{P}(I)=2^{|I|}\)</span> Itemsets. Es ist aber gar nicht sinnvoll, beliebig lange Kombinationen von Gegenständen zu betrachten. Zu lange Regeln würden bedeuten, dass man diese nur in wenigen Fällen anwenden kann. Daher ist man häufig nur an relativ kurzen Regeln interessiert. Leider ist das Wachstum auch mit einer beschränkten Anzahl von Gegenständen in Itemsets noch exponentiell. Hierzu können wir den Binomialkoeffizienten</p>
 <div class="math notranslate nohighlight">
 \[{|I| \choose k} = \frac{|I|!}{(|I|-k)!k!}\]</div>
@@ -922,14 +789,14 @@ title="Print to PDF"
 <p>Es ist also nicht möglich, einfach alle Itemsets zu berechnen und erst anschließend die Frequent Itemsets zu bestimmen. Wir brauchen stattdessen einen Algorithmus, der die exponentielle Natur des Problems beschränkt und der schonend mit den vorhandenen Ressourcen umgeht, da sonst schnell der Speicher ausgeht oder die Rechenzeit zu lang wird.</p>
 </section>
 <section id="die-apriori-eigenschaft">
-<h3><span class="section-number">5.1.5. </span>Die Apriori-Eigenschaft<a class="headerlink" href="#die-apriori-eigenschaft" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">5.1.5. </span>Die Apriori-Eigenschaft<a class="headerlink" href="#die-apriori-eigenschaft" title="Permalink to this heading">#</a></h3>
 <p>Die Apriori-Eigenschaft verleiht dem Algorithmus seinen Namen.</p>
 <blockquote>
 <div><p><strong>Apiori-Eigenschaft</strong></p>
 <p>Sei <span class="math notranslate nohighlight">\(IS \subseteq I\)</span> ein Frequent Itemset. Alle Teilmengen <span class="math notranslate nohighlight">\(IS' \subseteq IS\)</span> sind auch Frequent Itemsets und es gilt <span class="math notranslate nohighlight">\(support(IS') \geq support(IS)\)</span>.</p>
 </div></blockquote>
 <p>Wir können die Apriori-Eigenschaft nutzen, um gezielt nach Frequent Itemsets zu suchen und damit den Suchraum zu beschränken. Anstatt alle Itemsets zu berechnen und dann zu überprüfen, ob es Frequent Itemsets sind, lassen wir die Frequent Itemsets wachsen. Da alle Teilmengen eines Frequent Itemsets ebenfalls Frequent Itemsets sind, wissen wir auch, dass ein Itemset, das eine Teilmenge hat, die kein Frequent Itemset ist, kein Frequent Itemset sein kann. Basierend auf dieser Beobachtung können wir folgenden Algorithmus definieren:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Berechne den Support für alle Itemsets der Größe <span class="math notranslate nohighlight">\(k=1\)</span>.</p></li>
 <li><p>Entferne alle Itemsets, die nicht den minimalen Support haben, sodass nur Frequent Itemsets übrig sind.</p></li>
 <li><p>Erstelle alle möglichen Kombinationen der Größe <span class="math notranslate nohighlight">\(k+1\)</span> aus den Frequent Itemsets der Größe <span class="math notranslate nohighlight">\(k\)</span>.</p></li>
@@ -943,12 +810,18 @@ title="Print to PDF"
 <p>Wir lassen also die Frequent Itemsets Stück für Stück wachsen und ignorieren alle Itemsets bei der Überprüfung, ob sie frequent sind, die nicht die Apriori-Eigenschaft erfüllen. Dieser Algorithmus ist immer noch exponentiell. Es könnten zum Beispiel alle Transaktionen alle Gegenstände beinhalten. In dem Fall wären alle ein Frequent Itemset und man hätte immer noch exponentielles Wachstum. In der Praxis passiert das jedoch sehr selten, sodass der Algorithmus in der Regel gut skaliert, sofern der Support hinreichend hoch gewählt wird.</p>
 <p>Um den Algorithmus besser zu verstehen, sehen wir uns an, wie man die Frequent Itemsets für <span class="math notranslate nohighlight">\(minsupp=0,3\)</span> für unsere Beispieldaten bestimmt. Hier sind noch einmal die Daten:</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Transaktionen (eine pro Zeile):&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">data</span><span class="p">]))</span>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Transaktionen (eine pro Zeile):
 [&#39;item1&#39;, &#39;item2&#39;, &#39;item3&#39;]
@@ -966,7 +839,7 @@ title="Print to PDF"
 </div>
 </div>
 <p>Zuerst betrachten wir den Support der einzelnen Gegenstände in <a class="reference internal" href="#tbl-itemsets1"><span class="std std-numref">Table 5.1</span></a>.</p>
-<table class="colwidths-auto table" id="tbl-itemsets1">
+<table class="table" id="tbl-itemsets1">
 <caption><span class="caption-number">Table 5.1 </span><span class="caption-text">Itemsets der Größe <span class="math notranslate nohighlight">\(k=1\)</span></span><a class="headerlink" href="#tbl-itemsets1" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Itemsets</p></th>
@@ -1010,7 +883,7 @@ title="Print to PDF"
 </tbody>
 </table>
 <p>Da die Gegenstände item1, item6 und item8 nicht den minimalen Support von 0,3 haben, können wir diese entfernen und müssen keine Itemsets der Größe <span class="math notranslate nohighlight">\(k=2\)</span> mit diesen Gegenständen betrachten. <a class="reference internal" href="#tbl-itemsets2"><span class="std std-numref">Table 5.2</span></a> zeigt die Itemsets für <span class="math notranslate nohighlight">\(k=2\)</span>.</p>
-<table class="colwidths-auto table" id="tbl-itemsets2">
+<table class="table" id="tbl-itemsets2">
 <caption><span class="caption-number">Table 5.2 </span><span class="caption-text">Itemsets der Größe <span class="math notranslate nohighlight">\(k=2\)</span></span><a class="headerlink" href="#tbl-itemsets2" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Itemsets</p></th>
@@ -1062,7 +935,7 @@ title="Print to PDF"
 </tbody>
 </table>
 <p>Wie man sieht, sind die Kombinationen der Gegenstände item2, item3 und item4 in Frequent Itemsets. Alle anderen Items müssen also bei der Größe <span class="math notranslate nohighlight">\(k=3\)</span> nicht weiter betrachtet werden. Daher gibt es nur noch ein Itemset, das wir in <a class="reference internal" href="#tbl-itemsets3"><span class="std std-numref">Table 5.3</span></a> sehen.</p>
-<table class="colwidths-auto table" id="tbl-itemsets3">
+<table class="table" id="tbl-itemsets3">
 <caption><span class="caption-number">Table 5.3 </span><span class="caption-text">Itemsets der Größe <span class="math notranslate nohighlight">\(k=3\)</span></span><a class="headerlink" href="#tbl-itemsets3" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Itemset with <span class="math notranslate nohighlight">\(k=3\)</span></p></th>
@@ -1080,22 +953,22 @@ title="Print to PDF"
 <p>Da es keine weiteren Itemsets mit <span class="math notranslate nohighlight">\(k=4\)</span> Gegenständen gibt, sind wir fertig. Insgesamt musste der Support von <span class="math notranslate nohighlight">\(8+10+1=19\)</span> Itemsets ausgerechnet werden, um alle Frequent Itemsets aus den <span class="math notranslate nohighlight">\(2^8=256\)</span> möglichen Itemsets zu finden. Wir konnten also den Aufwand um 93% reduzieren, indem wir die Apriori-Eigenschaft ausgenutzt haben.</p>
 </section>
 <section id="einschrankungen-fur-regeln">
-<h3><span class="section-number">5.1.6. </span>Einschränkungen für Regeln<a class="headerlink" href="#einschrankungen-fur-regeln" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">5.1.6. </span>Einschränkungen für Regeln<a class="headerlink" href="#einschrankungen-fur-regeln" title="Permalink to this heading">#</a></h3>
 <p>Bisher haben wir alle möglichen Kombinationen aus Bedingung und Folgerung, die wir aus einem Itemset bilden können, betrachtet und lediglich die leere Menge wurde verworfen. Für viele Anwendungsfälle ist eine weitere Einschränkung sinnvoll: Nur Regeln, deren Folgerung aus einem Gegenstand bestehen, werden betrachtet. Der Vorteil derartiger Regeln ist, dass die Grundlage für die Folgerung “besser” ist, da die Bedingung länger ist. Hierdurch ist es wahrscheinlicher, dass eine Regel gut ist.</p>
 </section>
 </section>
 <section id="bewertung-von-assoziationsregeln">
-<h2><span class="section-number">5.2. </span>Bewertung von Assoziationsregeln<a class="headerlink" href="#bewertung-von-assoziationsregeln" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.2. </span>Bewertung von Assoziationsregeln<a class="headerlink" href="#bewertung-von-assoziationsregeln" title="Permalink to this heading">#</a></h2>
 <p>Nachdem man Assoziationsregeln bestimmt hat, muss man im letzten Schritt ihre Güte bewerten, also ob es sich um echte Assoziationen oder um zufällige Zusammenhänge handelt. Die Gütemaße Confidence, Lift und Leverage sind bereits ein guter erster Schritt, um Regeln zu bewerten, insbesondere wenn sie gemeinsam betrachtet werden. Die Confidence beschreibt, ob die Beziehung zufällig ist, weil die Bedingung oft beobachtet wird. Lift und Leverage geben an, ob die Beziehung selbst häufiger als durch den Zufall erklärbar beobachtet wird.</p>
 <p>Die Betrachtung dieser Gütemaße sollte jedoch nicht das einzige Kriterium bei der Bewertung von Regeln sein. Zum einen sollte man auch bei Assoziationsregeln mit Trainings- und Testdaten arbeiten. Auf den Testdaten kann man überprüfen, ob die gleichen Regeln gefunden werden. Falls die Überschneidung groß ist, ist das ein Indikator, dass die Regeln generalisieren. Man kann auch noch einen Schritt weiter gehen und in den Testdaten zufällig Gegenstände aus Warenkörben entfernen und überprüfen, wie häufig die Regeln diese fehlenden Gegenstände richtig vorhersagen würden.</p>
 <p>Neben der Auswertung der Güte auf den Daten sollte man die Regeln auch manuell bewerten: Findet eine Domänenexpertin die Regeln sinnvoll? Jeder, der regelmäßig in Webshops einkauft, wird sich schon das ein oder andere Mal über seltsame Empfehlungen gewundert haben. Hier wurde in der Regel außergewöhnliches Kaufverhalten gelernt und die Regeln nicht ausreichend validiert. Durch eine manuelle Inspektion der Regeln kann man das Ergebnis daher normalerweise verbessern und das Regelwerk filtern. Dies ist eine Aufgabe, die man als Data Scientist nicht alleine angehen sollte, sondern immer zusammen mit Domänenexpertinnen.</p>
 </section>
 <section id="ubung">
-<h2><span class="section-number">5.3. </span>Übung<a class="headerlink" href="#ubung" title="Permalink to this headline">#</a></h2>
-<p>Prüfen Sie Ihr Wissen über Assoziationsregeln in einer praktischen Übung. Lernen Sie hierbei Assoziationsregeln aus einem Datensatz aus einem Supermarkt <a class="footnote-reference brackets" href="#shopping-data" id="id1">1</a>. Zum Lesen der Daten können Sie folgenden Quelltext nutzen.</p>
+<h2><span class="section-number">5.3. </span>Übung<a class="headerlink" href="#ubung" title="Permalink to this heading">#</a></h2>
+<p>Prüfen Sie Ihr Wissen über Assoziationsregeln in einer praktischen Übung. Lernen Sie hierbei Assoziationsregeln aus einem Datensatz aus einem Supermarkt <a class="footnote-reference brackets" href="#shopping-data" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>. Zum Lesen der Daten können Sie folgenden Quelltext nutzen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;store_data.csv&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/store_data.csv&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">records</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">records</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">))</span>
@@ -1104,22 +977,21 @@ title="Print to PDF"
 </div>
 </div>
 <section id="finden-von-frequent-itemsets">
-<h3><span class="section-number">5.3.1. </span>Finden von Frequent Itemsets<a class="headerlink" href="#finden-von-frequent-itemsets" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">5.3.1. </span>Finden von Frequent Itemsets<a class="headerlink" href="#finden-von-frequent-itemsets" title="Permalink to this heading">#</a></h3>
 <p>Nutzen Sie den Apriori-Algorithmus, um Frequent Itemsets zu finden. Hierzu müssen Sie auch einen geeigneten Grenzwert für den Support bestimmen. Begründen Sie Ihre Wahl.</p>
 </section>
 <section id="erstellen-von-regeln">
-<h3><span class="section-number">5.3.2. </span>Erstellen von Regeln<a class="headerlink" href="#erstellen-von-regeln" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">5.3.2. </span>Erstellen von Regeln<a class="headerlink" href="#erstellen-von-regeln" title="Permalink to this heading">#</a></h3>
 <p>Erstellen Sie Regeln aus den Frequent Itemsets. Nutzen Sie Lift und Confidence, um zu ermitteln, welche Regeln gut sind.</p>
 </section>
 <section id="validieren-der-regeln">
-<h3><span class="section-number">5.3.3. </span>Validieren der Regeln<a class="headerlink" href="#validieren-der-regeln" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">5.3.3. </span>Validieren der Regeln<a class="headerlink" href="#validieren-der-regeln" title="Permalink to this heading">#</a></h3>
 <p>Teilen Sie die Daten zufällig in zwei Datensätze mit je 50% der Transaktionen auf. Wenden Sie den Apriori-Algorithmus auf beide Datensätze an, um Regeln zu bestimmen. Vergleichen Sie die gefundenen Regeln miteinander sowie mit den Regeln, die Sie auf allen Daten gefunden haben. Welche Unterschiede gibt es? Was bedeuten die Unterschiede?</p>
 <hr class="footnotes docutils" />
-<dl class="footnote brackets">
-<dt class="label" id="shopping-data"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p><a class="reference external" href="https://data-science-crashkurs.de/exercises/data/store_data.csv">https://data-science-crashkurs.de/exercises/data/store_data.csv</a></p>
-</dd>
-</dl>
+<aside class="footnote brackets" id="shopping-data" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://data-science-crashkurs.de/exercises/data/store_data.csv">https://data-science-crashkurs.de/exercises/data/store_data.csv</a></p>
+</aside>
 </section>
 </section>
 </section>
@@ -1136,7 +1008,7 @@ title="Print to PDF"
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./chapters"
         },
         predefinedOutput: true
@@ -1144,50 +1016,117 @@ title="Print to PDF"
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="kapitel_04.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">4. </span>Erkunden der Daten</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="kapitel_04.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Erkunden der Daten</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="kapitel_06.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="kapitel_06.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title"><span class="section-number">6. </span>Clusteranalyse</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#der-apriori-algorithmus">5.1. Der Apriori-Algorithmus</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#support-und-frequent-itemsets">5.1.1. Support und Frequent Itemsets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ableiten-von-regeln">5.1.2. Ableiten von Regeln</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#confidence-lift-und-leverage">5.1.3. Confidence, Lift und Leverage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exponentielles-wachstum">5.1.4. Exponentielles Wachstum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#die-apriori-eigenschaft">5.1.5. Die Apriori-Eigenschaft</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#einschrankungen-fur-regeln">5.1.6. Einschränkungen für Regeln</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bewertung-von-assoziationsregeln">5.2. Bewertung von Assoziationsregeln</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung">5.3. Übung</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finden-von-frequent-itemsets">5.3.1. Finden von Frequent Itemsets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#erstellen-von-regeln">5.3.2. Erstellen von Regeln</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#validieren-der-regeln">5.3.3. Validieren der Regeln</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By Steffen Herbold<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+<p class="component-author">
+By Steffen Herbold
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

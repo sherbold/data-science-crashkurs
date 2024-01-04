@@ -1,48 +1,60 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>6. Clusteranalyse &#8212; Data Science Crashkurs - Eine interaktive und praktische Einführung</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -52,61 +64,104 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/kapitel_06';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="7. Klassifikation" href="kapitel_07.html" />
     <link rel="prev" title="5. Assoziationsregeln" href="kapitel_05.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
 
-    
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="vorwort.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/bookcover.jpg" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Data Science Crashkurs - Eine interaktive und praktische Einführung</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../_static/bookcover.jpg" class="logo__image only-light" alt="Data Science Crashkurs - Eine interaktive und praktische Einführung - Home"/>
+    <script>document.write(`<img src="../_static/bookcover.jpg" class="logo__image only-dark" alt="Data Science Crashkurs - Eine interaktive und praktische Einführung - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -115,708 +170,248 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Kapitel
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Kapitel</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_01.html">
-   1. Big Data und Data Science
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_02.html">
-   2. Der Prozess von Data-Science-Projekten
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_03.html">
-   3. Allgemeines zur Datenanalyse
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_04.html">
-   4. Erkunden der Daten
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_05.html">
-   5. Assoziationsregeln
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   6. Clusteranalyse
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_07.html">
-   7. Klassifikation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_08.html">
-   8. Regression
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_09.html">
-   9. Zeitreihenanalyse
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_10.html">
-   10. Text Mining
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_11.html">
-   11. Statistik
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_12.html">
-   12. Big Data Processing
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_13.html">
-   13. Weiterführende Konzepte
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_01.html">1. Big Data und Data Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_02.html">2. Der Prozess von Data-Science-Projekten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_03.html">3. Allgemeines zur Datenanalyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_04.html">4. Erkunden der Daten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_05.html">5. Assoziationsregeln</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">6. Clusteranalyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_07.html">7. Klassifikation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_08.html">8. Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_09.html">9. Zeitreihenanalyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_10.html">10. Text Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_11.html">11. Statistik</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_12.html">12. Big Data Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_13.html">13. Weiterführende Konzepte</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Appendix
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="howto.html">
-   Selbst ausführen
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="notations.html">
-   Notationen
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="acronyms.html">
-   Abkürzungen
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="howto.html">Selbst ausführen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notations.html">Notationen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acronyms.html">Abkürzungen</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Gefällt Ihnen das Buch? Möchten Sie es in den Händen halten und weitere Open Access Bücher unterstützen? <a href="https://dpunkt.de/produkt/data-science-crashkurs/">Dann kaufen Sie die Print Edition.</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/sherbold/einfuehrung-in-data-science/main?urlpath=tree/content/chapters/kapitel_06.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
-</div>
+  
+  <div id="rtd-footer-container"></div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/sherbold/einfuehrung-in-data-science" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-<a href="https://github.com/sherbold/einfuehrung-in-data-science"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="bottom"
-title="Source repository"
->
-  
-
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fab fa-github"></i>
   </span>
 
 </a>
 
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/chapters/kapitel_06.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapters/kapitel_06.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.ipynb</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
-
-      </li>
+</li>
+      
+      
+      
       
       <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file-pdf"></i>
   </span>
-<span class="headerbtn__text-container">.pdf</span>
+<span class="btn__text-container">.pdf</span>
 </button>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
   </span>
 
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ahnlichkeitsmasze">
-   6.1. Ähnlichkeitsmaße
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#stadte-und-hauser">
-   6.2. Städte und Häuser
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#k-means-algorithmus">
-   6.3.
-   <span class="math notranslate nohighlight">
-    \(k\)
-   </span>
-   -Means-Algorithmus
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#der-algorithmus">
-     6.3.1. Der Algorithmus
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#bestimmen-von-k">
-     6.3.2. Bestimmen von
-     <span class="math notranslate nohighlight">
-      \(k\)
-     </span>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#probleme-des-k-means-algorithmus">
-     6.3.3. Probleme des
-     <span class="math notranslate nohighlight">
-      \(k\)
-     </span>
-     -Means-Algorithmus
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#em-clustering">
-   6.4. EM-Clustering
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     6.4.1. Der Algorithmus
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     6.4.2. Bestimmen von
-     <span class="math notranslate nohighlight">
-      \(k\)
-     </span>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#probleme-des-em-clustering">
-     6.4.3. Probleme des EM-Clustering
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#dbscan">
-   6.5. DBSCAN
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
-     6.5.1. Der Algorithmus
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#bestimmen-von-epsilon-und-minpts">
-     6.5.2. Bestimmen von
-     <span class="math notranslate nohighlight">
-      \(\epsilon\)
-     </span>
-     und
-     <span class="math notranslate nohighlight">
-      \(minPts\)
-     </span>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#probleme-bei-dbscan">
-     6.5.3. Probleme bei DBSCAN
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#single-linkage-clustering">
-   6.6. Single Linkage Clustering
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#der-slink-algorithmus">
-     6.6.1. Der SLINK-Algorithmus
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#dendrogramme">
-     6.6.2. Dendrogramme
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#probleme-bei-slink">
-     6.6.3. Probleme bei SLINK
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#vergleich-der-algorithmen">
-   6.7. Vergleich der Algorithmen
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#clusterformen">
-     6.7.1. Clusterformen
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#anzahl-der-cluster">
-     6.7.2. Anzahl der Cluster
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ausfuhrungszeit">
-     6.7.3. Ausführungszeit
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#interpretierbarkeit-und-darstellung">
-     6.7.4. Interpretierbarkeit und Darstellung
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#kategorische-merkmale">
-     6.7.5. Kategorische Merkmale
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#fehlende-merkmale">
-     6.7.6. Fehlende Merkmale
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#korrelierte-merkmale">
-     6.7.7. Korrelierte Merkmale
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#zusammenfassung-des-vergleichs">
-     6.7.8. Zusammenfassung des Vergleichs
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ubung">
-   6.8. Übung
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id7">
-     6.8.1.
-     <span class="math notranslate nohighlight">
-      \(k\)
-     </span>
-     -Means-Algorithmus
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id8">
-     6.8.2. EM Clustering
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id9">
-     6.8.3. DBSCAN
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#slink">
-     6.8.4. SLINK
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#vergleichen-sie-die-ergebnisse">
-     6.8.5. Vergleichen Sie die Ergebnisse
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Clusteranalyse</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ahnlichkeitsmasze">
-   6.1. Ähnlichkeitsmaße
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#stadte-und-hauser">
-   6.2. Städte und Häuser
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#k-means-algorithmus">
-   6.3.
-   <span class="math notranslate nohighlight">
-    \(k\)
-   </span>
-   -Means-Algorithmus
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#der-algorithmus">
-     6.3.1. Der Algorithmus
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#bestimmen-von-k">
-     6.3.2. Bestimmen von
-     <span class="math notranslate nohighlight">
-      \(k\)
-     </span>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#probleme-des-k-means-algorithmus">
-     6.3.3. Probleme des
-     <span class="math notranslate nohighlight">
-      \(k\)
-     </span>
-     -Means-Algorithmus
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#em-clustering">
-   6.4. EM-Clustering
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     6.4.1. Der Algorithmus
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     6.4.2. Bestimmen von
-     <span class="math notranslate nohighlight">
-      \(k\)
-     </span>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#probleme-des-em-clustering">
-     6.4.3. Probleme des EM-Clustering
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#dbscan">
-   6.5. DBSCAN
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
-     6.5.1. Der Algorithmus
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#bestimmen-von-epsilon-und-minpts">
-     6.5.2. Bestimmen von
-     <span class="math notranslate nohighlight">
-      \(\epsilon\)
-     </span>
-     und
-     <span class="math notranslate nohighlight">
-      \(minPts\)
-     </span>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#probleme-bei-dbscan">
-     6.5.3. Probleme bei DBSCAN
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#single-linkage-clustering">
-   6.6. Single Linkage Clustering
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#der-slink-algorithmus">
-     6.6.1. Der SLINK-Algorithmus
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#dendrogramme">
-     6.6.2. Dendrogramme
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#probleme-bei-slink">
-     6.6.3. Probleme bei SLINK
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#vergleich-der-algorithmen">
-   6.7. Vergleich der Algorithmen
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#clusterformen">
-     6.7.1. Clusterformen
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#anzahl-der-cluster">
-     6.7.2. Anzahl der Cluster
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ausfuhrungszeit">
-     6.7.3. Ausführungszeit
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#interpretierbarkeit-und-darstellung">
-     6.7.4. Interpretierbarkeit und Darstellung
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#kategorische-merkmale">
-     6.7.5. Kategorische Merkmale
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#fehlende-merkmale">
-     6.7.6. Fehlende Merkmale
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#korrelierte-merkmale">
-     6.7.7. Korrelierte Merkmale
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#zusammenfassung-des-vergleichs">
-     6.7.8. Zusammenfassung des Vergleichs
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ubung">
-   6.8. Übung
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id7">
-     6.8.1.
-     <span class="math notranslate nohighlight">
-      \(k\)
-     </span>
-     -Means-Algorithmus
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id8">
-     6.8.2. EM Clustering
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id9">
-     6.8.3. DBSCAN
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#slink">
-     6.8.4. SLINK
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#vergleichen-sie-die-ergebnisse">
-     6.8.5. Vergleichen Sie die Ergebnisse
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Clusteranalyse</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ahnlichkeitsmasze">6.1. Ähnlichkeitsmaße</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stadte-und-hauser">6.2. Städte und Häuser</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-means-algorithmus">6.3. <span class="math notranslate nohighlight">\(k\)</span>-Means-Algorithmus</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#der-algorithmus">6.3.1. Der Algorithmus</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bestimmen-von-k">6.3.2. Bestimmen von <span class="math notranslate nohighlight">\(k\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probleme-des-k-means-algorithmus">6.3.3. Probleme des <span class="math notranslate nohighlight">\(k\)</span>-Means-Algorithmus</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#em-clustering">6.4. EM-Clustering</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">6.4.1. Der Algorithmus</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">6.4.2. Bestimmen von <span class="math notranslate nohighlight">\(k\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probleme-des-em-clustering">6.4.3. Probleme des EM-Clustering</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dbscan">6.5. DBSCAN</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">6.5.1. Der Algorithmus</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bestimmen-von-epsilon-und-minpts">6.5.2. Bestimmen von <span class="math notranslate nohighlight">\(\epsilon\)</span> und <span class="math notranslate nohighlight">\(minPts\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probleme-bei-dbscan">6.5.3. Probleme bei DBSCAN</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#single-linkage-clustering">6.6. Single Linkage Clustering</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#der-slink-algorithmus">6.6.1. Der SLINK-Algorithmus</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dendrogramme">6.6.2. Dendrogramme</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probleme-bei-slink">6.6.3. Probleme bei SLINK</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vergleich-der-algorithmen">6.7. Vergleich der Algorithmen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clusterformen">6.7.1. Clusterformen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#anzahl-der-cluster">6.7.2. Anzahl der Cluster</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ausfuhrungszeit">6.7.3. Ausführungszeit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretierbarkeit-und-darstellung">6.7.4. Interpretierbarkeit und Darstellung</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kategorische-merkmale">6.7.5. Kategorische Merkmale</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fehlende-merkmale">6.7.6. Fehlende Merkmale</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#korrelierte-merkmale">6.7.7. Korrelierte Merkmale</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfassung-des-vergleichs">6.7.8. Zusammenfassung des Vergleichs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung">6.8. Übung</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">6.8.1. <span class="math notranslate nohighlight">\(k\)</span>-Means-Algorithmus</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">6.8.2. EM Clustering</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">6.8.3. DBSCAN</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slink">6.8.4. SLINK</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vergleichen-sie-die-ergebnisse">6.8.5. Vergleichen Sie die Ergebnisse</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="clusteranalyse">
-<h1><span class="section-number">6. </span>Clusteranalyse<a class="headerlink" href="#clusteranalyse" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">6. </span>Clusteranalyse<a class="headerlink" href="#clusteranalyse" title="Permalink to this heading">#</a></h1>
 <p>Bei der Clusteranalyse, häufig auch einfach Clustern oder Clustering genannt, sucht man Gruppen von verwandten Objekten in einer Menge von Instanzen. Diese Gruppen nennt man auch Cluster. Betrachten wir das Beispiel in <a class="reference internal" href="#fig-clust-example"><span class="std std-numref">Fig. 6.1</span></a>. Auf der linken Seite sehen wir verschiedene Emoticons, unsere Objekte. Beim Clustern werden die Objekte jetzt in Gruppen unterteilt, in diesem Fall in zwei Gruppen: die glücklichen Emoticons und die traurigen Emoticons. Die Gruppen werden basierend auf den Merkmalen der Objekte bestimmt, andere Informationen stehen nicht zur Verfügung. Um die Trennung in glücklich und traurig zu erreichen, müssen diese Emotionen also von den Merkmalen repräsentiert werden. Wenn die Merkmale etwas anderes beschreiben würden, zum Beispiel die Farbe, würde das Ergebnis des Clusterns ein anderes sein: eine Trennung in gelbe und orange Emoticons. Wenn die Merkmale die Menge der Haare im Gesicht der Emoticons beschreiben würden, dann würde man die Emoticons ohne Bart von denen mit einem Schnauzer trennen. Auch wenn dies auf den ersten Blick offensichtlich erscheint, ist dieser Punkt extrem wichtig: Wenn die Merkmale nicht zur gewünschten Gruppierung passen, finden wir vielleicht trotzdem Gruppen, doch diese sind möglicherweise nicht sinnvoll für unseren Anwendungsfall.</p>
 <figure class="align-default" id="fig-clust-example">
 <a class="reference internal image-reference" href="../_images/clustering_general.png"><img alt="../_images/clustering_general.png" src="../_images/clustering_general.png" style="width: 600px;" /></a>
@@ -833,7 +428,7 @@ title="Print to PDF"
 </figure>
 <p>Formal haben wir eine Menge von Objekten <span class="math notranslate nohighlight">\(O = \{object_1, object_2, ...\}\)</span>, die möglicherweise unendlich viele Elemente enthält. Außerdem haben wir eine Repräsentation der Objekte als Instanzen im Merkmalsraum <span class="math notranslate nohighlight">\(\mathcal{F} = \{\phi(o): o \in O\}\)</span>. Beim Clustern betrachtet man in der Regel numerische Merkmale, das heißt, jede Instanz ist ein reellwertiger Vektor und es gilt also <span class="math notranslate nohighlight">\(\mathcal{F} \subseteq \mathbb{R}^d\)</span>. Das Gruppieren der Objekte wird beschrieben durch eine Abbildung <span class="math notranslate nohighlight">\(c: \mathcal{F} \to G\)</span>, wobei <span class="math notranslate nohighlight">\(G =\{1, ..., k\}\)</span> die Cluster sind und <span class="math notranslate nohighlight">\(k \in \mathbb{N}\)</span> die Anzahl der Cluster.</p>
 <section id="ahnlichkeitsmasze">
-<h2><span class="section-number">6.1. </span>Ähnlichkeitsmaße<a class="headerlink" href="#ahnlichkeitsmasze" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">6.1. </span>Ähnlichkeitsmaße<a class="headerlink" href="#ahnlichkeitsmasze" title="Permalink to this heading">#</a></h2>
 <p>Die Grundvoraussetzung, um ähnliche Objekte gruppieren zu können, ist, dass man ihre Ähnlichkeit messen kann. Beim Clustern ist der Ansatz hierfür, die Ähnlichkeit über den <em>Abstand</em> im Merkmalsraum zu messen. Je näher die Instanzen von Objekten einander sind, desto ähnlicher sind sie. Je weiter entfernt sie voneinander sind, desto verschiedener. Es gibt verschiedene Metriken, mit denen man Distanzen messen kann. In der Regel wird eine der folgenden drei Metriken verwendet.</p>
 <p>Die mit großem Abstand üblichste Metrik ist der <em>euklidische Abstand</em>, den wir uns geometrisch als die direkte Verbindung zwischen zwei Punkten vorstellen können (<a class="reference internal" href="#fig-euclidean"><span class="std std-numref">Fig. 6.3</span></a>). Der euklidische Abstand wird über die euklidische Norm <span class="math notranslate nohighlight">\(||\cdot||_2\)</span> definiert als</p>
 <div class="math notranslate nohighlight">
@@ -866,11 +461,11 @@ title="Print to PDF"
 </figure>
 </section>
 <section id="stadte-und-hauser">
-<h2><span class="section-number">6.2. </span>Städte und Häuser<a class="headerlink" href="#stadte-und-hauser" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">6.2. </span>Städte und Häuser<a class="headerlink" href="#stadte-und-hauser" title="Permalink to this heading">#</a></h2>
 <p>Wir benutzen eine Analogie, um die Konzepte der Clusteralgorithmen zu erklären: Unsere Objekte sind Häuser und unsere Cluster sind Städte. Das Schöne an dieser Analogie ist, dass sie intuitiv plausibel ist. Man muss nicht wissen, zu welcher Stadt ein Haus gehört, um zu erkennen, welche weiteren Häuser zu dieser Stadt gehören. Man muss auch nicht wissen, wie viele Städte es gibt, um das zu erkennen. Es reicht, wenn man die Position der Häuser betrachtet. Das ist genau das Problem, das wir mit Clusteralgorithmen lösen wollen: Welche Objekte gehören zum gleichen Cluster und wie viele Cluster gibt es?</p>
 </section>
 <section id="k-means-algorithmus">
-<h2><span class="section-number">6.3. </span><span class="math notranslate nohighlight">\(k\)</span>-Means-Algorithmus<a class="headerlink" href="#k-means-algorithmus" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">6.3. </span><span class="math notranslate nohighlight">\(k\)</span>-Means-Algorithmus<a class="headerlink" href="#k-means-algorithmus" title="Permalink to this heading">#</a></h2>
 <p>Eine Variante, um Städte zu definieren, könnte mithilfe der Rathäuser erfolgen. Man könnte sagen, dass jedes Haus zu der Stadt gehört, deren Rathaus am nächsten liegt. Diese Idee ist die Essenz des <span class="math notranslate nohighlight">\(k\)</span>-Means-Algorithmus. Man beschreibt Cluster durch ihr <em>Zentrum</em>. Dieses Zentrum nennt man auch <em>Centroid</em>, weshalb es sich bei <span class="math notranslate nohighlight">\(k\)</span>-Means auch um einen Vertreter der <em>centroidbasierten Clusteralgorithmen</em> handelt.</p>
 <p>Wenn man wissen möchte, zu welchem Cluster eine Instanz gehört, muss man lediglich herausfinden, welcher Centroid am nächsten ist. Das <span class="math notranslate nohighlight">\(k\)</span> im Namen des Algorithmus steht für die Anzahl der Cluster. Formal haben wir die Centroids <span class="math notranslate nohighlight">\(C_1, ..., C_k\)</span> und eine Metrik <span class="math notranslate nohighlight">\(d\)</span>, um den Abstand zu messen. Wir können für jede Instanz <span class="math notranslate nohighlight">\(x \in \mathcal{F}\)</span> estimmen, zu welchem Cluster sie gehört, indem wir das Minimum bestimmen:</p>
 <div class="math notranslate nohighlight">
@@ -878,6 +473,11 @@ title="Print to PDF"
 <p>bestimmen.</p>
 <p>Das folgende Beispiel zeigt, wie wir Daten in <span class="math notranslate nohighlight">\(k=4\)</span> Cluster unterteilen. Die Centroids sind als große graue Punkte dargestellt, die anderen Farben zeigen die Clusterzugehörigkeit.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we need matplotlib for plotting</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -912,16 +512,17 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_06_1_0.png" src="../_images/kapitel_06_1_0.png" />
+<img alt="../_images/f354947745204b88e62349265680b64267f1e82b7ef1b4535b4a2338561f77da.png" src="../_images/f354947745204b88e62349265680b64267f1e82b7ef1b4535b4a2338561f77da.png" />
 </div>
 </div>
 <p>Diese Darstellung der Cluster ist einfach, effektive und intuitiv. Der Nachteil dieser Darstellung von Clustern ist, dass dies nur mit zwei Merkmalen funktioniert. Wenn man mehr als zwei Merkmale hat, muss man entweder paarweise Scatterplots nutzen oder eine Technik wie die PCA einsetzen, um eine zweidimensionale Darstellung zu bekommen (siehe <a class="reference internal" href="kapitel_04.html"><span class="doc std std-doc">Kapitel 4</span></a>).</p>
 <section id="der-algorithmus">
-<h3><span class="section-number">6.3.1. </span>Der Algorithmus<a class="headerlink" href="#der-algorithmus" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.3.1. </span>Der Algorithmus<a class="headerlink" href="#der-algorithmus" title="Permalink to this heading">#</a></h3>
 <p>Ziel des Clusteralgorithmus ist es, die Positionen der Centroids zu bestimmen. Wenn wir uns wieder eine Stadt vorstellen, könnte man argumentieren, dass der Platz, an dem ein Rathaus gebaut werden soll, so gewählt werden sollte, dass der mittlere Abstand der Häuser zum Rathaus minimiert wird. Dann haben die Bewohner - im Mittel - den kürzesten Weg zum Rathaus. Jetzt stellen Sie sich vor, dass ein Neubaugebiet entsteht, außerdem werden an anderer Stelle ein paar alte Häuser abgerissen. Hierdurch ist der Ort des Rathauses nicht mehr optimal und idealerweise wird es neu gebaut, sodass der Abstand wieder minimiert wird. Hier ist die Analogie problematisch: Der Neubau eines Rathauses ist teuer, einen Centroid zu verschieben jedoch sehr einfach. Diese Idee ist also genau das, was der Algorithmus macht.</p>
 <p>Seien <span class="math notranslate nohighlight">\(X \subseteq \mathcal{F}\)</span> unsere Daten. Der <span class="math notranslate nohighlight">\(k\)</span>-Means-Algorithmus bestimmt die Cluster bzw. die Centroids durch folgenden iterativen Algorithmus:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Wähle die Startposition der Centroids <span class="math notranslate nohighlight">\(C_1, ..., C_k \in \mathcal{F}\)</span>.</p></li>
 <li><p>Bestimme die Cluster <span class="math notranslate nohighlight">\(X_i = \{x \in X: c(x) = i\}\)</span> für <span class="math notranslate nohighlight">\(i=1,...,k\)</span>.</p></li>
 <li><p>Verschiebe die Centroids, sodass der neue Ort des Centroids dem arithmetischen Mittel der Instanzen des Clusters entspricht: <span class="math notranslate nohighlight">\(C_i = \frac{1}{|X_i|} \sum_{x \in X_i} x\)</span>.</p></li>
@@ -934,6 +535,11 @@ title="Print to PDF"
 </ol>
 <p>Auch wenn dieser Algorithmus relativ abstrakt klingt, wird schnell klar, wie er funktioniert, wenn wir uns die Schritte veranschaulichen.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
 
@@ -950,8 +556,9 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_06_3_0.png" src="../_images/kapitel_06_3_0.png" />
+<img alt="../_images/29ba1acff2d6cf02e5284a66caeaaaffa867e5fd520171a804ee326ffb527bc7.png" src="../_images/29ba1acff2d6cf02e5284a66caeaaaffa867e5fd520171a804ee326ffb527bc7.png" />
 </div>
 </div>
 <p>Im Detail passiert das Folgende:</p>
@@ -963,15 +570,20 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="bestimmen-von-k">
-<h3><span class="section-number">6.3.2. </span>Bestimmen von <span class="math notranslate nohighlight">\(k\)</span><a class="headerlink" href="#bestimmen-von-k" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.3.2. </span>Bestimmen von <span class="math notranslate nohighlight">\(k\)</span><a class="headerlink" href="#bestimmen-von-k" title="Permalink to this heading">#</a></h3>
 <p>Im obigen Beispiel haben wir <span class="math notranslate nohighlight">\(k=4\)</span> benutzt, also nach vier Clustern gesucht. Wie man einen geeigneten Wert für <span class="math notranslate nohighlight">\(k\)</span> bestimmt, haben wie noch offengelassen. Bevor wir uns im Detail damit befassen, betrachten wir erst einmal, wie sich das Ergebnis mit verschiedenen Werten für <span class="math notranslate nohighlight">\(k\)</span> ändert.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
 
 <span class="n">k</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
 <span class="k">for</span> <span class="nb">iter</span> <span class="ow">in</span> <span class="n">k</span><span class="p">:</span>
-    <span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="nb">iter</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="nb">iter</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_init</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
     <span class="n">kmeans</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
     <span class="n">y_kmeans</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
     <span class="n">centers</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">cluster_centers_</span>
@@ -983,8 +595,9 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_06_5_0.png" src="../_images/kapitel_06_5_0.png" />
+<img alt="../_images/3d0e5cf477adafca4404b40a46579bcf0769bdcca8a5dfeaa1b6837bb44c32fb.png" src="../_images/3d0e5cf477adafca4404b40a46579bcf0769bdcca8a5dfeaa1b6837bb44c32fb.png" />
 </div>
 </div>
 <p>Mit <span class="math notranslate nohighlight">\(k=2\)</span> bekommen wir ein sehr großes Cluster und ein kleineres Cluster oben rechts. Mit <span class="math notranslate nohighlight">\(k=3\)</span> zerfällt das große Cluster in zwei Gruppen, sodass wir ein Cluster oben rechts, ein Cluster in der Mitte und ein Cluster unten haben. Mit <span class="math notranslate nohighlight">\(k=4\)</span> zerfällt das mittlere Cluster in zwei Gruppen, so wie wir es im Beispiel auch hatten. Mit <span class="math notranslate nohighlight">\(k=5\)</span> zerfällt das Cluster in der Mitte in eine obere und eine untere Hälfte. Die Ergebnisse für <span class="math notranslate nohighlight">\(k=2, 3, 4\)</span> sehen alle sinnvoll aus. Man kann argumentieren, dass <span class="math notranslate nohighlight">\(k=2\)</span> ein gutes Ergebnis ist, da es eine große Lücke zwischen den Instanzen in der oberen Ecke und den anderen Daten gibt. Alle anderen Lücken sind kleiner. Man kann auch sagen, <span class="math notranslate nohighlight">\(k=3\)</span> sei gut, da es sich bei den Daten in der Mitte auch um ein langgezogenes Cluster handeln könnte. Bei <span class="math notranslate nohighlight">\(k=4\)</span> kann man argumentieren, dass alle Cluster eine ähnliche Anzahl von Daten und eine ähnliche Form haben, auch wenn einige Cluster recht nah beieinander liegen. Für <span class="math notranslate nohighlight">\(k=5\)</span> findet man jedoch keine Begründung mehr, warum dieses Ergebnis besser sein könnte als die anderen: Die Trennung des mittleren Clusters in zwei Cluster ergibt einfach keinen Sinn.</p>
@@ -999,12 +612,17 @@ title="Print to PDF"
 \[WSS = \sum_{i=1}^k\sum_{x \in X_i} d(x, C_i)^2.\]</div>
 <p>Wir haben oben bereits anhand der Visualisierung diskutiert, wie gut verschiedene Werte von <span class="math notranslate nohighlight">\(k\)</span> sind. Da es für zufällig generierte Daten kein Domänenwissen gibt, können wir dies auch nicht nutzen, um die Cluster zu bewerten. Wir können verschiedene Werte von <span class="math notranslate nohighlight">\(k\)</span> jedoch mithilfe der WSS bewerten. Hierzu zeichnet man am besten ein einfaches Liniendiagramm, das die WSS für verschiedene Werte von <span class="math notranslate nohighlight">\(k\)</span> vergleicht.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sklearn calls the WSS inertia</span>
 <span class="n">inertia</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">k</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
 <span class="k">for</span> <span class="nb">iter</span> <span class="ow">in</span> <span class="n">k</span><span class="p">:</span>
-    <span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="nb">iter</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="nb">iter</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_init</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
     <span class="n">kmeans</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
     <span class="n">y_kmeans</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
     <span class="n">centers</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">cluster_centers_</span>
@@ -1020,15 +638,16 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_06_7_0.png" src="../_images/kapitel_06_7_0.png" />
+<img alt="../_images/63f4e97c5a8795a60226246edec3e1e61840354ce94e1d5f5aac8a1ef08dece9.png" src="../_images/63f4e97c5a8795a60226246edec3e1e61840354ce94e1d5f5aac8a1ef08dece9.png" />
 </div>
 </div>
 <p>Wie man sieht, gibt es einen starken Abfall der WSS von 2 nach 3 und von 3 nach 4. Ab 4 bleibt die WSS nahezu konstant. Außerdem sieht man, dass sich die Steigung bei den Werten 2, 3 und 4 stark ändert und die Kurve langsam abflacht. Diese Änderungen der Steigung nennt man auch <em>Ellenbogen</em> bzw. <em>Elbows</em>, da sie ein wenig dem Ellenbogen eines gebeugten Arms ähneln. Wenn wir die WSS nutzen, um <span class="math notranslate nohighlight">\(k\)</span> auszuwählen, finden wir geeignete Werte an diesen Ellenbogen. Der Grund liegt darin, dass wenn sich die Kurve nicht abflacht, sondern weiter gleich steil abfällt, die Verbesserung auch gleich bleibt. Es gibt also keinen guten Grund, ein <span class="math notranslate nohighlight">\(k\)</span> zu wählen, wo es keinen Ellenbogen gibt, da <span class="math notranslate nohighlight">\(k+1\)</span> genauso so viel besser ist als <span class="math notranslate nohighlight">\(k\)</span>, wie <span class="math notranslate nohighlight">\(k\)</span> als <span class="math notranslate nohighlight">\(k-1\)</span>.</p>
 <p>Die WSS-Kurve fällt monoton ab. Das bedeutet das <span class="math notranslate nohighlight">\(WSS(k+1) \leq WSS(k)\)</span> für alle <span class="math notranslate nohighlight">\(k&gt;1\)</span>. Daher kann man <span class="math notranslate nohighlight">\(k\)</span> auch leider nicht als das Minimum der WSS auswählen, da dies einfach bei <span class="math notranslate nohighlight">\(k=|X|\)</span> erreicht wird. Der Grund dafür ist, dass die Varianz sich reduziert, wenn wir mehr Cluster hinzufügen. Das Minimum wird erreicht, wenn <span class="math notranslate nohighlight">\(d(x, C_{c(x)})=0\)</span> für alle <span class="math notranslate nohighlight">\(x \in X\)</span>. Unter der Annahme das es keine Instanzen mit identischen Werten gibt, braucht man also <span class="math notranslate nohighlight">\(|X|\)</span> Cluster um das Minimum zu erreichen. Wie man in der obigen Grafik aber sieht, wird der Abfall der WSS schon deutlich früher sehr klein, im Beispiel bei <span class="math notranslate nohighlight">\(k=4\)</span>. Entsprechend kann man <span class="math notranslate nohighlight">\(k\)</span> gut durch eine visuelle Analyse der WSS auswählen, nicht jedoch durch einen Automatismus der die WSS minimiert.</p>
 </section>
 <section id="probleme-des-k-means-algorithmus">
-<h3><span class="section-number">6.3.3. </span>Probleme des <span class="math notranslate nohighlight">\(k\)</span>-Means-Algorithmus<a class="headerlink" href="#probleme-des-k-means-algorithmus" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.3.3. </span>Probleme des <span class="math notranslate nohighlight">\(k\)</span>-Means-Algorithmus<a class="headerlink" href="#probleme-des-k-means-algorithmus" title="Permalink to this heading">#</a></h3>
 <p>Obwohl das Konzept des <span class="math notranslate nohighlight">\(k\)</span>-Means-Algorithmus relativ einfach ist, bekommt man häufig gute Ergebnisse. Es gibt jedoch einige Probleme mit <span class="math notranslate nohighlight">\(k\)</span>-Means, die man kennen sollte.</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(k\)</span>-Means ist sensitiv bezüglich der Auswahl der Startcentroids. Je nachdem wie die Centroids gewählt werden, kann es andere Clusterergebnisse geben. Man sagt dann, dass das Ergebnis nicht stabil ist. Entsprechend sollte man <span class="math notranslate nohighlight">\(k\)</span>-Means mehrfach mit verschiedenen Startcentroids ausführen. Wenn das Ergebnis instabil ist, ist das ein Indikator dafür, dass die Anzahl der Cluster eventuell anders gewählt werden sollte.</p></li>
@@ -1037,6 +656,11 @@ title="Print to PDF"
 <li><p>Weil die Cluster basierend auf der Distanz zugewiesen werden, tendieren die Cluster dazu, rund zu sein. Wenn die Cluster nicht rund sind, kann man sie häufig auch nicht gut durch Centroids beschreiben. Ein Beispiel dafür sind die zwei Halbmonde, die wir unten sehen. Man kann klar erkennen, dass es sich um zwei Halbkreise handelt, jeder sollte ein Cluster sein. <span class="math notranslate nohighlight">\(k\)</span>-Means kann diese Cluster aufgrund ihrer Form nicht finden.</p></li>
 </ul>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_moons</span>
@@ -1045,7 +669,7 @@ title="Print to PDF"
 <span class="c1"># this generates our halfmoon data</span>
 <span class="n">X</span><span class="p">,</span><span class="n">_</span> <span class="o">=</span> <span class="n">make_moons</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
-<span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_init</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
 <span class="n">kmeans</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 <span class="n">y_kmeans</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 <span class="n">centers</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">cluster_centers_</span>
@@ -1058,14 +682,15 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_06_9_0.png" src="../_images/kapitel_06_9_0.png" />
+<img alt="../_images/17ac579f8fc741d535d1886adffc080fb0b61746016a0ad6ebcea34f1c939a8d.png" src="../_images/17ac579f8fc741d535d1886adffc080fb0b61746016a0ad6ebcea34f1c939a8d.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="em-clustering">
-<h2><span class="section-number">6.4. </span>EM-Clustering<a class="headerlink" href="#em-clustering" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">6.4. </span>EM-Clustering<a class="headerlink" href="#em-clustering" title="Permalink to this heading">#</a></h2>
 <p>Wir könnten uns Städte auch als Zufallsvariablen vorstellen und die Häuser wären dann Instanzen dieser Zufallsvariablen. Die Zuweisung von Häusern zu Städten würde also von Wahrscheinlichkeitsverteilungen abhängen. Dies ist die Idee hinter einer Verallgemeinerung des <span class="math notranslate nohighlight">\(k\)</span>-Means-Algorithmus, die wir jetzt betrachten wollen. Unsere Rathäuser sind immer noch das Zentrum der Stadt. Aber wir berücksichtigen, dass Häuser, die sehr nah am Rathaus liegen, mit einer höheren Wahrscheinlichkeit zur Stadt gehören als solche, die weiter weg liegen. Wenn wir das weiterdenken, kann man dies zu einer Eigenschaft der Städte werden lassen: Es gibt Städte, die sich nicht sehr stark räumlich ausbreiten, und andere Städte, die eine große Fläche einnehmen. Wir wollen also die <em>Verteilung</em> der Häuser berücksichtigen. Daher nennt man diese Art zu Clustern auch <em>verteilungsbasiertes Clustern</em> (engl. <em>distribution-based clustering</em>).</p>
 <p>Formal haben wir eine Anzahl von Clustern <span class="math notranslate nohighlight">\(k\)</span>, die durch Zufallsvariablen <span class="math notranslate nohighlight">\(C_1, ..., C_k\)</span> beschrieben werden. Wir können die Wahrscheinlichkeit, dass eine Instanz <span class="math notranslate nohighlight">\(x \in \mathcal{F}\)</span> zu einem Cluster <span class="math notranslate nohighlight">\(C_i\)</span> gehört, als <span class="math notranslate nohighlight">\(P(C_i = x), i=1, ..., k\)</span> berechnen. Jede Instanz hat also eine gewisse Wahrscheinlichkeit, zu jedem Cluster zu gehören. Da man aber trotzdem für jede Instanz wissen möchte, zu welchem Cluster sie jetzt gehört, kann man das <em>wahrscheinlichste</em> Cluster berechnen, also das Cluster <span class="math notranslate nohighlight">\(C_i\)</span>, das <span class="math notranslate nohighlight">\(P(C_i = x)\)</span> maximiert. Entsprechend ist die Zuweisung der Instanzen zu Clustern definiert als</p>
 <div class="math notranslate nohighlight">
@@ -1073,6 +698,11 @@ title="Print to PDF"
 <p>Auch wenn man das Konzept des EM-Algorithmus (EM - Expectation Maximization) mit beliebigen Verteilungen benutzen kann, benutzt man in der Regel normalverteilte Zufallsvariablen, um die Cluster zu beschreiben. Man spricht daher auch vom <em>Gaussian Mixture Model</em>. Diese Normalverteilungen sind <em>multivariat</em>, es wird also nicht nur eine einzelne Dimension beschrieben. Die Normalverteilung hat so viele Dimensionen, wie es Merkmale gibt. Eine univariate Normalverteilung kann man durch das arithmetische Mittel und die Standardab-weichung darstellen. Eine multivariate Normalverteilung wird durch einen Vektor von Mittelwerten und eine <em>Kovarianzmatrix</em> beschrieben. Die Kovarianz-matrix gibt die Beziehung zwischen den Varianzen der einzelnen Dimensionen an. Vereinfacht gesagt, kann man sich die Kovarianz als die Ausdehnung der Glockenform der Normalverteilung in die verschiedenen Richtungen vorstellen. Mathematisch betrachtet handelt es sich bei der Kovarianz um eine Ellipse: Die Form der Ellipse bestimmt die erwartete Abweichung der Daten in jede Richtung. Eine wichtige Eigenschaft der Kovarianzmatrix, die wir später noch brauchen, ist, dass es sich um quadratische Matrix handelt, bei der das obere rechte und das untere linke Dreieck symmetrisch sind. Es gibt also <span class="math notranslate nohighlight">\(\frac{d\cdot(d+1)}{2}\)</span> freie Parameter in der Kovarianzmatrix. Wenn wir also <span class="math notranslate nohighlight">\(d\)</span> Merkmale haben, gibt es <span class="math notranslate nohighlight">\(d+\frac{d\cdot(d+1)}{2}\)</span> Parameter, die wir benötigen, um eine entsprechende multivariate Normalverteilung zu beschreiben: <span class="math notranslate nohighlight">\(d\)</span> Mittelwerte und <span class="math notranslate nohighlight">\(\frac{d\cdot(d+1)}{2}\)</span> Parameter für die <span class="math notranslate nohighlight">\(d \times d\)</span>-Kovarianzmatrix. Insgesamt haben wir also <span class="math notranslate nohighlight">\(k \cdot (d+\frac{d\cdot(d+1)}{2})\)</span> Parameter, wenn wir <span class="math notranslate nohighlight">\(k\)</span> Cluster beschreiben wollen.</p>
 <p>Wir betrachten jetzt die gleichen Daten wie eben, nur dass wir uns das Ergebnis des EM-Clustering mit <span class="math notranslate nohighlight">\(k=4\)</span> Normalverteilungen anschauen. Die Mittelwerte sind als große graue Punkte markiert, die Kovarianzen als Ellipsen in der Farbe der jeweiligen Cluster.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -1113,8 +743,11 @@ title="Print to PDF"
     <span class="n">angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
     <span class="n">angle</span> <span class="o">=</span> <span class="mi">180</span> <span class="o">*</span> <span class="n">angle</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>  <span class="c1"># convert to degrees</span>
     <span class="n">v</span> <span class="o">=</span> <span class="mf">2.</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-    <span class="n">ell</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">patches</span><span class="o">.</span><span class="n">Ellipse</span><span class="p">(</span><span class="n">em</span><span class="o">.</span><span class="n">means_</span><span class="p">[</span><span class="n">n</span><span class="p">,</span> <span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-                              <span class="mi">180</span> <span class="o">+</span> <span class="n">angle</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">ell</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">patches</span><span class="o">.</span><span class="n">Ellipse</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="n">em</span><span class="o">.</span><span class="n">means_</span><span class="p">[</span><span class="n">n</span><span class="p">,</span> <span class="p">:</span><span class="mi">2</span><span class="p">],</span>
+                              <span class="n">width</span><span class="o">=</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                              <span class="n">height</span><span class="o">=</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                              <span class="n">angle</span><span class="o">=</span><span class="mi">180</span><span class="o">+</span><span class="n">angle</span><span class="p">,</span>
+                              <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
     <span class="n">ell</span><span class="o">.</span><span class="n">set_clip_box</span><span class="p">(</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">bbox</span><span class="p">)</span>
     <span class="n">ell</span><span class="o">.</span><span class="n">set_alpha</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
     <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">ell</span><span class="p">)</span>
@@ -1122,15 +755,16 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_06_11_0.png" src="../_images/kapitel_06_11_0.png" />
+<img alt="../_images/07f51a2df8b174a461ec84ead6a22e594ea31eb11154abd038fcc5b2e21f9790.png" src="../_images/07f51a2df8b174a461ec84ead6a22e594ea31eb11154abd038fcc5b2e21f9790.png" />
 </div>
 </div>
 <p>Auch wenn die Beschreibung der Cluster durch Zufallsvariablen komplexer ist als durch Centroids, sieht man in der obigen Grafik den Vorteil: Die Kovarianzen erlauben es, die Verteilung der Daten in die Clusterbeschreibung mit aufzunehmen. Wir haben also mehr Informationen über die Daten als Teil der Clusterbeschreibung.</p>
 <section id="id1">
-<h3><span class="section-number">6.4.1. </span>Der Algorithmus<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.4.1. </span>Der Algorithmus<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <p>Man nennt diese Art zu clustern EM-Clustering, weil sie auf dem <em>Expectation-Maximization-(EM-)Algorithmus</em> basiert. Der Algorithmus ist im Allgemeinen ähnlich zu <span class="math notranslate nohighlight">\(k\)</span>-Means: Wir starten mit einer zufälligen Initialisierung der Zufallsvariablen und verbessern die Beschreibung der Daten durch die Zufallsvariablen iterativ. Beim EM-Algorithmus müssen also für jedes Cluster die Mittelwerte und die Kovarianzmatrizen zufällig initialisiert und stückweise verbessert werden. Die Verbesserung basiert auf der Wahrscheinlichkeit (engl. <em>likelihood</em>), dass die Daten Instanzen dieser Zufallsvariablen sein könnten. Im Folgenden betrachten wir nicht die vollständige mathematische Beschreibung des EM-Algorithmus, sondern nur eine vereinfachte Version, in der wir die Mittelwerte aktualisieren und die Kovarianzen ignorieren.</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Wähle zufällig <span class="math notranslate nohighlight">\(k\)</span> Normalverteilungen <span class="math notranslate nohighlight">\(C_1 \sim (\mu_1, \Sigma_1), ..., C_k \sim (\mu_k, \Sigma_k)\)</span>, wobei <span class="math notranslate nohighlight">\(\mu_i \in \mathcal{F}\)</span> die Mittelwerte und <span class="math notranslate nohighlight">\(\Sigma_i \in \mathcal{F}\times\mathcal{F}\)</span> die Kovarianzmatrizen sind.</p></li>
 <li><p>Expectation-Schritt: Bestimme die Gewichte <span class="math notranslate nohighlight">\(w_i(x) = \frac{p(x|\mu_i, \Sigma_i)}{\sum_{j=1}^k p(x|\mu_j, \Sigma_j)}\)</span> für alle Instanzen <span class="math notranslate nohighlight">\(x \in X\)</span> und Cluster <span class="math notranslate nohighlight">\(i=1, ..., k\)</span>.</p></li>
 <li><p>Maximization-Schritt: Aktualisiere die Mittelwerte, sodass <span class="math notranslate nohighlight">\(\mu_i = \frac{1}{|X|}\sum_{x \in X} w_i(x)\cdot x\)</span> für jedes Cluster <span class="math notranslate nohighlight">\(i=1, ..., k\)</span>.</p></li>
@@ -1147,6 +781,11 @@ title="Print to PDF"
 <p>Durch die Berechnung der Wahrscheinlichkeit für jedes Cluster kann man beim EM-Clustering die Unsicherheit der Ergebnisse gut nachvollziehen. Wenn eine Instanz für verschiedene Cluster eine hohe Wahrscheinlichkeit hat, erkennt man, dass diese Zuweisung unsicher ist. Diese Art zu clustern nennt man auch <em>Soft Clustering</em>, da die Instanzen nicht “hart” genau einem Cluster zugewiesen werden, sondern stattdessen eine “weiche” Zuweisung über Wahrscheinlichkeiten erfolgt.</p>
 <p>Um ein tieferes Verständnis für den EM-Algorithmus zu bekommen, betrachten wir jetzt an einem Beispiel, wie die Cluster aktualisiert werden.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
 
@@ -1166,8 +805,11 @@ title="Print to PDF"
         <span class="n">angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
         <span class="n">angle</span> <span class="o">=</span> <span class="mi">180</span> <span class="o">*</span> <span class="n">angle</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>  <span class="c1"># convert to degrees</span>
         <span class="n">v</span> <span class="o">=</span> <span class="mf">2.</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-        <span class="n">ell</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">patches</span><span class="o">.</span><span class="n">Ellipse</span><span class="p">(</span><span class="n">em</span><span class="o">.</span><span class="n">means_</span><span class="p">[</span><span class="n">n</span><span class="p">,</span> <span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-                                  <span class="mi">180</span> <span class="o">+</span> <span class="n">angle</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+        <span class="n">ell</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">patches</span><span class="o">.</span><span class="n">Ellipse</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="n">em</span><span class="o">.</span><span class="n">means_</span><span class="p">[</span><span class="n">n</span><span class="p">,</span> <span class="p">:</span><span class="mi">2</span><span class="p">],</span>
+                                  <span class="n">width</span><span class="o">=</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                                  <span class="n">height</span><span class="o">=</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                                  <span class="n">angle</span><span class="o">=</span><span class="mi">180</span><span class="o">+</span><span class="n">angle</span><span class="p">,</span>
+                                  <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
         <span class="n">ell</span><span class="o">.</span><span class="n">set_clip_box</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">bbox</span><span class="p">)</span>
         <span class="n">ell</span><span class="o">.</span><span class="n">set_alpha</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">ell</span><span class="p">)</span>
@@ -1175,8 +817,9 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_06_13_0.png" src="../_images/kapitel_06_13_0.png" />
+<img alt="../_images/aef16e754090d6aee68396a9015575b8661ddddb0fadaaedf5823cc15f6985a6.png" src="../_images/aef16e754090d6aee68396a9015575b8661ddddb0fadaaedf5823cc15f6985a6.png" />
 </div>
 </div>
 <p>Im Detail passiert Folgendes:</p>
@@ -1189,15 +832,30 @@ title="Print to PDF"
 <p>Im Beispiel erkennt man zwei wichtige Eigenschaften des EM-Clustering. Zum einen konvergiert der Algorithmus deutlich langsamer als <span class="math notranslate nohighlight">\(k\)</span>-Means. Dies liegt daran, dass mehr Parameter optimiert werden müssen, also nicht nur die Mittelwerte, sondern auch die Kovarianzen. Außerdem bremst das Soft Clustering die Konvergenz: Hierdurch bewegen sich die Mittelwerte nur langsam, da sie auch von anderen Instanzen, die eigentlich schon anderen Clustern zugeordnet werden, noch angezogen werden, wenn auch schwächer. Zum anderen sieht man, dass die Cluster möglicherweise keine zusammenhängende Region beschreiben. In Iteration 41 gibt es einige grüne Instanzen am linken Rand, der Rest befindet sich unten. Dazwischen liegen Instanzen, die dem lila Cluster zugeordnet sind. Es gibt also zwei getrennte Regionen im grünen Cluster. Diese Trennung wird durch die Form der Kovarianzmatrizen ermöglicht. Da die Kovarianz der grünen Verteilung größer ist, haben Instanzen, die weit weg vom Mittel liegen, noch eine relativ hohe Wahrscheinlichkeit, zur grünen Verteilung zu gehören. Die Kovarianz der lila Verteilung ist deutlich kleiner, sodass die Wahrscheinlichkeit mit der Distanz stärker abnimmt. Derart getrennte Regionen sind ungewöhnlich und mit den meisten Clusteralgorithmen gar nicht möglich. Beim  <span class="math notranslate nohighlight">\(k\)</span>-Means-Algorithmus ist dies zum Beispiel ausgeschlossen, da sich die Distanz für jeden Centroid in alle Richtungen gleich verändert.</p>
 <blockquote>
 <div><p><strong>Bemerkung:</strong></p>
-<p>Die Gemeinsamkeiten des <span class="math notranslate nohighlight">\(k\)</span>-Means-Algorithmus und des EM-Clustering gehen noch über die obige Beschreibung hinaus. Genau genommen ist <span class="math notranslate nohighlight">\(k\)</span>-Means nur ein Spezialfall des EM-Clustering in dem Voronoi-Zellen <a class="footnote-reference brackets" href="#voronoi" id="id2">1</a> zur Modellierung der Wahrscheinlichkeiten genutzt werden.</p>
+<p>Die Gemeinsamkeiten des <span class="math notranslate nohighlight">\(k\)</span>-Means-Algorithmus und des EM-Clustering gehen noch über die obige Beschreibung hinaus. Genau genommen ist <span class="math notranslate nohighlight">\(k\)</span>-Means nur ein Spezialfall des EM-Clustering in dem Voronoi-Zellen <a class="footnote-reference brackets" href="#voronoi" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> zur Modellierung der Wahrscheinlichkeiten genutzt werden.</p>
 </div></blockquote>
 </section>
 <section id="id3">
-<h3><span class="section-number">6.4.2. </span>Bestimmen von <span class="math notranslate nohighlight">\(k\)</span><a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.4.2. </span>Bestimmen von <span class="math notranslate nohighlight">\(k\)</span><a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
 <p>Genau wie beim <span class="math notranslate nohighlight">\(k\)</span>-Means-Clustern muss auch beim EM-Clustern die Anzahl der Cluster durch den Benutzer vorgegeben werden. Der Ansatz ist ähnlich: Domänenwissen und Visualisierungen sind auch hier gute Mittel, um <span class="math notranslate nohighlight">\(k\)</span> zu bestimmen.</p>
+<p>Man kann gut erkennen, dass eine einzelne Normalverteilung nicht ausreicht, um die Daten zu beschreiben. Die Ergebnisse für <span class="math notranslate nohighlight">\(k=2, 3, 4\)</span> sind besser. Man sieht jedoch, dass nur für <span class="math notranslate nohighlight">\(k=4\)</span>  die Verteilung der Instanzen innerhalb der Cluster wirklich der Form der Kovarianzellipsen entspricht, was dafür spricht, dass dies das beste Ergebnis ist.</p>
+<p>Es gibt auch einen analytischen Ansatz für die Bestimmung von <span class="math notranslate nohighlight">\(k\)</span> basierend auf dem <em>Bayesian Information Criterion</em> (BIC). Ähnlich wie bei WSS ist BIC auch ein Maß dafür, wie gut der Algorithmus sein Optimierungsziel erreicht. Der EM-Algorithmus probiert, die Wahrscheinlichkeit des Ergebnisses zu maximieren. Formal macht man das mit der <em>Likelihood-Funktion</em> <span class="math notranslate nohighlight">\(\hat{L}(C_1, ..., C_k; X)\)</span>, die wir bei der Beschreibung des EM-Algorithmus ausgespart haben und auch hier nicht im Detail definieren wollen. Der Wert der Likelihood-Funktion wird höher, wenn die Cluster eine bessere Erklärung für die Daten sind. Ähnlich zum monotonen Abfall der WSS ist auch die Likelihood-Funktion in der Regel monoton: Mit mehr Clustern bekommt man einen höheren Wert. BIC wird jedoch nicht nur über die Likelihood-Funktion berechnet. Zusätzlich wird die Komplexität des berechneten Modells für die Cluster berücksichtigt. Zu Beginn des Kapitels haben wir bereits gezeigt, dass man <span class="math notranslate nohighlight">\(k' = k \cdot (d+\frac{d\cdot(d+1)}{2})\)</span> Parameter braucht, um <span class="math notranslate nohighlight">\(k\)</span> Cluster für <span class="math notranslate nohighlight">\(d\)</span> Merkmale durch multivariate Normalverteilungen zu beschreiben. Ockhams Rasiermesser besagt, dass die einfachste Erklärung meistens die beste ist <a class="footnote-reference brackets" href="#occam" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>. Das bedeutet hier, dass wenn man einen ähnlichen Wert der Likelihood-Funktion mit weniger Parametern erreichen kann, man dieses kleinere Modell verwenden sollte. Komplexere Beschreibungen, also mehr Parameter, die aber die Likelihood-Funktion nur noch wenig verbessern, könnten hingegen Overfitting sein. Auf Grundlage dieser Konzepte ist BIC definiert als</p>
+<div class="math notranslate nohighlight">
+\[BIC = \log(|X|)\cdot k' - 2\cdot \log(\hat{L}(C_1, ..., C_k; X)).\]</div>
+<p>BIC wird also größer mit mehr Parametern und mehr Trainingsdaten und fällt ab, wenn sich die Likelihood-Funktion verbessert. Daher sollte man probieren, den BIC zu minimieren. Im Vergleich zu WSS ist BIC nicht monoton, sondern es gibt ein Minimum. Dies ist möglich, da BIC die Modellkomplexität bestraft. Ab einem gewissen Punkt ist die Strafe für ein komplexeres Modell größer als die Verbesse-rung der Likelihood-Funktion und das Minimum ist erreicht. Hieraus folgt, dass es basierend auf BIC sogar eine <em>optimale</em> Anzahl von Clustern gibt, die man automatisch als den Wert von <span class="math notranslate nohighlight">\(k\)</span>, bei dem BIC minimiert wird, bestimmen kann. Auch das können wir uns am Beispiel anschauen.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">ListedColormap</span>
+<span class="n">f</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="c1"># we define which colors to use this way</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;indigo&#39;</span><span class="p">,</span> <span class="s1">&#39;gold&#39;</span><span class="p">,</span> <span class="s1">&#39;mediumseagreen&#39;</span><span class="p">,</span> <span class="s1">&#39;crimson&#39;</span><span class="p">]</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">ListedColormap</span><span class="p">(</span><span class="n">colors</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;cmap_points&quot;</span><span class="p">)</span>
 
 <span class="n">k</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
 <span class="k">for</span> <span class="nb">iter</span> <span class="ow">in</span> <span class="n">k</span><span class="p">:</span>
@@ -1217,8 +875,11 @@ title="Print to PDF"
         <span class="n">angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
         <span class="n">angle</span> <span class="o">=</span> <span class="mi">180</span> <span class="o">*</span> <span class="n">angle</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>  <span class="c1"># convert to degrees</span>
         <span class="n">v</span> <span class="o">=</span> <span class="mf">2.</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-        <span class="n">ell</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">patches</span><span class="o">.</span><span class="n">Ellipse</span><span class="p">(</span><span class="n">em</span><span class="o">.</span><span class="n">means_</span><span class="p">[</span><span class="n">n</span><span class="p">,</span> <span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-                                  <span class="mi">180</span> <span class="o">+</span> <span class="n">angle</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+        <span class="n">ell</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">patches</span><span class="o">.</span><span class="n">Ellipse</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="n">em</span><span class="o">.</span><span class="n">means_</span><span class="p">[</span><span class="n">n</span><span class="p">,</span> <span class="p">:</span><span class="mi">2</span><span class="p">],</span>
+                                  <span class="n">width</span><span class="o">=</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                                  <span class="n">height</span><span class="o">=</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                                  <span class="n">angle</span><span class="o">=</span><span class="mi">180</span><span class="o">+</span><span class="n">angle</span><span class="p">,</span>
+                                  <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
         <span class="n">ell</span><span class="o">.</span><span class="n">set_clip_box</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">bbox</span><span class="p">)</span>
         <span class="n">ell</span><span class="o">.</span><span class="n">set_alpha</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">ell</span><span class="p">)</span>
@@ -1226,16 +887,17 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_06_15_0.png" src="../_images/kapitel_06_15_0.png" />
+<img alt="../_images/64cc98d8f1690ea32298dbfcac78b06a94e4c4c98e109909d66c9439fe0dcbca.png" src="../_images/64cc98d8f1690ea32298dbfcac78b06a94e4c4c98e109909d66c9439fe0dcbca.png" />
 </div>
 </div>
-<p>Man kann gut erkennen, dass eine einzelne Normalverteilung nicht ausreicht, um die Daten zu beschreiben. Die Ergebnisse für <span class="math notranslate nohighlight">\(k=2, 3, 4\)</span> sind besser. Man sieht jedoch, dass nur für <span class="math notranslate nohighlight">\(k=4\)</span>  die Verteilung der Instanzen innerhalb der Cluster wirklich der Form der Kovarianzellipsen entspricht, was dafür spricht, dass dies das beste Ergebnis ist.</p>
-<p>Es gibt auch einen analytischen Ansatz für die Bestimmung von <span class="math notranslate nohighlight">\(k\)</span> basierend auf dem <em>Bayesian Information Criterion</em> (BIC). Ähnlich wie bei WSS ist BIC auch ein Maß dafür, wie gut der Algorithmus sein Optimierungsziel erreicht. Der EM-Algorithmus probiert, die Wahrscheinlichkeit des Ergebnisses zu maximieren. Formal macht man das mit der <em>Likelihood-Funktion</em> <span class="math notranslate nohighlight">\(\hat{L}(C_1, ..., C_k; X)\)</span>, die wir bei der Beschreibung des EM-Algorithmus ausgespart haben und auch hier nicht im Detail definieren wollen. Der Wert der Likelihood-Funktion wird höher, wenn die Cluster eine bessere Erklärung für die Daten sind. Ähnlich zum monotonen Abfall der WSS ist auch die Likelihood-Funktion in der Regel monoton: Mit mehr Clustern bekommt man einen höheren Wert. BIC wird jedoch nicht nur über die Likelihood-Funktion berechnet. Zusätzlich wird die Komplexität des berechneten Modells für die Cluster berücksichtigt. Zu Beginn des Kapitels haben wir bereits gezeigt, dass man <span class="math notranslate nohighlight">\(k' = k \cdot (d+\frac{d\cdot(d+1)}{2})\)</span> Parameter braucht, um <span class="math notranslate nohighlight">\(k\)</span> Cluster für <span class="math notranslate nohighlight">\(d\)</span> Merkmale durch multivariate Normalverteilungen zu beschreiben. Ockhams Rasiermesser besagt, dass die einfachste Erklärung meistens die beste ist <a class="footnote-reference brackets" href="#occam" id="id4">2</a>. Das bedeutet hier, dass wenn man einen ähnlichen Wert der Likelihood-Funktion mit weniger Parametern erreichen kann, man dieses kleinere Modell verwenden sollte. Komplexere Beschreibungen, also mehr Parameter, die aber die Likelihood-Funktion nur noch wenig verbessern, könnten hingegen Overfitting sein. Auf Grundlage dieser Konzepte ist BIC definiert als</p>
-<div class="math notranslate nohighlight">
-\[BIC = \log(|X|)\cdot k' - 2\cdot \log(\hat{L}(C_1, ..., C_k; X)).\]</div>
-<p>BIC wird also größer mit mehr Parametern und mehr Trainingsdaten und fällt ab, wenn sich die Likelihood-Funktion verbessert. Daher sollte man probieren, den BIC zu minimieren. Im Vergleich zu WSS ist BIC nicht monoton, sondern es gibt ein Minimum. Dies ist möglich, da BIC die Modellkomplexität bestraft. Ab einem gewissen Punkt ist die Strafe für ein komplexeres Modell größer als die Verbesse-rung der Likelihood-Funktion und das Minimum ist erreicht. Hieraus folgt, dass es basierend auf BIC sogar eine <em>optimale</em> Anzahl von Clustern gibt, die man automatisch als den Wert von <span class="math notranslate nohighlight">\(k\)</span>, bei dem BIC minimiert wird, bestimmen kann. Auch das können wir uns am Beispiel anschauen.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ks</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">)</span>
 <span class="n">bic</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1256,8 +918,9 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_06_17_0.png" src="../_images/kapitel_06_17_0.png" />
+<img alt="../_images/696179ab6ba1c6df7fbbf109c79dbfad4e87c06f3e600120466e844732ebd266.png" src="../_images/696179ab6ba1c6df7fbbf109c79dbfad4e87c06f3e600120466e844732ebd266.png" />
 </div>
 </div>
 <p>Das Minimum des BIC wird für <span class="math notranslate nohighlight">\(k=4\)</span> erreicht. Dies bedeutet, dass vier Cluster der optimale Trade-off zwischen der Anzahl der Modellparameter und der Qualität der Cluster sind. Bitte beachten Sie, dass man die absoluten Werte des BIC ignorieren sollte (im Bild also die Werte der y-Achse). Ob BIC positiv oder negativ ist oder die Werte in der Größenordnung <span class="math notranslate nohighlight">\(10^2\)</span> oder <span class="math notranslate nohighlight">\(10^5\)</span> liegen, hängt eher von den Daten ab als von der Qualität der Ergebnisse. Entsprechend kann man sogar die Skala der y-Achse ausblenden, ohne wertvolle Informationen zu verlieren.</p>
@@ -1270,7 +933,7 @@ title="Print to PDF"
 </div></blockquote>
 </section>
 <section id="probleme-des-em-clustering">
-<h3><span class="section-number">6.4.3. </span>Probleme des EM-Clustering<a class="headerlink" href="#probleme-des-em-clustering" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.4.3. </span>Probleme des EM-Clustering<a class="headerlink" href="#probleme-des-em-clustering" title="Permalink to this heading">#</a></h3>
 <p>EM-Clustering löst zwei Probleme des <span class="math notranslate nohighlight">\(k\)</span>-Means-Algorithmus: Unterschiedliche Wertebereiche der Merkmale können durch die Kovarianzmatrizen berücksichtigt werden. Hierdurch lassen sich auch ellipsoide Cluster beschreiben, was mächtiger als die eher runde Form beim <span class="math notranslate nohighlight">\(k\)</span>-Means-Clustering ist. Die anderen Probleme des <span class="math notranslate nohighlight">\(k\)</span>-Means-Algorithmus hat man auch weiterhin mit dem EM-Clustering.</p>
 <ul class="simple">
 <li><p>EM-Clustering ist sensitiv bezüglich der Startwerte. Eine schlechte Startposition kann dazu führen, dass der Algorithmus nur sehr langsam konvergiert oder sogar ein schlechtes Ergebnis liefert. Ein guter Ansatz, das EM-Clustering zu initialisieren, ist es, die Centroids vom <span class="math notranslate nohighlight">\(k\)</span>-Means-Clustering als Startwerte für die Mittelwerte der Cluster zu nutzen.</p></li>
@@ -1280,11 +943,16 @@ title="Print to PDF"
 </section>
 </section>
 <section id="dbscan">
-<h2><span class="section-number">6.5. </span>DBSCAN<a class="headerlink" href="#dbscan" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">6.5. </span>DBSCAN<a class="headerlink" href="#dbscan" title="Permalink to this heading">#</a></h2>
 <p>Bisher haben wir immer die Rathäuser als Referenzpunkt für die Definition von Städten benutzt. Wenn wir aus dem Fenster schauen, erkennen wir jedoch, dass die Nachbarhäuser zur gleichen Stadt gehören, auch ohne zu wissen, wo das Rathaus liegt. Das Gleiche gilt für die Nachbarn Ihrer Nachbarn usw. Im Endeffekt sind alle Ihre direkten oder indirekten Nachbarn Teil der gleichen Stadt. Dies ist die Grundidee des <em>dichtebasierten Clustering</em> (engl. <em>density-based clustering</em>).</p>
 <p>Dieser Ansatz ist grundverschieden vom <span class="math notranslate nohighlight">\(k\)</span>-Means-Algorithmus und vom EM-Clustering, weil es keine Formel gibt, mit der man angeben kann, welche Instanzen zu einem Cluster gehören. Stattdessen beschreiben die Instanzen die Cluster: Wenn wir wissen wollen, welche Instanzen zum gleichen Cluster gehören, müssen wir uns die Nachbarschaften anschauen.</p>
 <p>Der DBSCAN-Algorithmus (Density-Based Spatial Clustering of Applications with Noise) ist ein weitverbreiteter dichtebasierter Clusteralgorithmus. Auf unseren Beispieldaten liefert DBSCAN das folgende Ergebnis.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -1314,16 +982,17 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_06_19_0.png" src="../_images/kapitel_06_19_0.png" />
+<img alt="../_images/40fa989e816cb0a4879ed7305cfec8396b1430fba891d4d532196caefd05f6ce.png" src="../_images/40fa989e816cb0a4879ed7305cfec8396b1430fba891d4d532196caefd05f6ce.png" />
 </div>
 </div>
 <p>Wir können dieselben vier Cluster wie auch bisher erkennen. Es gibt jedoch auch einige Instanzen die mit einem grauen Kreuz markiert sind. Diese Instanzen sind keinem Cluster zugeordnet und werden als <em>Rauschen</em> (engl. <em>noise</em>) identifiziert. Dies kann passieren, wenn es Instanzen gibt, die sich nicht in einer dichten Nachbarschaft befinden. In unserer Analogie sind das die Häuser, die sich außerhalb der Stadtgrenzen befinden, zum Beispiel ein Bauernhof an einer Landstraße.</p>
 <section id="id5">
-<h3><span class="section-number">6.5.1. </span>Der Algorithmus<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.5.1. </span>Der Algorithmus<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
 <p>Der DBSCAN-Algorithmus basiert auf dem Konzept von <em>dichten Nachbarschaften</em>. Eine Nachbarschaft wird über die Distanz <span class="math notranslate nohighlight">\(\epsilon \in \mathbb{R}\)</span> definiert, sodass die Nachbarn einer Instanz <span class="math notranslate nohighlight">\(x \in X\)</span> definiert sind als <span class="math notranslate nohighlight">\(neighbors(x) = \{x' \in X: d(x, x') \leq \epsilon\}\)</span>. Eine Nachbarschaft heißt <em>dicht</em>, wenn sie mehr als <span class="math notranslate nohighlight">\(minPts \in \mathbb{N}\)</span> Instanzen beinhaltet. Alle Instanzen, die eine dichte Nachbarschaft haben, nennt man <em>Kernpunkte</em> (engl. <em>core points</em>). Wir nutzen die Notation <span class="math notranslate nohighlight">\(core(C) = \{x \in X: |neighbors(x)| \geq minPts\}\)</span>, um alle Kernpunkte innerhalb eines Clusters <span class="math notranslate nohighlight">\(C \subseteq X\)</span> zu beschreiben, und <span class="math notranslate nohighlight">\(core(X)\)</span> für alle Kernpunkte.</p>
 <p>Sobald man alle Kernpunkte bestimmt hat, kann man ein Cluster <em>wachsen</em> lassen. Hierzu wählt man einen beliebigen Kernpunkt aus und definiert, dass dieser Kernpunkt zum ersten Cluster gehört. Dann fügt man alle Nachbarn dem Cluster hinzu. Für alle Nachbarn, die ebenfalls Kernpunkte sind, wird dies wiederholt, bis man irgendwann alle Nachbarn von allen Kernpunkten im Cluster hat. Dann wählt man den nächsten Kernpunkt, der noch zu keinem Cluster gehört aus, und lässt das nächste Cluster wachsen.</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Setze <span class="math notranslate nohighlight">\(i=1\)</span> als aktuelle Nummer des Clusters.</p></li>
 <li><p>Wähle einen Kernpunkt aus, der noch keinem Cluster zugeordnet ist, um ein neues Cluster zu initialisieren, also <span class="math notranslate nohighlight">\(x \in core(X) \setminus \bigcup_{j_i} C_j\)</span> und setze <span class="math notranslate nohighlight">\(C_i = \{x\}\)</span>.</p></li>
 <li><p>Füge alle Nachbarn der Kernpunkte in <span class="math notranslate nohighlight">\(C_i\)</span> dem Cluster hinzu, also <span class="math notranslate nohighlight">\(C_i = \bigcup_{x \in core(C_i)} neighbors(x)\)</span>.</p></li>
@@ -1332,6 +1001,11 @@ title="Print to PDF"
 </ol>
 <p>Die Arbeitsweise des Algorithmus können wir uns am Beispiel verdeutlichen.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">core_samples_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">dbscan</span><span class="o">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
 <span class="n">core_samples_mask</span><span class="p">[</span><span class="n">dbscan</span><span class="o">.</span><span class="n">core_sample_indices_</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
@@ -1405,8 +1079,9 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_06_21_0.png" src="../_images/kapitel_06_21_0.png" />
+<img alt="../_images/aa81444df62c81ed15b146e4e2b771d144d844422e1266ad849c56595b7f1263.png" src="../_images/aa81444df62c81ed15b146e4e2b771d144d844422e1266ad849c56595b7f1263.png" />
 </div>
 </div>
 <p>Im Detail passiert Folgendes:</p>
@@ -1419,9 +1094,14 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="bestimmen-von-epsilon-und-minpts">
-<h3><span class="section-number">6.5.2. </span>Bestimmen von <span class="math notranslate nohighlight">\(\epsilon\)</span> und <span class="math notranslate nohighlight">\(minPts\)</span><a class="headerlink" href="#bestimmen-von-epsilon-und-minpts" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.5.2. </span>Bestimmen von <span class="math notranslate nohighlight">\(\epsilon\)</span> und <span class="math notranslate nohighlight">\(minPts\)</span><a class="headerlink" href="#bestimmen-von-epsilon-und-minpts" title="Permalink to this heading">#</a></h3>
 <p>Ein Vorteil von DBSCAN ist, dass wir die Anzahl der Cluster nicht selbst bestimmen müssen. Stattdessen werden diese vom Algorithmus auf Grundlage der Kernpunkte bestimmt. Wir müssen jedoch definieren, was eine (dichte) Nachbarschaft ist, indem wir die Parameter <span class="math notranslate nohighlight">\(\epsilon\)</span> und <span class="math notranslate nohighlight">\(minPts\)</span> festlegen. Genauso wie ein schlecht gewähltes <span class="math notranslate nohighlight">\(k\)</span> bei den bisherigen Algorithmen zu schlechten Ergebnissen führen kann, gilt dies auch für diese Parameter. In unserem Beispiel haben wir <span class="math notranslate nohighlight">\(\epsilon=0,03\)</span> und <span class="math notranslate nohighlight">\(minPts=4\)</span> verwendet. Hier sind die Ergebnisse für einige andere Werte.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
 
@@ -1458,14 +1138,20 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_06_23_0.png" src="../_images/kapitel_06_23_0.png" />
+<img alt="../_images/170d7822deb61d3794fb23c337a4be037d74fc0cadba71a64c705445d6acac9d.png" src="../_images/170d7822deb61d3794fb23c337a4be037d74fc0cadba71a64c705445d6acac9d.png" />
 </div>
 </div>
 <p>In der ersten Spalte sehen wir Ergebnisse für sehr kleine Werte von <span class="math notranslate nohighlight">\(\epsilon\)</span> mit 0,01. Wenn man die <span class="math notranslate nohighlight">\(minPts\)</span> bei 4 belässt, findet man keine echten Cluster mehr. Es gibt zwar einige wenige Instanzen, die noch als Kernpunkte erkannt werden, die meisten Instanzen sind jedoch Rauschen. Wenn man <span class="math notranslate nohighlight">\(minPts\)</span> auf 2 reduziert, wird das Ergebnis besser. Es gibt vier größere Cluster, die ähnlich zu unserem Beispielergebnis weiter oben sind. Es gibt jedoch noch viele sehr kleine Cluster, die nur drei Instanzen beinhalten. Das ist nicht wünschenswert: Diese kleinen Cluster sollten entweder zu größeren Clustern gehören oder als Rauschen erkannt werden. In der zweiten Spalte sehen wir, was passiert, wenn wir ein relativ großes <span class="math notranslate nohighlight">\(\epsilon\)</span>von 0,05 wählen. Die Ergebnisse sehen besser aus als mit dem kleinen Epsilon. Wenn wir die <span class="math notranslate nohighlight">\(minPts\)</span> bei 4 belassen, finden wir drei große Cluster, die dem Ergebnis vom <span class="math notranslate nohighlight">\(k\)</span>-Means- und EM-Clustering mit drei Clustern entsprechen. Wenn wir die <span class="math notranslate nohighlight">\(minPts\)</span> auf 20 erhöhen, haben wir weniger Kernpunkte, die stattdessen große Nachbarschaften aufweisen. Das führt zu einem ähnlichen Ergebnis wie mit unserer ursprünglichen Parameterwahl von <span class="math notranslate nohighlight">\(\epsilon=0,03\)</span> und <span class="math notranslate nohighlight">\(minPts=4\)</span>, jedoch mit weniger Rauschen.</p>
 <p>Im Allgemeinen ist es so, dass man mit einem kleinen <span class="math notranslate nohighlight">\(\epsilon\)</span> die Wahrscheinlichkeit für viel Rauschen oder sehr kleine Cluster erhöht. Wenn man ein größeres  <span class="math notranslate nohighlight">\(\epsilon\)</span> wählt, führt dies dazu, dass Cluster verschmolzen werden. Wenn man <span class="math notranslate nohighlight">\(minPts\)</span> reduziert, bekommt man mehr Kernpunkte, was dazu führt, dass Brücken zwischen Clustern entstehen und diese zusammengeführt werden oder auch dass sehr kleine Cluster möglich werden. Wenn man <span class="math notranslate nohighlight">\(minPts\)</span> erhöht, kann man kleine Cluster vermeiden, es könnte aber auch viel Rauschen geben, wenn <span class="math notranslate nohighlight">\(\epsilon\)</span> zu klein gewählt wird. Das Zusammenspiel der Parameter ist also relativ komplex und es gibt keine einfache Faustregel, um gute Werte zu bestimmen.</p>
 <p>Es gibt jedoch ein analytisches Werkzeug, mit dessen Hilfe man gute Kombinationen von <span class="math notranslate nohighlight">\(\epsilon\)</span> und <span class="math notranslate nohighlight">\(minPts\)</span> ermitteln kann. Hierzu nutzt man den Abstand des <span class="math notranslate nohighlight">\(k\)</span><em>-ten nächsten Nachbarn</em> (engl. <span class="math notranslate nohighlight">\(k\)</span>-th <em>nearest neighbor</em>) einer Instanz, um zu sehen, wie viele Kernpunkte es bei einer Parameterkombination gibt.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">NearestNeighbors</span>
 
@@ -1484,20 +1170,26 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_06_25_0.png" src="../_images/kapitel_06_25_0.png" />
+<img alt="../_images/e4f995ef9b07b97641e49e97c1e23816cd7254d7636dae2e7d1d31dfde388165.png" src="../_images/e4f995ef9b07b97641e49e97c1e23816cd7254d7636dae2e7d1d31dfde388165.png" />
 </div>
 </div>
 <p>Gute Parameter findet man in dem Bereich, in dem die Kurve stark gekrümmt ist. Für die Kurve von <span class="math notranslate nohighlight">\(minPts=4\)</span> ist das zum Beispiel im Bereich zwischen 0,03 und 0,04 <span class="math notranslate nohighlight">\(\epsilon\)</span> der Fall.</p>
 </section>
 <section id="probleme-bei-dbscan">
-<h3><span class="section-number">6.5.3. </span>Probleme bei DBSCAN<a class="headerlink" href="#probleme-bei-dbscan" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.5.3. </span>Probleme bei DBSCAN<a class="headerlink" href="#probleme-bei-dbscan" title="Permalink to this heading">#</a></h3>
 <p>Bei DBSCAN muss man weder die Anzahl der Cluster auswählen, noch gibt es Einschränkungen bezüglich der Form der Cluster. Trotzdem gibt es auch bei diesem Algorithmus verschiedene Probleme, die man berücksichtigen sollte.</p>
 <ul class="simple">
 <li><p>Das größte Problem ist die Wahl von <span class="math notranslate nohighlight">\(\epsilon\)</span> und <span class="math notranslate nohighlight">\(minPts\)</span>. Insbesondere wenn es Gruppen gibt, die sehr nah beieinander liegen, oder die Daten insgesamt sehr dicht sind, kann es schwierig sein, sinnvolle Parameter und Cluster zu finden. Der Grund dafür liegt darin, dass in diesem Fall einige Datenpunkte zu <em>Brückenpunkten</em> (engl. <em>bridge points</em>) zwischen zwei Clustern werden können. Man spricht von Brückenpunkten, wenn es Kernpunkte gibt, die dafür sorgen, dass zwei Cluster verschmelzen. Um dies zu verhindern, muss man große Werte für  wählen, damit es keine Kernpunkte in der Grenzregion eines Clusters gibt. Dies führt aber auch dazu, dass man <span class="math notranslate nohighlight">\(\epsilon\)</span> relativ groß wählen muss, was wieder zu neuen Problemen führen kann.</p></li>
 <li><p>Ein weiteres Problem sind Gruppierungen mit unterschiedlichen Dichten. Im folgenden Beispiel sollen zwei kreisförmige Gruppen geclustert werden. Mit 100 Instanzen pro Kreis sind die Daten des äußeren Kreises aufgrund des größeren Umfangs nicht sehr dicht im Verhältnis zum inneren Kreis. Daher gibt es einige Stellen ohne Kernpunkte, sodass mehrere kleinere Cluster im äußeren Kreis entstehen. Wenn man die Anzahl der Instanzen erhöht, werden beide Kreise korrekt geclustert.</p></li>
 </ul>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_circles</span>
 
@@ -1522,8 +1214,9 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_06_27_0.png" src="../_images/kapitel_06_27_0.png" />
+<img alt="../_images/192b3513a3cdd4f4bc0c29addeaff0b1ce0b727542580a9d269dd80905ab801c.png" src="../_images/192b3513a3cdd4f4bc0c29addeaff0b1ce0b727542580a9d269dd80905ab801c.png" />
 </div>
 </div>
 <ul class="simple">
@@ -1533,9 +1226,14 @@ title="Print to PDF"
 </section>
 </section>
 <section id="single-linkage-clustering">
-<h2><span class="section-number">6.6. </span>Single Linkage Clustering<a class="headerlink" href="#single-linkage-clustering" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">6.6. </span>Single Linkage Clustering<a class="headerlink" href="#single-linkage-clustering" title="Permalink to this heading">#</a></h2>
 <p>Ein wichtiger Mechanismus, wie Städte wachsen, ist der Zusammenschluss mit anderen Städten und Gemeinden. Dies passiert natürlich nicht beliebig, sondern mit Städten, die ohnehin sehr nah beieinander liegen. Das ist die Grundidee vom <em>hierarchischen Clustern</em>. Die Idee ist ähnlich wie bei DBSCAN, nur dass wir nicht mit dichten Nachbarschaften arbeiten, sondern stattdessen kleine Cluster zu größeren Clustern zusammenfügen. Als Ergebnis hat man daher sehr viele verschiedene mögliche Clusterergebnisse, da das Zusammenfügen durchgeführt wird, bis alle Instanzen zu einem einzigen Cluster verschmolzen sind. Anschließend wählt man von diesen vielen Ergebnissen ein passendes aus. Das Endergebnis sieht dann zum Beispiel wie folgt aus.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -1567,20 +1265,21 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_06_29_0.png" src="../_images/kapitel_06_29_0.png" />
+<img alt="../_images/f703dcb2791e170fbc9a34f6df5c573dc1e6fa024a3f4d75c3819bbe2f8374da.png" src="../_images/f703dcb2791e170fbc9a34f6df5c573dc1e6fa024a3f4d75c3819bbe2f8374da.png" />
 </div>
 </div>
 <p>Das Ergebnis sieht ähnlich aus wie bei DBSCAN, es gibt jedoch einen großen Unterschied: Es entsteht kein Rauschen, stattdessen kommt es zu einigen sehr kleinen Clustern, die zum Teil sogar nur aus einer Instanz bestehen, zum Beispiel am linken Rand.</p>
 <p>Es gibt verschiedene hierarchische Clusteralgorithmen, die sich darin unterscheiden, wie die Cluster zusammengefügt werden. Darunter sind auch Algorithmen, die genau andersrum vorgehen und ein großes Cluster schrittweise in kleine Cluster zerlegen, zum Beispiel das <em>Complete Linkage Clustering</em>. Im Folgenden betrachten wir das <em>Single Linkage Clustering</em> (SLINK) als Beispiel für einen hierarchischen Clusteralgorithmus.</p>
 <section id="der-slink-algorithmus">
-<h3><span class="section-number">6.6.1. </span>Der SLINK-Algorithmus<a class="headerlink" href="#der-slink-algorithmus" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.6.1. </span>Der SLINK-Algorithmus<a class="headerlink" href="#der-slink-algorithmus" title="Permalink to this heading">#</a></h3>
 <p>SLINK ist ein iterativer Algorithmus, der in jedem Schritt die zwei Cluster mit dem geringsten Abstand voneinander zu einem neuen Cluster zusammenfügt. Zu Beginn ist jede Instanz in einem eigenen Cluster. SLINK berechnet dann die Distanzen für zwei Cluster <span class="math notranslate nohighlight">\(C\)</span> und <span class="math notranslate nohighlight">\(C'\)</span> als die Distanz zwischen den Instanzen der jeweiligen Cluster, die sich am nächsten liegen, also</p>
 <div class="math notranslate nohighlight">
 \[d(C, C') = \min_{x\in C, x' \in X'} dist(x, x').\]</div>
 <p>Für jedes Cluster, das beim Zusammenfügen erstellt wird, berechnet SLINK ein <em>Level</em>. Das Level gibt an, wie weit die Cluster, die verbunden wurden, voneinander getrennt waren. Man kann sich das als den Abstand zwischen zwei Städten, die zu einer Stadt verbunden werden, vorstellen. Ein niedriges Level heißt also, dass zwei Cluster, die verbunden wurden, nah beieinander lagen, ein hohes Level heißt, dass es eine größere Lücke zwischen den Clustern gab. Diese Lücke ist dann automatisch auch Teil des größeren Clusters.</p>
 <p>Basierend auf dieser Idee ist der eigentlich Algorithmus relativ einfach:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Initialisiere die Basiscluster <span class="math notranslate nohighlight">\(C = \{x\}\)</span> für alle <span class="math notranslate nohighlight">\(x \in X\)</span> mit Level <span class="math notranslate nohighlight">\(L(C) = 0\)</span>.</p></li>
 <li><p>Finde die zwei Cluster, deren Abstand minimal ist, also <span class="math notranslate nohighlight">\(C, C' = \arg\min_{C, C'} d(C,C')\)</span>.</p></li>
 <li><p>Verbinde <span class="math notranslate nohighlight">\(C\)</span> und <span class="math notranslate nohighlight">\(C'\)</span> zu einem neuen Cluster <span class="math notranslate nohighlight">\(C_{new} = C \cup C'\)</span> mit Level <span class="math notranslate nohighlight">\(L(C_{new}) = d(C, C')\)</span>.</p></li>
@@ -1589,9 +1288,14 @@ title="Print to PDF"
 <p>Das Ergebnis dieses Algorithmus ist also kein eindeutiges Clustering, sondern sehr viele mögliche Ergebnisse. Diese kann man sich am besten durch ein <em>Dendrogramm</em> veranschaulichen.</p>
 </section>
 <section id="dendrogramme">
-<h3><span class="section-number">6.6.2. </span>Dendrogramme<a class="headerlink" href="#dendrogramme" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.6.2. </span>Dendrogramme<a class="headerlink" href="#dendrogramme" title="Permalink to this heading">#</a></h3>
 <p>Ein <em>Dendrogramm</em> ist die visuelle Darstellung einer Baumstruktur als Graph. Für unser Beispiel bekommen wir folgendes Dendrogramm.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.cluster.hierarchy</span> <span class="kn">import</span> <span class="n">dendrogram</span>
 
@@ -1632,8 +1336,9 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_06_31_0.png" src="../_images/kapitel_06_31_0.png" />
+<img alt="../_images/a0980003efc30013f06559943a0bab789958280498e7602daad50c12b60d5b29.png" src="../_images/a0980003efc30013f06559943a0bab789958280498e7602daad50c12b60d5b29.png" />
 </div>
 </div>
 <p>Am unteren Rand des Dendrogramms sind unsere Instanzen, was gleichbedeutend ist mit den Clustern mit Level null. Jede horizontale Linie verbindet zwei Cluster zu einem neuen Cluster. Die Lage dieser Linie auf der y-Achse ist das Level des neuen Clusters, das durch die Verbindung entsteht. Die horizontale Linie bei 0,1 verbindet zum Beispiel alle Instanzen in den Clustern des linken Teilbaums mit den Instanzen im rechten Teilbaum zu einem neuen Cluster mit Level 0,1. Aufgrund der Definition des Levels wissen wir, dass alle Instanzen im linken Teilbaum mindestens eine Distanz von 0,1 zu allen Instanzen im rechten Teilbaum haben. Außerdem ist noch eine schwarze horizontale Linie bei 0,03 eingezeichnet. Diese Linie markiert die Clusterauswahl, für die wir uns im Beispiel weiter oben entschieden haben.</p>
@@ -1641,13 +1346,18 @@ title="Print to PDF"
 <p>Auch wenn Dendrogramme als Visualisierung zunächst etwas gewöhnungsbedürftig sind, handelt es sich um ein hervorragendes Werkzeug, um visuell geeignete Cluster auszuwählen. Im obigen Beispiel haben wir einen festen Grenzwert von 0,03 verwendet, um die Cluster anhand der Level auszuwählen. Im Dendrogramm kann man direkt erkennen, was zum Beispiel passieren würde, wenn wir stattdessen einen Grenzwert von 0,05 wählen würden: Das grüne und das braune Cluster wären dann zusammen in einem Cluster. Wenn man den Grenzwert zwischen 0,06 und 0,26 wählen würde, hätte man zwei Cluster. Für Werte zwischen 0,06 und 0,1 hätte man eigentlich auch schon nur noch zwei große Cluster, es gäbe jedoch formal noch ein weiteres Cluster mit einer einzigen Instanz. Insgesamt erkennt man die Auswirkungen des Grenzwerts ,den man wählt, deutlich besser als beim ähnlichen DBSCAN-Algorithmus, wo die Auswirkungen unterschiedlicher Werte von <span class="math notranslate nohighlight">\(\epsilon\)</span> und <span class="math notranslate nohighlight">\(minPts\)</span> nicht einfach vorherzusagen sind.</p>
 </section>
 <section id="probleme-bei-slink">
-<h3><span class="section-number">6.6.3. </span>Probleme bei SLINK<a class="headerlink" href="#probleme-bei-slink" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.6.3. </span>Probleme bei SLINK<a class="headerlink" href="#probleme-bei-slink" title="Permalink to this heading">#</a></h3>
 <p>Wie alle Algorithmen, ist auch SLINK nicht ohne Probleme.</p>
 <ul class="simple">
 <li><p>Das größte Problem bei SLINK (und beim hierarchischen Clustern im Allgemeinen) ist die Skalierbarkeit für größere Datensätze. Da die Algorithmen in der Regel erfordern, dass man eine quadratische Distanzmatrix berechnet, in der die Distanzen zwischen allen Instanzen gespeichert werden, ist insbesondere der Speicherbedarf problematisch. Bei 100.000 Instanzen wären dies zum Beispiel bereits etwa 4 Gigabyte, selbst wenn man die Symmetrie ausnutzt und nur das obere Dreieck der Distanzmatrix speichert. Daher können hierarchische Clusteralgorithmen in der Regel nur bei kleinen Datensätzen angewandt werden.</p></li>
 <li><p>Ebenso wie beim DBSCAN-Algorithmus sind Bereiche mit unterschiedlichen Dichten problematisch. Es ist jedoch einfacher, einen guten Grenzwert zu bestimmen, mit dem man die Cluster trennen kann. Hier hilft das Dendrogramm. Im Beispiel mit den Kreisen erkennt man zum Beispiel, dass man für Grenzwerte zwischen 0,2 und 0,4 das richtige Ergebnis findet.</p></li>
 </ul>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_circles</span>
 
@@ -1672,8 +1382,9 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_06_33_0.png" src="../_images/kapitel_06_33_0.png" />
+<img alt="../_images/313b8ef445e6d0ee1fecaae70638372cc8d5452d10fff378a3b561d0f6e471d5.png" src="../_images/313b8ef445e6d0ee1fecaae70638372cc8d5452d10fff378a3b561d0f6e471d5.png" />
 </div>
 </div>
 <ul class="simple">
@@ -1684,12 +1395,17 @@ title="Print to PDF"
 </section>
 </section>
 <section id="vergleich-der-algorithmen">
-<h2><span class="section-number">6.7. </span>Vergleich der Algorithmen<a class="headerlink" href="#vergleich-der-algorithmen" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">6.7. </span>Vergleich der Algorithmen<a class="headerlink" href="#vergleich-der-algorithmen" title="Permalink to this heading">#</a></h2>
 <p>Während der Beschreibung haben wir immer wieder einzelne Aspekte der Algorithmen miteinander verglichen, insbesondere wenn es ähnliche Probleme gab oder wenn ein Algorithmus ein Problem geschickt umgangen hat. Im letzten Teil dieses Kapitels wollen wir verschiedene Eigenschaften der Algorithmen direkt miteinander vergleichen.</p>
 <section id="clusterformen">
-<h3><span class="section-number">6.7.1. </span>Clusterformen<a class="headerlink" href="#clusterformen" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.7.1. </span>Clusterformen<a class="headerlink" href="#clusterformen" title="Permalink to this heading">#</a></h3>
 <p>Die wohl wichtigste Eigenschaft der Algorithmen ist es, Cluster richtig zu erkennen. Hierbei spielt insbesondere die Form der Cluster eine Rolle, wie wir schon am Beispiel der Kreise und der Halbmonde gesehen haben.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -1752,8 +1468,11 @@ title="Print to PDF"
         <span class="n">angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
         <span class="n">angle</span> <span class="o">=</span> <span class="mi">180</span> <span class="o">*</span> <span class="n">angle</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>  <span class="c1"># convert to degrees</span>
         <span class="n">v</span> <span class="o">=</span> <span class="mf">2.</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-        <span class="n">ell</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">patches</span><span class="o">.</span><span class="n">Ellipse</span><span class="p">(</span><span class="n">em</span><span class="o">.</span><span class="n">means_</span><span class="p">[</span><span class="n">n</span><span class="p">,</span> <span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-                                  <span class="mi">180</span> <span class="o">+</span> <span class="n">angle</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+        <span class="n">ell</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">patches</span><span class="o">.</span><span class="n">Ellipse</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="n">em</span><span class="o">.</span><span class="n">means_</span><span class="p">[</span><span class="n">n</span><span class="p">,</span> <span class="p">:</span><span class="mi">2</span><span class="p">],</span>
+                                  <span class="n">width</span><span class="o">=</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                                  <span class="n">height</span><span class="o">=</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                                  <span class="n">angle</span><span class="o">=</span><span class="mi">180</span><span class="o">+</span><span class="n">angle</span><span class="p">,</span>
+                                  <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
         <span class="n">ell</span><span class="o">.</span><span class="n">set_clip_box</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">bbox</span><span class="p">)</span>
         <span class="n">ell</span><span class="o">.</span><span class="n">set_alpha</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">ell</span><span class="p">)</span>
@@ -1769,8 +1488,9 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_06_35_0.png" src="../_images/kapitel_06_35_0.png" />
+<img alt="../_images/acb5b66b394454198a5a0bb71c2688f77ba310bde2440f68b4d7714d342693ea.png" src="../_images/acb5b66b394454198a5a0bb71c2688f77ba310bde2440f68b4d7714d342693ea.png" />
 </div>
 </div>
 <p>Wie man sieht, liefern alle Algorithmen auf unserem Beispieldatensatz gute Ergebnisse. Im Detail erkennt man jedoch auch hier Unterschiede, insbesondere dort, wo die Cluster nah beieinander liegen. An der Grenze zwischen den beiden Clustern im mittleren Bereich sieht man eine scheinbar zufällige Trennung bei <span class="math notranslate nohighlight">\(k\)</span>-Means und EM Clustering, Rauschen bei DBSCAN, und einige kleine Cluster bei SLINK.</p>
@@ -1778,13 +1498,18 @@ title="Print to PDF"
 <p>Die vierte Reihe zeigt, dass auch runde Clusterformen bei <span class="math notranslate nohighlight">\(k\)</span>-Means und EM-Clustering möglicherweise zu Problemen führen, nämlich dann, wenn es sich um ineinander liegende Kreise handelt.</p>
 </section>
 <section id="anzahl-der-cluster">
-<h3><span class="section-number">6.7.2. </span>Anzahl der Cluster<a class="headerlink" href="#anzahl-der-cluster" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.7.2. </span>Anzahl der Cluster<a class="headerlink" href="#anzahl-der-cluster" title="Permalink to this heading">#</a></h3>
 <p>Eine weitere Stärke von DBSCAN und SLINK besteht darin, dass man die Anzahl der Cluster nicht vorgeben muss, sondern sich diese automatisch aufgrund der Dichte der Daten und der gewählten Parameter ergibt. Beim EM-Clustering gibt es mit dem BIC ein analytisches Kriterium, mit dem man das Optimum bestimmen kann. Bei <span class="math notranslate nohighlight">\(k\)</span>-Means ist eine manuelle Analyse zwingend erforderlich, zum Beispiel mit der WSS. Hier gibt es kein hartes Kriterium, anhand dessen man einen guten Wert für <span class="math notranslate nohighlight">\(k\)</span> aus dem Liniendiagramm der WSS ablesen kann, stattdessen ist die Erfahrung gefragt, um relevante Änderungen in der Steigung zu erkennen.</p>
 </section>
 <section id="ausfuhrungszeit">
-<h3><span class="section-number">6.7.3. </span>Ausführungszeit<a class="headerlink" href="#ausfuhrungszeit" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.7.3. </span>Ausführungszeit<a class="headerlink" href="#ausfuhrungszeit" title="Permalink to this heading">#</a></h3>
 <p>Die Ausführungszeit kann, je nach Größe des Datensatzes und Anwendungsfall, ein entscheidendes Kriterium bei der Wahl des Algorithmus sein. Unten sieht man die Ergebnisse der Ausführungszeit für das Clustern von Daten mit 20 Merkmalen für 10.000, 100.000, 1.000.000, 10.000.000 und 100.000.000 Instanzen, also für bis zu 15 Gigabyte Daten. SLINK fehlt im Vergleich, da dieser Algorithmus bereits bei 100.000 Instanzen aus den oben beschriebenen Problemen mit dem Platzbedarf nicht mehr korrekt arbeitet. Die Zeiten wurden mit einem normalen Laptop (Intel Core i7-8850 &#64; 2.60GHz, 32 GB RAM) mit scikit-learn 0.24 ermittelt.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
 <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
@@ -1831,34 +1556,35 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_06_37_0.png" src="../_images/kapitel_06_37_0.png" />
+<img alt="../_images/0149c6ba7c0c8e93fd1fbdc9553a07be7a8db6515af712b90112812d835666d8.png" src="../_images/0149c6ba7c0c8e93fd1fbdc9553a07be7a8db6515af712b90112812d835666d8.png" />
 </div>
 </div>
 <p>Wie man sieht, ist die Laufzeit des <span class="math notranslate nohighlight">\(k\)</span>-Mean und des EM-Algorithmus ähnlich, DBSCAN ist langsamer. Dies liegt daran, dass es bei vielen Instanzen möglicherweise sehr große Nachbarschaften gibt, was sich negativ auf die benötigte Rechenzeit von DBSCAN auswirkt. Die Laufzeitmessungen hängen aber auch von den Daten ab. Wenn die Daten besonders dünn (engl. <em>sparse</em>) oder dicht sind oder es eine seltsame Verteilung gibt, kann sich dies auf die Laufzeiten auswirken. Im Allgemeinen ist die Laufzeit aber ein sekundärer Aspekt bei der Auswahl eines geeigneten Clusteralgorithmus, es sei denn, man hat extrem viele Instanzen.</p>
 </section>
 <section id="interpretierbarkeit-und-darstellung">
-<h3><span class="section-number">6.7.4. </span>Interpretierbarkeit und Darstellung<a class="headerlink" href="#interpretierbarkeit-und-darstellung" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.7.4. </span>Interpretierbarkeit und Darstellung<a class="headerlink" href="#interpretierbarkeit-und-darstellung" title="Permalink to this heading">#</a></h3>
 <p>Ein großer Vorteil des <span class="math notranslate nohighlight">\(k\)</span>-Means und des EM-Clustering ist, dass diese Verfahren eine gut interpretierbare und kompakte mathematische Beschreibung der Cluster liefern, indem die Cluster durch die Centroids bzw. Normalverteilungen beschrieben werden. Dies liefert uns ein mächtiges Werkzeug, um die Bedeutung der Cluster zu verstehen. Außerdem ist es hierdurch möglich, unabhängig von den anderen Daten zu bestimmen, zu welchem Cluster eine Instanz gehört. Hierdurch lassen sich die Ergebnisse problemlos auf anderen Systemen einsetzen, wo die Daten selbst nicht zur Verfügung stehen.</p>
 <p>DBSCAN und SLINK habe keine vergleichbare Darstellung. Stattdessen sind hier die Instanzen selbst die Beschreibung der Cluster. Hierdurch kann man die Ergebnisse nur visuell interpretieren, was gerade bei hochdimensionalen Daten äußert schwierig ist. SLINK ist für die Interpretation durch die Dendrogramme etwas besser, da man zumindest relativ einfach beurteilen kann, wie groß die Abstände zwischen den Instanzen bzw. den Clustern sind.</p>
 </section>
 <section id="kategorische-merkmale">
-<h3><span class="section-number">6.7.5. </span>Kategorische Merkmale<a class="headerlink" href="#kategorische-merkmale" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.7.5. </span>Kategorische Merkmale<a class="headerlink" href="#kategorische-merkmale" title="Permalink to this heading">#</a></h3>
 <p>Kategorische Merkmale sind ein Problem für alle Algorithmen, die wir betrachtet haben. Sowohl <span class="math notranslate nohighlight">\(k\)</span>-Means als auch DBSCAN und SLINK berechnen Distanzen. Da man per Definition keine sinnvollen Distanzen zwischen zwei Kategorien ermitteln kann, kann man auch keine sinnvollen Distanzen zwischen Instanzen mit kategorischen Daten berechnen. Im Fall von <span class="math notranslate nohighlight">\(k\)</span>-Means gibt es eine Variante namens <span class="math notranslate nohighlight">\(k\)</span>-Modes, bei der die Centroids durch den Modus der Daten im Cluster berechnet werden. Beim EM-Clustering geht die Normalverteilung von einem kontinuierlichen Wertebereich aus, was bei kategorischen Daten nicht der Fall ist. Die Lösung hier besteht darin, keine Normalverteilung für die Beschreibung der Cluster zu verwenden, sondern stattdessen den EM-Algorithmus mit einer besser passenden Verteilung zu benutzen, zum Beispiel einer Multinomialverteilung.</p>
 </section>
 <section id="fehlende-merkmale">
-<h3><span class="section-number">6.7.6. </span>Fehlende Merkmale<a class="headerlink" href="#fehlende-merkmale" title="Permalink to this headline">#</a></h3>
-<p>In der Praxis kommt es häufig vor, dass es Instanzen gibt, bei denen nicht die Werte für alle Merkmale bekannt sind. Man spricht hier von fehlenden Werten bzw. fehlenden Merkmalen. Es gibt drei Möglichkeiten, mit fehlenden Merkmalen umzugehen: Entweder kann der Algorithmus von sich aus mit unvollständigen Daten arbeiten. Dies ist, bis auf wenige Ausnahmen, nicht der Fall. Die zweite Möglichkeit besteht darin, alle unvollständigen Instanzen zu entfernen. Hier hat man jedoch möglicherweise in der Operationalisierung ein Problem. Als dritte Möglichkeit kann man durch <em>Imputation</em> eine Schätzung für die fehlenden Werte berechnen, zum Beispiel durch eine Regression basierend auf den vorhandenen Daten. Details zur Imputation finden Sie in der Literatur, zum Beispiel bei Barnard und Meng <a class="footnote-reference brackets" href="#barnard" id="id6">3</a>.</p>
+<h3><span class="section-number">6.7.6. </span>Fehlende Merkmale<a class="headerlink" href="#fehlende-merkmale" title="Permalink to this heading">#</a></h3>
+<p>In der Praxis kommt es häufig vor, dass es Instanzen gibt, bei denen nicht die Werte für alle Merkmale bekannt sind. Man spricht hier von fehlenden Werten bzw. fehlenden Merkmalen. Es gibt drei Möglichkeiten, mit fehlenden Merkmalen umzugehen: Entweder kann der Algorithmus von sich aus mit unvollständigen Daten arbeiten. Dies ist, bis auf wenige Ausnahmen, nicht der Fall. Die zweite Möglichkeit besteht darin, alle unvollständigen Instanzen zu entfernen. Hier hat man jedoch möglicherweise in der Operationalisierung ein Problem. Als dritte Möglichkeit kann man durch <em>Imputation</em> eine Schätzung für die fehlenden Werte berechnen, zum Beispiel durch eine Regression basierend auf den vorhandenen Daten. Details zur Imputation finden Sie in der Literatur, zum Beispiel bei Barnard und Meng <a class="footnote-reference brackets" href="#barnard" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>.</p>
 </section>
 <section id="korrelierte-merkmale">
-<h3><span class="section-number">6.7.7. </span>Korrelierte Merkmale<a class="headerlink" href="#korrelierte-merkmale" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.7.7. </span>Korrelierte Merkmale<a class="headerlink" href="#korrelierte-merkmale" title="Permalink to this heading">#</a></h3>
 <p>Korrelierte Merkmale sind für alle betrachteten Algorithmen problematisch, insbesondere die Algorithmen <span class="math notranslate nohighlight">\(k\)</span>-Means, DBSCAN und SLINK, die Distanzen berechnen, haben hierdurch ein Problem mit Korrelationen. Um dies zu verdeutlichen, betrachten wir einen extremen Fall: Nehmen wir an, es gebe zwei Merkmale, das normalisierte Alter in Jahren und das normalisierte Alter in Tagen. Man spricht von einem Merkmal als <em>normalisiert</em> (bzw. <em>normiert</em>), wenn die Werte auf das Intervall <span class="math notranslate nohighlight">\([0,1]\)</span>  reskaliert wurden. Die Werte dieser beiden Features wären nicht identisch, da das Alter in Tagen feingranularer ist als das Alter in Jahren. Die Bedeutung und der Informationsgehalt wären jedoch nahezu identisch, sodass es faktisch das Merkmal “normalisiertes Alter” zwei Mal geben würde. Das heißt auch, dass das Alter doppelt in die Distanzberechnung einfließt und dementsprechend einen überproportionalen Einfluss auf die Distanz hätte. Je mehr und je stärker die Korrelationen in den Daten sind, desto ausgeprägter ist der negative Effekt auf die Distanzberechnungen.</p>
 <p>Das EM-Clustering ist robuster gegenüber Korrelationen, da diese durch die Kovarianzen berücksichtigt werden können. Da man jedoch möglicherweise mehr Merkmale als benötigt hat, wirken sich Korrelationen auf die Berechnung des BIC aus, weshalb man eventuell eine zu kleine Anzahl an Clustern auswählt, da die Komplexität des Ergebnisses überschätzt wird.</p>
 </section>
 <section id="zusammenfassung-des-vergleichs">
-<h3><span class="section-number">6.7.8. </span>Zusammenfassung des Vergleichs<a class="headerlink" href="#zusammenfassung-des-vergleichs" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.7.8. </span>Zusammenfassung des Vergleichs<a class="headerlink" href="#zusammenfassung-des-vergleichs" title="Permalink to this heading">#</a></h3>
 <p><a class="reference internal" href="#tbl-cluster1"><span class="std std-numref">Table 6.1</span></a> und <a class="reference internal" href="#tbl-cluster2"><span class="std std-numref">Table 6.2</span></a> fassen die Stärken und Schwächen der Clusteralgorithmen noch einmal zusammen.</p>
-<table class="colwidths-auto table" id="tbl-cluster1">
+<table class="table" id="tbl-cluster1">
 <caption><span class="caption-number">Table 6.1 </span><span class="caption-text">Zusammenfassung der Vor- und Nachteile der Clusteralgorithmen (1/2)</span><a class="headerlink" href="#tbl-cluster1" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p><span class="xref myst"></span></p></th>
@@ -1900,7 +1626,7 @@ title="Print to PDF"
 </tr>
 </tbody>
 </table>
-<table class="colwidths-auto table" id="tbl-cluster2">
+<table class="table" id="tbl-cluster2">
 <caption><span class="caption-number">Table 6.2 </span><span class="caption-text">Zusammenfassung der Vor- und Nachteile der Clusteralgorithmen (2/2)</span><a class="headerlink" href="#tbl-cluster2" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p><span class="xref myst"></span></p></th>
@@ -1935,7 +1661,7 @@ title="Print to PDF"
 </section>
 </section>
 <section id="ubung">
-<h2><span class="section-number">6.8. </span>Übung<a class="headerlink" href="#ubung" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">6.8. </span>Übung<a class="headerlink" href="#ubung" title="Permalink to this heading">#</a></h2>
 <p>In dieser Übung wollen wir das Clustering vertiefen. Das Ziel ist es, die Parameterauswahl und die Interpretation der Cluster bei hochdimensionalen Daten zu üben. Die Interpretation ist auch die größte Schwierigkeit dieser Übung.
 Als Daten verwenden wir die Bostondaten. Hier noch ein paar Tipps vorweg:</p>
 <ul class="simple">
@@ -1944,36 +1670,37 @@ Als Daten verwenden wir die Bostondaten. Hier noch ein paar Tipps vorweg:</p>
 </ul>
 <p>In jedem der folgenden Aufgabenteile sollten Sie probieren, die Bedeutung jedes Clusters zu bestimmen, also eine Beschreibung der Instanzen, die gemeinsam gruppiert werden, als eine Art Gruppenname.</p>
 <section id="id7">
-<h3><span class="section-number">6.8.1. </span><span class="math notranslate nohighlight">\(k\)</span>-Means-Algorithmus<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.8.1. </span><span class="math notranslate nohighlight">\(k\)</span>-Means-Algorithmus<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h3>
 <p>Benutzen Sie den <span class="math notranslate nohighlight">\(k\)</span>-Means-Algorithmus, um die Daten zu clustern. Bestimmen Sie eine geeignete Clusteranzahl <span class="math notranslate nohighlight">\(k\)</span>. Benutzen Sie Ihr Wissen über die Daten, Visualisierungen und WSS, um eine geeignete Anzahl Cluster zu bestimmen.</p>
 </section>
 <section id="id8">
-<h3><span class="section-number">6.8.2. </span>EM Clustering<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.8.2. </span>EM Clustering<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h3>
 <p>Benutzen Sie das EM-Clustering, um die Daten zu clustern. Bestimmen Sie eine geeignete Clusteranzahl <span class="math notranslate nohighlight">\(k\)</span>. Benutzen Sie Ihr Wissen über die Daten, Visualisierungen und BIC, um eine geeignete Anzahl Cluster zu bestimmen.</p>
 </section>
 <section id="id9">
-<h3><span class="section-number">6.8.3. </span>DBSCAN<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.8.3. </span>DBSCAN<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h3>
 <p>Benutzen Sie DBSCAN, um die Daten zu clustern. Bestimmen Sie geeignete Werte für <span class="math notranslate nohighlight">\(\epsilon\)</span> und <span class="math notranslate nohighlight">\(minPts\)</span>. Benutzen Sie Ihr Wissen über die Daten und Visualisierungen, um geeignete Werte zu finden.</p>
 </section>
 <section id="slink">
-<h3><span class="section-number">6.8.4. </span>SLINK<a class="headerlink" href="#slink" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.8.4. </span>SLINK<a class="headerlink" href="#slink" title="Permalink to this heading">#</a></h3>
 <p>Benutzen Sie den SLINK-Algorithmus, um die Daten zu clustern. Bestimmen Sie mithilfe eines Dendrogramms einen geeigneten Grenzwert für die Level.</p>
 </section>
 <section id="vergleichen-sie-die-ergebnisse">
-<h3><span class="section-number">6.8.5. </span>Vergleichen Sie die Ergebnisse<a class="headerlink" href="#vergleichen-sie-die-ergebnisse" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">6.8.5. </span>Vergleichen Sie die Ergebnisse<a class="headerlink" href="#vergleichen-sie-die-ergebnisse" title="Permalink to this heading">#</a></h3>
 <p>Vergleichen Sie die Ergebnisse der Algorithmen. Welche Unterschiede gibt es zum Beispiel in der Clusteranzahl und der Form der Cluster? Identifizieren Sie eventuelle Probleme der Algorithmen.</p>
 <hr class="footnotes docutils" />
-<dl class="footnote brackets">
-<dt class="label" id="voronoi"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
-<dd><p><a class="reference external" href="https://mathworld.wolfram.com/VoronoiDiagram.html">https://mathworld.wolfram.com/VoronoiDiagram.html</a></p>
-</dd>
-<dt class="label" id="occam"><span class="brackets"><a class="fn-backref" href="#id4">2</a></span></dt>
-<dd><p><a class="reference external" href="https://doi.org/10.1007/978-1-4899-7687-1_614">https://doi.org/10.1007/978-1-4899-7687-1_614</a></p>
-</dd>
-<dt class="label" id="barnard"><span class="brackets"><a class="fn-backref" href="#id6">3</a></span></dt>
-<dd><p><a class="reference external" href="https://doi.org/10.1177%2F096228029900800103">https://doi.org/10.1177/096228029900800103</a></p>
-</dd>
-</dl>
+<aside class="footnote brackets" id="voronoi" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">1</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://mathworld.wolfram.com/VoronoiDiagram.html">https://mathworld.wolfram.com/VoronoiDiagram.html</a></p>
+</aside>
+<aside class="footnote brackets" id="occam" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">2</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://doi.org/10.1007/978-1-4899-7687-1_614">https://doi.org/10.1007/978-1-4899-7687-1_614</a></p>
+</aside>
+<aside class="footnote brackets" id="barnard" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">3</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://doi.org/10.1177%2F096228029900800103">https://doi.org/10.1177%2F096228029900800103</a></p>
+</aside>
 </section>
 </section>
 </section>
@@ -1990,7 +1717,7 @@ Als Daten verwenden wir die Bostondaten. Hier noch ein paar Tipps vorweg:</p>
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./chapters"
         },
         predefinedOutput: true
@@ -1998,50 +1725,146 @@ Als Daten verwenden wir die Bostondaten. Hier noch ein paar Tipps vorweg:</p>
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="kapitel_05.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">5. </span>Assoziationsregeln</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="kapitel_05.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Assoziationsregeln</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="kapitel_07.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="kapitel_07.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title"><span class="section-number">7. </span>Klassifikation</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ahnlichkeitsmasze">6.1. Ähnlichkeitsmaße</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stadte-und-hauser">6.2. Städte und Häuser</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-means-algorithmus">6.3. <span class="math notranslate nohighlight">\(k\)</span>-Means-Algorithmus</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#der-algorithmus">6.3.1. Der Algorithmus</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bestimmen-von-k">6.3.2. Bestimmen von <span class="math notranslate nohighlight">\(k\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probleme-des-k-means-algorithmus">6.3.3. Probleme des <span class="math notranslate nohighlight">\(k\)</span>-Means-Algorithmus</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#em-clustering">6.4. EM-Clustering</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">6.4.1. Der Algorithmus</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">6.4.2. Bestimmen von <span class="math notranslate nohighlight">\(k\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probleme-des-em-clustering">6.4.3. Probleme des EM-Clustering</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dbscan">6.5. DBSCAN</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">6.5.1. Der Algorithmus</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bestimmen-von-epsilon-und-minpts">6.5.2. Bestimmen von <span class="math notranslate nohighlight">\(\epsilon\)</span> und <span class="math notranslate nohighlight">\(minPts\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probleme-bei-dbscan">6.5.3. Probleme bei DBSCAN</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#single-linkage-clustering">6.6. Single Linkage Clustering</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#der-slink-algorithmus">6.6.1. Der SLINK-Algorithmus</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dendrogramme">6.6.2. Dendrogramme</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probleme-bei-slink">6.6.3. Probleme bei SLINK</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vergleich-der-algorithmen">6.7. Vergleich der Algorithmen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clusterformen">6.7.1. Clusterformen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#anzahl-der-cluster">6.7.2. Anzahl der Cluster</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ausfuhrungszeit">6.7.3. Ausführungszeit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretierbarkeit-und-darstellung">6.7.4. Interpretierbarkeit und Darstellung</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kategorische-merkmale">6.7.5. Kategorische Merkmale</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fehlende-merkmale">6.7.6. Fehlende Merkmale</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#korrelierte-merkmale">6.7.7. Korrelierte Merkmale</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfassung-des-vergleichs">6.7.8. Zusammenfassung des Vergleichs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung">6.8. Übung</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">6.8.1. <span class="math notranslate nohighlight">\(k\)</span>-Means-Algorithmus</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">6.8.2. EM Clustering</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">6.8.3. DBSCAN</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slink">6.8.4. SLINK</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vergleichen-sie-die-ergebnisse">6.8.5. Vergleichen Sie die Ergebnisse</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By Steffen Herbold<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+<p class="component-author">
+By Steffen Herbold
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

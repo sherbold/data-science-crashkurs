@@ -1,48 +1,60 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>8. Regression &#8212; Data Science Crashkurs - Eine interaktive und praktische Einführung</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -52,61 +64,104 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/kapitel_08';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="9. Zeitreihenanalyse" href="kapitel_09.html" />
     <link rel="prev" title="7. Klassifikation" href="kapitel_07.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
 
-    
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="vorwort.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/bookcover.jpg" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Data Science Crashkurs - Eine interaktive und praktische Einführung</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../_static/bookcover.jpg" class="logo__image only-light" alt="Data Science Crashkurs - Eine interaktive und praktische Einführung - Home"/>
+    <script>document.write(`<img src="../_static/bookcover.jpg" class="logo__image only-dark" alt="Data Science Crashkurs - Eine interaktive und praktische Einführung - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -115,456 +170,223 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Kapitel
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Kapitel</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_01.html">
-   1. Big Data und Data Science
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_02.html">
-   2. Der Prozess von Data-Science-Projekten
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_03.html">
-   3. Allgemeines zur Datenanalyse
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_04.html">
-   4. Erkunden der Daten
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_05.html">
-   5. Assoziationsregeln
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_06.html">
-   6. Clusteranalyse
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_07.html">
-   7. Klassifikation
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   8. Regression
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_09.html">
-   9. Zeitreihenanalyse
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_10.html">
-   10. Text Mining
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_11.html">
-   11. Statistik
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_12.html">
-   12. Big Data Processing
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_13.html">
-   13. Weiterführende Konzepte
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_01.html">1. Big Data und Data Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_02.html">2. Der Prozess von Data-Science-Projekten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_03.html">3. Allgemeines zur Datenanalyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_04.html">4. Erkunden der Daten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_05.html">5. Assoziationsregeln</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_06.html">6. Clusteranalyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_07.html">7. Klassifikation</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">8. Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_09.html">9. Zeitreihenanalyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_10.html">10. Text Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_11.html">11. Statistik</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_12.html">12. Big Data Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_13.html">13. Weiterführende Konzepte</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Appendix
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="howto.html">
-   Selbst ausführen
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="notations.html">
-   Notationen
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="acronyms.html">
-   Abkürzungen
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="howto.html">Selbst ausführen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notations.html">Notationen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acronyms.html">Abkürzungen</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Gefällt Ihnen das Buch? Möchten Sie es in den Händen halten und weitere Open Access Bücher unterstützen? <a href="https://dpunkt.de/produkt/data-science-crashkurs/">Dann kaufen Sie die Print Edition.</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/sherbold/einfuehrung-in-data-science/main?urlpath=tree/content/chapters/kapitel_08.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
-</div>
+  
+  <div id="rtd-footer-container"></div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/sherbold/einfuehrung-in-data-science" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-<a href="https://github.com/sherbold/einfuehrung-in-data-science"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="bottom"
-title="Source repository"
->
-  
-
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fab fa-github"></i>
   </span>
 
 </a>
 
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/chapters/kapitel_08.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapters/kapitel_08.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.ipynb</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
-
-      </li>
+</li>
+      
+      
+      
       
       <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file-pdf"></i>
   </span>
-<span class="headerbtn__text-container">.pdf</span>
+<span class="btn__text-container">.pdf</span>
 </button>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
   </span>
 
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#gute-von-regressionen">
-   8.1. Güte von Regressionen
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#visuelle-bewertung-der-gute">
-     8.1.1. Visuelle Bewertung der Güte
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#gutemasze">
-     8.1.2. Gütemaße
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#lineare-regression">
-   8.2. Lineare Regression
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ordinary-least-squares-ols">
-     8.2.1. Ordinary Least Squares (OLS)
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ridge">
-     8.2.2. Ridge
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#lasso">
-     8.2.3. Lasso
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#elastic-net">
-     8.2.4. Elastic Net
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#auswirkung-der-regularisierung">
-     8.2.5. Auswirkung der Regularisierung
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#jenseits-von-linearer-regression">
-   8.3. Jenseits von linearer Regression
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ubung">
-   8.4. Übung
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#trainings-und-testdaten">
-     8.4.1. Trainings- und Testdaten
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#trainieren-testen-bewerten">
-     8.4.2. Trainieren, Testen, Bewerten
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#nichtlineare-regression">
-     8.4.3. Nichtlineare Regression
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Regression</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#gute-von-regressionen">
-   8.1. Güte von Regressionen
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#visuelle-bewertung-der-gute">
-     8.1.1. Visuelle Bewertung der Güte
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#gutemasze">
-     8.1.2. Gütemaße
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#lineare-regression">
-   8.2. Lineare Regression
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ordinary-least-squares-ols">
-     8.2.1. Ordinary Least Squares (OLS)
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ridge">
-     8.2.2. Ridge
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#lasso">
-     8.2.3. Lasso
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#elastic-net">
-     8.2.4. Elastic Net
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#auswirkung-der-regularisierung">
-     8.2.5. Auswirkung der Regularisierung
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#jenseits-von-linearer-regression">
-   8.3. Jenseits von linearer Regression
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ubung">
-   8.4. Übung
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#trainings-und-testdaten">
-     8.4.1. Trainings- und Testdaten
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#trainieren-testen-bewerten">
-     8.4.2. Trainieren, Testen, Bewerten
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#nichtlineare-regression">
-     8.4.3. Nichtlineare Regression
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Regression</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gute-von-regressionen">8.1. Güte von Regressionen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visuelle-bewertung-der-gute">8.1.1. Visuelle Bewertung der Güte</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gutemasze">8.1.2. Gütemaße</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lineare-regression">8.2. Lineare Regression</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ordinary-least-squares-ols">8.2.1. Ordinary Least Squares (OLS)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ridge">8.2.2. Ridge</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lasso">8.2.3. Lasso</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#elastic-net">8.2.4. Elastic Net</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#auswirkung-der-regularisierung">8.2.5. Auswirkung der Regularisierung</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jenseits-von-linearer-regression">8.3. Jenseits von linearer Regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung">8.4. Übung</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trainings-und-testdaten">8.4.1. Trainings- und Testdaten</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trainieren-testen-bewerten">8.4.2. Trainieren, Testen, Bewerten</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nichtlineare-regression">8.4.3. Nichtlineare Regression</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="regression">
-<h1><span class="section-number">8. </span>Regression<a class="headerlink" href="#regression" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">8. </span>Regression<a class="headerlink" href="#regression" title="Permalink to this heading">#</a></h1>
 <p>Das Ziel der Regressionsanalyse ist es, Beziehungen zwischen Variablen zu finden. <a class="reference internal" href="#fig-regression-example"><span class="std std-numref">Fig. 8.1</span></a> zeigt ein Beispiel für die Beziehung von zwei Eigenschaften von Fahrzeugen mit Verbrennungsmotor: dem Spritverbrauch und der Höchstgeschwindigkeit. In der Regel haben Fahrzeuge mit einer höheren Höchstgeschwindigkeit auch einen höheren Spritverbrauch. Mit einer Regression kann man diesen Zusammenhang basierend auf einer Stichprobe modellieren.</p>
 <figure class="align-default" id="fig-regression-example">
 <a class="reference internal image-reference" href="../_images/regression_example_german.png"><img alt="../_images/regression_example_german.png" src="../_images/regression_example_german.png" style="width: 600px;" /></a>
@@ -584,9 +406,14 @@ title="Print to PDF"
 \[f: \mathcal{F} \to \mathbb{R}\]</div>
 <p>zu bestimmen, sodass <span class="math notranslate nohighlight">\(f(\phi(o)) \approx f^*(o)\)</span>. Die Regressionsfunktion <span class="math notranslate nohighlight">\(f\)</span> wird auch einfach Regression von <span class="math notranslate nohighlight">\(y\)</span> genannt. Die Problemstellung der Regression ist also ähnlich zur Klassifikation, nur dass es keine fest definierten Klassen gibt, sondern stattdessen ein numerischer Wert basierend auf den Merkmalen vorhergesagt werden soll.</p>
 <section id="gute-von-regressionen">
-<h2><span class="section-number">8.1. </span>Güte von Regressionen<a class="headerlink" href="#gute-von-regressionen" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">8.1. </span>Güte von Regressionen<a class="headerlink" href="#gute-von-regressionen" title="Permalink to this heading">#</a></h2>
 <p>Ähnlich wie bei der Klassifikation ist die Bewertung der Güte ein wichtiges Kriterium, um eine gute Regressionsfunktion für eine abhängige Variable zu bestimmen. Wir diskutieren die Güte einer linearen Regression anhand von zwei Beispielen.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -644,19 +471,25 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_08_1_0.png" src="../_images/kapitel_08_1_0.png" />
+<img alt="../_images/ebb20cb63f4a487b161df88bdd21e84052ad82ddad03db8e509649d9df01365d.png" src="../_images/ebb20cb63f4a487b161df88bdd21e84052ad82ddad03db8e509649d9df01365d.png" />
 </div>
 </div>
 <p>Das erste Beispiel zeigt eine Regression, bei der die blaue Regressionsgerade sehr gut zu den Daten passt. Dies ist auch nicht verwunderlich, da wir die Daten mithilfe einer linearen Funktion generiert haben. Im zweiten Beispiel sieht man eine schlechte Regression, da die Regressionsgerade nicht gut zur eigentlichen Form der Daten passt. Auch dies ist nicht überraschend, da wir die Daten mithilfe der Exponentialfunktion generiert haben. Im Folgenden nennen wir das erste Beispiel einfach nur noch das “gute Ergebnis” und das zweite Beispiel das “schlechte Ergebnis”. Bei der Regression nennt man dies auch guten bzw. schlechten <em>Fit</em>, um zu betonen, ob sich die Regression an die Form der Daten angepasst hat.</p>
 <section id="visuelle-bewertung-der-gute">
-<h3><span class="section-number">8.1.1. </span>Visuelle Bewertung der Güte<a class="headerlink" href="#visuelle-bewertung-der-gute" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">8.1.1. </span>Visuelle Bewertung der Güte<a class="headerlink" href="#visuelle-bewertung-der-gute" title="Permalink to this heading">#</a></h3>
 <p>Die obige Abbildung zu unserem Beispiel zeigt uns bereits die erste Methode zur Bewertung der Güte: Man kann einfach die Daten als Scatterplot zusammen mit der Regression als Liniendiagramm visualisieren. Hierdurch sieht man, wie nah die Regression an den Daten liegt und ob sie ein gutes Ergebnis ist. Außerdem kann man auch systematische Fehler gut erkennen. Beim guten Ergebnis sehen wir, dass die Daten gleichmäßig um die blaue Gerade streuen, ohne dass es eine sehr große Abweichung gibt. Man erkennt also, dass die Regression zwar den Wert von <span class="math notranslate nohighlight">\(y\)</span> nicht perfekt vorhersagt, aber die Abweichung gering ist und es kein Muster in der Abweichung gibt. Dies ist bei unserem schlechten Ergebnis anders. Zu Beginn befinden sich die meisten Instanzen oberhalb der blauen Geraden, zwischen 0,4 und 0,7 liegend alle Instanzen unterhalb der Geraden und am Ende befinden sich die meisten Instanzen wieder oberhalb der Geraden. Ein derartiges Muster ist ein klarer Hinweis darauf, dass die Regression keine gute Beschreibung der Daten ist. Diese systematischen Fehler kann man auch benennen. Wenn der Großteil der Instanzen unterhalb der Regressionsgeraden liegt, nennt man dies auch <em>Overprediction</em>, da die Regression einen zu hohen Wert vorhersagt. Wenn der Großteil der Instanzen oberhalb der Regressionsgeraden liegt, spricht man hingegen von <em>Underprediction</em>.</p>
 <p>Eine weitere Möglichkeit, sich die Ergebnisse der Regression grafisch aufzubereiten, ist die Betrachtung der <em>Residuen</em> (engl. <em>residuals</em>). Das Residuum einer Instanz <span class="math notranslate nohighlight">\(x \in \mathcal{F}\)</span> ist definiert als</p>
 <div class="math notranslate nohighlight">
 \[e_x = f^*(x)-f(x) = y-f(x),\]</div>
 <p>also die Abweichung der Vorhersage vom wahren Wert. Durch die Visualisierung der Residuen können wir also den Fehler der Regression für verschiedene Werte von <span class="math notranslate nohighlight">\(x\)</span> darstellen.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 
@@ -676,13 +509,19 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_08_3_0.png" src="../_images/kapitel_08_3_0.png" />
+<img alt="../_images/8cb21384f6879dc6ce9e33a3f76257a8a96570ec84aef681abc12befcd8fce96.png" src="../_images/8cb21384f6879dc6ce9e33a3f76257a8a96570ec84aef681abc12befcd8fce96.png" />
 </div>
 </div>
 <p>Die Residuen haben eine ähnliche Aussagekraft wie die direkte Darstellung der Regression und der Daten. Der Vorteil bei den Residuen ist jedoch, dass nur der Fehler dargestellt wird, sodass der Fokus klarer ist. Bei der Darstellung des guten Ergebnisses auf der linken Seite könnte man irrtümlicherweise vermuten, dass das Ergebnis schlecht ist, da die Punkte in der vollen Fläche der Darstellung streuen und nicht unbedingt nah an der blauen Geraden liegen, die einen Fehler von 0 markiert. Wenn man einen Blick auf die y-Achse wirft, erkennt man aber, dass das Ergebnis eigentlich sehr gut ist, da der Datenbereich einfach sehr klein ist. Auf der rechten Seite sieht man beim schlechten Ergebnis, dass der Datenbereich auf der y-Achse beinahe 20-mal so groß ist. Dies ist bereits der erste Indikator dafür, dass es ein schlechtes Ergebnis ist. Außerdem erkennt man anhand der Residuen auch wieder gut das Muster aus Over- und Underprediction.</p>
 <p>Unsere bisherigen Analysen funktionieren zwar sehr gut, aber nur dann, wenn es ein Merkmal gibt. Sobald es viele Merkmale gibt, kann man weder die Residuen noch die Daten mit der Regression gut darstellen. Wir können jedoch eine andere Art der Darstellung der Fehler wählen, die unabhängig von der Anzahl der Merkmale ist. Die Grundidee ist ähnlich zur Confusion Matrix, die wir aus <a class="reference internal" href="kapitel_07.html"><span class="doc std std-doc">Kapitel 7</span></a> kennen: Wir vergleichen die wahren Werte der abhängigen Variablen mit den Vorhersagen.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 
@@ -702,16 +541,17 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_08_5_0.png" src="../_images/kapitel_08_5_0.png" />
+<img alt="../_images/28f405b734c2128e8997c2036b119b3085858fc013819db2b984d6bee549c9b4.png" src="../_images/28f405b734c2128e8997c2036b119b3085858fc013819db2b984d6bee549c9b4.png" />
 </div>
 </div>
 <p>Im Idealfall entsprechen die Vorhersagen den wahren Werten. Dies ist in der Darstellung die blau markierte Diagonale. Je weiter die Instanzen von der Diagonale entfernt sind, desto schlechter ist die Regression. Für ein gutes Ergebnis sollten alle Instanzen relativ nah an der Diagonale liegen und es sollte kein Muster in der Streuung geben. Bei einem schlechten Ergebnis sind die Abweichungen größer und/oder es gibt Muster, die auf systematische Fehler hindeuten. Beim schlechten Ergebnis beobachten wir beides. Zum einen sehen die Werte kleiner als 0,35 nahezu zufällig aus und sind weit von der Diagonale entfernt. Zum anderen erkennen wir wieder das gleiche Muster wie bisher auch.</p>
 </section>
 <section id="gutemasze">
-<h3><span class="section-number">8.1.2. </span>Gütemaße<a class="headerlink" href="#gutemasze" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">8.1.2. </span>Gütemaße<a class="headerlink" href="#gutemasze" title="Permalink to this heading">#</a></h3>
 <p>Es gibt auch Gütemaße für die Bewertung von Regressionen. Diese Gütemaße werden mithilfe der Residuen definiert. Sei hierfür <span class="math notranslate nohighlight">\(X = \{x_1, ..., x_n\} \subseteq \mathcal{F} \subseteq \mathbb{R}^m\)</span> eine Stichprobe von Instanzen mit <span class="math notranslate nohighlight">\(m\)</span> Merkmalen und <span class="math notranslate nohighlight">\(Y = \{y_i, ..., y_n\} \subseteq \mathbb{R}\)</span> die Werte der dazugehörigen abhängigen Variablen. <a class="reference internal" href="#tbl-metrics-regression"><span class="std std-numref">Table 8.1</span></a> listet die Definition von vier Gütemaßen auf.</p>
-<table class="colwidths-auto table" id="tbl-metrics-regression">
+<table class="table" id="tbl-metrics-regression">
 <caption><span class="caption-number">Table 8.1 </span><span class="caption-text">Gütemaße für Regressionen</span><a class="headerlink" href="#tbl-metrics-regression" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Gütemaß</p></th>
@@ -743,6 +583,11 @@ title="Print to PDF"
 <p>Eine Schwäche von <span class="math notranslate nohighlight">\(R^2\)</span> ist, dass Regressionen mit mehr Merkmalen eigentlich immer besser werden. Dies kann jedoch zu Overfitting führen. Adjusted <span class="math notranslate nohighlight">\(R^2\)</span> berücksichtigt daher die Anzahl der Merkmale. Wenn die Verbesserung von <span class="math notranslate nohighlight">\(R^2\)</span> durch eine Senkung von MSE kleiner ist als die Bestrafung durch mehr Merkmale, wird der Wert von Adjusted <span class="math notranslate nohighlight">\(R^2\)</span> kleiner.</p>
 <p>Betrachten wir jetzt die Werte unserer Gütemaße für unsere zwei Beispiele.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_absolute_error</span><span class="p">,</span> <span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">r2_score</span>
 
@@ -763,6 +608,7 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gütemaße (gutes Ergebnis)
 MAE:         0.08
@@ -784,7 +630,7 @@ Adjusted R2: 0.68
 </section>
 </section>
 <section id="lineare-regression">
-<h2><span class="section-number">8.2. </span>Lineare Regression<a class="headerlink" href="#lineare-regression" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">8.2. </span>Lineare Regression<a class="headerlink" href="#lineare-regression" title="Permalink to this heading">#</a></h2>
 <p>Die lineare Regression ist uns bereits in <a class="reference internal" href="kapitel_07.html"><span class="doc std std-doc">Kapitel 7</span></a> als Teil der logistischen Regression begegnet sowie im obigen Beispiel. Jetzt wollen wir die lineare Regression genauer betrachten. Die Formel für die Regressionsfunktion der linearen Regression ist</p>
 <div class="math notranslate nohighlight">
 \[y = b_0 + b_1x_1 + ... + b_mx_m = b_0 + \sum_{i=1}^m b_ix_i\]</div>
@@ -792,7 +638,7 @@ Adjusted R2: 0.68
 <p>Der Achsenabschnitt ist der “Basiswert” der abhängigen Variablen, also der Wert, wenn alle Merkmale gleich null wären. Geometrisch betrachtet ist das der Schnittpunkt mit den Achsen des Koordinatensystems.</p>
 <p>Ein wichtiger Aspekt der linearen Regression ist, wie die Koeffizienten und der Achsenabschnitt bestimmt werden. Dies hat nicht nur Auswirkungen auf die Qualität der Regression, sondern auch auf die Interpretation der Koeffizienten.</p>
 <section id="ordinary-least-squares-ols">
-<h3><span class="section-number">8.2.1. </span>Ordinary Least Squares (OLS)<a class="headerlink" href="#ordinary-least-squares-ols" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">8.2.1. </span>Ordinary Least Squares (OLS)<a class="headerlink" href="#ordinary-least-squares-ols" title="Permalink to this heading">#</a></h3>
 <p>Das übliche Verfahren zum Berechnen der Koeffizienten einer linearen Regression ist die Methode der kleinsten Quadrate, bekannt als <em>Ordinary Least Squares</em> (OLS). Hierfür interpretieren wir die Instanzen als Matrix und die abhängige Variable als Vektor:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -824,7 +670,7 @@ b &amp;= (b_1, \dots, b_m)
 <p>Im Allgemeinen ist in diesem Fall jede Lösung, für die gilt <span class="math notranslate nohighlight">\(b_0=0\)</span> und <span class="math notranslate nohighlight">\(b_1+b_2=1\)</span>, optimal. Die ersten drei Lösungen sehen vernünftig aus, führen aber zu sehr unterschiedlichen Interpretationen der Koeffizienten. Bei Lösung 2 könnte man denken, dass es keine Beziehung zwischen <span class="math notranslate nohighlight">\(x_2\)</span> und <span class="math notranslate nohighlight">\(y\)</span> gibt, bei Lösung 3 ist es genau anders, hier gibt es scheinbar eine sehr starke Beziehung. Dies zeigt, wie die Koeffizienten irreführend sein können. Da <span class="math notranslate nohighlight">\(b_1\)</span> und <span class="math notranslate nohighlight">\(b_2\)</span> jeden beliebigen Wert annehmen können, könnte wir für beide Merkmale beliebige “Korrelationen” finden.</p>
 </section>
 <section id="ridge">
-<h3><span class="section-number">8.2.2. </span>Ridge<a class="headerlink" href="#ridge" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">8.2.2. </span>Ridge<a class="headerlink" href="#ridge" title="Permalink to this heading">#</a></h3>
 <p>Im Folgenden zeigen wir, wie man OLS abwandeln kann, um die Ergebnisse zu <em>regularisieren</em>. Durch die Regularisierung kann man extreme Koeffizienten verhindern, auch wenn die Merkmale korreliert sind. Die Idee ist einfach: Wenn ein Optimierungsproblem viele optimale Lösungen hat, benötigen wir einfach ein zusätzliches Kriterium, mit dem wir die Lösungen auswählen, die uns besser gefallen. Hierzu fügt man einfach einen <em>Regularisierungsterm</em> zur OLS-Formel hinzu.</p>
 <p>Bei der <em>Ridge</em>-Regularisierung ist es das Ziel, möglichst kleine Werte für die Koeffizienten zu bekommen und dadurch extreme Werte durch Korrelationen zu verhindern. Wir müssen also das Optimierungsproblem so verändern, dass wir neben der Güte der Regression auch noch die Größe der Koeffizienten optimieren:</p>
 <div class="math notranslate nohighlight">
@@ -838,7 +684,7 @@ b &amp;= (b_1, \dots, b_m)
 <p>Mit der Ridge-Regularisierung würden wir also die erste Lösung auswählen.</p>
 </section>
 <section id="lasso">
-<h3><span class="section-number">8.2.3. </span>Lasso<a class="headerlink" href="#lasso" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">8.2.3. </span>Lasso<a class="headerlink" href="#lasso" title="Permalink to this heading">#</a></h3>
 <p>Ein weiteres Regularisierungsverfahren ist <em>Lasso</em>. Obwohl Ridge die absoluten Werte der Koeffizienten minimiert, sind die Werte häufig nicht null. Eine Regression, die eine ähnliche Güte mit weniger Merkmalen erreicht, ist aber oft besser, da die Gefahr von Overfitting reduziert wird. Das Ziel der Lasso-Regularisierung ist es, die Koeffizienten nicht nur zu minimieren, sondern dafür zu sorgen, dass sie exakt null werden. Hierzu modifizieren wir auch wieder das OLS-Optimierungsproblem:</p>
 <div class="math notranslate nohighlight">
 \[\min ||b_0 + Xb - y||_2^2 + \alpha ||b||_1\]</div>
@@ -851,28 +697,33 @@ b &amp;= (b_1, \dots, b_m)
 <p>Die Lösungen 1, 2 und 3 sind also optimal mit Lasso, es gibt eine hohe Wahrscheinlichkeit, dass eine Lösung gewählt wird, bei der ein Koeffizient exakt null ist.</p>
 <blockquote>
 <div><p><strong>Bemerkung:</strong></p>
-<p>Wir überspringen an dieser Stelle die mathematische Begründung, warum Ridge nur die Koeffizienten minimiert, sie aber bei Lasso genau null werden. Verkürzt kann man sagen, dass es an den Bedingungen des Optimierungsproblems liegt. Die geometrische Form dieser Bedingungen ist ein Kreis bei Ridge und eine Raute bei Lasso, da dies die Form der Einheitskreise der euklidischen bzw. Manhattan-Norm ist. Aufgrund der Rautenform, die ihre Spitzen auf den Achsen hat, werden die Koeffizienten mit hoher Wahrscheinlichkeit genau null. Eine vollständige Erklärung findet man zum Beispiel hier <a class="footnote-reference brackets" href="#lasso-ridge" id="id1">1</a>.</p>
+<p>Wir überspringen an dieser Stelle die mathematische Begründung, warum Ridge nur die Koeffizienten minimiert, sie aber bei Lasso genau null werden. Verkürzt kann man sagen, dass es an den Bedingungen des Optimierungsproblems liegt. Die geometrische Form dieser Bedingungen ist ein Kreis bei Ridge und eine Raute bei Lasso, da dies die Form der Einheitskreise der euklidischen bzw. Manhattan-Norm ist. Aufgrund der Rautenform, die ihre Spitzen auf den Achsen hat, werden die Koeffizienten mit hoher Wahrscheinlichkeit genau null. Eine vollständige Erklärung findet man zum Beispiel hier <a class="footnote-reference brackets" href="#lasso-ridge" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
 </div></blockquote>
 </section>
 <section id="elastic-net">
-<h3><span class="section-number">8.2.4. </span>Elastic Net<a class="headerlink" href="#elastic-net" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">8.2.4. </span>Elastic Net<a class="headerlink" href="#elastic-net" title="Permalink to this heading">#</a></h3>
 <p>Die letzte Regularisierungsvariante, die wir hier betrachten wollen, ist das <em>Elastic Net</em>, das Ridge und Lasso kombiniert:</p>
 <div class="math notranslate nohighlight">
 \[\min ||b_0 + Xb - y||_2^2 + \rho \alpha ||b||_1 + \frac{1-\rho}{2}\alpha ||b||_2^2\]</div>
 <p><span class="math notranslate nohighlight">\(\rho \in [0,1]\)</span>  definiert die Gewichtung von Ridge und Lasso. Mit <span class="math notranslate nohighlight">\(\rho=0\)</span> hätten wir Ridge, mit <span class="math notranslate nohighlight">\(\rho=1\)</span> hätten wir Lasso. Mit dem Elastic Net kann man niedrige Koeffizienten erzwingen, die nach Möglichkeit null werden.</p>
 </section>
 <section id="auswirkung-der-regularisierung">
-<h3><span class="section-number">8.2.5. </span>Auswirkung der Regularisierung<a class="headerlink" href="#auswirkung-der-regularisierung" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">8.2.5. </span>Auswirkung der Regularisierung<a class="headerlink" href="#auswirkung-der-regularisierung" title="Permalink to this heading">#</a></h3>
 <p>Um die Auswirkungen der Regularisierung zu untersuchen, betrachten wir noch einmal die Bostondaten, die wir bereits aus <a class="reference internal" href="kapitel_04.html"><span class="doc std std-doc">Kapitel 4</span></a> kennen, und erstellen jetzt eine lineare Regression für die Daten. Wir vergleichen die Ergebnisse von OLS, Ridge, Lasso und dem Elastic Net. Wir nutzen eine Regularisierungsstärke von <span class="math notranslate nohighlight">\(\alpha=0,5\)</span> und ein Gewicht von <span class="math notranslate nohighlight">\(\rho=0,25\)</span> für das Verhältnis von Ridge und Lasso beim Elastic Net. Balkendiagramme sind ein gutes Hilfsmittel, um die Veränderung der Koeffizienten zu betrachten.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
 <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">Ridge</span><span class="p">,</span> <span class="n">Lasso</span><span class="p">,</span> <span class="n">ElasticNet</span>
 
-<span class="n">boston</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_boston</span><span class="p">()</span>
+<span class="n">boston</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">fetch_openml</span><span class="p">(</span><span class="n">data_id</span><span class="o">=</span><span class="mi">531</span><span class="p">,</span> <span class="n">parser</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
 <span class="n">predictors</span> <span class="o">=</span> <span class="n">boston</span><span class="o">.</span><span class="n">feature_names</span>
-<span class="n">X_boston</span><span class="o">=</span><span class="n">boston</span><span class="o">.</span><span class="n">data</span>
+<span class="n">X_boston</span><span class="o">=</span><span class="n">boston</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float64&#39;</span><span class="p">)</span>
 <span class="n">Y_boston</span><span class="o">=</span><span class="n">boston</span><span class="o">.</span><span class="n">target</span>
 
 <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span>
@@ -917,21 +768,27 @@ b &amp;= (b_1, \dots, b_m)
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_08_9_0.png" src="../_images/kapitel_08_9_0.png" />
+<img alt="../_images/4a470314fbea7bcad75e64344864fc02f46c9e01481266161c3ce9a979b2eca9.png" src="../_images/4a470314fbea7bcad75e64344864fc02f46c9e01481266161c3ce9a979b2eca9.png" />
 </div>
 </div>
 <p>Man sieht bereits einen sehr starken Effekt durch die Regularisierung. Das Merkmal NOX hat den absolut größten Koeffizienten und die Änderung zwischen den Regularisierungen ist sehr groß. Mit OLS ist der Wert von NOX bei ca. -18, mit Ridge nur noch bei ca. -13 und mit Lasso und dem Elastic Net wird der Koeffizient sogar auf null gesetzt. Bei Ridge ändert sich der <span class="math notranslate nohighlight">\(R^2\)</span>-Wert nicht gegenüber OLS, obwohl es eine derart große Änderung der Koeffizienten gibt. Bei Lasso werden neben NOX auch noch CHAS auf null gesetzt. Obwohl vier Merkmale entfernt wurden, ändert sich der <span class="math notranslate nohighlight">\(R^2\)</span>-Wert nur leicht. Dadurch dass es weniger Merkmale sind, hat sich Adjusted <span class="math notranslate nohighlight">\(R^2\)</span> nicht verändert. Man sieht auch, dass mit dem Elastic Net weniger Merkmale auf null gesetzt werden als mit Lasso.</p>
 <p>Insgesamt erkennt man einen starken Einfluss der Regularisierung auf die Koeffizienten und auch, dass gerade NOX scheinbar nicht so relevant ist, wie es ohne Regularisierung erscheint. Dennoch sollte man Regularisierung mit Bedacht einsetzen. Wenn man einen zu hohen Wert für die Regularisierungsstärke wählt, kann es sein, dass der Fokus des Optimierungsproblems nicht mehr auf einer guten Regression liegt, weil kleine Werte der Koeffizienten zu wichtig sind. Betrachten wir noch einmal das gleiche Beispiel mit <span class="math notranslate nohighlight">\(\alpha=5\)</span>, also einer zehnmal stärkeren Regularisierung.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
 <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">Ridge</span><span class="p">,</span> <span class="n">Lasso</span><span class="p">,</span> <span class="n">ElasticNet</span>
 
-<span class="n">boston</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_boston</span><span class="p">()</span>
+<span class="n">boston</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">fetch_openml</span><span class="p">(</span><span class="n">data_id</span><span class="o">=</span><span class="mi">531</span><span class="p">,</span> <span class="n">parser</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
 <span class="n">predictors</span> <span class="o">=</span> <span class="n">boston</span><span class="o">.</span><span class="n">feature_names</span>
-<span class="n">X_boston</span><span class="o">=</span><span class="n">boston</span><span class="o">.</span><span class="n">data</span>
+<span class="n">X_boston</span><span class="o">=</span><span class="n">boston</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float64&#39;</span><span class="p">)</span>
 <span class="n">Y_boston</span><span class="o">=</span><span class="n">boston</span><span class="o">.</span><span class="n">target</span>
 
 <span class="n">alpha</span> <span class="o">=</span> <span class="mi">5</span>
@@ -976,40 +833,41 @@ b &amp;= (b_1, \dots, b_m)
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_08_11_0.png" src="../_images/kapitel_08_11_0.png" />
+<img alt="../_images/3157ab2fd21376a2956f9c2e329d8b029e489618e3b2355847e20e5b1b86fc43.png" src="../_images/3157ab2fd21376a2956f9c2e329d8b029e489618e3b2355847e20e5b1b86fc43.png" />
 </div>
 </div>
 <p>Bei Ridge werden lediglich die Werte der Koeffizienten weiter reduziert, ohne dass sich der <span class="math notranslate nohighlight">\(R^2\)</span>-Wert stark verändert. Das spricht dafür, dass der höhere Wert von <span class="math notranslate nohighlight">\(\alpha\)</span> für Ridge besser ist. Bei Lasso und dem Elastic Net hat sich der <span class="math notranslate nohighlight">\(R^2\)</span>-Wert hingegen stark reduziert, weil deutlich mehr Merkmale auf null gesetzt werden. Die Regression ist also insgesamt schlechter. Das Verhältnis von Modellkomplexität und Güte der Regression ist jedoch unverändert: Adjusted <span class="math notranslate nohighlight">\(R^2\)</span> ist immer noch gut. Hier hat man also die Wahl: Will man eine bessere, aber auch komplexere Regression oder einfachere Regression mit weniger Merkmalen, die jedoch eine geringere Güte aufweist.</p>
 </section>
 </section>
 <section id="jenseits-von-linearer-regression">
-<h2><span class="section-number">8.3. </span>Jenseits von linearer Regression<a class="headerlink" href="#jenseits-von-linearer-regression" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">8.3. </span>Jenseits von linearer Regression<a class="headerlink" href="#jenseits-von-linearer-regression" title="Permalink to this heading">#</a></h2>
 <p>Lineare Regression ist natürlich nicht die einzige Möglichkeit, um Regressionsprobleme zu lösen und gerade für komplexe Beziehungen zwischen den Merkmalen und der abhängigen Variablen in der Regel auch nicht ausdrucksstark genug. Mit Ausnahme von Naive Bayes gibt es für alle Klassifikationsalgorithmen aus <a class="reference internal" href="kapitel_07.html"><span class="doc std std-doc">Kapitel 7</span></a> einen ähnlichen Algorithmus für die Regression: <span class="math notranslate nohighlight">\(k\)</span>-Nearest Neighbor Regression, Regression Trees, Random Forest Regression und Support Vector Regression. Der Ansatz bleibt der gleiche, nur dass einige Details für die Regression angepasst werden müssen. Bei Entscheidungsbäumen wird zum Beispiel die Varianz benutzt, um den Informationsgehalt zu schätzen. Neuronale Netzwerke lösen ohnehin schon ein Regressionsproblem, hier muss man einfach die abhängige Variable als Output Layer modellieren.</p>
 </section>
 <section id="ubung">
-<h2><span class="section-number">8.4. </span>Übung<a class="headerlink" href="#ubung" title="Permalink to this headline">#</a></h2>
-<p>In dieser Übung vertiefen wir die Regression. Hierzu vergleichen wir die Varianten der linearen Regression auf einem Datensatz und bewerten die Güte. Außerdem versuchen wir, die Modelle anhand der Koeffizienten zu verstehen. Als Daten verwenden wir wieder Hauspreise, nur diesmal aus Kalifornien <a class="footnote-reference brackets" href="#california" id="id2">2</a>.</p>
+<h2><span class="section-number">8.4. </span>Übung<a class="headerlink" href="#ubung" title="Permalink to this heading">#</a></h2>
+<p>In dieser Übung vertiefen wir die Regression. Hierzu vergleichen wir die Varianten der linearen Regression auf einem Datensatz und bewerten die Güte. Außerdem versuchen wir, die Modelle anhand der Koeffizienten zu verstehen. Als Daten verwenden wir wieder Hauspreise, nur diesmal aus Kalifornien <a class="footnote-reference brackets" href="#california" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
 <section id="trainings-und-testdaten">
-<h3><span class="section-number">8.4.1. </span>Trainings- und Testdaten<a class="headerlink" href="#trainings-und-testdaten" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">8.4.1. </span>Trainings- und Testdaten<a class="headerlink" href="#trainings-und-testdaten" title="Permalink to this heading">#</a></h3>
 <p>Laden Sie die Daten. Teilen Sie die Daten so auf, dass Sie 50% der Daten zum Training und 50% der Daten zum Testen verwenden.</p>
 </section>
 <section id="trainieren-testen-bewerten">
-<h3><span class="section-number">8.4.2. </span>Trainieren, Testen, Bewerten<a class="headerlink" href="#trainieren-testen-bewerten" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">8.4.2. </span>Trainieren, Testen, Bewerten<a class="headerlink" href="#trainieren-testen-bewerten" title="Permalink to this heading">#</a></h3>
 <p>Benutzen Sie die verschiedenen Varianten der linearen Regression, um ein Modell der Hauspreise zu erstellen. Was sind die Unterschiede zwischen OLS/Ridge/Lasso/Elastic Net? Finden Sie gute Werte für die Stärke der Regularisierung. Untersuchen Sie, wie sich die Güte, gemessen mit <span class="math notranslate nohighlight">\(R^2\)</span> und Adjusted <span class="math notranslate nohighlight">\(R^2\)</span>, auf den Testdaten verändert. Visualisieren Sie die Koeffizienten als Balkendiagramme, um die Modelle und die Auswirkung der Regularisierung zu verstehen.</p>
 </section>
 <section id="nichtlineare-regression">
-<h3><span class="section-number">8.4.3. </span>Nichtlineare Regression<a class="headerlink" href="#nichtlineare-regression" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">8.4.3. </span>Nichtlineare Regression<a class="headerlink" href="#nichtlineare-regression" title="Permalink to this heading">#</a></h3>
 <p>Verwenden Sie eines der Modelle, die wir zum Abschluss des Kapitels genannt haben, zum Beispiel eine Random Forest Regression. Vergleichen Sie die Güte mit den linearen Modellen.</p>
 <hr class="footnotes docutils" />
-<dl class="footnote brackets">
-<dt class="label" id="lasso-ridge"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p><a class="reference external" href="https://towardsdatascience.com/ridge-and-lasso-regression-a-complete-guide-with-python-scikit-learn-e20e34bcbf0b">https://towardsdatascience.com/ridge-and-lasso-regression-a-complete-guide-with-python-scikit-learn-e20e34bcbf0b</a></p>
-</dd>
-<dt class="label" id="california"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
-<dd><p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_california_housing.html#sklearn.datasets.fetch_california_housing">https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_california_housing.html#sklearn.datasets.fetch_california_housing</a></p>
-</dd>
-</dl>
+<aside class="footnote brackets" id="lasso-ridge" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://towardsdatascience.com/ridge-and-lasso-regression-a-complete-guide-with-python-scikit-learn-e20e34bcbf0b">https://towardsdatascience.com/ridge-and-lasso-regression-a-complete-guide-with-python-scikit-learn-e20e34bcbf0b</a></p>
+</aside>
+<aside class="footnote brackets" id="california" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_california_housing.html#sklearn.datasets.fetch_california_housing">https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_california_housing.html#sklearn.datasets.fetch_california_housing</a></p>
+</aside>
 </section>
 </section>
 </section>
@@ -1026,7 +884,7 @@ b &amp;= (b_1, \dots, b_m)
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./chapters"
         },
         predefinedOutput: true
@@ -1034,50 +892,121 @@ b &amp;= (b_1, \dots, b_m)
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="kapitel_07.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">7. </span>Klassifikation</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="kapitel_07.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Klassifikation</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="kapitel_09.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="kapitel_09.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title"><span class="section-number">9. </span>Zeitreihenanalyse</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gute-von-regressionen">8.1. Güte von Regressionen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visuelle-bewertung-der-gute">8.1.1. Visuelle Bewertung der Güte</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gutemasze">8.1.2. Gütemaße</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lineare-regression">8.2. Lineare Regression</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ordinary-least-squares-ols">8.2.1. Ordinary Least Squares (OLS)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ridge">8.2.2. Ridge</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lasso">8.2.3. Lasso</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#elastic-net">8.2.4. Elastic Net</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#auswirkung-der-regularisierung">8.2.5. Auswirkung der Regularisierung</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jenseits-von-linearer-regression">8.3. Jenseits von linearer Regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung">8.4. Übung</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trainings-und-testdaten">8.4.1. Trainings- und Testdaten</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trainieren-testen-bewerten">8.4.2. Trainieren, Testen, Bewerten</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nichtlineare-regression">8.4.3. Nichtlineare Regression</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By Steffen Herbold<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+<p class="component-author">
+By Steffen Herbold
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

@@ -1,48 +1,60 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>3. Allgemeines zur Datenanalyse &#8212; Data Science Crashkurs - Eine interaktive und praktische Einführung</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -52,61 +64,104 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/kapitel_03';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="4. Erkunden der Daten" href="kapitel_04.html" />
     <link rel="prev" title="2. Der Prozess von Data-Science-Projekten" href="kapitel_02.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
 
-    
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="vorwort.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/bookcover.jpg" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Data Science Crashkurs - Eine interaktive und praktische Einführung</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../_static/bookcover.jpg" class="logo__image only-light" alt="Data Science Crashkurs - Eine interaktive und praktische Einführung - Home"/>
+    <script>document.write(`<img src="../_static/bookcover.jpg" class="logo__image only-dark" alt="Data Science Crashkurs - Eine interaktive und praktische Einführung - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -115,431 +170,220 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Kapitel
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Kapitel</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_01.html">
-   1. Big Data und Data Science
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_02.html">
-   2. Der Prozess von Data-Science-Projekten
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   3. Allgemeines zur Datenanalyse
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_04.html">
-   4. Erkunden der Daten
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_05.html">
-   5. Assoziationsregeln
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_06.html">
-   6. Clusteranalyse
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_07.html">
-   7. Klassifikation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_08.html">
-   8. Regression
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_09.html">
-   9. Zeitreihenanalyse
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_10.html">
-   10. Text Mining
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_11.html">
-   11. Statistik
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_12.html">
-   12. Big Data Processing
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_13.html">
-   13. Weiterführende Konzepte
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_01.html">1. Big Data und Data Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_02.html">2. Der Prozess von Data-Science-Projekten</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Allgemeines zur Datenanalyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_04.html">4. Erkunden der Daten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_05.html">5. Assoziationsregeln</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_06.html">6. Clusteranalyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_07.html">7. Klassifikation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_08.html">8. Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_09.html">9. Zeitreihenanalyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_10.html">10. Text Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_11.html">11. Statistik</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_12.html">12. Big Data Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_13.html">13. Weiterführende Konzepte</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Appendix
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="howto.html">
-   Selbst ausführen
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="notations.html">
-   Notationen
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="acronyms.html">
-   Abkürzungen
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="howto.html">Selbst ausführen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notations.html">Notationen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acronyms.html">Abkürzungen</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Gefällt Ihnen das Buch? Möchten Sie es in den Händen halten und weitere Open Access Bücher unterstützen? <a href="https://dpunkt.de/produkt/data-science-crashkurs/">Dann kaufen Sie die Print Edition.</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/sherbold/einfuehrung-in-data-science/main?urlpath=tree/content/chapters/kapitel_03.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
-</div>
+  
+  <div id="rtd-footer-container"></div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/sherbold/einfuehrung-in-data-science" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-<a href="https://github.com/sherbold/einfuehrung-in-data-science"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="bottom"
-title="Source repository"
->
-  
-
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fab fa-github"></i>
   </span>
 
 </a>
 
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/chapters/kapitel_03.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapters/kapitel_03.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.ipynb</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
-
-      </li>
+</li>
+      
+      
+      
       
       <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file-pdf"></i>
   </span>
-<span class="headerbtn__text-container">.pdf</span>
+<span class="btn__text-container">.pdf</span>
 </button>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
   </span>
 
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#das-no-free-lunch-theorem">
-   3.1. Das No-free-Lunch-Theorem
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#definition-von-maschinellem-lernen">
-   3.2. Definition von maschinellem Lernen
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#merkmale">
-   3.3. Merkmale
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#trainings-und-testdaten">
-   3.4. Trainings- und Testdaten
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#kategorien-von-algorithmen">
-   3.5. Kategorien von Algorithmen
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ubung">
-   3.6. Übung
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#laden-von-csv-daten">
-     3.6.1. Laden von CSV Daten
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#entfernen-von-merkmalen">
-     3.6.2. Entfernen von Merkmalen
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#entfernen-von-instanzen-mit-fehlenden-werten">
-     3.6.3. Entfernen von Instanzen mit fehlenden Werten
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rechnen-mit-dataframes">
-     3.6.4. Rechnen mit Dataframes
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#zusammenfugen-von-dataframes">
-     3.6.5. Zusammenfügen von Dataframes
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#auswahl-von-teilmengen">
-     3.6.6. Auswahl von Teilmengen
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Allgemeines zur Datenanalyse</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#das-no-free-lunch-theorem">
-   3.1. Das No-free-Lunch-Theorem
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#definition-von-maschinellem-lernen">
-   3.2. Definition von maschinellem Lernen
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#merkmale">
-   3.3. Merkmale
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#trainings-und-testdaten">
-   3.4. Trainings- und Testdaten
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#kategorien-von-algorithmen">
-   3.5. Kategorien von Algorithmen
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ubung">
-   3.6. Übung
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#laden-von-csv-daten">
-     3.6.1. Laden von CSV Daten
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#entfernen-von-merkmalen">
-     3.6.2. Entfernen von Merkmalen
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#entfernen-von-instanzen-mit-fehlenden-werten">
-     3.6.3. Entfernen von Instanzen mit fehlenden Werten
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rechnen-mit-dataframes">
-     3.6.4. Rechnen mit Dataframes
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#zusammenfugen-von-dataframes">
-     3.6.5. Zusammenfügen von Dataframes
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#auswahl-von-teilmengen">
-     3.6.6. Auswahl von Teilmengen
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Allgemeines zur Datenanalyse</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#das-no-free-lunch-theorem">3.1. Das No-free-Lunch-Theorem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-von-maschinellem-lernen">3.2. Definition von maschinellem Lernen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#merkmale">3.3. Merkmale</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trainings-und-testdaten">3.4. Trainings- und Testdaten</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kategorien-von-algorithmen">3.5. Kategorien von Algorithmen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung">3.6. Übung</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#laden-von-csv-daten">3.6.1. Laden von CSV Daten</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entfernen-von-merkmalen">3.6.2. Entfernen von Merkmalen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entfernen-von-instanzen-mit-fehlenden-werten">3.6.3. Entfernen von Instanzen mit fehlenden Werten</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rechnen-mit-dataframes">3.6.4. Rechnen mit Dataframes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfugen-von-dataframes">3.6.5. Zusammenfügen von Dataframes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#auswahl-von-teilmengen">3.6.6. Auswahl von Teilmengen</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="allgemeines-zur-datenanalyse">
-<h1><span class="section-number">3. </span>Allgemeines zur Datenanalyse<a class="headerlink" href="#allgemeines-zur-datenanalyse" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">3. </span>Allgemeines zur Datenanalyse<a class="headerlink" href="#allgemeines-zur-datenanalyse" title="Permalink to this heading">#</a></h1>
 <p>Bevor wir uns in die Algorithmen zur Modellierung mithilfe von Daten stürzen, brauchen wir noch einige Grundlagen. Hierbei handelt es sich um allgemeine Konzepte, die nicht von einer bestimmten Art der Analyse oder Daten abhängen und die wir immer wieder benötigen. Außerdem geben wir in diesem Kapitel auch einen Überblick über die Arten von Algorithmen, die es gibt.</p>
 <section id="das-no-free-lunch-theorem">
-<h2><span class="section-number">3.1. </span>Das No-free-Lunch-Theorem<a class="headerlink" href="#das-no-free-lunch-theorem" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">3.1. </span>Das No-free-Lunch-Theorem<a class="headerlink" href="#das-no-free-lunch-theorem" title="Permalink to this heading">#</a></h2>
 <p>Das erste Konzept ist eine fundamentale Aussage über Optimierungsalgorithmen, das <em>No-free-Lunch-Theorem</em> (NFL). Das Theorem selbst ist sehr theoretisch, wenn Sie sich nur für die (sehr wichtigen!) praktischen Auswirkungen interessieren, springen Sie einfach direkt zur umgangssprachlichen Definition. Die mathematische Formulierung des NFL lautet wie folgt.</p>
 <blockquote>
 <div><p><strong>No-free-Lunch-Theorem:</strong></p>
@@ -548,7 +392,7 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[\sum_f P(d_m^y|f, m, a_1) = \sum_f P(d_m^y|f, m, a_2)\]</div>
 </div></blockquote>
-<p>Einen Beweis für das Theorem findet man in der Literatur <a class="footnote-reference brackets" href="#nfl" id="id1">1</a>. Die Gleichung des NFL besagt, dass die Summe der Wahrscheinlichkeiten, bestimmte Kosten zu erhalten, gleich ist, wenn man die Gesamtheit aller Funktionen <span class="math notranslate nohighlight">\(f\)</span> betrachtet, unabhängig vom Algorithmus. Einfacher formuliert bedeutet das NFL:</p>
+<p>Einen Beweis für das Theorem findet man in der Literatur <a class="footnote-reference brackets" href="#nfl" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>. Die Gleichung des NFL besagt, dass die Summe der Wahrscheinlichkeiten, bestimmte Kosten zu erhalten, gleich ist, wenn man die Gesamtheit aller Funktionen <span class="math notranslate nohighlight">\(f\)</span> betrachtet, unabhängig vom Algorithmus. Einfacher formuliert bedeutet das NFL:</p>
 <blockquote>
 <div><p>*<strong>No-free-Lunch-Theorem (Umgangssprachlich):</strong></p>
 <p>Alle Algorithmen sind gleich, wenn man alle möglichen Optimierungsprobleme betrachtet.</p>
@@ -557,22 +401,22 @@ title="Print to PDF"
 <p>Das heißt natürlich auch, dass es nicht ausreicht, sich auf eine bestimmte Art von Algorithmus zu spezialisieren. Dieser Algorithmus kann mathematisch beweisbar gar nicht in jeder Situation die beste Wahl sein. Die Falle, in die man tappen könnte, ist, dass man nicht mehr den Algorithmus an das Problem anpasst, sondern das Problem an den Algorithmus. Denn wenn man einen Hammer hat, sieht manchmal alles aus wie ein Nagel. Stattdessen sollten wir eine ganze Werkzeugbox an Algorithmen kennen. Nur dann können wir basierend auf der Problemstellung, den zur Verfügung stehenden Daten und unserer Erfahrung den am besten geeigneten Algorithmus auswählen. Dies lernt man nicht über Nacht, sondern nur aus der Erfahrung von vielen Projekten, in denen man mit verschiedenen Datensätzen und Methoden arbeitet.</p>
 </section>
 <section id="definition-von-maschinellem-lernen">
-<h2><span class="section-number">3.2. </span>Definition von maschinellem Lernen<a class="headerlink" href="#definition-von-maschinellem-lernen" title="Permalink to this headline">#</a></h2>
-<p><em>Maschinelles Lernen</em> ist derzeit eines der heißesten Themen in der Informatik, da es in den letzten Jahren große Fortschritte bei der Lösung von praxisrelevanten Problemen durch die immer höher werdende Rechenkraft, die größeren Datenmengen, die zur Verfügung stehen, und innovatives Design von Lernalgorithmen gab. Einige Probleme, die noch vor wenigen Jahren als extrem schwierig galten, sind jetzt durch maschinelles Lernen gelöst (siehe <a class="reference internal" href="kapitel_01.html"><span class="doc std std-doc">Kapitel 1</span></a>). Wenn man sich näher mit dem maschinellen Lernen beschäftigen möchte, muss man zuerst die Bedeutung des Begriffs verstehen. Es gibt viele Definition in der Literatur. Eine sehr mächtige und gleichzeitig intuitive kommt von Tom Mitchell <a class="footnote-reference brackets" href="#mitchel" id="id2">2</a>:</p>
+<h2><span class="section-number">3.2. </span>Definition von maschinellem Lernen<a class="headerlink" href="#definition-von-maschinellem-lernen" title="Permalink to this heading">#</a></h2>
+<p><em>Maschinelles Lernen</em> ist derzeit eines der heißesten Themen in der Informatik, da es in den letzten Jahren große Fortschritte bei der Lösung von praxisrelevanten Problemen durch die immer höher werdende Rechenkraft, die größeren Datenmengen, die zur Verfügung stehen, und innovatives Design von Lernalgorithmen gab. Einige Probleme, die noch vor wenigen Jahren als extrem schwierig galten, sind jetzt durch maschinelles Lernen gelöst (siehe <a class="reference internal" href="kapitel_01.html"><span class="doc std std-doc">Kapitel 1</span></a>). Wenn man sich näher mit dem maschinellen Lernen beschäftigen möchte, muss man zuerst die Bedeutung des Begriffs verstehen. Es gibt viele Definition in der Literatur. Eine sehr mächtige und gleichzeitig intuitive kommt von Tom Mitchell <a class="footnote-reference brackets" href="#mitchel" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>:</p>
 <blockquote>
 <div><p><strong>Definition von maschinellem Lernen:</strong></p>
 <p>Ein Computerprogramm lernt aus Erfahrung <span class="math notranslate nohighlight">\(E\)</span> in Bezug auf eine Klasse von Aufgaben <span class="math notranslate nohighlight">\(T\)</span> und ein Gütemaß <span class="math notranslate nohighlight">\(P\)</span>, wenn die Güte der Lösungen von <span class="math notranslate nohighlight">\(T\)</span> gemessen durch <span class="math notranslate nohighlight">\(P\)</span> sich mit mehr Erfahrung <span class="math notranslate nohighlight">\(E\)</span> verbessert.</p>
 </div></blockquote>
 <p>Auf den ersten Blick wirkt diese Definition sehr abstrakt und ist schwer zu lesen. Insbesondere die abstrakten Begriffe von <em>Erfahrung</em>, einer <em>Klasse von Aufgaben</em> und der <em>Güte</em> sind intuitiv in diesem Zusammenhang schwer einzuordnen. Das ist aber der Grund, weshalb die Definition so gut ist: Maschinelles Lernen ist ein sehr vielseitiges Gebiet, was anders kaum zu fassen ist. Außerdem ist die Definition nur auf den ersten Blick komplex. Bei einer genaueren Betrachtung, was mit Erfahrung, Aufgaben und Güte gemeint ist, erscheint die Definition sehr naheliegend.</p>
 <ul class="simple">
-<li><p>Die <em>Erfahrung</em> ist (im Normalfall) unser Datensatz. Je mehr Daten wir haben, desto mehr Erfahrung haben wir. Es gibt außerdem auch selbstlernende Systeme, die keine externen Daten benötigen und stattdessen ihre eigenen Daten generieren, wie AlphaZero <a class="footnote-reference brackets" href="#alphazero" id="id3">3</a>, das durch das Spielen gegen sich selbst lernt. In diesem Fall steigt die Erfahrung mit jedem Spiel.</p></li>
+<li><p>Die <em>Erfahrung</em> ist (im Normalfall) unser Datensatz. Je mehr Daten wir haben, desto mehr Erfahrung haben wir. Es gibt außerdem auch selbstlernende Systeme, die keine externen Daten benötigen und stattdessen ihre eigenen Daten generieren, wie AlphaZero <a class="footnote-reference brackets" href="#alphazero" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>, das durch das Spielen gegen sich selbst lernt. In diesem Fall steigt die Erfahrung mit jedem Spiel.</p></li>
 <li><p>Die <em>Aufgaben</em> sind nichts anderes als die Probleme, die wir mit maschinellem Lernen lösen möchten. Wir wollen Fußgänger erkennen, damit diese von einem autonomen Fahrzeug nicht überfahren werden. Wir wollen Spiele spielen und gewinnen. Wir wollen, dass die Besucher unserer Website auf die Werbung klicken. Das sind die Aufgaben. Im Allgemeinen ist die Aufgabe eng verwandt mit dem Anwendungsfall und den Projektzielen. Etwas abstrakter kann man Klassen von Aufgaben auf Kategorien von Algorithmen abbilden, wie wir am Ende dieses Kapitels sehen werden.</p></li>
 <li><p>Die <em>Gütemaße</em> messen, wie gut die Aufgabe erfüllt wird. Das könnte zum Beispiel die Anzahl der korrekt erkannten Fußgänger, der gewonnenen Spiele oder die Zahl der Klicks auf Werbung sein.</p></li>
 </ul>
 <p>Mit diesem Wissen erscheint die Definition ganz einfach: Wir betrachten einfach Algorithmen, die besser werden, wenn ihnen mehr Daten zur Verfügung stehen.</p>
 </section>
 <section id="merkmale">
-<h2><span class="section-number">3.3. </span>Merkmale<a class="headerlink" href="#merkmale" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">3.3. </span>Merkmale<a class="headerlink" href="#merkmale" title="Permalink to this heading">#</a></h2>
 <p>Im letzten Kapitel haben wir bereits oft von <em>Merkmalen</em> (engl. <em>feature</em>) gesprochen, ohne jedoch genau zu erklären, was wir damit eigentlich meinen. Die Merkmale sind eine Kernkomponente von maschinellem Lernen. Die Bedeutung von Merkmalen kann man sich gut an einem Beispiel verdeutlichen. Wenn wir uns <a class="reference internal" href="#fig-whale"><span class="std std-numref">Fig. 3.1</span></a> anschauen, erkennen wir sofort, dass es sich um einen Wal handelt. Wie genau wir als Menschen erkennen, dass es sich um einen Wal handelt, ist nicht abschließend geklärt und immer noch Gegenstand der Forschung. Nichtsdestotrotz nehmen wir hier an, dass wir verschiedene Aspekte vom Bild erkennen und aufgrund der Aspekte dann zur Erkenntnis gelangen, dass es sich um einen Wal handelt. Man könnte zum Beispiel erkennen, dass sich ein etwa <em>ovales</em> Objekt im Vordergrund befindet, das <em>oben schwarz und unten weiß</em> ist, das <em>Flossen hat</em> und dass der <em>Hintergrund blau</em> ist. Das alles sind <em>Merkmale</em> des Bilds.</p>
 <figure class="align-default" id="fig-whale">
 <a class="reference internal image-reference" href="../_images/whale.png"><img alt="../_images/whale.png" src="../_images/whale.png" style="width: 400px;" /></a>
@@ -581,8 +425,8 @@ title="Print to PDF"
 </figcaption>
 </figure>
 <p>Und so funktioniert auch maschinelles Lernen: Schlussfolgerungen über Objekte werden anhand ihrer Merkmale gezogen. Formal haben wir einen <em>Objektraum</em> <span class="math notranslate nohighlight">\(O\)</span> mit Objekten aus der realen Welt und einen <em>Merkmalsraum</em> (engl. <em>feature space</em>) <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> mit Beschreibungen der Objekte durch ihre Merkmale. Eine <em>Feature Map</em> <span class="math notranslate nohighlight">\(\phi: 0 \to \mathcal{F}\)</span> bildet die Objekte auf ihre Repräsentation im Merkmalsraum ab. Für unser Walbild ist der Objektraum <span class="math notranslate nohighlight">\(O\)</span> die Menge der Bilder und der Merkmalsraum hätte fünf Dimensionen: Form, Farbe oben, Farbe unten, Hintergrundfarbe und Flossen. Die Repräsentation des Bilds im Merkmalsraum wäre daher <span class="math notranslate nohighlight">\(\phi(Walbild) = (Oval, Schwarz, Wei\text{ß}, Blau, Ja)\)</span>.</p>
-<p>Es gibt verschiedene <em>Skalen</em>, über die Merkmale definiert sein können. Die am häufigsten verwendete Skalendefinition geht auf Steven zurück und ist auch als <em>Steven’s Levels of Measurements</em> bzw. <em>NOIR</em>-Skalen bekannt <a class="footnote-reference brackets" href="#stevens" id="id4">4</a>. NOIR ist ein Akronym für die vier Arten von Skalen: Nominal, Ordinal, Intervall, und Rational.</p>
-<table class="colwidths-auto table" id="tbl-scales">
+<p>Es gibt verschiedene <em>Skalen</em>, über die Merkmale definiert sein können. Die am häufigsten verwendete Skalendefinition geht auf Steven zurück und ist auch als <em>Steven’s Levels of Measurements</em> bzw. <em>NOIR</em>-Skalen bekannt <a class="footnote-reference brackets" href="#stevens" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>. NOIR ist ein Akronym für die vier Arten von Skalen: Nominal, Ordinal, Intervall, und Rational.</p>
+<table class="table" id="tbl-scales">
 <caption><span class="caption-number">Table 3.1 </span><span class="caption-text">Skalen für Merkmale </span><a class="headerlink" href="#tbl-scales" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Skala</p></th>
@@ -627,9 +471,9 @@ title="Print to PDF"
 <p>Bitte beachten Sie, dass One-Hot Encoding möglicherweise nicht gut funktioniert, wenn Sie sehr viele verschiedene Kategorien haben. Dies führt zu vielen neuen Merkmalen, was bei der anschließenden Modellierung zum Problem werden kann. Hinzu kommt, dass man bei der Umwandlung von Ordinalskalen die Informationen über die Ordnung verliert. In solchen Fällen sollte man nach Möglichkeit auf Analysemethoden zurückgreifen, die direkt mit Nominal- bzw. Ordinalskalen arbeiten können.</p>
 </section>
 <section id="trainings-und-testdaten">
-<h2><span class="section-number">3.4. </span>Trainings- und Testdaten<a class="headerlink" href="#trainings-und-testdaten" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">3.4. </span>Trainings- und Testdaten<a class="headerlink" href="#trainings-und-testdaten" title="Permalink to this heading">#</a></h2>
 <p>Daten sind das Herz von jedem Data-Science-Projekt. Die Daten bestehen aus <em>Instanzen</em> von <em>Merkmalen</em>, wobei eine Instanz die Repräsentation eines Objekts der realen Welt durch seine Merkmale ist. <a class="reference internal" href="#tbl-data"><span class="std std-numref">Table 3.2</span></a> zeigt uns ein Beispiel von Daten.</p>
-<table class="colwidths-auto table" id="tbl-data">
+<table class="table" id="tbl-data">
 <caption><span class="caption-number">Table 3.2 </span><span class="caption-text">Beispiel für Instanzen von Objekten mit ihren Merkmalen</span><a class="headerlink" href="#tbl-data" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Form</p></th>
@@ -661,7 +505,7 @@ title="Print to PDF"
 </tbody>
 </table>
 <p>Jede Zeile in der Tabelle ist eine Instanz, jede Spalte beinhaltet die Werte von einem Merkmal. Häufig gibt es noch eine gewisse Eigenschaft, die man aus den Merkmalen lernen möchte, sozusagen einen <em>Wert von Interesse</em>, der mit jeder Instanz verbunden wird. <a class="reference internal" href="#tbl-data-label"><span class="std std-numref">Table 3.3</span></a> zeigt die Erweiterung der Instanzen.</p>
-<table class="colwidths-auto table" id="tbl-data-label">
+<table class="table" id="tbl-data-label">
 <caption><span class="caption-number">Table 3.3 </span><span class="caption-text">Beispiel für Instanzen von Objekten mit ihren Merkmalen und Werten von Interesse. Diese werden häufig auch als <em>Label</em> bezeichnet.</span><a class="headerlink" href="#tbl-data-label" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Form</p></th>
@@ -717,7 +561,7 @@ title="Print to PDF"
 <p>Die Güte wird als arithmetisches Mittel der Güte auf der jeweiligen Testpartition berechnet. Bei der Kreuzvalidierung wird somit jede Instanz der Daten genau einmal in den Testdaten und  <span class="math notranslate nohighlight">\((k-1)\)</span>-mal zum Training verwendet. Der Nachteil der Kreuzvalidierung ist, dass es keine echten Testdaten gibt. Stattdessen handelt es sich vielmehr um Validierungsdaten. Dennoch verwenden wir hier auch den Begriff Testdaten, da dies in der Literatur üblich ist. Da es keine echten Testdaten gibt, ist das Risiko von Overfitting bei der Kreuzvalidierung höher als bei der Verwendung von Holdout-Daten. Daher sollte man, sofern möglich, Holdout-Daten verwenden und Kreuzvalidierung nur als Notlösung betrachten.</p>
 </section>
 <section id="kategorien-von-algorithmen">
-<h2><span class="section-number">3.5. </span>Kategorien von Algorithmen<a class="headerlink" href="#kategorien-von-algorithmen" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">3.5. </span>Kategorien von Algorithmen<a class="headerlink" href="#kategorien-von-algorithmen" title="Permalink to this heading">#</a></h2>
 <p>Data Science ist ein vielseitiges Gebiet. Je nach Problemstellung gibt es unterschiedliche Algorithmen, die für ein Projekt geeignet sind:</p>
 <ul class="simple">
 <li><p><em>Assoziationsregeln</em> befassen sich mit Zusammenhängen zwischen Gegenständen in Transaktionen. Der klassische Anwendungsfall von Assoziationsregeln ist die Vorhersage von Gegenständen, die zu einem Warenkorb noch hinzugefügt werden, basierend auf dem aktuellen Inhalt des Warenkorbs. Wir betrachten den Apriori-Algorithmus zum Bestimmen von Assoziationsregeln in <a class="reference internal" href="kapitel_05.html"><span class="doc std std-doc">Kapitel 5</span></a>.</p></li>
@@ -730,11 +574,11 @@ title="Print to PDF"
 <p>Bei der Suche nach Assoziationsregeln und beim Clustern werden unüberwachte Lernverfahren, die anhand der Merkmale nach Mustern in den Daten suchen, verwendet. Daher werden solche Verfahren auch manchmal als <em>Mustererkennung</em> (engl. <em>pattern recognition</em>) bezeichnet. Klassifikation, Regression und Zeitreihenanalyse sind Beispiele für überwachtes Lernen. Das heißt, dass man für diese Ansätze den Wert von Interesse kennen muss und die Verfahren den Zusammenhang zu den Merkmalen lernen.</p>
 </section>
 <section id="ubung">
-<h2><span class="section-number">3.6. </span>Übung<a class="headerlink" href="#ubung" title="Permalink to this headline">#</a></h2>
-<p>In der ersten Übung machen wir uns mit dem Arbeiten mit Merkmalen in Python durch <em>Dataframes</em> vertraut. Hierbei lernen wir Daten zu laden und zu filtern. Für diese Übung müssen Sie eigenständig die benötigten Funktionen aus der Programmbibliothek <code class="docutils literal notranslate"><span class="pre">pandas</span></code> heraussuchen <a class="footnote-reference brackets" href="#pandas" id="id5">5</a>. Sollten Sie wenig Erfahrung mit Python (oder Programmierung) haben, können Sie diese Übung auch überspringen und sich stattdessen an den Quelltextbeispielen der folgenden Kapitel orientieren. Sie sollten sich aber in jedem Fall zumindest die Aufgaben durchlesen, da das Konzept der Dataframes dort erklärt wird.</p>
+<h2><span class="section-number">3.6. </span>Übung<a class="headerlink" href="#ubung" title="Permalink to this heading">#</a></h2>
+<p>In der ersten Übung machen wir uns mit dem Arbeiten mit Merkmalen in Python durch <em>Dataframes</em> vertraut. Hierbei lernen wir Daten zu laden und zu filtern. Für diese Übung müssen Sie eigenständig die benötigten Funktionen aus der Programmbibliothek <code class="docutils literal notranslate"><span class="pre">pandas</span></code> heraussuchen <a class="footnote-reference brackets" href="#pandas" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>. Sollten Sie wenig Erfahrung mit Python (oder Programmierung) haben, können Sie diese Übung auch überspringen und sich stattdessen an den Quelltextbeispielen der folgenden Kapitel orientieren. Sie sollten sich aber in jedem Fall zumindest die Aufgaben durchlesen, da das Konzept der Dataframes dort erklärt wird.</p>
 <section id="laden-von-csv-daten">
-<h3><span class="section-number">3.6.1. </span>Laden von CSV Daten<a class="headerlink" href="#laden-von-csv-daten" title="Permalink to this headline">#</a></h3>
-<p>Oft liegen Daten als CSV-Dateien vor. Die erste Zeile beinhaltet die Namen der Merkmale, die folgenden Zeilen jeweils die Werte einer Instanz. Laden Sie sich zuerst die für uns angepassten Daten über Insolvenzen herunter <a class="footnote-reference brackets" href="#our-bankruptcy" id="id6">6</a>. Das Original finden Sie im <em>UCI Archive</em> <a class="footnote-reference brackets" href="#usi" id="id7">7</a>, einer großen Sammlung von Beispieldatensätzen für maschinelles Lernen. Wir haben diese Daten angepasst, indem wir die Werte einiger Merkmale gelöscht haben.</p>
+<h3><span class="section-number">3.6.1. </span>Laden von CSV Daten<a class="headerlink" href="#laden-von-csv-daten" title="Permalink to this heading">#</a></h3>
+<p>Oft liegen Daten als CSV-Dateien vor. Die erste Zeile beinhaltet die Namen der Merkmale, die folgenden Zeilen jeweils die Werte einer Instanz. Laden Sie sich zuerst die für uns angepassten Daten über Insolvenzen herunter <a class="footnote-reference brackets" href="#our-bankruptcy" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>. Das Original finden Sie im <em>UCI Archive</em> <a class="footnote-reference brackets" href="#usi" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a>, einer großen Sammlung von Beispieldatensätzen für maschinelles Lernen. Wir haben diese Daten angepasst, indem wir die Werte einiger Merkmale gelöscht haben.</p>
 <p>Laden Sie die CSV-Datei in einen <em>Dataframe</em> mithilfe der Bibliothek <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. Dataframes sind ähnlich zu Matrizen. Es gibt jedoch einige wesentliche Unterschiede:</p>
 <ul class="simple">
 <li><p>Dataframes können einfacher verändert werden, indem man Zeilen/Spalten entfernt.</p></li>
@@ -749,15 +593,15 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="entfernen-von-merkmalen">
-<h3><span class="section-number">3.6.2. </span>Entfernen von Merkmalen<a class="headerlink" href="#entfernen-von-merkmalen" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">3.6.2. </span>Entfernen von Merkmalen<a class="headerlink" href="#entfernen-von-merkmalen" title="Permalink to this heading">#</a></h3>
 <p>Entfernen Sie das Merkmal <code class="docutils literal notranslate"><span class="pre">Company</span></code>.</p>
 </section>
 <section id="entfernen-von-instanzen-mit-fehlenden-werten">
-<h3><span class="section-number">3.6.3. </span>Entfernen von Instanzen mit fehlenden Werten<a class="headerlink" href="#entfernen-von-instanzen-mit-fehlenden-werten" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">3.6.3. </span>Entfernen von Instanzen mit fehlenden Werten<a class="headerlink" href="#entfernen-von-instanzen-mit-fehlenden-werten" title="Permalink to this heading">#</a></h3>
 <p>Entfernen Sie alle Instanzen, bei denen ein Wert fehlt. Die fehlenden Werte sind als <code class="docutils literal notranslate"><span class="pre">NA</span></code> in der CSV Datei markiert. Hierdurch sollten fünf Instanzen entfernt werden.</p>
 </section>
 <section id="rechnen-mit-dataframes">
-<h3><span class="section-number">3.6.4. </span>Rechnen mit Dataframes<a class="headerlink" href="#rechnen-mit-dataframes" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">3.6.4. </span>Rechnen mit Dataframes<a class="headerlink" href="#rechnen-mit-dataframes" title="Permalink to this heading">#</a></h3>
 <p>Man kann mit Dataframes einfach rechnen. Ergänzen Sie zwei Spalten mit den Ergebnissen folgender Berechnungen:</p>
 <ul class="simple">
 <li><p>Die Summe der Spalten <code class="docutils literal notranslate"><span class="pre">WC/TA</span></code> und <code class="docutils literal notranslate"><span class="pre">RE/TA</span></code></p></li>
@@ -765,7 +609,7 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="zusammenfugen-von-dataframes">
-<h3><span class="section-number">3.6.5. </span>Zusammenfügen von Dataframes<a class="headerlink" href="#zusammenfugen-von-dataframes" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">3.6.5. </span>Zusammenfügen von Dataframes<a class="headerlink" href="#zusammenfugen-von-dataframes" title="Permalink to this heading">#</a></h3>
 <p>Laden Sie die Daten ein zweites Mal aus der CSV-Datei. Vereinigen Sie den Dataframe aus der vorigen Aufgabe mit den neu geladenen Daten, sodass gilt:</p>
 <ul class="simple">
 <li><p>Das Merkmal <code class="docutils literal notranslate"><span class="pre">Company</span></code> ist wieder Teil des neuen Dataframes.</p></li>
@@ -774,7 +618,7 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="auswahl-von-teilmengen">
-<h3><span class="section-number">3.6.6. </span>Auswahl von Teilmengen<a class="headerlink" href="#auswahl-von-teilmengen" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">3.6.6. </span>Auswahl von Teilmengen<a class="headerlink" href="#auswahl-von-teilmengen" title="Permalink to this heading">#</a></h3>
 <p>Nutzen Sie den zusammengefügten Dataframe, um Teilmengen der Instanzen und Merkmale zu bestimmen:</p>
 <ul class="simple">
 <li><p>Die Instanzen 10 bis 20 und alle Merkmale</p></li>
@@ -785,29 +629,34 @@ title="Print to PDF"
 <li><p>Nur die Merkmale <code class="docutils literal notranslate"><span class="pre">WC/TA</span></code> und <code class="docutils literal notranslate"><span class="pre">EBIT/TA</span></code> und nur die Instanzen, bei denen <code class="docutils literal notranslate"><span class="pre">RE/RA</span></code> kleiner als -20 ist und <code class="docutils literal notranslate"><span class="pre">bankrupt</span></code> null ist.</p></li>
 </ul>
 <hr class="footnotes docutils" />
-<dl class="footnote brackets">
-<dt class="label" id="nfl"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p><a class="reference external" href="https://doi.org/10.1109/4235.585893">https://doi.org/10.1109/4235.585893</a></p>
-</dd>
-<dt class="label" id="mitchel"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
-<dd><p><a class="reference external" href="https://doi.org/10.1007/978-3-662-12405-5">https://doi.org/10.1007/978-3-662-12405-5</a></p>
-</dd>
-<dt class="label" id="alphazero"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
-<dd><p><a class="reference external" href="https://arxiv.org/abs/1712.01815">https://arxiv.org/abs/1712.01815</a></p>
-</dd>
-<dt class="label" id="stevens"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
-<dd><p><a class="reference external" href="https://doi.org/10.1126/science.103.2684.677">https://doi.org/10.1126/science.103.2684.677</a></p>
-</dd>
-<dt class="label" id="pandas"><span class="brackets"><a class="fn-backref" href="#id5">5</a></span></dt>
-<dd><p><a class="reference external" href="https://pandas.pydata.org/">https://pandas.pydata.org/</a></p>
-</dd>
-<dt class="label" id="our-bankruptcy"><span class="brackets"><a class="fn-backref" href="#id6">6</a></span></dt>
-<dd><p><a class="reference external" href="https://data-science-crashkurs.de/exercises/data/analcatdata_bankruptcy.csv">https://data-science-crashkurs.de/exercises/data/analcatdata_bankruptcy.csv</a></p>
-</dd>
-<dt class="label" id="usi"><span class="brackets"><a class="fn-backref" href="#id7">7</a></span></dt>
-<dd><p><a class="reference external" href="https://archive.ics.uci.edu/ml/index.php">https://archive.ics.uci.edu/ml/index.php</a></p>
-</dd>
-</dl>
+<aside class="footnote brackets" id="nfl" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://doi.org/10.1109/4235.585893">https://doi.org/10.1109/4235.585893</a></p>
+</aside>
+<aside class="footnote brackets" id="mitchel" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://doi.org/10.1007/978-3-662-12405-5">https://doi.org/10.1007/978-3-662-12405-5</a></p>
+</aside>
+<aside class="footnote brackets" id="alphazero" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://arxiv.org/abs/1712.01815">https://arxiv.org/abs/1712.01815</a></p>
+</aside>
+<aside class="footnote brackets" id="stevens" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">4</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://doi.org/10.1126/science.103.2684.677">https://doi.org/10.1126/science.103.2684.677</a></p>
+</aside>
+<aside class="footnote brackets" id="pandas" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">5</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://pandas.pydata.org/">https://pandas.pydata.org/</a></p>
+</aside>
+<aside class="footnote brackets" id="our-bankruptcy" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">6</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://data-science-crashkurs.de/exercises/data/analcatdata_bankruptcy.csv">https://data-science-crashkurs.de/exercises/data/analcatdata_bankruptcy.csv</a></p>
+</aside>
+<aside class="footnote brackets" id="usi" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">7</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://archive.ics.uci.edu/ml/index.php">https://archive.ics.uci.edu/ml/index.php</a></p>
+</aside>
 </section>
 </section>
 </section>
@@ -824,7 +673,7 @@ title="Print to PDF"
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./chapters"
         },
         predefinedOutput: true
@@ -832,50 +681,115 @@ title="Print to PDF"
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="kapitel_02.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">2. </span>Der Prozess von Data-Science-Projekten</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="kapitel_02.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Der Prozess von Data-Science-Projekten</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="kapitel_04.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="kapitel_04.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title"><span class="section-number">4. </span>Erkunden der Daten</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#das-no-free-lunch-theorem">3.1. Das No-free-Lunch-Theorem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-von-maschinellem-lernen">3.2. Definition von maschinellem Lernen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#merkmale">3.3. Merkmale</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trainings-und-testdaten">3.4. Trainings- und Testdaten</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kategorien-von-algorithmen">3.5. Kategorien von Algorithmen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung">3.6. Übung</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#laden-von-csv-daten">3.6.1. Laden von CSV Daten</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entfernen-von-merkmalen">3.6.2. Entfernen von Merkmalen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entfernen-von-instanzen-mit-fehlenden-werten">3.6.3. Entfernen von Instanzen mit fehlenden Werten</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rechnen-mit-dataframes">3.6.4. Rechnen mit Dataframes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfugen-von-dataframes">3.6.5. Zusammenfügen von Dataframes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#auswahl-von-teilmengen">3.6.6. Auswahl von Teilmengen</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By Steffen Herbold<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+<p class="component-author">
+By Steffen Herbold
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

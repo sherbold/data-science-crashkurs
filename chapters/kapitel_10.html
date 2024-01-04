@@ -1,48 +1,60 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>10. Text Mining &#8212; Data Science Crashkurs - Eine interaktive und praktische Einführung</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -52,61 +64,104 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/kapitel_10';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="11. Statistik" href="kapitel_11.html" />
     <link rel="prev" title="9. Zeitreihenanalyse" href="kapitel_09.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
 
-    
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="vorwort.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/bookcover.jpg" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Data Science Crashkurs - Eine interaktive und praktische Einführung</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../_static/bookcover.jpg" class="logo__image only-light" alt="Data Science Crashkurs - Eine interaktive und praktische Einführung - Home"/>
+    <script>document.write(`<img src="../_static/bookcover.jpg" class="logo__image only-dark" alt="Data Science Crashkurs - Eine interaktive und praktische Einführung - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -115,500 +170,236 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Kapitel
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Kapitel</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_01.html">
-   1. Big Data und Data Science
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_02.html">
-   2. Der Prozess von Data-Science-Projekten
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_03.html">
-   3. Allgemeines zur Datenanalyse
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_04.html">
-   4. Erkunden der Daten
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_05.html">
-   5. Assoziationsregeln
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_06.html">
-   6. Clusteranalyse
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_07.html">
-   7. Klassifikation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_08.html">
-   8. Regression
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_09.html">
-   9. Zeitreihenanalyse
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   10. Text Mining
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_11.html">
-   11. Statistik
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_12.html">
-   12. Big Data Processing
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_13.html">
-   13. Weiterführende Konzepte
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_01.html">1. Big Data und Data Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_02.html">2. Der Prozess von Data-Science-Projekten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_03.html">3. Allgemeines zur Datenanalyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_04.html">4. Erkunden der Daten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_05.html">5. Assoziationsregeln</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_06.html">6. Clusteranalyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_07.html">7. Klassifikation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_08.html">8. Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_09.html">9. Zeitreihenanalyse</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">10. Text Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_11.html">11. Statistik</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_12.html">12. Big Data Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_13.html">13. Weiterführende Konzepte</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Appendix
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="howto.html">
-   Selbst ausführen
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="notations.html">
-   Notationen
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="acronyms.html">
-   Abkürzungen
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="howto.html">Selbst ausführen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notations.html">Notationen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acronyms.html">Abkürzungen</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Gefällt Ihnen das Buch? Möchten Sie es in den Händen halten und weitere Open Access Bücher unterstützen? <a href="https://dpunkt.de/produkt/data-science-crashkurs/">Dann kaufen Sie die Print Edition.</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/sherbold/einfuehrung-in-data-science/main?urlpath=tree/content/chapters/kapitel_10.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
-</div>
+  
+  <div id="rtd-footer-container"></div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/sherbold/einfuehrung-in-data-science" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-<a href="https://github.com/sherbold/einfuehrung-in-data-science"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="bottom"
-title="Source repository"
->
-  
-
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fab fa-github"></i>
   </span>
 
 </a>
 
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/chapters/kapitel_10.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapters/kapitel_10.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.ipynb</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
-
-      </li>
+</li>
+      
+      
+      
       
       <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file-pdf"></i>
   </span>
-<span class="headerbtn__text-container">.pdf</span>
+<span class="btn__text-container">.pdf</span>
 </button>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
   </span>
 
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#preprocessing">
-   10.1. Preprocessing
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#erstellung-eines-korpus">
-     10.1.1. Erstellung eines Korpus
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#relevanter-inhalt">
-     10.1.2. Relevanter Inhalt
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#zeichensetzung-und-groszschreibung">
-     10.1.3. Zeichensetzung und Großschreibung
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#stoppworter">
-     10.1.4. Stoppwörter
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#stemming-und-lemmatisierung">
-     10.1.5. Stemming und Lemmatisierung
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#visualisierung-des-preprocessings">
-     10.1.6. Visualisierung des Preprocessings
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#bag-of-words">
-     10.1.7. Bag-of-Words
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#inverse-document-frequency">
-     10.1.8. Inverse Document Frequency
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#jenseits-des-bag-of-words">
-     10.1.9. Jenseits des Bag-of-Words
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#herausforderungen-des-text-mining">
-   10.2. Herausforderungen des Text Mining
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#dimensionalitat">
-     10.2.1. Dimensionalität
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#mehrdeutigkeiten">
-     10.2.2. Mehrdeutigkeiten
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#weitere-probleme">
-     10.2.3. Weitere Probleme
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ubung">
-   10.3. Übung
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#wortwolke-ohne-preprocessing">
-     10.3.1. Wortwolke ohne Preprocessing
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#wortwolke-mit-preprocessing">
-     10.3.2. Wortwolke mit Preprocessing
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tf-idf">
-     10.3.3. TF-IDF
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Text Mining</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#preprocessing">
-   10.1. Preprocessing
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#erstellung-eines-korpus">
-     10.1.1. Erstellung eines Korpus
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#relevanter-inhalt">
-     10.1.2. Relevanter Inhalt
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#zeichensetzung-und-groszschreibung">
-     10.1.3. Zeichensetzung und Großschreibung
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#stoppworter">
-     10.1.4. Stoppwörter
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#stemming-und-lemmatisierung">
-     10.1.5. Stemming und Lemmatisierung
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#visualisierung-des-preprocessings">
-     10.1.6. Visualisierung des Preprocessings
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#bag-of-words">
-     10.1.7. Bag-of-Words
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#inverse-document-frequency">
-     10.1.8. Inverse Document Frequency
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#jenseits-des-bag-of-words">
-     10.1.9. Jenseits des Bag-of-Words
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#herausforderungen-des-text-mining">
-   10.2. Herausforderungen des Text Mining
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#dimensionalitat">
-     10.2.1. Dimensionalität
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#mehrdeutigkeiten">
-     10.2.2. Mehrdeutigkeiten
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#weitere-probleme">
-     10.2.3. Weitere Probleme
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ubung">
-   10.3. Übung
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#wortwolke-ohne-preprocessing">
-     10.3.1. Wortwolke ohne Preprocessing
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#wortwolke-mit-preprocessing">
-     10.3.2. Wortwolke mit Preprocessing
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tf-idf">
-     10.3.3. TF-IDF
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Text Mining</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing">10.1. Preprocessing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#erstellung-eines-korpus">10.1.1. Erstellung eines Korpus</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relevanter-inhalt">10.1.2. Relevanter Inhalt</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zeichensetzung-und-groszschreibung">10.1.3. Zeichensetzung und Großschreibung</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stoppworter">10.1.4. Stoppwörter</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stemming-und-lemmatisierung">10.1.5. Stemming und Lemmatisierung</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisierung-des-preprocessings">10.1.6. Visualisierung des Preprocessings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bag-of-words">10.1.7. Bag-of-Words</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inverse-document-frequency">10.1.8. Inverse Document Frequency</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jenseits-des-bag-of-words">10.1.9. Jenseits des Bag-of-Words</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#herausforderungen-des-text-mining">10.2. Herausforderungen des Text Mining</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dimensionalitat">10.2.1. Dimensionalität</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mehrdeutigkeiten">10.2.2. Mehrdeutigkeiten</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weitere-probleme">10.2.3. Weitere Probleme</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung">10.3. Übung</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wortwolke-ohne-preprocessing">10.3.1. Wortwolke ohne Preprocessing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wortwolke-mit-preprocessing">10.3.2. Wortwolke mit Preprocessing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-idf">10.3.3. TF-IDF</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="text-mining">
-<h1><span class="section-number">10. </span>Text Mining<a class="headerlink" href="#text-mining" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">10. </span>Text Mining<a class="headerlink" href="#text-mining" title="Permalink to this heading">#</a></h1>
 <p>Beim <em>Text Mining</em> geht es um die Anwendung der in den vergangenen Kapiteln besprochenen Methoden auf textuelle Daten mit dem Ziel, Wissen aus den Daten zu gewinnen. Beispiele für Text Mining sind die Analyse von Kundenbewertungen bezüglich der Emotion und Meinung (engl. <em>sentiment</em>) oder die automatische Gruppierung ähnlicher Dokumente. Das Problem bei der Analyse von natürlicher Sprache ist, dass Sätze und längere Texte weder numerisch noch kategorisch sind. Es gibt also keine offensichtliche Darstellung durch Merkmale. Hinzu kommt, dass Text oft eine innere Struktur hat, zum Beispiel durch Überschriften, Einleitungen oder Referenzen zu verwandten Inhalten. Wenn wir Text lesen, erkennen wir diese semantische Struktur automatisch und ordnen diese ein. Daher ist es die große Herausforderung des Text Mining, eine geeignete Struktur der textuellen Daten für das maschinelle Lernen zu finden.</p>
 <p>Hierfür müssen wir den Text <em>codieren</em>, um eine numerische oder kategorische Repräsentation zu erhalten. Ziel der Repräsentation sollte sein, möglichst wenig relevante Information aus dem Text zu verlieren. Eine ideale Codierung beinhaltet daher nicht nur die Worte, sondern auch die <em>Bedeutung</em> der Worte im jeweiligen <em>Kontext</em>, die grammatikalische Struktur und eventuell sogar den Gesamtkontext eines Satzes innerhalb eines Dokuments. Aufgrund dieser Komplexität ist die Repräsentation von Texten für das maschinelle Lernen immer noch der Gegenstand der aktuellen Forschung. Durch Fortschritte der letzten Jahre wird das Text Mining jedoch zu einem immer mächtigeren und zuverlässigeren Werkzeug. Das Text Mining selbst ist ein großes Gebiet, bei dem wir hier nur an der Oberfläche kratzen können. Das Ziel dieses Kapitels ist es, dass wir ein gutes Verständnis der Herausforderungen vom Text Mining bekommen, grundlegende Verfahren kennenlernen und außerdem Wissen wie fortgeschrittene Verfahren erarbeiten.</p>
 <p>Als Beispiel nutzen wir in diesem Kapitel acht Tweets von Donald Trump. Die Verarbeitungsschritte, die wir zeigen, haben alle das Ziel, die Analyse des Themas der Tweets zu erlauben. Ähnlich wie bei den Bostondaten ist es auch bei Donald Trumps Tweets: Diese sind inhaltlich, vor allem was das Thema Wahlen angeht, nicht unproblematisch. Problematische Daten existieren aber und es ist wichtig, sich auch damit auseinanderzusetzen. Hinzu kommt, dass sie ein gutes Beispiel sind, um zu zeigen, wie Text Mining funktioniert: Sie sind kurz, jeder kennt das Medium, die Auswahl an Tweets ist inhaltlich unkritisch und die Daten beinhalten die üblichen Probleme, auf die man beim Text Mining trifft.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">textwrap</span> <span class="kn">import</span> <span class="n">TextWrapper</span>
 
@@ -628,6 +419,7 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Oct 4, 2018 08:03:25 PM Beautiful evening in Rochester,
 Minnesota. VOTE, VOTE, VOTE! https://t.co/SyxrxvTpZE [Twitter for
@@ -667,17 +459,22 @@ iPhone]
 </div>
 </div>
 <section id="preprocessing">
-<h2><span class="section-number">10.1. </span>Preprocessing<a class="headerlink" href="#preprocessing" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">10.1. </span>Preprocessing<a class="headerlink" href="#preprocessing" title="Permalink to this heading">#</a></h2>
 <p>Durch das Preprocessing wird der Text in eine Repräsentation überführt, die für maschinelles Lernen geeignet ist, also mit der man den Text klassifizieren oder clustern kann.</p>
 <section id="erstellung-eines-korpus">
-<h3><span class="section-number">10.1.1. </span>Erstellung eines Korpus<a class="headerlink" href="#erstellung-eines-korpus" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.1.1. </span>Erstellung eines Korpus<a class="headerlink" href="#erstellung-eines-korpus" title="Permalink to this heading">#</a></h3>
 <p>Der erste Preprocessing-Schritt ist die Erstellung eines <em>Korpus</em> von <em>Dokumenten</em>. Im Sinne der in <a class="reference internal" href="kapitel_03.html"><span class="doc std std-doc">Kapitel 3</span></a> eingeführten Begriffe sind die Dokumente die Objekte und ein Korpus eine Menge von Objekten. In unserem Twitter-Beispiel ist der Korpus eine Menge von Tweets, jeder Tweet ist ein Dokument. Wir haben bereits eine Liste von Tweets, was einem Korpus entspricht. In anderen Anwendungsfäl-len kann die Erstellung des Korpus aufwendiger sein. Dies wäre zum Beispiel der Fall, wenn erst Bewertungen eines Produkts durch Crawling aus dem Internet gesammelt werden müssen. Hierbei ist es relativ wahrscheinlich, dass es auf der gleichen Webseite mehrere Bewertungen gibt. Diese müssen dann zum Beispiel innerhalb der Webseite identifiziert und anschließend in separate Dokumente aufgeteilt werden.</p>
 </section>
 <section id="relevanter-inhalt">
-<h3><span class="section-number">10.1.2. </span>Relevanter Inhalt<a class="headerlink" href="#relevanter-inhalt" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.1.2. </span>Relevanter Inhalt<a class="headerlink" href="#relevanter-inhalt" title="Permalink to this heading">#</a></h3>
 <p>Die textuellen Daten beinhalten oft irrelevante Informationen für einen bestimmten Anwendungsfall, insbesondere wenn der Text automatisch aus dem Internet gesammelt wurde. Wenn wir am Thema von Tweets interessiert sind, ist der Zeitstempel irrelevant. Es ist ebenfalls nicht wichtig, ob ein Tweet mit einem iPhone oder einer anderen Anwendung verschickt wurde. Links zu Webseiten sind knifflig, da sie relevante Informationen enthalten könnten, jedoch auch irrelevant sein können. Wenn eine URL relevante Informationen, wie zum Beispiel den Autor oder das Thema, enthält, kann dies wertvoll für das Text Mining sein. Andere Aspekte, wie zum Beispiel das http(s):// zu Beginn eines Links, sind irrelevant. Es gibt auch Links, die keine relevanten Informationen enthalten, zum Beispiel wenn Link Shortener benutzt werden. Dann ist der Link nur eine zufällige Zeichenkette. Ob Links beibehalten werden sollen, muss man daher von Anwendungsfall zu Anwendungsfall entscheiden.</p>
 <p>Wenn wir den irrelevanten Inhalt der Tweets (inkl. Links) entfernen, bekommen wir Folgendes:</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
 
@@ -696,6 +493,7 @@ iPhone]
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Beautiful evening in Rochester, Minnesota. VOTE, VOTE, VOTE!
 
@@ -728,10 +526,15 @@ for the Obstructionist Democrats.
 <p>Was relevant und irrelevant ist, hängt auch vom Kontext ab. Ein anderer Anwendungsfall für unsere Twitterdaten wäre die Analyse der Quelle der Tweets, um zum Beispiel herauszufinden, ob es einen Unterschied macht, ob ein Tweet von einem Handy oder von einem Computer verschickt wurde. In diesem Fall kann man die Quelle nicht einfach entfernen, da man sie zur Gruppierung der Tweets braucht. Wenn man wissen möchte, wie sich Tweets im Laufe der Zeit verändern, dann sind die Zeitstempel wichtig. In beiden Fällen würde man aber diese Informationen trotzdem aus dem eigentlichen Text entfernen und sie stattdessen als separate Merkmale speichern, da es sich um Metadaten über die Dokumente handelt.</p>
 </section>
 <section id="zeichensetzung-und-groszschreibung">
-<h3><span class="section-number">10.1.3. </span>Zeichensetzung und Großschreibung<a class="headerlink" href="#zeichensetzung-und-groszschreibung" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.1.3. </span>Zeichensetzung und Großschreibung<a class="headerlink" href="#zeichensetzung-und-groszschreibung" title="Permalink to this heading">#</a></h3>
 <p>Für das Thema von Dokumenten sind die Zeichensetzung und die Groß- und Kleinschreibung von Buchstaben in der Regel irrelevant. Stattdessen führen sie dazu, dass es ungewollte Unterschiede zwischen Worten gibt. Eine Ausnahme von dieser Regel bilden Abkürzungen und Akronyme. Das Akronym <code class="docutils literal notranslate"><span class="pre">U.S.</span></code> der Tweets ist ein perfektes Beispiel hierfür, da es zum Wort <code class="docutils literal notranslate"><span class="pre">us</span></code> werden würde, wenn man einfach alle Zeichen entfernen und alle Buchstaben zu Kleinbuchstaben umwandeln würde. Wir würden also eine ganz andere Bedeutung erhalten. Wenn solche Fälle bekannt sind, sollte man diese manuell adressieren, bevor die Zeichensetzung und Großschreibung entfernt wird. Man könnte zum Beispiel <code class="docutils literal notranslate"><span class="pre">US</span></code> und <code class="docutils literal notranslate"><span class="pre">U.S.</span></code> zu <code class="docutils literal notranslate"><span class="pre">usa</span></code> umwandeln, um zu verhindern, dass es ein Problem gibt.</p>
 <p>Wenn wir dies bei den Tweets anwenden, bekommen wir folgende Dokumente:</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">string</span>
 <span class="n">tweets_lowercase</span> <span class="o">=</span> <span class="p">[]</span>
@@ -748,6 +551,7 @@ for the Obstructionist Democrats.
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>beautiful evening in rochester minnesota vote vote vote
 
@@ -779,10 +583,15 @@ obstructionist democrats
 </div>
 </section>
 <section id="stoppworter">
-<h3><span class="section-number">10.1.4. </span>Stoppwörter<a class="headerlink" href="#stoppworter" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.1.4. </span>Stoppwörter<a class="headerlink" href="#stoppworter" title="Permalink to this heading">#</a></h3>
 <p>Eine weitere Eigenschaft von Text ist, dass nicht jedes Wort relevant für die Bedeutung ist. Oft werden Wörter nur für die korrekte grammatikalische Struktur benötigt, ohne dass sie die Bedeutung eines Dokuments beeinflussen. Beispiele dafür sind Artikel (der, die, das, den, dem bzw. auf Englisch the, a). Außerdem gibt es noch Wörter, die sehr häufig vorkommen, unabhängig vom Inhalt, zum Beispiel die verschiedenen Formen von sein und haben. Daher besteht ein üblicher Preprocessing-Schritt darin, solche Wörter zu entfernen. Hierzu nutzt man Wortlisten, die es für viele Sprachen als Teil von Textverarbeitungsbibliotheken gibt.</p>
 <p>Mit einer englischen Stoppwortliste verändern sich unsere Tweets wie folgt:</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span> 
 <span class="kn">from</span> <span class="nn">nltk.tokenize</span> <span class="kn">import</span> <span class="n">word_tokenize</span> 
@@ -805,6 +614,7 @@ obstructionist democrats
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>beautiful evening rochester minnesota vote vote vote
 
@@ -832,13 +642,18 @@ good enough obstructionist democrats
 </div>
 </section>
 <section id="stemming-und-lemmatisierung">
-<h3><span class="section-number">10.1.5. </span>Stemming und Lemmatisierung<a class="headerlink" href="#stemming-und-lemmatisierung" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.1.5. </span>Stemming und Lemmatisierung<a class="headerlink" href="#stemming-und-lemmatisierung" title="Permalink to this heading">#</a></h3>
 <p>Für die gleiche Grundform gibt es oft viele grammatikalische Formen (z.B. Singular und Plural), was zu verschiedenen Schreibweisen führt. Außerdem gibt es verwandte Verben, Adjektive und Nomen. Hinzu kommen Synonyme, also mehrere Wörter mit der gleichen Bedeutung. Für das Text Mining ist es wichtig, zu erkennen, dass es sich eigentlich um die gleiche Bedeutung handelt. Ein Ansatz besteht darin, dass man versucht, alle Wörter auf ein gemeinsames Merkmal abzubilden. Stemming und Lemmatisierung sind zwei Methoden, mit denen man dies erreichen kann.</p>
-<p>Beim <em>Stemming</em> werden Wörter auf ihren Stamm reduziert. Aus dem deutschen <code class="docutils literal notranslate"><span class="pre">lachte</span></code> und <code class="docutils literal notranslate"><span class="pre">lachen</span></code> wird <code class="docutils literal notranslate"><span class="pre">lach</span></code>, aus dem englischen <code class="docutils literal notranslate"><span class="pre">spending</span></code> und <code class="docutils literal notranslate"><span class="pre">spends</span></code> wird <code class="docutils literal notranslate"><span class="pre">spend</span></code>. Für das Stemming wird in der Regel ein algorithmischer Ansatz verwendet, zum Beispiel Porters Algorithmus <a class="footnote-reference brackets" href="#porter" id="id1">1</a>. Der Nachteil beim Stemming ist, dass man Wörter nur auf ihren Stamm reduzieren kann. Ähnliche Wörter mit einem anderen Stamm werden nicht vereinheitlicht, zum Beispiel gewinnen und gewann oder good und well.</p>
+<p>Beim <em>Stemming</em> werden Wörter auf ihren Stamm reduziert. Aus dem deutschen <code class="docutils literal notranslate"><span class="pre">lachte</span></code> und <code class="docutils literal notranslate"><span class="pre">lachen</span></code> wird <code class="docutils literal notranslate"><span class="pre">lach</span></code>, aus dem englischen <code class="docutils literal notranslate"><span class="pre">spending</span></code> und <code class="docutils literal notranslate"><span class="pre">spends</span></code> wird <code class="docutils literal notranslate"><span class="pre">spend</span></code>. Für das Stemming wird in der Regel ein algorithmischer Ansatz verwendet, zum Beispiel Porters Algorithmus <a class="footnote-reference brackets" href="#porter" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>. Der Nachteil beim Stemming ist, dass man Wörter nur auf ihren Stamm reduzieren kann. Ähnliche Wörter mit einem anderen Stamm werden nicht vereinheitlicht, zum Beispiel gewinnen und gewann oder good und well.</p>
 <p>Bei der <em>Lemmatisierung</em> wird mit Wortlisten gearbeitet. Diese Wortlisten definieren, welche Wörter als Synonyme behandelt werden sollen. Anschließend kann man eines der Synonyme auswählen. Auf diese Weise könnte man zum Beispiel alle Formen von <code class="docutils literal notranslate"><span class="pre">good</span></code> erkennen, insbesondere auch Formen wie <code class="docutils literal notranslate"><span class="pre">well</span></code>, die nicht den gleichen Wortstamm haben. Die Lemmatisierung ist jedoch nur so mächtig, wie es die Wortlisten zulassen.</p>
 <p>Wenn man sowohl Lemmatisierung als auch Stemming anwenden möchte, sollte man immer zuerst Lemmatisieren. Der Grund liegt darin, dass die durch das Stemming gefundenen Wortstämme nicht immer Wörter sind, die es in der natürlichen Sprache gibt. Entsprechend gibt es auch keine Einträge in den Wortlisten für das Lemmatisieren. Man reduziert also die Mächtigkeit der Lemmatisierung, wenn man zuerst Stemming anwendet.</p>
 <p>Für unsere Tweets verwenden wir zuerst eine Lemmatisierung mit einer englischen Wortliste.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The following two lines must be run once in each environment</span>
 <span class="c1"># This downloads the list from nltk for lemmatization</span>
@@ -861,6 +676,7 @@ good enough obstructionist democrats
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>beautiful evening rochester minnesota vote vote vote
 
@@ -888,6 +704,11 @@ good enough obstructionist democrat
 </div>
 <p>Einige Wörter wurden ersetzt, aus <code class="docutils literal notranslate"><span class="pre">stocks</span></code> wurde zum Beispiel <code class="docutils literal notranslate"><span class="pre">stock</span></code>. Mit Stemming erhalten wir folgende Veränderungen:</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.stem</span> <span class="kn">import</span> <span class="n">PorterStemmer</span>
 
@@ -906,6 +727,7 @@ good enough obstructionist democrat
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>beauti even rochest minnesota vote vote vote
 
@@ -934,9 +756,14 @@ enough obstructionist democrat
 <p>Viele der Wörter sind jetzt kürzer, unter anderem wurde <code class="docutils literal notranslate"><span class="pre">hundred</span></code> auf <code class="docutils literal notranslate"><span class="pre">hundr</span></code>, <code class="docutils literal notranslate"><span class="pre">wasteful</span></code> auf <code class="docutils literal notranslate"><span class="pre">wast</span></code> und <code class="docutils literal notranslate"><span class="pre">spending</span></code> auf <code class="docutils literal notranslate"><span class="pre">spend</span></code> reduziert. Zwei dieser Beispiele sind keine echten Wörter mehr, da die Wortstämme <code class="docutils literal notranslate"><span class="pre">hundr</span></code> und <code class="docutils literal notranslate"><span class="pre">wast</span></code> nicht in der englischen Sprache vorkommen.</p>
 </section>
 <section id="visualisierung-des-preprocessings">
-<h3><span class="section-number">10.1.6. </span>Visualisierung des Preprocessings<a class="headerlink" href="#visualisierung-des-preprocessings" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.1.6. </span>Visualisierung des Preprocessings<a class="headerlink" href="#visualisierung-des-preprocessings" title="Permalink to this heading">#</a></h3>
 <p>Eine einfache Möglichkeit, textuelle Daten zu visualisieren, sind <em>Wortwolken</em> (engl. <em>word clouds</em>). Wortwolken zeigen wichtige Wörter, die in Texten häufig vorkommen. Je häufiger ein Wort vorkommt, desto größer wird es dargestellt. Mithilfe von Wortwolken können wir uns gut die Auswirkungen der Preprocessing-Schritte auf unsere Tweets veranschaulichen.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">wordcloud</span> <span class="kn">import</span> <span class="n">WordCloud</span>
@@ -987,26 +814,34 @@ enough obstructionist democrat
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_10_13_0.png" src="../_images/kapitel_10_13_0.png" />
+<img alt="../_images/f8a6d71c2e9c229d088c795d8839a701d2460494a40d6a3f9a5454c21e58990f.png" src="../_images/f8a6d71c2e9c229d088c795d8839a701d2460494a40d6a3f9a5454c21e58990f.png" />
 </div>
 </div>
 </section>
 <section id="bag-of-words">
-<h3><span class="section-number">10.1.7. </span>Bag-of-Words<a class="headerlink" href="#bag-of-words" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.1.7. </span>Bag-of-Words<a class="headerlink" href="#bag-of-words" title="Permalink to this heading">#</a></h3>
 <p>Nach dem Preprocessing können wir eine numerische Repräsentation namens <em>Bag-of-Words</em> erstellen. Ein Bag-of-Words ist ähnlich zu einem One-Hot Encoding für Text. Jedes Wort ist ein Merkmal. Der Wert des Merkmals ist die Häufigkeit des Worts im Dokument. Die Worthäufigkeit wird in diesem Kontext auch als <em>Term Frequency</em> (TF) bezeichnet. Hier zeigt sich auch, warum die Harmonisierung sinnvoll ist: Ähnliche Wörter, die zur gleichen Repräsentation harmonisiert wurden, zählen zur Häufigkeit des gleichen Merkmals. Ein Bag-of-Words für unsere Tweets sieht wie folgt aus.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span>
 
 <span class="n">vectorizer</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">()</span>
 <span class="n">bag_of_words</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">tweets_stemming</span><span class="p">)</span>
-<span class="n">bag_of_words_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">bag_of_words</span><span class="o">.</span><span class="n">todense</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="n">vectorizer</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">())</span>
+<span class="c1"># from scikit-learn 1.0 onwards, we need to use get_feature_names_out instead of get_feature_names</span>
+<span class="n">bag_of_words_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">bag_of_words</span><span class="o">.</span><span class="n">todense</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="n">vectorizer</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">())</span>
 <span class="n">bag_of_words_df</span>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output text_html"><div>
 <style scoped>
@@ -1250,7 +1085,7 @@ enough obstructionist democrat
 <p>Den Bag-of-Words kann man als Eingabe für Algorithmen nutzen. Beim Clustering würde man Dokumente, die die gleichen Wörter benutzen, gemeinsam gruppieren, bei der Klassifikation würde man Scores und Klassen basierend auf den Worthäufigkeiten berechnen.</p>
 </section>
 <section id="inverse-document-frequency">
-<h3><span class="section-number">10.1.8. </span>Inverse Document Frequency<a class="headerlink" href="#inverse-document-frequency" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.1.8. </span>Inverse Document Frequency<a class="headerlink" href="#inverse-document-frequency" title="Permalink to this heading">#</a></h3>
 <p>Eine beliebte Erweiterung des Bag-of-Words ist die <em>Inverse Document Frequency</em> (IDF). Hinter der IDF steckt die Idee, dass man die Wörter nach ihrer “Einzigartigkeit” gewichten sollte. Wenn ein Wort in nur wenigen Dokumenten vorkommt, könnte es sehr spezifisch sein und sollte daher einen größeren Einfluss haben. Wenn ein Wort in sehr vielen Dokumenten vorkommt, ist es eher unspezifisch und sollte daher nur geringen Einfluss haben. Diese Idee ist ähnlich zur Entfernung von Stoppwörtern, nur dass mit Gewichten gearbeitet wird und keine Begriffe komplett entfernt werden. Die IDF ist definiert als</p>
 <div class="math notranslate nohighlight">
 \[IDF_t = \log\frac{N}{D_t},\]</div>
@@ -1259,6 +1094,11 @@ enough obstructionist democrat
 \[TF\text{-}IDF_t = TF_t \cdot IDF_t.\]</div>
 <p>Mit unseren Tweets erhalten wir einen Bag-of-Words mit folgenden TF-IDF-Werten:</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
@@ -1266,6 +1106,7 @@ enough obstructionist democrat
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output text_html"><div>
 <style scoped>
@@ -1512,21 +1353,21 @@ enough obstructionist democrat
 </div></blockquote>
 </section>
 <section id="jenseits-des-bag-of-words">
-<h3><span class="section-number">10.1.9. </span>Jenseits des Bag-of-Words<a class="headerlink" href="#jenseits-des-bag-of-words" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.1.9. </span>Jenseits des Bag-of-Words<a class="headerlink" href="#jenseits-des-bag-of-words" title="Permalink to this heading">#</a></h3>
 <p>Der Bag-of-Words ist eine gute Repräsentation, die sehr gut auch bei großen Datenmengen skaliert. Mit dieser relativ einfachen Repräsentation von Text sind jedoch auch diverse Nachteile verbunden. Zum einen werden alle strukturellen Aspekte von Text ignoriert, zum Beispiel die Grammatik. Zum anderen werden Ähnlichkeiten nicht berücksichtigt. Die Worte <code class="docutils literal notranslate"><span class="pre">dollar</span></code> und <code class="docutils literal notranslate"><span class="pre">euro</span></code> sind, basierend auf dem Bag-of-Words, genauso verschieden voneinander wie <code class="docutils literal notranslate"><span class="pre">elefant</span></code> und <code class="docutils literal notranslate"><span class="pre">computer</span></code>. Hierdurch ist es schwierig, einen abstrakteren Kontext zu lernen, zum Beispiel, dass etwas mit einer Währung zusammenhängt. Aus diesem Grund sind Bag-of-Words im modernen Text Mining eher als Einstieg zu verstehen, der für einfache Anwendungsfälle genügt, aber bei komplexen Anwendungsfällen oft nicht ausreichend ist. Eine relativ einfache Erweiterung sind <span class="math notranslate nohighlight">\(n\)</span>-grams, bei denen nicht individuelle Wörter, sondern Sequenzen aus <span class="math notranslate nohighlight">\(n\)</span> Wörtern als Merkmale verwendet werden. Hierdurch wird der Kontext zu einem gewissen Grad erfasst. Da es aber sehr viele Kombinationen von Wörtern gibt, skalieren <span class="math notranslate nohighlight">\(n\)</span>-grams nur sehr schlecht.</p>
 <p>Neuere Text-Mining-Verfahren basieren daher auf neuronalen Netzen. Zum einen gibt es <em>Worteinbettungen</em> (engl. <em>word embeddings</em>), bei denen Wörter als Vektoren in einem hochdimensionalen Raum dargestellt werden. Je näher sich zwei Wörter in dieser Worteinbettung sind, desto ähnlicher sind die Wörter. Worteinbettungen selbst kann man ähnlich zu den Wortlisten, die uns oben begegnet sind, häufig direkt herunterladen und anwenden. Alternativ kann man für einen Text eigene Einbettungen mit einem einfachen neuronalen Netz lernen. Die neuesten Text-Mining-Verfahren basieren auf tiefen neuronalen Netzen mit einer sogenannten Transformer-Architektur. Derartige neuronale Netze betrachten nicht nur einzelne Wörter, sondern den kompletten Kontext eines Textes. Wie sich der Kontext von Wörtern zusammensetzt, wird aus riesigen Datenmengen gelernt, um dies in Anwendungen ausnutzen zu können.</p>
 </section>
 </section>
 <section id="herausforderungen-des-text-mining">
-<h2><span class="section-number">10.2. </span>Herausforderungen des Text Mining<a class="headerlink" href="#herausforderungen-des-text-mining" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">10.2. </span>Herausforderungen des Text Mining<a class="headerlink" href="#herausforderungen-des-text-mining" title="Permalink to this heading">#</a></h2>
 <p>Auch wenn es mittlerweile gute Repräsentationen für Text gibt, sind viele Herausforderungen des Text Mining immer noch ungelöst und manche auch gar nicht lösbar.</p>
 <section id="dimensionalitat">
-<h3><span class="section-number">10.2.1. </span>Dimensionalität<a class="headerlink" href="#dimensionalitat" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.2.1. </span>Dimensionalität<a class="headerlink" href="#dimensionalitat" title="Permalink to this heading">#</a></h3>
 <p>Das erste Problem ist die <em>Dimensionalität</em>. In unserem Beispiel haben wir lediglich acht Tweets, aber trotzdem noch 70 verschiedene Wörter nach dem Preprocessing. In einem längeren Text gibt es häufig Tausende von Wörtern. Es gibt also sehr viele Merkmale. Hinzu kommt, dass der Korpus eventuell auch sehr viele Dokumente enthalten kann. Täglich gibt es zum Beispiel über 100 Millionen Tweets, die im Rahmen einer umfassenden Analyse von sozialen Netzwerken betrachtet werden müssten.</p>
 <p>Die Kombination aus vielen Merkmalen und vielen Instanzen führt dazu, dass man für Text Mining häufig hohe Anforderungen an die Analyseumgebung stellt. Große Text-Mining-Projekte, insbesondere solche, die auf neuronalen Netzen basieren, benötigen daher spezielle Hardware. Dies ist auch ein Grund, warum ein einfacher Ansatz wie der Bag-of-Words immer noch hoch relevant ist: Mit einem Bag-of-Words und einem relativ einfachen Algorithmus wie Multinomial Naive Bayes kann man häufig auch auf einfacher Hardware bereits gute Ergebnisse erreichen.</p>
 </section>
 <section id="mehrdeutigkeiten">
-<h3><span class="section-number">10.2.2. </span>Mehrdeutigkeiten<a class="headerlink" href="#mehrdeutigkeiten" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.2.2. </span>Mehrdeutigkeiten<a class="headerlink" href="#mehrdeutigkeiten" title="Permalink to this heading">#</a></h3>
 <p>Das zweite Problem ist die <em>Mehrdeutigkeit</em> der natürlichen Sprache. Teilweise ist dieses Problem nicht lösbar, da man häufig den Kontext benötigt, um den Inhalt zu verstehen. Der Kontext selbst besteht aber nicht nur aus dem Text, sondern auch aus den Aspekten rund um ein Dokument. Innerhalb dieses Buches ist der Kontext des Wortes “Lernen” zum Beispiel ein anderer als in einem Buch über Didaktik. Hier ist ein Beispiel für einen Satz, den man nur im Kontext versteht:</p>
 <ul class="simple">
 <li><p>Ist das sicher genug? (Ist diese Erkenntnis gesichert?)</p></li>
@@ -1536,7 +1377,7 @@ enough obstructionist democrat
 <p>Häufig liegen diese Probleme schon direkt bei den Wörtern, die wir verwenden: <em>Homonyme</em> sind Wörter mit mehreren Bedeutungen. Das Wort “erfassen” kann zum Beispiel heißen, dass man etwas aufnimmt, aber auch dass man von einem Fahrzeug überfahren wurde. Um Homonyme korrekt zu verarbeiten, muss man sie in ihrem Kontext interpretieren, was insbesondere beim Bag-of-Words ein Problem ist.</p>
 </section>
 <section id="weitere-probleme">
-<h3><span class="section-number">10.2.3. </span>Weitere Probleme<a class="headerlink" href="#weitere-probleme" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.2.3. </span>Weitere Probleme<a class="headerlink" href="#weitere-probleme" title="Permalink to this heading">#</a></h3>
 <p>Es gibt noch weitere Probleme, die wir hier aber nicht im Detail diskutieren:</p>
 <ul class="simple">
 <li><p>Rechtschreibfehler führen zu unbekannten Wörtern und lassen sich häufig nicht automatisch korrigieren.</p></li>
@@ -1548,28 +1389,28 @@ enough obstructionist democrat
 </section>
 </section>
 <section id="ubung">
-<h2><span class="section-number">10.3. </span>Übung<a class="headerlink" href="#ubung" title="Permalink to this headline">#</a></h2>
-<p>In dieser Übung wollen wir das Text Mining mit einem größeren Beispiel vertiefen. Hierzu verwenden wir eine Erweiterung der oben genannten Tweets: Statt nur acht Tweets betrachten wir den vollständigen Korpus der Tweets von Donald Trump aus dem Jahr 2017 <a class="footnote-reference brackets" href="#tweets" id="id2">2</a>.</p>
+<h2><span class="section-number">10.3. </span>Übung<a class="headerlink" href="#ubung" title="Permalink to this heading">#</a></h2>
+<p>In dieser Übung wollen wir das Text Mining mit einem größeren Beispiel vertiefen. Hierzu verwenden wir eine Erweiterung der oben genannten Tweets: Statt nur acht Tweets betrachten wir den vollständigen Korpus der Tweets von Donald Trump aus dem Jahr 2017 <a class="footnote-reference brackets" href="#tweets" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
 <section id="wortwolke-ohne-preprocessing">
-<h3><span class="section-number">10.3.1. </span>Wortwolke ohne Preprocessing<a class="headerlink" href="#wortwolke-ohne-preprocessing" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.3.1. </span>Wortwolke ohne Preprocessing<a class="headerlink" href="#wortwolke-ohne-preprocessing" title="Permalink to this heading">#</a></h3>
 <p>Laden Sie die Daten. Erstellen Sie eine Wortwolke ohne jegliches Preprocessing. Welche Probleme gibt es? Was erkennt man eventuell trotzdem bereits?</p>
 </section>
 <section id="wortwolke-mit-preprocessing">
-<h3><span class="section-number">10.3.2. </span>Wortwolke mit Preprocessing<a class="headerlink" href="#wortwolke-mit-preprocessing" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.3.2. </span>Wortwolke mit Preprocessing<a class="headerlink" href="#wortwolke-mit-preprocessing" title="Permalink to this heading">#</a></h3>
 <p>Wenden Sie die Preprocessing-Schritte, die wir diskutiert haben, an und erstellen Sie eine neue Wortwolke.</p>
 </section>
 <section id="tf-idf">
-<h3><span class="section-number">10.3.3. </span>TF-IDF<a class="headerlink" href="#tf-idf" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.3.3. </span>TF-IDF<a class="headerlink" href="#tf-idf" title="Permalink to this heading">#</a></h3>
 <p>Die Wortwolken benutzen üblicherweise die Worthäufigkeiten. Berechnen Sie die TF-IDF und erstellen Sie neue Wortwolken basierend auf den auf diese Art gewichteten Worthäufigkeiten. Wie verändert sich das Ergebnis?</p>
 <hr class="footnotes docutils" />
-<dl class="footnote brackets">
-<dt class="label" id="porter"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p><a class="reference external" href="https://doi.org/10.1108/eb046814">https://doi.org/10.1108/eb046814</a></p>
-</dd>
-<dt class="label" id="tweets"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
-<dd><p><a class="reference external" href="https://data-science-crashkurs.de/exercises/data/trump-tweets-2017.txt">https://data-science-crashkurs.de/exercises/data/trump-tweets-2017.txt</a></p>
-</dd>
-</dl>
+<aside class="footnote brackets" id="porter" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://doi.org/10.1108/eb046814">https://doi.org/10.1108/eb046814</a></p>
+</aside>
+<aside class="footnote brackets" id="tweets" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://data-science-crashkurs.de/exercises/data/trump-tweets-2017.txt">https://data-science-crashkurs.de/exercises/data/trump-tweets-2017.txt</a></p>
+</aside>
 </section>
 </section>
 </section>
@@ -1586,7 +1427,7 @@ enough obstructionist democrat
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./chapters"
         },
         predefinedOutput: true
@@ -1594,50 +1435,125 @@ enough obstructionist democrat
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="kapitel_09.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">9. </span>Zeitreihenanalyse</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="kapitel_09.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>Zeitreihenanalyse</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="kapitel_11.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="kapitel_11.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title"><span class="section-number">11. </span>Statistik</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing">10.1. Preprocessing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#erstellung-eines-korpus">10.1.1. Erstellung eines Korpus</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relevanter-inhalt">10.1.2. Relevanter Inhalt</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zeichensetzung-und-groszschreibung">10.1.3. Zeichensetzung und Großschreibung</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stoppworter">10.1.4. Stoppwörter</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stemming-und-lemmatisierung">10.1.5. Stemming und Lemmatisierung</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisierung-des-preprocessings">10.1.6. Visualisierung des Preprocessings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bag-of-words">10.1.7. Bag-of-Words</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inverse-document-frequency">10.1.8. Inverse Document Frequency</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jenseits-des-bag-of-words">10.1.9. Jenseits des Bag-of-Words</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#herausforderungen-des-text-mining">10.2. Herausforderungen des Text Mining</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dimensionalitat">10.2.1. Dimensionalität</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mehrdeutigkeiten">10.2.2. Mehrdeutigkeiten</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weitere-probleme">10.2.3. Weitere Probleme</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung">10.3. Übung</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wortwolke-ohne-preprocessing">10.3.1. Wortwolke ohne Preprocessing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wortwolke-mit-preprocessing">10.3.2. Wortwolke mit Preprocessing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-idf">10.3.3. TF-IDF</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By Steffen Herbold<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+<p class="component-author">
+By Steffen Herbold
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

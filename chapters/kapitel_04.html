@@ -1,48 +1,60 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>4. Erkunden der Daten &#8212; Data Science Crashkurs - Eine interaktive und praktische Einführung</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -52,61 +64,104 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/kapitel_04';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="5. Assoziationsregeln" href="kapitel_05.html" />
     <link rel="prev" title="3. Allgemeines zur Datenanalyse" href="kapitel_03.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
 
-    
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="vorwort.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/bookcover.jpg" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Data Science Crashkurs - Eine interaktive und praktische Einführung</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../_static/bookcover.jpg" class="logo__image only-light" alt="Data Science Crashkurs - Eine interaktive und praktische Einführung - Home"/>
+    <script>document.write(`<img src="../_static/bookcover.jpg" class="logo__image only-dark" alt="Data Science Crashkurs - Eine interaktive und praktische Einführung - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -115,475 +170,233 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Kapitel
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Kapitel</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_01.html">
-   1. Big Data und Data Science
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_02.html">
-   2. Der Prozess von Data-Science-Projekten
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_03.html">
-   3. Allgemeines zur Datenanalyse
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   4. Erkunden der Daten
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_05.html">
-   5. Assoziationsregeln
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_06.html">
-   6. Clusteranalyse
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_07.html">
-   7. Klassifikation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_08.html">
-   8. Regression
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_09.html">
-   9. Zeitreihenanalyse
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_10.html">
-   10. Text Mining
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_11.html">
-   11. Statistik
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_12.html">
-   12. Big Data Processing
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_13.html">
-   13. Weiterführende Konzepte
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_01.html">1. Big Data und Data Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_02.html">2. Der Prozess von Data-Science-Projekten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_03.html">3. Allgemeines zur Datenanalyse</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Erkunden der Daten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_05.html">5. Assoziationsregeln</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_06.html">6. Clusteranalyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_07.html">7. Klassifikation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_08.html">8. Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_09.html">9. Zeitreihenanalyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_10.html">10. Text Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_11.html">11. Statistik</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_12.html">12. Big Data Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_13.html">13. Weiterführende Konzepte</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Appendix
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="howto.html">
-   Selbst ausführen
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="notations.html">
-   Notationen
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="acronyms.html">
-   Abkürzungen
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="howto.html">Selbst ausführen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notations.html">Notationen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acronyms.html">Abkürzungen</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Gefällt Ihnen das Buch? Möchten Sie es in den Händen halten und weitere Open Access Bücher unterstützen? <a href="https://dpunkt.de/produkt/data-science-crashkurs/">Dann kaufen Sie die Print Edition.</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/sherbold/einfuehrung-in-data-science/main?urlpath=tree/content/chapters/kapitel_04.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
-</div>
+  
+  <div id="rtd-footer-container"></div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/sherbold/einfuehrung-in-data-science" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-<a href="https://github.com/sherbold/einfuehrung-in-data-science"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="bottom"
-title="Source repository"
->
-  
-
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fab fa-github"></i>
   </span>
 
 </a>
 
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/chapters/kapitel_04.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapters/kapitel_04.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.ipynb</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
-
-      </li>
+</li>
+      
+      
+      
       
       <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file-pdf"></i>
   </span>
-<span class="headerbtn__text-container">.pdf</span>
+<span class="btn__text-container">.pdf</span>
 </button>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
   </span>
 
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#texteditoren-und-die-kommandozeile">
-   4.1. Texteditoren und die Kommandozeile
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#deskriptive-statistik">
-   4.2. Deskriptive Statistik
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#lagemasze">
-     4.2.1. Lagemaße
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#variabilitat">
-     4.2.2. Variabilität
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#datenbereich">
-     4.2.3. Datenbereich
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#visualisierung">
-   4.3. Visualisierung
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#anscombes-quartett">
-     4.3.1. Anscombes Quartett
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#einzelne-merkmale">
-     4.3.2. Einzelne Merkmale
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#beziehungen-zwischen-merkmalen">
-     4.3.3. Beziehungen zwischen Merkmalen
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#scatterplots-fur-hochdimensionale-daten">
-     4.3.4. Scatterplots für hochdimensionale Daten
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#zeitliche-trends">
-     4.3.5. Zeitliche Trends
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ubung">
-   4.4. Übung
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#deskriptive-statistiken">
-     4.4.1. Deskriptive Statistiken
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#visualisierungen-einzelner-merkmale">
-     4.4.2. Visualisierungen einzelner Merkmale
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#paarweise-beziehungen">
-     4.4.3. Paarweise Beziehungen
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Erkunden der Daten</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#texteditoren-und-die-kommandozeile">
-   4.1. Texteditoren und die Kommandozeile
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#deskriptive-statistik">
-   4.2. Deskriptive Statistik
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#lagemasze">
-     4.2.1. Lagemaße
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#variabilitat">
-     4.2.2. Variabilität
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#datenbereich">
-     4.2.3. Datenbereich
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#visualisierung">
-   4.3. Visualisierung
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#anscombes-quartett">
-     4.3.1. Anscombes Quartett
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#einzelne-merkmale">
-     4.3.2. Einzelne Merkmale
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#beziehungen-zwischen-merkmalen">
-     4.3.3. Beziehungen zwischen Merkmalen
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#scatterplots-fur-hochdimensionale-daten">
-     4.3.4. Scatterplots für hochdimensionale Daten
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#zeitliche-trends">
-     4.3.5. Zeitliche Trends
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ubung">
-   4.4. Übung
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#deskriptive-statistiken">
-     4.4.1. Deskriptive Statistiken
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#visualisierungen-einzelner-merkmale">
-     4.4.2. Visualisierungen einzelner Merkmale
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#paarweise-beziehungen">
-     4.4.3. Paarweise Beziehungen
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Erkunden der Daten</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#texteditoren-und-die-kommandozeile">4.1. Texteditoren und die Kommandozeile</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deskriptive-statistik">4.2. Deskriptive Statistik</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lagemasze">4.2.1. Lagemaße</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variabilitat">4.2.2. Variabilität</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datenbereich">4.2.3. Datenbereich</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisierung">4.3. Visualisierung</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#anscombes-quartett">4.3.1. Anscombes Quartett</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#einzelne-merkmale">4.3.2. Einzelne Merkmale</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beziehungen-zwischen-merkmalen">4.3.3. Beziehungen zwischen Merkmalen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scatterplots-fur-hochdimensionale-daten">4.3.4. Scatterplots für hochdimensionale Daten</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zeitliche-trends">4.3.5. Zeitliche Trends</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung">4.4. Übung</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deskriptive-statistiken">4.4.1. Deskriptive Statistiken</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisierungen-einzelner-merkmale">4.4.2. Visualisierungen einzelner Merkmale</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paarweise-beziehungen">4.4.3. Paarweise Beziehungen</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="erkunden-der-daten">
-<h1><span class="section-number">4. </span>Erkunden der Daten<a class="headerlink" href="#erkunden-der-daten" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">4. </span>Erkunden der Daten<a class="headerlink" href="#erkunden-der-daten" title="Permalink to this heading">#</a></h1>
 <p>In diesem Kapitel befassen wir uns mit Methoden, die wir einsetzen können, um die Daten zu verstehen. Man spricht auch vom <em>Lernen der Daten</em>. Das heißt, dass wir uns Wissen über die Struktur, den Umfang (z.B. Größe und Anzahl von Datenpunkten) sowie den Wertebereich der Daten aneignen müssen. Eventuell wird auch ein Verständnis der Datenquellen benötigt, wenn die Richtigkeit und Zuverlässigkeit der Daten relevant sind oder wir die Gründe für unvollständige Daten näher beleuchten wollen.</p>
 <p>Es gibt sehr viele Methoden, die man zur Erkundung von Daten einsetzen kann. Die Erkundung selbst ist ein durch Werkzeuge unterstützter interaktiver Prozess. Es ist üblich, verschiedene Werkzeuge zu benutzen, abhängig vom Aspekt, den man aktuell erkunden möchte. Im Folgenden stellen wir einige wichtige Werkzeuge vor, die uns dabei helfen, Daten zu verstehen.</p>
 <p>Im Folgenden nutzen wir die Notation <span class="math notranslate nohighlight">\(x = (x_1, ..., x_n)\)</span> mit <span class="math notranslate nohighlight">\(x_1, ..., x_n \in \mathbb{R}\)</span>. Der Wert <span class="math notranslate nohighlight">\(x\)</span> beschreibt also einen Vektor von reellen Zahlen. Wenn es sich bei <span class="math notranslate nohighlight">\(x\)</span> um eine Teilmenge der möglichen Daten handelt, nennt man <span class="math notranslate nohighlight">\(x\)</span> auch <em>Stichprobe</em> (engl. <em>sample</em>). Der Einfachheit halber können Sie sich <span class="math notranslate nohighlight">\(x\)</span> auch einfach als Menge von Zahlen vorstellen. Dies ist zwar für die Vorstellung oft einfacher, jedoch formal nicht korrekt, da Mengen nicht das gleiche Element mehrfach enthalten können, Datensätze jedoch schon.</p>
 <section id="texteditoren-und-die-kommandozeile">
-<h2><span class="section-number">4.1. </span>Texteditoren und die Kommandozeile<a class="headerlink" href="#texteditoren-und-die-kommandozeile" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.1. </span>Texteditoren und die Kommandozeile<a class="headerlink" href="#texteditoren-und-die-kommandozeile" title="Permalink to this heading">#</a></h2>
 <p>Bereits sehr einfache Werkzeuge können uns helfen, die Daten zu verstehen. Texteditoren und einfache Kommandozeilenbefehle wie head, more und less ermöglichen es, sich den Inhalt der Textdateien direkt anzusehen. Hierdurch kann man beliebige Daten, die nicht im Binärformat vorliegen, inspizieren. Das ist durchaus häufig der Fall, zum Beispiel bei <em>Comma-Separated Values</em> (CSV), der eXtensible Markup Language (XML) oder der <em>JavaScript Object Notation</em> (JSON). Wir könnten uns zum Beispiel direkt den Quelltext dieses Kapitels anschauen, um das Format der Daten, die in Jupyter Notebooks gespeichert werden, zu verste-hen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>head kapitel_04.ipynb
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>head<span class="w"> </span>kapitel_04.ipynb
 </pre></div>
 </div>
 </div>
@@ -607,11 +420,11 @@ title="Print to PDF"
 <div><p><strong>Bemerkung:</strong></p>
 <p>Man kann durch ein Ausrufezeichen als Präfix beliebige Kommandozeilenbefehle (z.B. bash) direkt aus einem Jupyter Notebook aufrufen. Daher ist !head in einem Jupyter Notebook äquivalent zur Eingabe von head direkt in der Kommandozeile. Welche Befehle zur Verfügung stehen, hängt von der Ausführungsumgebung ab. Weil die Kommandozeile von Windows den Befehl head nicht kennt, würde dies zum Beispiel dort eventuell nicht funktionieren.</p>
 </div></blockquote>
-<p>Dies ist natürlich nur eine Möglichkeit, die Art, wie Jupyter Notebooks Daten speichern, zu betrachten. Und wie bei den meisten sehr einfachen Lösungen gibt es natürlich auch Schwächen. Es ist zum Beispiel nicht klar, ob es noch weitere Informationen gibt, die für Zellen gespeichert werden könnten, da der betrachtete Auszug eventuell nicht alle Möglichkeiten des Datenformats ausschöpft. Daher ist es auch wichtig, dass die Metadaten betrachtet werden, in diesem Fall die Dokumentation des Datenformats <a class="footnote-reference brackets" href="#jupyterformat" id="id1">1</a>. Dort findet man zum Beispiel heraus, dass es noch weitere Felder gibt, wie zum Beispiel das Feld <code class="docutils literal notranslate"><span class="pre">nbformat</span></code>, um die Version des Datenformats anzuzeigen. Eine gute Dokumentation der Metadaten beschreibt das Datenformat vollständig, das heißt, welche Felder es gibt, welche Informationen in einem Feld gespeichert werden und wie die Felder zusammenhängen.</p>
+<p>Dies ist natürlich nur eine Möglichkeit, die Art, wie Jupyter Notebooks Daten speichern, zu betrachten. Und wie bei den meisten sehr einfachen Lösungen gibt es natürlich auch Schwächen. Es ist zum Beispiel nicht klar, ob es noch weitere Informationen gibt, die für Zellen gespeichert werden könnten, da der betrachtete Auszug eventuell nicht alle Möglichkeiten des Datenformats ausschöpft. Daher ist es auch wichtig, dass die Metadaten betrachtet werden, in diesem Fall die Dokumentation des Datenformats <a class="footnote-reference brackets" href="#jupyterformat" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>. Dort findet man zum Beispiel heraus, dass es noch weitere Felder gibt, wie zum Beispiel das Feld <code class="docutils literal notranslate"><span class="pre">nbformat</span></code>, um die Version des Datenformats anzuzeigen. Eine gute Dokumentation der Metadaten beschreibt das Datenformat vollständig, das heißt, welche Felder es gibt, welche Informationen in einem Feld gespeichert werden und wie die Felder zusammenhängen.</p>
 <p>Die Metadaten sind nicht notwendigerweise auf die Beschreibung der Daten selbst beschränkt. Es könnten zum Beispiel auch Links zu weiterführenden Informationen zur Verfügung gestellt werden. Außerdem könnten auch die Datenquellen beschrieben sein. Was man in den Metadaten üblicherweise nicht vorfindet, ist eine Beschreibung der Werte, die die Daten in einem Datensatz haben. Hier findet man höchstens Beispiele, die veranschaulichen, welche Werte angenommen werden können. Dies ist ein Nachteil gegenüber der direkten Betrachtung der Daten, wobei die Erkenntnisse über die Werte der Daten, die man mithilfe eines Texteditors bekommen kann, ebenfalls stark limitiert sind, gerade bei großen Datenmengen. Hierfür sind die Statistiken und Visualisierungen, die wir im Folgenden betrachten, deutlich besser geeignet.</p>
 </section>
 <section id="deskriptive-statistik">
-<h2><span class="section-number">4.2. </span>Deskriptive Statistik<a class="headerlink" href="#deskriptive-statistik" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.2. </span>Deskriptive Statistik<a class="headerlink" href="#deskriptive-statistik" title="Permalink to this heading">#</a></h2>
 <p>Die <em>deskriptive</em> Statistik beschäftigt sich mit der Beschreibung von Eigenschaften eines Datensatzes durch einzelne, häufig numerische Werte. Deskriptive Statistiken sollten nicht mit <em>induktiver</em> Statistik verwechselt werden, bei der es darum geht, Eigenschaften von Daten vorherzusagen. Entsprechend sollte man nicht annehmen, dass deskriptive Statistiken für zuverlässige Vorhersagen von zukünftigen Werten geeignet sind.</p>
 <p>In diesem Kapitel betrachten wir die folgenden deskriptiven Statistiken:</p>
 <ul class="simple">
@@ -621,13 +434,13 @@ title="Print to PDF"
 </ul>
 <p>Es gibt noch viele weitere deskriptive Statistiken für die obigen Eigenschaften, die wir in diesem Kapitel nicht betrachten, zum Beispiel das harmonische Mittel für die Lage. Außerdem gibt es noch weitere Eigenschaften, die sich durch deskriptive Statistiken erfassen lassen, zum Beispiel die <em>Form</em> (engl. <em>shape</em>) der Daten durch die <em>Kurtose</em> (Wölbung) und die <em>Schiefe</em> (engl. <em>skewness</em>). Diese gehen jedoch über die Betrachtungen dieses Kapitels hinaus und werden häufig auch nicht benötigt, insbesondere wenn man deskriptive Statistiken zusammen mit Visualisierungen benutzt.</p>
 <section id="lagemasze">
-<h3><span class="section-number">4.2.1. </span>Lagemaße<a class="headerlink" href="#lagemasze" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.2.1. </span>Lagemaße<a class="headerlink" href="#lagemasze" title="Permalink to this heading">#</a></h3>
 <p>Die Lage der Daten ist ein wichtiges statistisches Merkmal, das den <em>typischen Wert</em> im Zentrum der Daten beschreibt. Dies bedeutet nicht, dass viele Datenpunkte exakt diesen Wert haben oder dass man in der Zukunft erwarten könnte, häufig diesen Wert zu beobachten. Stattdessen markiert die Lage die “Mitte” der Daten. Wenn Sie sich die Daten als Stadt vorstellen, markiert die Lage also nur den Mittelpunkt der Stadt. Das heißt jedoch nicht, dass dort besonders viele Häuser stehen.</p>
 <p>Es gibt verschiedene Wege, die Lage von Daten zu definieren. Das <em>arithmetische Mittel</em> ist definiert als</p>
 <div class="math notranslate nohighlight">
 \[mean(x) = \frac{1}{n}\sum_{i=1}^{n} x_i,\]</div>
 <p>also die Summe der Datenpunkte geteilt durch ihre Anzahl. Häufig spricht man auch einfach vom <em>Mittelwert</em> der Daten (engl. <em>mean</em>). Das arithmetische Mittel ist eine gute Beschreibung der Lage, wenn die Daten normalverteilt oder gleichverteilt sind. Im Allgemeinen sollte man das arithmetische Mittel nur verwenden, wenn zwei Eigenschaften erfüllt sind:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Es gibt keine “Lücken” in den Daten, also keine größeren Bereiche, in denen keine Werte liegen. Dies bedeutet insbesondere auch, dass die Daten keine Ausreißer haben sollten.</p></li>
 <li><p>Die Daten sind symmetrisch um das arithmetische Mittel verteilt, das heißt, dass die Verteilung links und rechts des arithmetischen Mittels in etwa gleich sein sollte.</p></li>
 </ol>
@@ -638,6 +451,11 @@ title="Print to PDF"
 <p>wobei <span class="math notranslate nohighlight">\(\bar{x}\)</span> ein nach der Größe sortierter Vektor der Werte von <span class="math notranslate nohighlight">\(x\)</span> ist. Entsprechend ist der Median wortwörtlich in der Mitte der Daten: 50% der Daten sind kleiner oder gleich dem Median und 50% sind größer oder gleich dem Median. Im Gegensatz zum arithmetischen Mittel ist der Median eine <em>nicht parametrische</em> Statistik. Das bedeutet, dass der Median unabhängig von der Verteilung eingesetzt werden kann, zum Beispiel wenn die Annahmen an das arithmetische Mittel nicht erfüllt sind. Insbesondere ist der Median robust gegen Ausreißer, kann also nicht durch wenige besonders hohe oder niedrige Werte beeinflusst werden.</p>
 <p>Dies kann man sich auch an einem einfachen Beispiel verdeutlichen. Zuerst betrachten wir das arithmetische Mittel und den Median für Daten, bei denen die Annahmen des arithmetischen Mittels erfüllt sind:</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statistics</span>  <span class="c1"># we use the statistics from the Python standard library</span>
 
@@ -649,6 +467,7 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Daten ohne Ausreißer: [8.04, 6.95, 7.58, 8.81, 8.33, 9.96, 7.24, 4.26, 10.84, 4.82, 5.68]
 mean:   7.500909090909091
@@ -659,6 +478,11 @@ median: 7.58
 </div>
 <p>In diesem Beispiel sind die Werte vom Median und vom arithmetischen Mittel ähnlich und beide sind gut geeignet, um die Lage zu beschreiben. Jetzt erweitern wir die Daten um einen einzelnen Ausreißer.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Daten mit Ausreißer:&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
@@ -667,6 +491,7 @@ median: 7.58
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Daten mit Ausreißer: [8.04, 6.95, 7.58, 8.81, 8.33, 9.96, 7.24, 4.26, 10.84, 4.82, 5.68, 100]
 mean:   15.209166666666667
@@ -679,6 +504,11 @@ median: 7.81
 <p>Eine berechtigte Frage ist, warum wir das arithmetische Mittel überhaupt betrachten, wenn der Median scheinbar aufgrund seiner Robustheit überlegen ist. Die Gründe hierfür kommen aus der Stochastik. Das arithmetische Mittel ist eng verwandt mit dem Erwartungswert von Zufallsvariablen. Die Normalverteilung kann man vollständig durch den Mittelwert und die Standardabweichung beschreiben. Hieraus folgt, dass das arithmetische Mittel für die Normalverteilung die bestmögliche Schätzung für die Mitte der Daten ist. Trotzdem ist es ratsam, den Median zu verwenden, wenn wir die Verteilung der Daten nicht kennen oder wir befürchten, dass es Ausreißer gibt.</p>
 <p>Das arithmetische Mittel und der Median sind nur für numerische Daten definiert. Es gibt jedoch auch nicht numerische Daten. Die Größe von Kleidungsstücken wird häufig in den Kategorien “Small”, “Medium” und “Large” angegeben. Man spricht hierbei von kategorischen Daten (siehe <a class="reference internal" href="kapitel_03.html"><span class="doc std std-doc">Kapitel 3</span></a>)). Der <em>Modus</em> der Daten kann benutzt werden, um die Lage von kategorischen Daten zu bestimmen. Der Modus ist definiert als der Wert, den man am häufigsten in einer Stichprobe <span class="math notranslate nohighlight">\(x\)</span> beobachtet.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;small&#39;</span><span class="p">,</span> <span class="s1">&#39;medium&#39;</span><span class="p">,</span> <span class="s1">&#39;small&#39;</span><span class="p">,</span> <span class="s1">&#39;large&#39;</span><span class="p">,</span> <span class="s1">&#39;large&#39;</span><span class="p">,</span> <span class="s1">&#39;medium&#39;</span><span class="p">,</span> <span class="s1">&#39;medium&#39;</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Daten:&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
@@ -686,6 +516,7 @@ median: 7.81
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Daten: [&#39;small&#39;, &#39;medium&#39;, &#39;small&#39;, &#39;large&#39;, &#39;large&#39;, &#39;medium&#39;, &#39;medium&#39;]
 Modus: medium
@@ -696,7 +527,7 @@ Modus: medium
 <p>Bitte beachten Sie, dass der Modus zwar gut für kategorische Daten (und manchmal auch für diskret verteilte numerische Daten) geeignet ist, aber irreführend sein kann, wenn die Daten <em>bimodal</em> oder <em>multimodal</em> sind. Derartige Daten setzen sich aus zwei oder mehr Verteilungen zusammen und haben daher mehrere “Mittelpunkte”, was sich dadurch äußert, dass mehrere Werte besonders häufig auftreten. Im Extremfall sind die Kategorien gleichverteilt, sodass es gleich viele Beobachtungen jeder Kategorie gibt. Da dann jede Kategorie die gleiche Wahrscheinlichkeit hat, ist der Modus zufällig. Außerdem sollte man den Modus nicht für kontinuierliche numerische Daten benutzen, da es hier sehr unwahrscheinlich ist, mehrfach den exakt gleichen Wert zu beobachten.</p>
 </section>
 <section id="variabilitat">
-<h3><span class="section-number">4.2.2. </span>Variabilität<a class="headerlink" href="#variabilitat" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.2.2. </span>Variabilität<a class="headerlink" href="#variabilitat" title="Permalink to this heading">#</a></h3>
 <p>Die Variabilität misst, wie stark die Daten verstreut sind. Eine kleine Variabilität heißt, dass sich viele Daten in der Nähe der Mitte befinden. Eine hohe Variabilität bedeutet dagegen, dass die Daten sich über einen großen Bereich verteilen.</p>
 <p>Das am häufigsten verwendete Maß für die Variabilität ist die <em>Standardabweichung</em>, die als</p>
 <div class="math notranslate nohighlight">
@@ -708,6 +539,11 @@ Modus: medium
 <p>wobei <span class="math notranslate nohighlight">\(Q_{upper}\)</span> und <span class="math notranslate nohighlight">\(Q_{lower}\)</span> das obere und untere <em>Quartil</em> der Daten sind. Die Quartile sind analog zum Median definiert, nur mit 75% bzw. 25% der Daten: 75% der Daten sind kleiner oder gleich dem oberen Quartil und 25% der Daten sind kleiner oder gleich dem unteren Quartil. Entsprechend sind mindestens 50% der Daten größer oder gleich dem unteren Quartil und gleichzeitig kleiner oder gleich dem oberen Quartil. Der Interquartilsabstand misst also die Größe des Bereichs, in dem sich die mittleren 50% der Daten befinden.</p>
 <p>Eine gute Faustregel ist, dass Sie die Standardabweichung nutzen sollten, wenn Sie das arithmetische Mittel für die Lage verwenden, und den Interquartilsabstand, wenn Sie den Median betrachten. Das folgende Beispiel demonstriert, wie sich die Probleme mit Ausreißern auch in der Standardabweichung (sd) widerspiegeln.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>  <span class="c1"># we use scipy for the IQR</span>
 
@@ -723,6 +559,7 @@ Modus: medium
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Daten ohne Ausreißer: [8.04, 6.95, 7.58, 8.81, 8.33, 9.96, 7.24, 4.26, 10.84, 4.82, 5.68]
 sd:  2.031568135925815
@@ -736,10 +573,10 @@ IQR: 2.465
 </div>
 <p>Obwohl bis auf einen Datenpunkt alle Daten zwischen 4,26 und 10,84 liegen, ist die Standardabweichung ein Vielfaches von diesem Datenbereich durch den einen Ausreißer. Der Interquartilsabstand ist jedoch, ähnlich wie der Median, kaum beeinflusst.</p>
 <p>Wenn die Annahmen an die Standardabweichung erfüllt sind, ist es jedoch ein sehr gutes Maß für die Variabilität der Daten. Ähnlich wie beim arithmetischen Mittel, ist dies insbesondere bei normalverteilten Daten der Fall, die sich durch diese beiden Maße komplett beschreiben lassen. Außerdem kann man für die Normalverteilung beweisen, dass 68% der Daten nicht mehr als eine Standardabweichung vom arithmetischen Mittel entfernt sind, 95% der Daten nicht mehr als zwei Standardabweichungen und 99,7% nicht mehr als drei Standardabweichungen. Dieser Umstand ist auch als <em>68-95-99,7-Regel</em> bekannt. Für andere Verteilungen kann man ähnliche, wenn auch schwächere Aussagen über die Verteilung mithilfe der Standardabweichung treffen. Die <em>Chebychev-Ungleichung</em> gilt für alle Verteilungen mit einem endlichen Erwartungswert (vereinfacht gesagt mit einem endlichen arithmetischen Mittel) und einer endlichen Varianz, die nicht null ist. Die Varianz ist nichts anderes als das Quadrat der Standardabweichung. Aus der Chebychev-Ungleichung folgt, dass 50% der Daten nicht mehr als <span class="math notranslate nohighlight">\(\sqrt{2} \cdot sd\)</span> vom arithmetischen Mittel entfernt sind. Hierdurch ergibt sich auch ein direkter Zusammenhang zum Interquartilsabstand, der ebenfalls eine Aussage über die mittleren 50% der Daten macht.</p>
-<p>Bitte beachten Sie, dass wir uns die Variabilität für kategorische Daten hier nicht im Detail anschauen <a class="footnote-reference brackets" href="#categorical" id="id2">2</a>. Die Grundidee ist, dass man betrachtet, wie häufig Daten in den einzelnen Kategorien vorkommen und wie stark diese Beobachtungen einer Gleichverteilung ähneln. Je gleichmäßiger sich die Daten auf die Kategorien verteilen, desto höher die Variabilität.</p>
+<p>Bitte beachten Sie, dass wir uns die Variabilität für kategorische Daten hier nicht im Detail anschauen <a class="footnote-reference brackets" href="#categorical" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>. Die Grundidee ist, dass man betrachtet, wie häufig Daten in den einzelnen Kategorien vorkommen und wie stark diese Beobachtungen einer Gleichverteilung ähneln. Je gleichmäßiger sich die Daten auf die Kategorien verteilen, desto höher die Variabilität.</p>
 </section>
 <section id="datenbereich">
-<h3><span class="section-number">4.2.3. </span>Datenbereich<a class="headerlink" href="#datenbereich" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.2.3. </span>Datenbereich<a class="headerlink" href="#datenbereich" title="Permalink to this heading">#</a></h3>
 <p>Der Datenbereich gibt den Bereich an, in dem Werte beobachtet werden können. Für numerische Daten ist dieser durch das <em>Minimum</em> (den kleinsten möglichen Wert) und das <em>Maximum</em> (den größten möglichen Wert) definiert. Beide kann man anhand einer Stichprobe <span class="math notranslate nohighlight">\(x\)</span> schätzen, in der man den kleinsten und größten beobachteten Wert als <span class="math notranslate nohighlight">\(min\)</span> und <span class="math notranslate nohighlight">\(max\)</span> ermittelt. Die Differenz dieser Werte ist dann die Größe des Datenbereichs:</p>
 <div class="math notranslate nohighlight">
 \[range = max-min.\]</div>
@@ -747,9 +584,14 @@ IQR: 2.465
 </section>
 </section>
 <section id="visualisierung">
-<h2><span class="section-number">4.3. </span>Visualisierung<a class="headerlink" href="#visualisierung" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.3. </span>Visualisierung<a class="headerlink" href="#visualisierung" title="Permalink to this heading">#</a></h2>
 <p>Visualisierungen sind ein sehr mächtiges Werkzeug, um etwas über Daten zu lernen und diese zu verstehen. Hier sehen Sie ein Beispiel von einem Tortendiagramm (die Prozentzahlen sind ausgedacht und haben keine wissenschaftliche Bedeutung).</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we use matplotlib for the creation of visualizations</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -769,13 +611,19 @@ IQR: 2.465
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_04_11_0.png" src="../_images/kapitel_04_11_0.png" />
+<img alt="../_images/e3f787765847ed3f1585ebf8ef9030fec0687a81b0319a26c2126edf7a9d7a45.png" src="../_images/e3f787765847ed3f1585ebf8ef9030fec0687a81b0319a26c2126edf7a9d7a45.png" />
 </div>
 </div>
 <p>Es gibt viele Vorteile von Visualisierungen gegenüber anderen Arten, Daten darzustellen, zum Beispiel Tabellen oder deskriptive Statistik. Im Allgemeinen verarbeitet man visuelle Informationen schneller. Hierdurch kann man in der Regel schneller etwas über die Daten lernen. Hinzu kommt, dass viele Menschen sich visualisierte Informationen besser merken können.</p>
 <p>Die Vorteile von Visualisierungen gehen jedoch über die Verarbeitungsge-schwindigkeit und die Memorisierung hinaus. Visualisierungen können auch ein Verständnis der Daten ermöglichen, das man andernfalls nicht erlangen würde, zum Beispiel über Muster in Daten und komplexe Zusammenhänge, die man sonst nicht sehen könnte. Hierfür betrachten wir das folgende Beispiel. Alice kennt Bob und Dan, Dan kennt Bob, Bob kennt Carol und Alice, und Carol kennt Alice, Bob und Dan. Diese textuelle Beschreibung ist sehr komplex und schwer zu verstehen. Außerdem bekommt man kein intuitives Verständnis der Beziehung zwischen Alice, Bob, Carol und Dan. Jetzt betrachten wir das Gleiche als gerichteten Graphen:</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>  <span class="c1"># networkx is a powerful library for working with graphs</span>
 
@@ -797,16 +645,17 @@ IQR: 2.465
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_04_13_0.png" src="../_images/kapitel_04_13_0.png" />
+<img alt="../_images/6f9ed2964702665e2d8ce4bd2e56fa11366bf6a5d8a666c9faaf96adb2ca3327.png" src="../_images/6f9ed2964702665e2d8ce4bd2e56fa11366bf6a5d8a666c9faaf96adb2ca3327.png" />
 </div>
 </div>
 <p>Dieser Graph ist einfach zu lesen und gibt uns ein intuitives Verständnis der Beziehungen.</p>
 <p>Bitte beachten Sie, dass wir bei allen Grafiken in diesem Kapitel Legenden und andere Details bewusst weglassen. Stattdessen generieren wir die Grafiken mit möglichst wenig Quelltext, sodass sie trotzdem die gewünschten Erkenntnisse liefern. Der Grund hierfür ist, dass wir hier Visualisierungen als Werkzeug zur Erkundung von Daten betrachten. Wenn man ansonsten Visualisierungen für Texte (Bücher und sonstige Publikationen) oder Präsentationen erstellt, sind andere Aspekte ebenfalls relevant, zum Beispiel die konsistente Beschriftung, Farbwahl, Legenden und Titel.</p>
 <section id="anscombes-quartett">
-<h3><span class="section-number">4.3.1. </span>Anscombes Quartett<a class="headerlink" href="#anscombes-quartett" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.3.1. </span>Anscombes Quartett<a class="headerlink" href="#anscombes-quartett" title="Permalink to this heading">#</a></h3>
 <p><em>Anscombes Quartett</em> ist ein berühmtes Beispiel für Daten, in dem deskriptive Statistiken irreführend sind. Das Beispiel basiert auf vier Datensätzen  <span class="math notranslate nohighlight">\((x_1, y_1), ..., (x_4, y_4)\)</span> mit je elf Paaren aus zwei Variablen <span class="math notranslate nohighlight">\(x_i\)</span> und <span class="math notranslate nohighlight">\(y_i\)</span>, <span class="math notranslate nohighlight">\(i=1, ..., 4\)</span>. <a class="reference internal" href="#tbl-anscombe"><span class="std std-numref">Table 4.1</span></a> zeigt die Werte für jedes der Paare.</p>
-<table class="colwidths-auto table" id="tbl-anscombe">
+<table class="table" id="tbl-anscombe">
 <caption><span class="caption-number">Table 4.1 </span><span class="caption-text">Anscombes Quartett</span><a class="headerlink" href="#tbl-anscombe" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p><span class="math notranslate nohighlight">\(x_{1,2,3}\)</span></p></th>
@@ -899,6 +748,11 @@ IQR: 2.465
 </table>
 <p>Wenn wir das arithmetische Mittel und die Standardabweichung betrachten, sehen wir, dass die Werte für alle <span class="math notranslate nohighlight">\(x_i\)</span> und für alle <span class="math notranslate nohighlight">\(y_i\)</span> gleich sind.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>  <span class="c1"># we now also need numpy, the commonly used numerics library for Python</span>
 
@@ -931,6 +785,7 @@ IQR: 2.465
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Arithmetisches Mittel
 x1, x2, x3 =  9
@@ -952,6 +807,11 @@ y1         =  2.0305785113876023
 </div>
 <p>Es gibt sogar noch mehr Gemeinsamkeiten. Wenn wir eine lineare Regression von <span class="math notranslate nohighlight">\(y_i\)</span> durch <span class="math notranslate nohighlight">\(x_i\)</span> bestimmen würden (siehe <a class="reference internal" href="kapitel_08.html"><span class="doc std std-doc">Kapitel 8</span></a>), würden wir jedes Mal die gleiche Regressionsgerade <span class="math notranslate nohighlight">\(y=3+0,5\cdot x\)</span> finden. Statistisch sind sich diese vier Datensätze also sehr ähnlich. Wenn wir uns die Daten mit einem einfachen <em>Scatterplot</em> visualisieren, sehen wir, dass die Datensätze eigentlich sehr unterschiedlich sind.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xfit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
 <span class="n">yfit</span> <span class="o">=</span> <span class="mi">3</span><span class="o">+</span><span class="mf">0.5</span><span class="o">*</span><span class="n">xfit</span>
@@ -973,18 +833,24 @@ y1         =  2.0305785113876023
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_04_17_0.png" src="../_images/kapitel_04_17_0.png" />
+<img alt="../_images/ec30e6ba49f2cc73d5fb526fbf60dfd9ae05683fa754f87c121c99a780d0de23.png" src="../_images/ec30e6ba49f2cc73d5fb526fbf60dfd9ae05683fa754f87c121c99a780d0de23.png" />
 </div>
 </div>
 <p>Die orangen Punkte visualisieren die Daten selbst, die blauen Linien zeigen die Regressionsgerade für <span class="math notranslate nohighlight">\(y=3+0,5\cdot x\)</span>, die optimal ist für die Daten. Nur auf Basis der statistischen Informationen über die Daten würde man erwarten, dass die Daten ungefähr so wie beim Paar <span class="math notranslate nohighlight">\(x_1\)</span>, <span class="math notranslate nohighlight">\(y_1\)</span> aussehen: Die Daten haben in etwa eine lineare Beziehung mit einer leichten Streuung ohne ein klar erkennbares Muster um die Regressionsgerade. Eine lineare Beziehung zwischen <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(y\)</span> bedeutet, dass wenn <span class="math notranslate nohighlight">\(x\)</span> sich verändert, sich <span class="math notranslate nohighlight">\(y\)</span> um ein konstantes Vielfaches von <span class="math notranslate nohighlight">\(x\)</span> verändert. Das bedeutet umgekehrt auch, dass man die Beziehung von <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(y\)</span> sich etwa als Gerade vorstellen kann. Beim Paar <span class="math notranslate nohighlight">\(x_2\)</span>, <span class="math notranslate nohighlight">\(y_2\)</span> ist dies nicht der Fall, stattdessen sehen die Daten eher aus wie eine auf den Kopf gestellte Parabel. Das Paar <span class="math notranslate nohighlight">\(x_3\)</span>, <span class="math notranslate nohighlight">\(y_3\)</span> ist eigentlich perfekt linear, bis auf einen einzelnen Datenpunkt, der nach oben ausreißt und dafür sorgt, dass die blaue Regressionsgerade nicht zur eigentlichen Geraden, auf der die Daten liegen, passt. Das Paar <span class="math notranslate nohighlight">\(x_4\)</span>, <span class="math notranslate nohighlight">\(y_4\)</span> passt nicht zu dem, was die Statistiken aussagen, die auch wieder von einem Ausreißer stark beeinflusst werden.</p>
-<p>Die Aussage von Anscombes Quartett ist somit eindeutig: Auch wenn Statisti-ken gut geeignet sein können, Daten zusammenzufassen, ist es ebenso möglich, dass die Statistiken irreführend sind. Die kritische Leserin oder der aufmerksame Leser wird vielleicht bemerkt haben, dass die durch Ausreißer verursachten Probleme beim arithmetischen Mittel und der Standardabweichung zu erwarten sind. Die Probleme von Statistiken sind jedoch grundlegender und es gibt weitere Beispiele, die auch mehr statistische Marker berücksichtigen <a class="footnote-reference brackets" href="#datasaurus" id="id3">3</a>.</p>
+<p>Die Aussage von Anscombes Quartett ist somit eindeutig: Auch wenn Statisti-ken gut geeignet sein können, Daten zusammenzufassen, ist es ebenso möglich, dass die Statistiken irreführend sind. Die kritische Leserin oder der aufmerksame Leser wird vielleicht bemerkt haben, dass die durch Ausreißer verursachten Probleme beim arithmetischen Mittel und der Standardabweichung zu erwarten sind. Die Probleme von Statistiken sind jedoch grundlegender und es gibt weitere Beispiele, die auch mehr statistische Marker berücksichtigen <a class="footnote-reference brackets" href="#datasaurus" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>.</p>
 </section>
 <section id="einzelne-merkmale">
-<h3><span class="section-number">4.3.2. </span>Einzelne Merkmale<a class="headerlink" href="#einzelne-merkmale" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.3.2. </span>Einzelne Merkmale<a class="headerlink" href="#einzelne-merkmale" title="Permalink to this heading">#</a></h3>
 <p>Eine grundlegende Betrachtung der Daten besteht in der Visualisierung einzelner Merkmale der Daten. Hierdurch kann man die Verteilung dieser Merkmale verstehen, ähnlich zur Beschreibung durch Statistiken. Hierzu schauen wir uns Histogramme, Densityplots, Rugs und Boxplots an.</p>
 <p>Wir betrachten dieses Feature anhand von Daten über Hauspreise aus Boston, die 1978 veröffentlicht wurden, die wir im Folgenden einfach als Bostondaten bezeichnen werden.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sklearn is a large machine learning library that we use</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
@@ -997,11 +863,12 @@ y1         =  2.0305785113876023
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">wrapper</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">line</span><span class="p">)))</span>
 
-<span class="n">boston</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">fetch_openml</span><span class="p">(</span><span class="n">data_id</span><span class="o">=</span><span class="mi">531</span><span class="p">)</span>
+<span class="n">boston</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">fetch_openml</span><span class="p">(</span><span class="n">data_id</span><span class="o">=</span><span class="mi">531</span><span class="p">,</span> <span class="n">parser</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
 <span class="n">wrap_print</span><span class="p">(</span><span class="n">boston</span><span class="o">.</span><span class="n">DESCR</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>**Author**:
 **Source**: Unknown - Date unknown
@@ -1052,6 +919,11 @@ Downloaded from openml.org.
 </div></blockquote>
 <p>Wir werfen jetzt einen genaueren Blick auf das Merkmal <code class="docutils literal notranslate"><span class="pre">MEDV</span></code>, den Median des Werts der Eigenheime in 1000 Dollar. <em>Histogramme</em> sind eine einfache und oft effektive Art, etwas über die Verteilung von Daten zu lernen.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">boston</span><span class="o">.</span><span class="n">target</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
@@ -1061,8 +933,9 @@ Downloaded from openml.org.
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_04_21_0.png" src="../_images/kapitel_04_21_0.png" />
+<img alt="../_images/a04c8d3183e1e67add5e05df9632239811d83624fc8c389e7c8b8b995327cbce.png" src="../_images/a04c8d3183e1e67add5e05df9632239811d83624fc8c389e7c8b8b995327cbce.png" />
 </div>
 </div>
 <p>Das Histogramm zeigt, wie häufig Werte vorkommen. Hierfür wird der Wertebereich in sogenannte <em>Bins</em> unterteilt. Das Begriff Bin ist vom englischen Wort für Gruppieren abgeleitet. Das Histogramm gibt an, wie viele Datenpunkte in jedem Bin liegen. Im obigen Beispiel haben wir 50 Bins. Das Histogramm verrät uns viel über die Daten.</p>
@@ -1073,6 +946,11 @@ Downloaded from openml.org.
 </ul>
 <p>Wir können uns <code class="docutils literal notranslate"><span class="pre">MEDV</span></code> auch mithilfe von einem Densityplot anschauen.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>  <span class="c1"># seaborn is a visualization library build on top of matplotlib</span>
 
@@ -1084,8 +962,9 @@ Downloaded from openml.org.
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_04_23_0.png" src="../_images/kapitel_04_23_0.png" />
+<img alt="../_images/aa7cabd25c664353d6af01dccf5362a36574b9688273f477185f84fc719c79c0.png" src="../_images/aa7cabd25c664353d6af01dccf5362a36574b9688273f477185f84fc719c79c0.png" />
 </div>
 </div>
 <p>Vereinfacht gesagt, zeigen Densityplots eine Schätzung der Dichtefunktion der Wahrscheinlichkeitsverteilung der Daten. Wir können uns das als eine Art kontinuierliches Histogramm vorstellen. Der Vorteil von Densityplots gegenüber Histogrammen ist, dass es oft einfacher ist, die Verteilung der Daten zu erkennen. Im obigen Beispiel treten die Glockenform und die Position des Peaks deutlicher hervor und man kann dadurch die Normalverteilung in der linken Hälfte des Plots besser erkennen. Densityplots haben jedoch auch einige Nachteile im Vergleich zu Histogrammen. Ein kleiner Nachteil ist, dass es schwierig ist, die Werte der y-Achse zu interpretieren. Während ein Histogramm eine klare Aussage über die Anzahl der Datenpunkte in einem Bin erlaubt, sieht man im Densityplot lediglich die <em>Dichte</em> als Wert zwischen 0,0 und 1,0. Die Dichte ist mehr oder weniger der Anteil der Daten, der an einem bestimmten Punkt auf der x-Achse zu erwarten ist.</p>
@@ -1096,6 +975,11 @@ Downloaded from openml.org.
 </div></blockquote>
 <p>Ein einfaches Mittel, dieses Problem zu vermeiden, besteht darin, einen <em>Rug</em> (dt. Teppich) anzuzeigen. Der Rug hat seinem Namen daher, weil er wie ein Teppich unter den Plot gelegt wird.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">boston</span><span class="o">.</span><span class="n">target</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
@@ -1106,13 +990,19 @@ Downloaded from openml.org.
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_04_25_0.png" src="../_images/kapitel_04_25_0.png" />
+<img alt="../_images/f05b58bf310a22163b3d5e0c6c3ee6f21bf6d9c0da046e020532cfdeafa7198e.png" src="../_images/f05b58bf310a22163b3d5e0c6c3ee6f21bf6d9c0da046e020532cfdeafa7198e.png" />
 </div>
 </div>
 <p>Der Rug zeigt, wo sich wirklich Datenpunkte befinden. In Kombination mit dem Densityplot können wir also sehen, dass es keine Datenpunkte kleiner als 5 oder größer 50 gibt. Wir erkennen auch, dass die Region zwischen 38 und 50 nur relativ dünn besiedelt ist, wobei die Punkte in diesem Bereich etwa gleichverteilt zu sein scheinen. Hierzu passt, dass der Densityplot in diesem Bereich fast parallel zur x-Achse verläuft. Dies zeigt, dass der Rug hilfreich ist, um weitere Erkenntnisse über die Daten zu gewinnen und Fehlinterpretationen zu vermeiden.</p>
 <p>Man kann auch einfach alle oben betrachteten Ansätze kombinieren und Histogramm, Densityplot und Rug zusammen visualisieren.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="c1"># stat=&#39;density&#39; scales the plot to match the y-axis of the density plot</span>
@@ -1126,13 +1016,19 @@ Downloaded from openml.org.
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_04_27_0.png" src="../_images/kapitel_04_27_0.png" />
+<img alt="../_images/0ef0fa8310a710402a7de8ba6d84f1de3e615a420262a57a1424501703d27192.png" src="../_images/0ef0fa8310a710402a7de8ba6d84f1de3e615a420262a57a1424501703d27192.png" />
 </div>
 </div>
 <p>In diesem Plot können wir sehen, wo es Datenpunkte gibt (Rug), wie viele Daten in jedem Bereich liegen (Bins), und bekommen außerdem noch eine Schätzung der Dichtefunktion (Densityplot). Wir kombinieren also alle Vorteile von Histogrammen und Densityplots. Lediglich das Problem der Interpretation der y-Achse der Densityplots bleibt, wir können also nicht ablesen, wie viele Datenpunkte genau in einem Bin liegen. Falls dies relevant ist, muss man auf ein reines Histogramm zurückgreifen.</p>
 <p>Das Merkmal <code class="docutils literal notranslate"><span class="pre">MEDV</span></code> verhält sich aus statistischer Sicht relativ gut: Es ist großteils normalverteilt, wenn auch etwas rechtsschief. Außerdem gibt es noch eine Gruppierung aller Werte, die größer sind als 50. Dies kann unter Umständen später zu Problemen führen und sollte berücksichtigt werden. Jetzt schauen wir uns ein zweites Merkmal an, bei dem es nicht ganz so einfach ist. <code class="docutils literal notranslate"><span class="pre">CRIM</span></code> ist in den Bostondaten definiert als die Kriminalitätsrate in einer Gegend.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">boston</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;CRIM&#39;</span><span class="p">],</span> <span class="n">stat</span><span class="o">=</span><span class="s1">&#39;density&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
@@ -1144,8 +1040,9 @@ Downloaded from openml.org.
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_04_29_0.png" src="../_images/kapitel_04_29_0.png" />
+<img alt="../_images/4c5cc0f5a67fb429b5bf10cc7b6bd3d9b98c8ace69fa2603cb1d886b0189e5c2.png" src="../_images/4c5cc0f5a67fb429b5bf10cc7b6bd3d9b98c8ace69fa2603cb1d886b0189e5c2.png" />
 </div>
 </div>
 <p>Der Plot zeigt, dass die meisten Daten sehr nah bei null liegen, der Datenbereich bis ca. 15 jedoch insgesamt sehr dicht besiedelt ist. Bei höheren Werten scheint es sich eher um Ausreißer zu handeln. Da die Daten nahe null so dicht sind, ist es sehr schwer, mehr zu erkennen. Bei solchen Daten könnte es sich um exponentiell verteilte Daten handeln. Daher sollte man einen einfachen Trick ausprobieren und den Logarithmus der Daten betrachten. Wir betrachten also nicht die Daten <span class="math notranslate nohighlight">\(x\)</span> direkt, sondern stattdessen <span class="math notranslate nohighlight">\(\log(x+1)\)</span>. Die Addition von eins ist ein Glättungsparameter, der auch als <em>Laplace Glättung</em> bekannt ist. Durch diesen Glättungsfaktor vermeiden wir das Problem, dass der Logarithmus von 0 undefiniert ist. Da <span class="math notranslate nohighlight">\(\log(1)=0\)</span>, ist insbesondere auch <span class="math notranslate nohighlight">\(\log(0+1)=0\)</span>, was bedeutet, dass sich der Nullpunkt der Daten nicht verschiebt.</p>
@@ -1156,6 +1053,11 @@ Downloaded from openml.org.
 </div></blockquote>
 <p>Betrachten wir jetzt also den Logarithmus der Kriminalitätsrate.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log1p</span><span class="p">(</span><span class="n">boston</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;CRIM&#39;</span><span class="p">]),</span> <span class="n">stat</span><span class="o">=</span><span class="s1">&#39;density&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
@@ -1167,8 +1069,9 @@ Downloaded from openml.org.
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_04_31_0.png" src="../_images/kapitel_04_31_0.png" />
+<img alt="../_images/8c672ab1117d6693ead01ef92448574d8d78902a1757c51bf80018bda56cf86a.png" src="../_images/8c672ab1117d6693ead01ef92448574d8d78902a1757c51bf80018bda56cf86a.png" />
 </div>
 </div>
 <p>In diesem Plot erkennt man schon mehr Informationen über die Kriminalitätsrate:</p>
@@ -1178,6 +1081,11 @@ Downloaded from openml.org.
 </ul>
 <p>Um unsere Einschätzung, dass der hintere Teil der Daten lognormal ist, zu überprüfen, können wir uns diese Daten auch noch einmal genauer anschauen, indem wir den Anzeigebereich einschränken und hierdurch den hinteren Bereich in der Anzeige vergrößern.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log1p</span><span class="p">(</span><span class="n">boston</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;CRIM&#39;</span><span class="p">]),</span> <span class="n">stat</span><span class="o">=</span><span class="s1">&#39;density&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
@@ -1191,13 +1099,19 @@ Downloaded from openml.org.
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_04_33_0.png" src="../_images/kapitel_04_33_0.png" />
+<img alt="../_images/f6de03e8d2cbcdfcf5af0d8d69a0aecb4f20893e88d97998fbee30bc927ec085.png" src="../_images/f6de03e8d2cbcdfcf5af0d8d69a0aecb4f20893e88d97998fbee30bc927ec085.png" />
 </div>
 </div>
 <p>Wie man sieht wird, die Einschätzung hierdurch bestätigt.</p>
 <p>Für die nächsten Beispiele nutzen wir einen anderen Datensatz, nämlich die <em>Irisdaten</em>.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
 
@@ -1206,6 +1120,7 @@ Downloaded from openml.org.
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.. _iris_dataset:
 
@@ -1261,31 +1176,35 @@ type of iris plant.  One class is linearly separable from the
 other 2; the
 latter are NOT linearly separable from each other.
 
-.. topic:: References
+|details-start|
+**References**
+|details-split|
 
-   - Fisher, R.A. &quot;The use of multiple measurements in taxonomic
+- Fisher, R.A. &quot;The use of multiple measurements in taxonomic
 problems&quot;
-     Annual Eugenics, 7, Part II, 179-188 (1936); also in
+  Annual Eugenics, 7, Part II, 179-188 (1936); also in
 &quot;Contributions to
-     Mathematical Statistics&quot; (John Wiley, NY, 1950).
-   - Duda, R.O., &amp; Hart, P.E. (1973) Pattern Classification and
+  Mathematical Statistics&quot; (John Wiley, NY, 1950).
+- Duda, R.O., &amp; Hart, P.E. (1973) Pattern Classification and
 Scene Analysis.
-     (Q327.D83) John Wiley &amp; Sons.  ISBN 0-471-22361-1.  See page
+  (Q327.D83) John Wiley &amp; Sons.  ISBN 0-471-22361-1.  See page
 218.
-   - Dasarathy, B.V. (1980) &quot;Nosing Around the Neighborhood: A
-New System
-     Structure and Classification Rule for Recognition in
-Partially Exposed
-     Environments&quot;.  IEEE Transactions on Pattern Analysis and
+- Dasarathy, B.V. (1980) &quot;Nosing Around the Neighborhood: A New
+System
+  Structure and Classification Rule for Recognition in Partially
+Exposed
+  Environments&quot;.  IEEE Transactions on Pattern Analysis and
 Machine
-     Intelligence, Vol. PAMI-2, No. 1, 67-71.
-   - Gates, G.W. (1972) &quot;The Reduced Nearest Neighbor Rule&quot;.
-IEEE Transactions
-     on Information Theory, May 1972, 431-433.
-   - See also: 1988 MLC Proceedings, 54-64.  Cheeseman et al&quot;s
+  Intelligence, Vol. PAMI-2, No. 1, 67-71.
+- Gates, G.W. (1972) &quot;The Reduced Nearest Neighbor Rule&quot;.  IEEE
+Transactions
+  on Information Theory, May 1972, 431-433.
+- See also: 1988 MLC Proceedings, 54-64.  Cheeseman et al&quot;s
 AUTOCLASS II
-     conceptual clustering system finds 3 classes in the data.
-   - Many, many more ...
+  conceptual clustering system finds 3 classes in the data.
+- Many, many more ...
+
+|details-end|
 </pre></div>
 </div>
 </div>
@@ -1293,6 +1212,11 @@ AUTOCLASS II
 <p>Oben sehen wir die Beschreibung der Irisdaten. Es handelt sich um einen Datensatz über drei verschiedene Arten der Blume Iris (Setosa, Versicolour, Virginica) mit jeweils vier Merkmalen. Diese Merkmale sind die Länge und Breite der Blütenblätter (engl. <em>sepal</em>) und der Kelchblätter (engl. <em>petal</em>).</p>
 <p>Boxplots sind eine weitere Möglichkeit, wie wir einzelne Merkmale, aber auch mehrere Merkmale gleichzeitig visualisieren können.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>  <span class="c1"># pandas is a powerful library for working with data</span>
 
@@ -1307,8 +1231,9 @@ AUTOCLASS II
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_04_37_0.png" src="../_images/kapitel_04_37_0.png" />
+<img alt="../_images/d3af9425bb8b22e30f9c779e64bfa2e251f6eb90797d5aaa1f935ed93d155e05.png" src="../_images/d3af9425bb8b22e30f9c779e64bfa2e251f6eb90797d5aaa1f935ed93d155e05.png" />
 </div>
 </div>
 <p>Ein Boxplot besteht aus einer Box, die an jeder Seite noch eine Linie hat, die sogenannten <em>Whisker</em>. Daher sind diese Plots auch als Box-Whisker-Plots bekannt. Die Grenzen der Box sind durch das untere Quartil <span class="math notranslate nohighlight">\(Q_{lower}\)</span> und das obere Quartil <span class="math notranslate nohighlight">\(Q_{upper}\)</span> bestimmt. Daraus folgt, dass die Länge der Box der Interquartilsabstand ist. In der Box sieht man noch eine Linie. Diese Linie markiert den Median der Daten. Die Definition der Whisker ist etwas komplizierter. Das Ende der linken Linie ist der kleinste beobachtete Datenpunkt, der maximal das 1,5-Fache des Interquartilsabstands vom unteren Quartil entfernt ist, also <span class="math notranslate nohighlight">\(\min \{x_i: x_i&gt;Q_{lower}-1,5\cdot IQR, i=1, ..., n\}\)</span>. Analog ist das Ende der rechten Linie der größte beobachtete Datenpunkt, der maximal das 1,5-Fache des Interquartils-abstands vom oberen Quartil entfernt ist, also <span class="math notranslate nohighlight">\(\max \{x_i: x_i&gt;Q_{upper}+1,5\cdot IQR, i=1, ..., n\}\)</span>. Die Idee der Whisker ist es, den Datenbereich ohne Ausreißer darzustellen. Entsprechend ist jeder Wert, der mehr als das 1,5-Fache des Interquartilsabstands von den Quartilen entfernt ist, ein Ausreißer. Sollte es Ausreißer geben, werden diese als Punkte dargestellt, wie man sie zum Beispiel bei der Blütenblattbreite sieht.</p>
@@ -1328,9 +1253,14 @@ AUTOCLASS II
 <p>Wie man sieht, ist die Art der Informationen anders als bei Histogrammen und Densityplots. Histogramme und Densityplots sind gut geeignet, um die Verteilung von Daten zu verstehen und ein sehr detailliertes Bild der Daten zu bekommen. Bei Boxplots liegt der Fokus auf allgemeinen statistischen Eigenschaften der Daten. Mithilfe eines Boxplots kann man schnell statistische Merkmale der Verteilungen von mehreren Merkmalen erfassen und miteinander vergleichen.</p>
 </section>
 <section id="beziehungen-zwischen-merkmalen">
-<h3><span class="section-number">4.3.3. </span>Beziehungen zwischen Merkmalen<a class="headerlink" href="#beziehungen-zwischen-merkmalen" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.3.3. </span>Beziehungen zwischen Merkmalen<a class="headerlink" href="#beziehungen-zwischen-merkmalen" title="Permalink to this heading">#</a></h3>
 <p>Bisher haben wir Merkmale nur unabhängig voneinander visualisiert. Bei den Boxplots haben wir zwar bereits Boxen für mehrere Merkmale in einer Visualisierung angezeigt, die Boxen haben sich jedoch nur auf ein einzelnes Merkmal bezogen. Man kann zu einem gewissen Grad die Beziehung zwischen einem kategorischen Merkmal und numerischen Merkmalen mithilfe von Boxplots darstellen. Wir können zum Beispiel die Kelchblattlänge für die verschiedenen Arten der Iris darstellen.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;Kelchblattlänge&#39;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">iris</span><span class="o">.</span><span class="n">target</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;h&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
@@ -1342,8 +1272,9 @@ AUTOCLASS II
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_04_39_0.png" src="../_images/kapitel_04_39_0.png" />
+<img alt="../_images/6fe85c7efedb1294e9819f2aa786ba93eeb931e5128def02a913ceaa7996825a.png" src="../_images/6fe85c7efedb1294e9819f2aa786ba93eeb931e5128def02a913ceaa7996825a.png" />
 </div>
 </div>
 <p>Aus diesem Boxplot können wir viel über die Beziehung der Kelchblattlänge zu den Arten der Iris lernen.</p>
@@ -1356,14 +1287,20 @@ AUTOCLASS II
 <p>Der Nachteil von Boxplots ist, dass man Merkmale nur anhand von wenigen statistischen Eigenschaften vergleichen kann. Außerdem sind die Vergleiche beschränkt, da man nur ein kategorisches mit einem numerischen Merkmal vergleichen kann. Außerdem sollte das kategorische Merkmal nicht zu viele Kategorien haben, da es sonst sehr viele Boxen geben würde.</p>
 <p>Eine weitere Möglichkeit, sich Beziehungen zwischen Merkmalen anzuschauen, sind <em>paarweise Scatterplots</em>.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">iris_df</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;reg&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_04_41_0.png" src="../_images/kapitel_04_41_0.png" />
+<img alt="../_images/66bddab71a77df3d62adb037c9165db62dc45fe9e7dea3b4d388b8cedd83e016.png" src="../_images/66bddab71a77df3d62adb037c9165db62dc45fe9e7dea3b4d388b8cedd83e016.png" />
 </div>
 </div>
 <p>In einem paarweisen Scatterplot hat man nicht nur einen einzigen Plot, sondern eine Sammlung von Plots, die als Matrix organisiert sind. Auf der Diagonale findet man die Histogramme der Merkmale. Die anderen Plots zeigen die paarweisen Beziehungen zwischen je zwei Merkmalen. Die Geraden geben den linearen Zusammenhang zwischen den Daten wieder, wie wir es schon von Anscombes Quartett kennen. Die Schattierung um die Geraden zeigt zusätzlich noch die Unsicherheit dieses Zusammenhangs an. Je näher die Datenpunkte an den Geraden liegen, desto kleiner ist die Unsicherheit und desto größer die Wahrscheinlichkeit, dass es tatsächlich einen linearen Zusammenhang gibt. Wenn die Steigung der Geraden negativ ist (abwärts), dann ist die Korrelation zwischen den Merkmalen negativ. Wenn die Steigung positiv ist, dann ist Korrelation zwischen den Merkmalen positiv. Die Werte welcher Merkmale auf der x-Achse bzw. y-Achse aufgetragen sind, kann man am unteren bzw. linken Rand des Plots erkennen. Der zweite Plot in der ersten Zeile zeigt zum Beispiel die Beziehung zwischen der Blütenblattbreite auf der x-Achse und der Blütenblattlänge auf der y-Achse.</p>
@@ -1380,6 +1317,11 @@ AUTOCLASS II
 </div></blockquote>
 <p>Für kategorische Variablen wie die Art der Iris kann man noch weitere Informationen aus einem paarweisen Scatterplot holen, indem man die Kategorien als Farben nutzt. Zusätzlich kann man dann auch noch Densityplots pro Kategorie auf der Diagonale anzeigen.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;Art&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">target</span>
 <span class="n">iris_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;Art&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Art&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Setosa&#39;</span>
@@ -1390,13 +1332,23 @@ AUTOCLASS II
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_04_43_0.png" src="../_images/kapitel_04_43_0.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3864/4052881916.py:2: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise in a future error of pandas. Value &#39;Setosa&#39; has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+  iris_df.loc[iris_df[&#39;Art&#39;]==0, &#39;Art&#39;] = &#39;Setosa&#39;
+</pre></div>
+</div>
+<img alt="../_images/07513e62c2acd040e3e21dd0b0a5fdb495d8720cf67c6dae2541cb34d8e3988b.png" src="../_images/07513e62c2acd040e3e21dd0b0a5fdb495d8720cf67c6dae2541cb34d8e3988b.png" />
 </div>
 </div>
 <p>Durch die Farben können wir die Bedeutung der Gruppen erkennen, die wir oben schon gesehen haben: Die kleinere Gruppe sind die Setosas, während die größere Gruppe aus den Versicolours und Virginicas besteht. Diese Trennung ist ähnlich zu dem, was wir bereits im Boxplot gesehen haben. Wir erkennen auch, dass man die Arten nur schwer mithilfe der Blütenblätter unterscheiden kann, insbesonde-re nicht zwischen Versicolours und Virginicas. Man sieht aber auch, dass man die drei Arten fast perfekt anhand der Kelchblätter unterscheiden kann.</p>
 <p>Ein mögliches Problem von Scatterplots ist, dass man häufig sehr viele Daten-punkte in einem kleinen Bereich hat, sodass sich die Daten überlappen. Man spricht dann auch von einem dichten Bereich. Wenn man solche Daten als Scatterplot darstellt, sieht man häufig nur einen großen Fleck.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">10000</span>
@@ -1414,12 +1366,18 @@ AUTOCLASS II
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_04_45_0.png" src="../_images/kapitel_04_45_0.png" />
+<img alt="../_images/62adfc7298c69f7370dda0de0940f34e396a92da5eb53ba84e102b6f272637e6.png" src="../_images/62adfc7298c69f7370dda0de0940f34e396a92da5eb53ba84e102b6f272637e6.png" />
 </div>
 </div>
 <p>Innerhalb der dichten Region kann man die Struktur der Daten nicht erkennen. Im obigen Beispiel könnten die Daten in der Region zum Beispiel gleichverteilt, normalverteilt oder eine Mischung aus mehreren Verteilungen mit unterschiedli-chen Peaks sein. Man verliert also wegen der Dichte wertvolle Informationen über die Daten. Es gibt zwei Möglichkeiten, wie man dieses Problem lösen kann. Eine schnelle und sehr einfache Lösung besteht darin, die Datenpunkte transparent zu machen.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Scatterplot von 10000 transparenten Datenpunkten&#39;</span><span class="p">)</span>
@@ -1428,12 +1386,18 @@ AUTOCLASS II
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_04_47_0.png" src="../_images/kapitel_04_47_0.png" />
+<img alt="../_images/0b16913f337c0ced75f69da37a1e3b9ae227270c166b8a3cfd5b42860fe553a5.png" src="../_images/0b16913f337c0ced75f69da37a1e3b9ae227270c166b8a3cfd5b42860fe553a5.png" />
 </div>
 </div>
 <p>Durch die Transparenz kann man die Struktur erkennen und sieht, dass die Daten normalverteilt sind mit dem Mittelwert im Zentrum der dichten Region. Der Nachteil dieser Lösung ist, dass man immer noch nicht sieht, wie viele Daten genau in einer Region liegen, da es keine Farbskala gibt. Wenn dies ebenfalls wichtig ist, sollte man <em>Hexbinplots</em> verwenden. Hexbinplots sind mehr oder weniger zwei-dimensionale Histogramme: Die Daten sind in sechseckige Bins unterteilt und die Farbe zeigt, wie viele Daten in einer Region liegen.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">hb</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hexbin</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">gridsize</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;binary&#39;</span><span class="p">)</span>
@@ -1444,16 +1408,22 @@ AUTOCLASS II
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_04_49_0.png" src="../_images/kapitel_04_49_0.png" />
+<img alt="../_images/5f00802e72bb771150109627e7d31d999555413f0b34e51612c921262bd1f5cd.png" src="../_images/5f00802e72bb771150109627e7d31d999555413f0b34e51612c921262bd1f5cd.png" />
 </div>
 </div>
 <p>Im Hexbinplot können wir jetzt nicht nur die Struktur der Daten erkennen, sondern auch ablesen, wie viele Datenpunkte sich in der dichten Region befinden.</p>
 <p>Die letzte Visualisierung, die wir uns bezüglich des Zusammenhangs von Merkmalen anschauen wollen, zeigt die Korrelationen zwischen den Merkmalen. Wir haben uns Korrelationen bereits im Zusammenhang mit Scatterplots durch die Regressionsgeraden angesehen. Dies ist jedoch relativ aufwendig, insbesondere wenn es viele Merkmale gibt. Der Aufwand steigt quadratisch mit der Anzahl der Merkmale. Eine effizientere Methode, einen Überblick über die Korrelationen zu bekommen, ist eine <em>Korrelations-Heatmap</em>.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute the correlation matrix that contains the correlation coefficients</span>
-<span class="n">corr</span> <span class="o">=</span> <span class="n">iris_df</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+<span class="n">corr</span> <span class="o">=</span> <span class="n">iris_df</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># we use customized colors</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
@@ -1464,8 +1434,9 @@ AUTOCLASS II
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_04_51_0.png" src="../_images/kapitel_04_51_0.png" />
+<img alt="../_images/607f42898ce483145b4bd8c5f67b1eb105998bd680aede4f391ab5a002876d74.png" src="../_images/607f42898ce483145b4bd8c5f67b1eb105998bd680aede4f391ab5a002876d74.png" />
 </div>
 </div>
 <p>Eine Korrelations-Heatmap visualisiert die Werte von Korrelationskoeffizienten zwischen den Merkmalen. Rot heißt, dass es eine positive Korrelation gibt, Blau steht für negative Korrelation. Je schwächer die Farbe, desto schwächer die Korrelation. Konsequenterweise heißt Weiß also, dass es keine Korrelation gibt. Auf der Diagonale gibt es immer eine perfekte positive Korrelation, da selbstverständlich jedes Merkmal mit sich selbst korreliert ist. Außerdem sehen wir die Bestätigung unserer Erkenntnisse über die Korrelationen aus den paarweisen Scatterplots: Es gibt eine starke positive Korrelation zwischen der Breite und Länge der Kelchblätter und keine Korrelation bei den Blütenblättern. Man sieht jedoch noch weitere Korrelationen, zum Beispiel eine negative Korrelation zwischen der Kelchblattlänge und der Blütenblattbreite.</p>
@@ -1475,9 +1446,14 @@ Selbstverständlich kann man auch andere Farben zur Darstellung der Korrelations
 </div></blockquote>
 </section>
 <section id="scatterplots-fur-hochdimensionale-daten">
-<h3><span class="section-number">4.3.4. </span>Scatterplots für hochdimensionale Daten<a class="headerlink" href="#scatterplots-fur-hochdimensionale-daten" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.3.4. </span>Scatterplots für hochdimensionale Daten<a class="headerlink" href="#scatterplots-fur-hochdimensionale-daten" title="Permalink to this heading">#</a></h3>
 <p>Häufig hat man sehr viele Dimensionen, sodass die Analyse von paarweisen Scatterplots schwierig wird. In diesem Fall kann man Methoden zur Dimensionsreduktion anwenden. Die Idee hierbei ist es, die Korrelationen zwischen den Merkmalen auszunutzen und neue Merkmale zu berechnen, die unkorreliert sind. Bei den neuen Merkmalen beinhalten dann möglichst wenige Merkmale möglichst viel der Informationen aus den ursprünglichen Daten. Ein beliebtes Verfahren hierfür ist die <em>Hauptkomponentenanalyse</em> (engl. <em>principal component analysis</em> / PCA). Bei der PCA wird der Raum von reellwertigen Merkmalen so transformiert, dass das erste Merkmal möglichst viel der Varianz der Daten erklärt, das zweite Merkmal den zweit größten Anteil und so fort. Die neuen Merkmale nennt man auch die <em>Hauptkompnenten</em> (engl. <em>principal components</em>) der Daten. Da die Varianz eines Merkmals direkt mit der vorhandenen Information verwandt ist, beinhaltet also die erste Hauptkomponente die meiste Information, die zweite Hauptkomponente die zweitmeiste Information und so fort. Das liegt ganz einfach daran, dass konstante Merkmale keine Informationen beinhalten. Für die Irisdaten können wir mit der PCA die vier Merkmale auf die ersten zwei Hauptkomponenten reduzieren und mit der Farbe die Art der Iris darstellen.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">decomposition</span>
 
@@ -1497,8 +1473,9 @@ Selbstverständlich kann man auch andere Farben zur Darstellung der Korrelations
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_04_53_0.png" src="../_images/kapitel_04_53_0.png" />
+<img alt="../_images/bd6b0de899fe2c6be5ed77fa94bb5d219154adc99df32b6f541a71d45ac831ec.png" src="../_images/bd6b0de899fe2c6be5ed77fa94bb5d219154adc99df32b6f541a71d45ac831ec.png" />
 </div>
 </div>
 <p>Die zwei Hauptkomponenten erklären bereits 98% der Varianz der Daten, also beinahe alle Informationen. Man sieht auch, dass sich die Arten der Iris sehr gut unterscheiden lassen und separate Gruppen in den Daten darstellen, auch wenn die Versicolor und die Virginica sehr nah beieinander liegen. Wenn die PCA weniger Varianz der Daten erklärt, kann es sein, dass eine Trennung von Gruppen vorhanden ist, auch wenn man sie nicht sieht: Man bräuchte dann nur die restliche Information, um dies zu erkennen.</p>
@@ -1515,11 +1492,11 @@ Selbstverständlich kann man auch andere Farben zur Darstellung der Korrelations
 </div></blockquote>
 </section>
 <section id="zeitliche-trends">
-<h3><span class="section-number">4.3.5. </span>Zeitliche Trends<a class="headerlink" href="#zeitliche-trends" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.3.5. </span>Zeitliche Trends<a class="headerlink" href="#zeitliche-trends" title="Permalink to this heading">#</a></h3>
 <p>Die bisherigen Visualisierungen sind alle davon ausgegangen, dass die einzelnen Datenpunkte nicht direkt miteinander zusammenhängen. Häufig gibt es jedoch Zusammenhänge, insbesondere bei Daten, die über einen gewissen Zeitraum erfasst worden sind. Als Beispiel betrachten wir jetzt Fluggastdaten einer US Airline aus den Jahren 1940 bis 1960. Die Werte geben die monatliche Anzahl von Passagieren an.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>head data/AirPassengers.csv
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>head<span class="w"> </span>data/AirPassengers.csv
 </pre></div>
 </div>
 </div>
@@ -1540,8 +1517,13 @@ Selbstverständlich kann man auch andere Farben zur Darstellung der Korrelations
 </div>
 <p>Wir könnten solche Daten auch unabhängig von der Zeit betrachten, zum Beispiel als Histogramm.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">air_passengers_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/AirPassengers.csv&quot;</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">parse_dates</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Month&#39;</span><span class="p">,</span> <span class="s1">&#39;Passengers&#39;</span><span class="p">],</span> <span class="n">index_col</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">squeeze</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">air_passengers_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/AirPassengers.csv&quot;</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">parse_dates</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Month&#39;</span><span class="p">,</span> <span class="s1">&#39;Passengers&#39;</span><span class="p">],</span> <span class="n">index_col</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">air_passengers_df</span><span class="p">)</span>
@@ -1551,12 +1533,18 @@ Selbstverständlich kann man auch andere Farben zur Darstellung der Korrelations
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_04_57_0.png" src="../_images/kapitel_04_57_0.png" />
+<img alt="../_images/480943052ebb2773af8c126482cc3ea5cf491493567a077f84c7945bea5e29b5.png" src="../_images/480943052ebb2773af8c126482cc3ea5cf491493567a077f84c7945bea5e29b5.png" />
 </div>
 </div>
 <p>Es ist nicht so, dass Histogramme bei über die Zeit verteilten Daten keine Informationen liefern würden. Man erkennt, dass es maximal 600 Passagiere in einem Monat gab und dass es circa 20 Monate mit jeweils 100-150, 150-200, …, bzw. 300-350 Passagieren gab. Was man jedoch nicht erkennt ist die Entwicklung der Passagierzahlen über die Zeit. Hier könnten wir zum Beispiel einfach einen Scatterplot betrachten, bei dem die y-Achse die Passagierzahlen und die x-Achse die Monate anzeigt.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">air_passengers_df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
@@ -1567,12 +1555,18 @@ Selbstverständlich kann man auch andere Farben zur Darstellung der Korrelations
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_04_59_0.png" src="../_images/kapitel_04_59_0.png" />
+<img alt="../_images/370677902df3fdde2e760bce9507f058b5c6cef6d66c1a4ab340ee89150ca7d0.png" src="../_images/370677902df3fdde2e760bce9507f058b5c6cef6d66c1a4ab340ee89150ca7d0.png" />
 </div>
 </div>
 <p>In diesem Scatterplot erkennt man den zeitlichen Verlauf der Daten. Man sieht einen klaren Trend, dass die Passagierzahlen mit der Zeit steigen. Wie sich die Passagierzahlen von Monat zu Monat verändern, erkennt man jedoch nicht ohne Weiteres. Hierfür müssen wir - im wahrsten Sinne des Wortes - die Punkte miteinander verbinden, um ein <em>Liniendiagramm</em> zu erhalten.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">air_passengers_df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
@@ -1583,39 +1577,41 @@ Selbstverständlich kann man auch andere Farben zur Darstellung der Korrelations
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/kapitel_04_61_0.png" src="../_images/kapitel_04_61_0.png" />
+<img alt="../_images/73348e2345080bced6a2ff8075d0be5df260f30d0526d8fedcc603fd809d494d.png" src="../_images/73348e2345080bced6a2ff8075d0be5df260f30d0526d8fedcc603fd809d494d.png" />
 </div>
 </div>
 <p>Im Liniendiagram können wir jetzt sowohl den Trend als auch die Veränderungen von Monat zu Monat sehen. Man erkennt auch ein Muster, das sich jährlich wiederholt.</p>
 </section>
 </section>
 <section id="ubung">
-<h2><span class="section-number">4.4. </span>Übung<a class="headerlink" href="#ubung" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.4. </span>Übung<a class="headerlink" href="#ubung" title="Permalink to this heading">#</a></h2>
 <p>In der ersten praktischen Übung geht es darum, selbst einige Daten zu erkunden. Hierzu benutzen wir wieder die Bostondaten, die wir vorher schon in diesem Kapitel verwendet haben.</p>
 <section id="deskriptive-statistiken">
-<h3><span class="section-number">4.4.1. </span>Deskriptive Statistiken<a class="headerlink" href="#deskriptive-statistiken" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.4.1. </span>Deskriptive Statistiken<a class="headerlink" href="#deskriptive-statistiken" title="Permalink to this heading">#</a></h3>
 <p>Untersuchen Sie die Bostondaten mithilfe von deskriptiven Statistiken. Berechnen Sie die Lage durch das arithmetische Mittel und den Median, die Variabilität durch die Standardabweichung und den IQR sowie die Datenbereiche der Merkmale. Das Ziel dieser Aufgabe ist aber nicht die Berechnung dieser Werte, sondern ihre Interpretation. Überlegen Sie sich zum Beispiel, was man über das Merkmal CRIM über das arithmetische Mittel und den Median lernt.</p>
 </section>
 <section id="visualisierungen-einzelner-merkmale">
-<h3><span class="section-number">4.4.2. </span>Visualisierungen einzelner Merkmale<a class="headerlink" href="#visualisierungen-einzelner-merkmale" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.4.2. </span>Visualisierungen einzelner Merkmale<a class="headerlink" href="#visualisierungen-einzelner-merkmale" title="Permalink to this heading">#</a></h3>
 <p>Schauen Sie sich die Merkmale <code class="docutils literal notranslate"><span class="pre">zn</span></code> und <code class="docutils literal notranslate"><span class="pre">indus</span></code> mithilfe von Histogrammen und Densityplots (mit und ohne Rug) an. Was lernen Sie über diese Daten? Was sind die Vor- und Nachteile der verschiedenen Visualisierungen?</p>
 </section>
 <section id="paarweise-beziehungen">
-<h3><span class="section-number">4.4.3. </span>Paarweise Beziehungen<a class="headerlink" href="#paarweise-beziehungen" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.4.3. </span>Paarweise Beziehungen<a class="headerlink" href="#paarweise-beziehungen" title="Permalink to this heading">#</a></h3>
 <p>Betrachten Sie die paarweisen Beziehungen der Bostondaten. Benutzen Sie hierfür Scatterplots und eine Korrelations-Heatmap. Was lernen Sie über die Beziehungen aus den Daten? Beachten Sie hierbei insbesondere auch, ob Sie ethisch problematische Eigenschaften finden.</p>
 <hr class="footnotes docutils" />
-<dl class="footnote brackets">
-<dt class="label" id="jupyterformat"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p><a class="reference external" href="https://nbformat.readthedocs.io/en/latest/format_description.html">https://nbformat.readthedocs.io/en/latest/format_description.html</a></p>
-</dd>
-<dt class="label" id="categorical"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
-<dd><p><a class="reference external" href="https://doi.org/10.1080/10691898.2007.11889465">https://doi.org/10.1080/10691898.2007.11889465</a></p>
-</dd>
-<dt class="label" id="datasaurus"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
-<dd><p><a class="reference external" href="https://doi.org/10.1145/3025453.3025912">https://doi.org/10.1145/3025453.3025912</a></p>
-</dd>
-</dl>
+<aside class="footnote brackets" id="jupyterformat" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://nbformat.readthedocs.io/en/latest/format_description.html">https://nbformat.readthedocs.io/en/latest/format_description.html</a></p>
+</aside>
+<aside class="footnote brackets" id="categorical" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://doi.org/10.1080/10691898.2007.11889465">https://doi.org/10.1080/10691898.2007.11889465</a></p>
+</aside>
+<aside class="footnote brackets" id="datasaurus" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://doi.org/10.1145/3025453.3025912">https://doi.org/10.1145/3025453.3025912</a></p>
+</aside>
 </section>
 </section>
 </section>
@@ -1632,7 +1628,7 @@ Selbstverständlich kann man auch andere Farben zur Darstellung der Korrelations
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./chapters"
         },
         predefinedOutput: true
@@ -1640,50 +1636,122 @@ Selbstverständlich kann man auch andere Farben zur Darstellung der Korrelations
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="kapitel_03.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">3. </span>Allgemeines zur Datenanalyse</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="kapitel_03.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Allgemeines zur Datenanalyse</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="kapitel_05.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="kapitel_05.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title"><span class="section-number">5. </span>Assoziationsregeln</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#texteditoren-und-die-kommandozeile">4.1. Texteditoren und die Kommandozeile</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deskriptive-statistik">4.2. Deskriptive Statistik</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lagemasze">4.2.1. Lagemaße</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variabilitat">4.2.2. Variabilität</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datenbereich">4.2.3. Datenbereich</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisierung">4.3. Visualisierung</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#anscombes-quartett">4.3.1. Anscombes Quartett</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#einzelne-merkmale">4.3.2. Einzelne Merkmale</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beziehungen-zwischen-merkmalen">4.3.3. Beziehungen zwischen Merkmalen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scatterplots-fur-hochdimensionale-daten">4.3.4. Scatterplots für hochdimensionale Daten</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zeitliche-trends">4.3.5. Zeitliche Trends</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung">4.4. Übung</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deskriptive-statistiken">4.4.1. Deskriptive Statistiken</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisierungen-einzelner-merkmale">4.4.2. Visualisierungen einzelner Merkmale</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paarweise-beziehungen">4.4.3. Paarweise Beziehungen</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By Steffen Herbold<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+<p class="component-author">
+By Steffen Herbold
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

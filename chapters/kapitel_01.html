@@ -1,48 +1,60 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>1. Big Data und Data Science &#8212; Data Science Crashkurs - Eine interaktive und praktische Einführung</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -50,61 +62,104 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/kapitel_01';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="2. Der Prozess von Data-Science-Projekten" href="kapitel_02.html" />
     <link rel="prev" title="Vorwort" href="vorwort.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
 
-    
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="vorwort.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/bookcover.jpg" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Data Science Crashkurs - Eine interaktive und praktische Einführung</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../_static/bookcover.jpg" class="logo__image only-light" alt="Data Science Crashkurs - Eine interaktive und praktische Einführung - Home"/>
+    <script>document.write(`<img src="../_static/bookcover.jpg" class="logo__image only-dark" alt="Data Science Crashkurs - Eine interaktive und praktische Einführung - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -113,451 +168,247 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Kapitel
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Kapitel</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   1. Big Data und Data Science
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_02.html">
-   2. Der Prozess von Data-Science-Projekten
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_03.html">
-   3. Allgemeines zur Datenanalyse
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_04.html">
-   4. Erkunden der Daten
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_05.html">
-   5. Assoziationsregeln
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_06.html">
-   6. Clusteranalyse
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_07.html">
-   7. Klassifikation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_08.html">
-   8. Regression
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_09.html">
-   9. Zeitreihenanalyse
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_10.html">
-   10. Text Mining
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_11.html">
-   11. Statistik
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_12.html">
-   12. Big Data Processing
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="kapitel_13.html">
-   13. Weiterführende Konzepte
-  </a>
- </li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Big Data und Data Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_02.html">2. Der Prozess von Data-Science-Projekten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_03.html">3. Allgemeines zur Datenanalyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_04.html">4. Erkunden der Daten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_05.html">5. Assoziationsregeln</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_06.html">6. Clusteranalyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_07.html">7. Klassifikation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_08.html">8. Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_09.html">9. Zeitreihenanalyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_10.html">10. Text Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_11.html">11. Statistik</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_12.html">12. Big Data Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kapitel_13.html">13. Weiterführende Konzepte</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Appendix
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="howto.html">
-   Selbst ausführen
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="notations.html">
-   Notationen
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="acronyms.html">
-   Abkürzungen
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="howto.html">Selbst ausführen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notations.html">Notationen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acronyms.html">Abkürzungen</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Gefällt Ihnen das Buch? Möchten Sie es in den Händen halten und weitere Open Access Bücher unterstützen? <a href="https://dpunkt.de/produkt/data-science-crashkurs/">Dann kaufen Sie die Print Edition.</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/sherbold/einfuehrung-in-data-science/main?urlpath=tree/content/chapters/kapitel_01.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
-</div>
+  
+  <div id="rtd-footer-container"></div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/sherbold/einfuehrung-in-data-science" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-<a href="https://github.com/sherbold/einfuehrung-in-data-science"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="bottom"
-title="Source repository"
->
-  
-
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fab fa-github"></i>
   </span>
 
 </a>
 
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/chapters/kapitel_01.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapters/kapitel_01.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.ipynb</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
-
-      </li>
+</li>
+      
+      
+      
       
       <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file-pdf"></i>
   </span>
-<span class="headerbtn__text-container">.pdf</span>
+<span class="btn__text-container">.pdf</span>
 </button>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
   </span>
 
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#einfuhrung-in-big-data">
-   1.1. Einführung in Big Data
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#volumen">
-     1.1.1. Volumen
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#velocity-geschwindigkeit">
-     1.1.2. Velocity / Geschwindigkeit
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#variety-vielfalt">
-     1.1.3. Variety / Vielfalt
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#innovative-informationsverarbeitungsmethoden">
-     1.1.4. Innovative Informationsverarbeitungsmethoden
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#wissen-generieren-entscheidungen-treffen-prozesse-automatisieren">
-     1.1.5. Wissen generieren, Entscheidungen treffen, Prozesse automatisieren.
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#noch-mehr-vs">
-     1.1.6. Noch mehr Vs
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#einfuhrung-in-data-science">
-   1.2. Einführung in Data Science
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#was-gehort-zu-data-science">
-     1.2.1. Was gehört zu Data Science?
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#beispielanwendungen">
-     1.2.2. Beispielanwendungen
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#fahigkeiten-von-data-scientists">
-   1.3. Fähigkeiten von Data Scientists
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Big Data und Data Science</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#einfuhrung-in-big-data">
-   1.1. Einführung in Big Data
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#volumen">
-     1.1.1. Volumen
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#velocity-geschwindigkeit">
-     1.1.2. Velocity / Geschwindigkeit
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#variety-vielfalt">
-     1.1.3. Variety / Vielfalt
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#innovative-informationsverarbeitungsmethoden">
-     1.1.4. Innovative Informationsverarbeitungsmethoden
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#wissen-generieren-entscheidungen-treffen-prozesse-automatisieren">
-     1.1.5. Wissen generieren, Entscheidungen treffen, Prozesse automatisieren.
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#noch-mehr-vs">
-     1.1.6. Noch mehr Vs
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#einfuhrung-in-data-science">
-   1.2. Einführung in Data Science
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#was-gehort-zu-data-science">
-     1.2.1. Was gehört zu Data Science?
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#beispielanwendungen">
-     1.2.2. Beispielanwendungen
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#fahigkeiten-von-data-scientists">
-   1.3. Fähigkeiten von Data Scientists
-  </a>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Big Data und Data Science</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#einfuhrung-in-big-data">1.1. Einführung in Big Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#volumen">1.1.1. Volumen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#velocity-geschwindigkeit">1.1.2. Velocity / Geschwindigkeit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variety-vielfalt">1.1.3. Variety / Vielfalt</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#innovative-informationsverarbeitungsmethoden">1.1.4. Innovative Informationsverarbeitungsmethoden</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wissen-generieren-entscheidungen-treffen-prozesse-automatisieren">1.1.5. Wissen generieren, Entscheidungen treffen, Prozesse automatisieren.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#noch-mehr-vs">1.1.6. Noch mehr Vs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#einfuhrung-in-data-science">1.2. Einführung in Data Science</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#was-gehort-zu-data-science">1.2.1. Was gehört zu Data Science?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beispielanwendungen">1.2.2. Beispielanwendungen</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fahigkeiten-von-data-scientists">1.3. Fähigkeiten von Data Scientists</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="big-data-und-data-science">
-<h1><span class="section-number">1. </span>Big Data und Data Science<a class="headerlink" href="#big-data-und-data-science" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">1. </span>Big Data und Data Science<a class="headerlink" href="#big-data-und-data-science" title="Permalink to this heading">#</a></h1>
 <p>Zuerst wollen wir uns etwas mit Begriffen beschäftigen, um zu verstehen, worum es beim Thema Data Science geht. Aufbauend auf dem Begriff Big Data wird aufgezeigt, was eigentlich alles zu Data Science gehört und welche Fähigkeiten Data Scientists benötigen.</p>
 <section id="einfuhrung-in-big-data">
-<h2><span class="section-number">1.1. </span>Einführung in Big Data<a class="headerlink" href="#einfuhrung-in-big-data" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">1.1. </span>Einführung in Big Data<a class="headerlink" href="#einfuhrung-in-big-data" title="Permalink to this heading">#</a></h2>
 <p>Den Begriff <em>Big Data</em> gibt es jetzt bereits seit einigen Jahren und der ursprüngliche mit diesem Thema verbundene Hype ist längst Vergangenheit. Stattdessen gibt es neue Buzzwords, wie das <em>Internet der Dinge</em> (engl. Internet of Things), die <em>künstliche Intelligenz</em> (engl. <em>Artificial Intelligence</em>), und hierbei insbesondere auch die <em>tiefen neuronalen Netze</em> (engl. <em>Deep Neural Network</em>, <em>Deep Learning</em>). Nichtsdestotrotz ist Big Data mit diesen neuen Themen eng verbunden und häufig eine Voraussetzung oder zumindest eine verwandte Technologie.</p>
 <p>Trotz der anhaltenden Relevanz des Themas ist dennoch häufig kein gutes Verständnis für den Unterschied zwischen vielen Daten und Big Data vorhanden. Ein gutes Verständnis der Besonderheiten und Eigenschaften von Big Data und von den damit verbundenen Implikationen und Problemen ist jedoch zwingend notwendig, wenn man auf Big Data aufbauende Technologien in Projekten einsetzen will. Der Grund für Missverständnisse rund um den Begriff Big Data ist einfach: Wir denken intuitiv an “große Datenmengen”. Eine derart vereinfachte Begriffsdefinition ignoriert jedoch wesentliche Aspekte von Big Data. Backups sind ein gutes Beispiel für große Datenmengen, die nicht Big Data sind. In modernen Rechenzentren werden Backups auf Hintergrundspeichern mit einer hohen Bitstabilität, aber auch einer hohen Latenz gespeichert. Dort lagern häufig riesige Datenmengen in der Hoffnung, dass sie nie gebraucht werden, bevor sie gelöscht oder überschrieben werden. Es gibt noch einen weiteren Grund, warum es unpraktisch ist, Big Data nur über das Datenvolumen zu definieren: Wir müssten die Definition ständig anpassen, da die Speicherkapazitäten, die Rechenkraft und der Arbeitsspeicher stetig wachsen.
-Eine bessere und allgemein akzeptierte Definition für Big Data basiert auf den <em>drei Vs</em> <a class="footnote-reference brackets" href="#gartner" id="id1">1</a>.</p>
+Eine bessere und allgemein akzeptierte Definition für Big Data basiert auf den <em>drei Vs</em> <a class="footnote-reference brackets" href="#gartner" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
 <blockquote>
 <div><p><strong>Definition von Big Data:</strong></p>
 <p>Als Big Data bezeichnet man Daten, die ein hohes <em>Volumen</em>, eine hohe <em>Geschwindigkeit</em> (engl. <em>velocity</em>) und eine hohe <em>Vielfalt</em> (engl. <em>variety</em>) haben, sodass man kosteneffiziente und innovative Informationsverarbeitungsmethoden benötigt, um Wissen zu generieren, Entscheidungen zu treffen oder Prozesse zu automatisieren.</p>
 </div></blockquote>
 <p>Zum besseren Verständnis zerlegen wir nun diese Definition in ihre Einzelteile und betrachten diese genauer. Hierbei wird klar werden, warum Big Data mehr ist als nur Datenvolumen.</p>
 <section id="volumen">
-<h3><span class="section-number">1.1.1. </span>Volumen<a class="headerlink" href="#volumen" title="Permalink to this headline">#</a></h3>
-<p>Auch wenn das Datenvolumen nicht der einzig wichtige Faktor ist, ist es dennoch entscheidend. Nicht umsonst heißt es Big Data. Dass keine bestimmte Datengröße das Kriterium sein kann, wird schon klar, wenn man sich überlegt, dass Google die Forschungsarbeit, in der MapReduce vorgestellt wurde, bereits 2006 publiziert hat <a class="footnote-reference brackets" href="#mapreducepaper" id="id2">2</a>. Zu diesem Zeitpunkt war ein Terabyte noch ein sehr großes Datenvolumen. Im Jahr 2021 ist dies lediglich die Festplattengröße des Laptops, auf dem dieses Buch geschrieben wurde. Ein weiteres Beispiel ist das Wachstum des Datenvolumens, das im Internet jährlich übertragen wird (<a class="reference internal" href="#fig-webtraffic"><span class="std std-numref">Fig. 1.1</span></a>).</p>
+<h3><span class="section-number">1.1.1. </span>Volumen<a class="headerlink" href="#volumen" title="Permalink to this heading">#</a></h3>
+<p>Auch wenn das Datenvolumen nicht der einzig wichtige Faktor ist, ist es dennoch entscheidend. Nicht umsonst heißt es Big Data. Dass keine bestimmte Datengröße das Kriterium sein kann, wird schon klar, wenn man sich überlegt, dass Google die Forschungsarbeit, in der MapReduce vorgestellt wurde, bereits 2006 publiziert hat <a class="footnote-reference brackets" href="#mapreducepaper" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>. Zu diesem Zeitpunkt war ein Terabyte noch ein sehr großes Datenvolumen. Im Jahr 2021 ist dies lediglich die Festplattengröße des Laptops, auf dem dieses Buch geschrieben wurde. Ein weiteres Beispiel ist das Wachstum des Datenvolumens, das im Internet jährlich übertragen wird (<a class="reference internal" href="#fig-webtraffic"><span class="std std-numref">Fig. 1.1</span></a>).</p>
 <figure class="align-default" id="fig-webtraffic">
 <a class="reference internal image-reference" href="../_images/webtraffic.png"><img alt="../_images/webtraffic.png" src="../_images/webtraffic.png" style="width: 400px;" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 1.1 </span><span class="caption-text">Wachstum des Datenvolumens im Internetverkehr</span><a class="headerlink" href="#fig-webtraffic" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Eine vereinfachte Richtlinie für das Datenvolumen lautet, dass es mehr Daten sein müssen, als in den Arbeitsspeicher moderner Server passen. Besser ist es jedoch, wenn man sich einfach die Frage stellt, ob es möglich ist, die Daten (oft) zu kopieren, insbesondere auch über Netzwerkverbindungen. Ist dies nicht mehr der Fall, handelt es sich vermutlich um genug Daten, um von Big Data zu sprechen. In extremen Fällen sind die Daten sogar so groß, dass man sie gar nicht über das Netzwerk kopieren kann. Stattdessen nutzt man das <em>Sneaker Net</em> <a class="footnote-reference brackets" href="#sneakernet" id="id3">3</a>: Die Daten werden direkt auf Festplatten verschickt. In Bezug auf den Datendurchsatz ist ein mit Festplatten beladenes Transportflugzeug unschlagbar. Die Latenz lässt jedoch zu wünschen übrig. Ein Beispiel für eine Anwendung, die ohne das Sneaker Net nicht geklappt hätte, ist die Erstellung des ersten Bilds von einem schwarzen Loch <a class="footnote-reference brackets" href="#blackhole" id="id4">4</a>.</p>
+<p>Eine vereinfachte Richtlinie für das Datenvolumen lautet, dass es mehr Daten sein müssen, als in den Arbeitsspeicher moderner Server passen. Besser ist es jedoch, wenn man sich einfach die Frage stellt, ob es möglich ist, die Daten (oft) zu kopieren, insbesondere auch über Netzwerkverbindungen. Ist dies nicht mehr der Fall, handelt es sich vermutlich um genug Daten, um von Big Data zu sprechen. In extremen Fällen sind die Daten sogar so groß, dass man sie gar nicht über das Netzwerk kopieren kann. Stattdessen nutzt man das <em>Sneaker Net</em> <a class="footnote-reference brackets" href="#sneakernet" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>: Die Daten werden direkt auf Festplatten verschickt. In Bezug auf den Datendurchsatz ist ein mit Festplatten beladenes Transportflugzeug unschlagbar. Die Latenz lässt jedoch zu wünschen übrig. Ein Beispiel für eine Anwendung, die ohne das Sneaker Net nicht geklappt hätte, ist die Erstellung des ersten Bilds von einem schwarzen Loch <a class="footnote-reference brackets" href="#blackhole" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>.</p>
 </section>
 <section id="velocity-geschwindigkeit">
-<h3><span class="section-number">1.1.2. </span>Velocity / Geschwindigkeit<a class="headerlink" href="#velocity-geschwindigkeit" title="Permalink to this headline">#</a></h3>
-<p>Die Velocity ist die Geschwindigkeit, mit der neue Daten generiert, verarbeitet und/oder ausgewertet werden müssen. Es gibt viele Beispiele für Daten die eine hohe Geschwindigkeit haben, zum Beispiel die durch Sensoren wie LIDAR und Kameras erfassten Daten von autonomen Fahrzeugen. Derartige Daten können in kürzester Zeit ein sehr hohes Volumen erreichen. Die Firma Waymo hat zum Beispiel einen zwei Terabyte großen Datensatz, der während elf Fahrstunden gesammelt wurde, veröffentlicht <a class="footnote-reference brackets" href="#waymo" id="id5">5</a>. Daten, die mehr oder weniger kontinuierlich in hoher Geschwindigkeit generiert werden, nennt man auch <em>Streamingdaten</em>.</p>
+<h3><span class="section-number">1.1.2. </span>Velocity / Geschwindigkeit<a class="headerlink" href="#velocity-geschwindigkeit" title="Permalink to this heading">#</a></h3>
+<p>Die Velocity ist die Geschwindigkeit, mit der neue Daten generiert, verarbeitet und/oder ausgewertet werden müssen. Es gibt viele Beispiele für Daten die eine hohe Geschwindigkeit haben, zum Beispiel die durch Sensoren wie LIDAR und Kameras erfassten Daten von autonomen Fahrzeugen. Derartige Daten können in kürzester Zeit ein sehr hohes Volumen erreichen. Die Firma Waymo hat zum Beispiel einen zwei Terabyte großen Datensatz, der während elf Fahrstunden gesammelt wurde, veröffentlicht <a class="footnote-reference brackets" href="#waymo" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>. Daten, die mehr oder weniger kontinuierlich in hoher Geschwindigkeit generiert werden, nennt man auch <em>Streamingdaten</em>.</p>
 <p>Eine besondere Schwierigkeit beim Umgang mit Streamingdaten besteht darin, dass diese oft in nahezu Echtzeit verarbeitet werden müssen. Beim autonomen Fahren ist dies sofort klar, schon alleine wegen der Sicherheit. Doch das gilt auch für viele andere Anwendungen, zum Beispiel für das Sortieren des Nachrichtenstreams in sozialen Netzwerken. Hier kommt zwar niemand zu schaden, die Nutzer würden einen Dienst aber schnell verlassen, wenn die Ladezeiten zu lang sind. Entsprechend müssen beim Umgang mit Streamingdaten in der Regel zwei Anforderungen gleichzeitig erfüllt werden: Daten müssen sehr schnell empfangen werden und dürfen dann auch nicht lange in einem Zwischenspeicher landen bzw. sich dort befinden, sondern müssen sofort verarbeitet und ausgewertet werden. Hierdurch ergibt sich eine Art inverse Korrelation zwischen der Geschwindigkeit und dem Datenvolumen: Je höher die Geschwindigkeit, desto weniger Daten reichen aus, um Daten zu Big Data werden zu lassen. Oder an einem Beispiel: Ein Gigabyte pro Tag zu verarbeiten ist einfacher als ein Gigabyte pro Sekunde.</p>
 </section>
 <section id="variety-vielfalt">
-<h3><span class="section-number">1.1.3. </span>Variety / Vielfalt<a class="headerlink" href="#variety-vielfalt" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">1.1.3. </span>Variety / Vielfalt<a class="headerlink" href="#variety-vielfalt" title="Permalink to this heading">#</a></h3>
 <p>Die Vielfalt der Daten ist der dritte große Aspekt von Big Data. Mittlerweile ist die Analyse von Bildern, Videos und Texten zu einer normalen Anwendung geworden. Dies war jedoch noch nicht der Fall, als der Begriff Big Data geprägt wurde. Im Zeitraum um die Jahrtausendwende lagen die Daten, die analysiert werden sollten, üblicherweise strukturiert vor, zum Beispiel in relationalen Datenbanken. Die Daten waren entweder numerisch oder in feste Kategorien eingeteilt. Das änderte sich im Laufe der 2000er-Jahre, dadurch dass das Internet allgegenwärtig wurde und wir immer mehr Computertechnik in unseren Alltag übernommen haben, zum Beispiel in Form von Smartphones. Hier entstanden Daten eher auf unstrukturierte Weise, zum Beispiel durch Webseiten, die ad hoc von Nutzern erstellt wurden. Es ist daher kein Zufall, dass Google den Begriff Big Data und die damit verbundenen Technologien mitgeprägt hat: Die Indizierung des stetig wachsenden und komplexer werdenden Internets zwang dazu, die vorhandenen Techniken rapide weiterzuentwickeln. Hierbei mussten nicht nur immer größere Datenmengen verarbeitet werden, sondern vor allem eine Vielfalt von Datenformaten, insbesondere Text- und Bilddaten, später auch Videodaten.</p>
 <p>Insgesamt gibt es viel mehr unstrukturierte Daten als strukturierte Daten. Dies wird üblicherweise als Pyramide dargestellt (<a class="reference internal" href="#fig-structures"><span class="std std-numref">Fig. 1.2</span></a>), in der zwischen <em>unstrukturierten</em>, <em>quasistrukturierten</em>, <em>semistrukturierten</em> und <em>strukturierten</em> Daten unterschieden wird.</p>
 <figure class="align-default" id="fig-structures">
@@ -603,24 +454,24 @@ drwxr-xr-x 1 sherbold sherbold     512 Apr 27 17:04 <span class=" -Color -Color-
 <p>Die unstrukturierten Daten sind auf der untersten Ebene der Pyramide. Hier befindet sich der Großteil der Daten: Bilder, Videos und Text. Die Herausforderung bei diesen Daten ist es, eine Struktur zu bestimmen, die man später verarbeiten kann. Hier gibt es keine Faustformel, es hängt stattdessen von den konkreten Daten und der geplanten Anwendung ab. Hinzu kommt, dass unstrukturierte Daten häufig vermischt sind. Dieses Buch ist ein gutes Beispiel: Wir haben eine Mischung aus natürlicher Sprache, Bildern, Formatinformationen (z.B. Überschriften, Listen) und Quelltext.</p>
 </section>
 <section id="innovative-informationsverarbeitungsmethoden">
-<h3><span class="section-number">1.1.4. </span>Innovative Informationsverarbeitungsmethoden<a class="headerlink" href="#innovative-informationsverarbeitungsmethoden" title="Permalink to this headline">#</a></h3>
-<p>Auch wenn die drei Vs als die zentralen Eigenschaften von Big Data angesehen werden, sind die anderen Teile der Definition auch wichtig, um zu verstehen, dass Big Data mehr ist als einfach nur viele Daten, die möglicherweise schnell generiert werden und verschiedene Formate haben. Der nächste Teil der Definition spricht von dem Bedarf an <em>innovativen Informationsverarbeitungsmethoden</em>. Das bedeutet, dass man für Big Data nicht einen normalen Arbeitsplatzrechner oder sogar ein traditionelles Batch-System in einem Großrechner, in dem sich viele Rechenknoten einen Speicher über das Netzwerk teilen, nutzen kann. Stattdessen ist die <em>Datenlokalität</em> (engl. <em>data locality</em>) wichtig, da man in der Regel keine Kopien der Daten über das Netzwerk erzeugen kann. Dies hat zu einer Transformation geführt, sodass es immer mehr Infrastrukturen gibt, in denen Rechenkraft und schneller, verteilter Speicher direkt integriert sind. Als Big Data ein neues Konzept war, gab es solche Technologien noch nicht. Heutzutage hat man viele Möglichkeiten, allein bei der Apache Foundation <a class="footnote-reference brackets" href="#apache" id="id6">6</a> gibt es unter anderem Hadoop, Spark, Storm, Kafka, Cassandra, Hive, HBase, Giraph und viele weitere Technologien, die hochprofessionell als Open Source entwickelt und von vielen Unternehmen zur Verarbeitung von Big Data eingesetzt werden.</p>
+<h3><span class="section-number">1.1.4. </span>Innovative Informationsverarbeitungsmethoden<a class="headerlink" href="#innovative-informationsverarbeitungsmethoden" title="Permalink to this heading">#</a></h3>
+<p>Auch wenn die drei Vs als die zentralen Eigenschaften von Big Data angesehen werden, sind die anderen Teile der Definition auch wichtig, um zu verstehen, dass Big Data mehr ist als einfach nur viele Daten, die möglicherweise schnell generiert werden und verschiedene Formate haben. Der nächste Teil der Definition spricht von dem Bedarf an <em>innovativen Informationsverarbeitungsmethoden</em>. Das bedeutet, dass man für Big Data nicht einen normalen Arbeitsplatzrechner oder sogar ein traditionelles Batch-System in einem Großrechner, in dem sich viele Rechenknoten einen Speicher über das Netzwerk teilen, nutzen kann. Stattdessen ist die <em>Datenlokalität</em> (engl. <em>data locality</em>) wichtig, da man in der Regel keine Kopien der Daten über das Netzwerk erzeugen kann. Dies hat zu einer Transformation geführt, sodass es immer mehr Infrastrukturen gibt, in denen Rechenkraft und schneller, verteilter Speicher direkt integriert sind. Als Big Data ein neues Konzept war, gab es solche Technologien noch nicht. Heutzutage hat man viele Möglichkeiten, allein bei der Apache Foundation <a class="footnote-reference brackets" href="#apache" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a> gibt es unter anderem Hadoop, Spark, Storm, Kafka, Cassandra, Hive, HBase, Giraph und viele weitere Technologien, die hochprofessionell als Open Source entwickelt und von vielen Unternehmen zur Verarbeitung von Big Data eingesetzt werden.</p>
 </section>
 <section id="wissen-generieren-entscheidungen-treffen-prozesse-automatisieren">
-<h3><span class="section-number">1.1.5. </span>Wissen generieren, Entscheidungen treffen, Prozesse automatisieren.<a class="headerlink" href="#wissen-generieren-entscheidungen-treffen-prozesse-automatisieren" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">1.1.5. </span>Wissen generieren, Entscheidungen treffen, Prozesse automatisieren.<a class="headerlink" href="#wissen-generieren-entscheidungen-treffen-prozesse-automatisieren" title="Permalink to this heading">#</a></h3>
 <p>Der letzte Teil der Big-Data-Definition bedeutet, dass Big Data kein Selbstzweck ist. Man spricht nur dann von Big Data, wenn man die Daten auch zum Erreichen eines Ziels nutzt. Ziele können der reine Erkenntnisgewinn sein, die Unterstützung der Entscheidungsfindung oder sogar die Automatisierung ganzer Geschäftsprozesse. Dieser Aspekt der Definition ist so wichtig, dass er häufig als weiteres V betrachtet wird: <em>Value</em>.</p>
 </section>
 <section id="noch-mehr-vs">
-<h3><span class="section-number">1.1.6. </span>Noch mehr Vs<a class="headerlink" href="#noch-mehr-vs" title="Permalink to this headline">#</a></h3>
-<p>Die Definition von Gartner, die wir hier im Buch verwenden, hat “nur” drei Vs. Die Definition von Big Data durch Wörter, die mit V anfangen, ist jedoch so populär, dass es verschiedene Erweiterungen gibt mit bis zu 42 (!) Vs <a class="footnote-reference brackets" href="#v" id="id7">7</a>. Die 42 Vs sollte man aber eher als Satire verstehen, die zeigen soll, dass mehr Vs nicht immer zu einer besseren Definition führen. Nichtsdestotrotz gibt es seriöse Definitionen mit bis zu zehn Vs <a class="footnote-reference brackets" href="#id15" id="id8">8</a>.  Ein zusätzliches V hatten wir bereits: <em>Value</em>, also die Wertschöpfung durch Big Data. Die <em>Korrektheit</em> (engl. <em>veracity</em>) ist ein weiteres V, was häufig als hochrelevant eingeschätzt wird. Je mehr Daten man auswertet, desto schwieriger wird es, sicherzustellen, dass die Daten zuverlässig sind und sich Ergebnisse reproduzieren lassen. Dies ist insbesondere dann schwer, wenn sich die Datenquellen oft ändern, zum Beispiel bei der Analyse von Nachrichten oder der sozialen Medien. Volume, Velocity, Variety, Veracity und Value zusammen ergeben die Fünf-V-Definition von Big Data, die stark verbreitet ist. Weitere Vs betrachten wir an dieser Stelle nicht mehr.</p>
+<h3><span class="section-number">1.1.6. </span>Noch mehr Vs<a class="headerlink" href="#noch-mehr-vs" title="Permalink to this heading">#</a></h3>
+<p>Die Definition von Gartner, die wir hier im Buch verwenden, hat “nur” drei Vs. Die Definition von Big Data durch Wörter, die mit V anfangen, ist jedoch so populär, dass es verschiedene Erweiterungen gibt mit bis zu 42 (!) Vs <a class="footnote-reference brackets" href="#v" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a>. Die 42 Vs sollte man aber eher als Satire verstehen, die zeigen soll, dass mehr Vs nicht immer zu einer besseren Definition führen. Nichtsdestotrotz gibt es seriöse Definitionen mit bis zu zehn Vs <a class="footnote-reference brackets" href="#id15" id="id8" role="doc-noteref"><span class="fn-bracket">[</span>8<span class="fn-bracket">]</span></a>.  Ein zusätzliches V hatten wir bereits: <em>Value</em>, also die Wertschöpfung durch Big Data. Die <em>Korrektheit</em> (engl. <em>veracity</em>) ist ein weiteres V, was häufig als hochrelevant eingeschätzt wird. Je mehr Daten man auswertet, desto schwieriger wird es, sicherzustellen, dass die Daten zuverlässig sind und sich Ergebnisse reproduzieren lassen. Dies ist insbesondere dann schwer, wenn sich die Datenquellen oft ändern, zum Beispiel bei der Analyse von Nachrichten oder der sozialen Medien. Volume, Velocity, Variety, Veracity und Value zusammen ergeben die Fünf-V-Definition von Big Data, die stark verbreitet ist. Weitere Vs betrachten wir an dieser Stelle nicht mehr.</p>
 </section>
 </section>
 <section id="einfuhrung-in-data-science">
-<h2><span class="section-number">1.2. </span>Einführung in Data Science<a class="headerlink" href="#einfuhrung-in-data-science" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">1.2. </span>Einführung in Data Science<a class="headerlink" href="#einfuhrung-in-data-science" title="Permalink to this heading">#</a></h2>
 <p>Auch wenn der Begriff <em>Data Science</em> als Buzzword sehr populär ist, existiert noch keine allgemein akzeptierte Definition. Hierfür gibt es vermutlich zwei Gründe: Erstens ist der Begriff sehr generisch, sodass jede Verwendung von Daten, die in irgendeiner Form als “wissenschaftlich” betrachtet wird, als Data Science bezeichnet werden kann. Und zweitens gibt es einen großen Hype um diesen Begriff, weshalb Firmen, Fördermittelgeber und öffentliche Institutionen mit diesem Begriff Werbung für sich betreiben wollen.</p>
 <p>Aus diesem Grund können wir hier leider auch keine kurze und einprägsame Definition für diesen Begriff geben. Stattdessen betrachten wir, welche Konzepte unter anderem als Data Science angesehen werden, und schauen uns Beispiele für Data-Science-Anwendungen an.</p>
 <section id="was-gehort-zu-data-science">
-<h3><span class="section-number">1.2.1. </span>Was gehört zu Data Science?<a class="headerlink" href="#was-gehort-zu-data-science" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">1.2.1. </span>Was gehört zu Data Science?<a class="headerlink" href="#was-gehort-zu-data-science" title="Permalink to this heading">#</a></h3>
 <p>Data Science kombiniert Methoden aus der Mathematik, Statistik und Informatik mit dem Ziel , datengetriebene Anwendungen zu entwickeln oder Wissen zu generieren. Die Wertschöpfung ist also sehr ähnlich zu Big Data. Der Hauptunterschied zwischen den Begriffen liegt auf dem Fokus auf große Datenmengen bei Big Data, der bei Data Science nicht gegeben sein muss.</p>
 <p>Mathematik ist häufig das Fundament, auf dem die Datenanalyse definiert wird. Die Modelle über die Daten, die erstellt werden, sind im Endeffekt nichts anderes als eine mathematische Beschreibung von Aspekten der Daten. Man könnte also Data Science als mathematische Modellierung verstehen. Die Rolle der Mathematik ist jedoch größer als die einer “Beschreibungssprache” für Modelle. Teilgebiete der Mathematik liefern die Methoden, die man braucht, um Modelle zu bestimmen.</p>
 <ul class="simple">
@@ -641,25 +492,25 @@ drwxr-xr-x 1 sherbold sherbold     512 Apr 27 17:04 <span class=" -Color -Color-
 <li><p>Die <em>Informationstheorie</em> liefert das nötige Verständnis über die Entropie (Unsicherheit in den Daten) und gemeinsame Information von Daten und ist damit die Grundlage für viele Algorithmen des maschinellen Lernens.</p></li>
 <li><p><em>Datenbanken</em> werden benötigt, um Daten effizient zu speichern und zugreifbar zu machen. SQL ist als Anfragesprache nicht nur bei relationalen Datenbanken, sondern auch bei NoSQL-Datenbanken allgegenwärtig.</p></li>
 <li><p><em>Paralleles und verteiltes Rechnen</em> sind notwendig, um das Arbeiten mit großen Datenmengen und hoher Rechenkraft zu ermöglichen.</p></li>
-<li><p>Die klassische künstliche Intelligenz liefert die Grundlagen für die logische Modellierung und die Definition von Regelsystemen für viele Data-Science-Anwendungen. In diesem Buch unterscheiden wir explizit zwischen künstlicher Intelligenz und maschinellem Lernen. Wir benutzen den Begriff <em>künstliche Intelligenz</em>, um Anwendungen wie Deep Blue <a class="footnote-reference brackets" href="#deepblue" id="id9">9</a>, die regelbasierte Schach-Engine, die als erster Computer Gary Kasparow im Schach besiegt hat, zu beschreiben.</p></li>
+<li><p>Die klassische künstliche Intelligenz liefert die Grundlagen für die logische Modellierung und die Definition von Regelsystemen für viele Data-Science-Anwendungen. In diesem Buch unterscheiden wir explizit zwischen künstlicher Intelligenz und maschinellem Lernen. Wir benutzen den Begriff <em>künstliche Intelligenz</em>, um Anwendungen wie Deep Blue <a class="footnote-reference brackets" href="#deepblue" id="id9" role="doc-noteref"><span class="fn-bracket">[</span>9<span class="fn-bracket">]</span></a>, die regelbasierte Schach-Engine, die als erster Computer Gary Kasparow im Schach besiegt hat, zu beschreiben.</p></li>
 <li><p>Softwaretechnik ist für die Operationalisierung von Anwendungen und das Management von Data-Science-Projekten notwendig.</p></li>
 </ul>
 <p>Und zuletzt gibt es natürlich noch das <em>maschinelle Lernen</em>, was häufig auch als definierender Aspekt von Data Science gesehen wird. Das maschinelle Lernen kombiniert Mathematik, Statistik und Informatik auf geschickte Art und Weise. Je nachdem welche Methoden man betrachtet, können alle drei Disziplinen das maschinelle Lernen für sich beanspruchen. Durch maschinelles Lernen versucht man, Wissen aus Daten zu gewinnen, sodass das Wissen die Daten nicht nur beschreibt, sondern auch auf weitere Daten und Applikationen angewendet werden kann, zum Beispiel durch neuronale Netze, Entscheidungsbäume und Mustererkennung.</p>
 </section>
 <section id="beispielanwendungen">
-<h3><span class="section-number">1.2.2. </span>Beispielanwendungen<a class="headerlink" href="#beispielanwendungen" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">1.2.2. </span>Beispielanwendungen<a class="headerlink" href="#beispielanwendungen" title="Permalink to this heading">#</a></h3>
 <p>So unterschiedlich wie die Grundlagen von Data Science sind, so verschieden sind auch die Anwendungen in der Forschung, Industrie und Gesellschaft. Hier sind fünf kurze Beispiele:</p>
 <ul class="simple">
 <li><p><em>Alpha Go</em> ist ein Beispiel für ein intelligentes selbstlernendes System. Vor einigen Jahren überraschte Alpha Go die Fachwelt, weil es scheinbar aus dem Nichts kam und einen der weltbesten Spieler im Go besiegte. Go gilt als besonders schwieriges Spiel, zum Beispiel im Verhältnis zu Schach, und Computer waren bis dahin gerade mal auf dem Niveau von Amateuren und stellten keine Herausforderung für professionelle Spieler dar. Alpha Go kombinierte klassische regelbasierte künstliche Intelligenz mit statistischen Monte-Carlo-Simulationen und selbstlernenden neuronalen Netzen, um dies zu erreichen.</p></li>
-<li><p>Die <em>Robotik</em> nutzt maschinelles Lernen, um den Robotern beizubringen, sich zu bewegen. Mit der Zeit können Roboter zum Beispiel lernen, durch welche Bewegungen sie das Umfallen verhindern können <a class="footnote-reference brackets" href="#robots" id="id10">10</a>.</p></li>
+<li><p>Die <em>Robotik</em> nutzt maschinelles Lernen, um den Robotern beizubringen, sich zu bewegen. Mit der Zeit können Roboter zum Beispiel lernen, durch welche Bewegungen sie das Umfallen verhindern können <a class="footnote-reference brackets" href="#robots" id="id10" role="doc-noteref"><span class="fn-bracket">[</span>10<span class="fn-bracket">]</span></a>.</p></li>
 <li><p>Marketing setzt auf Data Science, um im Internet gezielt Werbung schalten zu können. Die dahinter liegende Industrie erwirtschaftet Milliarden, indem Nutzern relevante Werbung basierend auf ihrem Verhalten im Internet gezeigt wird.</p></li>
-<li><p>In der <em>Medizin</em> werden Daten immer häufiger genutzt, um Entscheidungen zu unterstützen. IBM Watson, das erste Computerprogramm, das Menschen im Jeopardy besiegt hat <a class="footnote-reference brackets" href="#jeopardy" id="id11">11</a>, wird heutzutage zum Beispiel auch eingesetzt, um geeignete Krebstherapien auszuwählen <a class="footnote-reference brackets" href="#cancer1" id="id12">12</a>. (Auch wenn das nicht so gut klappt, wie man es sich ursprünglich erhofft hat <a class="footnote-reference brackets" href="#cancer2" id="id13">13</a>.)</p></li>
+<li><p>In der <em>Medizin</em> werden Daten immer häufiger genutzt, um Entscheidungen zu unterstützen. IBM Watson, das erste Computerprogramm, das Menschen im Jeopardy besiegt hat <a class="footnote-reference brackets" href="#jeopardy" id="id11" role="doc-noteref"><span class="fn-bracket">[</span>11<span class="fn-bracket">]</span></a>, wird heutzutage zum Beispiel auch eingesetzt, um geeignete Krebstherapien auszuwählen <a class="footnote-reference brackets" href="#cancer1" id="id12" role="doc-noteref"><span class="fn-bracket">[</span>12<span class="fn-bracket">]</span></a>. (Auch wenn das nicht so gut klappt, wie man es sich ursprünglich erhofft hat <a class="footnote-reference brackets" href="#cancer2" id="id13" role="doc-noteref"><span class="fn-bracket">[</span>13<span class="fn-bracket">]</span></a>.)</p></li>
 <li><p>Im <em>autonomen Fahren</em> wird maschinelles Lernen für verschiedene Aufgaben genutzt, zum Beispiel für die Erkennung von Objekten, wie Verkehrsschildern, anderen Autos oder Fußgängern.</p></li>
 </ul>
 </section>
 </section>
 <section id="fahigkeiten-von-data-scientists">
-<h2><span class="section-number">1.3. </span>Fähigkeiten von Data Scientists<a class="headerlink" href="#fahigkeiten-von-data-scientists" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">1.3. </span>Fähigkeiten von Data Scientists<a class="headerlink" href="#fahigkeiten-von-data-scientists" title="Permalink to this heading">#</a></h2>
 <p>Data Scientists sind weder Informatikerinnen, Mathematikerinnen, Statistikerinnen oder Domänenexpertinnen. Der perfekte Data Scientist bringt eine Kombination von allem als Fähigkeiten mit:</p>
 <ul class="simple">
 <li><p>Gute mathematische Fähigkeiten, insbesondere über Optimierung und Stochastik</p></li>
@@ -670,7 +521,7 @@ drwxr-xr-x 1 sherbold sherbold     512 Apr 27 17:04 <span class=" -Color -Color-
 </ul>
 <p>Außerdem müssen Data Scientists teamfähig sein, um mit Domänenexpertinnen auf der einen Seite und technischen Expertinnen auf der anderen Seite zusammenarbeiten zu können. Die Domänenexpertinnen helfen den Data Scientists, die Daten, Fragestellungen und Projektziele zu verstehen. Die technischen Expertinnen helfen bei der Umsetzung von Projekten, insbesondere bei der Operationalisierung.</p>
 <p>Nicht zuletzt sollten Data Scientists zwar den notwendigen Enthusiasmus mitbringen, um sich für die Arbeit mit Daten begeistern zu können, aber auch die notwendige Skepsis, um die Problemstellung nach wissenschaftlichen Prinzipien anzugehen. Das heißt insbesondere auch, dass man alles tun sollte, um auszuschließen, dass etwas nur aus Zufall funktioniert, und rigoros überprüfen muss, ob Modelle wirklich wie gewünscht funktionieren.</p>
-<p>Wenn man sich dieses Fähigkeitsprofil anschaut, wird schnell klar, dass die Anzahl der Personen, die alles mitbringen, begrenzt ist. Microsoft Research hat sich daher mit der Fragestellung befasst, was Data Scientists im Arbeitsalltag leisten und welche Arten von Data Scientists es gibt <a class="footnote-reference brackets" href="#mssurvey" id="id14">14</a>. Hierbei wurden acht Arten von Data Scientists bestimmt:</p>
+<p>Wenn man sich dieses Fähigkeitsprofil anschaut, wird schnell klar, dass die Anzahl der Personen, die alles mitbringen, begrenzt ist. Microsoft Research hat sich daher mit der Fragestellung befasst, was Data Scientists im Arbeitsalltag leisten und welche Arten von Data Scientists es gibt <a class="footnote-reference brackets" href="#mssurvey" id="id14" role="doc-noteref"><span class="fn-bracket">[</span>14<span class="fn-bracket">]</span></a>. Hierbei wurden acht Arten von Data Scientists bestimmt:</p>
 <ul class="simple">
 <li><p><em>Polymath</em> sind die Alleskönner, die das gesamte oben beschriebene Profil erfüllen und alles von der zugrunde liegenden Mathematik bis hin zu den Big-Data-Infrastrukturen verstehen.</p></li>
 <li><p><em>Data Evangelists</em> analysieren selbst Daten, verbreiten aber auch die Erkenntnisse und Modelle. Sie setzen sich insbesondere auch dafür ein, dass aus ihren Modellen Produkte entwickelt werden.</p></li>
@@ -682,50 +533,62 @@ drwxr-xr-x 1 sherbold sherbold     512 Apr 27 17:04 <span class=" -Color -Color-
 <li><p><em>Insight Actors</em> sind die Nutzer von Analysen und Modellen.</p></li>
 </ul>
 <hr class="footnotes docutils" />
-<dl class="footnote brackets">
-<dt class="label" id="gartner"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p><a class="reference external" href="https://www.gartner.com/en/information-technology/glossary/big-data">https://www.gartner.com/en/information-technology/glossary/big-data</a></p>
-</dd>
-<dt class="label" id="mapreducepaper"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
-<dd><p><a class="reference external" href="https://doi.org/10.1145/1327452.1327492">https://doi.org/10.1145/1327452.1327492</a></p>
-</dd>
-<dt class="label" id="sneakernet"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
-<dd><p><a class="reference external" href="https://en.wikipedia.org/wiki/Sneakernet">https://en.wikipedia.org/wiki/Sneakernet</a></p>
-</dd>
-<dt class="label" id="blackhole"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
-<dd><p><a class="reference external" href="https://www.extremetech.com/extreme/289423-it-took-half-a-ton-of-hard-drives-to-store-eht-black-hole-image-data">https://www.extremetech.com/extreme/289423-it-took-half-a-ton-of-hard-drives-to-store-eht-black-hole-image-data</a></p>
-</dd>
-<dt class="label" id="waymo"><span class="brackets"><a class="fn-backref" href="#id5">5</a></span></dt>
-<dd><p><a class="reference external" href="https://waymo.com/open/">https://waymo.com/open/</a></p>
-</dd>
-<dt class="label" id="apache"><span class="brackets"><a class="fn-backref" href="#id6">6</a></span></dt>
-<dd><p><a class="reference external" href="https://www.apache.org/">https://www.apache.org/</a></p>
-</dd>
-<dt class="label" id="v"><span class="brackets"><a class="fn-backref" href="#id7">7</a></span></dt>
-<dd><p><a class="reference external" href="https://www.kdnuggets.com/2017/04/42-vs-big-data-data-science.html">https://www.kdnuggets.com/2017/04/42-vs-big-data-data-science.html</a></p>
-</dd>
-<dt class="label" id="id15"><span class="brackets"><a class="fn-backref" href="#id8">8</a></span></dt>
-<dd><p><a class="reference external" href="https://tdwi.org/articles/2017/02/08/10-vs-of-big-data.aspx">https://tdwi.org/articles/2017/02/08/10-vs-of-big-data.aspx</a></p>
-</dd>
-<dt class="label" id="deepblue"><span class="brackets"><a class="fn-backref" href="#id9">9</a></span></dt>
-<dd><p><a class="reference external" href="https://doi.org/10.1007/978-1-4612-2260-6">https://doi.org/10.1007/978-1-4612-2260-6</a></p>
-</dd>
-<dt class="label" id="robots"><span class="brackets"><a class="fn-backref" href="#id10">10</a></span></dt>
-<dd><p><a class="reference external" href="https://doi.org/10.1126/scirobotics.aau5872">https://doi.org/10.1126/scirobotics.aau5872</a></p>
-</dd>
-<dt class="label" id="jeopardy"><span class="brackets"><a class="fn-backref" href="#id11">11</a></span></dt>
-<dd><p><a class="reference external" href="https://www.ibm.com/ibm/history/ibm100/us/en/icons/watson/">https://www.ibm.com/ibm/history/ibm100/us/en/icons/watson/</a></p>
-</dd>
-<dt class="label" id="cancer1"><span class="brackets"><a class="fn-backref" href="#id12">12</a></span></dt>
-<dd><p><a class="reference external" href="https://www.ibm.com/marketplace/clinical-decision-support-oncology">https://www.ibm.com/marketplace/clinical-decision-support-oncology</a></p>
-</dd>
-<dt class="label" id="cancer2"><span class="brackets"><a class="fn-backref" href="#id13">13</a></span></dt>
-<dd><p><a class="reference external" href="https://spectrum.ieee.org/biomedical/diagnostics/how-ibm-watson-overpromised-and-underdelivered-on-ai-health-care">https://spectrum.ieee.org/biomedical/diagnostics/how-ibm-watson-overpromised-and-underdelivered-on-ai-health-care</a></p>
-</dd>
-<dt class="label" id="mssurvey"><span class="brackets"><a class="fn-backref" href="#id14">14</a></span></dt>
-<dd><p><a class="reference external" href="https://doi.org/10.1109/TSE.2017.2754374">https://doi.org/10.1109/TSE.2017.2754374</a></p>
-</dd>
-</dl>
+<aside class="footnote brackets" id="gartner" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://www.gartner.com/en/information-technology/glossary/big-data">https://www.gartner.com/en/information-technology/glossary/big-data</a></p>
+</aside>
+<aside class="footnote brackets" id="mapreducepaper" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://doi.org/10.1145/1327452.1327492">https://doi.org/10.1145/1327452.1327492</a></p>
+</aside>
+<aside class="footnote brackets" id="sneakernet" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Sneakernet">https://en.wikipedia.org/wiki/Sneakernet</a></p>
+</aside>
+<aside class="footnote brackets" id="blackhole" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">4</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://www.extremetech.com/extreme/289423-it-took-half-a-ton-of-hard-drives-to-store-eht-black-hole-image-data">https://www.extremetech.com/extreme/289423-it-took-half-a-ton-of-hard-drives-to-store-eht-black-hole-image-data</a></p>
+</aside>
+<aside class="footnote brackets" id="waymo" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">5</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://waymo.com/open/">https://waymo.com/open/</a></p>
+</aside>
+<aside class="footnote brackets" id="apache" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">6</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://www.apache.org/">https://www.apache.org/</a></p>
+</aside>
+<aside class="footnote brackets" id="v" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">7</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://www.kdnuggets.com/2017/04/42-vs-big-data-data-science.html">https://www.kdnuggets.com/2017/04/42-vs-big-data-data-science.html</a></p>
+</aside>
+<aside class="footnote brackets" id="id15" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">8</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://tdwi.org/articles/2017/02/08/10-vs-of-big-data.aspx">https://tdwi.org/articles/2017/02/08/10-vs-of-big-data.aspx</a></p>
+</aside>
+<aside class="footnote brackets" id="deepblue" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id9">9</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://doi.org/10.1007/978-1-4612-2260-6">https://doi.org/10.1007/978-1-4612-2260-6</a></p>
+</aside>
+<aside class="footnote brackets" id="robots" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id10">10</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://doi.org/10.1126/scirobotics.aau5872">https://doi.org/10.1126/scirobotics.aau5872</a></p>
+</aside>
+<aside class="footnote brackets" id="jeopardy" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id11">11</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://www.ibm.com/ibm/history/ibm100/us/en/icons/watson/">https://www.ibm.com/ibm/history/ibm100/us/en/icons/watson/</a></p>
+</aside>
+<aside class="footnote brackets" id="cancer1" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id12">12</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://www.ibm.com/marketplace/clinical-decision-support-oncology">https://www.ibm.com/marketplace/clinical-decision-support-oncology</a></p>
+</aside>
+<aside class="footnote brackets" id="cancer2" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id13">13</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://spectrum.ieee.org/biomedical/diagnostics/how-ibm-watson-overpromised-and-underdelivered-on-ai-health-care">https://spectrum.ieee.org/biomedical/diagnostics/how-ibm-watson-overpromised-and-underdelivered-on-ai-health-care</a></p>
+</aside>
+<aside class="footnote brackets" id="mssurvey" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id14">14</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://doi.org/10.1109/TSE.2017.2754374">https://doi.org/10.1109/TSE.2017.2754374</a></p>
+</aside>
 </section>
 </section>
 
@@ -741,7 +604,7 @@ drwxr-xr-x 1 sherbold sherbold     512 Apr 27 17:04 <span class=" -Color -Color-
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./chapters"
         },
         predefinedOutput: true
@@ -749,50 +612,116 @@ drwxr-xr-x 1 sherbold sherbold     512 Apr 27 17:04 <span class=" -Color -Color-
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="vorwort.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Vorwort</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="vorwort.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Vorwort</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="kapitel_02.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="kapitel_02.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title"><span class="section-number">2. </span>Der Prozess von Data-Science-Projekten</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#einfuhrung-in-big-data">1.1. Einführung in Big Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#volumen">1.1.1. Volumen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#velocity-geschwindigkeit">1.1.2. Velocity / Geschwindigkeit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variety-vielfalt">1.1.3. Variety / Vielfalt</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#innovative-informationsverarbeitungsmethoden">1.1.4. Innovative Informationsverarbeitungsmethoden</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wissen-generieren-entscheidungen-treffen-prozesse-automatisieren">1.1.5. Wissen generieren, Entscheidungen treffen, Prozesse automatisieren.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#noch-mehr-vs">1.1.6. Noch mehr Vs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#einfuhrung-in-data-science">1.2. Einführung in Data Science</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#was-gehort-zu-data-science">1.2.1. Was gehört zu Data Science?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beispielanwendungen">1.2.2. Beispielanwendungen</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fahigkeiten-von-data-scientists">1.3. Fähigkeiten von Data Scientists</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By Steffen Herbold<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+<p class="component-author">
+By Steffen Herbold
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
